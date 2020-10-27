@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{38a7bf0e-3ed4-405a-bb8f-fa2997b3874c}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_solicitudes_1" order="" uid="{428f7e14-e91b-4559-96ac-8dc5b583098c}" where="">
+    <RecordField colName="" fieldIdRef="6" name="seleccionar" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{a613be31-a378-4bb5-941e-9434c930a715}"/>
+    <RecordField colName="" fieldIdRef="7" name="modalidad_retiro" sqlTabName="" table_alias_name="" uid="{afbab593-d1ab-4623-a32f-092ca7507d2a}"/>
+    <RecordField colName="" fieldIdRef="1" name="modalidad" sqlTabName="" table_alias_name="" uid="{b24dfc57-1344-454c-b8fb-73ed59fb1488}"/>
+    <RecordField colName="" fieldIdRef="2" name="numsolicitudes" sqlTabName="" table_alias_name="" uid="{61bb6839-8a7a-4377-82aa-76af64c50b92}"/>
+    <RecordField colName="" fieldIdRef="5" name="folio" sqlTabName="" table_alias_name="" uid="{e6bbe560-9707-4cd4-9dc7-23aea9732099}"/>
+    <RecordField colName="" fieldIdRef="8" name="aivs" sqlTabName="" table_alias_name="" uid="{096696c6-7780-4edb-b738-18a92ffc3d5d}"/>
+    <RecordField colName="" fieldIdRef="3" name="pesos" sqlTabName="" table_alias_name="" uid="{a7361eea-89af-42c8-9a63-d91be8065ad3}"/>
+    <RecordField colName="" fieldIdRef="9" name="edo_solicitud" sqlTabName="" table_alias_name="" uid="{b99915f7-a8c9-4825-97f7-8200c5136db0}"/>
+    <RecordField colName="" fieldIdRef="10" name="cod_rechazo" sqlTabName="" table_alias_name="" uid="{920d8dd6-f5ba-41f5-a154-633dd0f6ff66}"/>
+  </Record>
+  <Form gridHeight="37" gridWidth="174" name="Form" text="Form">
+    <Group gridHeight="18" gridWidth="172" name="grpAceptados" posX="2" posY="1" text="Resultados">
+      <Grid gridHeight="16" gridWidth="170" name="Grid1" posX="1" posY="1">
+        <Table gridHeight="13" gridWidth="169" name="tbl_solicitudes_1" posX="1" posY="1" totalRows="10">
+          <CheckBox colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="7" name="seleccionar" notNull="true" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="5" table_alias_name="" text="" title="Elegir" widget="CheckBox"/>
+          <Edit colName="" columnCount="" fieldId="7" format="#####" gridHeight="1" gridWidth="8" name="modalidad_retiro" noEntry="true" posX="7" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Mod.&#10;Ret." widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="24" name="modalidad" noEntry="true" posX="15" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Modalidad" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" format="######" gridHeight="1" gridWidth="10" name="numsolicitudes" noEntry="true" posX="39" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Núm.&#10;Solicitudes" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="########&amp;" gridHeight="1" gridWidth="13" name="folio" noEntry="true" posX="49" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Folio" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" format="###,###,###,##&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" gridHeight="1" gridWidth="25" name="aivs" noEntry="true" posX="62" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="AIVs" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" format="###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="25" name="pesos" noEntry="true" posX="87" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Pesos" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="11" name="edo_solicitud" noEntry="true" posX="112" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edo.&#10;Solicitud" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="10" name="cod_rechazo" noEntry="true" posX="123" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Cod. Rechazo" widget="Edit"/>
+        </Table>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADIANABkAGYAYwA1ADcALQAxADMANAA0AC0ANAA1ADQAYwAtAGIAOABmAGIALQA3ADMAZQBkADUAOQBmAGIAMQA0ADgAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADcAMwA2ADEAZQBlAGEALQA4ADkAYQBmAC0ANAAyAGMAOAAtADkAYQA2ADMALQBkADkAMQBiAGUAOAAwADYANQBhAGQAMwB9QBQAAAAAAABAZIAAAAAAAD9gYk3S8an8AQAAAEwAewBhADYAMQAzAGIAZQAzADEALQBhADMANwA4AC0ANABiAGIANQAtADkANAAxAGUALQA5ADQAMwA0AGMAOQAzADAAYQA3ADEANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADkANgA2ADkANgBjADYALQA3ADcAOAAwAC0ANABlAGQAYgAtAGIANwAzADgALQAxADgAYQA5ADIAZgBmAGMAMwBkADUAZAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADkAOQA5ADEANQBmADcALQBhADgAYwA5AC0ANAA4ADIANQAtADkANwBmADcALQA4ADIAMAAwAGMANQAxADMANgBkAGIAMAB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGYAYgBhAGIANQA5ADMALQBkADEAYQBiAC0ANAA2ADIAMwAtAGEAMwAyAGYALQAwADkAMgBjAGEANwA1ADAANwBkADIAYQB9QBQAAAAAAABASIAAAAAAAD90euFHrhR7AQAAAEwAewA5ADIAMABkADgAZABkADYALQBmADUAYgBhAC0ANAAxAGYANQAtAGEAMQA1ADQALQA2ADMAMwBkAGQAMABmADYAZgBmADYANgB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADYAYgBiAGUANQA2ADAALQA5ADcAMAA3AC0ANABjAGQANAAtADkAZABjADcALQAyADMAYQBlAGEAOQA3ADMAMgAwADkAOQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADIAOABmADcAZQAxADQALQBlADkAMQBiAC0ANAA1ADUAOQAtADkANgBhAGMALQA4AGQAYwA1AGIANQA4ADMAMAA5ADgAYwB9AAAAAAAAAAAAAAAAAAAAAD9ok3S8an76AQAAAEwAewA2ADEAYgBiADYAOAAzADkALQA4AGEANwBhAC0ANAAzADcANwAtADgAMgBhAGEALQA3ADYAYQBmADYANABjADUAMABiADkAMgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

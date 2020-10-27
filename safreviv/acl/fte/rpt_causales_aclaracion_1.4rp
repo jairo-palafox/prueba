@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACLC14-1.rdd" RWFglReportName="rpt_causales_aclaracion"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="720.098" length="max" alignment="center">
+                    <LAYOUTNODE name="LayoutNode7" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" alignment="far" floatingBehavior="enclosed" url="logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="22.1356" length="720.24" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" x="7.5" y="298.617" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="CAUSALES ACLARACIONES" localizeText="false"/>
+                            <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_reporte Value1" x="3.58" y="624.954" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage3" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode6" width="20.5225" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox9" x="11.349" y="326.885" width="714.849" length="18.7651" anchorX="0.5" anchorY="0.440316" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="INFORMACIÓN DEL REGISTRO"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode6_1" width="22.162" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed" roundedCorners="true" borderColor="#ce050f">
+                        <WORDBOX name="WordBox20" x="13.1642" y="152.692" anchorX="0.576199" anchorY="0.38025" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Causal de aclaratorio"/>
+                        <WORDBOX name="WordBox21" x="13.1642" y="293.272" anchorX="0.5" anchorY="0.440316" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Casos"/>
+                        <WORDBOX name="WordBox22" x="13.1642" y="550.901" anchorX="0.5" anchorY="0.28688" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Total"/>
+                        <WORDBOX name="WordBox24" x="5.1827" y="24.5198" width="31.2809" anchorX="2.46321e-14" anchorY="0.5" alignment="near" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Cuasal"/>
+                        <WORDBOX name="WordBox28" x="3.5504" y="340.032" anchorX="0" anchorY="0" color="#ce050f" floatingBehavior="enclosed" text="Aportación"/>
+                        <WORDBOX name="WordBox29" x="5.1827" y="435.055" anchorX="0" anchorY="0" color="#ce050f" floatingBehavior="enclosed" text="Amortización"/>
+                        <WORDBOX name="WordBox30" x="3.5504" y="632.226" anchorX="0" anchorY="0" color="#ce050f" floatingBehavior="enclosed" text="Porcentaje"/>
+                        <LAYOUTNODE name="LayoutNode3_5" width="1.2" length="max" alignment="far" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage4" width="64.2087" length="719.858" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode9" width="63.4523" length="720.752" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_causales.v_causal" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_causales.v_causal Value" x="2.7215" y="0" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_causales.v_causal}}"/>
+                                <rtl:input-variable name="v_arr_causales.v_causal_des" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_arr_causales.v_causal_des Value" x="2.7215" y="88.9463" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_causales.v_causal_des}}"/>
+                                <rtl:input-variable name="v_arr_causales.v_tot_causal" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_causales.v_tot_causal Value" x="2.7215" y="326.885" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_arr_causales.v_tot_causal}}"/>
+                                <rtl:input-variable name="v_arr_causales.v_imp_ap" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_causales.v_imp_ap Value" x="2.7215" y="405.978" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_causales.v_imp_ap}}"/>
+                                <rtl:input-variable name="v_arr_causales.v_amp_am" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_causales.v_amp_am Value" x="2.7215" y="504.779" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_causales.v_amp_am}}"/>
+                                <rtl:input-variable name="v_arr_causales.v_imp_ap_am" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_causales.v_imp_ap_am Value" x="2.7215" y="603.187" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_causales.v_imp_ap_am}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <LAYOUTNODE name="LayoutNode6_1_1_1" width="22.162" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed" roundedCorners="true" borderColor="#ce050f">
+                        <WORDBOX name="WordBox27" x="11.9071" y="555.117" anchorX="0.5" anchorY="0.28688" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Importe Ren. Viv."/>
+                        <LAYOUTNODE name="LayoutNode3_6" width="1.2" length="max" alignment="far" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage4_1" width="81.9367" length="720.255" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode10" width="86.8744" length="720.752" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="v_arr_causales.v_imp_ap_am" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="Total_gral" x="5.407" y="624.954" width="121.286" length="26.3304" anchorX="0" anchorY="1" fontName="Adobe Fan Heiti Std B" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_causales.v_imp_ap_am}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

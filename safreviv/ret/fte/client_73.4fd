@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{15fd4900-5fc4-4b79-9b60-3667698597e2}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{68d71796-b991-46da-bfc6-84b3955b2d1e}" where="">
+    <RecordField colName="op1" fieldIdRef="0" name="op1" sqlTabName="formonly" table_alias_name="" uid="{7a0e049b-5a18-43e0-863f-701987d567a9}"/>
+    <RecordField colName="op2" fieldIdRef="1" name="op2" sqlTabName="formonly" table_alias_name="" uid="{141053c6-3466-46ec-aeb2-a9c90c4ad052}"/>
+    <RecordField colName="v_g_nss" fieldIdRef="2" name="v_g_nss" sqlTabName="formonly" table_alias_name="" uid="{f894bc31-d4e4-44af-b0dd-87f80617d0c9}"/>
+    <RecordField colName="v_nombre_af" fieldIdRef="3" name="v_nombre_af" sqlTabName="formonly" table_alias_name="" uid="{bec588bb-d039-4aa8-885f-4cc9074cc27b}"/>
+    <RecordField colName="v_paterno_af" fieldIdRef="4" name="v_paterno_af" sqlTabName="formonly" table_alias_name="" uid="{c6b1db71-b5f8-4543-9760-75d8cfd08106}"/>
+    <RecordField colName="v_materno_af" fieldIdRef="5" name="v_materno_af" sqlTabName="formonly" table_alias_name="" uid="{4f3cb270-be36-4756-ad3b-3c48de558d24}"/>
+    <RecordField colName="v_importeviv97" fieldIdRef="6" name="v_importeviv97" sqlTabName="formonly" table_alias_name="" uid="{1615c624-0cd6-494a-b5d9-9cfb1c930371}"/>
+    <RecordField colName="v_importeviv92" fieldIdRef="7" name="v_importeviv92" sqlTabName="formonly" table_alias_name="" uid="{5a4885c0-b41c-41f0-a4ed-26e727145976}"/>
+    <RecordField colName="v_cod_ret" fieldIdRef="8" name="v_cod_ret" sqlTabName="formonly" table_alias_name="" uid="{6c92d9b7-f32c-4282-8a51-74af67b0e9ad}"/>
+    <RecordField colName="v_mensaje_cod_ret" fieldIdRef="9" name="v_mensaje_cod_ret" sqlTabName="formonly" table_alias_name="" uid="{7e5d6e81-7a5e-43f0-9744-fe1508124cf0}"/>
+    <RecordField colName="v_rfc_af" fieldIdRef="10" name="v_rfc_af" sqlTabName="formonly" table_alias_name="" uid="{f66c681c-977b-495a-8b5f-4abe99511ad5}"/>
+    <RecordField colName="v_curp_af" fieldIdRef="11" name="v_curp_af" sqlTabName="formonly" table_alias_name="" uid="{f435144c-c34f-415e-b0f6-cb46f63aefe5}"/>
+    <RecordField colName="v_marca_jur" fieldIdRef="12" name="v_marca_jur" sqlTabName="formonly" table_alias_name="" uid="{2fccc520-004b-4d25-bcc7-34b27b7230f0}"/>
+    <RecordField colName="msg" fieldIdRef="13" name="msg" sqlTabName="formonly" table_alias_name="" uid="{1fe6bc7b-9209-4678-8286-65ac3c0915cf}"/>
+    <RecordField colName="msg1" fieldIdRef="14" name="msg1" sqlTabName="formonly" table_alias_name="" uid="{ff842d99-2d65-44ec-9888-231c7cc1a040}"/>
+  </Record>
+  <Form gridHeight="26" gridWidth="64" name="client_73">
+    <ActionDefaultList name="ActionDefaultList1">
+      <ActionDefault acceleratorName="f1" name="plus"/>
+    </ActionDefaultList>
+    <Group gridHeight="26" gridWidth="64" name="Group1" posX="0" posY="0" text="Marca Ley 73 cliente DEMO">
+      <VBox gridHeight="24" gridWidth="62" name="VBox3" posX="1" posY="1">
+        <HBox gridHeight="16" gridWidth="62" name="HBox1" posX="0" posY="1">
+          <VBox gridHeight="16" gridWidth="52" name="VBox1" posX="2" posY="0">
+            <Grid gridHeight="14" gridWidth="52" name="Grid1" posX="0" posY="1">
+              <Label posX="26" posY="0" text="NSS:"/>
+              <Edit colName="op1" columnCount="" fieldId="0" gridHeight="1" gridWidth="18" name="op1" posX="34" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+              <Label posX="10" posY="1" text="Grupo de trabajador:"/>
+              <ComboBox colName="op2" columnCount="" fieldId="1" gridHeight="1" gridWidth="18" items="" name="op2" notNull="true" posX="34" posY="1" required="true" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="2" table_alias_name="" widget="ComboBox">
+                <Item name="0101" text="Grupo 1"/>
+                <Item name="0102" text="Grupo 2"/>
+                <Item name="0103" text="Grupo 3"/>
+                <Item name="0104" text="Grupo 4"/>
+              </ComboBox>
+              <Label posX="26" posY="3" text="NSS:"/>
+              <Edit colName="v_g_nss" columnCount="" fieldId="2" gridHeight="1" gridWidth="18" name="v_g_nss" posX="34" posY="3" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="3" table_alias_name="" widget="Edit"/>
+              <Label posX="14" posY="4" text="Nombre afiliado:"/>
+              <Edit colName="v_nombre_af" columnCount="" fieldId="3" gridHeight="1" gridWidth="18" name="v_nombre_af" posX="34" posY="4" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="4" table_alias_name="" widget="Edit"/>
+              <Label posX="13" posY="5" text="Paterno afiliado:"/>
+              <Edit colName="v_paterno_af" columnCount="" fieldId="4" gridHeight="1" gridWidth="18" name="v_paterno_af" posX="34" posY="5" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="5" table_alias_name="" widget="Edit"/>
+              <Label posX="13" posY="6" text="Materno afiliado:"/>
+              <Edit colName="v_materno_af" columnCount="" fieldId="5" gridHeight="1" gridWidth="18" name="v_materno_af" posX="34" posY="6" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="6" table_alias_name="" widget="Edit"/>
+              <Label posX="16" posY="7" text="Importe viv97:"/>
+              <Edit colName="v_importeviv97" columnCount="" fieldId="6" gridHeight="1" gridWidth="18" name="v_importeviv97" posX="34" posY="7" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="7" table_alias_name="" widget="Edit"/>
+              <Label posX="16" posY="8" text="Importe viv92:"/>
+              <Edit colName="v_importeviv92" columnCount="" fieldId="7" gridHeight="1" gridWidth="18" name="v_importeviv92" posX="34" posY="8" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="8" table_alias_name="" widget="Edit"/>
+              <Label posX="12" posY="9" text="Código de retorno:"/>
+              <Edit colName="v_cod_ret" columnCount="" fieldId="8" gridHeight="1" gridWidth="18" name="v_cod_ret" posX="34" posY="9" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="9" table_alias_name="" widget="Edit"/>
+              <Label posX="1" posY="10" text="Mensaje de código de retorno:"/>
+              <Edit colName="v_mensaje_cod_ret" columnCount="" fieldId="9" gridHeight="1" gridWidth="18" name="v_mensaje_cod_ret" posX="34" posY="10" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="10" table_alias_name="" widget="Edit"/>
+              <Label posX="11" posY="11" text="RFC del trabajador:"/>
+              <Edit colName="v_rfc_af" columnCount="" fieldId="10" gridHeight="1" gridWidth="18" name="v_rfc_af" posX="34" posY="11" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="11" table_alias_name="" widget="Edit"/>
+              <Label posX="10" posY="12" text="CURP del trabajador:"/>
+              <Edit colName="v_curp_af" columnCount="" fieldId="11" gridHeight="1" gridWidth="18" name="v_curp_af" posX="34" posY="12" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="12" table_alias_name="" widget="Edit"/>
+              <Label posX="5" posY="13" text="Estatús marca en sistema:"/>
+              <Edit colName="v_marca_jur" columnCount="" fieldId="12" gridHeight="1" gridWidth="18" name="v_marca_jur" posX="34" posY="13" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="13" table_alias_name="" widget="Edit"/>
+            </Grid>
+          </VBox>
+          <VBox gridHeight="16" gridWidth="6" name="VBox2" posX="54" posY="0">
+            <Grid gridHeight="14" gridWidth="6" name="Grid2" posX="0" posY="1">
+              <Button comment="Se ocupa servicio" gridHeight="1" gridWidth="4" name="plus" posX="2" posY="0" tabIndex="14" text="Enviar"/>
+            </Grid>
+          </VBox>
+        </HBox>
+        <HBox gridHeight="3" gridWidth="62" name="HBox2" posX="0" posY="17">
+          <Grid gridHeight="3" gridWidth="58" name="Grid3" posX="2" posY="0">
+            <TextEdit colName="msg" columnCount="" fieldId="13" gridHeight="1" gridWidth="21" name="msg" noEntry="true" posX="3" posY="0" rowCount="" scrollBars="none" sqlTabName="formonly" stepX="" stepY="" stretch="both" tabIndex="15" table_alias_name="" title="Error description" wantNoReturns="false" widget="TextEdit"/>
+          </Grid>
+        </HBox>
+        <HBox gridHeight="3" gridWidth="62" name="HBox3" posX="0" posY="20">
+          <Grid gridHeight="3" gridWidth="58" name="Grid4" posX="2" posY="0">
+            <TextEdit colName="msg1" columnCount="" fieldId="14" gridHeight="1" gridWidth="22" name="msg1" noEntry="true" posX="3" posY="0" rowCount="" scrollBars="none" sqlTabName="formonly" stepX="" stepY="" stretch="both" tabIndex="16" table_alias_name="" title="Error description" wantNoReturns="false" widget="TextEdit"/>
+          </Grid>
+        </HBox>
+      </VBox>
+    </Group>
+  </Form>
+</ManagedForm>

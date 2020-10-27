@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{ff910854-d57b-4cbd-aac8-43dd7ff93191}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{5cee5929-d47e-479b-9855-7d4cdb71516c}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_invadido" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{a1785ccb-b003-4ed8-a0e7-f6791fa4bd93}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record1" order="" uid="{e6c63c54-03b1-4b54-be05-ee86b8db66f9}" where="">
+    <RecordField colName="" fieldIdRef="2" name="f_id_detalle_02" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{adf2c652-cedd-4a94-96cb-001aaa913600}"/>
+    <RecordField colName="" fieldIdRef="3" name="f_f_proceso" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{45a0fb42-7513-41ed-aa07-6ea751377520}"/>
+    <RecordField colName="" fieldIdRef="4" name="f_invadido" sqlTabName="" table_alias_name="" uid="{e26a60cb-7868-4ec8-a091-fc8ebf6d6f4c}"/>
+    <RecordField colName="" fieldIdRef="5" name="f_asociado" sqlTabName="" table_alias_name="" uid="{f3cb89e4-6162-4967-9a8f-b4cf5208cf21}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_resultado" sqlTabName="" table_alias_name="" uid="{6d0ac567-bf92-4b86-854d-8aeeaa8c1922}"/>
+    <RecordField colName="" fieldIdRef="7" name="f_diagnostico" sqlTabName="" table_alias_name="" uid="{355a1fb6-71f8-4d74-bff9-8434e9bde950}"/>
+    <RecordField colName="" fieldIdRef="8" name="f_clasifica" sqlTabName="" table_alias_name="" uid="{69726f76-fa01-4fec-b107-90fdc3ec816e}"/>
+    <RecordField colName="" fieldIdRef="10" name="f_estado" sqlTabName="" table_alias_name="" uid="{2d38195a-0e69-460c-a77d-c7e964881460}"/>
+    <RecordField colName="" fieldIdRef="9" name="f_estado_desc" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{6f86ca0e-2dda-4654-b748-9a950d018a78}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="537" name="Form" text="Form">
+    <VBox gridHeight="16" gridWidth="235" name="VBox1" posX="2" posY="0">
+      <Group fontPitch="variable" gridChildrenInParent="false" gridHeight="6" gridWidth="235" name="Group1" posX="0" posY="1" sizePolicy="initial" text="Captura NSS invadido">
+        <Grid fontPitch="variable" gridHeight="4" gridWidth="198" name="Grid1" posX="2" posY="1" sizePolicy="fixed">
+          <Label gridHeight="1" gridWidth="11" justify="left" name="Label1" posX="2" posY="1" text="Invadido"/>
+          <Edit colName="" columnCount="" fieldId="1" fontPitch="variable" gridHeight="1" gridWidth="11" justify="left" name="v_invadido" posX="15" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="8" gridWidth="235" name="f_modifica" posX="0" posY="7" text="Modificacion">
+        <Table gridHeight="6" gridWidth="233" name="Table1" posX="1" posY="1" totalRows="3">
+          <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="9" justify="center" name="f_id_detalle_02" posX="0" posY="0" precisionDecimal="9" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" table_alias_name="" title="idSolicitud" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="11" justify="center" name="f_f_proceso" posX="9" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" table_alias_name="" title="Fecha Proceso" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" justify="center" name="f_invadido" posX="20" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Invadido" widget="FFLabel"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="11" justify="center" name="f_asociado" posX="31" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Asociado" widget="Edit"/>
+          <ComboBox colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="33" items="" name="f_resultado" posX="42" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Resultado Operación" widget="ComboBox"/>
+          <ComboBox colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="49" items="" name="f_diagnostico" posX="75" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Diagnostico Confronta" widget="ComboBox"/>
+          <ComboBox colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="50" items="" name="f_clasifica" posX="124" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Clasificación Separación" widget="ComboBox"/>
+          <Phantom colName="" fieldId="10" name="f_estado" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <FFLabel colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="45" justify="center" name="f_estado_desc" posX="174" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" table_alias_name="" title="Estado" widget="FFLabel"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhADEANwA4ADUAYwBjAGIALQBiADAAMAAzAC0ANABlAGQAOAAtAGEAMABlADcALQBmADYANwA5ADEAZgBhADQAYgBkADkAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGYAOAA2AGMAYQAwAGUALQAyAGQAZABhAC0ANAA2ADUANAAtAGIANwA0ADgALQA5AGEAOQA1ADAAZAAwADEAOABhADcAOAB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADYAYwA2ADMAYwA1ADQALQAwADMAYgAxAC0ANABiADUANAAtAGIAZQAwADUALQBlAGUAOAA2AGIAOABkAGIANgA2AGYAOQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGQAZgAyAGMANgA1ADIALQBjAGUAZABkAC0ANABhADkANAAtADkANgBjAGIALQAwADAAMQBhAGEAYQA5ADEAMwA2ADAAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADkANwAyADYAZgA3ADYALQBmAGEAMAAxAC0ANABmAGUAYwAtAGIAMQAwADcALQA5ADAAZgBkAGMAMwBlAGMAOAAxADYAZQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUANQBhADEAZgBiADYALQA3ADEAZgA4AC0ANABkADcANAAtAGIAZgBmADkALQA4ADQAMwA0AGUAOQBiAGQAZQA5ADUAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGMAZQBlADUAOQAyADkALQBkADQANwBlAC0ANAA3ADkAYgAtADkAOAA1ADUALQA3AGQANABjAGQAYgA3ADEANQAxADYAYwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADIANgBhADYAMABjAGIALQA3ADgANgA4AC0ANABlAGMAOAAtAGEAMAA5ADEALQBmAGMAOABlAGIAZgA2AGQANgBmADQAYwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADMAYwBiADgAOQBlADQALQA2ADEANgAyAC0ANAA5ADYANwAtADkAYQA4AGYALQBiADQAYwBmADUAMgAwADgAYwBmADIAMQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGQAMwA4ADEAOQA1AGEALQAwAGUANgA5AC0ANAA2ADAAYwAtAGEANwA3AGQALQBjADcAZQA5ADYANAA4ADgAMQA0ADYAMAB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADUAYQAwAGYAYgA0ADIALQA3ADUAMQAzAC0ANAAxAGUAZAAtAGEAYQAwADcALQA2AGUAYQA3ADUAMQAzADcANwA1ADIAMAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGQAMABhAGMANQA2ADcALQBiAGYAOQAyAC0ANABiADgANgAtADgANQA0AGQALQA4AGEAZQBlAGEAYQA4AGMAMQA5ADIAMgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

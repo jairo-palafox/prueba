@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{ab623c52-7c7c-4139-8647-09f7f3c96ee4}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{435f7eb3-5326-4ed8-9c8e-eac743b3c328}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_campo_cod" sqlTabName="" table_alias_name="" uid="{137f7c61-0a74-42cd-a311-323e077b9b44}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_campo_desc" sqlTabName="" table_alias_name="" uid="{6953a3fb-900d-475d-8f93-f7e2af9d1b91}"/>
+    <RecordField colName="" fieldIdRef="3" name="f_tipo_dato" sqlTabName="" table_alias_name="" uid="{9a764487-f8de-4b29-a2f1-4afec7d9c6fd}"/>
+    <RecordField colName="" fieldIdRef="4" name="f_layout_cod" sqlTabName="" table_alias_name="" uid="{315465a2-75b9-4ff2-9005-4ce15be307c9}"/>
+    <RecordField colName="" fieldIdRef="5" name="f_registro" sqlTabName="" table_alias_name="" uid="{9b16d6de-2e94-41fb-a1cc-a123a441c418}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_longitud" sqlTabName="" table_alias_name="" uid="{2516e97d-f0ce-4b3f-a857-6a4b78c2cf82}"/>
+    <RecordField colName="" fieldIdRef="7" name="f_precision" sqlTabName="" table_alias_name="" uid="{980d2848-1834-4830-b58c-6a971c8eeef4}"/>
+    <RecordField colName="" fieldIdRef="8" name="f_pos_inicial" sqlTabName="" table_alias_name="" uid="{fcb7e652-87a6-42d6-97ed-f4de45611647}"/>
+    <RecordField colName="" fieldIdRef="9" name="f_pos_final" sqlTabName="" table_alias_name="" uid="{c70f49bc-c128-427f-98b9-4ce8198b51ba}"/>
+    <RecordField colName="" fieldIdRef="10" name="f_valor_cte" sqlTabName="" table_alias_name="" uid="{10a04814-81a9-4050-8adb-622f99c25594}"/>
+    <RecordField colName="" fieldIdRef="11" name="f_num_valida" sqlTabName="" table_alias_name="" uid="{9e32c3d6-b328-48f7-8e96-032d82180bf7}"/>
+  </Record>
+  <Form gridHeight="35" gridWidth="90" name="Form" text="Form">
+    <Group gridHeight="13" gridWidth="89" name="Group2" posX="0" posY="1" text="Detalle del campo">
+      <Grid gridHeight="11" gridWidth="84" name="Grid2" posX="2" posY="1">
+        <Label gridHeight="1" gridWidth="6" name="Label1" posX="3" posY="1" text="Codigo:"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="7" name="f_layout_cod" posX="11" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="7" name="Label2" posX="20" posY="1" text="Registro:"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="5" name="f_registro" posX="30" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="7" name="Label3" posX="2" posY="3" text="Campo:"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="7" name="f_campo_cod" posX="11" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="9" name="Label4" posX="20" posY="3" text="Descripción:"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="40" name="f_campo_desc" posX="30" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label5" posX="2" posY="5" text="Tipo de dato:"/>
+        <ComboBox colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="14" items="Caracter, Fecha, Numerico" name="f_tipo_dato" posX="13" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox1" widget="ComboBox">
+          <Item lstrtext="false" name="X" text="Caracter"/>
+          <Item lstrtext="false" name="F" text="Fecha"/>
+          <Item lstrtext="false" name="#" text="Numerico"/>
+        </ComboBox>
+        <Label gridHeight="1" gridWidth="7" name="Label6" posX="31" posY="5" text="Longitud:"/>
+        <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="6" name="f_longitud" posX="39" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="7" name="Label7" posX="2" posY="7" text="Precisión:"/>
+        <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="12" name="f_precision" posX="11" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="9" name="Label8" posX="26" posY="7" text="Pos. Inicial:"/>
+        <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" name="f_pos_inicial" posX="37" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="8" name="Label9" posX="47" posY="7" text="Pos. Final:"/>
+        <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="8" name="f_pos_final" posX="57" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="7" name="Label10" posX="2" posY="9" text="Valor cte:"/>
+        <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="34" name="f_valor_cte" posX="11" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="9" name="Label11" posX="47" posY="9" text="Num. Valida:"/>
+        <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="7" name="f_num_valida" posX="58" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5AGUAMwAyAGMAMwBkADYALQBiADMAMgA4AC0ANAA4AGYANwAtADgAZQA5ADYALQAwADMAMgBkADgAMgAxADgAMABiAGYANwB9QBQAAAAAAABAcAAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGIAMQA2AGQANgBkAGUALQAyAGUAOQA0AC0ANAAxAGYAYgAtAGEAMQBjAGMALQBhADEAMgAzAGEANAA0ADEAYwA0ADEAOAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADUAMQA2AGUAOQA3AGQALQBmADAAYwBlAC0ANABiADMAZgAtAGEAOAA1ADcALQA2AGEANABiADcAOABjADIAYwBmADgAMgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADgAMABkADIAOAA0ADgALQAxADgAMwA0AC0ANAA4ADMAMAAtAGIANQA4AGMALQA2AGEAOQA3ADEAYwA4AGUAZQBlAGYANAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADMANwBmADcAYwA2ADEALQAwAGEANwA0AC0ANAAyAGMAZAAtAGEAMwAxADEALQAzADIAMwBlADAANwA3AGIAOQBiADQANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADcAMABmADQAOQBiAGMALQBjADEAMgA4AC0ANAAyADcAZgAtADkAOABiADkALQA0AGMAZQA4ADEAOQA4AGIANQAxAGIAYQB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADAAYQAwADQAOAAxADQALQA4ADEAYQA5AC0ANAAwADUAMAAtADgAYQBkAGIALQA2ADIAMgBmADkAOQBjADIANQA1ADkANAB9QBQAAAAAAABAbSAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADMANQBmADcAZQBiADMALQA1ADMAMgA2AC0ANABlAGQAOAAtADkAYwA4AGUALQBlAGEAYwA3ADQAMwBiADMAYwAzADIAOAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADEANQA0ADYANQBhADIALQA3ADUAYgA5AC0ANABmAGYAMgAtADkAMAAwADUALQA0AGMAZQAxADUAYgBlADMAMAA3AGMAOQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADkANQAzAGEAMwBmAGIALQA5ADAAMABkAC0ANAA3ADUAZAAtADgAZgA5ADMALQBmADcAZQAyAGEAZgA5AGQAMQBiADkAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGMAYgA3AGUANgA1ADIALQA4ADcAYQA2AC0ANAAyAGQANgAtADkANwBlAGQALQBmADQAZABlADQANQA2ADEAMQA2ADQANwB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGEANwA2ADQANAA4ADcALQBmADgAZABlAC0ANABiADIAOQAtAGEAMgBmADEALQA0AGEAZgBlAGMANwBkADkAYwA2AGYAZAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

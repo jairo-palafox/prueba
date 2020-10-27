@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PRTI06.rdd" RWFglReportName="fn_rpt_consulta_portabilidad_ced"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezado" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="logos" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="logo_infonavit" width="72.9384" length="44.2454" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="titulos" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed" paddingTopWidth="7">
+                            <rtl:input-variable name="v_titulo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_titulo Value" width="max" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="{{v_titulo}}" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="datos_generales" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed" paddingTopWidth="10" paddingBottomWidth="10">
+                            <WORDBOX name="espacio" width="577.98" floatingBehavior="enclosed" text=""/>
+                            <LAYOUTNODE name="generales" width="min" length="min" floatingBehavior="enclosed">
+                                <LAYOUTNODE name="usuario" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed" borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderLeftWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid">
+                                    <WORDBOX name="r_usuario" width="80" fontSize="7" fontBold="true" floatingBehavior="enclosed" text="Usuario:" borderRightWidth="0.5" borderRightStyle="solid"/>
+                                    <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="p_usuario Value" width="100" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" text="{{p_usuario}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="fecha" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed" borderRightWidth="0.5" borderBottomWidth="0.5" borderLeftWidth="0.5" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid">
+                                    <WORDBOX name="r_fecha" width="80" fontSize="7" fontBold="true" floatingBehavior="enclosed" text="Fecha:" borderRightWidth="0.5" borderRightStyle="solid"/>
+                                    <rtl:input-variable name="v_fecha_actual" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_fecha_actual Value" width="100" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" text="{{v_fecha_actual}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="hora" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed" borderRightWidth="0.5" borderBottomWidth="0.5" borderLeftWidth="0.5" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid">
+                                    <WORDBOX name="WordBox" width="80" fontSize="7" fontBold="true" floatingBehavior="enclosed" text="Hora:" borderRightWidth="0.5" borderRightStyle="solid"/>
+                                    <rtl:input-variable name="p_hora" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="p_hora Value" width="100" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" text="{{p_hora}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="total_registros" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed" borderRightWidth="0.5" borderBottomWidth="0.5" borderLeftWidth="0.5" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid">
+                                    <WORDBOX name="r_total_registros" width="80" fontSize="7" fontBold="true" floatingBehavior="enclosed" text="Total registros:" borderRightWidth="0.5" borderRightStyle="solid"/>
+                                    <rtl:input-variable name="v_total_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_total_registros Value" width="100" anchorX="1" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" format="--,---,---,--&amp;" value="{{v_total_registros}}"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage" width="min" length="min" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="detalle" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                            <LAYOUTNODE name="enc_detalle_estado1" width="min" layoutDirection="leftToRight" marginLeftWidth="10">
+                                <WORDBOX name="estado" width="120" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="7" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Estado marca:" borderTopWidth="0.5" borderRightWidth="0.5" borderLeftWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderLeftStyle="solid"/>
+                                <rtl:input-variable name="v_estado_marca" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_estado_marca Value" alignment="baseline" fontSize="7" fontBold="true" floatingBehavior="enclosed" text="{{&quot;  &quot;+v_estado_marca}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="enc_detalle1" width="min" layoutDirection="leftToRight" marginLeftWidth="10">
+                                <WORDBOX name="no" width="25" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="No." borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderLeftWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid"/>
+                                <WORDBOX name="nss" width="55" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NSS" borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid"/>
+                                <WORDBOX name="curp" width="65" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="CURP" borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid"/>
+                                <WORDBOX name="credito" width="87" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="No. Crédito Fovissste" borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid"/>
+                                <WORDBOX name="saldo_insoluto" width="92" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Saldo insoluto Fovissste" borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid"/>
+                                <WORDBOX name="f_marca" width="55" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Fecha marca" borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid"/>
+                                <rtl:input-variable name="v_estado_marca" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="diagonostico_notificacion" rtl:condition="v_estado_marca==&quot;RECHAZADA&quot;" width="92" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Diagnóstico notificación" borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid"/>
+                                <rtl:input-variable name="v_estado_marca" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="desc_diagonostico" rtl:condition="v_estado_marca==&quot;RECHAZADA&quot;" width="270" alignment="baseline" color="#ffffff" bgColor="#c0504d" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Descripción diagnóstico" borderTopWidth="0.5" borderRightWidth="0.5" borderBottomWidth="0.5" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid"/>
+                            </LAYOUTNODE>
+                        </LAYOUTNODE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="detalle_registros" width="min" length="min" alignment="near" layoutDirection="leftToRight" marginLeftWidth="10">
+                                <rtl:input-variable name="p_contador" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_contador Value" width="26" anchorX="1" alignment="baseline" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" format="--,---,---,--&amp;" value="{{p_contador}}"/>
+                                <rtl:input-variable name="p_registros.v_nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_registros.v_nss Value" width="55" alignment="baseline" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" text="{{p_registros.v_nss}}"/>
+                                <rtl:input-variable name="p_registros.v_curp" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_registros.v_curp Value" width="66" alignment="baseline" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" text="{{p_registros.v_curp}}"/>
+                                <rtl:input-variable name="p_registros.v_credito" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_registros.v_credito Value" width="87" anchorX="1" alignment="baseline" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" format="--------------&amp;" value="{{p_registros.v_credito}}"/>
+                                <rtl:input-variable name="p_registros.v_sdo_insoluto" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_registros.v_sdo_insoluto Value" width="93" anchorX="1" alignment="baseline" fontSize="6.5" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_registros.v_sdo_insoluto}}"/>
+                                <rtl:input-variable name="p_registros.v_f_marca" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_registros.v_f_marca Value" width="56" alignment="baseline" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" text="{{p_registros.v_f_marca}}"/>
+                                <rtl:input-variable name="v_estado_marca" type="FGLString" expectedLocation="expectedBefore"/>
+                                <rtl:input-variable name="p_registros.v_diag_notif" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_registros.v_diag_notif Value" rtl:condition="v_estado_marca==&quot;RECHAZADA&quot;" class="grwStringValue" width="92" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" text="{{p_registros.v_diag_notif}}"/>
+                                <rtl:input-variable name="v_estado_marca" type="FGLString" expectedLocation="expectedBefore"/>
+                                <rtl:input-variable name="p_registros.v_diag_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_registros.v_diag_desc Value" rtl:condition="v_estado_marca==&quot;RECHAZADA&quot;" class="grwStringValue" width="271" alignment="baseline" fontSize="6.5" floatingBehavior="enclosed" text="{{p_registros.v_diag_desc}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </MINIPAGE>
+                    <PAGENOBOX name="PageNoBox" x="711.034" y="530.142" width="56.8447" anchorX="8.9998e-15" anchorY="0" fontSize="7" floatingBehavior="enclosed" textExpression="&quot;Pág. &quot;+format(getPhysicalPageNumber(),ARABIC)+&quot; de &quot;+format(getTotalNumberOfPhysicalPages(),ARABIC)"/>
+                    <LAYOUTNODE name="totales" width="min" length="min" fontSize="4" layoutDirection="leftToRight" floatingBehavior="enclosed" marginTopWidth="4" marginLeftWidth="10">
+                        <WORDBOX name="total" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" text="TOTALES:" paddingTopWidth="2" borderWidth="0.5" borderTopStyle="solid"/>
+                        <rtl:input-variable name="v_total_sdo_insoluto" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_sdo_insoluto Value" class="grwNumericValue" width="290" anchorX="1" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_sdo_insoluto}}" paddingTopWidth="2" borderWidth="0.5" borderTopStyle="solid"/>
+                        <WORDBOX name="espacio2" width="56" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" text=" " paddingTopWidth="2" borderWidth="0.5" borderTopStyle="solid"/>
+                        <rtl:input-variable name="v_estado_marca" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDBOX name="espacio4" rtl:condition="v_estado_marca==&quot;RECHAZADA&quot;" width="368" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" text=" " paddingTopWidth="2" borderWidth="0.5" borderTopStyle="solid"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

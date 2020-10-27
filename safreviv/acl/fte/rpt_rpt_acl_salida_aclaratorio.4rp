@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACLC13.rdd" RWFglReportName="rpt_aclaracion_pendiente"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="baseline">
+                    <LAYOUTNODE name="Page header" width="719.936" length="145.091" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage12" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode20" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox1" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1_1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode21" width="12.7416" length="719.76" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2_1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode22" width="15" length="719.006" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox14" x="7.5" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="ACLARACIÓN PENDIENTE" localizeText="false"/>
+                                <WORDBOX name="WordBox11_2" x="7.5" y="583.866" width="40.0234" length="17.5738" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value1" x="1.3945" y="627.746" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode12_1" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage13" width="4.19096" length="719.006" alignment="near" layoutDirection="leftToRight"/>
+                            <MINIPAGE name="barraTitsSubcuenta1" width="19.8801" length="721.463" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="nss1" width="70.3129" length="14.1882" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Folio "/>
+                                <WORDBOX name="Tipo_archivo1" width="74.9789" length="14.6824" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NRP"/>
+                                <WORDBOX name="Origen_pago2" width="83.0788" length="13.2472" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Periodo de pago"/>
+                                <WORDBOX name="Origen_pago3" width="81.5732" length="12.4944" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Folio SUA"/>
+                                <WORDBOX name="Origen_pago1_3" width="89.1013" length="13.2472" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NSS"/>
+                                <WORDBOX name="Origen_pago1_2_3" width="77.8092" length="12.4944" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Imp. Ap. Pat."/>
+                                <WORDBOX name="Origen_pago1_2_2_3" width="98.1351" length="13.2472" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Imp. Am. Cre."/>
+                                <WORDBOX name="Origen_pago1_2_2_3_1" width="98.1351" length="13.2472" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Causal"/>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage6" width="18.56" length="718.53" alignment="near" fontName="Arial" fontSize="9" layoutDirection="leftToRight">
+                            <rtl:input-variable name="arr_salida_aclara.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="arr_salida_aclara.folio Value2" x="3.7795" y="4.253" width="55.6854" length="12" anchorX="0" anchorY="0.0299809" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" format="------&amp;" value="{{arr_salida_aclara.folio}}"/>
+                            <rtl:input-variable name="arr_salida_aclara.periodo_pago" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="arr_salida_aclara.periodo_pago Value1" x="8.8406" y="137.953" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{arr_salida_aclara.periodo_pago}}"/>
+                            <rtl:input-variable name="arr_salida_aclara.nrp" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="arr_salida_aclara.nrp Value1" x="8.8406" y="60.0956" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{arr_salida_aclara.nrp}}"/>
+                            <rtl:input-variable name="arr_salida_aclara.folio_sua" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="arr_salida_aclara.folio_sua Value1" x="8.8406" y="224.259" anchorX="0" anchorY="3.64381e-16" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" format="---------&amp;" value="{{arr_salida_aclara.folio_sua}}"/>
+                            <rtl:input-variable name="arr_salida_aclara.nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="arr_salida_aclara.nss Value1" x="8.8406" y="311.229" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{arr_salida_aclara.nss}}"/>
+                            <rtl:input-variable name="arr_salida_aclara.imp_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="arr_salida_aclara.imp_ap_pat Value1" x="8.8406" y="476.016" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{arr_salida_aclara.imp_ap_pat}}"/>
+                            <rtl:input-variable name="arr_salida_aclara.imp_am_cre" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="arr_salida_aclara.imp_am_cre Value1" x="8.8406" y="560.424" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{arr_salida_aclara.imp_am_cre}}"/>
+                            <rtl:input-variable name="arr_salida_aclara.origen_pago" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="arr_salida_aclara.origen_pago Value" x="8.8406" y="581.685" width="134.731" length="10.4944" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{arr_salida_aclara.origen_pago}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage11" x="33.9741" y="507.197" width="697.827" length="20.1241" anchorX="0.0220048" anchorY="0.5" alignment="near">
+                            <PAGENOBOX name="PageNoBox" x="676.077" y="10.0621" width="38.5" length="19.7862" anchorX="0.523843" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

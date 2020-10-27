@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{5b4ce927-7701-417d-ab10-3edffa966ef6}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{84dd6e72-f387-43c0-adbf-457d386c8e4a}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_nss" sqlTabName="" table_alias_name="" uid="{6db4cf7a-a322-488b-b300-1ea043e593e2}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_entidad_financiera" sqlTabName="" table_alias_name="" uid="{eee8fda6-bdda-4b20-9446-960f22336e8c}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_tipo_credito" sqlTabName="" table_alias_name="" uid="{29245407-2684-4ce8-914c-032baa0e1bcb}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_num_ctr_int_ef" sqlTabName="" table_alias_name="" uid="{ed994f36-699d-4ffc-b271-a0c8d77ecc77}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_bimestre_ap_subsec" sqlTabName="" table_alias_name="" uid="{e90a73e7-8170-4fd7-aeca-f21936b2797c}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_importe_devolver" sqlTabName="" table_alias_name="" uid="{736970b8-54a2-495f-9d1d-214cd5b1aa19}"/>
+    <RecordField colName="" fieldIdRef="7" name="f_deposito" sqlTabName="" table_alias_name="" uid="{3b34174b-1d63-4f34-928e-b26b41383308}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_tipo_devolucion" sqlTabName="" table_alias_name="" uid="{71d90d62-ca4a-4644-9074-45701bb3c579}"/>
+  </Record>
+  <Form gridHeight="34" gridWidth="170" name="form" text="Form">
+    <Grid gridHeight="21" gridWidth="96" name="grid1" posX="11" posY="2">
+      <Label gridHeight="2" gridWidth="19" name="label1" posX="44" posY="2" text="Generación de Devolución"/>
+      <Label gridHeight="1" gridWidth="22" name="label2" posX="17" posY="6" text="NSS"/>
+      <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="16" name="v_nss" posX="46" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+      <Label gridHeight="1" gridWidth="22" name="label3" posX="17" posY="8" text="Entidad Financiera"/>
+      <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="16" items="" name="v_entidad_financiera" posX="46" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="combobox1" widget="ComboBox"/>
+      <Label gridHeight="1" gridWidth="22" name="label4" posX="17" posY="10" text="Tipo Crédito"/>
+      <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="16" items="" name="v_tipo_credito" posX="46" posY="10" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="combobox2" widget="ComboBox"/>
+      <Label gridHeight="1" gridWidth="22" name="label5" posX="17" posY="12" text="Número Control Interno"/>
+      <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="16" name="v_num_ctr_int_ef" posX="46" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="edit2" widget="Edit"/>
+      <Label gridHeight="1" gridWidth="22" name="label6" posX="17" posY="14" text="Bimestre"/>
+      <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="4" name="v_bimestre_ap_subsec" posX="46" posY="14" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="edit3" widget="Edit"/>
+      <Label gridHeight="1" gridWidth="22" name="label7" posX="17" posY="16" text="Importe a Devolver"/>
+      <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="16" name="v_importe_devolver" posX="46" posY="16" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit4" widget="Edit"/>
+      <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="21" items="" name="v_tipo_devolucion" posX="63" posY="16" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="combobox1" widget="ComboBox"/>
+      <Label gridHeight="1" gridWidth="22" name="label9" posX="17" posY="18" text="Fecha Devolución"/>
+      <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="dd/mm/yyyy" gridHeight="1" gridWidth="16" name="f_deposito" posX="46" posY="18" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyADkAMgA0ADUANAAwADcALQAyADYAOAA0AC0ANABjAGUAOAAtADkAMQA0AGMALQAwADMAMgBiAGEAYQAwAGUAMQBiAGMAYgB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADQAZABkADYAZQA3ADIALQBmADMAOAA3AC0ANAAzAGMAMAAtAGEAZABiAGYALQA0ADUANwBkADMAOAA2AGMAOABlADQAYQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADkAMABhADcAMwBlADcALQA4ADEANwAwAC0ANABmAGQANwAtAGEAZQBjAGEALQBmADIAMQA5ADMANgBiADIANwA5ADcAYwB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGIAMwA0ADEANwA0AGIALQAxAGQANgAzAC0ANABmADMANAAtADkAMgA4AGUALQBiADIANgBiADQAMQAzADgAMwAzADAAOAB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGQAYgA0AGMAZgA3AGEALQBhADMAMgAyAC0ANAA4ADgAYgAtAGIAMwAwADAALQAxAGUAYQAwADQAMwBlADUAOQAzAGUAMgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADEAZAA5ADAAZAA2ADIALQBjAGEANABhAC0ANAA2ADQANAAtADkAMAA3ADQALQA0ADUANwAwADEAYgBiADMAYwA1ADcAOQB9QCQAAAAAAABAaOAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGQAOQA5ADQAZgAzADYALQA2ADkAOQBkAC0ANABmAGYAYwAtAGIAMgA3ADEALQBhADAAYwA4AGQANwA3AGUAYwBjADcANwB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGUAZQA4AGYAZABhADYALQBiAGQAZABhAC0ANABiADIAMAAtADkANAA0ADYALQA5ADYAMABmADIAMgAzADMANgBlADgAYwB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADMANgA5ADcAMABiADgALQA1ADQAYQAyAC0ANAA5ADUAZgAtADkAZAAxAGQALQAyADEANABjAGQANQBiADEAYQBhADEAOQB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

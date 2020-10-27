@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGC19.rdd" RWFglReportName="rpt_detalle_pagos"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded"/>
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="baseline">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="7.5" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="REPORTE DETALLE DEL PAGO" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../dis/bin/logo_infonavit.gif"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="17.0113" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDWRAPBOX name="WordWrapBox" width="36.5388" floatingBehavior="enclosed" text="Folio:&#10;"/>
+                                <rtl:input-variable name="Folio" type="FGLString" expectedLocation="expectedBefore"/>
+                                <WORDWRAPBOX name="Folio Value" width="width(&quot;M&quot;)*20" alignment="near" floatingBehavior="enclosed" text="{{Folio}}"/>
+                                <WORDWRAPBOX name="WordWrapBox2" width="90.7413" alignment="center" floatingBehavior="enclosed" text="Origen Archivo:"/>
+                                <WORDWRAPBOX name="WordWrapBox1" width="41.8084" alignment="center" floatingBehavior="enclosed" text="Fecha:"/>
+                                <rtl:input-variable name="arr_registros.desc_origen_archivo" type="FGLString" expectedLocation="expectedBefore"/>
+                                <WORDWRAPBOX name="arr_registros.desc_origen_archivo Value1" width="190.865" length="14.4494" floatingBehavior="enclosed" text="{{arr_registros.desc_origen_archivo}}"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedBefore"/>
+                                <WORDBOX name="v_fecha_reporte Value" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode6" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode12" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage4" width="min" length="max" layoutDirection="leftToRight">
+                                <MINIPAGE name="barraTotalesSubcuenta" width="min" length="min" layoutDirection="leftToRight">
+                                    <WORDBOX name="titTotalesSubcuenta" width="718.379" alignment="far" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="INFORMACIÓN DEL REGISTRO"/>
+                                </MINIPAGE>
+                                <LAYOUTNODE name="LayoutNode8_2" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="cuerpo_reporte" width="556.003" length="718.61" alignment="near" layoutDirection="leftToRight">
+                        <rtl:input-variable name="arr_registros.nss" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDBOX name="arr_registros.nss Value" x="15.0886" y="142.985" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_registros.nss}}"/>
+                        <rtl:input-variable name="arr_registros.folio" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="arr_registros.folio Value" x="36.4688" y="147.967" anchorX="0" anchorY="0.0141627" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{arr_registros.folio}}"/>
+                        <rtl:input-variable name="arr_registros.desc_origen_archivo" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDWRAPBOX name="arr_registros.desc_origen_archivo Value" x="52.9716" y="147.967" width="294.001" length="18.2134" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_registros.desc_origen_archivo}}"/>
+                        <rtl:input-variable name="arr_registros.id_referencia" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="arr_registros.id_referencia Value" x="85.5218" y="146.223" anchorX="0.132748" anchorY="0.0114965" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{arr_registros.id_referencia}}"/>
+                        <rtl:input-variable name="arr_registros.cve_entidad_receptora" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDBOX name="arr_registros.cve_entidad_receptora Value" x="111.848" y="146.223" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_registros.cve_entidad_receptora}}"/>
+                        <rtl:input-variable name="arr_registros.nrp" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDBOX name="arr_registros.nrp Value" x="143.12" y="151.245" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_registros.nrp}}"/>
+                        <rtl:input-variable name="arr_registros.periodo_pago" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDBOX name="arr_registros.periodo_pago Value" x="159.657" y="151.245" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_registros.periodo_pago}}"/>
+                        <rtl:input-variable name="arr_registros.folio_sua" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="arr_registros.folio_sua Value" x="184.423" y="149.963" anchorX="0.132748" anchorY="0.0313399" floatingBehavior="enclosed" textAlignment="right" format="---,--&amp;.&amp;&amp;" value="{{arr_registros.folio_sua}}"/>
+                        <rtl:input-variable name="arr_registros.f_pago" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDBOX name="arr_registros.f_pago Value" x="213.295" y="151.245" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_registros.f_pago}}"/>
+                        <rtl:input-variable name="arr_registros.id_derechohabiente" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="arr_registros.id_derechohabiente Value" x="236.613" y="147.708" anchorX="1.21807e-14" anchorY="0" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{arr_registros.id_derechohabiente}}"/>
+                        <rtl:input-variable name="arr_registros.localiza_trabajador" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDBOX name="arr_registros.localiza_trabajador Value" x="261.645" y="149.963" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_registros.localiza_trabajador}}"/>
+                        <rtl:input-variable name="arr_registros.desc_tipo_aclaracion" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDWRAPBOX name="arr_registros.desc_tipo_aclaracion Value" x="283.342" y="142.985" width="263.888" length="13.6966" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_registros.desc_tipo_aclaracion}}"/>
+                        <rtl:input-variable name="arr_registros.imp_ap_pat" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="arr_registros.imp_ap_pat Value" x="314.168" y="142.985" anchorX="3.65422e-14" anchorY="0" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{arr_registros.imp_ap_pat}}">
+                            <LAYOUTNODE name="LayoutNode8_1" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </DECIMALFORMATBOX>
+                    </MINIPAGE>
+                    <MINIPAGE name="pie_pagina" x="15.0831" y="529.891" width="720.411" length="20.1241" anchorX="0.0220048" anchorY="0.5" alignment="near">
+                        <PAGENOBOX name="PageNoBox" x="689.199" y="10.6781" width="38.5" length="19.7862" anchorX="0.523843" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

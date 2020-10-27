@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="11eb63ac-0388-4e69-9eb8-17bc5406985d" activeEnvironment="Default" name="Reg pagos Garantia prendaria" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d60df66e-62c3-4086-856b-c4cc7886028b" wsaVersion="NONE" name="RegistroDePagosCVitBinding" type="wsdl" bindingName="{http://service.infonavit.org.mx}RegistroDePagosCVitBinding" soapVersion="1_1" anonymous="optional" definition="http://10.90.8.132/RegistroPagosCambiavit/ws/r/RegistoPagosCambiavitService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://10.90.8.132/RegistroPagosCambiavit/ws/r/RegistoPagosCambiavitService?wsdl"><con:part><con:url>http://10.90.8.132/RegistroPagosCambiavit/ws/r/RegistoPagosCambiavitService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="RegistroDePagosCVit" targetNamespace="http://service.infonavit.org.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:fjs="http://service.infonavit.org.mx" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://service.infonavit.org.mx" xmlns:s1="http://service.infonavit.org.mx">
+      <xsd:complexType name="ConsultaGarantiaPrendariaRequest_ConsultaGarantiaPrendariaRequest">
+        <xsd:sequence>
+          <xsd:element nillable="true" name="pag_det_nss">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="11"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="pag_det_curp">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="18"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="pag_det_credito_infonavit">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="10"/>
+                <xsd:fractionDigits value="0"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="pag_det_cod_identificacion">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="pag_det_marca_cambio_casa">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="pag_det_numero_caso">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="10"/>
+                <xsd:fractionDigits value="0"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element type="xsd:date" name="pag_det_f_pago" nillable="true"/>
+          <xsd:element nillable="true" name="pag_det_monto_deposito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="15"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConsultaGarantiaPrendariaRequest" type="s1:ConsultaGarantiaPrendariaRequest_ConsultaGarantiaPrendariaRequest"/>
+      <xsd:complexType name="ConsultaGarantiaPrendariaResponse_ConsultaGarantiaPrendariaResponse">
+        <xsd:sequence>
+          <xsd:element nillable="true" name="result_operacion">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element type="xsd:short" name="ind_registro" nillable="true"/>
+          <xsd:element nillable="true" name="nss_consultado">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="11"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConsultaGarantiaPrendariaResponse" type="s1:ConsultaGarantiaPrendariaResponse_ConsultaGarantiaPrendariaResponse"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultaGarantiaPrendariaIn">
+    <wsdl:part name="parameters" element="fjs:ConsultaGarantiaPrendariaRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ConsultaGarantiaPrendariaOut">
+    <wsdl:part name="parameters" element="fjs:ConsultaGarantiaPrendariaResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="RegistroDePagosCVitPortType">
+    <wsdl:operation name="ConsultaGarantiaPrendaria">
+      <wsdl:input message="fjs:ConsultaGarantiaPrendariaIn" name="ConsultaGarantiaPrendariaRequest"/>
+      <wsdl:output message="fjs:ConsultaGarantiaPrendariaOut" name="ConsultaGarantiaPrendariaResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RegistroDePagosCVitBinding" type="fjs:RegistroDePagosCVitPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="ConsultaGarantiaPrendaria">
+      <soap:operation soapAction="ConsultaGarantiaPrendaria"/>
+      <wsdl:input name="ConsultaGarantiaPrendariaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ConsultaGarantiaPrendariaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RegistroDePagosCVit">
+    <wsdl:port binding="fjs:RegistroDePagosCVitBinding" name="RegistroDePagosCVitPortType">
+      <soap:address location="http://10.90.8.132/RegistroPagosCambiavit/ws/r/RegistoPagosCambiavitService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.90.8.132/RegistroPagosCambiavit/ws/r/RegistoPagosCambiavitService</con:endpoint></con:endpoints><con:operation id="9cc9f2cb-f0a5-4dd4-bae1-05b1a08e1f74" isOneWay="false" action="ConsultaGarantiaPrendaria" name="ConsultaGarantiaPrendaria" bindingOperationName="ConsultaGarantiaPrendaria" type="Request-Response" outputName="ConsultaGarantiaPrendariaResponse" inputName="ConsultaGarantiaPrendariaRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="baadae60-6a7d-4a01-af74-807fe24f71cd" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.8.132/RegistroPagosCambiavit/ws/r/RegistoPagosCambiavitService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.infonavit.org.mx">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:ConsultaGarantiaPrendariaRequest>\r
+         <ser:pag_det_nss>01004000111</ser:pag_det_nss>
+         <ser:pag_det_curp>DOPH400512HNEMLR02</ser:pag_det_curp>
+         <ser:pag_det_credito_infonavit>12345</ser:pag_det_credito_infonavit>
+         <ser:pag_det_cod_identificacion>GE4578</ser:pag_det_cod_identificacion>
+         <ser:pag_det_marca_cambio_casa>33</ser:pag_det_marca_cambio_casa>
+         <ser:pag_det_numero_caso>35678</ser:pag_det_numero_caso>
+         <ser:pag_det_f_pago>2018-08-30</ser:pag_det_f_pago>
+         <ser:pag_det_monto_deposito>1500</ser:pag_det_monto_deposito>
+      </ser:ConsultaGarantiaPrendariaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="ConsultaGarantiaPrendaria"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

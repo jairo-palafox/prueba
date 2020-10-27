@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{8af069b7-042b-426a-8eca-04bc56d98ff0}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="lista_clientes" order="" uid="{c3262308-f38f-46dc-b00d-a865f781db12}" where="">
+    <RecordField colName="" fieldIdRef="1" name="id_decreto" sqlTabName="" table_alias_name="" uid="{4cc2500c-2a3d-4953-ac2f-11f4d5fa43bc}"/>
+    <RecordField colName="" fieldIdRef="6" name="consec_cuenta" sqlTabName="" table_alias_name="" uid="{151c763f-ea64-4e2e-8091-68c494c27646}"/>
+    <RecordField colName="" fieldIdRef="2" name="nss" sqlTabName="" table_alias_name="" uid="{7565f0c7-72fd-4f41-8584-f3a2ffa481ee}"/>
+    <RecordField colName="" fieldIdRef="3" name="rfc" sqlTabName="" table_alias_name="" uid="{970c0a84-be12-4557-b658-79d99ffba95b}"/>
+    <RecordField colName="" fieldIdRef="4" name="curp" sqlTabName="" table_alias_name="" uid="{71ee09bb-a185-40c4-a2fe-622b64815805}"/>
+    <RecordField colName="" fieldIdRef="5" name="nombre_completo" sqlTabName="" table_alias_name="" uid="{f6f8a79c-25f4-4328-b044-a1317fde20d3}"/>
+    <RecordField colName="" fieldIdRef="7" name="cve_icefa" sqlTabName="" table_alias_name="" uid="{f8f5d370-ae8e-485f-b587-dbc3f7fef861}"/>
+    <RecordField colName="" fieldIdRef="8" name="nombre_patron" sqlTabName="" table_alias_name="" uid="{8a5c0cba-b856-4a1a-8fcf-996600014651}"/>
+  </Record>
+  <Form gridHeight="20" gridWidth="159" name="Form" text="Form">
+    <Group gridHeight="18" gridWidth="156" name="Group1" posX="1" posY="1" text="Búsqueda">
+      <Table gridHeight="16" gridWidth="152" name="v_arreglo" posX="1" posY="1" totalRows="15">
+        <Phantom colName="" fieldId="1" name="id_decreto" sqlTabName="" sqlType="CHAR" table_alias_name="" widget="Phantom"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="19" name="consec_cuenta" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Consecutivo Cuenta" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="14" name="nss" posX="19" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="NSS" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="16" name="rfc" posX="33" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="RFC" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="21" name="curp" posX="49" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="CURP" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="51" name="nombre_completo" posX="70" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="NOMBRE" widget="Edit"/>
+        <Phantom colName="" fieldId="7" name="cve_icefa" sqlTabName="" sqlType="CHAR" table_alias_name="" widget="Phantom"/>
+        <Phantom colName="" fieldId="8" name="nombre_patron" sqlTabName="" sqlType="CHAR" table_alias_name="" widget="Phantom"/>
+      </Table>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADYAZgA4AGEANwA5AGMALQAyADUAZgA0AC0ANAAzADIAOAAtAGIAMAA0ADQALQBhADEAMwAxADcAZgBkAGUAMgAwAGQAMwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcAMABjADAAYQA4ADQALQBiAGUAMQAyAC0ANAA1ADUANwAtAGIANgA1ADgALQA3ADkAZAA5ADkAZgBmAGIAYQA5ADUAYgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADMAMgA2ADIAMwAwADgALQBmADMAOABmAC0ANAA2AGQAYwAtAGIAMAAwAGQALQBhADgANgA1AGYANwA4ADEAZABiADEAMgB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewAxADUAMQBjADcANgAzAGYALQBlAGEANgA0AC0ANABlADIAZQAtADgAMAA5ADEALQA2ADgAYwA0ADkANABjADIANwA2ADQANgB9QBQAAAAAAABASIAAAAAAAD90euFHrhR7AQAAAEwAewA3ADUANgA1AGYAMABjADcALQA3ADIAZgBkAC0ANABmADQAMQAtADgANQA4ADQALQBmADMAYQAyAGYAZgBhADQAOAAxAGUAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADgAZgA1AGQAMwA3ADAALQBhAGUAOABlAC0ANAA4ADUAZgAtAGIANQA4ADcALQBkAGIAYwAzAGYANwBmAGUAZgA4ADYAMQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGEANQBjADAAYwBiAGEALQBiADgANQA2AC0ANABhADEAYQAtADgAZgBjAGYALQA5ADkANgA2ADAAMAAwADEANAA2ADUAMQB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADEAZQBlADAAOQBiAGIALQBhADEAOAA1AC0ANAAwAGMANAAtAGEAMgBmAGUALQA2ADIAMgBiADYANAA4ADEANQA4ADAANQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGMAYwAyADUAMAAwAGMALQAyAGEAMwBkAC0ANAA5ADUAMwAtAGEAYwAyAGYALQAxADEAZgA0AGQANQBmAGEANAAzAGIAYwB9QBQAAAAAAABAOgAAAAAAAD9ok3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

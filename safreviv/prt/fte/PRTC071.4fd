@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="ManagedForm" uid="{73323fb6-4115-4a2c-9f33-492fd4012734}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{01dfca35-5021-4f7b-8293-9e2abdca7761}" where="">
+    <RecordField colName="" defaultValue="1" fieldIdRef="1" name="filtro_flujo" sqlTabName="" table_alias_name="" uid="{ad790a3b-3079-4f5a-be2d-a4d2e6e6e0f8}"/>
+    <RecordField colName="" fieldIdRef="2" name="filtro_nss" sqlTabName="" table_alias_name="" uid="{66574185-9a97-4cf1-93ca-2d0d2e2038ed}"/>
+    <RecordField colName="" fieldIdRef="3" name="filtro_curp" sqlTabName="" table_alias_name="" uid="{2888535b-d4ba-4981-85b8-f497162a6734}"/>
+    <RecordField colName="" fieldIdRef="4" name="filtro_credito" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{24aff5ce-c95b-447d-a7a2-a8a692cc18ed}"/>
+    <RecordField colName="" fieldIdRef="5" name="filtro_f_ini" sqlTabName="" table_alias_name="" uid="{9a8b7b88-486b-49e0-b371-b049c67acf7c}"/>
+    <RecordField colName="" fieldIdRef="6" name="filtro_f_fin" sqlTabName="" table_alias_name="" uid="{721d3f49-5ce4-40bc-9e41-ebfc9ec6de89}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_registros" order="" uid="{c88bc983-832d-438c-9ed8-33da3e0fa8d8}" where="">
+    <RecordField colName="" fieldIdRef="7" name="id" sqlTabName="" table_alias_name="" uid="{5ce87520-2a6c-45e4-b5fb-0d2644b13a00}"/>
+    <RecordField colName="" fieldIdRef="8" name="nss" sqlTabName="" table_alias_name="" uid="{46501c15-b73d-46d6-a90b-77e03ea109fe}"/>
+    <RecordField colName="" fieldIdRef="9" name="curp" sqlTabName="" table_alias_name="" uid="{4800d7c5-046a-47a3-8094-5558c6e7b333}"/>
+    <RecordField colName="" fieldIdRef="10" name="credito" sqlTabName="" table_alias_name="" uid="{55264c08-a498-4ac4-916d-332abfeccc73}"/>
+    <RecordField colName="" fieldIdRef="13" name="movimiento" sqlTabName="" table_alias_name="" uid="{16b0eaf3-2676-4b6a-acd5-b08025976c62}"/>
+    <RecordField colName="" fieldIdRef="11" name="aivs" sqlTabName="" table_alias_name="" uid="{6330725e-ecae-4afc-abcf-6f2c463e89dd}"/>
+    <RecordField colName="" fieldIdRef="14" name="pesos" sqlTabName="" table_alias_name="" uid="{de229fd5-d466-439e-86e4-070e5f001843}"/>
+    <RecordField colName="" fieldIdRef="12" name="fecha_proceso" sqlTabName="" table_alias_name="" uid="{ed442d15-5e8b-467e-8a2b-7870bd013b7f}"/>
+  </Record>
+  <Form gridHeight="32" gridWidth="180" name="Form" text="Form">
+    <Grid gridHeight="31" gridWidth="174" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="12" gridWidth="64" name="gpo_filtros" posX="1" posY="1" text="Filtros">
+        <Label gridHeight="1" gridWidth="9" name="lbl_flujo" posX="2" posY="2" text="Flujo:"/>
+        <RadioGroup aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" defaultValue="1" fieldId="1" gridHeight="2" gridWidth="10" items="Cedente, Receptora" name="filtro_flujo" posX="12" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="RadioGroup1" widget="RadioGroup">
+          <Item lstrtext="false" name="1" text="Cedente"/>
+          <Item lstrtext="false" name="2" text="Receptora"/>
+        </RadioGroup>
+        <Label gridHeight="1" gridWidth="9" name="lbl_nss" posX="2" posY="5" text="NSS:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="21" name="filtro_nss" posX="12" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_fecha_ini" posX="36" posY="5" text="Fecha inicio:"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" name="filtro_f_ini" posX="47" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="9" name="lbl_curp" posX="2" posY="7" text="CURP:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="21" name="filtro_curp" posX="12" posY="7" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_fecha_fin" posX="36" posY="7" text="Fecha fin:"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" name="filtro_f_fin" posX="47" posY="7" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="9" hidden="true" name="lbl_credito" posX="2" posY="9" text="No. Crédito:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="21" hidden="true" name="filtro_credito" posX="12" posY="9" precisionDecimal="11" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit3" widget="Edit"/>
+      </Group>
+      <Group gridHeight="15" gridWidth="159" hidden="true" name="gpo_mov_subsecuentes" posX="1" posY="14" text="Movimientos subsecuentes">
+        <Table gridHeight="11" gridWidth="154" name="Table1" posX="2" posY="2" totalRows="10">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="10" justify="center" name="id" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="ID" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="14" justify="center" name="nss" posX="10" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="8" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="16" justify="center" name="curp" posX="24" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="9" table_alias_name="" title="CURP" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="12" justify="center" name="credito" posX="40" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="10" table_alias_name="" title="No. Crédito" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="45" name="movimiento" posX="52" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Movimiento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="16" hidden="true" name="aivs" posX="97" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="11" table_alias_name="" title="AIVS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="14" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="pesos" posX="113" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="14" table_alias_name="" title="PESOS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" format="dd/mm/yyyy" gridHeight="1" gridWidth="11" justify="center" name="fecha_proceso" posX="133" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Fecha proceso" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

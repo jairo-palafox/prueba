@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{aa4d0316-2da2-41ba-bacb-0a2cbd24fdb2}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{cac7e1ad-7ac3-4c27-b7d2-6f9f6304bdd7}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_monto_rema_ini" sqlTabName="" table_alias_name="" uid="{b19f7dd8-a364-4f97-9196-862ef73f50bf}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_monto_rema_fin" sqlTabName="" table_alias_name="" uid="{e3ce1f4e-0449-40a3-b7a0-c81f39b6411c}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_f_orig_ini" sqlTabName="" table_alias_name="" uid="{5297b0a6-b098-455a-a91d-8517691966b4}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_f_orig_fin" sqlTabName="" table_alias_name="" uid="{16217970-0530-48d1-9450-e7c30cffd869}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_tpo_cre_1" sqlTabName="" table_alias_name="" uid="{895493ce-d6a7-4e73-b4c6-88c590cb5936}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_tpo_cre_3" sqlTabName="" table_alias_name="" uid="{ff2f5276-456b-497d-93bc-f78ff11f3434}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_tpo_cre_4" sqlTabName="" table_alias_name="" uid="{1aa78baf-fe11-46ba-af29-b4428ec5b3a6}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_tpo_cre_5" sqlTabName="" table_alias_name="" uid="{c3d76203-a064-4cc6-b9f1-09b0bad4b29c}"/>
+    <RecordField colName="" fieldIdRef="10" name="v_tpo_cre_10" sqlTabName="" table_alias_name="" uid="{f3b61c3c-590a-45b4-8dd0-49631eec8cd5}"/>
+    <RecordField colName="" fieldIdRef="11" name="v_tpo_cre_11" sqlTabName="" table_alias_name="" uid="{2e49c8c2-d160-4979-ac1f-8df8c959841c}"/>
+    <RecordField colName="" fieldIdRef="12" name="v_tpo_cre_15" sqlTabName="" table_alias_name="" uid="{70336a01-ae55-4add-a3d9-cd67439968b7}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="84" name="form" text="Form">
+    <Grid gridHeight="17" gridWidth="74" name="grid1" posX="5" posY="1">
+      <Group gridHeight="15" gridWidth="67" name="group1" posX="3" posY="1" text="Parámetros de búsqueda">
+        <Label gridHeight="1" gridWidth="14" name="label1" posX="3" posY="2" text=" Monto remanente  "/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" name="v_monto_rema_ini" posX="18" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="4" name="label2" posX="34" posY="2" text="  a  "/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="15" name="v_monto_rema_fin" posX="39" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="label3" posX="3" posY="3" text=" Fecha originación  "/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="dd/mm/yyyy" gridHeight="1" gridWidth="15" name="v_f_orig_ini" posX="18" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="4" name="label4" posX="34" posY="3" text="  a  "/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="dd/mm/yyyy" gridHeight="1" gridWidth="15" name="v_f_orig_fin" posX="39" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="dateedit2" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="14" name="label5" posX="3" posY="5" text=" Tipo de crédito  "/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="23" name="v_tpo_cre_1" notNull="true" posX="18" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" text="1 Tradicional" title="checkbox2" widget="CheckBox"/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="23" name="v_tpo_cre_3" notNull="true" posX="18" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" text="3 Cofinanciado Sin Cobranza" title="checkbox3" widget="CheckBox"/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="23" name="v_tpo_cre_4" notNull="true" posX="18" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" text="4 Infonavit Total" title="checkbox4" widget="CheckBox"/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="23" name="v_tpo_cre_5" notNull="true" posX="18" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" text="5 Cofinavit 08" title="checkbox5" widget="CheckBox"/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="23" name="v_tpo_cre_10" notNull="true" posX="18" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" text="10 Cofinavit AG" title="checkbox6" widget="CheckBox"/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="23" name="v_tpo_cre_11" notNull="true" posX="18" posY="10" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" text="11 Infonavit Total AG" title="checkbox7" widget="CheckBox"/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="23" name="v_tpo_cre_15" notNull="true" posX="18" posY="11" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" text="15 Segundo Crédito" title="checkbox8" widget="CheckBox"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA4ADkANQA0ADkAMwBjAGUALQBkADYAYQA3AC0ANABlADcAMwAtAGIANABjADYALQA4ADgAYwA1ADkAMABjAGIANQA5ADMANgB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADIAOQA3AGIAMABhADYALQBiADAAOQA4AC0ANAA1ADUAYQAtAGEAOQAxAGQALQA4ADUAMQA3ADYAOQAxADkANgA2AGIANAB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGUANAA5AGMAOABjADIALQBkADEANgAwAC0ANAA5ADcAOQAtAGEAYwAxAGYALQA4AGQAZgA4AGMAOQA1ADkAOAA0ADEAYwB9QCQAAAAAAABAbqAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADMAYwBlADEAZgA0AGUALQAwADQANAA5AC0ANAAwAGEAMwAtAGIANwBhADAALQBjADgAMQBmADMAOQBiADYANAAxADEAYwB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADYAMgAxADcAOQA3ADAALQAwADUAMwAwAC0ANAA4AGQAMQAtADkANAA1ADAALQBlADcAYwAzADAAYwBmAGYAZAA4ADYAOQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADMAZAA3ADYAMgAwADMALQBhADAANgA0AC0ANABjAGMANgAtAGIAOQBmADEALQAwADkAYgAwAGIAYQBkADQAYgAyADkAYwB9QCQAAAAAAABAaOAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADMAYgA2ADEAYwAzAGMALQA1ADkAMABhAC0ANAA1AGIANAAtADgAZABkADAALQA0ADkANgAzADEAZQBlAGMAOABjAGQANQB9QCQAAAAAAABAa8AAAAAAAAAAAAAAAAAAAQAAAEwAewBiADEAOQBmADcAZABkADgALQBhADMANgA0AC0ANABmADkANwAtADkAMQA5ADYALQA4ADYAMgBlAGYANwAzAGYANQAwAGIAZgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGEAYwA3AGUAMQBhAGQALQA3AGEAYwAzAC0ANABjADIANwAtAGIANwBkADIALQA2AGYAOQBmADYAMwAwADQAYgBkAGQANwB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewBmAGYAMgBmADUAMgA3ADYALQA0ADUANgBiAC0ANAA5ADcAZAAtADkAMwBiAGMALQBmADcAOABmAGYAMQAxAGYAMwA0ADMANAB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADAAMwAzADYAYQAwADEALQBhAGUANQA1AC0ANABhAGQAZAAtAGEAMwBkADkALQBjAGQANgA3ADQAMwA5ADkANgA4AGIANwB9QCQAAAAAAABAcMAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGEAYQA3ADgAYgBhAGYALQBmAGUAMQAxAC0ANAA2AGIAYQAtAGEAZgAyADkALQBiADQANAAyADgAZQBjADUAYgAzAGEANgB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

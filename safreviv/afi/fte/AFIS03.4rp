@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AFIS03.rdd" RWFglReportName="rep_resultados"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="LayoutNode" width="88.5059" length="523.632" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <IMAGEBOX name="ImageBox" width="121.023" length="86.3934" alignment="near" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                    </LAYOUTNODE>
+                    <WORDBOX name="WordBox1_1" width="771.307" length="19.028" alignment="near" color="#ffffff" bgColor="#ce050f" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="HISTORIAL DE CONSULTAS ROJAS">
+                        <rtl:input-variable name="m_v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="m_v_usuario Value" x="65.6634" y="19.8481" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{m_v_usuario}}"/>
+                    </WORDBOX>
+                    <LAYOUTNODE name="LayoutNode4_1" width="min" length="max" alignment="near" color="#ffffff" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox" width="min" length="min" alignment="far" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Usuario :"/>
+                        <WORDBOX name="WordBox3" x="0.8202" y="648.923" anchorX="2.43615e-14" anchorY="6.81326e-15" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Fecha :"/>
+                        <rtl:input-variable name="m_v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="m_v_usuario Value1" x="2.3251" y="63.8827" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{m_v_usuario}}"/>
+                        <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_fecha_reporte Value" x="0.8201" y="695.519" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode5_1" width="min" length="max" color="#aaaaaa" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage5_1" width="30" length="max" alignment="near" layoutDirection="leftToRight">
+                        <WORDWRAPBOX name="WordWrapBox" x="7.0303" y="5.8363" width="104.078" length="14.9471" anchorX="0.121904" anchorY="0.0777197" alignment="center" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Usuario" textAlignment="center"/>
+                        <WORDWRAPBOX name="WordWrapBox1" x="3.8356" y="123.419" width="34.0682" length="14.9437" anchorX="2.22287e-14" anchorY="8.30769e-15" alignment="baseline" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="NSS"/>
+                        <WORDWRAPBOX name="WordWrapBox2" x="3.8356" y="216.942" width="120.64" length="17.3256" anchorX="0" anchorY="0.0361659" alignment="near" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Derechohabiente" textAlignment="center"/>
+                        <WORDWRAPBOX name="WordWrapBox3" x="3.8356" y="394.49" width="104.078" length="14.9471" anchorX="2.09164e-14" anchorY="0.0355973" alignment="near" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Tipo de consulta" textAlignment="center"/>
+                        <WORDWRAPBOX name="WordWrapBox4" x="8.2741" y="534.272" width="118.381" length="17.0013" anchorX="0.315245" anchorY="0.0426895" alignment="center" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Fecha de consulta" textAlignment="center"/>
+                        <WORDWRAPBOX name="WordWrapBox5" x="3.8356" y="653.441" width="121.393" length="17.4337" anchorX="0.155855" anchorY="0.0291914" alignment="near" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Hora de consulta" textAlignment="center"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage10_1" width="min" length="770.554" layoutDirection="leftToRight"/>
+                    <MINIPAGE name="MiniPage9_1" width="26.9884" length="770.412" alignment="near" layoutDirection="leftToRight">
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="p_reporte.usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_reporte.usuario Value" x="4.766" y="9.8347" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{p_reporte.usuario}}"/>
+                                <rtl:input-variable name="p_reporte.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_reporte.nss Value" x="4.766" y="96.534" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{p_reporte.nss}}"/>
+                                <rtl:input-variable name="p_reporte.derechohabiente" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_reporte.derechohabiente Value" x="6.042" y="196.619" width="168.281" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{p_reporte.derechohabiente}}"/>
+                                <rtl:input-variable name="p_reporte.tpo_consulta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_reporte.tpo_consulta Value" x="6.042" y="380.936" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{p_reporte.tpo_consulta}}"/>
+                                <rtl:input-variable name="p_reporte.f_consulta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_reporte.f_consulta Value" x="6.042" y="555.952" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{p_reporte.f_consulta}}"/>
+                                <rtl:input-variable name="p_reporte.h_consulta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_reporte.h_consulta Value" x="6.042" y="668.663" anchorX="0.0537963" anchorY="5.60955e-15" floatingBehavior="enclosed" text="{{p_reporte.h_consulta}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

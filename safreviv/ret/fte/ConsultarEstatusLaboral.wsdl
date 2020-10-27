@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ConsultarEstatusLaboral" targetNamespace="http://services.inofnavit.org.mx/estatuslaboralie" xmlns:bons1="http://services.infonavit.org.mx/estatuslaboralie" xmlns:bons2="http://services.infonavir.org.mx/esb" xmlns:tns="http://services.inofnavit.org.mx/estatuslaboralie" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://services.inofnavit.org.mx/estatuslaboralie" xmlns:bons1="http://services.infonavit.org.mx/estatuslaboralie" xmlns:bons2="http://services.infonavir.org.mx/esb" xmlns:tns="http://services.inofnavit.org.mx/estatuslaboralie" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://services.infonavit.org.mx/estatuslaboralie" schemaLocation="xsd-includes/http.services.infonavit.org.mx.estatuslaboralie.xsd"/>
+            <xsd:import namespace="http://services.infonavir.org.mx/esb" schemaLocation="MediationException.xsd"/>
+      <xsd:element name="consultarTrabajador">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="nss" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarTrabajadorResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="estatusLaboralTrabajador" nillable="true" type="bons1:EstatusLaboralTrabajador"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="consultarTrabajador_fault1" type="bons2:MediationException"/>
+        </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarTrabajadorResponseMsg">
+    <wsdl:part element="tns:consultarTrabajadorResponse" name="consultarTrabajadorResult">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarTrabajadorRequestMsg">
+    <wsdl:part element="tns:consultarTrabajador" name="consultarTrabajadorParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarTrabajador_fault1Msg">
+    <wsdl:part element="tns:consultarTrabajador_fault1" name="fault1">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ConsultarEstatusLaboral">
+    <wsdl:operation name="consultarTrabajador">
+      <wsdl:input message="tns:consultarTrabajadorRequestMsg" name="consultarTrabajadorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:consultarTrabajadorResponseMsg" name="consultarTrabajadorResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:consultarTrabajador_fault1Msg" name="fault1">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,229 @@
+<?xml version="1.0"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.datoscontacto.infonavit.org.mx/DatosContactoWS/" targetNamespace="http://ws.datoscontacto.infonavit.org.mx/DatosContactoWS/">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ws.datoscontacto.infonavit.org.mx/DatosContactoWS/" version="1.0">
+<xs:element name="consultarDatosContacto" type="tns:consultarDatosContacto"/>
+<xs:element name="consultarDatosContactoResponse" type="tns:consultarDatosContactoResponse"/>
+<xs:element name="modificarDatosContacto" type="tns:modificarDatosContacto"/>
+<xs:element name="modificarDatosContactoResponse" type="tns:modificarDatosContactoResponse"/>
+<xs:complexType name="consultarDatosContacto">
+<xs:sequence>
+<xs:element minOccurs="0" name="nss" type="xs:string"/>
+<xs:element minOccurs="0" name="idAplicacion" type="xs:string"/>
+<xs:element minOccurs="0" name="rfc" type="xs:string"/>
+<xs:element minOccurs="0" name="curp" type="xs:string"/>
+<xs:element minOccurs="0" name="nrp" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultarDatosContactoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:responseConsultaDatosContactoDto"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="responseConsultaDatosContactoDto">
+<xs:complexContent>
+<xs:extension base="tns:responseDatosContactoDto">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaAutenticacion" nillable="true" type="tns:autenticacionDto"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaContacto" nillable="true" type="tns:datosContactoDto"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaDirecciones" nillable="true" type="tns:direccionDto"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaMkt" nillable="true" type="tns:atributosMktDto"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaPrincipales" nillable="true" type="tns:principalDto"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaReferencias1" nillable="true" type="tns:referencia1Dto"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaReferencias2" nillable="true" type="tns:referencia2Dto"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="responseDatosContactoDto">
+<xs:sequence>
+<xs:element minOccurs="0" name="descError" type="xs:string"/>
+<xs:element minOccurs="0" name="estatus" type="xs:string"/>
+<xs:element minOccurs="0" name="idError" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="autenticacionDto">
+<xs:sequence>
+<xs:element minOccurs="0" name="desc_error" type="xs:string"/>
+<xs:element minOccurs="0" name="estatus" type="xs:string"/>
+<xs:element minOccurs="0" name="id_error" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="datosContactoDto">
+<xs:sequence>
+<xs:element minOccurs="0" name="auto_envio_info" type="xs:string"/>
+<xs:element minOccurs="0" name="auto_notifi_correo" type="xs:string"/>
+<xs:element minOccurs="0" name="auto_notifi_sms" type="xs:string"/>
+<xs:element minOccurs="0" name="celular" type="xs:string"/>
+<xs:element minOccurs="0" name="celular_verificado" type="xs:string"/>
+<xs:element minOccurs="0" name="email" type="xs:string"/>
+<xs:element minOccurs="0" name="email_verificado" type="xs:string"/>
+<xs:element minOccurs="0" name="fecha_celular_verificado" type="xs:string"/>
+<xs:element minOccurs="0" name="fecha_email_verificado" type="xs:string"/>
+<xs:element minOccurs="0" name="id_proc_email" type="xs:string"/>
+<xs:element minOccurs="0" name="id_proc_sms" type="xs:string"/>
+<xs:element minOccurs="0" name="lada_casa" type="xs:string"/>
+<xs:element minOccurs="0" name="lada_celular" type="xs:string"/>
+<xs:element minOccurs="0" name="lada_recados" type="xs:string"/>
+<xs:element minOccurs="0" name="lada_trabajo" type="xs:string"/>
+<xs:element minOccurs="0" name="tel_casa" type="xs:string"/>
+<xs:element minOccurs="0" name="tel_recados" type="xs:string"/>
+<xs:element minOccurs="0" name="tel_trabajo" type="xs:string"/>
+<xs:element minOccurs="0" name="trabajo_ext" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="direccionDto">
+<xs:sequence>
+<xs:element minOccurs="0" name="calle" type="xs:string"/>
+<xs:element minOccurs="0" name="colonia" type="xs:string"/>
+<xs:element minOccurs="0" name="cp" type="xs:string"/>
+<xs:element minOccurs="0" name="estado" type="xs:string"/>
+<xs:element minOccurs="0" name="id_estado" type="xs:string"/>
+<xs:element minOccurs="0" name="municipio" type="xs:string"/>
+<xs:element minOccurs="0" name="nro_exterior" type="xs:string"/>
+<xs:element minOccurs="0" name="nro_interior" type="xs:string"/>
+<xs:element minOccurs="0" name="tipo_dir" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="atributosMktDto">
+<xs:sequence>
+<xs:element minOccurs="0" name="autorenviocorreo" type="xs:string"/>
+<xs:element minOccurs="0" name="autorenvioinfo" type="xs:string"/>
+<xs:element minOccurs="0" name="autorenviosms" type="xs:string"/>
+<xs:element minOccurs="0" name="conquienvivo" type="xs:string"/>
+<xs:element minOccurs="0" name="nivelacademico" type="xs:string"/>
+<xs:element minOccurs="0" name="personasmay18" type="xs:string"/>
+<xs:element minOccurs="0" name="persviven1218" type="xs:string"/>
+<xs:element minOccurs="0" name="persvivenmen12" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="principalDto">
+<xs:sequence>
+<xs:element minOccurs="0" name="apellido_materno" type="xs:string"/>
+<xs:element minOccurs="0" name="apellido_paterno" type="xs:string"/>
+<xs:element minOccurs="0" name="curp" type="xs:string"/>
+<xs:element minOccurs="0" name="estado_civil" type="xs:string"/>
+<xs:element minOccurs="0" name="id_estado_civil" type="xs:string"/>
+<xs:element minOccurs="0" name="nombre" type="xs:string"/>
+<xs:element minOccurs="0" name="rfc" type="xs:string"/>
+<xs:element minOccurs="0" name="sexo" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="referencia1Dto">
+<xs:sequence>
+<xs:element minOccurs="0" name="apellido_materno" type="xs:string"/>
+<xs:element minOccurs="0" name="apellido_paterno" type="xs:string"/>
+<xs:element minOccurs="0" name="celular" type="xs:string"/>
+<xs:element minOccurs="0" name="lada_casa" type="xs:string"/>
+<xs:element minOccurs="0" name="lada_celular" type="xs:string"/>
+<xs:element minOccurs="0" name="nombre" type="xs:string"/>
+<xs:element minOccurs="0" name="nss_referencia1" type="xs:string"/>
+<xs:element minOccurs="0" name="parentesco" type="xs:string"/>
+<xs:element minOccurs="0" name="tel_casa" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="referencia2Dto">
+<xs:sequence>
+<xs:element minOccurs="0" name="apellido_materno" type="xs:string"/>
+<xs:element minOccurs="0" name="apellido_paterno" type="xs:string"/>
+<xs:element minOccurs="0" name="celular" type="xs:string"/>
+<xs:element minOccurs="0" name="lada_casa" type="xs:string"/>
+<xs:element minOccurs="0" name="lada_celular" type="xs:string"/>
+<xs:element minOccurs="0" name="nombre" type="xs:string"/>
+<xs:element minOccurs="0" name="nss_referencia2" type="xs:string"/>
+<xs:element minOccurs="0" name="parentesco" type="xs:string"/>
+<xs:element minOccurs="0" name="tel_casa" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="modificarDatosContacto">
+<xs:sequence>
+<xs:element minOccurs="0" name="consultaDatosContacto" type="tns:requestModificacionDatosContactoDto"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="requestModificacionDatosContactoDto">
+<xs:sequence>
+<xs:element minOccurs="0" name="atributosMkt" type="tns:atributosMktDto"/>
+<xs:element minOccurs="0" name="autenticacion" type="tns:autenticacionDto"/>
+<xs:element minOccurs="0" name="datosContacto" type="tns:datosContactoDto"/>
+<xs:element minOccurs="0" name="direccion" type="tns:direccionDto"/>
+<xs:element minOccurs="0" name="idAplicacion" type="xs:string"/>
+<xs:element minOccurs="0" name="nss" type="xs:string"/>
+<xs:element minOccurs="0" name="otros" type="tns:otrosDto"/>
+<xs:element minOccurs="0" name="principal" type="tns:principalDto"/>
+<xs:element minOccurs="0" name="referencia1" type="tns:referencia1Dto"/>
+<xs:element minOccurs="0" name="referencia2" type="tns:referencia2Dto"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="otrosDto">
+<xs:sequence>
+<xs:element minOccurs="0" name="auto_envio_info" type="xs:string"/>
+<xs:element minOccurs="0" name="auto_notifi_correo" type="xs:string"/>
+<xs:element minOccurs="0" name="auto_notifi_sms" type="xs:string"/>
+<xs:element minOccurs="0" name="estado_civil" type="xs:string"/>
+<xs:element minOccurs="0" name="sexo" type="xs:string"/>
+<xs:element minOccurs="0" name="verificar_celular" type="xs:string"/>
+<xs:element minOccurs="0" name="verificar_correo" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="modificarDatosContactoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:responseModificacionDatosContactoDto"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="responseModificacionDatosContactoDto">
+<xs:complexContent>
+<xs:extension base="tns:responseDatosContactoDto">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="consultarDatosContactoIn">
+<wsdl:part element="tns:consultarDatosContacto" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="consultarDatosContactoOut">
+<wsdl:part element="tns:consultarDatosContactoResponse" name="consultarDatosContactoResponse"/>
+</wsdl:message>
+<wsdl:message name="modificarDatosContactoIn">
+<wsdl:part element="tns:modificarDatosContacto" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="modificarDatosContactoOut">
+<wsdl:part element="tns:modificarDatosContactoResponse" name="modificarDatosContactoResponse"/>
+</wsdl:message>
+<wsdl:portType name="DatosContactoWS">
+<wsdl:operation name="consultarDatosContacto" parameterOrder="parameters">
+<wsdl:input message="tns:consultarDatosContactoIn"/>
+<wsdl:output message="tns:consultarDatosContactoOut"/>
+</wsdl:operation>
+<wsdl:operation name="modificarDatosContacto" parameterOrder="parameters">
+<wsdl:input message="tns:modificarDatosContactoIn"/>
+<wsdl:output message="tns:modificarDatosContactoOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="DatosContactoWSBinding" type="tns:DatosContactoWS">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="consultarDatosContacto">
+<soap:operation soapAction=""/>
+<wsdl:input>
+<soap:body parts="parameters" use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="modificarDatosContacto">
+<soap:operation soapAction=""/>
+<wsdl:input>
+<soap:body parts="parameters" use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="DatosContactoServiceWS">
+<wsdl:port binding="tns:DatosContactoWSBinding" name="DatosContactoPort">
+<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://10.90.8.30:50000/DatosContactoServiceWS/DatosContactoWS"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

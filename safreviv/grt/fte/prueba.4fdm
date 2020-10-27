@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{2de290a9-84fc-431d-8397-0cdcc1cfe099}">
+  <AGSettings>
+    <DynamicProperties version="2">
+      <DynamicProperty description="Allow adding items" initialValue="true" isDefaultInherited="false" isHidden="false" label="canAdd" name="canAdd" readOnly="false" type="BOOLEAN"/>
+      <DynamicProperty description="Allow deleting items" initialValue="true" isDefaultInherited="false" isHidden="false" label="canDelete" name="canDelete" readOnly="false" type="BOOLEAN"/>
+      <DynamicProperty description="Allow modifying existing items" initialValue="true" isDefaultInherited="false" isHidden="false" label="canModify" name="canModify" readOnly="false" type="BOOLEAN"/>
+      <DynamicProperty description="Allow search using Query By Example" initialValue="true" isDefaultInherited="false" isHidden="false" label="canSearch" name="canSearch" readOnly="false" type="BOOLEAN"/>
+      <DynamicProperty dynamicContent="srcFieldsContent" editorInfo="isDynamic:true" initialValue="" isDefaultInherited="false" isHidden="false" label="foreignFields" name="foreignFields" readOnly="false" type="FIELDS"/>
+      <DynamicProperty dynamicContent="dstFieldsContent" editorInfo="isDynamic:true" initialValue="" isDefaultInherited="false" isHidden="false" label="primaryFields" name="primaryFields" readOnly="false" type="FIELDS"/>
+      <DynamicPropertyGroup collapsed="false" description="Functionality properties group" label="Functionality" name="functionality" properties="canAdd;canModify;canDelete;canSearch"/>
+      <DynamicPropertyGroup collapsed="false" description="Relation properties group" label="Relation" name="relations" properties="foreignFields;primaryFields"/>
+    </DynamicProperties>
+    <NodeInfos version="1">
+      <NodeInfo mimeType="BR/Record" properties="canAdd;canModify;canDelete;canSearch"/>
+      <NodeInfo mimeType="BR/Relation" properties="primaryFields;foreignFields"/>
+    </NodeInfos>
+  </AGSettings>
+  <Form gridHeight="25" gridWidth="80" name="form" text="Form"/>
+</ManagedForm>

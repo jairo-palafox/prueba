@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{40d2cfb0-f3ce-4016-b0fb-9beff0f09481}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_detalle2" order="" uid="{5a3e5fb3-528d-4784-803b-a3e9f6394b9e}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_detalle" order="" uid="{744ac970-2a37-42d9-b19a-4812fe5e65cf}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{f71bef87-352d-435b-849b-d781617a22a2}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cmb_folios" sqlTabName="" table_alias_name="" uid="{1b1ba21c-9ddf-4c37-905c-35a50ad15e8c}"/>
+    <RecordField colName="" fieldIdRef="7" name="d_f_proceso" sqlTabName="" table_alias_name="" uid="{3fd37648-906e-474a-a0db-4f1d159efa11}"/>
+    <RecordField colName="" fieldIdRef="2" name="ed_archivo" sqlTabName="" table_alias_name="" uid="{0edfd028-4ad6-4e7e-9338-b018bb339042}"/>
+    <RecordField colName="" fieldIdRef="3" name="ed_fch_operacion" sqlTabName="" table_alias_name="" uid="{de9ba253-848e-45be-ada7-6f9cfb8bf6e6}"/>
+    <RecordField colName="" fieldIdRef="4" name="ed_folio_detalle" sqlTabName="" table_alias_name="" uid="{a4a623d9-3a34-4062-85f8-60e4eae603c0}"/>
+    <RecordField colName="" fieldIdRef="5" name="ed_fch_carga" sqlTabName="" table_alias_name="" uid="{59140adc-5f82-4c68-a51f-3f317652ccd7}"/>
+    <RecordField colName="" fieldIdRef="6" name="ed_total_registros" sqlTabName="" table_alias_name="" uid="{b95d0b6a-9bc7-4dd0-9b7e-f3dd86286560}"/>
+    <RecordField colName="" fieldIdRef="8" name="ed_aceptados" sqlTabName="" table_alias_name="" uid="{b53db8f6-b1cd-41f3-82a8-460b9fa3abd0}"/>
+    <RecordField colName="" fieldIdRef="9" name="ed_rechazados" sqlTabName="" table_alias_name="" uid="{150224d0-3a4f-4a56-bb22-5cb2a04d9e17}"/>
+  </Record>
+  <Form gridHeight="30" gridWidth="193" name="SALDOS INSUFICIENTES EN SOLICITUDES DE RETIRO POR TRANSFERENCIA" text="Form">
+    <Grid gridHeight="28" gridWidth="189" name="Grid1" posX="2" posY="1">
+      <Group gridHeight="10" gridWidth="185" name="Group1" posX="2" posY="1" text="Parámetros de consulta">
+        <Label gridHeight="1" gridWidth="12" justify="left" name="lbl_folio" posX="3" posY="2" text="Folio"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="40" items="" name="cmb_folios" posX="3" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="combobox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="18" name="lbl_fch_proceso" posX="3" posY="6" text="Fecha Proceso"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="dd/mm/yyyy" gridHeight="1" gridWidth="19" name="d_f_proceso" posX="3" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="15" gridWidth="185" name="group2" posX="2" posY="12" text="Detalle Consulta">
+        <Label gridHeight="1" gridWidth="16" name="lbl_archivo" posX="4" posY="2" text="Archivo"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="42" name="ed_archivo" posX="23" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="lbl_folio_detalle" posX="4" posY="4" text="Folio"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="23" name="ed_folio_detalle" posX="23" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="18" name="lbl_total_registros" posX="73" posY="4" text="Total Registros"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="20" name="ed_total_registros" posX="93" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="lbl_fch_operacion" posX="4" posY="6" text="Fecha Operación"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="23" name="ed_fch_operacion" posX="23" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="lbl_aceptados" posX="77" posY="6" text="Aceptados"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="20" name="ed_aceptados" posX="93" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="17" name="lbl_fch_carga" posX="4" posY="8" text="Fecha Carga"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="23" name="ed_fch_carga" posX="23" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="lbl_rechazados" posX="77" posY="8" text="Rechazados"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="20" name="ed_rechazados" posX="93" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="edit3" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzAGYAZAAzADcANgA0ADgALQA5ADAANgBlAC0ANAA3ADQAYQAtAGEAMABkAGIALQA0AGYAMQBkADEANQA5AGUAZgBhADEAMQB9QCAAAAQAAABAR5mZn4AAAAAAAAAAAAAAAQAAAEwAewAxADUAMAAyADIANABkADAALQAzAGEANABmAC0ANABhADUANgAtAGIAYgAyADIALQA1AGMAYgAyAGEAMAA0AGQAOQBlADEANwB9QCAAAAQAAABAZUzM0iAAAAAAAAAAAAAAAQAAAEwAewBiADkANQBkADAAYgA2AGEALQA5AGIAYwA3AC0ANABkAGQAMAAtADkAYgA3AGUALQBmADMAZABkADgANgAyADgANgA1ADYAMAB9QCAAAAQAAABAYOZmaqAAAAAAAAAAAAAAAQAAAEwAewBiADUAMwBkAGIAOABmADYALQBiADEAYwBkAC0ANAAxAGYAMwAtADgAMgBhADgALQA0ADYAMABiADkAZgBhADMAYQBiAGQAMAB9QCAAAAQAAABAYxmZnmAAAAAAAAAAAAAAAQAAAEwAewBkAGUAOQBiAGEAMgA1ADMALQA4ADQAOABlAC0ANAA1AGIAZQAtAGEAZABhADcALQA2AGYAOQBjAGYAYgA4AGIAZgA2AGUANgB9QCAAAAQAAABAVJmZnsAAAAAAAAAAAAAAAQAAAEwAewA3ADQANABhAGMAOQA3ADAALQAyAGEAMwA3AC0ANAAyAGQAOQAtAGIAMQA5AGEALQA0ADgAMQAyAGYAZQA1AGUANgA1AGMAZgB9QDgAABgAAAlAOAAAGAAACT+TdLxqfvneAQAAAEwAewAwAGUAZABmAGQAMAAyADgALQA0AGEAZAA2AC0ANABlADcAZQAtADkAMwAzADgALQBiADAAMQA4AGIAYgAzADMAOQAwADQAMgB9QCAAAAQAAABAUDMzN0AAAAAAAAAAAAAAAQAAAEwAewBmADcAMQBiAGUAZgA4ADcALQAzADUAMgBkAC0ANAAzADUAYgAtADgANAA5AGIALQBkADcAOAAxADYAMQA3AGEAMgAyAGEAMgB9wHRAAC2QACxAQgAAKIAAKT9gYk3S8an8AQAAAEwAewAxAGIAMQBiAGEAMgAxAGMALQA5AGQAZABmAC0ANABjADMANwAtADkAMAA1AGMALQAzADUAYQA1ADAAYQBkADEANQBlADgAYwB9QCAAAAQAAABAPZmZoQAAAAAAAAAAAAAAAQAAAEwAewA1AGEAMwBlADUAZgBiADMALQA1ADIAOABkAC0ANAA3ADgANAAtADgAMAAzAGIALQBhADMAZQA5AGYANgAzADkANABiADkAZQB9wGFMzO7mZoTAVjMzXpmZvz+QYk3S8an+AQAAAEwAewBhADQAYQA2ADIAMwBkADkALQAzAGEAMwA0AC0ANAAwADYAMgAtADgANQBmADgALQA2ADAAZQA0AGUAYQBlADYAMAAzAGMAMAB9QCAAAAQAAABAWQAABkAAAAAAAAAAAAAAAQAAAEwAewA1ADkAMQA0ADAAYQBkAGMALQA1AGYAOAAyAC0ANABjADYAOAAtAGEANQAxAGYALQAzAGYAMwAxADcANgA1ADIAYwBjAGQANwB9QCAAAAQAAABAXWZmbcAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

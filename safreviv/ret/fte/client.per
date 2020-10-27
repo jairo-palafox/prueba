@@ -1,0 +1,77 @@
+
+
+SCHEMA FORMONLY
+ACTION DEFAULTS
+   ACTION plus ( ACCELERATOR=F1 )   
+END
+
+LAYOUT
+  GROUP (TEXT="Rechazo cliente DEMO")
+    VBOX
+      HBOX   
+        VBOX
+          GRID
+          {
+              NSS:                       [op1               ]
+              Tipo Beneficiario:         [op2               ]
+              Nombre del beneficiario:   [op3               ]
+              Apellido paterno:          [op4               ]
+              Apellido materno:          [op5               ]
+              CLABE:                     [op6               ]
+              Clave de Banco:            [op7               ]
+              Entidad federativa:        [op8               ]
+             
+              Causal de retiro:          [op10              ]
+                            
+
+             Status:   [r_result            ]
+            Rechazo:   [remaind           ]
+          }
+          END
+        END -- vbox
+        VBOX
+          GRID
+          {
+           [bt1 ]
+          }
+          END
+        END -- vbox
+      END -- hbox
+      HBOX
+        GRID
+        {
+          [msg                  ]
+        }
+        END -- group
+      END --hbox
+      HBOX
+        GRID
+        {
+          [msg1                  ]
+        }
+        END -- group
+      END --hbox
+    END --vbox
+  END -- group
+END  -- layout
+
+
+ATTRIBUTES
+    EDIT op1=FORMONLY.op1; 
+    EDIT op2=FORMONLY.op2;  
+    EDIT op3=FORMONLY.op3;  
+    EDIT op4=FORMONLY.op4;  
+    EDIT op5=FORMONLY.op5;  
+    EDIT op6=FORMONLY.op6;  
+    EDIT op7=FORMONLY.op7;  
+    EDIT op8=FORMONLY.op8;  
+   -- EDIT op9=formonly.op9;  
+    EDIT op10=FORMONLY.op10;
+    EDIT r_result=FORMONLY.r_result;
+    EDIT remaind=FORMONLY.r_remaind, COLOR = RED;
+    BUTTON bt1 : plus, TEXT="Enviar",COMMENT="Se ocupa servicio";
+    TEXTEDIT msg=FORMONLY.msg, NOENTRY, STRETCH=BOTH,SCROLLBARS=NONE,TITLE="Error description";
+    TEXTEDIT msg1=FORMONLY.msg1, NOENTRY, STRETCH=BOTH,SCROLLBARS=NONE,TITLE="Error description";
+END
+
+

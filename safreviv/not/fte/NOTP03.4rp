@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/NOTP03.rdd" RWFglReportName="rp_cifras_contr_pagos_omisos"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="far">
+                    <IMAGEBOX name="ImageBox" x="1.7733" y="0.8429" width="101.236" length="65.8034" anchorX="0" anchorY="0" bgColor="#ec0000" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                    <WORDBOX name="WordBox" x="8.0857" y="71.3662" width="505.709" length="24.6679" anchorX="0" anchorY="0" color="#ffffff" bgColor="#df0000" fontName="Microsoft Sans Serif" fontSize="10" floatingBehavior="enclosed" text="  Usuario:                                    RESUMEN DE REGISTROS DE PAGOS">
+                        <WORDBOX name="WordBox1" x="0" y="29.4041" width="504.956" length="27.3173" anchorX="0" anchorY="0" bgColor="#df0000" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" text="  Folio:                             ">
+                            <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio Value" x="89.2569" y="22.0991" width="86.5285" length="16.4385" anchorX="0.5" anchorY="1" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{v_folio}}"/>
+                        </WORDBOX>
+                        <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_fecha Value" x="372.514" y="4.3354" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_usuario Value" x="55.5135" y="4.3354" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" text="{{p_usuario}}"/>
+                    </WORDBOX>
+                    <WORDBOX name="WordBox2" x="209.215" y="129.43" width="100.037" length="16.4642" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" fontBold="false" fontItalic="false" floatingBehavior="enclosed" text="CIFRAS CONTROL" marginWidth="1"/>
+                    <WORDBOX name="WordBox3" x="59.2348" y="155.264" width="106.27" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="CIFRAS CONTROL "/>
+                    <WORDBOX name="WordBox5" x="97.3426" y="173.489" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="Fecha Actual de Carga"/>
+                    <WORDBOX name="WordBox6" x="97.3426" y="192.78" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="Nombre del Archivo"/>
+                    <WORDBOX name="WordBox7" x="130.877" y="145.245" width="249" length="0.217382" anchorX="0" anchorY="0" bgColor="#e50000" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" text=""/>
+                    <rtl:input-variable name="v_f_actualiza" type="FGLString" expectedLocation="expectedHere"/>
+                    <WORDBOX name="v_f_actualiza Value" x="245.53" y="173.489" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" text="{{v_f_actualiza}}"/>
+                    <rtl:input-variable name="v_nombre_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                    <WORDWRAPBOX name="v_nombre_archivo Value" x="245.53" y="192.78" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" text="{{v_nombre_archivo}}"/>
+                    <WORDBOX name="WordBox8" x="92.0047" y="237.862" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="Total  de Registros Patrón"/>
+                    <WORDBOX name="WordBox9" x="92.0047" y="261.479" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="Total de Registros Trabajador"/>
+                    <rtl:input-variable name="v_count_cta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                    <DECIMALFORMATBOX name="v_count_cta Value" x="325.6" y="237.862" anchorX="1" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_count_cta}}"/>
+                    <rtl:input-variable name="v_count_det" type="FGLNumeric" expectedLocation="expectedHere"/>
+                    <DECIMALFORMATBOX name="v_count_det Value" x="325.6" y="261.479" width="76.2697" anchorX="1" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_count_det}}"/>
+                    <WORDBOX name="WordBox10" x="211.064" y="289.061" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="CIFRAS SUMARIO"/>
+                    <WORDBOX name="WordBox11" x="196.615" y="310.16" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="Patrón "/>
+                    <WORDBOX name="WordBox12" x="192.225" y="331.544" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="Trabajador"/>
+                    <WORDBOX name="WordBox13" x="162.912" y="351.666" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="Total de Registros "/>
+                    <rtl:input-variable name="v_tot_reg_tpo1" type="FGLNumeric" expectedLocation="expectedHere"/>
+                    <DECIMALFORMATBOX name="v_tot_reg_tpo1 Value" x="324.394" y="308.914" anchorX="1" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_tot_reg_tpo1}}"/>
+                    <rtl:input-variable name="v_sum_tot_reg_tpo2" type="FGLNumeric" expectedLocation="expectedHere"/>
+                    <DECIMALFORMATBOX name="v_sum_tot_reg_tpo2 Value" x="333.331" y="331.544" anchorX="1" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_sum_tot_reg_tpo2}}"/>
+                    <rtl:input-variable name="v_tot_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                    <DECIMALFORMATBOX name="v_tot_registros Value" x="333.331" y="351.666" anchorX="1" anchorY="0" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_tot_registros}}"/>
+                    <WORDBOX name="WordBox7_2" x="6.8326" y="283.038" width="514.743" length="0.44938" anchorX="0" anchorY="0" bgColor="#e50000" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" text=""/>
+                    <WORDBOX name="WordBox7_4" x="6.8326" y="213.704" width="514.743" length="0.44938" anchorX="0" anchorY="0" bgColor="#e50000" fontName="Microsoft Sans Serif" floatingBehavior="enclosed" text=""/>
+                    <WORDBOX name="WordBox14" x="202.75" y="217.564" anchorX="0" anchorY="0" fontName="Microsoft Sans Serif" fontSize="11" floatingBehavior="enclosed" text="CIFRAS   ARCHIVO"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

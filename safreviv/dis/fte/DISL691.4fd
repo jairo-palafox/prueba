@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="DISL011" uid="{44e4ebbf-6190-4710-8c68-f82949980156}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="encabezado" order="" uid="{369dcd04-c54d-4e8a-87b4-0a9bccfaa726}" where="">
+    <RecordField colName="" defaultValue="" fieldIdRef="1" name="v_cb_Folio" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{5b37fe55-e96b-4cf5-90c8-239cba1a85a4}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sa_HistRegPag" order="" uid="{0391c7cd-226e-437e-a41a-6dc6f903a802}" where="">
+    <RecordField colName="" fieldIdRef="3" name="col_Fecha" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{8560adf9-bdd2-494c-8f9f-5dd1fd034857}"/>
+    <RecordField colName="" fieldIdRef="4" name="col_Folio" sqlTabName="" table_alias_name="" uid="{87c1953c-aae1-4ae6-bacc-b641b1822212}"/>
+    <RecordField colName="" fieldIdRef="5" name="col_Total" sqlTabName="" table_alias_name="" uid="{b949bf73-13f0-42f5-a647-b7e70ec096ab}"/>
+    <RecordField colName="" fieldIdRef="7" name="col_Apo" sqlTabName="" table_alias_name="" uid="{60333cd3-12b8-4992-8dd5-05ef3edcc79e}"/>
+    <RecordField colName="" fieldIdRef="2" name="col_Amo" sqlTabName="" table_alias_name="" uid="{05a6a2fa-2a2a-446f-9f6d-8ff50cb15a0a}"/>
+    <RecordField colName="" fieldIdRef="6" name="col_Estado" sqlTabName="" table_alias_name="" uid="{31f0dc5c-f6fd-46b9-b6dd-44d8b30ac249}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{4e5988de-4cfe-4655-bc98-854dce8c22fb}" where=""/>
+  <Form gridHeight="27" gridWidth="130" name="DISL011" text="Dispersión">
+    <Grid gridHeight="19" gridWidth="121" name="grid_DISL011" posX="1" posY="0">
+      <Group gridHeight="3" gridWidth="118" name="gr_RecuperaHistorico" posX="2" posY="1" text="Recupera Histórico Cancelación Parcial Avances de Pago">
+        <Label gridHeight="1" gridWidth="4" name="lbl_Folio" posX="2" posY="1" text="Folio"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" comment="Elija un Folio" defaultValue="" fieldId="1" gridHeight="1" gridWidth="56" initializer="" items="" name="v_cb_Folio" notNull="true" posX="8" posY="1" queryEditable="false" required="false" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="11" gridWidth="118" name="gr_Historico" posX="2" posY="5" text="Resumen Histórico Cancelación Parcial Avances de Pago">
+        <Table gridHeight="8" gridWidth="115" name="sa_HistRegPag" posX="2" posY="2" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" name="col_Fecha" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Fecha &#10;Integración&#10;Archivo" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" name="col_Folio" posX="11" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Folio" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="##########" gridHeight="1" gridWidth="15" name="col_Total" posX="23" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Total &#10;Registros" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="col_Apo" posX="38" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Monto&#10;Aportación" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="col_Amo" posX="60" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Monto&#10;Amortización" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="15" name="col_Estado" posX="82" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Estado &#10;Cancelación Parcial&#10;Avances Pago" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzADYAOQBkAGMAZAAwADQALQBjADUANABkAC0ANABlADgAYQAtADgANwBiADQALQAwAGEAOQBiAGMAYwBmAGEAYQA3ADIANgB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewA0AGUANQA5ADgAOABkAGUALQA0AGMAZgBlAC0ANAA2ADUANQAtAGIAYwA5ADgALQA4ADUANABkAGMAZQA4AGMAMgAyAGYAYgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGIAMwA3AGYAZQA1ADUALQBlADkANgBiAC0ANABjAGYANQAtADkAMABjADgALQAyADMAOQBjAGIAYQAxAGEAOAA1AGEANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADkANAA5AGIAZgA3ADMALQAxADMAZgAwAC0ANAAyAGYANQAtAGEANgA0ADcALQBiADcAZQA3ADAAZQBjADAAOQA2AGEAYgB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADEAZgAwAGQAYwA1AGMALQBmADYAZgBkAC0ANAA2AGIAOQAtAGIANgBkAGQALQA0ADQAZAA4AGIAMwAwAGEAYwAyADQAOQB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADMAOQAxAGMANwBjAGQALQAyADIANgBlAC0ANAAzADcAZQAtAGEANAAxAGEALQA2AGQAYwA2AGYAOQAwADMAYQA4ADAAMgB9wGwgAAAAAABAUAAAAAAAAD+EeuFHrhR8AQAAAEwAewAwADUAYQA2AGEAMgBmAGEALQAyAGEAMgBhAC0ANAA0ADYAZgAtADkAZgA2AGQALQA4AGYAZgA1ADAAYwBiADEANQBhADAAYQB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADUANgAwAGEAZABmADkALQBiAGQAZAAyAC0ANAA5ADQAYwAtADgAZgA5AGYALQA1AGQAZAAxAGYAZAAwADMANAA4ADUANwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADcAYwAxADkANQAzAGMALQBhAGEAZQAxAC0ANABhAGUANgAtAGIAYQBjAGMALQBiADYANAAxAGIAMQA4ADIAMgAyADEAMgB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADAAMwAzADMAYwBkADMALQAxADIAYgA4AC0ANAA5ADkAMgAtADgAZABkADUALQAwADUAZQBmADMAZQBkAGMAYwA3ADkAZQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

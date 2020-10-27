@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{e1e93a4e-3d0c-4322-8ef1-d467085c323a}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{c2cbbfb5-8a53-4546-9312-c718dfd1c219}" where="">
+    <RecordField colName="" fieldIdRef="1" name="edi_caso_adai" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{6eed326d-5300-47e7-856e-8d345b96a723}"/>
+    <RecordField colName="" fieldIdRef="3" name="edi_id_expediente" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{81eedec1-c552-40f5-8e7b-5860355c5cb8}"/>
+    <RecordField colName="" fieldIdRef="4" name="flbl_caso_expediente" sqlTabName="" table_alias_name="" uid="{ca3ecc32-6e3b-4f9d-a220-1f1a6f887d24}"/>
+    <RecordField colName="" fieldIdRef="5" name="flbl_tipo_flujo_expediente" sqlTabName="" table_alias_name="" uid="{5e5242c1-ecae-4017-83b0-5c4dab490e80}"/>
+    <RecordField colName="" fieldIdRef="6" name="flbl_fecha_captura_expediente" sqlTabName="" table_alias_name="" uid="{8671fe3e-bac6-4951-9923-fa1285f8e7c1}"/>
+    <RecordField colName="" fieldIdRef="7" name="flbl_origen_expediente" sqlTabName="" table_alias_name="" uid="{186e2590-ad20-4066-8542-1bf8d0104b2c}"/>
+    <RecordField colName="" fieldIdRef="8" name="flbl_acreditado_expediente" sqlTabName="" table_alias_name="" uid="{6729d22b-1875-4ade-878c-1168ca475d5b}"/>
+    <RecordField colName="" fieldIdRef="9" name="flbl_trabajador_expediente" sqlTabName="" table_alias_name="" uid="{609d5de3-31cd-46f5-8927-19f2522dcf23}"/>
+    <RecordField colName="" defaultValue="0" fieldIdRef="15" name="sin_archivo" sqlTabName="" table_alias_name="" uid="{d4036964-eb5c-4f17-b604-14789c55bffa}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_documento" order="" uid="{75b25fbe-40dd-4647-88de-ae6dad1df941}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tedi_id_expediente" sqlTabName="" table_alias_name="" uid="{985b8795-961a-4959-aee4-3bebd1dcb0e8}"/>
+    <RecordField colName="" fieldIdRef="10" name="tedi_documento" sqlTabName="" table_alias_name="" uid="{ce7a6cc2-d38e-4440-913a-ed0470ac1e3d}"/>
+    <RecordField colName="" fieldIdRef="11" name="tedi_seleccion" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{27dd1f7f-c92e-41be-8a34-2e870e0197eb}"/>
+    <RecordField colName="" fieldIdRef="12" name="tedi_ruta" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{5694045b-9468-42b3-bf0f-ecf4ca180783}"/>
+    <RecordField colName="" fieldIdRef="13" name="tedi_ruta_local" sqlTabName="" table_alias_name="" uid="{ab6a5a9e-9b61-4933-91c5-c102a3306a80}"/>
+    <RecordField colName="" fieldIdRef="14" name="tedi_archivo" sqlTabName="" table_alias_name="" uid="{4c5771aa-ed69-4537-b079-b584bf05129b}"/>
+  </Record>
+  <Form gridHeight="28" gridWidth="117" name="Form" text="Form">
+    <Grid gridHeight="26" gridWidth="114" name="gr_carga_resti_complementaria" posX="0" posY="0">
+      <Group gridHeight="7" gridWidth="58" name="gpo_captura" posX="2" posY="1" text="Captura">
+        <Label gridHeight="1" gridWidth="11" name="lbl_caso_adai" posX="2" posY="2" text="No Caso Adai"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="19" name="edi_caso_adai" posX="14" posY="2" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="11" name="lbl_id_expediente" posX="2" posY="4" text="Id. Expediente"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="19" name="edi_id_expediente" posX="14" posY="4" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+      </Group>
+      <Group gridHeight="6" gridWidth="81" name="gpo_expediente" posX="2" posY="9" text="Datos Expediente">
+        <Label gridHeight="1" gridWidth="11" name="lbl_caso_expediente" posX="2" posY="2" text="Caso"/>
+        <Label gridHeight="1" gridWidth="14" name="lbl_tipo_flujo_expediente" posX="14" posY="2" text="Tipo Flujo"/>
+        <Label gridHeight="1" gridWidth="11" name="lbl_decha_captura_expediente" posX="29" posY="2" text="Fecha Captura"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_origen_expediente" posX="41" posY="2" text="Origen Expediente"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_acreditado_expediente" posX="57" posY="2" text="Invadido"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_trabajador" posX="68" posY="2" text="Asociado"/>
+        <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" justify="center" name="flbl_caso_expediente" posX="2" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Edit3" widget="FFLabel"/>
+        <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="14" justify="center" name="flbl_tipo_flujo_expediente" posX="14" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Edit4" widget="FFLabel"/>
+        <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="11" justify="center" name="flbl_fecha_captura_expediente" posX="29" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="DateEdit1" widget="FFLabel"/>
+        <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="15" justify="center" name="flbl_origen_expediente" posX="41" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Edit5" widget="FFLabel"/>
+        <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="10" justify="center" name="flbl_acreditado_expediente" posX="57" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Edit6" widget="FFLabel"/>
+        <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="10" justify="center" name="flbl_trabajador_expediente" posX="68" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Edit3" widget="FFLabel"/>
+      </Group>
+      <Group gridHeight="7" gridWidth="90" name="gpo_dicatamen" posX="2" posY="16" text="Ingreso Archivo de Restitución Complementaria">
+        <Table gridHeight="2" gridWidth="86" name="Table1" posX="2" posY="2" totalRows="1" unsizableColumns="true">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="2" hidden="true" name="tedi_id_expediente" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="id_expediente" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="33" name="tedi_documento" noEntry="true" posX="2" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Documento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" autoNext="true" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="1" name="tedi_seleccion" posX="35" posY="0" rowCount="" scroll="true" sizePolicy="dynamic" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" style="FileUpload" tabIndex="5" table_alias_name="" title="" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="36" name="tedi_ruta" noEntry="false" posX="36" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Ruta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="3" hidden="true" name="tedi_ruta_local" posX="72" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Ruta Local" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="3" hidden="true" name="tedi_archivo" posX="75" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Archivo" widget="Edit"/>
+        </Table>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" defaultValue="0" fieldId="15" gridHeight="1" gridWidth="17" include="0|1" name="sin_archivo" notNull="true" posX="4" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="9" table_alias_name="" text="Sin Archivo" title="CheckBox1" widget="CheckBox"/>
+        <Button gridHeight="1" gridWidth="10" name="btn_quitar" posX="61" posY="5" tabIndex="10" text="Quitar"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.procesar.com.mx/TraspasosInfonavit/SolicitudCredito/solicitudCredito/"
+	xmlns:tns="http://www.procesar.com.mx/TraspasosInfonavit/SolicitudCredito/solicitudCredito/">
+
+	<!-- ELEMENTS MARCA -->
+	<xsd:element name="SolicMarcaVO" type="tns:SolicMarcaVO" />
+	<xsd:element name="SolicMarcaRespVO" type="tns:SolicMarcaRespVO" />
+	<!-- ELEMENTS DESMARCA -->
+	<xsd:element name="SolicDesmarcaVO" type="tns:SolicDesmarcaVO" />
+	<xsd:element name="SolicDesmarcaRespVO" type="tns:SolicDesmarcaRespVO" />
+
+	<!-- COMPLEX TYPES AND FIELDS -->
+	<!-- MARCA -->
+	<xsd:complexType name="SolicMarcaVO">
+		<xsd:sequence>
+			<xsd:element name="apeMaterno" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="apePaterno" nillable="true" type="xsd:string" />
+			<xsd:element name="fechaPresentacion" nillable="true" type="xsd:string" />
+			<xsd:element name="nombres" nillable="true" type="xsd:string" />
+			<xsd:element name="nss" nillable="true" type="xsd:string" />
+			<xsd:element name="numCreditoInfonavit" nillable="true" type="xsd:string" />
+			<xsd:element name="rfc" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="sitCredito" nillable="true" type="xsd:string" />
+			<xsd:element name="tipoCredito" nillable="true" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SolicMarcaRespVO">
+		<xsd:sequence>
+			<xsd:element name="apeMaternoBD" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="apeMaternoInfo" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="apePaternoBD" nillable="true" type="xsd:string" />
+			<xsd:element name="apePaternoInfo" nillable="true" type="xsd:string" />
+			<xsd:element name="diagProceso" nillable="true" type="xsd:string" />
+			<xsd:element name="nombresBD" nillable="true" type="xsd:string" />
+			<xsd:element name="nombresInfo" nillable="true" type="xsd:string" />
+			<xsd:element name="nss" nillable="true" type="xsd:string" />
+			<xsd:element name="resultOperacion" nillable="true" type="xsd:string" />
+			<xsd:element name="rfc" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="rfcBD" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="tipTrabajador" nillable="true" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- DESMARCA -->
+	<xsd:complexType name="SolicDesmarcaVO">
+		<xsd:sequence>
+			<xsd:element name="apeMaterno" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="apePaterno" nillable="true" type="xsd:string" />
+			<xsd:element name="fechaPresentacion" nillable="true" type="xsd:string" />
+			<xsd:element name="nombres" nillable="true" type="xsd:string" />
+			<xsd:element name="nss" nillable="true" type="xsd:string" />
+			<xsd:element name="numCreditoInfonavit" nillable="true" type="xsd:string" />
+			<xsd:element name="rfc" nillable="true" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SolicDesmarcaRespVO">
+		<xsd:sequence>
+			<xsd:element name="apeMaternoBD" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="apeMaternoInfo" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="apePaternoBD" nillable="true" type="xsd:string" />
+			<xsd:element name="apePaternoInfo" nillable="true" type="xsd:string" />
+			<xsd:element name="diagProceso" nillable="true" type="xsd:string" />
+			<xsd:element name="nombresBD" nillable="true" type="xsd:string" />
+			<xsd:element name="nombresInfo" nillable="true" type="xsd:string" />
+			<xsd:element name="nss" nillable="true" type="xsd:string" />
+			<xsd:element name="resultOperacion" nillable="true" type="xsd:string" />
+			<xsd:element name="rfc" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="rfcBD" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="tipCreditDesm" nillable="true" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

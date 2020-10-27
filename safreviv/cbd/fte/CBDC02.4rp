@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterwidth" RWPageLength="letterlength" RWLeftMargin="1.0cm" RWTopMargin="1.0cm" RWRightMargin="1.0cm" RWBottomMargin="1.0cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/CBDC02.rdd" RWFglReportName="cifras"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <LAYOUTNODE name="encabezado" width="max" length="min" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="logo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../dis/bin/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="titulo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox" width="max" color="#ffffff" bgColor="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="CIFRAS CONTROL GENERACION ARCHIVO SALDOS VIVIENDA" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="fecha" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox1" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                            <WORDWRAPBOX name="WordWrapBox25" width="max/2" fontSize="10" floatingBehavior="enclosed" text="   "/>
+                            <rtl:input-variable name="v_today" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_today Value" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_today}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="folio" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox2" width="max/8" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Folio"/>
+                            <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio Value" width="max/8" anchorX="1" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="--------&amp;" value="{{v_folio}}"/>
+                            <WORDWRAPBOX name="WordWrapBox3" width="max/4" fontSize="10" floatingBehavior="enclosed" text=" "/>
+                            <WORDWRAPBOX name="WordWrapBox4" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Fecha Corte" textAlignment="right"/>
+                            <rtl:input-variable name="v_f_conciliacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_f_conciliacion Value" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_f_conciliacion}}"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador1" width="5" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="saldos" width="max" length="min" floatingBehavior="enclosed" borderWidth="1" borderStyle="none" borderColor="#ce050f">
+                        <LAYOUTNODE name="saldos_titulo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderStyle="solid" borderColor="#ce050f">
+                            <WORDWRAPBOX name="WordWrapBox19" width="max" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="SALDOS INFONAVIT" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="tab_saldos" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderStyle="none" borderColor="#ce050f">
+                            <WORDWRAPBOX name="WordWrapBox20" width="max/4.05" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="SUBCUENTA" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox21" width="max/4.05" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="PESOS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox22" width="max/4.05" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox23" width="max/4.05" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="TOTAL REGISTROS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                        </LAYOUTNODE>
+                        <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                                <LAYOUTNODE name="cifras" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="p_lista.subcuenta_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_lista.subcuenta_desc Value" width="max/4" fontSize="8" floatingBehavior="enclosed" text="{{p_lista.subcuenta_desc}}" borderWidth="1" borderStyle="none"/>
+                                    <rtl:input-variable name="p_lista.pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_lista.pesos Value" width="max/4" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_lista.pesos}}" borderWidth="1" borderStyle="none"/>
+                                    <rtl:input-variable name="p_lista.acciones" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_lista.acciones Value" width="max/4" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_lista.acciones}}" borderWidth="1" borderStyle="none"/>
+                                    <rtl:input-variable name="p_lista.registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_lista.registros Value" width="max/4" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,--&amp;" value="{{p_lista.registros}}" borderWidth="1" borderStyle="none"/>
+                                </LAYOUTNODE>
+                            </rtl:match>
+                        </rtl:match>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador2" width="5" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="sum" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDWRAPBOX name="WordWrapBox24" width="max/4" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="SUMATORIA" textAlignment="right" borderWidth="1" borderTopStyle="solid" borderTopColor="#ce050f"/>
+                        <rtl:input-variable name="v_sum_pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_sum_pesos Value" width="max/4" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_pesos}}" borderWidth="1" borderTopStyle="solid" borderTopColor="#ce050f"/>
+                        <rtl:input-variable name="v_sum_acciones" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_sum_acciones Value" width="max/4" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_acciones}}" borderWidth="1" borderTopStyle="solid" borderTopColor="#ce050f"/>
+                        <rtl:input-variable name="v_sum_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_sum_registros Value" width="max/4" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,--&amp;" value="{{v_sum_registros}}" borderWidth="1" borderTopStyle="solid" borderTopColor="#ce050f"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

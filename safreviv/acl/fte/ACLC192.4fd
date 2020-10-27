@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="ManagedForm" uid="{2faaf756-9c2e-413c-955a-9d2fa3bfff2e}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record1" order="" uid="{5b99ecab-1936-4577-9b04-2cafb8a2eddb}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{bae3f51f-f593-496a-b2b8-086ac06e3b03}" where="">
+    <RecordField colName="" fieldIdRef="9" name="tpo_aclaracion" sqlTabName="" table_alias_name="" uid="{8fa50799-f060-433e-af39-14b99f167430}"/>
+    <RecordField colName="" fieldIdRef="10" name="pag_tpo_aclaracion" sqlTabName="" table_alias_name="" uid="{07ed205a-72ba-465d-938a-7cfac31ef229}"/>
+    <RecordField colName="" fieldIdRef="11" name="imp_ap_pat" sqlTabName="" table_alias_name="" uid="{7578a5d7-1893-488a-bd4d-791bc96143aa}"/>
+    <RecordField colName="" fieldIdRef="12" name="imp_am_cre" sqlTabName="" table_alias_name="" uid="{68857e51-f4d9-4c3d-8e09-e471ceb659ed}"/>
+    <RecordField colName="" fieldIdRef="13" name="v_desc_destino_ap_viv" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{6a5f2094-b64e-4688-81d8-f23ddd060233}"/>
+    <RecordField colName="" fieldIdRef="14" name="aiv_ap_pat" sqlTabName="" table_alias_name="" uid="{28cea409-9ad6-43b3-aa10-4bfcef3a08d4}"/>
+    <RecordField colName="" fieldIdRef="15" name="valor_aiv" sqlTabName="" table_alias_name="" uid="{04ae4330-872f-456f-947b-0837efc31a30}"/>
+    <RecordField colName="" fieldIdRef="16" name="int_gen_pgo_ext" sqlTabName="" table_alias_name="" uid="{96955cde-e4e5-4abc-ab57-c1656676b738}"/>
+    <RecordField colName="" fieldIdRef="17" name="aiv_gen_pgo_ext" sqlTabName="" table_alias_name="" uid="{9734bc21-944d-4793-b1a5-a42f7c6c3789}"/>
+    <RecordField colName="" fieldIdRef="1" name="cve_entidad_receptora" sqlTabName="" table_alias_name="" uid="{fdcfc636-a20a-4f1e-800b-0bfa7491d75a}"/>
+  </Record>
+  <Form gridHeight="26" gridWidth="147" name="Form" text="Form">
+    <Grid gridHeight="23" gridWidth="142" name="Grid1" posX="2" posY="1">
+      <Group gridHeight="21" gridWidth="137" name="Group1" posX="1" posY="0" text="Datos complementarios">
+        <Label gridHeight="1" gridWidth="23" name="Label11" posX="2" posY="1" text="Entidad Receptora"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="19" justify="right" name="cve_entidad_receptora" posX="29" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="25" name="Label9" posX="2" posY="2" text="Destino Aportación Vivienda"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="19" justify="right" name="v_desc_destino_ap_viv" posX="29" posY="2" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="23" name="Label4" posX="2" posY="3" text="Tipo de Aclaración "/>
+        <TextEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="3" gridWidth="80" justify="left" name="tpo_aclaracion" noEntry="true" posX="29" posY="3" rowCount="" sizePolicy="initial" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit8" widget="TextEdit"/>
+        <Label gridHeight="1" gridWidth="23" hidden="true" name="Label1" posX="2" posY="6" text="Pago Tipo Aclaración "/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="19" hidden="true" justify="right" name="pag_tpo_aclaracion" posX="29" posY="6" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="23" name="Label3" posX="2" posY="7" text="Importe Aportación Patronal"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="19" justify="right" name="imp_ap_pat" posX="29" posY="7" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="24" name="Label5" posX="2" posY="8" text="Importe Amortización de Crédito"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="19" justify="right" name="imp_am_cre" posX="29" posY="8" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="23" name="Label6" posX="2" posY="9" text="AIV Aportación Patronal"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="19" justify="right" name="aiv_ap_pat" posX="29" posY="9" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="23" name="Label7" posX="2" posY="10" text="Valor AIV"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="19" justify="right" name="valor_aiv" posX="29" posY="10" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="23" name="Label8" posX="2" posY="11" text="Intereses Generados Pago Ext."/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="19" justify="right" name="int_gen_pgo_ext" posX="29" posY="11" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="23" name="Label10" posX="2" posY="12" text="AIV Generado Pago Ext."/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="19" justify="right" name="aiv_gen_pgo_ext" posX="29" posY="12" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit8" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyADgAYwBlAGEANAAwADkALQA5AGEAZAA2AC0ANAAzAGIAMwAtAGEAYQAxADAALQA0AGIAZgBjAGUAZgAzAGEAMAA4AGQANAB9QCAAAAQAAABAXWZmbcAAAAAAAAAAAAAAAQAAAEwAewA5ADcAMwA0AGIAYwAyADEALQA5ADQANABkAC0ANAA3ADkAMwAtAGIAMQBhADUALQBhADQAMgBmADcAYwA2AGMAMwA3ADgAOQB9QCAAAAQAAABAZUzM0iAAAAAAAAAAAAAAAQAAAEwAewAwADcAZQBkADIAMAA1AGEALQA3ADIAYgBhAC0ANAA2ADUAZAAtADkAMwA4AGEALQA3AGMAZgBhAGMAMwAxAGUAZgAyADIAOQB9QCAAAAQAAABAR5mZn4AAAAAAAAAAAAAAAQAAAEwAewA1AGIAOQA5AGUAYwBhAGIALQAxADkAMwA2AC0ANAA1ADcANwAtADkAYgAwADQALQAyAGMAYQBmAGIAOABhADIAZQBkAGQAYgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGQAYwBmAGMANgAzADYALQBhADIAMABhAC0ANABmADEAZQAtADgAMAAwAGIALQAwAGIAZgBhADcANAA5ADEAZAA3ADUAYQB9QCAAAAQAAABAZ4AABeAAAAAAAAAAAAAAAQAAAEwAewBiAGEAZQAzAGYANQAxAGYALQBmADUAOQAzAC0ANAA5ADYAYQAtAGIAMgBiADgALQAwADgANgBhAGMAMAA2AGUAMwBiADAAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADQAYQBlADQAMwAzADAALQA4ADcAMgBmAC0ANAA1ADYAZgAtADkANAA3AGIALQAwADgAMwA3AGUAZgBjADMAMQBhADMAMAB9QCAAAAQAAABAYOZmaqAAAAAAAAAAAAAAAQAAAEwAewA4AGYAYQA1ADAANwA5ADkALQBmADAANgAwAC0ANAAzADMAZQAtAGEAZgAzADkALQAxADQAYgA5ADkAZgAxADYANwA0ADMAMAB9QCAAAAQAAABAPZmZoQAAAAAAAAAAAAAAAQAAAEwAewA2ADgAOAA1ADcAZQA1ADEALQBmADQAZAA5AC0ANABjADMAZAAtADgAZQAwADkALQBlADQANwAxAGMAZQBiADYANQA5AGUAZAB9QCAAAAQAAABAVJmZnsAAAAAAAAAAAAAAAQAAAEwAewA2AGEANQBmADIAMAA5ADQALQBiADYANABlAC0ANAA2ADgAOAAtADgAMQBkADgALQBmADIAMwBkAGQAZAAwADYAMAAyADMAMwB9QCAAAAQAAABAWQAABkAAAAAAAAAAAAAAAQAAAEwAewA3ADUANwA4AGEANQBkADcALQAxADgAOQAzAC0ANAA4ADgAYQAtAGIAZAA0AGQALQA3ADkAMQBiAGMAOQA2ADEANAAzAGEAYQB9QCAAAAQAAABAUDMzN0AAAAAAAAAAAAAAAQAAAEwAewA5ADYAOQA1ADUAYwBkAGUALQBlADQAZQA1AC0ANABhAGIAYwAtAGEAYgA1ADcALQBjADEANgA1ADYANgA3ADYAYgA3ADMAOAB9QCAAAAQAAABAYxmZnmAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

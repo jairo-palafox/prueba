@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ FOURJS_START_COPYRIGHT(D,2000)
+ Property of Four Js*
+ (c) Copyright Four Js 2000, 2015. All Rights Reserved.
+ * Trademark of Four Js Development Tools Europe Ltd
+   in the United States and elsewhere
+ 
+ This file can be modified by licensees according to the
+ product manual.
+ FOURJS_END_COPYRIGHT
+ -->
+<!-- Configuration file for Application Server -->
+<CONFIGURATION
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.4js.com/ns/gas/2.50/cfas.xsd">
+  <APPLICATION_SERVER>
+    <!--The resource list contains the resources that can be used throughout the definition of the applications and components.-->
+    <RESOURCE_LIST>
+      <PLATFORM_INDEPENDENT>
+        <RESOURCE Id="res.fglgui" Source="INTERNAL">1</RESOURCE>
+
+        <!-- Directories  -->
+        <!-- Desarrollo -->
+        <RESOURCE Id="res.path.safredir" Source="INTERNAL">/ds/safreviv</RESOURCE>
+        <RESOURCE Id="res.path.safredir_log" Source="INTERNAL">/ds/safreviv_log</RESOURCE>
+        <!-- QA -->
+        <!-- <RESOURCE Id="res.path.safredir" Source="INTERNAL">/safreviv</RESOURCE>-->
+        <!-- <RESOURCE Id="res.path.safredir_log" Source="INTERNAL">/safreviv_log</RESOURCE> -->
+        
+        <RESOURCE Id="res.path.fglprofile" Source="INTERNAL">$(res.path.safredir)/etc/fglprofile</RESOURCE>
+        <RESOURCE Id="res.path.fgldir.services" Source="INTERNAL">$(res.fgldir)/web_utilities/services</RESOURCE>
+        <RESOURCE Id="res.path.safredir.monitor" Source="INTERNAL">$(res.path.safredir)/prt/fte/monitor</RESOURCE>
+        <RESOURCE Id="res.path.services" Source="INTERNAL">$(res.appdata.path)/services</RESOURCE>
+        <RESOURCE Id="res.path.docroot" Source="INTERNAL">$(res.path.as)/web</RESOURCE>
+        <RESOURCE Id="res.path.tmp" Source="INTERNAL">$(res.appdata.path)/tmp</RESOURCE>
+        <RESOURCE Id="res.deployment.root" Source="INTERNAL">$(res.appdata.path)/deployment</RESOURCE>
+        <RESOURCE Id="res.path.portabilidad" Source="INTERNAL">$(res.path.safredir)/prt</RESOURCE>
+
+        <RESOURCE Id="res.gwcproxy.param" Source="INTERNAL"></RESOURCE>
+        <RESOURCE Id="res.html5proxy.param" Source="INTERNAL"></RESOURCE>
+        <!-- 
+        <RESOURCE Id="res.path.pic" Source="INTERNAL">$(res.path.as)/pic</RESOURCE>
+        <RESOURCE Id="res.path.tpl" Source="INTERNAL">$(res.path.as)/tpl</RESOURCE>
+        <RESOURCE Id="res.path.app" Source="INTERNAL">$(res.appdata.path)/app</RESOURCE>
+        <RESOURCE Id="res.path.tpl.ajax" Source="INTERNAL">$(res.path.tpl)/SetAjax</RESOURCE>
+        <RESOURCE Id="res.path.tpl.basic" Source="INTERNAL">$(res.path.tpl)/SetBasic</RESOURCE>
+        <RESOURCE Id="res.path.tpl.sl" Source="INTERNAL">$(res.path.tpl)/SetSL</RESOURCE>
+        <RESOURCE Id="res.path.tpl.html5" Source="INTERNAL">$(res.path.tpl)/SetHtml5</RESOURCE>
+        <RESOURCE Id="res.path.tpl.iphone" Source="INTERNAL">$(res.path.tpl)/SetIphone</RESOURCE>
+        <RESOURCE Id="res.path.tpl.common" Source="INTERNAL">$(res.path.tpl)/common</RESOURCE>
+        <RESOURCE Id="res.theme.default.gdc.template" Source="INTERNAL">$(res.path.tpl)/fglgdcdefault.html</RESOURCE>
+        <RESOURCE Id="res.theme.default.gdc.shortcut.path" Source="INTERNAL">$(res.path.tpl)/shortcut</RESOURCE>
+        <RESOURCE Id="res.theme.default.sl.bootstrap" Source="INTERNAL">$(res.path.tpl)/fglsldefault.html</RESOURCE>
+        -->
+        <!-- Default resource extension filters -->
+        <RESOURCE Id="res.image.extensions" Source="INTERNAL">.png;.gif;.jpeg;.jpg;.swf;.bmp;.ico;.PNG;.GIF;.JPEG;.JPG;.SWF;.BMP;.ICO</RESOURCE>
+        <RESOURCE Id="res.sound.extensions" Source="INTERNAL">.ogg;.mp3;.mp4;.wav</RESOURCE>
+        <RESOURCE Id="res.web.extensions" Source="INTERNAL">$(res.image.extensions);$(res.sound.extensions);.js;.css;.woff;.html</RESOURCE>
+        <RESOURCE Id="res.web.components.extensions" Source="INTERNAL">$(res.web.extensions);.xml;.json;.html;.xhtml;.swf</RESOURCE>
+
+        <!-- TCP port-related resources of the connector interface -->
+        <RESOURCE Id="res.ic.base.port" Source="INTERNAL">6100</RESOURCE>
+        <RESOURCE Id="res.ic.port.offset" Source="INTERNAL">40</RESOURCE>
+
+        <!-- Default log resources -->
+        <RESOURCE Id="res.log.output.path" Source="INTERNAL">$(res.path.safredir_log)</RESOURCE>
+        <RESOURCE Id="res.log.output.type" Source="INTERNAL">DAILYFILE</RESOURCE>
+        <RESOURCE Id="res.log.format" Source="INTERNAL">time event-type event-params</RESOURCE>
+        <RESOURCE Id="res.log.categories_filter" Source="INTERNAL">ACCESS PROCESS DEPRECATED ERROR WARNING</RESOURCE>
+        <RESOURCE Id="res.log.raw_data.maxlength" Source="INTERNAL">-1</RESOURCE>
+
+      </PLATFORM_INDEPENDENT>
+      <WNT>
+        <!-- Windows implementation can use TCP only. No support for Unix Domain sockets -->
+        <RESOURCE Id="res.dispatcher.socket.family" Source="INTERNAL">TCP</RESOURCE>
+        <RESOURCE Id="res.dispatcher.socket.path" Source="INTERNAL">C:\temp</RESOURCE>
+        <RESOURCE Id="res.dvm.wa" Source="INTERNAL">"$(res.fgldir)\bin\fglrun.exe"</RESOURCE>
+        <RESOURCE Id="res.fgldir" Source="INTERNAL">/opt/fourjs/2.50.23/fgl</RESOURCE>
+        <RESOURCE Id="res.gredir" Source="INTERNAL">/opt/fourjs/2.50.23/gre</RESOURCE>
+        <RESOURCE Id="res.path" Source="INTERNAL">;$(res.path.as)\bin;$(res.gredir)\bin;$(res.fgldir)\bin;$(res.fgldir)\lib</RESOURCE>
+        <RESOURCE Id="res.fglldpath" Source="INTERNAL">$(res.path.as)\lib;$(res.gredir)\lib;$(res.fgldir)\lib</RESOURCE>
+        <RESOURCE Id="res.path.as" Source="INTERNAL">/opt/fourjs/2.50.23/gas</RESOURCE>
+        <RESOURCE Id="res.ifxdir" Source="INTERNAL">/opt/IBM/informix</RESOURCE>
+        <RESOURCE Id="res.fgldir.gre" Source="INTERNAL">/opt/fourjs/2.32/gre</RESOURCE>
+        <RESOURCE Id="res.path.separator" Source="INTERNAL">;</RESOURCE>
+        <RESOURCE Id="res.gwsproxy" Source="INTERNAL">"$(res.path.as)\bin\gwsproxy.exe"</RESOURCE>
+        <RESOURCE Id="res.gdcproxy" Source="INTERNAL">"$(res.path.as)\bin\gdcproxy.exe"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy" Source="INTERNAL">"$(res.path.as)\bin\gwcproxy.exe"</RESOURCE>
+        <RESOURCE Id="res.html5proxy" Source="INTERNAL">"$(res.path.as)\bin\html5proxy.exe"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy.cmd" Source="INTERNAL">$(res.gwcproxy) $(res.gwcproxy.param)</RESOURCE>
+        <RESOURCE Id="res.html5proxy.cmd" Source="INTERNAL">$(res.html5proxy) $(res.html5proxy.param)</RESOURCE>
+        <RESOURCE Id="res.appdata.path" Source="INTERNAL">#!APPDATADIR!#\gas\2.50.40-145831</RESOURCE>
+      </WNT>
+      <UNX>
+        <!--
+             Using Unix Domain sockets by default for communication between the
+             dispatcher and proxies, default value configured is 'UNIX' then.
+             It can be changed to TCP by configuring the value 'TCP' instead.
+        -->
+        <RESOURCE Id="res.dispatcher.socket.family" Source="INTERNAL">UNIX</RESOURCE>
+        <RESOURCE Id="res.dispatcher.socket.path" Source="INTERNAL">/tmp/diagnosticoAclaracionPortabilidad</RESOURCE>
+        <RESOURCE Id="res.dvm.wa" Source="INTERNAL">"$(res.fgldir)/bin/fglrun"</RESOURCE>
+        <RESOURCE Id="res.fgldir" Source="INTERNAL">/opt/fourjs/2.50.23/fgl</RESOURCE>
+        <RESOURCE Id="res.gredir" Source="INTERNAL">/opt/fourjs/2.50.23/gre</RESOURCE>
+        <RESOURCE Id="res.path" Source="INTERNAL">$(res.path.as)/bin:$(res.gredir)/bin:$(res.fgldir)/bin:/usr/bin:/bin:$(efp.informixdir)/bin:$(efp.javahome)/bin</RESOURCE>
+        <RESOURCE Id="res.fglldpath" Source="INTERNAL">$(res.path.as)/lib:$(res.gredir)/lib:$(res.fgldir)/lib:$(efp.informixdir)/lib:$(efp.informixdir)/lib/esql:$(efp.informixdir)/lib/tools</RESOURCE>
+        <RESOURCE Id="res.path.as" Source="INTERNAL">/opt/fourjs/2.50.23/gas</RESOURCE>
+        <RESOURCE Id="res.path.separator" Source="INTERNAL">:</RESOURCE>
+        <RESOURCE Id="res.gwsproxy" Source="INTERNAL">"$(res.path.as)/bin/gwsproxy"</RESOURCE>
+        <RESOURCE Id="res.gdcproxy" Source="INTERNAL">"$(res.path.as)/bin/gdcproxy"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy" Source="INTERNAL">"$(res.path.as)/bin/gwcproxy"</RESOURCE>
+        <RESOURCE Id="res.appdata.path" Source="INTERNAL">$(res.path.as)/appdata/saldos</RESOURCE>
+
+        <RESOURCE Id="efp.informixdir" Source="INTERNAL">/opt/IBM/informix</RESOURCE>
+        <RESOURCE Id="efp.javahome" Source="INTERNAL">/usr/java/jre1.7.0_11</RESOURCE>
+        <RESOURCE Id="efp.classpath" Source="INTERNAL">=/opt/fourjs/2.50.15/fgl/lib/fgl.jar</RESOURCE>
+
+        <!--
+        <RESOURCE Id="res.gdcproxy" Source="INTERNAL">"$(res.path.as)/bin/gdcproxy"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy" Source="INTERNAL">"$(res.path.as)/bin/gwcproxy"</RESOURCE>        
+        <RESOURCE Id="res.html5proxy" Source="INTERNAL">"$(res.path.as)/bin/html5proxy"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy.cmd" Source="INTERNAL">$(res.gwcproxy) $(res.gwcproxy.param)</RESOURCE>
+        <RESOURCE Id="res.html5proxy.cmd" Source="INTERNAL">$(res.html5proxy) $(res.html5proxy.param)</RESOURCE>
+        -->
+      </UNX>
+    </RESOURCE_LIST>
+    <!--The component list contains new items, known as component, that will be used later by applications. Components can be seen - in some ways - as macro definition. -->
+    <COMPONENT_LIST>
+
+      <SERVICE_APPLICATION_EXECUTION_COMPONENT Id="cpn.ws.execution.local">
+        <ENVIRONMENT_VARIABLE Id="FGLDIR">$(res.fgldir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="GREDIR">$(res.gredir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="PATH">$(res.path)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLLDPATH">$(res.fglldpath):$(res.path.safre)/glo/bin</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLPROFILE">$(res.path.fglprofile)</ENVIRONMENT_VARIABLE>
+        <!--To enable Web Services debug, set FGLWSDEBUG to 1, 2 or 3. -->
+        <ENVIRONMENT_VARIABLE Id="FGLWSDEBUG">0</ENVIRONMENT_VARIABLE>
+
+        <DVM>$(res.dvm.wa)</DVM>
+        <POOL>
+          <START>1</START>
+          <MIN_AVAILABLE>1</MIN_AVAILABLE>
+          <MAX_AVAILABLE>50</MAX_AVAILABLE>
+        </POOL>
+      </SERVICE_APPLICATION_EXECUTION_COMPONENT>
+
+      <!--Timeout component for WS applications -->
+      <SERVICE_APPLICATION_TIMEOUT_COMPONENT Id="cpn.ws.timeout">
+        <DVM_AVAILABLE>10</DVM_AVAILABLE>
+        <KEEP_ALIVE>10</KEEP_ALIVE>
+      </SERVICE_APPLICATION_TIMEOUT_COMPONENT>
+
+      <WEB_APPLICATION_PICTURE_COMPONENT Id="cpn.picture">
+        <PATH Type="APPSERVER">$(res.path.pic)</PATH>
+      </WEB_APPLICATION_PICTURE_COMPONENT>
+
+      <WEB_APPLICATION_RENDERING_COMPONENT Id="cpn.rendering.wa">
+        <OUTPUT_DRIVER>JFE36</OUTPUT_DRIVER>
+      </WEB_APPLICATION_RENDERING_COMPONENT>
+      
+    </COMPONENT_LIST>
+
+    <INTERFACE_TO_CONNECTOR>
+      <TCP_BASE_PORT>$(res.ic.base.port)</TCP_BASE_PORT>
+      <TCP_PORT_OFFSET>$(res.ic.port.offset)</TCP_PORT_OFFSET>
+      <LIMIT_REQUEST_SIZE>0</LIMIT_REQUEST_SIZE>
+      <DOCUMENT_ROOT>$(res.path.docroot)</DOCUMENT_ROOT>
+      <TEMPORARY_DIRECTORY>$(res.path.tmp)</TEMPORARY_DIRECTORY>
+      <SESSION_DIRECTORY>$(res.appdata.path)/session</SESSION_DIRECTORY>
+      <SOCKET_FAMILY>$(res.dispatcher.socket.family)</SOCKET_FAMILY>
+      <SOCKET_PATH>$(res.dispatcher.socket.path)</SOCKET_PATH>
+    </INTERFACE_TO_CONNECTOR>
+
+    <INTERFACE_TO_DVM>
+      <ADDRESS>127.0.0.1</ADDRESS>
+    </INTERFACE_TO_DVM>
+
+    <LOG>
+      <OUTPUT Type="$(res.log.output.type)">$(res.log.output.path)</OUTPUT>
+      <FORMAT Type="TEXT">$(res.log.format)</FORMAT>
+      <CATEGORIES_FILTER>$(res.log.categories_filter)</CATEGORIES_FILTER>
+      <RAW_DATA MaxLength="$(res.log.raw_data.maxlength)" />
+    </LOG>
+
+    <MONITOR>
+        <ALLOW_FROM>127.0.0.1</ALLOW_FROM>
+        <ALLOW_FROM>::1</ALLOW_FROM>
+        <!--
+          <ALLOW_FROM>192.168.</ALLOW_FROM>
+          <ALLOW_FROM>10.</ALLOW_FROM>
+          <ALLOW_FROM>193.111.222.123</ALLOW_FROM>
+        -->
+    </MONITOR>
+
+    <FILE_TRANSFER>
+      <TIMEOUT>600</TIMEOUT>
+    </FILE_TRANSFER>
+
+    <AUTHENTICATION Type="KERBEROS">
+      <REALM></REALM>
+      <SERVICE_NAME>gassvc</SERVICE_NAME>
+      <KEYTAB>$(res.path.as)/etc/gwc.keytab</KEYTAB>
+    </AUTHENTICATION>
+
+    <SERVICE_LIST>
+      <APPLICATION Id="ws.default" Abstract="TRUE">
+        <PROXY>$(res.gwsproxy)</PROXY>
+        <EXECUTION Using="cpn.ws.execution.local"/>
+        <TIMEOUT Using="cpn.ws.timeout"/>
+      </APPLICATION>
+
+      <!--This is the default service for GST debugging sessions -->
+      <APPLICATION Id="diagnosticoAclaracionPortabilidad" Parent="ws.default" Abstract="TRUE">
+        <DESCRIPTION>
+      		<LONG>WS servidor para aclaracion de portabilidad</LONG>
+      	</DESCRIPTION>
+        <EXECUTION>
+          <PATH>$(res.path.safredir)/prt/bin</PATH>
+          <MODULE>PRTWS10.42r</MODULE>
+          <!--<DELEGATE service="monitoreo/monitorREST">
+            <servicio_cod>1000</servicio_cod>
+          </DELEGATE>-->
+          <POOL>
+            <START>0</START>
+            <MIN_AVAILABLE>1</MIN_AVAILABLE>
+            <MAX_AVAILABLE>1</MAX_AVAILABLE>
+          </POOL>
+        </EXECUTION>
+      </APPLICATION>
+
+      <!-- <GROUP Id="_default">$(res.path.services)</GROUP> -->
+      <!-- <GROUP Id="demo">$(res.path.fgldir.demo.services)</GROUP>-->
+      <!-- <GROUP Id="monitoreo">$(res.path.safredir.monitor)</GROUP>-->
+    </SERVICE_LIST>
+
+  </APPLICATION_SERVER>
+</CONFIGURATION>

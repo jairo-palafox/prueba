@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{f48a9159-4f73-4dfe-88c3-eebfc1a68b01}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="r_saldos_insuf" order="" uid="{a7bfe8b2-c982-4ee7-a1be-21df0a819586}" where="">
+    <RecordField colName="" fieldIdRef="12" name="v_folio" sqlTabName="" table_alias_name="" uid="{6695c2be-0cca-4374-bad6-c00ea9ff9d4b}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_nss" sqlTabName="" table_alias_name="" uid="{9f427391-76d8-4128-9950-8c535e6649bc}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_nombre_trab" sqlTabName="" table_alias_name="" uid="{e8c81827-25a4-4157-8c5a-ad11ea0e691e}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_pesos72_sol" sqlTabName="" table_alias_name="" uid="{f1635952-2f71-4642-919e-8d8a46007a0f}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_pesos72_saldo" sqlTabName="" table_alias_name="" uid="{fc4c9789-3024-44ff-a040-65c5831ae689}"/>
+    <RecordField colName="" fieldIdRef="21" name="v_pesos72_dif" sqlTabName="" table_alias_name="" uid="{e11efb50-29c6-4f9f-9bc4-c4d91ed8e49c}"/>
+  </Record>
+  <Form gridHeight="71" gridWidth="434" name="Form" text="Form">
+    <VBox gridHeight="22" gridWidth="97" name="VBox1" posX="0" posY="0">
+      <Group gridHeight="20" gridWidth="97" name="Group1" posX="0" posY="1" text="Detalle por folio">
+        <Grid gridHeight="18" gridWidth="95" name="Grid1" posX="1" posY="1">
+          <Table gridHeight="16" gridWidth="93" name="Table1" posX="1" posY="1" totalRows="15">
+            <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="8" hidden="true" name="v_folio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Folio" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="17" name="v_nss" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="NSS" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="24" name="v_nombre_trab" posX="25" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Nombre Trabajador" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" name="v_pesos72_sol" posX="49" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Pesos Viv72&#10;SOLICITADO" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="13" name="v_pesos72_saldo" posX="60" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Pesos Viv72&#10;SALDO" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="21" gridHeight="1" gridWidth="12" name="v_pesos72_dif" posX="73" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Pesos Viv72&#10;DIFERENCIA" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5AGYANAAyADcAMwA5ADEALQA3ADYAZAA4AC0ANAAxADIAOAAtADkAOQA1ADAALQA4AGMANQAzADUAZQA2ADYANAA5AGIAYwB9QBQAAAAAAABASIAAAAAAAD9ok3S8an76AQAAAEwAewBmAGMANABjADkANwA4ADkALQAzADAAMgA0AC0ANAA0AGYAZgAtAGEAMAA0ADAALQA2ADUAYwA1ADgAMwAxAGEAZQA2ADgAOQB9QBQAAAAAAABAXYAAAAAAAD+keuFHrhR/AQAAAEwAewBmADEANgAzADUAOQA1ADIALQAyAGYANwAxAC0ANAA2ADQAMgAtADkAMQA5AGUALQA4AGQAOABhADQANgAwADAANwBhADAAZgB9QBQAAAAAAABAV8AAAAAAAD+jdLxqfvnfAQAAAEwAewBlADgAYwA4ADEAOAAyADcALQAyADUAYQA0AC0ANAAxADUANwAtADgAYwA1AGEALQBhAGQAMQAxAGUAYQAwAGUANgA5ADEAZQB9QBQAAAAAAABAUgAAAAAAAD+h64UeuFHvAQAAAEwAewBhADcAYgBmAGUAOABiADIALQBjADkAOAAyAC0ANABlAGUANwAtAGEAMQBiAGUALQAyADEAZABmADAAYQA4ADEAOQA1ADgANgB9wHKwAAAAAADAGAAAAAAAAD+gYk3S8an/AQAAAEwAewA2ADYAOQA1AGMAMgBiAGUALQAwAGMAYwBhAC0ANAAzADcANAAtAGIAYQBkADYALQBjADAAMABlAGEAOQBmAGYAOQBkADQAYgB9QBQAAAAAAABAOgAAAAAAAD+haHKwIMSfAQAAAEwAewBlADEAMQBlAGYAYgA1ADAALQAyADkAYwA2AC0ANABmADkAZgAtADkAYgBjADQALQBjADQAZAA5ADEAZQBkADgAZQA0ADkAYwB9QBQAAAAAAABAYaAAAAAAAD+g5WBBiTdPAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

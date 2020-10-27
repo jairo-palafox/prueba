@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="ManagedForm" uid="{894e9852-dea2-4c06-b293-60dc015cdc60}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{55ea5c26-7188-4dee-9906-33ec2a0da395}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_edit_Folio" sqlTabName="" table_alias_name="" uid="{138bcbf7-fa97-41d8-9bcf-6e624f633f46}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_CredCero" order="" uid="{843f5684-10f6-4b28-8862-2d07911865b4}" where="">
+    <RecordField colName="" fieldIdRef="4" name="col_Folio" sqlTabName="" table_alias_name="" uid="{cf2f604f-bb6f-46ab-aff9-7a290c968e46}"/>
+    <RecordField colName="" fieldIdRef="8" name="col_TotRegistros" sqlTabName="" table_alias_name="" uid="{5bda7b24-0e8d-44c9-a3dc-393f4d49f65b}"/>
+    <RecordField colName="" fieldIdRef="7" name="col_TotAceptados" sqlTabName="" table_alias_name="" uid="{8124325f-4c84-4e49-8501-39ff79048f0d}"/>
+    <RecordField colName="" fieldIdRef="9" name="col_TotRechazados" sqlTabName="" table_alias_name="" uid="{f632b207-5686-44ea-bddd-bc05441258ad}"/>
+  </Record>
+  <Form gridHeight="21" gridWidth="98" name="DISR011" text="">
+    <Grid gridHeight="19" gridWidth="94" hidden="false" name="grid_DISR011" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="83" name="gr_ConsultaAvPag" posX="1" posY="1" text="Reverso Créditos Ceros">
+        <Label gridHeight="1" gridWidth="4" name="lbl_Folio" posX="2" posY="1" text="Folio:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="18" name="v_edit_Folio" posX="7" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="11" gridWidth="83" name="gr_resregavpag" posX="1" posY="5" text="Resumen Créditos Ceros">
+        <Table gridHeight="8" gridWidth="78" name="scr_ResAvPag" posX="2" posY="2" totalRows="6">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="15" justify="left" name="col_Folio" posX="0" posY="0" rowCount="" scroll="true" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Folio de Carga" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" format="" gridHeight="1" gridWidth="15" justify="center" name="col_TotRegistros" posX="15" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Total &#10;Registros" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="14" justify="center" name="col_TotAceptados" posX="30" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Total&#10;Pendientes &#10;por Liquidar" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="14" justify="center" name="col_TotRechazados" posX="44" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Total&#10;Rechazados" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA1ADUAZQBhADUAYwAyADYALQA3ADEAOAA4AC0ANABkAGUAZQAtADkAOQAwADYALQAzADMAZQBjADIAYQAwAGQAYQAzADkANQB9wH0AAAAAAADAMQAAAAAAAD+keuFHrhR/AQAAAEwAewA1AGIAZABhADcAYgAyADQALQAwAGUAOABkAC0ANAA0AGMAOQAtAGEAMwBkAGMALQAzADkAMwBmADQAZAA0ADkAZgA2ADUAYgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADMAOABiAGMAYgBmADcALQBmAGEAOQA3AC0ANAAxAGQAOAAtADkAYgBjAGYALQA2AGUANgAyADQAZgA2ADMAMwBmADQANgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADQAMwBmADUANgA4ADQALQAxADAAZgA2AC0ANABiADIAOAAtADgAOAA2ADIALQAyAGQAMAA3ADkAMQAxADgANgA1AGIANAB9wHLgAAAAAADANAAAAAAAAD+sKPXCj1wvAQAAAEwAewA4ADEAMgA0ADMAMgA1AGYALQA0AGMAOAA0AC0ANABlADQAOQAtADgANQAwADEALQAzADkAZgBmADcAOQAwADQAOABmADAAZAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADYAMwAyAGIAMgAwADcALQA1ADYAOAA2AC0ANAA0AGUAYQAtAGIAZABkAGQALQBiAGMAMAA1ADQANAAxADIANQA4AGEAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGYAMgBmADYAMAA0AGYALQBiAGIANgBmAC0ANAA2AGEAYgAtAGEAZgBmADkALQA3AGEAMgA5ADAAYwA5ADYAOABlADQANgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

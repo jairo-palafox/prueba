@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://consultaMovimientos.efp.com" xmlns:intf="http://consultaMovimientos.efp.com" xmlns:tns1="http://vo.consultaMovimientos.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://consultaMovimientos.efp.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.consultaMovimientos.efp.com">
+   <import namespace="http://consultaMovimientos.efp.com"/>
+   <complexType name="ConsultaMovimientosRequest">
+    <sequence>
+     <element name="fFin" nillable="true" type="xsd:dateTime"/>
+     <element name="fInicio" nillable="true" type="xsd:dateTime"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Movimiento">
+    <sequence>
+     <element name="fLiquidacion" nillable="true" type="xsd:dateTime"/>
+     <element name="folio" nillable="true" type="xsd:decimal"/>
+     <element name="montoPesos" nillable="true" type="xsd:decimal"/>
+     <element name="movimiento" nillable="true" type="xsd:int"/>
+     <element name="origen" nillable="true" type="xsd:string"/>
+     <element name="subcuenta" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="ConsultaMovimientosResponse">
+    <sequence>
+     <element name="codigoRespuesta" nillable="true" type="xsd:string"/>
+     <element name="movimientos" nillable="true" type="impl:ArrayOf_tns1_Movimiento"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://consultaMovimientos.efp.com">
+   <import namespace="http://vo.consultaMovimientos.efp.com"/>
+   <element name="movimientosRequest" type="tns1:ConsultaMovimientosRequest"/>
+   <complexType name="ArrayOf_tns1_Movimiento">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:Movimiento"/>
+    </sequence>
+   </complexType>
+   <element name="consultarMovimientosReturn" type="tns1:ConsultaMovimientosResponse"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="consultarMovimientosResponse">
+
+      <wsdl:part element="impl:consultarMovimientosReturn" name="consultarMovimientosReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarMovimientosRequest">
+
+      <wsdl:part element="impl:movimientosRequest" name="movimientosRequest">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ConsultaMovimientosServices">
+
+      <wsdl:operation name="consultarMovimientos" parameterOrder="movimientosRequest">
+
+         <wsdl:input message="impl:consultarMovimientosRequest" name="consultarMovimientosRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultarMovimientosResponse" name="consultarMovimientosResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ConsultaMovimientosServicesSoapBinding" type="impl:ConsultaMovimientosServices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="consultarMovimientos">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultarMovimientosRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultarMovimientosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ConsultaMovimientosServicesService">
+
+      <wsdl:port binding="impl:ConsultaMovimientosServicesSoapBinding" name="ConsultaMovimientosServices">
+
+         <wsdlsoap:address location="http://localhost:8080/ServiciosWeb/services/ConsultaMovimientosServices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

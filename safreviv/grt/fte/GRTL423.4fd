@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{30518e83-652b-49c6-b4d8-024f47a3ed14}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{ef5419d9-a3c1-4590-98e3-648408967dcc}" where="">
+    <RecordField colName="" fieldIdRef="1" name="nom_archivo" sqlTabName="" table_alias_name="" uid="{2d28d039-b4af-4205-847f-29ea8ffba5a8}"/>
+    <RecordField colName="" fieldIdRef="2" name="lote" sqlTabName="" table_alias_name="" uid="{f9f275a3-b975-4c9d-9a84-eccb1f618ed1}"/>
+    <RecordField colName="" fieldIdRef="3" name="fecha" sqlTabName="" table_alias_name="" uid="{0666d0e0-a68c-4a40-8156-1ed36aa40b76}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tabla_reverso" order="" uid="{e80477a3-aadb-4c15-91ff-184bc677775a}" where="">
+    <RecordField colName="" fieldIdRef="4" name="Edit4" sqlTabName="" table_alias_name="" uid="{4d774f1b-5a36-4efa-a434-a59498ae0568}"/>
+    <RecordField colName="" fieldIdRef="5" name="Edit6" sqlTabName="" table_alias_name="" uid="{51447e34-2e09-4610-8e2c-7a9a7f399fec}"/>
+    <RecordField colName="" fieldIdRef="6" name="Edit7" sqlTabName="" table_alias_name="" uid="{c158aa7a-a993-494d-a43b-5182e87ccc32}"/>
+    <RecordField colName="" fieldIdRef="7" name="Edit8" sqlTabName="" table_alias_name="" uid="{d9921182-fdc5-4a47-8692-465b36e35c9a}"/>
+    <RecordField colName="" fieldIdRef="8" name="Edit1" sqlTabName="" table_alias_name="" uid="{b280f752-0990-4600-9345-1e9a53ba0fe5}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="83" name="Form" text="Form">
+    <Grid gridHeight="18" gridWidth="80" name="Grid1" posX="3" posY="1">
+      <Group gridHeight="5" gridWidth="72" name="grevent" posX="1" posY="1" text="Reverso">
+        <Label gridHeight="1" gridWidth="18" name="Label1" posX="2" posY="1" text="Nombre del archivo"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="26" name="nom_archivo" posX="21" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="18" name="Label2" posX="2" posY="2" text="Lote"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="14" name="lote" posX="21" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="18" name="Label3" posX="2" posY="3" text="Fecha de generación"/>
+        <DateEdit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="20" name="fecha" posX="21" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="79" name="Group1" posX="1" posY="8" text="Archivo a reversar">
+        <Table gridHeight="6" gridWidth="76" name="Table1" posX="2" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="25" name="Edit4" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Archivo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="10" name="Edit6" posX="25" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Lote" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="14" name="Edit7" posX="35" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha generación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="13" name="Edit8" posX="49" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total Registros" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" name="Edit1" posX="62" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Folio" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADIAOAAwAGYANwA1ADIALQAwADkAOQAwAC0ANAA2ADAAMAAtADkAMwA0ADUALQAxAGUAOQBhADUAMwBiAGEAMABmAGUANQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGQAMgA4AGQAMAAzADkALQBiADQAYQBmAC0ANAAyADAANQAtADgANAA3AGYALQAyADkAZQBhADgAZgBmAGIAYQA1AGEAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADEANQA4AGEAYQA3AGEALQBhADkAOQAzAC0ANAA5ADQAZAAtAGEANAAzAGIALQA1ADEAOAAyAGUAOAA3AGMAYwBjADMAMgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGYANQA0ADEAOQBkADkALQBhADMAYwAxAC0ANAA1ADkAMAAtADkAOABlADMALQA2ADQAOAA0ADAAOAA5ADYANwBkAGMAYwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADkAZgAyADcANQBhADMALQBiADkANwA1AC0ANABjADkAZAAtADkAYQA4ADQALQBlAGMAYwBiADEAZgA2ADEAOABlAGQAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADYANgA2AGQAMABlADAALQBhADYAOABjAC0ANABhADQAMAAtADgAMQA1ADYALQAxAGUAZAAzADYAYQBhADQAMABiADcANgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADgAMAA0ADcANwBhADMALQBhAGEAZABiAC0ANABjADEANQAtADkAMQBmAGYALQAxADgANABiAGMANgA3ADcANwA3ADUAYQB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewA0AGQANwA3ADQAZgAxAGIALQA1AGEAMwA2AC0ANABlAGYAYQAtAGEANAAzADQALQBhADUAOQA0ADkAOABhAGUAMAA1ADYAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADEANAA0ADcAZQAzADQALQAyAGUAMAA5AC0ANAA2ADEAMAAtADgAZQAyAGMALQA3AGEAOQBhADcAZgAzADkAOQBmAGUAYwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADkAOQAyADEAMQA4ADIALQBmAGQAYwA1AC0ANABhADQANwAtADgANgA5ADIALQA0ADYANQBiADMANgBlADMANQBjADkAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

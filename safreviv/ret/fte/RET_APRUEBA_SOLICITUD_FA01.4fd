@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{afc68681-8627-4d38-963d-0f4e66f53d74}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{5405bb4c-0985-4e68-923d-bb297568821d}" where="">
+    <RecordField colName="op1" fieldIdRef="0" name="v_nss" sqlTabName="formonly" table_alias_name="" uid="{facd27e7-161c-4af1-8c52-b992c59d1775}"/>
+    <RecordField colName="op2" fieldIdRef="1" name="v_causal" sqlTabName="formonly" table_alias_name="" uid="{14cfa04d-be66-4eef-abae-f9a79f8df5b6}"/>
+    <RecordField colName="cb3" fieldIdRef="2" name="v_autoriza_pago" sqlTabName="formonly" table_alias_name="" uid="{ed6fce33-02f4-4dcb-8073-18b8dddb7abf}"/>
+    <RecordField colName="wsstatus" fieldIdRef="3" name="wsstatus" sqlTabName="formonly" table_alias_name="" uid="{25763abe-e2a5-4e32-976c-ce24ac0bc272}"/>
+    <RecordField colName="r_res_op" fieldIdRef="5" name="r_res_op" sqlTabName="formonly" table_alias_name="" uid="{bebcaeef-c71b-4861-9037-cab53801e83e}"/>
+    <RecordField colName="r_cod_rechazo" fieldIdRef="6" name="r_cod_rechazo" sqlTabName="formonly" table_alias_name="" uid="{1d71d631-d1f2-41a6-9694-8a1fdb738e38}"/>
+    <RecordField colName="msg" fieldIdRef="7" name="msg" sqlTabName="formonly" table_alias_name="" uid="{fcf8cca3-042e-4980-883d-67e880ea936f}"/>
+    <RecordField colName="msg1" fieldIdRef="8" name="msg1" sqlTabName="formonly" table_alias_name="" uid="{d9d0438a-8776-4ff3-8067-c56c25e098ed}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_rfc" sqlTabName="" table_alias_name="" uid="{ef850867-2123-477f-97c8-e6a022509c1e}"/>
+  </Record>
+  <Form gridHeight="46" gridWidth="184" name="Cliente_resolucion_72_92">
+    <ActionDefaultList name="ActionDefaultList1">
+      <ActionDefault acceleratorName="f1" name="plus"/>
+    </ActionDefaultList>
+    <VBox gridHeight="21" gridWidth="67" name="VBox1" posX="2" posY="0">
+      <Group gridHeight="12" gridWidth="67" name="grpParametros" posX="0" posY="1" text="Resolución ADAI para solicitudes de retiro de Fondo de Ahorro">
+        <Grid gridHeight="10" gridWidth="63" name="Grid2" posX="2" posY="1">
+          <Label gridHeight="1" gridWidth="18" name="Label1" posX="1" posY="0" text="NSS"/>
+          <Edit colName="op1" columnCount="" fieldId="0" gridHeight="1" gridWidth="26" name="v_nss" posX="22" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="18" name="Label8" posX="1" posY="1" text="RFC"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="26" name="v_rfc" posX="22" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="18" name="Label2" posX="1" posY="2" text="Causal de ADAI"/>
+          <Edit colName="op2" columnCount="" fieldId="1" gridHeight="1" gridWidth="26" name="v_causal" posX="22" posY="2" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="2" table_alias_name="" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="18" name="Label3" posX="1" posY="3" text="autoriza_pago:"/>
+          <ComboBox colName="cb3" columnCount="" fieldId="2" gridHeight="1" gridWidth="26" items="" name="v_autoriza_pago" notNull="true" posX="22" posY="3" required="true" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="3" table_alias_name="" widget="ComboBox">
+            <Item name="1" text="APROBADO"/>
+            <Item name="0" text="RECHAZADO"/>
+          </ComboBox>
+          <Label gridHeight="1" gridWidth="18" name="Label4" posX="1" posY="5" text="Estatus"/>
+          <Edit colName="wsstatus" color="green" columnCount="" fieldId="3" gridHeight="1" gridWidth="18" name="wsstatus" posX="22" posY="5" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="4" table_alias_name="" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="18" name="Label6" posX="1" posY="6" text="Respuesta operación"/>
+          <Edit colName="r_res_op" columnCount="" fieldId="5" gridHeight="1" gridWidth="18" name="r_res_op" posX="22" posY="6" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="5" table_alias_name="" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="18" name="Label7" posX="1" posY="7" text="Rechazo"/>
+          <Edit colName="r_cod_rechazo" color="red" columnCount="" fieldId="6" gridHeight="1" gridWidth="18" name="r_cod_rechazo" posX="22" posY="7" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="6" table_alias_name="" widget="Edit"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="7" gridWidth="67" name="grpRespuesta" posX="0" posY="13" text="Estatus">
+        <Grid gridHeight="5" gridWidth="65" name="Grid5" posX="1" posY="1">
+          <TextEdit colName="msg" columnCount="" fieldId="7" gridHeight="1" gridWidth="63" name="msg" noEntry="true" posX="1" posY="1" rowCount="" scrollBars="none" sqlTabName="formonly" stepX="" stepY="" stretch="both" tabIndex="7" table_alias_name="" title="Error description" wantNoReturns="false" widget="TextEdit"/>
+          <TextEdit colName="msg1" columnCount="" fieldId="8" gridHeight="1" gridWidth="63" name="msg1" noEntry="true" posX="1" posY="2" rowCount="" scrollBars="none" sqlTabName="formonly" stepX="" stepY="" stretch="both" tabIndex="8" table_alias_name="" title="Error description" wantNoReturns="false" widget="TextEdit"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBlAGYAOAA1ADAAOAA2ADcALQAyADEAMgAzAC0ANAA3ADcAZgAtADkANwBjADgALQBlADYAYQAwADIAMgA1ADAAOQBjADEAZQB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADQAYwBmAGEAMAA0AGQALQBiAGUANgA2AC0ANABlAGUAZgAtAGEAYgBhAGUALQBmADkAYQA3ADkAZgA4AGQAZgA1AGIANgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGMAZgA4AGMAYwBhADMALQAwADQAMgBlAC0ANAA5ADgAMAAtADgAOAAzAGQALQA2ADcAZQA4ADgAMABlAGEAOQAzADYAZgB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADQAMAA1AGIAYgA0AGMALQAwADkAOAA1AC0ANABlADYAOAAtADkAMgAzAGQALQBiAGIAMgA5ADcANQA2ADgAOAAyADEAZAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGEAYwBkADIANwBlADcALQAxADYAMQBjAC0ANABhAGYAMQAtADgAYwA1ADIALQBiADkAOQAyAGMANQA5AGQAMQA3ADcANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGQANgBmAGMAZQAzADMALQAwADIAZgA0AC0ANABkAGMAYgAtADgAMAA3ADMALQAxADgAYgA4AGQAZABkAGIANwBhAGIAZgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGUAYgBjAGEAZQBlAGYALQBjADcAMQBiAC0ANAA4ADYAMQAtADkAMAAzADcALQBjAGEAYgA1ADMAOAAwADEAZQA4ADMAZQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGQANwAxAGQANgAzADEALQBkADEAZgAyAC0ANAAxAGEANgAtADkANgA5ADQALQA4AGEAMQBmAGQAYgA3ADMAOABlADMAOAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADkAZAAwADQAMwA4AGEALQA4ADcANwA2AC0ANABmAGYAMwAtADgAMAA2ADcALQBjADUANgBjADIANQBlADAAOQA4AGUAZAB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewAyADUANwA2ADMAYQBiAGUALQBlADIAYQA1AC0ANABlADMAMgAtADkANwA2AGMALQBjAGUAMgA0AGEAYwAwAGIAYwAyADcAMgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

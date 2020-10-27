@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{2aadcf78-e817-41c0-a588-ce904e6a89a7}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="captura" order="" uid="{4a897e0a-6015-4aba-9b1d-df94e305314e}" where="">
+    <RecordField colName="" fieldIdRef="1" name="ed_monto_pesos" sqlTabName="" table_alias_name="" uid="{5d72681b-a88d-4683-95f7-9fb98ef3764e}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="monto_vigente" order="" uid="{34a66cde-289d-4c62-9bf4-d235bb4e69ec}" where="">
+    <RecordField colName="" fieldIdRef="2" name="ed_fecha_captura" sqlTabName="" table_alias_name="" uid="{78f057ee-a2dc-4f33-a986-e6e921e59c4b}"/>
+    <RecordField colName="" fieldIdRef="5" name="ed_fecha_vigente" sqlTabName="" table_alias_name="" uid="{7387fbe1-ed9e-42d9-a053-f9decdd7d5a0}"/>
+    <RecordField colName="" fieldIdRef="6" name="ed_monto_vigente" sqlTabName="" table_alias_name="" uid="{bb4bfae4-4d16-4d1d-933c-517cd60a641d}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_historico_montos" order="" uid="{68938afa-9ba1-4942-8999-668f3207d1af}" where="">
+    <RecordField colName="" fieldIdRef="3" name="v_hist_monto_valida" sqlTabName="" table_alias_name="" uid="{50b16978-d676-4da9-a8d9-a90f5e17d117}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_hist_fecha_ini" sqlTabName="" table_alias_name="" uid="{b24dd019-2835-48eb-b751-1d75f0991aa8}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_hist_fecha_fin" sqlTabName="" table_alias_name="" uid="{5559ba9b-f55e-4c71-b07c-d7337d9d4116}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_hist_usuario" sqlTabName="" table_alias_name="" uid="{94a733e1-3791-4764-bd6d-8d2464b3b32f}"/>
+  </Record>
+  <Form gridHeight="17" gridWidth="80" name="Form" text="Form">
+    <Grid gridHeight="15" gridWidth="77" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="5" gridWidth="35" name="gr_monto_pesos" posX="2" posY="1" text="Capture el monto en pesos a validar">
+        <Label gridHeight="1" gridWidth="10" name="Label2" posX="1" posY="1" text="Fecha Captura"/>
+        <Edit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="12" name="ed_fecha_captura" posX="22" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="3" text="Monto Pesos"/>
+        <Edit colName="" columnCount="" fieldId="1" format="###,###,###,###.&amp;&amp;" gridHeight="1" gridWidth="22" name="ed_monto_pesos" posX="12" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="5" gridWidth="35" name="gr_monto_pesos1" posX="40" posY="1" text="Monto Vigente">
+        <Label gridHeight="1" gridWidth="10" name="Label3" posX="1" posY="1" text="Fecha Captura"/>
+        <Edit colName="" columnCount="" fieldId="5" format="dd-mm-yyyy" gridHeight="1" gridWidth="12" name="ed_fecha_vigente" noEntry="true" posX="22" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label4" posX="1" posY="3" text="Monto Pesos"/>
+        <Edit colName="" columnCount="" fieldId="6" format="###,###,###,###.&amp;&amp;" gridHeight="1" gridWidth="22" name="ed_monto_vigente" noEntry="true" posX="12" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="73" name="Group1" posX="2" posY="6" text="Historial de Montos de Validación">
+        <Table gridHeight="6" gridWidth="69" name="scr_historico_montos" posX="2" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="3" format="###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="26" name="v_hist_monto_valida" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Monto&#10;Validación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="dd-mm-yyyy" gridHeight="1" gridWidth="12" justify="center" name="v_hist_fecha_ini" posX="26" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Fecha&#10;Inicio" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="12" justify="center" name="v_hist_fecha_fin" posX="38" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Fecha&#10;Fin" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="12" name="v_hist_usuario" posX="50" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Usuario" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzADQAYQA2ADYAYwBkAGUALQAyADgAOQBkAC0ANABjADYAMgAtADkAYgBmADQALQBkADIAMwA1AGIAYgA0AGUANgA5AGUAYwB9wH7AAAAAAADAbGAAAAAAAD+an752yLQ+AQAAAEwAewA0AGEAOAA5ADcAZQAwAGEALQA2ADAAMQA1AC0ANABhAGIAYQAtADkAYgAxAGQALQBkAGYAOQA0AGUAMwAwADUAMwAxADQAZQB9wH7wAAAAAADAdxAAAAAAAD+TdLxqfvneAQAAAEwAewBiADIANABkAGQAMAAxADkALQAyADgAMwA1AC0ANAA4AGUAYgAtAGIANwA1ADEALQAxAGQANwA1AGYAMAA5ADkAMQBhAGEAOAB9QBQAAAAAAABASIAAAAAAAD+Ik3S8an78AQAAAEwAewA1AGQANwAyADYAOAAxAGIALQBhADgAOABkAC0ANAA2ADgAMwAtADkANQBmADcALQA5AGYAYgA5ADgAZQBmADMANwA2ADQAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADgAZgAwADUANwBlAGUALQBhADIAZABjAC0ANABmADMAMwAtAGEAOQA4ADYALQBlADYAZQA5ADIAMQBlADUAOQBjADQAYgB9QBQAAAAAAABAOgAAAAAAAD+euFHrhR6+AQAAAEwAewA3ADMAOAA3AGYAYgBlADEALQBlAGQAOQBlAC0ANAAyAGQAOQAtAGEAMAA1ADMALQBmADkAZABlAGMAZABkADcAZAA1AGEAMAB9QBQAAAAAAABASIAAAAAAAD+crAgxJul+AQAAAEwAewA2ADgAOQAzADgAYQBmAGEALQA5AGIAYQAxAC0ANAA5ADQAMgAtADgAOQA5ADkALQA2ADYAOABmADMAMgAwADcAZAAxAGEAZgB9wHAQAAAAAADAcPAAAAAAAD+gYk3S8an/AQAAAEwAewBiAGIANABiAGYAYQBlADQALQA0AGQAMQA2AC0ANABkADEAZAAtADkAMwAzAGMALQA1ADEANwBjAGQANgAwAGEANgA0ADEAZAB9QBQAAAAAAABAUgAAAAAAAD+dsi0OVgQeAQAAAEwAewA1ADAAYgAxADYAOQA3ADgALQBkADYANwA2AC0ANABkAGEAOQAtAGEAOABkADkALQBhADkAMABmADUAZQAxADcAZAAxADEANwB9QBQAAAAAAABAOgAAAAAAAD+GhysCDEm8AQAAAEwAewA1ADUANQA5AGIAYQA5AGIALQBmADUANQBlAC0ANABjADcAMQAtAGIAMAA3AGMALQBkADcAMwAzADcAZAA5AGQANAAxADEANgB9QBQAAAAAAABAUgAAAAAAAD+Kn752yLQ8AQAAAEwAewA5ADQAYQA3ADMAMwBlADEALQAzADcAOQAxAC0ANAA3ADYANAAtAGIAZAA2AGQALQA4AGQAMgA0ADYANABiADMAYgAzADIAZgB9QBQAAAAAAABAV8AAAAAAAD+MrAgxJul8AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

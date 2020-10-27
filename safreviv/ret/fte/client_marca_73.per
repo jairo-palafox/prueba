@@ -1,0 +1,80 @@
+--
+-- FOURJS_START_COPYRIGHT(U,2000)
+-- Property of Four Js*
+-- (c) Copyright Four Js 2000, 2011. All Rights Reserved.
+-- * Trademark of Four Js Development Tools Europe Ltd
+--   in the United States and elsewhere
+-- 
+-- Four Js and its suppliers do not warrant or guarantee that these samples
+-- are accurate and suitable for your purposes. Their inclusion is purely 
+-- for information purposes only.
+-- FOURJS_END_COPYRIGHT
+--
+
+SCHEMA FORMONLY
+ACTION DEFAULTS
+   ACTION plus ( ACCELERATOR=F1 )
+END
+
+LAYOUT
+  GROUP (TEXT="Retiro Ley 73 cliente DEMO")
+    VBOX
+      HBOX   
+        VBOX
+          GRID
+          {
+                                    NSS:   [op1               ]
+                    Grupo de trabajador:   [op2               ]
+                         Fecha de marca:   [op3               ]
+                         Clave de afore:   [op4               ]
+
+                                    NSS:   [v_g_nss           ]
+                      Código de retorno:   [v_cod_ret         ]
+           Mensaje de código de retorno:   [v_mensaje_cod_ret ]
+           
+          }
+          END
+        END -- vbox
+        VBOX
+          GRID
+          {
+           [bt1 ]
+          }
+          END
+        END -- vbox
+      END -- hbox
+      HBOX
+        GRID
+        {
+          [msg                  ]
+        }
+        END -- group
+      END --hbox
+      HBOX
+        GRID
+        {
+          [msg1                  ]
+        }
+        END -- group
+      END --hbox
+    END --vbox
+  END -- group
+END  -- layout
+
+
+ATTRIBUTES
+EDIT op1=formonly.op1;
+COMBOBOX op2= formonly.op2 , ITEMS=((1,"Grupo 1"),(2,"Grupo 2"),(3,"Grupo 3"),(4,"Grupo 4")), NOT NULL ;
+EDIT op3=formonly.op3;
+EDIT op4=formonly.op4;
+
+EDIT v_g_nss           =formonly.v_g_nss           ;
+EDIT v_cod_ret         =formonly.v_cod_ret         ;
+EDIT v_mensaje_cod_ret =formonly.v_mensaje_cod_ret ;
+
+BUTTON bt1 : plus, TEXT="Enviar",COMMENT="Se ocupa servicio";
+TEXTEDIT msg=formonly.msg, NOENTRY, STRETCH=BOTH,SCROLLBARS=NONE,TITLE="Error description";
+TEXTEDIT msg1=formonly.msg1, NOENTRY, STRETCH=BOTH,SCROLLBARS=NONE,TITLE="Error description";
+END
+
+

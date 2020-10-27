@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/DISC25.rdd" RWFglReportName="rep_con_disp"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="Page Header" width="min" length="min" alignment="near" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="Logo Infonavit" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Titulo" width="min" length="min" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="wb_titulo" width="721.788" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="APORTACIONES SUBSECUENTES POR TIPO DE CRÉDITO"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Usuario Fecha" width="min" length="718.788" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="wb_Usurio" y="5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Usuario    "/>
+                            <rtl:input-variable name="v_fecha_consulta" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_consulta Value" y="630" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_fecha_consulta}}"/>
+                            <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario Value" y="45" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Page Footer" width="min" length="min" port="anyPageFooter" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="Linea Roja Pie2_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <WORDBOX name="WordBox15_1_1_2_1" x="40.8389" y="15.9003" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                        <PAGENOBOX name="PageNoBox" x="705.155" y="15.9003" width="11.0225" length="10.7528" anchorX="0.5" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <rtl:match name="Group v_tot_reporte" nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="Encabezado1" width="min" length="min">
+                            <rtl:input-variable name="v_tot_reporte" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <LAYOUTNODE name="Columnas" rtl:condition="v_tot_reporte==1" width="min" length="720.868" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDWRAPBOX name="WordWrapBox" width="160" alignment="near" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="ENTIDAD FINANCIERA"/>
+                                <WORDWRAPBOX name="WordWrapBox1" width="100" alignment="near" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="CUENTA BANCARIA" textAlignment="left"/>
+                                <WORDWRAPBOX name="WordWrapBox2" width="90" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="DOCUMENTO FICO" textAlignment="left"/>
+                                <WORDWRAPBOX name="WordWrapBox3" width="140" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="CONCEPTO" textAlignment="left"/>
+                                <WORDWRAPBOX name="WordWrapBox4" width="130" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="ESTADO" textAlignment="left"/>
+                                <WORDWRAPBOX name="WordWrapBox5" width="100" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="MONTO" textAlignment="left"/>
+                                <LAYOUTNODE name="Gray Line" x="25" y="721" width="1.2" length="max" anchorX="0.5" anchorY="1" alignment="none" color="#ce050f" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="Encab Totales" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_tot_reporte" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <LAYOUTNODE name="Enc Totales" rtl:condition="v_tot_reporte==2" x="0" y="2.2443" width="29.8494" length="720.868" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <LAYOUTNODE name="Linea Roja Pie2_1_1_1_1" x="13.9882" y="-0.9769" width="1.2" length="max" alignment="far" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                                <WORDWRAPBOX name="WordWrapBox6" width="160" alignment="far" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="TIPO CRÉDITO"/>
+                                <WORDWRAPBOX name="WordWrapBox7" width="160" alignment="far" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="CONCEPTO"/>
+                                <WORDWRAPBOX name="WordWrapBox8" width="160" alignment="far" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="MONTO"/>
+                                <LAYOUTNODE name="Gray Line1" x="29.0338" y="718.749" width="1.2" length="max" anchorX="0.5" anchorY="1" color="#ce050f" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="v_tot_reporte" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <LAYOUTNODE name="Rec detalle" rtl:condition="v_tot_reporte==1" width="min" length="720.868" alignment="near" fontName="Arial" fontSize="10" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="a_apo_sub_det.entidad_financiera" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="a_apo_sub_det.entidad_financiera Value" width="160" floatingBehavior="enclosed" text="{{a_apo_sub_det.entidad_financiera}}"/>
+                                <rtl:input-variable name="a_apo_sub_det.cuenta_bancaria" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="a_apo_sub_det.cuenta_bancaria Value" width="100" floatingBehavior="enclosed" text="{{a_apo_sub_det.cuenta_bancaria}}"/>
+                                <rtl:input-variable name="a_apo_sub_det.documento_fico" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="a_apo_sub_det.documento_fico Value" width="90" floatingBehavior="enclosed" text="{{a_apo_sub_det.documento_fico}}"/>
+                                <rtl:input-variable name="a_apo_sub_det.concepto" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="a_apo_sub_det.concepto Value" width="140" floatingBehavior="enclosed" text="{{a_apo_sub_det.concepto}}"/>
+                                <rtl:input-variable name="a_apo_sub_det.estado" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="a_apo_sub_det.estado Value" width="130" floatingBehavior="enclosed" text="{{a_apo_sub_det.estado}}"/>
+                                <rtl:input-variable name="a_apo_sub_det.monto" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="a_apo_sub_det.monto Value" width="100" anchorX="1" alignment="baseline" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{a_apo_sub_det.monto}}"/>
+                            </LAYOUTNODE>
+                            <rtl:input-variable name="v_tot_reporte" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <LAYOUTNODE name="Rec tot tipo con" rtl:condition="v_tot_reporte==2" x="0" width="min" length="720.115" fontName="Arial" fontSize="10" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="a_apo_sub_tot.tpo_credito" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="a_apo_sub_tot.tpo_credito Value" width="width(&quot;M&quot;)*20" floatingBehavior="enclosed" text="{{a_apo_sub_tot.tpo_credito}}"/>
+                                <rtl:input-variable name="a_apo_sub_tot.concepto_tot" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="a_apo_sub_tot.concepto_tot Value" width="width(&quot;M&quot;)*20" floatingBehavior="enclosed" text="{{a_apo_sub_tot.concepto_tot}}"/>
+                                <rtl:input-variable name="a_apo_sub_tot.monto_tot" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="a_apo_sub_tot.monto_tot Value" y="320" width="100" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{a_apo_sub_tot.monto_tot}}"/>
+                            </LAYOUTNODE>
+                        </rtl:match>
+                        <MINIPAGE name="Total detalle" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_tot_reporte" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <LAYOUTNODE name="t_detalle" rtl:condition="v_tot_reporte==1" width="16.0225" length="720.834" alignment="far" fontName="Arial" fontSize="10" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <LAYOUTNODE name="Red Line" width="2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                                <WORDBOX name="wb_tot_records" x="3" y="3" alignment="far" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Total"/>
+                                <rtl:input-variable name="v_t_detalle" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="v_t_detalle Value" y="617.75" width="100" anchorX="1" alignment="far" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_t_detalle}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="Total tipo credito" width="min" length="min">
+                            <rtl:input-variable name="v_tot_reporte" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <LAYOUTNODE name="Total" rtl:condition="v_tot_reporte==2" width="16.0225" length="720.834" alignment="center" fontName="Arial" fontSize="10" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <LAYOUTNODE name="Red Line1" x="0" y="0" width="2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                                <rtl:input-variable name="v_t_total" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="v_t_total Value" x="15" y="320" width="100" anchorX="1" alignment="far" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_t_total}}"/>
+                                <WORDBOX name="wb_tot_records1" x="3" y="3" alignment="far" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Total"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{1293a7ac-62f1-4a11-9489-a6b2990272e1}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{23f57b76-03e6-4a5d-8926-9c56d5db9d33}" where="">
+    <RecordField colName="" fieldIdRef="1" name="tot_registros" sqlTabName="" table_alias_name="" uid="{f719c4d9-cb38-4bd1-b0ae-911ab5de1722}"/>
+    <RecordField colName="" fieldIdRef="2" name="tot_aivs_ap" sqlTabName="" table_alias_name="" uid="{70f96ab8-0b37-4be9-81d6-07f17cc6c6a4}"/>
+    <RecordField colName="" fieldIdRef="3" name="tot_aivs_val_ant" sqlTabName="" table_alias_name="" uid="{146965ec-b343-4e0c-bc18-24c7d441d4b8}"/>
+    <RecordField colName="" fieldIdRef="4" name="tot_imp_viv" sqlTabName="" table_alias_name="" uid="{cfed1959-55cc-41d8-9ca1-4a0b55446ac7}"/>
+    <RecordField colName="" fieldIdRef="5" name="num_folio" sqlTabName="" table_alias_name="" uid="{a7f5009b-aafd-4c67-b7ef-355f5febe357}"/>
+  </Record>
+  <Form gridHeight="21" gridWidth="96" name="Form" text="Consulta de información recibida OP98">
+    <Grid gridHeight="19" gridWidth="90" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="78" name="Group2" posX="2" posY="2" text="">
+        <Label gridHeight="1" gridWidth="4" name="Label5" posX="3" posY="1" text="Folio:"/>
+        <Edit colName="" columnCount="" fieldId="5" format="----------&amp;" gridHeight="1" gridWidth="15" name="num_folio" posX="8" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="11" gridWidth="79" name="Group1" posX="1" posY="7" text="Totales Archivo SAR92">
+        <Label gridHeight="1" gridWidth="15" name="Label1" posX="6" posY="2" text=" Registros"/>
+        <Label gridHeight="1" gridWidth="15" name="Label4" posX="33" posY="2" text="Importe de Vivienda"/>
+        <Edit colName="" columnCount="" fieldId="1" format="#,###,###,##&amp;" gridHeight="1" gridWidth="17" name="tot_registros" picture="" posX="6" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="4" format="#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="17" name="tot_imp_viv" picture="" posX="33" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit4" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label9" posX="2" posY="4" text=""/>
+        <Label gridHeight="1" gridWidth="10" name="Label10" posX="2" posY="5" text=""/>
+        <Label gridHeight="1" gridWidth="17" name="Label2" posX="6" posY="6" text="AIVS Aportación Patronal"/>
+        <Label gridHeight="1" gridWidth="17" name="Label3" posX="33" posY="6" text="AIVS Valor Anterior"/>
+        <Edit colName="" columnCount="" fieldId="2" format="#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="19" name="tot_aivs_ap" picture="" posX="6" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="3" format="#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="19" name="tot_aivs_val_ant" picture="" posX="33" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="9" name="Label12" posX="2" posY="8" text=""/>
+        <Label gridHeight="1" gridWidth="9" name="Label14" posX="2" posY="9" text=""/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxADQANgA5ADYANQBlAGMALQBiADMANAAzAC0ANABlADAAYwAtAGIAYwAxADgALQAyADQAYwA3AGQANAA0ADEAZAA0AGIAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADAAZgA5ADYAYQBiADgALQAwAGIAMwA3AC0ANABiAGUAOQAtADgAMQBkADYALQAwADcAZgAxADcAYwBjADYAYwA2AGEANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADcAZgA1ADAAMAA5AGIALQBhAGEAZgBkAC0ANABjADYANwAtAGIANwBlAGYALQAzADUANQBmADUAZgBlAGIAZQAzADUANwB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADMAZgA1ADcAYgA3ADYALQAwADMAZQA2AC0ANABhADUAZAAtADgAOQAyADYALQA5AGMANQA2AGQANQBkAGIAOQBkADMAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADcAMQA5AGMANABkADkALQBjAGIAMwA4AC0ANABiAGQAMQAtAGIAMABhAGUALQA5ADEAMQBhAGIANQBkAGUAMQA3ADIAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGYAZQBkADEAOQA1ADkALQA1ADUAYwBjAC0ANAAxAGQAOAAtADkAYwBhADEALQA0AGEAMABiADUANQA0ADQANgBhAGMANwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

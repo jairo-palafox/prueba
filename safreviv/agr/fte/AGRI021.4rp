@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AGRI02.rdd" RWFglReportName="resultados"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="center">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" length="80.5" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="9.0056" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="REPORTE RECURRENTE ORIGINACIÓN  AGR" localizeText="false"/>
+                                <WORDBOX name="WordBox2" width="min" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Usuario :"/>
+                                <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="g_usuario Value" class="grwStringValue" y="58.445" width="88" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="26.1909" length="717.782" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox3" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Folio : "/>
+                                <WORDBOX name="WordBox4" x="6.741" y="545.56" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Fecha :"/>
+                                <WORDBOX name="WordBox3_1" y="0" width="min" alignment="far" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Nombre del archivo : "/>
+                                <rtl:input-variable name="v_f_ejecuta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_ejecuta Value" class="grwStringValue" y="589.95" width="86.75" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_f_ejecuta}}"/>
+                                <rtl:input-variable name="g_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="g_folio Value" class="grwNumericValue" y="58.445" width="59.75" anchorX="1" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="#########&amp;" value="{{g_folio}}"/>
+                                <rtl:input-variable name="g_arh_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="g_arh_proceso Value" class="grwStringValue" x="12.2531" y="125.952" width="165.25" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{g_arh_proceso}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode6" width="14.6967" length="max" anchorX="0.14" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode12" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage4" width="min" length="max" layoutDirection="leftToRight">
+                                <MINIPAGE name="barraTotalesSubcuenta" width="min" length="min" layoutDirection="leftToRight">
+                                    <WORDBOX name="titTotalesSubcuenta" width="718.379" length="21.2211" alignment="center" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="RESUMEN"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="cifras_globales" width="102.131" length="698.841" alignment="near" layoutDirection="leftToRight">
+                                    <WORDBOX name="nomArch1_1_1" x="19.1901" y="0" width="148.57" length="12.5037" alignment="far" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros en Interface"/>
+                                    <WORDBOX name="nomArch1_1_1_5_1" x="33.4841" y="0" width="153.553" length="12.5037" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros para procesamiento"/>
+                                    <WORDBOX name="nomArch1_1_1_5_2" x="50.009" y="0" width="156.524" length="12.5037" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Excluidos del procesamiento"/>
+                                    <WORDBOX name="nomArch1_1_1_5_2_1" x="79.2251" y="121.56" width="24.4717" length="12.5037" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total"/>
+                                    <WORDBOX name="nomArch1_1_1_5_2_1_1" x="64.5931" y="0" width="156.524" length="12.5037" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros para ser originados"/>
+                                    <WORDBOX name="nomArch1_1_1_1" x="2.1347" y="183.397" width="67.9599" length="12.5037" alignment="far" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="# Registros"/>
+                                    <WORDBOX name="nomArch1_1_1_1_1" x="2.1347" y="0" width="67.9599" length="12.5037" alignment="far" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Descripción"/>
+                                    <WORDBOX name="nomArch1_1_1_1_3" x="2.1347" y="281.01" width="67.9599" length="12.5037" alignment="far" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Porcentaje %"/>
+                                    <rtl:input-variable name="g_arh_tot_reg" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_arh_tot_reg Value" class="grwNumericValue" x="30.1596" y="183.397" width="73.25" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_arh_tot_reg}}"/>
+                                    <rtl:input-variable name="v_tot_proc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_tot_proc Value" class="grwNumericValue" x="44.592" y="183.397" width="73.5" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_tot_proc}}"/>
+                                    <rtl:input-variable name="g_tot_sin_origen" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_sin_origen Value" class="grwNumericValue" x="60.0185" y="183.397" width="73.125" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_sin_origen}}"/>
+                                    <rtl:input-variable name="g_tot_aceptados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_aceptados Value" class="grwNumericValue" x="75.6576" y="183.397" width="73" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_aceptados}}"/>
+                                    <rtl:input-variable name="v_total_cifras" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_total_cifras Value" class="grwNumericValue" x="91.3194" y="183.397" width="73.75" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_total_cifras}}"/>
+                                    <rtl:input-variable name="v_prc_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_archivo Value" class="grwStringValue" x="17.0409" y="281.01" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_archivo}}"/>
+                                    <rtl:input-variable name="v_prc_procesamiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_procesamiento Value" class="grwStringValue" x="31.3353" y="281.01" width="70.375" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_procesamiento}}"/>
+                                    <rtl:input-variable name="v_prc_exc_proc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_exc_proc Value" class="grwStringValue" x="47.3908" y="281.01" width="70.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_exc_proc}}"/>
+                                    <rtl:input-variable name="v_prc_originacion" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_originacion Value" class="grwStringValue" x="62.7364" y="281.01" width="70.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_originacion}}"/>
+                                    <rtl:input-variable name="v_concatena_prc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_concatena_prc Value" class="grwStringValue" x="78.1211" y="281.01" width="70.875" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_concatena_prc}}"/>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode12_1" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage19" width="min" length="max" layoutDirection="leftToRight">
+                                <MINIPAGE name="MiniPage20" width="38.4601" length="719.19" alignment="far" layoutDirection="leftToRight">
+                                    <WORDBOX name="nomArch2" x="20" width="84.8909" length="13.7567" alignment="baseline" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Descripción"/>
+                                    <WORDBOX name="nomArch3" x="20" y="173.022" width="min" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="# Registros"/>
+                                    <WORDBOX name="nomArch1_2" x="20" y="248.071" width="70.8237" length="15.5405" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Porcentaje %"/>
+                                    <WORDBOX name="nomArch1_2_1" x="20" y="334.228" width="63.4046" length="14.6486" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Aceptadas"/>
+                                    <WORDBOX name="nomArch1_2_1_1" x="20" y="410.971" width="64.7784" length="11.4133" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Rechazadas"/>
+                                    <WORDBOX name="nomArch1_2_1_1_1" x="20" y="572.223" width="65.3087" length="11.4133" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Rechazadas"/>
+                                    <WORDBOX name="nomArch1_2_1_2" x="20" y="496.729" width="59.162" length="14.6486" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Aceptadas"/>
+                                    <WORDBOX name="nomArch1_2_1_2_1" x="7.7204" y="534.12" width="50.6767" length="14.6486" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Deudores"/>
+                                    <WORDBOX name="nomArch1_2_1_1_1_1" x="20" y="645.135" width="62.1268" length="11.4133" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Efectividad"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage21" width="33.2432" length="max" alignment="far" layoutDirection="leftToRight">
+                                    <WORDBOX name="nomArch1_1_2" x="2.2619" y="0" width="168.75" length="11.9734" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Originaciones"/>
+                                    <WORDBOX name="nomArch1_1_1_3" x="17.713" y="0" width="min" length="12.5754" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Movimientos no procesados"/>
+                                    <rtl:input-variable name="v_total_orig_d" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_total_orig_d Value" class="grwNumericValue" x="13.6558" y="173.022" width="66.636" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_total_orig_d}}"/>
+                                    <rtl:input-variable name="v_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_movimiento Value" class="grwStringValue" x="15.3186" y="173.022" width="66.1664" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_movimiento}}" trimText="left"/>
+                                    <rtl:input-variable name="v_prc_orig_d" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_orig_d Value" class="grwStringValue" x="1.5896" y="248.071" width="64.409" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_orig_d}}"/>
+                                    <rtl:input-variable name="v_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_movimiento Value1" class="grwStringValue" x="15.8489" y="248.071" width="64.5754" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_movimiento}}" trimText="left"/>
+                                    <rtl:input-variable name="v_orig_acep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_orig_acep Value" class="grwNumericValue" x="15.3186" y="334.228" width="56.636" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_orig_acep}}"/>
+                                    <rtl:input-variable name="v_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_movimiento Value2" class="grwStringValue" x="16.6524" y="334.228" width="57.1508" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_movimiento}}" trimText="left"/>
+                                    <rtl:input-variable name="v_orig_canc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_orig_canc Value" class="grwNumericValue" x="14.7164" y="410.971" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_orig_canc}}"/>
+                                    <rtl:input-variable name="v_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_movimiento Value3" class="grwStringValue" x="16.6524" y="410.971" width="60.8631" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_movimiento}}" trimText="left"/>
+                                    <rtl:input-variable name="v_orig_acep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_orig_acep Value2" class="grwNumericValue" x="14.7164" y="496.729" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_orig_acep}}"/>
+                                    <rtl:input-variable name="v_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_movimiento Value4" class="grwStringValue" x="16.6524" y="496.729" width="64.045" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_movimiento}}"/>
+                                    <rtl:input-variable name="v_orig_canc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_orig_canc Value2" class="grwNumericValue" x="15.0615" y="572.223" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_orig_canc}}"/>
+                                    <rtl:input-variable name="v_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_movimiento Value5" class="grwStringValue" x="16.6524" y="572.223" width="61.9237" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_movimiento}}" trimText="left"/>
+                                    <rtl:input-variable name="v_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_movimiento Value6" class="grwStringValue" x="16.6524" y="645.135" width="66.6966" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_movimiento}}" trimText="left"/>
+                                    <rtl:input-variable name="v_ef_orig" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_ef_orig Value" class="grwStringValue" x="2.2619" y="645.135" width="67.0313" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_ef_orig}}" trimText="left"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage22" width="min" length="max" alignment="far" fontSize="10" layoutDirection="leftToRight">
+                                    <WORDBOX name="nomArch1_1_1_4" x="8.5526" y="121.56" width="31.5279" length="14.1663" anchorX="0.5" anchorY="8.52331e-15" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total"/>
+                                    <rtl:input-variable name="v_total_orig_d" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_total_orig_d Value1" class="grwNumericValue" x="13.9838" y="173.022" width="67.1664" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_total_orig_d}}"/>
+                                    <rtl:input-variable name="v_prc_conc_d" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_conc_d Value" class="grwStringValue" x="0.7524" y="248.071" width="66.2877" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_conc_d}}"/>
+                                    <rtl:input-variable name="v_orig_acep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_orig_acep Value1" class="grwNumericValue" x="13.9838" y="334.228" width="56.1057" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_orig_acep}}"/>
+                                    <rtl:input-variable name="v_orig_canc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_orig_canc Value1" class="grwNumericValue" x="13.9838" y="410.971" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_orig_canc}}"/>
+                                    <rtl:input-variable name="v_orig_acep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_orig_acep Value3" class="grwNumericValue" x="13.9838" y="496.729" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_orig_acep}}"/>
+                                    <rtl:input-variable name="v_orig_canc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_orig_canc Value3" class="grwNumericValue" x="13.9838" y="572.223" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_orig_canc}}"/>
+                                    <rtl:input-variable name="v_prc_efectividad" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_efectividad Value" class="grwStringValue" x="0.7524" y="645.135" width="68.1057" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_efectividad}}"/>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage11" x="15.0831" y="529.891" width="720.411" length="20.1241" anchorX="0.0220048" anchorY="0.5" alignment="near">
+                        <PAGENOBOX name="PageNoBox" x="689.199" y="10.6781" width="38.5" length="19.7862" anchorX="0.523843" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

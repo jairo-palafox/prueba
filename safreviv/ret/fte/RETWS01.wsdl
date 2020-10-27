@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services.safre.efp.com" xmlns:intf="http://services.safre.efp.com" xmlns:tns1="http://vo.safre.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.safre.efp.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://services.safre.efp.com">
+   <import namespace="http://vo.safre.efp.com"/>
+   <element name="nss" type="xsd:string"/>
+   <element name="consultaElegibilidadReturn" type="tns1:ConsultaResponse"/>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.safre.efp.com">
+   <complexType name="ConsultaResponse">
+    <sequence>
+     <element name="nss" nillable="true" type="xsd:string"/>
+     <element name="rfc" nillable="true" type="xsd:string"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+     <element name="estatusPago" nillable="true" type="xsd:int"/>
+     <element name="montoPago" nillable="true" type="xsd:decimal"/>
+     <element name="fechaPago" nillable="true" type="xsd:date"/>
+     <element name="codigoRechazo" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="consultaElegibilidadResponse">
+
+      <wsdl:part element="impl:consultaElegibilidadReturn" name="consultaElegibilidadReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultaElegibilidadRequest">
+
+      <wsdl:part element="impl:nss" name="nss">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Elegibilidad">
+
+      <wsdl:operation name="consultaElegibilidad" parameterOrder="nss">
+
+         <wsdl:input message="impl:consultaElegibilidadRequest" name="consultaElegibilidadRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultaElegibilidadResponse" name="consultaElegibilidadResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ElegibilidadSoapBinding" type="impl:Elegibilidad">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="consultaElegibilidad">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultaElegibilidadRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultaElegibilidadResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ElegibilidadService">
+
+      <wsdl:port binding="impl:ElegibilidadSoapBinding" name="Elegibilidad">
+
+         <wsdlsoap:address location="http://localhost:8080/WSPagoMasivo/services/Elegibilidad"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

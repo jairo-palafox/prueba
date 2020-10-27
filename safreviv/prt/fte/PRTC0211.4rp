@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="PRTC02.rdd" RWFglReportName="rpt_det_bloque_solicitud"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <LAYOUTNODE name="titulo" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <rtl:input-variable name="v_titulo" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_titulo Value" width="max" fontSize="6.5" floatingBehavior="enclosed" text="{{v_titulo}}" textAlignment="center" borderTopWidth="1" borderRightWidth="1" borderBottomWidth="1" borderLeftWidth="1" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid"/>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <LAYOUTNODE name="titulo_enc_detalle" width="min" length="max" bgColor="#8b8b8b" layoutDirection="leftToRight" floatingBehavior="enclosed" borderTopWidth="1" borderRightWidth="1" borderBottomWidth="1" borderLeftWidth="1" borderStyle="solid" marginTopWidth="3" marginBottomWidth="0.5">
+                            <WORDBOX name="WordBox" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" text="Campo NOTIFICACIÓN XML:   "/>
+                            <rtl:input-variable name="p_detalle_bloque_solicitud.v_etiqueta_det_sol" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_detalle_bloque_solicitud.v_etiqueta_det_sol Value" width="265.141" fontSize="6.5" floatingBehavior="enclosed" text="{{p_detalle_bloque_solicitud.v_etiqueta_det_sol}}" paddingLeftWidth="5"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="enc_detalle" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="id" width="26" bgColor="#8b8b8b" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="ID" borderTopWidth="1" borderRightWidth="1" borderBottomWidth="1" borderLeftWidth="1" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid" marginLeftWidth="2"/>
+                            <WORDBOX name="etiqueta" width="112" bgColor="#8b8b8b" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="CAMPO" borderTopWidth="1" borderRightWidth="1" borderBottomWidth="1" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid"/>
+                            <WORDBOX name="valor" width="112" bgColor="#8b8b8b" fontSize="6.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="VALOR" borderTopWidth="1" borderRightWidth="1" borderBottomWidth="1" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid" marginRightWidth="1"/>
+                        </LAYOUTNODE>
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight" marginLeftWidth="1">
+                                <rtl:input-variable name="p_indice" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_indice Value" width="27" anchorX="1" fontSize="6.5" floatingBehavior="enclosed" textAlignment="center" format="-----#" value="{{p_indice}}"/>
+                                <rtl:input-variable name="p_detalle_bloque_solicitud.v_etiqueta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_detalle_bloque_solicitud.v_etiqueta Value" width="111" fontSize="6.5" floatingBehavior="enclosed" text="{{p_detalle_bloque_solicitud.v_etiqueta}}" paddingLeftWidth="3"/>
+                                <rtl:input-variable name="p_detalle_bloque_solicitud.v_valor" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_detalle_bloque_solicitud.v_valor Value" width="109" alignment="center" fontSize="6.5" floatingBehavior="enclosed" text="{{p_detalle_bloque_solicitud.v_valor}}" paddingLeftWidth="3"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

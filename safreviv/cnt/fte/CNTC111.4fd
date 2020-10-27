@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{854b80b7-2294-4499-960d-701452a9c2a0}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record1" order="" uid="{f60b0b7a-b611-48cc-ab82-238c2fc3df8a}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_liquida" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{3aeaf9a2-712c-49a9-b7d2-16b8965c361a}"/>
+    <RecordField colName="" fieldIdRef="2" name="folio_liquida" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{922168d3-2512-446e-bcb8-4c313fa70435}"/>
+    <RecordField colName="" fieldIdRef="5" name="folio_cnt" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{f54131f1-3197-4458-815c-bff15442039b}"/>
+    <RecordField colName="" fieldIdRef="6" name="proceso" sqlTabName="" table_alias_name="" uid="{8d735e82-1622-42aa-b53c-57cb2d68013a}"/>
+    <RecordField colName="" fieldIdRef="7" name="estado" sqlTabName="" table_alias_name="" uid="{a2343d13-1ef8-4486-bfe3-71510794efab}"/>
+    <RecordField colName="" fieldIdRef="8" name="marca" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{246e904d-951f-4751-9339-37102f9fcf1d}"/>
+    <RecordField colName="" fieldIdRef="9" name="sh_folio_cnt" sqlTabName="" table_alias_name="" uid="{f4502d20-1a06-44e5-a408-c09ed76f3396}"/>
+    <RecordField colName="" fieldIdRef="10" name="sh_cod_proceso_cnt" sqlTabName="" table_alias_name="" uid="{87e1a63f-6e65-4bac-9d2d-c180884c11cf}"/>
+    <RecordField colName="" fieldIdRef="11" name="sh_cod_proceso" sqlTabName="" table_alias_name="" uid="{20540a63-6b68-4be6-824a-4f92b7c7b64c}"/>
+    <RecordField colName="" fieldIdRef="12" name="sh_f_emision" sqlTabName="" table_alias_name="" uid="{a6308da9-eeee-40a2-94f7-3dcae6f5156e}"/>
+    <RecordField colName="" fieldIdRef="13" name="sh_estado" sqlTabName="" table_alias_name="" uid="{8df5fed2-3a82-423a-b82b-6a5cd9299119}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{4dde19e4-c359-49d6-9a70-1893c065a73e}" where="">
+    <RecordField colName="" fieldIdRef="3" name="f_fecha_inicial" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{dc0cb3ce-e51f-4b40-915b-e30221ce70d0}"/>
+    <RecordField colName="" fieldIdRef="4" name="f_fecha_final" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{fa61e6ba-1bb2-4524-a41b-64baef2521d0}"/>
+  </Record>
+  <Form gridHeight="27" gridWidth="153" name="Form" spacing="compact" text="Form">
+    <Grid gridHeight="25" gridWidth="151" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="149" name="Group1" posX="1" posY="1" text="Criterios de búsqueda">
+        <Label gridHeight="1" gridWidth="15" name="Label1" posX="1" posY="1" text="Fecha Liquidación - Del"/>
+        <DateEdit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_fecha_inicial" posX="18" posY="1" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="2" name="Label2" posX="30" posY="1" text="al"/>
+        <DateEdit colName="" columnCount="" fieldId="4" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_fecha_final" posX="34" posY="1" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="4" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="19" gridWidth="149" name="grp_valida_poliza" posX="1" posY="5" sizePolicy="initial" text="Detalle Pólizas">
+        <Table gridHeight="17" gridWidth="147" name="Table1" posX="1" posY="1" totalRows="15">
+          <Edit colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_liquida" noEntry="true" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Fecha&#10;Liquidación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="9" name="folio_liquida" noEntry="true" posX="10" posY="0" precisionDecimal="9" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Folio&#10;Liquidación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="9" name="folio_cnt" noEntry="true" posX="19" posY="0" precisionDecimal="9" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Folio&#10;Contable" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="60" name="proceso" noEntry="true" posX="28" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Proceso" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="35" name="estado" noEntry="true" posX="88" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Estado" widget="Edit"/>
+          <CheckBox colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="6" name="marca" posX="123" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="8" table_alias_name="" text="" title="Marca" widget="CheckBox"/>
+          <Phantom colName="" fieldId="9" name="sh_folio_cnt" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="10" name="sh_cod_proceso_cnt" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="11" name="sh_cod_proceso" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="12" name="sh_f_emision" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="13" name="sh_estado" sqlTabName="" table_alias_name="" widget="Phantom"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhADIAMwA0ADMAZAAxADMALQAxAGUAZgA4AC0ANAA0ADgANgAtAGIAZgBlADMALQA3ADEANQAxADAANwA5ADQAZQBmAGEAYgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADAANQA0ADAAYQA2ADMALQA2AGIANgA4AC0ANABiAGUANgAtADgAMgA0AGEALQA0AGYAOQAyAGIANwBjADcAYgA2ADQAYwB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADQANgBlADkAMAA0AGQALQA5ADUAMQBmAC0ANAA3ADUAMQAtADkAMwAzADkALQAzADcAMQAwADIAZgA5AGYAYwBmADEAZAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADIAMgAxADYAOABkADMALQAyADUAMQAyAC0ANAA0ADYAZQAtAGIAYwBiADgALQA0AGMAMwAxADMAZgBhADcAMAA0ADMANQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGEANgAxAGUANgBiAGEALQAxAGIAYgAyAC0ANAA1ADIANAAtAGEANAAxAGIALQA2ADQAYgBhAGUAZgAyADUAMgAxAGQAMAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGEAZQBhAGYAOQBhADIALQA3ADEAMgBjAC0ANAA5AGEAOQAtAGIANwBkADIALQAxADYAYgA4ADkANgA1AGMAMwA2ADEAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADUANAAxADMAMQBmADEALQAzADEAOQA3AC0ANAA0ADUAOAAtADgAMQA1AGMALQBiAGYAZgAxADUANAA0ADIAMAAzADkAYgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADQANQAwADIAZAAyADAALQAxAGEAMAA2AC0ANAA0AGUANQAtAGEANAAwADgALQBjADAAOQBlAGQANwA2AGYAMwAzADkANgB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGQANwAzADUAZQA4ADIALQAxADYAMgAyAC0ANAAyAGEAYQAtAGIANQAzAGMALQA1ADcAYwBiADIAZAA2ADgAMAAxADMAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADcAZQAxAGEANgAzAGYALQA2AGUANgA1AC0ANABiAGEAYwAtADkAZAAyAGQALQBjADEAOAAwADgAOAA0AGMAMQAxAGMAZgB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBhADYAMwAwADgAZABhADkALQBlAGUAZQBlAC0ANAAwAGEAMgAtADkANABmADcALQAzAGQAYwBhAGUANgBmADUAMQA1ADYAZQB9QBQAAAAAAABAbSAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGQAZgA1AGYAZQBkADIALQAzAGEAOAAyAC0ANAAyADMAYQAtAGIAOAAyAGIALQA2AGEANQBjAGQAOQAyADkAOQAxADEAOQB9QBQAAAAAAABAcAAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGQAZABlADEAOQBlADQALQBjADMANQA5AC0ANAA5AGQANgAtADkAYQA3ADAALQAxADgAOQAzAGMAMAA2ADUAYQA3ADMAZQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGMAMABjAGIAMwBjAGUALQBlADUAMQBmAC0ANABiADQAMAAtADkAMQA1AGIALQBlADMAMAAyADIAMQBjAGUANwAwAGQAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADYAMABiADAAYgA3AGEALQBiADYAMQAxAC0ANAA4AGMAYwAtAGEAYgA4ADIALQAyADMAOABjADIAZgBjADMAZABmADgAYQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

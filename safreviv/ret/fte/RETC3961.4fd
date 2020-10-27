@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{4f95faa4-5f2a-4943-a266-67275b00fb34}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{a78a54a4-4b26-4233-9128-07627e3814df}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_fecha_inicial" sqlTabName="" table_alias_name="" uid="{ddf455fa-ad60-4d63-a2d6-4a3ffea5b8c7}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_fecha_final" sqlTabName="" table_alias_name="" uid="{cb811b59-bd58-4e1f-b000-b2cc362dce20}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_nss" sqlTabName="" table_alias_name="" uid="{c91d5999-9b69-44a0-a5c8-5383bdb2eaee}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_folio_notificacion" sqlTabName="" table_alias_name="" uid="{efccdbb9-d2f7-45ae-9fb5-231e54376d32}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_folio_datamart" sqlTabName="" table_alias_name="" uid="{ea7141a8-bb86-4129-a942-e9ffc528c1bf}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_proceso" sqlTabName="" table_alias_name="" uid="{5d6b6ff4-523a-4725-8b37-5e8d3723d642}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="76" name="form" text="Form">
+    <Grid gridHeight="16" gridWidth="70" name="grid1" posX="2" posY="1">
+      <Group gridHeight="13" gridWidth="65" name="group1" posX="2" posY="1" text="Notificacion">
+        <Label gridHeight="1" gridWidth="12" name="label6" posX="2" posY="2" text="Proceso"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="15" items="" name="v_proceso" posX="17" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="combobox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="12" name="label1" posX="2" posY="4" text="NSS"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" name="v_nss" posX="17" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="12" name="label3" posX="2" posY="6" text="Folio Notificación"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="15" name="v_folio_notificacion" posX="17" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="12" name="label5" posX="2" posY="8" text="Folio datamart"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" name="v_folio_datamart" posX="17" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="12" name="label2" posX="2" posY="10" text="Fecha Inicial"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" name="v_fecha_inicial" posX="17" posY="10" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="label4" posX="34" posY="10" text="Fecha Final"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="15" name="v_fecha_final" posX="47" posY="10" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjAGIAOAAxADEAYgA1ADkALQBiAGQANQA4AC0ANABlADEAZgAtAGIAMAAwADAALQBiADIAYwBjADMANgAyAGQAYwBlADIAMAB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGQANgBiADYAZgBmADQALQA1ADIAMwBhAC0ANAA3ADIANQAtADgAYgAzADcALQA1AGUAOABkADMANwAyADMAZAA2ADQAMgB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADcAOABhADUANABhADQALQA0AGIAMgA2AC0ANAAyADMAMwAtADkAMQAyADgALQAwADcANgAyADcAZQAzADgAMQA0AGQAZgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEANwAxADQAMQBhADgALQBiAGIAOAA2AC0ANAAxADIAOQAtAGEAOQA0ADIALQBlADkAZgBmAGMANQAyADgAYwAxAGIAZgB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGQAZgA0ADUANQBmAGEALQBhAGQANgAwAC0ANABkADYAMwAtAGEAMgBkADYALQA0AGEAMwBmAGYAZQBhADUAYgA4AGMANwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGYAYwBjAGQAYgBiADkALQBkADIAZgA3AC0ANAA1AGEAZQAtADkAZgBiADUALQAyADMAMQBlADUANAAzADcANgBkADMAMgB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADkAMQBkADUAOQA5ADkALQA5AGIANgA5AC0ANAA0AGEAMAAtAGEANQBjADgALQA1ADMAOAAzAGIAZABiADIAZQBhAGUAZQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

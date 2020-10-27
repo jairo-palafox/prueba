@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><?FJSWSDLUpdate http://172.16.16.39:8080/WSEdoCuenta/services/EdoCuentaService?WSDL?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://edoCuenta.safre.efp.com" xmlns:intf="http://edoCuenta.safre.efp.com" xmlns:tns1="http://vo.edoCuenta.safre.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://edoCuenta.safre.efp.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.edoCuenta.safre.efp.com">
+   <complexType name="BuscarEdoCuentaRequest">
+    <sequence>
+     <element name="curp" nillable="true" type="xsd:string"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="BuscarEdoCuentaResponse">
+    <sequence>
+     <element name="diagnostico" nillable="true" type="xsd:string"/>
+     <element name="listaEdoCuenta" nillable="true" type="xsd:string"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="EdoCuentaRequest">
+    <sequence>
+     <element name="nombreEdoCuenta" nillable="true" type="xsd:string"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="EdoCuentaResponse">
+    <sequence>
+     <element name="archivo" nillable="true" type="xsd:base64Binary"/>
+     <element name="diagnostico" nillable="true" type="xsd:string"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://edoCuenta.safre.efp.com">
+   <import namespace="http://vo.edoCuenta.safre.efp.com"/>
+   <element name="buscarEdoCuentaRequest" type="tns1:BuscarEdoCuentaRequest"/>
+   <element name="buscarEdoCuentaReturn" type="tns1:BuscarEdoCuentaResponse"/>
+   <element name="edoCuentaRequest" type="tns1:EdoCuentaRequest"/>
+   <element name="obtenerEdoCuentaReturn" type="tns1:EdoCuentaResponse"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="obtenerEdoCuentaRequest">
+
+      <wsdl:part element="impl:edoCuentaRequest" name="edoCuentaRequest">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obtenerEdoCuentaResponse">
+
+      <wsdl:part element="impl:obtenerEdoCuentaReturn" name="obtenerEdoCuentaReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buscarEdoCuentaRequest">
+
+      <wsdl:part element="impl:buscarEdoCuentaRequest" name="buscarEdoCuentaRequest">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buscarEdoCuentaResponse">
+
+      <wsdl:part element="impl:buscarEdoCuentaReturn" name="buscarEdoCuentaReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="EdoCuentaService">
+
+      <wsdl:operation name="buscarEdoCuenta" parameterOrder="buscarEdoCuentaRequest">
+
+         <wsdl:input message="impl:buscarEdoCuentaRequest" name="buscarEdoCuentaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:buscarEdoCuentaResponse" name="buscarEdoCuentaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obtenerEdoCuenta" parameterOrder="edoCuentaRequest">
+
+         <wsdl:input message="impl:obtenerEdoCuentaRequest" name="obtenerEdoCuentaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:obtenerEdoCuentaResponse" name="obtenerEdoCuentaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="EdoCuentaServiceSoapBinding" type="impl:EdoCuentaService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="buscarEdoCuenta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="buscarEdoCuentaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="buscarEdoCuentaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obtenerEdoCuenta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="obtenerEdoCuentaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="obtenerEdoCuentaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="EdoCuentaServiceService">
+
+      <wsdl:port binding="impl:EdoCuentaServiceSoapBinding" name="EdoCuentaService">
+
+         <wsdlsoap:address location="http://172.16.16.39:8080/WSEdoCuenta/services/EdoCuentaService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

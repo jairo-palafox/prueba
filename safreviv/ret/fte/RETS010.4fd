@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{1319c680-1ca6-41f5-8dbc-ec6dd62abc36}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{b123d8a2-4342-4599-b691-0a4a0b563003}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_inicial" sqlTabName="" table_alias_name="" uid="{a24abd20-8ea7-478e-b49d-76ad10694a64}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_final" sqlTabName="" table_alias_name="" uid="{3416437a-f14d-4226-a404-c33a5f3a1add}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_i_sol_patronales" sqlTabName="" table_alias_name="" uid="{4bc5a2e4-8d5f-4135-b89d-db48d05abf3f}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_i_reg_trabajadores" sqlTabName="" table_alias_name="" uid="{93056c54-b9be-44a1-8136-6f60b0d63f69}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_i_tot_registros" sqlTabName="" table_alias_name="" uid="{b6713b4b-28da-4e66-b383-0db38b5874fe}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_d_tot_avis" sqlTabName="" table_alias_name="" uid="{d3ad9be4-35f6-4911-816d-f989f5a1924c}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_d_tot_vivienda" sqlTabName="" table_alias_name="" uid="{a4d9ae2b-92a2-4e77-8606-acc1d78f4bb3}"/>
+  </Record>
+  <Form gridHeight="27" gridWidth="80" name="Form" text="Form">
+    <VBox gridHeight="26" gridWidth="75" name="VBox1" posX="1" posY="1">
+      <Group gridHeight="10" gridWidth="75" name="Group1" posX="0" posY="1" text="Selección Periodo de Salida">
+        <Grid gridHeight="5" gridWidth="64" name="Grid1" posX="3" posY="2">
+          <Label gridHeight="1" gridWidth="4" justify="right" name="Label1" posX="1" posY="2" text="De: "/>
+          <DateEdit colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" name="f_inicial" posX="6" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+          <Label gridHeight="1" gridWidth="3" justify="right" name="Label2" posX="23" posY="2" text="A:"/>
+          <DateEdit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="f_final" posX="29" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="14" gridWidth="75" name="Group2" posX="0" posY="11" text="Resumen de archivo a Generar">
+        <Grid gridHeight="12" gridWidth="65" name="Grid2" posX="2" posY="1">
+          <Label gridHeight="1" gridWidth="16" name="Label3" posX="24" posY="1" text="Total Patrones:"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="10" name="v_i_sol_patronales" posX="42" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="16" name="Label4" posX="24" posY="3" text="Total Reg. Trabajadores:"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="10" name="v_i_reg_trabajadores" posX="42" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="16" name="Label5" posX="24" posY="5" text="Total de Registros:"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="10" name="v_i_tot_registros" posX="42" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label7" posX="14" posY="7" text="Total Vivienda:"/>
+          <Edit colName="" columnCount="" fieldId="7" format="###,###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="27" name="v_d_tot_vivienda" posX="25" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label6" posX="14" posY="9" text="Total AVIS:"/>
+          <Edit colName="" columnCount="" fieldId="6" format="###,###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="27" name="v_d_tot_avis" posX="25" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzADQAMQA2ADQAMwA3AGEALQBmADEANABkAC0ANAAyADIANgAtAGEANAAwADQALQBjADMAMwBhADUAZgAzAGEAMQBhAGQAZAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADMAMAA1ADYAYwA1ADQALQBiADkAYgBlAC0ANAA0AGEAMQAtADgAMQAzADYALQA2AGYANgAwAGIAMABkADYAMwBmADYAOQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBiADYANwAxADMAYgA0AGIALQAyADgAZABhAC0ANABlADYANgAtAGIAMwA4ADMALQAwAGQAYgAzADgAYgA1ADgANwA0AGYAZQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADQAZAA5AGEAZQAyAGIALQA5ADIAYQAyAC0ANABlADcANwAtADgANgAwADYALQBhAGMAYwAxAGQANwA4AGYANABiAGIAMwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADMAYQBkADkAYgBlADQALQAzADUAZgA2AC0ANAA5ADEAMQAtADgAMQA2AGQALQBmADkAOAA5AGYANQBhADEAOQAyADQAYwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGIAYwA1AGEAMgBlADQALQA4AGQANQBmAC0ANAAxADMANQAtAGIAOAA5AGQALQBkAGIANAA4AGQAMAA1AGEAYgBmADMAZgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADEAMgAzAGQAOABhADIALQA0ADMANAAyAC0ANAA1ADkAOQAtAGIANgA5ADEALQAwAGEANABhADAAYgA1ADYAMwAwADAAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADIANABhAGIAZAAyADAALQA4AGUAYQA3AC0ANAA3ADgAZQAtAGIANAA5AGQALQA3ADYAYQBkADEAMAA2ADkANABhADYANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

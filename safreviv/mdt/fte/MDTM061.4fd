@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{9b02ec73-1828-41ee-8cc3-4f7f9c01fab8}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{4e1dae72-32d2-4dad-b563-0110090247ea}" where="">
+    <RecordField colName="" fieldIdRef="1" name="edi_tipo_prelacion" sqlTabName="" table_alias_name="" uid="{c98bb896-d8fc-4050-953d-7b46ce718397}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb_prelacion_mod" order="" uid="{1cf0809b-552a-4fe3-b8f1-436b4c46c041}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tlbl_orden_prelacion" sqlTabName="" sqlType="INTEGER" table_alias_name="" uid="{d6511fc4-b997-47ed-97c5-f6feb21f1efb}"/>
+    <RecordField colName="" fieldIdRef="4" name="tlbl_tpo_prelacion" sqlTabName="" table_alias_name="" uid="{de92e32c-12f3-4526-ae2d-c141587df361}"/>
+    <RecordField colName="" fieldIdRef="6" name="Edit1" sqlTabName="" table_alias_name="" uid="{3c13c60f-a063-45cd-a562-ac2149a97178}"/>
+    <RecordField colName="" fieldIdRef="3" name="tb_mandato" sqlTabName="" table_alias_name="" uid="{fbcd3074-2d74-49b1-beae-0467b8a3e37a}"/>
+    <RecordField colName="" fieldIdRef="5" name="tlbl_prelacion" sqlTabName="" table_alias_name="" uid="{a33080f5-a049-4f80-9d1d-64bef3c99049}"/>
+  </Record>
+  <Form gridHeight="19" gridWidth="93" name="frm_prelacion" text="Form">
+    <Grid gridHeight="17" gridWidth="87" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="13" gridWidth="83" name="Group1" posX="2" posY="1" text="Modificación de Catálogo de Prelación">
+        <Label gridHeight="1" gridWidth="13" name="Label1" posX="3" posY="2" text="Tipo de Prelación"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="38" name="edi_tipo_prelacion" notNull="true" posX="3" posY="3" required="true" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="Edit"/>
+        <Table gridHeight="6" gridWidth="77" name="tlbl_prelacion" posX="3" posY="5" totalRows="5">
+          <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="7" justify="center" name="tlbl_orden_prelacion" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="INTEGER" stepX="" stepY="" table_alias_name="" title="Prelación" unmovable="true" unsortable="true" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="5" hidden="true" name="tlbl_tpo_prelacion" posX="7" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="  Tipo &#10;Prelación" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="6" hidden="true" name="Edit1" posX="12" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Edit1" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="45" name="tb_mandato" posX="18" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Mandato" unsortable="false" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="8" hidden="true" name="tlbl_prelacion" posX="63" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Prelación" widget="FFLabel"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmAGIAYwBkADMAMAA3ADQALQAyAGQANwA0AC0ANAA5AGIAMQAtAGIAZQBhAGUALQAwADQANgA3AGIAOABhADMAZQAzADcAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADkAOABiAGIAOAA5ADYALQBkADgAZgBjAC0ANAAwADUAMAAtADkANQAzAGQALQA3AGIANAA2AGMAZQA3ADEAOAAzADkANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGMAZgAwADgAMAA5AGIALQA1ADUAMgBhAC0ANABmAGUAMwAtAGIAOABmADEALQA0ADMANgBiADQAYwA0ADYAYwAwADQAMQB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewA0AGUAMQBkAGEAZQA3ADIALQAzADIAZAAyAC0ANABkAGEAZAAtAGIANQA2ADMALQAwADEAMQAwADAAOQAwADIANAA3AGUAYQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGMAMQAzAGMANgAwAGYALQBhADAANgAzAC0ANAA1AGMAZAAtAGEANQA2ADIALQBhAGMAMgAxADQAOQBhADkANwAxADcAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADMAMwAwADgAMABmADUALQBhADAANAA5AC0ANABmADgAMAAtADkAZAAxAGQALQA2ADQAYgBlAGYAMwBjADkAOQAwADQAOQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGUAOQAyAGUAMwAyAGMALQAxADIAZgAzAC0ANAA1ADIANgAtAGEAZQAyAGQALQBjADEANAAxADUAOAA3AGQAZgAzADYAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADYANQAxADEAZgBjADQALQBiADkAOQA3AC0ANAA3AGUAZAAtADkANwBjADUALQBmADYAZgBlAGIAMgAxAGYAMQBlAGYAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

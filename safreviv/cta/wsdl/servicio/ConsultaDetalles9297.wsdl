@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:intf="http://service.infonavit.org.mx" xmlns:impl="http://service.infonavit.org.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" targetNamespace="http://service.infonavit.org.mx">
+	<wsdl:types>
+		<schema elementFormDefault="qualified" targetNamespace="http://service.infonavit.org.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+			<element name="consultaDetalle9297">
+				<complexType>
+					<sequence>
+						<element name="xmlRequest" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="consultaDetalle9297Response">
+				<complexType>
+					<sequence>
+						<element name="consultaDetalle9297Return" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="consultaDetalle9297Request">
+		<wsdl:part name="parameters" element="intf:consultaDetalle9297"/>
+	</wsdl:message>
+	<wsdl:message name="consultaDetalle9297Response">
+		<wsdl:part name="parameters" element="intf:consultaDetalle9297Response"/>
+	</wsdl:message>
+	<wsdl:portType name="ConsultaDetalles9297">
+		<wsdl:operation name="consultaDetalle9297">
+			<wsdl:input name="consultaDetalle9297Request" message="intf:consultaDetalle9297Request"/>
+			<wsdl:output name="consultaDetalle9297Response" message="intf:consultaDetalle9297Response"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ConsultaDetalles9297SoapBinding" type="intf:ConsultaDetalles9297">
+		<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="consultaDetalle9297">
+			<wsdlsoap:operation/>
+			<wsdl:input>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ConsultaDetalles9297Service">
+		<wsdl:port name="ConsultaDetalles9297" binding="intf:ConsultaDetalles9297SoapBinding">
+			<wsdlsoap:address location="http://172.16.16.204:6002/ws/r/ConsultaDetalles9297Service"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

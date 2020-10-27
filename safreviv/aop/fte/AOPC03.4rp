@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AOPC03.rdd" RWFglReportName="cifras"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezado" width="max" length="min" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="logo" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="titulo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox" width="max" color="#ffffff" bgColor="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="REVERSO OPERATIVO" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="fecha" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox1" width="max/8" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Folio"/>
+                            <rtl:input-variable name="v_folio_reverso.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio_reverso.folio Value" width="max/8" anchorX="1" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{v_folio_reverso.folio}}"/>
+                            <WORDWRAPBOX name="WordWrapBox43" width="max/4" fontSize="10" floatingBehavior="enclosed" text="  " textAlignment="right"/>
+                            <rtl:input-variable name="v_today" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_today Value" width="max/2" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_today}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="folio" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox2" width="max/8" alignment="baseline" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Estado"/>
+                            <rtl:input-variable name="v_folio_reverso.estado" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_folio_reverso.estado Value" width="max/2" anchorX="1" color="#ffffff" fontSize="9" floatingBehavior="enclosed" text="{{v_folio_reverso.estado}}"/>
+                            <WORDWRAPBOX name="WordWrapBox4" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Fecha proceso" textAlignment="right"/>
+                            <rtl:input-variable name="v_folio_reverso.f_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_f_proceso" width="max/8" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_folio_reverso.f_proceso}}"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador" width="5" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="folio_reversado" width="max" length="min" floatingBehavior="enclosed" borderWidth="1" borderStyle="solid" borderColor="#ce050f">
+                        <LAYOUTNODE name="folio_titulo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox5" width="max" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="INFORMACION DEL FOLIO REVERSADO" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="tab_folio" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox6" width="max/4.03" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Folio&#10;Ajustado" textAlignment="center" borderWidth="1" borderStyle="none" borderTopStyle="solid" borderRightStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox7" width="max/4.03" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Modulo&#10; " textAlignment="center" borderWidth="1" borderStyle="none" borderTopStyle="solid" borderRightStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox8" width="max/4.03" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Proceso&#10; " textAlignment="center" borderWidth="1" borderStyle="none" borderTopStyle="solid" borderRightStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox9" width="max/4.03" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Usuario&#10; " textAlignment="center" borderWidth="1" borderStyle="none" borderTopStyle="solid" borderRightStyle="solid" borderColor="#ce050f"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Folio_ajustado" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1">
+                            <rtl:input-variable name="v_folio_ajustado.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio_ajustado.folio Value" width="max/4.01" anchorX="1" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="center" format="--------&amp;" value="{{v_folio_ajustado.folio}}" borderWidth="1" borderStyle="none" borderTopStyle="solid" borderRightStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="v_folio_ajustado.modulo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_folio_ajustado.modulo Value" width="max/4.01" anchorX="1" alignment="baseline" fontSize="8" floatingBehavior="enclosed" text="{{v_folio_ajustado.modulo}}" textAlignment="center" borderWidth="1" borderStyle="none" borderTopStyle="solid" borderRightStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="v_folio_ajustado.proceso_desc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_folio_ajustado.proceso_desc Value" width="max/4.01" anchorX="1" alignment="near" fontSize="8" floatingBehavior="enclosed" text="{{v_folio_ajustado.proceso_desc}}" textAlignment="center" borderWidth="1" borderStyle="none" borderTopStyle="solid" borderRightStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="v_folio_ajustado.usuario_desc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_folio_ajustado.usuario_desc Value" width="max/4.01" anchorX="1" fontSize="8" floatingBehavior="enclosed" text="{{v_folio_ajustado.usuario_desc}}" textAlignment="center" borderWidth="1" borderStyle="none" borderTopStyle="solid" borderRightStyle="solid" borderColor="#ce050f"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador2" width="5" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="conciliacion" width="max" length="min" floatingBehavior="enclosed" borderWidth="1" borderStyle="solid" borderColor="#ce050f">
+                        <LAYOUTNODE name="cifras_titulo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1">
+                            <WORDWRAPBOX name="WordWrapBox19" width="max" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="RESUMEN DE CIFRAS" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="tab_cifras" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderStyle="none" borderColor="#ce050f">
+                            <WORDWRAPBOX name="WordWrapBox21" width="max/4.05" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="&#10;&#10;Subcuenta&#10;&#10; " textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox22" width="max/4.05" alignment="baseline" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text=" &#10; &#10;Fondo&#10;&#10; " textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox23" width="max/4.05" alignment="baseline" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text=" &#10;Monto&#10;Acciones&#10;&#10; " textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox24" width="max/4.05" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text=" &#10;Monto&#10;Pesos&#10;&#10; " textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                        </LAYOUTNODE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <LAYOUTNODE name="cifras" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="p_cifras.subcuenta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_cifras.subcuenta Value" width="max/4.04" length="12" fontSize="6" floatingBehavior="enclosed" text="{{p_cifras.subcuenta}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce0f05"/>
+                                <rtl:input-variable name="p_cifras.fondo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_cifras.fondo Value" width="max/4.04" length="12" fontSize="6" floatingBehavior="enclosed" text="{{p_cifras.fondo}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce0f05"/>
+                                <rtl:input-variable name="p_cifras.acciones" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_cifras.acciones Value" width="max/4.04" length="12" anchorX="1" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_cifras.acciones}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce0f05"/>
+                                <rtl:input-variable name="p_cifras.pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_cifras.pesos Value" width="max/4.04" length="12" anchorX="1" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_cifras.pesos}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce0f05"/>
+                            </LAYOUTNODE>
+                        </rtl:match>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{489f312a-c467-4920-bc97-f62f73c58055}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{6e6d1d9a-7463-464e-8f12-ddae8a681742}" where="">
+    <RecordField colName="" fieldIdRef="2" name="v_nom_usuario" sqlTabName="" table_alias_name="" uid="{50d2c07e-2be4-44b0-be3b-45882e7f4b40}"/>
+    <RecordField colName="" fieldIdRef="1" name="v_perfil_corta" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{af2f3afd-673c-42a9-8680-45fac435cd35}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tab_consulta" order="" uid="{2c4d7909-7319-4033-885e-e053cc7d87df}" where="">
+    <RecordField colName="" fieldIdRef="3" name="v_usuario" sqlTabName="" table_alias_name="" uid="{c95fb781-2117-4b49-ae3f-430be433ff0e}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_usuario_desc" sqlTabName="" table_alias_name="" uid="{8b774e2d-8f4e-445b-8dec-0a72e9a66bec}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_estado" sqlTabName="" table_alias_name="" uid="{3aeb8069-707d-4111-a70f-68cb746b819d}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_f_actualiza" sqlTabName="" table_alias_name="" uid="{81834a11-a2f8-4547-be8e-8a0eb27bf0c1}"/>
+  </Record>
+  <Form gridHeight="48" gridWidth="176" name="Form" text="Form">
+    <Grid gridHeight="20" gridWidth="110" name="Grid1" posX="6" posY="1">
+      <Label gridHeight="1" gridWidth="13" name="lb_usuario_cod" posX="6" posY="3" text="Perfil"/>
+      <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="29" items="" name="v_perfil_corta" notNull="false" posX="23" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      <Label gridHeight="1" gridWidth="12" name="lb_nom_usuario" posX="6" posY="5" text="Descripción Perfil"/>
+      <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="29" name="v_nom_usuario" posX="23" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      <Table gridHeight="8" gridWidth="95" name="tab_consulta" posX="6" posY="7" totalRows="5">
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="16" name="v_usuario" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Perfil" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="30" name="v_usuario_desc" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Descripción Perfil" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="16" name="v_estado" posX="46" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Estado" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="16" name="v_f_actualiza" posX="62" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha de actualización" widget="Edit"/>
+      </Table>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADkANQBmAGIANwA4ADEALQAyADEAMQA3AC0ANABiADQAOQAtAGEAZQAzAGYALQA0ADMAMABiAGUANAAzADMAZgBmADAAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADEAOAAzADQAYQAxADEALQBhADIAZgA4AC0ANAA1ADQANwAtAGIAZQA4AGUALQA4AGEAMABlAGIAMgA3AGIAZgAwAGMAMQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADAAZAAyAGMAMAA3AGUALQAyAGIAZQA0AC0ANAA0AGIAMAAtAGIAZQAzAGIALQA0ADUAOAA4ADIAZQA3AGYANABiADQAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGMANABkADcAOQAwADkALQA3ADMAMQA5AC0ANAAwADMAMwAtADgAOAA1AGUALQBlADAANQAzAGMAYwA3AGQAOAA3AGQAZgB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewA2AGUANgBkADEAZAA5AGEALQA3ADQANgAzAC0ANAA2ADQAZQAtADgAZgAxADIALQBkAGQAYQBlADgAYQA2ADgAMQA3ADQAMgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGYAMgBmADMAYQBmAGQALQA2ADcAMwBjAC0ANAAyAGEAOQAtADgANgA4ADAALQA0ADUAZgBhAGMANAAzADUAYwBkADMANQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGIANwA3ADQAZQAyAGQALQA4AGYANABlAC0ANAA0ADUAYgAtADgAZABlAGMALQAwAGEANwAyAGUAOQBhADYANgBiAGUAYwB9QBQAAAAAAABASIAAAAAAAD9gYk3S8an8AQAAAEwAewAzAGEAZQBiADgAMAA2ADkALQA3ADAANwBkAC0ANAAxADEAMQAtAGEANwAwAGYALQA2ADgAYwBiADcANAA2AGIAOAAxADkAZAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

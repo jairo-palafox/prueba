@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{e22f42ad-fb44-4244-bceb-1076f0a976af}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_det_solicitud" order="" uid="{83df8dfc-cc5d-4b36-bf93-9339204a54d6}" where="">
+    <RecordField colName="" fieldIdRef="1" name="col_descrip" sqlTabName="" table_alias_name="" uid="{7574d958-7a45-447c-918a-35dea1e6a241}"/>
+    <RecordField colName="" fieldIdRef="2" name="col_aporte_historico" sqlTabName="" table_alias_name="" uid="{d63d992c-71a5-4408-b68c-ea850a8a8ba1}"/>
+    <RecordField colName="" fieldIdRef="3" name="col_solicitud_devolver" sqlTabName="" table_alias_name="" uid="{b2355f3e-5b6d-4919-8609-e4ec002230f9}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_det_liquida" order="" uid="{e283b1ba-4154-45bc-b120-41390e06157d}" where="">
+    <RecordField colName="" fieldIdRef="4" name="col_descrip_liq" sqlTabName="" table_alias_name="" uid="{b2235578-292d-44b6-8b21-aea7fb283851}"/>
+    <RecordField colName="" fieldIdRef="6" name="col_aporte_historico_liquida" sqlTabName="" table_alias_name="" uid="{7c691aa9-3091-4a38-8772-0d2969f57e10}"/>
+    <RecordField colName="" fieldIdRef="5" name="col_liquidacion" sqlTabName="" table_alias_name="" uid="{193ab24f-fc39-4a8d-863c-d6d3b693b41c}"/>
+  </Record>
+  <Form gridHeight="39" gridWidth="85" name="Form" text="DETALLE DE LLAVE DE IDENTIFICACION DE SOLICITUD">
+    <VBox gridHeight="27" gridWidth="79" name="VBox1" posX="0" posY="0">
+      <Group gridHeight="11" gridWidth="79" name="detalle_solicitud" posX="0" posY="1" text="Detalle Solicitud">
+        <Grid gridHeight="9" gridWidth="76" name="Grid1" posX="1" posY="1">
+          <Table gridHeight="7" gridWidth="50" name="Table1" posX="1" posY="1" totalRows="6">
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="17" justify="left" name="col_descrip" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="-" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="12" justify="right" name="col_aporte_historico" posX="17" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Aporte &#10;Histórico" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="12" justify="right" name="col_solicitud_devolver" posX="29" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Solicitud a &#10;Devolver" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="14" gridWidth="79" name="detalle_liquidacion" posX="0" posY="12" text="Detalle Liquidación">
+        <Grid gridHeight="11" gridWidth="76" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="9" gridWidth="73" name="scr_det_liquida" posX="1" posY="1" totalRows="8">
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="18" justify="left" name="col_descrip_liq" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="-" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="12" justify="right" name="col_aporte_historico_liquida" posX="18" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Aporte &#10;Histórico" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="34" justify="right" name="col_liquidacion" posX="30" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Aportación&#10;Liquidación" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADIAMgAzADUANQA3ADgALQAyADkAMgBkAC0ANAA0AGIANgAtADgAYgAyADEALQBhAGUAYQA3AGYAYgAyADgAMwA4ADUAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADMAZABmADgAZABmAGMALQBjAGMANQBkAC0ANABiADMANgAtAGIAZgA5ADMALQA5ADMAMwA5ADIAMAA0AGEANQA0AGQANgB9wGJgAAAAAADAbMAAAAAAAD94k3S8an76AQAAAEwAewBkADYAMwBkADkAOQAyAGMALQA3ADEAYQA1AC0ANAA0ADAAOAAtAGIANgA4AGMALQBlAGEAOAA1ADAAYQA4AGEAOABiAGEAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADUANwA0AGQAOQA1ADgALQA3AGEANAA1AC0ANAA0ADcAYwAtADkAMQA4AGEALQAzADUAZABlAGEAMQBlADYAYQAyADQAMQB9QBQAAAAAAABAOgAAAAAAAD9ok3S8an76AQAAAEwAewBlADIAOAAzAGIAMQBiAGEALQA0ADEANQA0AC0ANAA1AGIAYwAtAGIAMQAyADAALQA0ADEAMwA5ADAAZQAwADYAMQA1ADcAZAB9AAAAAAAAAAAAAAAAAAAAAD+Kn752yLQ8AQAAAEwAewAxADkAMwBhAGIAMgA0AGYALQBmAGMAMwA5AC0ANABhADgAZAAtADgANgAzAGMALQBkADYAZAAzAGIANgA5ADMAYgA0ADEAYwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADIAMwA1ADUAZgAzAGUALQA1AGIANgBkAC0ANAA5ADEAOQAtADgANgAwADkALQBlADQAZQBjADAAMAAyADIAMwAwAGYAOQB9QBQAAAAAAABAUgAAAAAAAD98rAgxJul5AQAAAEwAewA3AGMANgA5ADEAYQBhADkALQAzADAAOQAxAC0ANABhADMAOAAtADgANwA3ADIALQAwAGQAMgA5ADYAOQBmADUANwBlADEAMAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

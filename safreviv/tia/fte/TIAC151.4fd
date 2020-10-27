@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="ManagedForm" uid="{40d2cfb0-f3ce-4016-b0fb-9beff0f09481}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{f71bef87-352d-435b-849b-d781617a22a2}" where="">
+    <RecordField colName="" fieldIdRef="3" name="e_nss" sqlTabName="" table_alias_name="" uid="{61bb4806-698c-4783-b8bb-e8a779398c94}"/>
+    <RecordField colName="" fieldIdRef="4" name="date_f_inicial" sqlTabName="" table_alias_name="" uid="{1fba3a55-68b2-453e-a43c-d905cef6265a}"/>
+    <RecordField colName="" fieldIdRef="5" name="date_f_final" sqlTabName="" table_alias_name="" uid="{fb5a48ab-e10c-4dbe-ae9e-90a8141ac95a}"/>
+    <RecordField colName="" fieldIdRef="6" name="radiogroup1" sqlTabName="" table_alias_name="" uid="{e3e52dde-45f0-4bba-b33e-3c6f4cefa033}"/>
+    <RecordField colName="" fieldIdRef="7" name="e_id_unico" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{d95a59e9-9f56-4d94-90cc-0db4c817e98e}"/>
+    <RecordField colName="" fieldIdRef="1" name="e_rfc" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{a96652a8-2e62-4c5f-9208-81dcd1da5a0c}"/>
+  </Record>
+  <Form gridHeight="17" gridWidth="153" name="SALDOS INSUFICIENTES EN SOLICITUDES DE RETIRO POR TRANSFERENCIA" text="Form">
+    <Grid gridHeight="15" gridWidth="151" name="Grid1" posX="2" posY="1">
+      <Group gridHeight="4" gridWidth="149" name="Group1" posX="2" posY="1" text="Parámetros de consulta">
+        <Label gridHeight="1" gridWidth="7" name="Label3" posX="2" posY="2" text="NSS"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="17" name="e_nss" posX="15" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="11" name="lbl_unico" posX="37" posY="2" text="ID ÚNICO"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="17" name="e_id_unico" posX="51" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="12" name="lbl_rfc" posX="75" posY="2" text="RFC"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="25" name="e_rfc" posX="89" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="5" gridWidth="137" name="group3" posX="2" posY="5" text="Detalle de:">
+        <RadioGroup aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="2" gridWidth="134" items="Aceptados, Rechazados, Ambos" name="radiogroup1" orientation="horizontal" posX="1" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="radiogroup1" widget="RadioGroup">
+          <Initializer items="1,&quot;Aceptados&quot;,2,&quot;Rechazados&quot;,3,&quot;Ambos&quot;"/>
+          <Item lstrtext="false" name="1" text="Aceptados"/>
+          <Item lstrtext="false" name="2" text="Rechazados"/>
+          <Item lstrtext="false" name="3" text="Ambos"/>
+        </RadioGroup>
+      </Group>
+      <Group gridHeight="4" gridWidth="137" name="Group2" posX="2" posY="10" text="Fecha de Liquidación">
+        <Label gridHeight="1" gridWidth="10" name="Label4" posX="1" posY="2" text="Fecha Inicial"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" name="date_f_inicial" posX="12" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label5" posX="40" posY="2" text="Fecha Final"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" name="date_f_final" posX="51" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADcAMQBiAGUAZgA4ADcALQAzADUAMgBkAC0ANAAzADUAYgAtADgANAA5AGIALQBkADcAOAAxADYAMQA3AGEAMgAyAGEAMgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADkANQBhADUAOQBlADkALQA5AGYANQA2AC0ANABkADkANAAtADkAMABjAGMALQAwAGQAYgA0AGMAOAAxADcAZQA5ADgAZQB9QCAAAAgAAAFAWQAADIAAAgAAAAAAAAAAAQAAAEwAewAxAGYAYgBhADMAYQA1ADUALQA2ADgAYgAyAC0ANAA1ADMAZQAtAGEANAAzAGMALQBkADkAMAA1AGMAZQBmADYAMgA2ADUAYQB9QCAAAAgAAAFAR5mZpWZmaAAAAAAAAAAAAQAAAEwAewBlADMAZQA1ADIAZABkAGUALQA0ADUAZgAwAC0ANABiAGIAYQAtAGIAMwAzAGUALQAzAGMANgBmADQAYwBlAGYAYQAwADMAMwB9QCAAAAgAAAFAVJmZo+ZmaAAAAAAAAAAAAQAAAEwAewBhADkANgA2ADUAMgBhADgALQAyAGUANgAyAC0ANABjADUAZgAtADkAMgAwADgALQA4ADEAZABjAGQAMQBkAGEANQBhADAAYwB9QCAAAAgAAAFAXWZmdRmZmwAAAAAAAAAAAQAAAEwAewBmAGIANQBhADQAOABhAGIALQBlADEAMABjAC0ANABkAGIAZQAtAGEAZQA5AGUALQA5ADAAYQA4ADEANAAxAGEAYwA5ADUAYQB9QCAAAAgAAAFAUDMzO0zMzgAAAAAAAAAAAQAAAEwAewA2ADEAYgBiADQAOAAwADYALQA2ADkAOABjAC0ANAA3ADgAMwAtAGIAOABiAGIALQBlADgAYQA3ADcAOQAzADkAOABjADkANAB9QCAAAAgAAAFAPZmZqGZmaAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

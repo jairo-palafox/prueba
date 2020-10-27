@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{fe53ce27-d0f4-4484-a45b-aaee3a3c8b58}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{7fafcd26-5ff9-44a8-ac0e-8a6e16e58663}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record1" order="" uid="{d3fd81c8-509c-4feb-bac9-1cb4dc9681f2}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record2" order="" uid="{196727dc-555a-4b64-af92-326e6db1ce46}" where="">
+    <RecordField colName="" fieldIdRef="1" fieldType="NON_DATABASE" length="1" name="arr_nss" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{cb08a8c3-6b5e-4e2b-820c-61bc5c8efd91}"/>
+    <RecordField colName="" fieldIdRef="2" fieldType="NON_DATABASE" length="1" name="arr_num_cre" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{8eb8cbad-db6b-4cfc-ba36-f3663e492255}"/>
+    <RecordField colName="" fieldIdRef="3" name="arr_estado" sqlTabName="" table_alias_name="" uid="{07a962c4-de8b-4631-868c-7fdf4f680357}"/>
+    <RecordField colName="" fieldIdRef="4" name="edit1" sqlTabName="" table_alias_name="" uid="{4ac2fbff-2064-4455-9a17-cc1e26e444e5}"/>
+    <RecordField colName="" fieldIdRef="5" name="arr_diag" sqlTabName="" table_alias_name="" uid="{1b53cfe3-74ed-49eb-985c-1117e8583f2e}"/>
+    <RecordField colName="" fieldIdRef="6" name="arr_fecha" sqlTabName="" table_alias_name="" uid="{41ef5f7a-f2cf-4e45-99df-84b773d342e2}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record3" order="" uid="{6a9ae825-d1e7-4d54-9dd5-8f2d3de6a9ec}" where="">
+    <RecordField colName="" fieldIdRef="7" fieldType="NON_DATABASE" length="1" name="arr_nss1" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{e0bf4ff7-e7a9-4fa3-b491-7adcd3ed8256}"/>
+    <RecordField colName="" fieldIdRef="10" name="edit2" sqlTabName="" table_alias_name="" uid="{490eb02e-3916-4098-a661-39cc4ac82137}"/>
+    <RecordField colName="" fieldIdRef="8" fieldType="NON_DATABASE" length="1" name="arr_num_cre1" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{3b217f93-475b-40fa-a813-2ef66753d99e}"/>
+    <RecordField colName="" fieldIdRef="9" name="arr_estado1" sqlTabName="" table_alias_name="" uid="{0610b0c2-5a84-46ba-8f51-1a8c3a9bd1eb}"/>
+  </Record>
+  <Form gridHeight="32" gridWidth="163" name="form" text="Form">
+    <Grid gridHeight="26" gridWidth="144" name="grid1" posX="2" posY="1">
+      <Group gridHeight="11" gridWidth="98" name="group2" posX="4" posY="1" text="Listado de Tramites">
+        <Table gridHeight="7" gridWidth="85" name="tb1" posX="1" posY="2" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="7" fieldType="NON_DATABASE" gridHeight="1" gridWidth="12" justify="left" length="1" lstrcomment="false" lstrtitle="false" name="arr_nss1" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="NSS" widget="Edit"/>
+          <Phantom colName="" fieldId="10" name="edit2" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="8" fieldType="NON_DATABASE" gridHeight="1" gridWidth="30" justify="left" length="1" lstrcomment="false" lstrtitle="false" name="arr_num_cre1" posX="12" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Número de Crédito" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="30" hidden="false" justify="left" name="arr_estado1" posX="42" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Estado" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="11" gridWidth="124" name="group1" posX="4" posY="13" text="Tramites">
+        <Table gridHeight="8" gridWidth="119" hidden="false" name="tb2" posX="1" posY="2" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="1" fieldType="NON_DATABASE" gridHeight="1" gridWidth="12" length="1" lstrcomment="false" lstrtitle="false" name="arr_nss" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="2" fieldType="NON_DATABASE" gridHeight="1" gridWidth="25" justify="left" length="1" lstrcomment="false" lstrtitle="false" name="arr_num_cre" posX="12" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Número de Crédito" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="32" hidden="false" name="arr_estado" posX="37" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Estado" widget="Edit"/>
+          <Phantom colName="" fieldId="4" name="edit1" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="21" name="arr_diag" posX="69" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Díagnostico" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="14" name="arr_fecha" posX="90" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha Vigencia" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAwADYAMQAwAGIAMABjADIALQA1AGEAOAA0AC0ANAA2AGIAYQAtADgAZgA1ADEALQAxAGEAOABjADMAYQA5AGIAZAAxAGUAYgB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADEAZQBmADUAZgA3AGEALQBmADIAYwBmAC0ANABlADQANQAtADkAOQBkAGYALQA4ADQAYgA3ADcAMwBkADMANAAyAGUAMgB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGUAYgA4AGMAYgBhAGQALQBkAGIANgBiAC0ANABjAGYAYwAtAGIAYQAzADYALQBmADMANgA2ADMAZQA0ADkAMgAyADUANQB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADkANgA3ADIANwBkAGMALQA1ADUANQBhAC0ANABiADYANAAtAGEAZgA5ADIALQAzADIANgBlADYAZABiADEAYwBlADQANgB9QDQAAAAAAABANAAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGIAMAA4AGEAOABjADMALQA2AGIANQBlAC0ANABlADIAYgAtADgAMgAwAGMALQA2ADEAYgBjADUAYwA4AGUAZgBkADkAMQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGEAOQBhAGUAOAAyADUALQBkADEAZQA3AC0ANABkADUANAAtADkAZABkADUALQA4AGYAMgBkADMAZABlADYAYQA5AGUAYwB9QD4AAAAAAABAPgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADAAYgBmADQAZgBmADcALQBlADcAYQA5AC0ANABmAGEAMwAtAGIANAA5ADEALQA3AGEAZABjAGQAMwBlAGQAOAAyADUANgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGIAMgAxADcAZgA5ADMALQA0ADcANQBiAC0ANAAwAGYAYQAtAGEAOAAxADMALQAyAGUAZgA2ADYANwA1ADMAZAA5ADkAZQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADkAMABlAGIAMAAyAGUALQAzADkAMQA2AC0ANAAwADkAOAAtAGEANgA2ADEALQAzADkAYwBjADQAYQBjADgAMgAxADMANwB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADcAYQA5ADYAMgBjADQALQBkAGUAOABiAC0ANAA2ADMAMQAtADgANgA4AGMALQA3AGYAZABmADQAZgA2ADgAMAAzADUANwB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGEAYwAyAGYAYgBmAGYALQAyADAANgA0AC0ANAA0ADUANQAtADkAYQAxADcALQBjAGMAMQBlADIANgBlADQANAA0AGUANQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGYAYQBmAGMAZAAyADYALQA1AGYAZgA5AC0ANAA0AGEAOAAtAGEAYwAwAGUALQA4AGEANgBlADEANgBlADUAOAA2ADYAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADMAZgBkADgAMQBjADgALQA1ADAAOQBjAC0ANABmAGUAYgAtAGIAYQBjADkALQAxAGMAYgA0AGQAYwA5ADYAOAAxAGYAMgB9QGvAAAAAAABAUQAAAAAAAD9gYk3S8an8AQAAAEwAewAxAGIANQAzAGMAZgBlADMALQA3ADQAZQBkAC0ANAA5AGUAYgAtADkAOAA1AGMALQAxADEAMQA3AGUAOAA1ADgAMwBmADIAZQB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

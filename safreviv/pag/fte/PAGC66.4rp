@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGC66.rdd" RWFglReportName="rpt_genera_reporte_cuentas_vol"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min">
+                            <IMAGEBOX name="imgLogoInfonavit" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte de NSS aperturados de registro de pagos"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="18.4943" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lbFolio" width="32.0338" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Folio"/>
+                            <rtl:input-variable name="p_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio Value" width="43.82" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="########&amp;" value="{{p_folio}}"/>
+                            <WORDBOX name="espacioDatosReporte" width="53.8779" length="10.9662" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="lblUsuario" width="36.0337" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Usuario"/>
+                            <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario_cod Value" width="77.1907" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                            <WORDBOX name="espacioUsuarioNombre" width="15.4831" length="16.2359" floatingBehavior="enclosed" text=""/>
+                            <rtl:input-variable name="v_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_usuario Value" width="337.563" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nombre_usuario}}"/>
+                            <WORDBOX name="lblFecha" width="48.3147" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha Value" width="67.4042" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="seccionNombreArchivo" width="23.3988" length="566.374" layoutDirection="leftToRight">
+                            <WORDBOX name="lblArchivo" width="90" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Nombre del archivo:"/>
+                            <rtl:input-variable name="v_nombre_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_archivo Value" width="400" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nombre_archivo}}"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="min" layoutDirection="leftToRight" port="anyPageHeader">
+                            <WORDBOX name="WordBox3" width="705.812" length="16.2359" alignment="baseline" floatingBehavior="enclosed" text=""/>
+                            <PAGENOBOX name="PageNoBox" width="14.5169" fontName="Arial" fontSize="7" floatingBehavior="enclosed"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="encabezadoGeneral3" width="15.7641" length="max" bgColor="#ce050f" layoutDirection="leftToRight" port="anyPageHeader">
+                            <WORDWRAPBOX name="lbl_nss_actual" width="130" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="  NSS actual"/>
+                            <WORDWRAPBOX name="lbl_fecha_apertura" width="100" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha apertura" textAlignment="center"/>
+                            <WORDWRAPBOX name="lbl_nombre_trabajador" width="351.753" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="  Nombre trabajador" textAlignment="left" borderRightWidth="1" borderLeftWidth="1" borderRightStyle="solid" borderLeftStyle="solid" borderRightColor="#ffffff" borderLeftColor="#ffffff"/>
+                            <WORDWRAPBOX name="lbl_folio" width="101.281" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Folio" borderRightWidth="1" borderLeftWidth="1" borderRightStyle="solid" borderLeftStyle="solid" borderRightColor="#ffffff" borderLeftColor="#ffffff"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="cuentas_aperturadas" width="min" length="max" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_cuenta.v_nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_cuenta.v_nss Value" width="130" alignment="baseline" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text="{{p_cuenta.v_nss}}"/>
+                            <rtl:input-variable name="p_cuenta.v_f_apertura" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_cuenta.v_f_apertura Value" width="109.787" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text="{{p_cuenta.v_f_apertura}}"/>
+                            <rtl:input-variable name="p_cuenta.v_nombre_imss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_cuenta.v_nombre_imss Value" width="343.31" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_cuenta.v_nombre_imss}}"/>
+                            <rtl:input-variable name="p_cuenta.v_folio_lote" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_cuenta.v_folio_lote Value" width="103.759" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------" value="{{p_cuenta.v_folio_lote}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <LAYOUTNODE name="espacio" width="12.4719" length="456.631" layoutDirection="leftToRight" floatingBehavior="enclosed" borderBottomWidth="1" borderBottomStyle="solid" borderBottomColor="#000000"/>
+                    <MINIPAGE name="renglonTotalizador" width="min" length="max" layoutDirection="leftToRight">
+                        <WORDBOX name="lbl_total" width="205" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Total registros"/>
+                        <rtl:input-variable name="v_total_regs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_regs Value" width="100" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-----------&amp;" value="{{v_total_regs}}"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

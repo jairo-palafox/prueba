@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{164cec92-fedd-494d-823c-a861f29b10c6}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="reg_expediente" order="" uid="{43416d4a-1898-4da5-8582-ae771eb850e6}" where="">
+    <RecordField colName="" fieldIdRef="1" name="nss_invadido" sqlTabName="" table_alias_name="" uid="{c9b60915-9ce0-4ff2-8af2-a54a94d0dc8f}"/>
+    <RecordField colName="" fieldIdRef="2" name="rfc_invadido" sqlTabName="" table_alias_name="" uid="{41847f26-3a03-4f78-8446-9d0cb16eebe8}"/>
+    <RecordField colName="" fieldIdRef="3" name="nombre_invadido" sqlTabName="" table_alias_name="" uid="{68720a90-8848-466e-bcee-c18181fc28a8}"/>
+    <RecordField colName="" fieldIdRef="4" name="nss_asociado" sqlTabName="" table_alias_name="" uid="{46997b2b-e964-4302-b6bd-d069d0ebbe7a}"/>
+    <RecordField colName="" fieldIdRef="5" name="rfc_asociado" sqlTabName="" table_alias_name="" uid="{957bf34e-fcbc-4eba-9fa9-bc305e08bd86}"/>
+    <RecordField colName="" fieldIdRef="6" name="nombre_asociado" sqlTabName="" table_alias_name="" uid="{2c54d0e4-2402-4729-964f-fca422090e3c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{122b9090-3ffa-44f4-bae2-cb11b6bc33c0}" where=""/>
+  <Form gridHeight="25" gridWidth="122" name="Form" text="Form">
+    <Grid gridHeight="20" gridWidth="118" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="5" gridWidth="54" name="Group1" posX="2" posY="1" text="Invadido">
+        <Label gridHeight="1" gridWidth="15" name="Label1" posX="2" posY="1" text="Nss"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="34" name="nss_invadido" noEntry="true" posX="18" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label2" posX="2" posY="2" text="Rfc"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="34" name="rfc_invadido" noEntry="true" posX="18" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label3" posX="2" posY="3" text="Nombre"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="34" name="nombre_invadido" noEntry="true" posX="18" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="5" gridWidth="54" name="seccion_asociado" posX="60" posY="1" text="Asociado">
+        <Label gridHeight="1" gridWidth="15" name="Label4" posX="2" posY="1" text="Nss"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="34" name="nss_asociado" noEntry="true" posX="18" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label5" posX="2" posY="2" text="Rfc Nuevo"/>
+        <Edit colName="" color="red" columnCount="" fieldId="5" gridHeight="1" gridWidth="34" name="rfc_asociado" posX="18" posY="2" reverse="false" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label6" posX="2" posY="3" text="Nombre"/>
+        <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="34" name="nombre_asociado" noEntry="true" posX="18" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit3" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADkAYgA2ADAAOQAxADUALQA5AGMAZQAwAC0ANABmAGYAMgAtADgAYQBmADIALQBhADUANABhADkANABkADAAZABjADgAZgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADEAOAA0ADcAZgAyADYALQAzAGEAMAAzAC0ANABmADcAOAAtADgANAA0ADYALQA5AGQAMABjAGIAMQA2AGUAZQBiAGUAOAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADgANwAyADAAYQA5ADAALQA4ADgANAA4AC0ANAA2ADYAZQAtAGIAYwBlAGUALQBjADEAOAAxADgAMQBmAGMAMgA4AGEAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADMANAAxADYAZAA0AGEALQAxADgAOQA4AC0ANABkAGEANQAtADgANQA4ADIALQBhAGUANwA3ADEAZQBiADgANQAwAGUANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADUANwBiAGYAMwA0AGUALQBmAGMAYgBjAC0ANABlAGIAYQAtADkAZgBhADkALQBiAGMAMwAwADUAZQAwADgAYgBkADgANgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGMANQA0AGQAMABlADQALQAyADQAMAAyAC0ANAA3ADIAOQAtADkANgA0AGYALQBmAGMAYQA0ADIAMgAwADkAMABlADMAYwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADYAOQA5ADcAYgAyAGIALQBlADkANgA0AC0ANAAzADAAMgAtAGIANgBiAGQALQBkADAANgA5AGQAMABlAGIAYgBlADcAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAxADIAMgBiADkAMAA5ADAALQAzAGYAZgBhAC0ANAA0AGYANAAtAGIAYQBlADIALQBjAGIAMQAxAGIANgBiAGMAMwAzAGMAMAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

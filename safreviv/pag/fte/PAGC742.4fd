@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{d1d7f53b-843d-414c-8145-054a7b67fefc}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{d43bd8f0-1a9f-4ba4-b31e-de79d23217c2}" where="">
+    <RecordField colName="" fieldIdRef="1" name="folio" sqlTabName="" table_alias_name="" uid="{eda26ad5-983d-48b0-943d-619c127b7b2c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_despliegue" order="" uid="{e373a292-feac-49f2-9cb5-cdd086577707}" where="">
+    <RecordField colName="" fieldIdRef="2" name="Edit1" sqlTabName="" table_alias_name="" uid="{1100bf09-6795-4f75-830e-7e4e32e60f4c}"/>
+    <RecordField colName="" fieldIdRef="3" name="Edit2" sqlTabName="" table_alias_name="" uid="{abd4f57d-4d6b-4006-82ed-37b4d4777697}"/>
+    <RecordField colName="" fieldIdRef="4" name="Edit3" sqlTabName="" table_alias_name="" uid="{23cb4f1a-99bc-4d1e-b467-e4e5e14bd683}"/>
+    <RecordField colName="" fieldIdRef="5" name="Edit4" sqlTabName="" table_alias_name="" uid="{61f71d5b-56d4-4b43-819a-54f6851157ce}"/>
+    <RecordField colName="" fieldIdRef="6" name="Edit5" sqlTabName="" table_alias_name="" uid="{b997fce8-7fb1-4653-8cb3-5912125e3b0d}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="117" name="Form" text="Form">
+    <Group gridHeight="16" gridWidth="113" name="Group1" posX="1" posY="1" text="Resultados">
+      <Grid gridHeight="14" gridWidth="109" name="Grid1" posX="1" posY="1">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="folio" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Table gridHeight="8" gridWidth="108" name="tbl_despliegue" posX="1" posY="3" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="38" name="Edit1" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Concepto" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" format="########&amp;" gridHeight="1" gridWidth="13" name="Edit2" posX="38" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Núm.&#10;Registros" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="Edit3" posX="51" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="MXN" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="23" hidden="true" name="Edit4" posX="71" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="AIV&apos;s" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="Edit5" posX="94" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Resultado" widget="Edit"/>
+        </Table>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhAGIAZAA0AGYANQA3AGQALQA0AGQANgBiAC0ANAAwADAANgAtADgAMgBlAGQALQAzADcAYgA0AGQANAA3ADcANwA2ADkANwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADMAYwBiADQAZgAxAGEALQA5ADkAYgBjAC0ANABkADEAZQAtAGIANAA2ADcALQBlADQAZQA1AGUAMQA0AGIAZAA2ADgAMwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADMANwAzAGEAMgA5ADIALQBmAGUAYQBjAC0ANAA5AGYAMgAtADkAYwBiADUALQBjAGQAZAAwADgANgA1ADcANwA3ADAANwB9wHDQAAAAAABAUMAAAAAAAD9gYk3S8an8AQAAAEwAewAxADEAMAAwAGIAZgAwADkALQA2ADcAOQA1AC0ANABmADcANQAtADgAMwAwAGUALQA3AGUANABlADMAMgBlADYAMABmADQAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADEAZgA3ADEAZAA1AGIALQA1ADYAZAA0AC0ANABiADQAMwAtADgAMQA5AGEALQA1ADQAZgA2ADgANQAxADEANQA3AGMAZQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGQAYQAyADYAYQBkADUALQA5ADgAMwBkAC0ANAA4AGIAMAAtADkANAAzAGQALQA2ADEAOQBjADEAMgA3AGIANwBiADIAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQAMwBiAGQAOABmADAALQAxAGEAOQBmAC0ANABiAGEANAAtAGIAMwAxAGUALQBkAGUANwA5AGQAMgAzADIAMQA3AGMAMgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADkAOQA3AGYAYwBlADgALQA3AGYAYgAxAC0ANAA2ADUAMwAtADgAYwBiADMALQA1ADkAMQAyADEAMgA1AGUAMwBiADAAZAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

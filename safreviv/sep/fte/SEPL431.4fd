@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{28413d34-3a4e-400c-82c6-a1074d919b08}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_pendientes" order="" uid="{db29fb46-eab4-4b57-a0bd-7be96e9a70e3}" where="">
+    <RecordField colName="" fieldIdRef="1" name="arch_pendientes" sqlTabName="" table_alias_name="" uid="{a2d577d4-7f85-4539-ad4d-eaafd5edbe97}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_elegidos" order="" uid="{2b904831-44b3-4eac-b35f-6e08dad78772}" where="">
+    <RecordField colName="" fieldIdRef="2" name="arch_eleg" sqlTabName="" table_alias_name="" uid="{507d3fc9-d55c-4551-9e46-54cda24162f7}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_det_elegidos" order="" uid="{1fbfdeca-abf8-42d0-8b17-d6bc1936dae1}" where="">
+    <RecordField colName="" fieldIdRef="3" name="tot_pareja" sqlTabName="" table_alias_name="" uid="{8fde980a-8cc4-4469-9390-1d1e597d9e28}"/>
+    <RecordField colName="" fieldIdRef="4" name="tot_nrp_inv" sqlTabName="" table_alias_name="" uid="{4f17bb3d-e26a-4954-a9cb-db8892cf56b0}"/>
+    <RecordField colName="" fieldIdRef="5" name="tot_nrp_aso" sqlTabName="" table_alias_name="" uid="{4e39b51f-611c-4b4f-b5cf-c0d5df7c933d}"/>
+    <RecordField colName="" fieldIdRef="6" name="tot_registro" sqlTabName="" table_alias_name="" uid="{0b7caae1-4f5d-4023-a3ce-162c00e2dc50}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="126" name="Form" text="Form">
+    <VBox gridHeight="21" gridWidth="119" name="VBox1" posX="7" posY="2">
+      <Group gridHeight="11" gridWidth="119" name="Group1" posX="0" posY="1" text="Elegir folio">
+        <Grid gridHeight="9" gridWidth="106" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="45" name="arch_pend" posX="1" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="40" name="arch_pendientes" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Pendientes" widget="Edit"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="45" name="arch_eleg" posX="54" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="40" name="arch_eleg" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Elegido" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="8" gridWidth="119" name="Group2" posX="0" posY="12" text="Información preliminar - Totales Archivo NRP&apos;S Notificados">
+        <Table gridHeight="6" gridWidth="105" name="tbl_elegidos" posX="1" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="25" hidden="false" invisible="false" justify="center" name="tot_pareja" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Tot Parejas" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="25" justify="center" name="tot_nrp_inv" posX="25" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Tot NRP Invadido" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="25" justify="center" name="tot_nrp_aso" posX="50" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Tot NRP Asociado" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="25" justify="center" name="tot_registro" posX="75" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Tot Registros" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxAGYAYgBmAGQAZQBjAGEALQBhAGIAZgA4AC0ANAAyAGQAMAAtADgAYgAxADcALQBkADYAYgBjADEAOQAzADYAZABhAGUAMQB9wGNgAAAAAABAU0AAAAAAAD+EeuFHrhR8AQAAAEwAewBhADIAZAA1ADcANwBkADQALQA3AGYAOAA1AC0ANAA1ADMAOQAtAGEAZAA0AGQALQBlAGEAYQBmAGQANQBlAGQAYgBlADkANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGIAMgA5AGYAYgA0ADYALQBlAGEAYgA0AC0ANABiADUANwAtAGEAMABiAGQALQA3AGIAZQA5ADYAZQA5AGEANwAwAGUAMwB9wHCAAAAAAADAQ4AAAAAAAD+AYk3S8an8AQAAAEwAewAwAGIANwBjAGEAYQBlADEALQA0AGYANQBkAC0ANAAwADIAMwAtAGEAMwBjAGUALQAxADYAMgBjADAAMABlADIAZABjADUAMAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGIAOQAwADQAOAAzADEALQA0ADQAYgAzAC0ANABlAGEAYwAtAGIAMwA1AGYALQA2AGUAMAA4AGQAYQBkADcAOAA3ADcAMgB9wDAAAAAAAADAQYAAAAAAAD+CbpeNT988AQAAAEwAewA1ADAANwBkADMAZgBjADkALQBkADUANQBjAC0ANAA1ADUAMQAtADkAZQA0ADYALQA1ADQAYwBkAGEAMgA0ADEANgAyAGYANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGYAZABlADkAOAAwAGEALQA4AGMAYwA0AC0ANAA0ADYAOQAtADkAMwA5ADAALQAxAGQAMQBlADUAOQA3AGQAOQBlADIAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGYAMQA3AGIAYgAzAGQALQBlADIANgBhAC0ANAA5ADUANAAtAGEAOQBjAGIALQBkAGIAOAA4ADkAMgBjAGYANQA2AGIAMAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGUAMwA5AGIANQAxAGYALQA2ADEAMQBjAC0ANABiADQAZgAtAGIANQBjAGYALQBjADAAZAA1AGQAZgA3AGMAOQAzADMAZAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

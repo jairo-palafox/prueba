@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{0e026f03-d238-4391-8cc2-13b6932d5855}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_pendientes" order="" uid="{b95f4ba9-5813-4304-90f5-7876223a7459}" where="">
+    <RecordField colName="" fieldIdRef="1" name="tlbl_pendientes" sqlTabName="" table_alias_name="" uid="{65dc47cd-845f-4d8c-8f7d-21098d18ba10}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_elegido" order="" uid="{4b8fcb74-d7f0-438f-a3df-da00e1870492}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tlbl_elegido" sqlTabName="" table_alias_name="" uid="{4982c355-8504-4cf8-beed-037031d150ee}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_tipos_mandato" order="" uid="{2b749cc4-5686-4917-a85c-b7d486220714}" where="">
+    <RecordField colName="" fieldIdRef="3" name="v_tipo_mandato" sqlTabName="" table_alias_name="" uid="{18bbd9c5-4435-4647-b0bd-b4ee03242f3e}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_total" sqlTabName="" table_alias_name="" uid="{cf9b8c7b-6a6f-491c-9b12-316c8ce34a6d}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="totales" order="" uid="{d28e1d99-c25a-4d4b-9dc3-d498fb7b64af}" where="">
+    <RecordField colName="" fieldIdRef="5" name="flbl_tot_tipos_mandato" sqlTabName="" table_alias_name="" uid="{9e437117-d40c-4793-b93d-9863bc7a5824}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{700bdc54-1657-4263-aeaa-def5f164bf33}" where=""/>
+  <Form gridHeight="29" gridWidth="103" name="Form" text="Form">
+    <VBox gridHeight="27" gridWidth="96" name="VBox1" posX="2" posY="0">
+      <Group gridHeight="13" gridWidth="96" name="gpo_elegir_archivo" posX="0" posY="1" text="Elegir Archivo">
+        <Grid gridHeight="9" gridWidth="91" name="Grid1" posX="2" posY="1">
+          <Table gridHeight="6" gridWidth="43" name="Table1" posX="1" posY="1" totalRows="5">
+            <FFLabel colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="40" name="tlbl_pendientes" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Pendientes" widget="FFLabel"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="43" name="Table2" posX="46" posY="1" totalRows="5">
+            <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="40" name="tlbl_elegido" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Elegido" widget="FFLabel"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="12" gridWidth="96" name="gpo_tipos_mandato" posX="0" posY="14" text="Totales Por Tipo De Mandato">
+        <Grid gridHeight="10" gridWidth="92" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="7" gridWidth="46" name="Table3" posX="2" posY="0" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="27" name="v_tipo_mandato" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Tipo" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="10" name="v_total" posX="27" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Total" widget="Edit"/>
+          </Table>
+          <Label gridHeight="1" gridWidth="6" name="Label1" posX="29" posY="8" text="Total:"/>
+          <FFLabel colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="10" name="flbl_tot_tipos_mandato" posX="37" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0ADkAOAAyAGMAMwA1ADUALQA4ADUAMAA0AC0ANABjAGYAOAAtAGIAZQBlAGQALQAwADMANwAwADMAMQBkADEANQAwAGUAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADIAOABlADEAZAA5ADkALQBjADIANQBhAC0ANABkADQAYgAtADkAZABjADMALQBkADQAOQA4AGYAYgA3AGIANgA0AGEAZgB9wEyAAAAAAADAVQAAAAAAAD+MrAgxJul8AQAAAEwAewA3ADAAMABiAGQAYwA1ADQALQAxADYANQA3AC0ANAAyADYAMwAtAGEAZQBhAGEALQBkAGUAZgA1AGYAMQA2ADQAYgBmADMAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGIAOABmAGMAYgA3ADQALQBkADcAZgAwAC0ANAAzADgAZgAtAGEAMwBkAGYALQBkAGEAMAAwAGUAMQA4ADcAMAA0ADkAMgB9wGwgAAAAAADAR4AAAAAAAD94k3S8an76AQAAAEwAewAyAGIANwA0ADkAYwBjADQALQA1ADYAOAA2AC0ANAA5ADEANwAtAGEAOAA1AGMALQBiADcAZAA0ADgANgAyADIAMAA3ADEANAB9wGgAAAAAAABAR4AAAAAAAD+AYk3S8an8AQAAAEwAewBiADkANQBmADQAYgBhADkALQA1ADgAMQAzAC0ANAAzADAANAAtADkAMABmADUALQA3ADgANwA2ADIAMgAzAGEANwA0ADUAOQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADgAYgBiAGQAOQBjADUALQA0ADQAMwA1AC0ANAA2ADQANwAtAGIAMABiAGQALQBiADQAZQBlADAAMwAyADQAMgBmADMAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADUAZABjADQANwBjAGQALQA4ADQANQBmAC0ANABkADgAYwAtADgAZgA3AGQALQAyADEAMAA5ADgAZAAxADgAYgBhADEAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGYAOQBiADgAYwA3AGIALQA2AGEANgBmAC0ANAA5ADEAYwAtADkAYgAxADIALQAzADEANgBjADgAYwBlADMANABhADYAZAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGUANAAzADcAMQAxADcALQBkADQAMABjAC0ANAA3ADkAMwAtAGIAOQAzAGQALQA5ADgANgAzAGIAYwA3AGEANQA4ADIANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

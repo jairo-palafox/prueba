@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><?FJSWSDLUpdate http://10.90.8.30:50000/RIADAIConfirmacionPagoServiceWS/RIADAIConfirmacionPagoWS?wsdl?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.riadaiconfirmacionpago.infonavit.org.mx/RIADAIConfirmacionPagoWS/" targetNamespace="http://ws.riadaiconfirmacionpago.infonavit.org.mx/RIADAIConfirmacionPagoWS/">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ws.riadaiconfirmacionpago.infonavit.org.mx/RIADAIConfirmacionPagoWS/" version="1.0">
+<xs:element name="confirmacionPago" type="tns:confirmacionPago"/>
+<xs:element name="confirmacionPagoResponse" type="tns:confirmacionPagoResponse"/>
+<xs:complexType name="confirmacionPago">
+<xs:sequence>
+<xs:element minOccurs="0" name="request" type="tns:requestConfirmacionPago"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="requestConfirmacionPago">
+<xs:sequence>
+<xs:element minOccurs="0" name="confirmacionPago" type="tns:confirmaPago"/>
+<xs:element minOccurs="0" name="noCaso" type="xs:string"/>
+<xs:element minOccurs="0" name="nss" type="xs:string"/>
+<xs:element minOccurs="0" name="rfc" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="confirmaPago">
+<xs:sequence>
+<xs:element minOccurs="0" name="CRechazo" type="xs:string"/>
+<xs:element minOccurs="0" name="dap" type="xs:string"/>
+<xs:element minOccurs="0" name="estatusSACI" type="xs:string"/>
+<xs:element minOccurs="0" name="FPago" type="xs:string"/>
+<xs:element minOccurs="0" name="MRetiro" type="xs:string"/>
+<xs:element minOccurs="0" name="RPago" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="confirmacionPagoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:responseConfirmacionPago"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="responseConfirmacionPago">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigo" type="xs:string"/>
+<xs:element minOccurs="0" name="descripcion" type="xs:string"/>
+<xs:element minOccurs="0" name="mensaje" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="confirmacionPagoIn">
+<wsdl:part element="tns:confirmacionPago" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="confirmacionPagoOut">
+<wsdl:part element="tns:confirmacionPagoResponse" name="confirmacionPagoResponse"/>
+</wsdl:message>
+<wsdl:portType name="RIADAIConfirmacionPagoWS">
+<wsdl:operation name="confirmacionPago" parameterOrder="parameters">
+<wsdl:input message="tns:confirmacionPagoIn"/>
+<wsdl:output message="tns:confirmacionPagoOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="RIADAIConfirmacionPagoWSBinding" type="tns:RIADAIConfirmacionPagoWS">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="confirmacionPago">
+<soap:operation soapAction=""/>
+<wsdl:input>
+<soap:body parts="parameters" use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="RIADAIConfirmacionPagoServiceWS">
+<wsdl:port binding="tns:RIADAIConfirmacionPagoWSBinding" name="RIADAIConfirmacionPagoPort">
+<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://10.90.8.30:50000/RIADAIConfirmacionPagoServiceWS/RIADAIConfirmacionPagoWS"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

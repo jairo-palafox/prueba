@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.procesar.com.mx/CuentaCLABE/comunes/objetosComunes/" targetNamespace="http://www.procesar.com.mx/CuentaCLABE/comunes/objetosComunes/">
+	<!-- elementos compartidos por las operaciones:-->
+	<xsd:complexType name="IDSSN">
+		<xsd:sequence>
+			<xsd:element name="idSistema">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="2147483647"/>
+						<xsd:pattern value="(0|([1-9][0-9]*))"/>
+	            			</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>						
+			<xsd:element name="idEbusiness">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="2147483647"/>
+						<xsd:pattern value="(0|([1-9][0-9]*))"/>									
+            				</xsd:restriction>
+				</xsd:simpleType>					
+			</xsd:element>
+			<xsd:element name="idPortafolio">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="2147483647"/>
+						<xsd:pattern value="(0|([1-9][0-9]*))"/>
+            				</xsd:restriction>
+				</xsd:simpleType>					
+			</xsd:element>
+			<xsd:element name="idServicio">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="2147483647"/>
+						<xsd:pattern value="(0|([1-9][0-9]*))"/>	
+            				</xsd:restriction>
+				</xsd:simpleType>					
+			</xsd:element>
+			<xsd:element name="idCliente">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="2147483647"/>
+						<xsd:pattern value="(0|([1-9][0-9]*))"/>
+            				</xsd:restriction>
+				</xsd:simpleType>					
+			</xsd:element>
+			<xsd:element name="idCanal">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="2147483647"/>
+						<xsd:pattern value="(0|([1-9][0-9]*))"/>	
+            				</xsd:restriction>
+				</xsd:simpleType>					
+			</xsd:element>					
+			<xsd:element name="codoperCliente">
+				<xsd:simpleType>
+				        <xsd:restriction base="xsd:string">
+            					<xsd:maxLength value="50"/>
+						<xsd:minLength value="1"/>
+						<xsd:pattern value="[a-zA-Z0-9]*"/>
+            				</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="fecha" type="xsd:dateTime"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	  
+	<xsd:complexType name="SSNROP">
+		<xsd:sequence>
+			<xsd:element name="codoper" type="xsd:string"/>
+			<xsd:element name="codRespuesta" type="xsd:string"/>
+			<xsd:element name="codRespuestaOpr" type="xsd:string"/>					
+			<xsd:element name="descRespuesta" type="xsd:string"/>
+			<xsd:element name="motivos" type="tns:ArrayOfMotivos"/>
+			<xsd:element name="codoperCliente" type="xsd:string"/>
+			<xsd:element name="tiempoRespuesta" type="xsd:string"/>
+			<xsd:element name="fecha" type="xsd:dateTime"/>
+		</xsd:sequence>
+	</xsd:complexType>	  
+
+	<xsd:complexType name="ArrayOfMotivos">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="motivo" type="tns:Motivo"/>
+		</xsd:sequence>
+       	</xsd:complexType>				
+
+        <xsd:complexType name="Motivo">
+        	<xsd:simpleContent>
+            		<xsd:extension base="xsd:string">
+            			<xsd:attribute name="idMotivo" type="xsd:string"/>
+            			<xsd:attribute name="descripcion" type="xsd:string"/>
+            		</xsd:extension>
+            	</xsd:simpleContent>
+            </xsd:complexType>			
+
+</xsd:schema>

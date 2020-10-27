@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="RETP447.rdd" RWFglReportName="pdf_notificacion"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <LAYOUTNODE name="LayoutNode" width="max" length="max" alignment="far" floatingBehavior="enclosed">
+                        <IMAGEBOX name="ImageBox" alignment="near" floatingBehavior="enclosed" url="../../img/logo_infonavit_pequeno.jpg" intendedResolution="120"/>
+                        <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_fecha Value" class="grwStringValue" x="198.583" y="12.4083" width="307.2" length="14.65" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_fecha}}" textAlignment="right"/>
+                        <rtl:input-variable name="v_acuerdo" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_acuerdo Value" class="grwStringValue" x="365.759" y="30.0366" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_acuerdo}}" textAlignment="right"/>
+                        <rtl:input-variable name="v_juicio" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_juicio Value" class="grwStringValue" x="365.526" y="44.6218" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_juicio}}" textAlignment="right"/>
+                        <rtl:input-variable name="v_autoridad" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_autoridad Value" class="grwStringValue" x="366.126" y="59.414" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_autoridad}}" textAlignment="right"/>
+                        <rtl:input-variable name="v_sr_a" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_sr_a Value" class="grwStringValue" x="22.9163" y="76.7906" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_sr_a}}"/>
+                        <rtl:input-variable name="v_nombre" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_nombre Value" class="grwStringValue" x="22.9163" y="103.845" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_nombre}}"/>
+                        <rtl:input-variable name="v_presente" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_presente Value" class="grwStringValue" x="22.9163" y="131.706" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_presente}}"/>
+                        <rtl:input-variable name="v_parrafo_p_1" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_1 Value" class="grwStringValue" x="22.9163" y="162.377" width="485" length="178.8" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_1}}" textAlignment="justified"/>
+                        <rtl:input-variable name="v_ref_dap" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_ref_dap Value" class="grwStringValue" x="22.9163" y="371.111" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_ref_dap}}"/>
+                        <rtl:input-variable name="v_cve_servicio" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_cve_servicio Value" class="grwStringValue" x="22.9163" y="401.214" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_cve_servicio}}"/>
+                        <rtl:input-variable name="v_n_transaccion" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_n_transaccion Value" class="grwStringValue" x="22.9163" y="431.029" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_n_transaccion}}"/>
+                        <rtl:input-variable name="v_atentamente" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_atentamente Value" class="grwStringValue" x="22.9163" y="668.71" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_atentamente}}"/>
+                        <rtl:input-variable name="v_infonavit" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_infonavit Value" class="grwStringValue" x="22.9163" y="700.569" width="482.8" length="41.3829" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_infonavit}}"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+                <MINIPAGE name="MiniPage" width="max" length="max">
+                    <LAYOUTNODE name="LayoutNode1" x="0" y="2.6824" width="149.6" length="149.6" anchorX="0" anchorY="0" widthAdjustment="expandToParent" lengthAdjustment="expandToParent" floatingBehavior="enclosed">
+                        <rtl:input-variable name="v_nombre" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_nombre Value1" class="grwStringValue" x="244.507" y="17.6022" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_nombre}}"/>
+                        <rtl:input-variable name="p_arr_detalle_reporte.expediente" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_arr_detalle_reporte.expediente Value" class="grwStringValue" x="296.186" y="33.8182" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{p_arr_detalle_reporte.expediente}}"/>
+                        <rtl:input-variable name="v_asunto" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_asunto Value" class="grwStringValue" x="244.507" y="50.7882" width="258.6" length="48.6" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_asunto}}" textAlignment="justified"/>
+                        <rtl:input-variable name="p_arr_detalle_reporte.procede_juicio" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="p_arr_detalle_reporte.procede_juicio Value" class="grwStringValue" x="22.3071" y="130.381" width="221.6" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{p_arr_detalle_reporte.procede_juicio}}"/>
+                        <WORDBOX name="WordBox1" x="22.3071" y="160.856" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="Presente"/>
+                        <rtl:input-variable name="v_parrafo_p_2_1" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_2_1 Value" class="grwStringValue" x="22.3071" y="192.174" width="482.4" length="46.8" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_2_1}}" textAlignment="justified"/>
+                        <rtl:input-variable name="v_parrafo_p_2_2" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_2_2 Value" class="grwStringValue" x="22.3071" y="257.339" width="483.2" length="76.2171" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_2_2}}" textAlignment="justified"/>
+                        <WORDBOX name="WordBox" x="244.507" y="33.935" anchorX="2.70683e-16" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="Expediente: "/>
+                        <rtl:input-variable name="v_parrafo_p_2_3" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_2_3 Value" class="grwStringValue" x="22.3071" y="400.481" width="479.6" length="52.8" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_2_3}}" textAlignment="justified"/>
+                        <WORDBOX name="WordBox5" x="22.9163" y="349.865" width="483.6" length="69.0857" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="">
+                            <MINIPAGE name="MiniPage3" width="69.0857" length="483.267" alignment="near" widthAdjustment="expandToParent" layoutDirection="leftToRight" splitOversizedItems="false">
+                                <MINIPAGE name="MiniPage4" width="23" length="17.0963"/>
+                                <MINIPAGE name="MiniPage16" width="min" length="min" layoutDirection="leftToRight" borderStyle="solid">
+                                    <MINIPAGE name="MiniPage5" width="min" length="min">
+                                        <MINIPAGE name="MiniPage8" width="min" length="min" layoutDirection="leftToRight">
+                                            <WORDBOX name="WordBox2" widthAdjustment="expandToParent" fontSize="9" floatingBehavior="enclosed" textAlignment="center" text="NOMBRE" marginLeftWidth="50"/>
+                                        </MINIPAGE>
+                                        <MINIPAGE name="MiniPage9" width="min" length="min" layoutDirection="leftToRight">
+                                            <rtl:input-variable name="v_nombre" type="FGLString" expectedLocation="expectedHere"/>
+                                            <WORDWRAPBOX name="v_nombre Value2" class="grwStringValue" width="width(&quot;M&quot;)*20" fontSize="9" floatingBehavior="enclosed" text="{{v_nombre}}" textAlignment="center"/>
+                                        </MINIPAGE>
+                                    </MINIPAGE>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage17" width="min" length="min" layoutDirection="leftToRight" borderStyle="solid">
+                                    <MINIPAGE name="MiniPage6" width="min" length="min" splitOversizedItems="false">
+                                        <MINIPAGE name="MiniPage10" width="min" length="min" layoutDirection="leftToRight">
+                                            <WORDBOX name="WordBox3" fontSize="9" floatingBehavior="enclosed" textAlignment="center" text="NÚMERO DE SEGURIDAD SOCIAL" marginRightWidth="10" marginLeftWidth="10"/>
+                                        </MINIPAGE>
+                                        <MINIPAGE name="MiniPage11" width="min" length="min" layoutDirection="leftToRight">
+                                            <rtl:input-variable name="p_arr_detalle_reporte.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                            <WORDBOX name="p_arr_detalle_reporte.nss Value" class="grwStringValue" fontSize="9" floatingBehavior="enclosed" textAlignment="center" text="{{p_arr_detalle_reporte.nss}}" marginLeftWidth="45"/>
+                                        </MINIPAGE>
+                                    </MINIPAGE>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage18" width="min" length="min" layoutDirection="leftToRight" borderStyle="solid">
+                                    <MINIPAGE name="MiniPage7" width="min" length="min">
+                                        <MINIPAGE name="MiniPage12" width="min" length="min" layoutDirection="leftToRight">
+                                            <WORDBOX name="WordBox4" fontSize="9" floatingBehavior="enclosed" text="MONTO EN PESOS" marginLeftWidth="10"/>
+                                        </MINIPAGE>
+                                        <MINIPAGE name="MiniPage13" width="min" length="min" layoutDirection="leftToRight">
+                                            <rtl:input-variable name="p_arr_detalle_reporte.imp_pago" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                            <DECIMALFORMATBOX name="p_arr_detalle_reporte.imp_pago Value" class="grwNumericValue" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_arr_detalle_reporte.imp_pago}}" marginRightWidth="10" marginLeftWidth="45"/>
+                                        </MINIPAGE>
+                                    </MINIPAGE>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                        </WORDBOX>
+                        <rtl:input-variable name="v_parrafo_p_2_4" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_2_4 Value" class="grwStringValue" x="22.9163" y="471.988" width="478.4" length="154.8" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_2_4}}" textAlignment="justified"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+                <MINIPAGE name="MiniPage19" width="max" length="max">
+                    <LAYOUTNODE name="LayoutNode2" width="min" length="min" widthAdjustment="expandToParent" lengthAdjustment="expandToParent" floatingBehavior="enclosed">
+                        <rtl:input-variable name="v_parrafo_p_3_1" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_3_1 Value" class="grwStringValue" x="22.9163" y="57.4317" width="477.646" length="74.4" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_3_1}}" textAlignment="justified"/>
+                        <rtl:input-variable name="v_parrafo_p_3_2" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_3_2 Value" class="grwStringValue" x="22.9163" y="152.482" width="476.2" length="81.6343" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_3_2}}" textAlignment="justified"/>
+                        <rtl:input-variable name="v_parrafo_p_3_3" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_3_3 Value" class="grwStringValue" x="22.9163" y="256.042" width="473.8" length="150" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_3_3}}" textAlignment="justified"/>
+                        <rtl:input-variable name="v_parrafo_p_3_4" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_3_4 Value" class="grwStringValue" x="22.9163" y="418.142" width="471.8" length="11.8196" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_3_4}}" textAlignment="justified"/>
+                        <rtl:input-variable name="v_parrafo_p_3_5" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_parrafo_p_3_5 Value" class="grwStringValue" x="22.9163" y="443.342" width="471.8" length="80" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_parrafo_p_3_5}}" textAlignment="justified"/>
+                        <WORDBOX name="WordBox6" x="22.9163" y="624.582" width="477" length="20" anchorX="0" anchorY="1.51582e-14" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="PROTESTO LO NECESARIO"/>
+                        <rtl:input-variable name="p_arr_detalle_reporte.puesto_facultado" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="p_arr_detalle_reporte.puesto_facultado Value" class="grwStringValue" x="22.9163" y="699.002" width="471" anchorX="0" anchorY="0" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="{{p_arr_detalle_reporte.puesto_facultado}}" textAlignment="center"/>
+                        <rtl:input-variable name="v_pie_pagina" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_pie_pagina Value" class="grwStringValue" x="22.3071" y="728.952" width="472.2" length="39.35" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_pie_pagina}}" textAlignment="center"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

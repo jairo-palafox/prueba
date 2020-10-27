@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/DISE24.rdd" RWFglReportName="rp_apo_sub_sc"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" class="r" width="max" length="532.79" alignment="near">
+                    <LAYOUTNODE name="Encabezado" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="Logo" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="logo_infonavit.gif" intendedResolution="96"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="Linea Roja" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Primer_renglon" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Titulo Reporte" x="8.5668" y="max*0.5409" width="min" anchorX="0.571121" anchorY="0.49246" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="APORTACIONES SUBSECUENTES SIN CONCILIAR" localizeText="false"/>
+                                <WORDBOX name="Usuario" x="8.5668" y="20.1589" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Usuario"/>
+                                <rtl:input-variable name="r_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="r_usuario Value" class="grwStringValue" x="0.9486" y="41.352" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{r_usuario}}"/>
+                                <rtl:input-variable name="r_fec_proc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="r_fec_proc Value" class="grwStringValue" x="0.948606" y="658.372" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{r_fec_proc}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="Linea" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Segundo_renglon" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="far" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="l_arch_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="Nombre archivo " x="7.7303" y="389.985" width="190.439" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text="{{&quot;Archivo: &quot;+l_arch_proceso}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode3_1_1_1" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Encabezado 2" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode6" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="Total Registros" x="7.008" y="444.554" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Total de Registros"/>
+                            <WORDBOX name="Pesos" x="6.7396" y="332.473" width="min" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Pesos"/>
+                            <WORDBOX name="AIVS" x="6.8676" y="205.746" anchorX="0.5" anchorY="0.513158" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="AIVS"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <PAGENOBOX name="PageNoBox" y="550.053" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="Linea enc 2" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="Reg Int" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode9" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="Regs Ints" x="7.508" y="max*0.061" anchorX="0.5" anchorY="0.336387" alignment="baseline" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Registros Integrados"/>
+                            <rtl:input-variable name="r_tot_imp_pes_int" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tot_imp_pes_int Value" class="grwNumericValue" x="1.4176" y="377.985" width="min" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,###,##&amp;.&amp;&amp;" value="{{r_tot_imp_pes_int}}"/>
+                            <rtl:input-variable name="r_tot_reg_int" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tot_reg_int Value" class="grwNumericValue" x="1.2531" y="479.546" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_tot_reg_int}}"/>
+                            <rtl:input-variable name="r_tot_imp_aivs_int" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tot_imp_aivs_int Value" class="grwNumericValue" x="1.2531" y="251.879" width="100" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{r_tot_imp_aivs_int}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode8_1_1_1_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <WORDBOX name="WordBox15_1_1" y="550.053" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                    <MINIPAGE name="Reg No Gen" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode10" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="Regs No Gens" x="8" y="max*0.0701" anchorX="0.5" anchorY="0.336387" alignment="baseline" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Registros no Generados"/>
+                            <rtl:input-variable name="r_tot_imp_pesos" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tot_imp_pesos Value" class="grwNumericValue" x="1.2765" y="378.942" width="100" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,###,##&amp;.&amp;&amp;" value="{{r_tot_imp_pesos}}"/>
+                            <rtl:input-variable name="r_indice_1" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_indice_1 Value" class="grwNumericValue" x="1.2765" y="478.987" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_indice_1}}"/>
+                            <rtl:input-variable name="r_tot_imp_aivs" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tot_imp_aivs Value" class="grwNumericValue" x="1.2765" y="251.879" width="100" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{r_tot_imp_aivs}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode8_1_2_1_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="Reg Dup" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode11_1" width="16.9887" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox5_1_1_1_1" x="8" y="max*0.0627" anchorX="0.5" anchorY="0.336387" alignment="baseline" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Registros Duplicados"/>
+                            <rtl:input-variable name="r_tot_reg_dup" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tot_reg_dup Value" class="grwNumericValue" x="2.1115" y="479.546" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{r_tot_reg_dup}}"/>
+                            <rtl:input-variable name="r_tot_imp_aivs_dup" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tot_imp_aivs_dup Value" class="grwNumericValue" x="2.1465" y="251.879" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{r_tot_imp_aivs_dup}}"/>
+                            <rtl:input-variable name="r_tot_imp_pes_dup" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tot_imp_pes_dup Value" class="grwNumericValue" x="2.1465" y="377.985" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{r_tot_imp_pes_dup}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode8_1_2_1_1_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

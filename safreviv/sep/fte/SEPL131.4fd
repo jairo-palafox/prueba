@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{fa4e114b-be59-4d2d-a58e-1e91eab802d0}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_pendientes" order="" uid="{9a3094fe-4b3b-43a1-8124-6066d89e5846}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tlbl_pendientes" sqlTabName="" table_alias_name="" uid="{1a2ec863-7f95-4ace-8670-6fe9a2ac5ad0}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_elegido" order="" uid="{cc4ce3bc-a926-4357-b7c1-fb37cc7d3091}" where="">
+    <RecordField colName="" fieldIdRef="4" name="tlbl_elegido" sqlTabName="" table_alias_name="" uid="{a002c8bf-829e-4794-91d8-3a626111ad33}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_posibles_cuentas" order="" uid="{e4f7412d-45ed-4fb6-9689-da069129c65e}" where="">
+    <RecordField colName="" fieldIdRef="5" name="tlbl_res_operacion" sqlTabName="" table_alias_name="" uid="{3c2ff8aa-5fb2-4215-9905-869885aca4a9}"/>
+    <RecordField colName="" fieldIdRef="6" name="tlbl_diagnostico" sqlTabName="" table_alias_name="" uid="{fe418cd6-cd12-4c2d-b4d6-eceefa93b9bc}"/>
+    <RecordField colName="" fieldIdRef="11" name="tlbl_clasificacion" sqlTabName="" table_alias_name="" uid="{ebce7889-fb0c-446e-bdc7-954ec2d2288c}"/>
+    <RecordField colName="" fieldIdRef="12" name="tlbl_cuentas_separar" sqlTabName="" table_alias_name="" uid="{6bdcc580-fb2d-47c1-827b-06ee0e70d6f7}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{4d065a69-760a-48f2-ada8-8dc824c8e15b}" where="">
+    <RecordField colName="" fieldIdRef="7" name="flbl_total_separacion" sqlTabName="" table_alias_name="" uid="{cfd5dfce-239c-4efa-bcbf-9125d71bba51}"/>
+    <RecordField colName="" fieldIdRef="10" name="flbl_total_nss" sqlTabName="" table_alias_name="" uid="{03d32201-d15e-4f65-a3a2-f31a997e023f}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_nss_asociado" order="" uid="{27393335-747f-4bbe-8b1d-f5f0db9b3899}" where="">
+    <RecordField colName="" fieldIdRef="8" name="tlbl_res_operacion_nss" sqlTabName="" table_alias_name="" uid="{5ffbcc35-9691-429a-b610-04d10bd33e4d}"/>
+    <RecordField colName="" fieldIdRef="9" name="tlbl_tipo_entidad" sqlTabName="" table_alias_name="" uid="{1fcc9299-c4b8-48e8-8c93-779de9c582d8}"/>
+    <RecordField colName="" fieldIdRef="13" name="tlbl_clave_entidad" sqlTabName="" table_alias_name="" uid="{fba68fd1-4caf-4d9d-b68e-cecab92e461e}"/>
+    <RecordField colName="" fieldIdRef="14" name="tlbl_total" sqlTabName="" table_alias_name="" uid="{b87abfae-932b-4166-90d2-f70a89332f47}"/>
+  </Record>
+  <Form gridHeight="84" gridWidth="155" name="frm_integracion_diagnostico" spacing="compact" text="Form">
+    <HBox gridHeight="43" gridWidth="100" name="HBox1" posX="0" posY="1">
+      <VBox gridHeight="43" gridWidth="96" name="VBox1" posX="2" posY="0">
+        <Group gridHeight="13" gridWidth="96" name="gpo_elegir_archivo" posX="0" posY="1" text="Elegir Archivo">
+          <Grid gridHeight="9" gridWidth="91" name="Grid1" posX="2" posY="1">
+            <Table gridHeight="6" gridWidth="43" name="Table1" posX="1" posY="1" totalRows="5">
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="40" name="tlbl_pendientes" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Pendientes" widget="FFLabel"/>
+            </Table>
+            <Table gridHeight="6" gridWidth="43" name="Table2" posX="46" posY="1" totalRows="5">
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="40" name="tlbl_elegido" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Elegido" widget="FFLabel"/>
+            </Table>
+          </Grid>
+        </Group>
+        <Group gridHeight="14" gridWidth="96" name="gpo_posibles_cuentas" posX="0" posY="14" text="Posibles Cuentas a Separar">
+          <Grid gridHeight="10" gridWidth="91" name="Grid2" posX="2" posY="1">
+            <Table gridHeight="6" gridWidth="88" name="Table3" posX="1" posY="1" totalRows="5">
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="21" name="tlbl_res_operacion" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Resultado Operación" widget="FFLabel"/>
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="22" name="tlbl_diagnostico" posX="21" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Diagnóstico Confronta" widget="FFLabel"/>
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="23" name="tlbl_clasificacion" posX="43" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Clasificación Separación" widget="FFLabel"/>
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="17" name="tlbl_cuentas_separar" posX="66" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Total" widget="FFLabel"/>
+            </Table>
+            <Label gridHeight="1" gridWidth="6" name="lbl_total_separacion" posX="65" posY="8" text="Total"/>
+            <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="12" name="flbl_total_separacion" posX="72" posY="8" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+          </Grid>
+        </Group>
+        <Group gridHeight="14" gridWidth="96" name="gpo_nss_asociado" posX="0" posY="28" text="NSS Asociados a Posibles Cuentas a Separar">
+          <Grid gridHeight="11" gridWidth="91" name="Grid3" posX="2" posY="1">
+            <Table gridHeight="6" gridWidth="89" name="Table4" posX="1" posY="1" totalRows="5">
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="21" name="tlbl_res_operacion_nss" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Resultado Operación" widget="FFLabel"/>
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="22" name="tlbl_tipo_entidad" posX="21" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Tipo Entidad Involucrado" widget="FFLabel"/>
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="23" name="tlbl_clave_entidad" posX="43" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Clave Entidad Involucrado" widget="FFLabel"/>
+              <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="17" name="tlbl_total" posX="66" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Total" widget="FFLabel"/>
+            </Table>
+            <Label gridHeight="1" gridWidth="6" name="lbl_total_nss" posX="65" posY="8" text="Total"/>
+            <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="12" name="flbl_total_nss" posX="72" posY="8" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+          </Grid>
+        </Group>
+      </VBox>
+    </HBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

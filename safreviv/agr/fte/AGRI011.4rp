@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AGRI01.rdd" RWFglReportName="resultados"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="baseline">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" length="80.5" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="9.0056" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="REPORTE RECURRENTE DE DESMARCA  AGR" localizeText="false"/>
+                                <WORDBOX name="WordBox2" width="min" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Usuario :"/>
+                                <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="g_usuario Value" class="grwStringValue" y="58.445" width="88" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="26.1909" length="717.782" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox3" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Folio : "/>
+                                <WORDBOX name="WordBox4" x="6.741" y="545.56" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Fecha :"/>
+                                <WORDBOX name="WordBox3_1" y="0" width="min" alignment="far" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Nombre del archivo : "/>
+                                <rtl:input-variable name="v_f_ejecuta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_ejecuta Value" class="grwStringValue" y="589.95" width="86.75" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_f_ejecuta}}"/>
+                                <rtl:input-variable name="g_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="g_folio Value" class="grwNumericValue" y="58.445" width="59.75" anchorX="1" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="#########&amp;" value="{{g_folio}}"/>
+                                <rtl:input-variable name="g_arh_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="g_arh_proceso Value" class="grwStringValue" x="12.2531" y="125.952" width="165.25" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{g_arh_proceso}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode6" width="14.6967" length="max" anchorX="0.14" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode12" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage4" width="min" length="max" layoutDirection="leftToRight">
+                                <MINIPAGE name="barraTotalesSubcuenta" width="min" length="min" layoutDirection="leftToRight">
+                                    <WORDBOX name="titTotalesSubcuenta" width="718.379" length="21.2211" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="RESUMEN"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="cifras_globales" width="69.25" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <WORDBOX name="nomArch1_1_1" y="0" width="148.57" length="12.5037" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros en Interface"/>
+                                    <rtl:input-variable name="g_arh_tot_reg" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_arh_tot_reg Value" class="grwNumericValue" y="189.769" width="116.75" anchorX="1" color="#000000" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_arh_tot_reg}}"/>
+                                    <WORDBOX name="nomArch1_1_1_5_1" x="15.9842" y="0" width="153.553" length="12.5037" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros para procesamiento"/>
+                                    <WORDBOX name="nomArch1_1_1_5_2" x="32.5091" y="0" width="156.524" length="12.5037" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Excluidos del procesamiento"/>
+                                    <rtl:input-variable name="g_tot_sin_origen" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_sin_origen Value" class="grwNumericValue" x="43.4899" y="189.806" width="115.835" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_sin_origen}}"/>
+                                    <rtl:input-variable name="v_tot_proc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_tot_proc Value" class="grwNumericValue" x="27.7867" y="189.806" width="116.579" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_tot_proc}}"/>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode12_1" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage19" width="min" length="max" layoutDirection="leftToRight">
+                                <MINIPAGE name="MiniPage20" width="19.8985" length="719.19" alignment="far" layoutDirection="leftToRight">
+                                    <WORDBOX name="nomArch2" width="84.8909" length="13.7567" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Descripción"/>
+                                    <WORDBOX name="nomArch3" y="189.806" width="min" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="# Registros"/>
+                                    <WORDBOX name="nomArch1_2" y="326.662" width="79.8237" length="15.5405" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Porcentaje %"/>
+                                    <WORDBOX name="nomArch1_2_1" y="440.5" width="63.4046" length="14.6486" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Aceptadas"/>
+                                    <WORDBOX name="nomArch1_2_1_1" y="584.726" width="78.567" length="max" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Rechazadas"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage21" width="85.0023" length="max" alignment="far" layoutDirection="leftToRight">
+                                    <WORDBOX name="nomArch1_1_2" x="2.2619" y="0" width="168.75" length="11.9734" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros para ser cancelados"/>
+                                    <WORDBOX name="nomArch1_1_1_3" x="17.713" y="0" width="155.968" length="12.5754" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros para ser liquidados"/>
+                                    <WORDBOX name="nomArch1_1_1_1_2" x="31.9764" y="0" width="160.166" length="13.636" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros para ser originados"/>
+                                    <WORDBOX name="nomArch1_1_1_1_2_1" x="47.8376" y="0" width="166" length="13.636" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros para ser reactivados"/>
+                                    <rtl:input-variable name="v_tot_glo_cnt" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_tot_glo_cnt Value" class="grwNumericValue" x="14.4253" y="189.806" width="99.2723" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_tot_glo_cnt}}"/>
+                                    <rtl:input-variable name="v_tot_liq" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_tot_liq Value" class="grwNumericValue" x="22.8759" y="189.769" width="98.9764" anchorX="0.5" anchorY="1.06581e-14" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_tot_liq}}"/>
+                                    <rtl:input-variable name="g_tot_originacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_originacion Value" class="grwNumericValue" x="44.9561" y="189.769" width="99.7042" anchorX="1" alignment="far" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_originacion}}"/>
+                                    <rtl:input-variable name="v_tot_glo_reac" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_tot_glo_reac Value" class="grwNumericValue" x="60.2045" y="189.806" width="99.3952" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_tot_glo_reac}}"/>
+                                    <rtl:input-variable name="v_prc_cancel" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_cancel Value" class="grwStringValue" x="2.2619" y="326.662" width="63.818" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_cancel}}"/>
+                                    <rtl:input-variable name="v_prc_liq" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_liq Value" class="grwStringValue" x="17.713" y="326.662" width="63.9098" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_liq}}"/>
+                                    <rtl:input-variable name="v_prc_orig" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_orig Value" class="grwStringValue" x="31.9764" y="326.662" width="64.0763" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_orig}}"/>
+                                    <rtl:input-variable name="v_prc_react" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_react Value" class="grwStringValue" x="47.8376" y="326.662" width="63.773" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_react}}"/>
+                                    <rtl:input-variable name="g_tot_cnt_acep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_cnt_acep Value" class="grwNumericValue" x="14.4253" y="440.5" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_cnt_acep}}"/>
+                                    <rtl:input-variable name="g_tot_cnt_rech" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_cnt_rech Value" class="grwNumericValue" x="14.4253" y="584.726" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_cnt_rech}}"/>
+                                    <rtl:input-variable name="v_tot_liq_acep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_tot_liq_acep Value" class="grwNumericValue" x="31.9764" y="440.5" width="78.784" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_tot_liq_acep}}"/>
+                                    <rtl:input-variable name="v_tot_liq_rech" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_tot_liq_rech Value" class="grwNumericValue" x="31.9764" y="584.726" width="75.784" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_tot_liq_rech}}"/>
+                                    <rtl:input-variable name="g_tot_reac_acep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_reac_acep Value" class="grwNumericValue" x="60.2045" y="440.5" width="78.7214" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_reac_acep}}"/>
+                                    <rtl:input-variable name="g_tot_reac_rech" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_reac_rech Value" class="grwNumericValue" x="60.2045" y="584.726" anchorX="1" alignment="far" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_reac_rech}}"/>
+                                    <WORDBOX name="nomArch1_1_1_1_2_1_1" x="63.5876" y="0" width="166" length="13.636" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros excluidos"/>
+                                    <rtl:input-variable name="g_tot_sin_origen" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_sin_origen Value1" class="grwNumericValue" x="74.8733" y="189.806" width="100.085" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_sin_origen}}"/>
+                                    <rtl:input-variable name="v_prc_sin_orig" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_prc_sin_orig Value" class="grwStringValue" x="63.5876" y="326.662" width="65" alignment="far" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_prc_sin_orig}}"/>
+                                    <rtl:input-variable name="v_tot_acep_sin_orig" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_tot_acep_sin_orig Value" class="grwNumericValue" x="74.8733" y="440.5" width="78.5" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_tot_acep_sin_orig}}"/>
+                                    <rtl:input-variable name="g_tot_sin_origen" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_tot_sin_origen Value1_1" class="grwNumericValue" x="74.8733" y="584.726" width="77.585" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{g_tot_sin_origen}}"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage22" width="min" length="max" alignment="far" layoutDirection="leftToRight">
+                                    <WORDBOX name="nomArch1_1_1_4" x="7.5703" y="128.602" width="31.5279" length="14.1663" anchorX="0.5" anchorY="8.52331e-15" alignment="near" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total"/>
+                                    <rtl:input-variable name="v_total_cifras" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_total_cifras Value" class="grwNumericValue" x="13.2578" y="189.806" width="99.3501" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_total_cifras}}"/>
+                                    <rtl:input-variable name="v_concatena_prc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_concatena_prc Value" class="grwStringValue" x="-0.4115" y="326.662" width="64.3171" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_concatena_prc}}"/>
+                                    <rtl:input-variable name="v_total_aceptadas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_total_aceptadas Value" class="grwNumericValue" x="13.2578" y="440.5" width="80.0454" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_total_aceptadas}}"/>
+                                    <rtl:input-variable name="v_total_rechazadas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_total_rechazadas Value" class="grwNumericValue" x="13.2578" y="584.726" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{v_total_rechazadas}}"/>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage11" x="15.0831" y="529.891" width="720.411" length="20.1241" anchorX="0.0220048" anchorY="0.5" alignment="near">
+                        <PAGENOBOX name="PageNoBox" x="689.199" y="10.6781" width="38.5" length="19.7862" anchorX="0.523843" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

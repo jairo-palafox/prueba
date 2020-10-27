@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{e860bb49-be2e-43b2-9708-140fde90fca0}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{241ce636-50ef-43a6-9ee3-7ba1289e1a9f}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cve_natural" sqlTabName="" table_alias_name="" uid="{232f2653-5901-4e4c-b8eb-cde97b9268e2}"/>
+    <RecordField colName="" fieldIdRef="2" name="desc_bloque" sqlTabName="" table_alias_name="" uid="{28125b94-73aa-460d-8db9-bdcae95c8e6b}"/>
+    <RecordField colName="" fieldIdRef="3" name="ent_negocio_bloque" sqlTabName="" table_alias_name="" uid="{29106a48-dbff-429d-b1b5-585604a4ec36}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_detalle_bloque" order="" uid="{288013dc-82ed-4753-a7b9-8787b93b8fe4}" where="">
+    <RecordField colName="" fieldIdRef="4" name="id_cat_bus_detalle_bloque" sqlTabName="" table_alias_name="" uid="{7e32b443-a80f-48e4-b9e8-ecea16bd3968}"/>
+    <RecordField colName="" fieldIdRef="5" name="id_cat_bus_bloque" sqlTabName="" table_alias_name="" uid="{ce1f7444-6bde-4ad1-8828-a7d3729a1c72}"/>
+    <RecordField colName="" defaultValue="0" fieldIdRef="6" name="seleccion" sqlTabName="" sqlType="BOOLEAN" table_alias_name="" uid="{6ad76b4b-d5ba-496d-b7ea-ee30a8074182}"/>
+    <RecordField colName="" fieldIdRef="9" name="cve_natural_bloque" sqlTabName="" table_alias_name="" uid="{83709717-e678-4e32-bcaf-4a1fcd36e4cb}"/>
+    <RecordField colName="" fieldIdRef="10" name="etiqueta" sqlTabName="" table_alias_name="" uid="{11e115a9-3bd0-4063-bcd5-f6d945827e8a}"/>
+    <RecordField colName="" fieldIdRef="8" name="atributo_negocio" sqlTabName="" table_alias_name="" uid="{03becd28-dd0b-4bc9-8def-a3f033301de8}"/>
+    <RecordField colName="" fieldIdRef="11" name="tipo_dato" sqlTabName="" table_alias_name="" uid="{075ee739-b235-49d1-abbe-94186c11aafe}"/>
+    <RecordField colName="" fieldIdRef="7" name="orden" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{5b542801-64d1-45da-b995-5022abdd1d28}"/>
+    <RecordField colName="" defaultValue="0" fieldIdRef="12" name="ind_opcional" sqlTabName="" table_alias_name="" uid="{a32f7626-89ea-48c5-b190-0f4e368170fd}"/>
+  </Record>
+  <Form gridHeight="26" gridWidth="174" name="Form" text="Form">
+    <Grid gridHeight="25" gridWidth="171" name="Grid1" posX="1" posY="0">
+      <Group gridHeight="23" gridWidth="164" name="gpo_detalle_bloque" posX="3" posY="1" text="Bloque">
+        <Label gridHeight="1" gridWidth="13" name="lbl_cve_natural" posX="2" posY="2" text="Clave natural:"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="31" name="cve_natural" posX="17" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_desc_bloque" posX="2" posY="4" text="Descripción bloque:"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="3" gridWidth="49" name="desc_bloque" posX="17" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_ent_negocio_bloque" posX="2" posY="8" text="Entidad negocio:"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="31" name="ent_negocio_bloque" posX="17" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Table gridHeight="11" gridWidth="160" name="Table1" posX="2" posY="11" totalRows="10">
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="2" hidden="true" name="id_cat_bus_detalle_bloque" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="id_cat_bus_detalle_bloque" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="2" hidden="true" name="id_cat_bus_bloque" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="id_cat_bus_bloque" widget="Edit"/>
+          <CheckBox colName="" columnCount="" defaultValue="0" fieldId="6" gridHeight="1" gridWidth="7" include="1|0" name="seleccion" notNull="true" posX="4" posY="0" rowCount="" sqlTabName="" sqlType="BOOLEAN" stepX="" stepY="" tabIndex="6" table_alias_name="" text=" " title=" " widget="CheckBox"/>
+          <ComboBox colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="7" items="" name="orden" posX="11" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Orden" widget="ComboBox"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="33" name="atributo_negocio" noEntry="true" posX="18" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Atributo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="30" name="cve_natural_bloque" posX="51" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Clave natural" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="30" name="etiqueta" posX="81" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Etiqueta" widget="Edit"/>
+          <ComboBox colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="28" items="" name="tipo_dato" posX="111" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Tipo dato" widget="ComboBox"/>
+          <ComboBox colName="" columnCount="" defaultValue="0" fieldId="12" gridHeight="1" gridWidth="11" items="Requerido, Opcional" name="ind_opcional" posX="139" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Opcional" widget="ComboBox">
+            <Item lstrtext="false" name="0" text="Requerido"/>
+            <Item lstrtext="false" name="1" text="Opcional"/>
+          </ComboBox>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjAGUAMQBmADcANAA0ADQALQA2AGIAZABlAC0ANABhAGQAMQAtADgAOAAyADgALQBhADcAZAAzADcAMgA5AGEAMQBjADcAMgB9QBQAAAAAAABASIAAAAAAAD9ok3S8an76AQAAAEwAewBhADMAMgBmADcANgAyADYALQA4ADkAZQBhAC0ANAA4AGMANQAtAGIAMQA5ADAALQAwAGYANABlADMANgA4ADEANwAwAGYAZAB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADkAMQAwADYAYQA0ADgALQBkAGIAZgBmAC0ANAAyADkAZAAtAGIAMQBiADUALQA1ADgANQA2ADAANABhADQAZQBjADMANgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADgAMQAyADUAYgA5ADQALQA3ADMAYQBhAC0ANAA2ADAAZAAtADgAZABiADkALQBiAGQAYwBhAGUAOQA1AGMAOABlADYAYgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADcANQBlAGUANwAzADkALQBiADIAMwA1AC0ANAA5AGQAMQAtAGEAYgBiAGUALQA5ADQAMQA4ADYAYwAxADEAYQBhAGYAZQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGEAZAA3ADYAYgA0AGIALQBkADUAYgBhAC0ANAA5ADYAZAAtAGIANwBlAGEALQBlAGUAMwAwAGEAOAAwADcANAAxADgAMgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADgAOAAwADEAMwBkAGMALQA4ADIAZQBkAC0ANAA3ADUAMwAtAGEANwBiADkALQA4ADcAOAA3AGIAOQAzAGIAOABmAGUANAB9wAAAAAAAAABAYEAAAAAAAD9gYk3S8an8AQAAAEwAewA4ADMANwAwADkANwAxADcALQBlADYANwA4AC0ANABlADMAMgAtAGIAYwBhAGYALQA0AGEAMQBmAGMAZAAzADYAZQA0AGMAYgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAyADQAMQBjAGUANgAzADYALQA1ADAAZQBmAC0ANAAzAGEANgAtADkAZQBlADMALQA3AGIAYQAxADIAOAA5AGUAMQBhADkAZgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADMAMgBmADIANgA1ADMALQA1ADkAMAAxAC0ANABlADQAYwAtAGIAOABlAGIALQBjAGQAZQA5ADcAYgA5ADIANgA4AGUAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGIANQA0ADIAOAAwADEALQA2ADQAZAAxAC0ANAA1AGQAYQAtAGIAOQA5ADUALQA1ADAAMgAyAGEAYgBkAGQAMQBkADIAOAB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGUAMwAyAGIANAA0ADMALQBhADgAMABmAC0ANAA4AGUANAAtAGIAOQBlADgALQBlAGMAZQBhADEANgBiAGQAMwA5ADYAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADEAZQAxADEANQBhADkALQAzAGIAZAAwAC0ANAAwADYAMwAtAGIAYwBkADUALQBmADYAZAA5ADQANQA4ADIANwBlADgAYQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADMAYgBlAGMAZAAyADgALQBkAGQAMABiAC0ANABiAGMAOQAtADgAZABlAGYALQBhADMAZgAwADMAMwAzADAAMQBkAGUAOAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

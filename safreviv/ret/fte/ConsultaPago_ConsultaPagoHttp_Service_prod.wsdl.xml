@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<definitions name="ConsultaPago_ConsultaPagoHttp_Service" targetNamespace="http://services.infonavit.org.mx/Binding" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:Port_0="http://services.infonavit.org.mx" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://services.infonavit.org.mx/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <import location="ConsultaPago.wsdl" namespace="http://services.infonavit.org.mx">
+    </import>
+  <binding name="ConsultaPago_ConsultaPagoHttpBinding" type="Port_0:ConsultaPago">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="consultar">
+      <soap:operation soapAction=""/>
+      <input name="consultarRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="consultarResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ConsultaPago_ConsultaPagoHttpService">
+    <port binding="this:ConsultaPago_ConsultaPagoHttpBinding" name="ConsultaPago_ConsultaPagoHttpPort">
+      <soap:address location="http://10.90.1.31:80/ConsultaPagoAcreedorMediationSapV6Web/sca/ConsultaPago"/>
+    </port>
+  </service>
+</definitions>

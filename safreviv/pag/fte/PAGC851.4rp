@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGC85.rdd" RWFglReportName="reporte_causales_validacion"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min">
+                            <IMAGEBOX name="imgLogoInfonavit" width="70" length="45" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte Previo Integración"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="datosReporte" width="76.9943" length="773.32" alignment="near" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox4" x="4.2759" y="0" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Nombre del Archivo:"/>
+                        <WORDBOX name="WordBox5" x="4.2758" y="482.81" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Fecha de Consulta:"/>
+                        <WORDBOX name="WordBox6" x="28.3203" y="0" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Total Trabajadores:"/>
+                        <WORDBOX name="WordBox7" x="53.2734" y="0" width="min" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Total Patrones:"/>
+                        <rtl:input-variable name="v_nombre_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_nombre_archivo Value" class="grwStringValue" x="4.2759" y="125.673" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_nombre_archivo}}">
+                            <rtl:input-variable name="v_nombre_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_archivo Value1" class="grwStringValue" width="width(&quot;M&quot;)*20" floatingBehavior="enclosed" text="{{v_nombre_archivo}}"/>
+                        </WORDWRAPBOX>
+                        <WORDBOX name="WordBox8" x="22.5329" y="501.777" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Total de Pagos:"/>
+                        <rtl:input-variable name="v_cuenta_nss" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_cuenta_nss Value" class="grwNumericValue" x="28.3203" y="189.204" anchorX="0" anchorY="1" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---" value="{{v_cuenta_nss}}"/>
+                        <rtl:input-variable name="v_cuenta_nrp" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_cuenta_nrp Value" class="grwNumericValue" x="53.2734" y="162.838" width="73.5" anchorX="0" anchorY="1" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---" value="{{v_cuenta_nrp}}"/>
+                        <rtl:input-variable name="v_f_actualiza" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_f_actualiza Value" class="grwTableStringColumnValue" x="4.2759" y="603.071" width="120" fontBold="true" floatingBehavior="enclosed" text="{{v_f_actualiza}}"/>
+                        <rtl:input-variable name="v_cuenta_pagos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_cuenta_pagos Value" class="grwNumericValue" x="22.5329" y="677.47" anchorX="0" anchorY="1" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---" value="{{v_cuenta_pagos}}"/>
+                    </MINIPAGE>
+                    <rtl:match name="Group v_tipo_arreglo" nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage" width="90.5" length="384.022" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="encabezadoGeneral3_1" width="16.779" length="242.798" alignment="far" bgColor="#ce050f" layoutDirection="leftToRight" port="anyPageHeader">
+                                <WORDBOX name="WordBox10" x="3.6179" y="4.027" width="min" length="16.372" anchorX="0" anchorY="0" color="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Tipo de Causal"/>
+                                <WORDBOX name="WordBox11" x="3.6179" y="106.238" width="100" length="13.5968" anchorX="0" anchorY="0" color="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Cantidad de Registros"/>
+                            </LAYOUTNODE>
+                            <rtl:input-variable name="v_total_registros_ssv_cre_string" type="FGLString" expectedLocation="expectedHere"/>
+                            <LAYOUTNODE name="LayoutNode" rtl:condition="v_total_registros_ssv_cre_string.length()&gt;0" x="-11.2286" y="0" width="67.8115" length="485.018" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_tipo_registros_sin" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_tipo_registros_sin Value" class="grwStringValue" x="27.7445" y="0.776" width="272.25" length="16.6452" anchorX="0" anchorY="0" color="#0000ff" bgColor="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_tipo_registros_sin}}"/>
+                                <rtl:input-variable name="v_tipo_registros_con" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_tipo_registros_con Value" class="grwStringValue" x="48.3386" y="0" width="270.75" length="16.5144" anchorX="0" anchorY="0" color="#0000ff" bgColor="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_tipo_registros_con}}"/>
+                                <rtl:input-variable name="v_total_registros" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_total_registros Value" class="grwStringValue" x="8.1694" y="180.262" width="104" length="13.875" anchorX="0" anchorY="0" color="#0000ff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_total_registros}}"/>
+                                <rtl:input-variable name="v_total_registros_ssv_cre_string" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_total_registros_ssv_cre_string Value" class="grwStringValue" x="8.1694" y="0.776" width="196.5" length="15" anchorX="0" anchorY="0" color="#0000ff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_total_registros_ssv_cre_string}}"/>
+                                <rtl:input-variable name="v_tipo_tabla" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_tipo_tabla Value" class="grwStringValue" x="67.642" y="0" width="416.837" length="12.7022" anchorX="0" anchorY="0" color="#000000" bgColor="#ffffff" fontName="Arimo" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="{{v_tipo_tabla}}"/>
+                                <LAYOUTNODE name="LayoutNode1" x="28.5344" y="249.288" width="min" length="64.3887" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="v_total_sin_string" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="v_total_sin_string Value" class="grwStringValue" x="2.0961" y="-10.6113" width="77.25" length="16.2012" anchorX="0" anchorY="0" color="#0000ff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_total_sin_string}}" trimText="left" textAlignment="right"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode2" x="48.3386" y="242.706" width="16.25" length="66.5" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="v_total_con_string" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="v_total_con_string Value" class="grwStringValue" x="0" y="-4.0293" width="78.5" length="13.5" anchorX="0" anchorY="0" color="#0000ff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_total_con_string}}" trimText="left" textAlignment="right"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode3" x="30.6305" y="294.232" width="16.25" length="85.9813" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="v_total_porcentaje_sin_string" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="v_total_porcentaje_sin_string Value" class="grwStringValue" x="0" y="2.049" width="81.75" length="15.75" anchorX="0" anchorY="0" color="#0000ff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_total_porcentaje_sin_string}}" textAlignment="right"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode4" x="46.054" y="296.281" width="17" length="81.5" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="v_total_porcentaje_con_string" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="v_total_porcentaje_con_string Value" class="grwStringValue" x="2.267" y="0" width="82" length="14.0127" anchorX="0" anchorY="0" color="#0000ff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_total_porcentaje_con_string}}" textAlignment="right"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                            <rtl:input-variable name="v_signo_porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_signo_porcentaje Value" rtl:condition="v_signo_porcentaje.length()&gt;0" class="grwStringValue" x="73.8999" y="242.706" width="72.0015" length="16.5504" anchorX="0" anchorY="0" color="#ffffff" bgColor="#ce050f" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_signo_porcentaje}}" textAlignment="center"/>
+                        </MINIPAGE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="cuentas_aperturadas" width="15.5381" length="401.328" layoutDirection="leftToRight" borderWidth="2" borderBottomColor="#ffffff">
+                                <rtl:input-variable name="v_causal_sin_distincion_reporte.v_causal" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_causal_sin_distincion_reporte.v_causal Value" class="grwStringValue" x="1.449" y="0.776" width="103.75" length="13.7571" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="{{v_causal_sin_distincion_reporte.v_causal}}" borderWidth="1.2" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid"/>
+                                <rtl:input-variable name="v_causal_sin_distincion_reporte.v_cuenta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_causal_sin_distincion_reporte.v_cuenta Value" class="grwNumericValue" x="1.449" y="241.84" width="136.762" length="13.5724" anchorX="0" anchorY="1" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" textAlignment="center" format="-,---,---,---" value="{{v_causal_sin_distincion_reporte.v_cuenta}}" borderWidth="1.2" borderTopStyle="solid" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid"/>
+                                <rtl:input-variable name="v_porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_porcentaje Value" rtl:condition="v_porcentaje.length()&gt;0" class="grwStringValue" x="1.449" y="242.706" width="71.4079" length="13.1712" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_porcentaje}}" textAlignment="center" roundedCorners="false" borderWidth="1.2" borderStyle="none" borderTopStyle="{{v_porcentaje.length()&gt;2?BorderStyle.Solid:BorderStyle.None}}" borderRightStyle="{{v_porcentaje.length()&gt;2?BorderStyle.Solid:BorderStyle.None}}" borderBottomStyle="{{v_porcentaje.length()&gt;2?BorderStyle.Solid:BorderStyle.None}}" borderLeftStyle="{{v_porcentaje.length()&gt;2?BorderStyle.Solid:BorderStyle.None}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                        <MINIPAGE name="renglonTotalizador" width="321.5" length="rest" alignment="near">
+                            <WORDBOX name="lbl_total" width="176.5" length="18.75" alignment="baseline" color="#ff5500" fontName="Arimo" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total de registros:"/>
+                            <rtl:input-variable name="v_total_causales" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_causales Value" class="grwNumericValue" x="121.767" y="14.5741" anchorX="0" anchorY="1" color="#ff5500" fontName="Arimo" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---" value="{{v_total_causales}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

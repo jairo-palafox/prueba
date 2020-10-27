@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{64cfe01e-5d8b-4b79-bfa1-d5ad4a7b6de9}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{c81c6839-e2d4-4806-ac32-1ee323f715d9}" where="">
+    <RecordField colName="" defaultValue="TODAY" fieldIdRef="1" name="ed_fecha" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{3f79d5ee-eaa2-4639-831b-55b7eda0b89a}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record1" order="" uid="{a8af7b1d-784c-4595-8bf5-330753873b75}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_registros" order="" uid="{fb4fd97a-814b-4570-8492-422f89c3e8ae}" where="">
+    <RecordField colName="" fieldIdRef="2" name="nss" sqlTabName="" sqlType="BIGINT" table_alias_name="" uid="{d05f9269-5905-4fe0-8eb9-2f3d95c9c73d}"/>
+    <RecordField colName="" fieldIdRef="3" name="fecha_alta" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{6b8dec0f-d390-4405-a35e-0423443a5840}"/>
+    <RecordField colName="" fieldIdRef="4" name="id_origen" sqlTabName="" table_alias_name="" uid="{e87ccf7e-fe5e-49bc-a483-220fd97c0ebe}"/>
+  </Record>
+  <Form gridHeight="29" gridWidth="114" name="Form" text="Form">
+    <VBox gridHeight="22" gridWidth="70" name="VBox1" posX="6" posY="1">
+      <Group gridHeight="5" gridWidth="70" name="grp_informacion_recibida" posX="0" posY="1" text="Consulta de Registros NSS sin cuenta">
+        <Grid gridHeight="3" gridWidth="34" name="Grid1" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="8" justify="left" name="lbl_folio" posX="2" posY="1" text="Fecha Alta"/>
+          <DateEdit colName="" columnCount="" defaultValue="TODAY" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="19" name="ed_fecha" picture="" posX="12" posY="1" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="15" gridWidth="70" name="Group2" posX="0" posY="6" text="Registros NSS sin cuenta">
+        <Grid gridHeight="12" gridWidth="68" name="Grid3" posX="1" posY="1">
+          <Table gridHeight="11" gridWidth="64" name="tbl_registros" posX="2" posY="1" totalRows="10">
+            <Edit colName="" columnCount="" fieldId="2" format="###########&amp;" gridHeight="1" gridWidth="21" name="nss" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="BIGINT" stepX="" stepY="" tabIndex="2" table_alias_name="" title="NSS" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" format="DD-MM-YYYY" gridHeight="1" gridWidth="19" justify="right" name="fecha_alta" posX="21" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Fecha Alta" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" name="id_origen" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="ID Origen" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADgAMQBjADYAOAAzADkALQBlADIAZAA0AC0ANAA4ADAANgAtAGEAYwAzADIALQAxAGUAZQAzADIAMwBmADcAMQA1AGQAOQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGYANwA5AGQANQBlAGUALQBlAGEAYQAyAC0ANAA2ADMAOQAtADgAMwAxAGIALQA1ADUAYgA3AGUAZABhADAAYgA4ADkAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGIANABmAGQAOQA3AGEALQA4ADEANABiAC0ANAA1ADcAMAAtADgANAA5ADIALQA0ADIAMgBmADgAOQBjADMAZQA4AGEAZQB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewBhADgAYQBmADcAYgAxAGQALQA3ADgANABjAC0ANAA1ADkANQAtADgAYgBmADUALQAzADMAMAA3ADUAMwA4ADcAMwBiADcANQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADAANQBmADkAMgA2ADkALQA1ADkAMAA1AC0ANABmAGUAMAAtADgAZQBiADkALQAyAGYAMwBkADkANQBjADkAYwA3ADMAZAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGIAOABkAGUAYwAwAGYALQBkADMAOQAwAC0ANAA0ADAANQAtAGEAMwA1AGUALQAwADQAMgAzADQANAAzAGEANQA4ADQAMAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADgANwBjAGMAZgA3AGUALQBmAGUANQBlAC0ANAA5AGIAYwAtAGEANAA4ADMALQAyADIAMABmAGQAOQA3AGMAMABlAGIAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

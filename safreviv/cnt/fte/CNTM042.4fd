@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{5b18d0ee-7afc-44a1-9cd8-9cf56a53d7bf}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{f81911e1-a98a-4933-8bc6-734b9a2c3abe}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cod_proceso_cnt" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{018a657b-6962-4aca-88c8-76e5b301307c}"/>
+    <RecordField colName="" fieldIdRef="2" name="desc_proceso_cnt" sqlTabName="" table_alias_name="" uid="{8690acef-578e-40de-aeca-a71a66d12f1c}"/>
+    <RecordField colName="" fieldIdRef="3" name="desc_proc_corta_cnt" sqlTabName="" table_alias_name="" uid="{bdcd9ade-6bd9-4927-91f5-5f5edaf54fa1}"/>
+    <RecordField colName="" fieldIdRef="4" name="referencia_cnt" sqlTabName="" table_alias_name="" uid="{289f270d-0802-449f-9629-e5722c7f5d55}"/>
+    <RecordField colName="" fieldIdRef="5" name="cod_naturaleza_mov" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{6d295ce2-23e2-40ae-a7df-35723b578719}"/>
+    <RecordField colName="" fieldIdRef="6" name="cod_periodo" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{9c856c56-8df9-495f-9d9f-65cc1680258f}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="83" name="Form" text="Form">
+    <Grid gridHeight="16" gridWidth="80" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="14" gridWidth="78" name="Group1" posX="1" posY="1" text="Proceso Contable">
+        <Label gridHeight="1" gridWidth="13" name="lbl_cod_proceso" posX="1" posY="2" text="Codigo de proceso"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="cod_proceso_cnt" posX="16" posY="2" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_descripcion" posX="1" posY="4" text="Descripcion"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="60" name="desc_proceso_cnt" posX="16" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_corta" posX="1" posY="6" text="Desc Corta"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="40" name="desc_proc_corta_cnt" posX="16" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_referencia" posX="1" posY="8" text="Referencia"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="10" name="referencia_cnt" posX="16" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_naturaleza" posX="1" posY="10" text="Naturaleza"/>
+        <ComboBox colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="27" items="" name="cod_naturaleza_mov" posX="16" posY="10" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="5" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_periodo" posX="1" posY="12" text="Periodo"/>
+        <ComboBox colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="27" items="" name="cod_periodo" posX="16" posY="12" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="6" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAwADEAOABhADYANQA3AGIALQA2ADkANgAyAC0ANABhAGMAYQAtADgAOABjADgALQA3ADYAZQA1AGIAMwAwADEAMwAwADcAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADYAOQAwAGEAYwBlAGYALQA1ADcAOABlAC0ANAAwAGQAZQAtAGEAZQBjAGEALQBhADcAMQBhADYANgBkADEAMgBmADEAYwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGQAYwBkADkAYQBkAGUALQA2AGIAZAA5AC0ANAA5ADIANwAtADkAMQBmADUALQA1AGYANQBlAGQAYQBmADUANABmAGEAMQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADgAOQBmADIANwAwAGQALQAwADgAMAAyAC0ANAA0ADkAZgAtADkANgAyADkALQBlADUANwAyADIAYwA3AGYANQBkADUANQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGMAOAA1ADYAYwA1ADYALQA4AGQAZgA5AC0ANAA5ADUAZgAtADkAZAA5AGYALQA2ADUAYwBjADEANgA4ADAAMgA1ADgAZgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADgAMQA5ADEAMQBlADEALQBhADkAOABhAC0ANAA5ADMAMwAtADgAYgBjADYALQA3ADMANABiADkAYQAyAGMAMwBhAGIAZQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGQAMgA5ADUAYwBlADIALQAyADMAZQAyAC0ANAAwAGEAZQAtAGEANwBkAGYALQAzADUANwAyADMAYgA1ADcAOAA3ADEAOQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/GRTC01.rdd" RWFglReportName="reporte_cons_estado"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="MiniPage15" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" alignment="near" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="center" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="721.554" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" alignment="far" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="5.8868" width="718.193" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="CONSULTA HISTÓRICA POR ESTADO GRT" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="baseline" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox4" x="6.624" y="577.928" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                                <WORDBOX name="WordBox2_1" alignment="baseline" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_usuario_cod Value" x="-0.9292" y="53.1819" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value" x="-0.9292" y="615.88" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage8" width="33.1672" length="719.835" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="titAIVS1_2_1_1_1" x="25.3002" y="143.08" width="87.0246" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="ESTADO INFONAVIT"/>
+                            <WORDWRAPBOX name="titAIVS1_2_1_1_1_2" x="25.3002" y="380.227" width="123.159" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="ESTADO PROCESAR"/>
+                            <WORDBOX name="titAIVS1_2_1_1_1_1_1" x="25.3002" y="615.88" width="135.957" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="TOTAL DE CUENTAS"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage12" width="min" length="min" layoutDirection="leftToRight"/>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage16" width="min" length="min">
+                            <MINIPAGE name="MiniPage13" width="min" length="719.218" alignment="baseline" layoutDirection="leftToRight">
+                                <rtl:input-variable name="p_rec_estado.total_cuentas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_estado.total_cuentas Value" x="10.6425" y="621.883" anchorX="0.5" anchorY="0.5" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_rec_estado.total_cuentas}}"/>
+                                <rtl:input-variable name="p_rec_estado.des_estado" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_estado.des_estado Value" x="7.25" y="143.08" width="196.978" anchorX="0.234875" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" text="{{p_rec_estado.des_estado}}"/>
+                                <rtl:input-variable name="p_rec_estado.des_edo_procesar" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_estado.des_edo_procesar Value" x="10.6425" y="412.47" width="171.349" anchorX="0.5" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" text="{{p_rec_estado.des_edo_procesar}}"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

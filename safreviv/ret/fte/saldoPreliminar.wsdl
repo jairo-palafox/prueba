@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.procesar.com.mx/VentanillaUnica" xmlns:tns1="http://www.procesar.com.mx/VentanillaUnica" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VentanillaUnica" targetNamespace="http://www.procesar.com.mx/VentanillaUnica">
+
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.procesar.com.mx/VentanillaUnica" 
+				schemaLocation="../../XSD/ventanillaUnica.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+  
+	<!--mensajes:-->
+	<wsdl:message name="ConsultarSaldoPreliminarRequest">
+		<wsdl:part name="parametersConsultarSaldoPreliminarRequest" element="tns1:parametersConsultarSaldoPreliminarRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultarSaldoPreliminarResponse">
+		<wsdl:part name="parametersConsultarSaldoPreliminarResponse" element="tns1:parametersConsultarSaldoPreliminarResponse"/>
+	</wsdl:message>
+	<!-- end mensajes:-->
+  
+	<!-- ports:-->
+	<wsdl:portType name="SaldoPreliminarPort">
+	
+		<wsdl:operation name="ConsultarSaldoPreliminar">
+			<wsdl:input message="tns:ConsultarSaldoPreliminarRequest"/>
+			<wsdl:output message="tns:ConsultarSaldoPreliminarResponse"/>
+		</wsdl:operation>	
+
+	</wsdl:portType>
+	<!-- end ports:-->
+  
+	<!--bindings:-->
+	<wsdl:binding name="SaldoPreliminarSOAP" type="tns:SaldoPreliminarPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<wsdl:operation name="ConsultarSaldoPreliminar">
+			<soap:operation soapAction="http://www.procesar.com.mx/VentanillaUnica/consultarSaldoPreliminar"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+
+		
+	</wsdl:binding>
+		
+	<!-- end bindings:-->
+  
+	<!--service:-->
+	<wsdl:service name="SaldoPreliminar">
+		<wsdl:port binding="tns:SaldoPreliminarSOAP" name="SaldoPreliminarSOAP">
+			<soap:address location="http://192.168.6.173:7011/VentanillaUnica/ProxyServices/ConsultarSaldoPreliminar"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

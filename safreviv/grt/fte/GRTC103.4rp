@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/GRTC01.rdd" RWFglReportName="reporte_cons_historica"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="MiniPage15" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" alignment="near" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="center" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="721.554" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" alignment="far" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="6.6951" width="718.193" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="CONSULTA HISTÓRICA GRT" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="baseline" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox4" x="6.624" y="577.928" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                                <WORDBOX name="WordBox2_1" alignment="baseline" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_usuario_cod Value" x="-0.9292" y="53.1819" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value" x="-0.9292" y="615.88" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage8" width="29.4031" length="719.835" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="titAIVS1_2_1_1_1" width="210" length="30" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="ESTADO INFONAVIT" localizeText="false"/>
+                            <WORDWRAPBOX name="titAIVS1_2_1_1_1_2" width="210" length="30" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="ESTADO PROCESAR" textAlignment="center"/>
+                            <WORDWRAPBOX name="titAIVS1_2_1_1_1_2_1" width="210" length="30" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="DIAGNÓSTICO" textAlignment="center"/>
+                            <WORDWRAPBOX name="titAIVS1_2_1_1_1_1_2" width="60" length="30" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="TOTAL CUENTAS" textAlignment="center"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage16" width="min" length="min">
+                            <MINIPAGE name="MiniPage13" width="min" length="719.218" alignment="baseline" layoutDirection="leftToRight">
+                                <rtl:input-variable name="p_rec_historica.des_estado" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_historica.des_estado Value" width="210" length="15" anchorX="0.132748" anchorY="0.5" fontSize="9" floatingBehavior="enclosed" textAlignment="left" text="{{p_rec_historica.des_estado}}"/>
+                                <rtl:input-variable name="p_rec_historica.des_edo_procesar" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_historica.des_edo_procesar Value" width="210" length="15" anchorX="0.5" anchorY="0.5" fontSize="9" floatingBehavior="enclosed" textAlignment="left" text="{{p_rec_historica.des_edo_procesar}}"/>
+                                <rtl:input-variable name="p_rec_historica.des_diagnostico" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_rec_historica.des_diagnostico Value" width="210" length="15" anchorX="0.5" anchorY="0.493287" alignment="far" fontSize="9" floatingBehavior="enclosed" text="{{p_rec_historica.des_diagnostico}}" textAlignment="left"/>
+                                <rtl:input-variable name="p_rec_historica.total_cuentas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_historica.total_cuentas Value" width="60" length="15" anchorX="0.564635" anchorY="0.5" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_rec_historica.total_cuentas}}"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

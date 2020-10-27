@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GeneraDocViaOtroPago" targetNamespace="http://services.infonavit.org.mx" xmlns:bons1="http://services.infonavit.org.mx/sap" xmlns:tns="http://services.infonavit.org.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://services.infonavit.org.mx" xmlns:bons1="http://services.infonavit.org.mx/sap" xmlns:tns="http://services.infonavit.org.mx" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://services.infonavit.org.mx/sap" schemaLocation="DocumentoOtroPago.xsd"/>
+      <xsd:element name="generar">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="viaPago" nillable="true" type="xsd:string"/>
+            <xsd:element name="concepto" nillable="true" type="xsd:string"/>
+            <xsd:element name="delegacion" nillable="true" type="xsd:string"/>
+            <xsd:element name="noReferencia" nillable="true" type="xsd:string"/>
+            <xsd:element name="monto" nillable="true" type="xsd:decimal"/>
+            <xsd:element name="nombreCliente" nillable="true" type="xsd:string"/>
+            <xsd:element name="noAcreedor" nillable="true" type="xsd:string"/>
+            <xsd:element name="noCheque" nillable="true" type="xsd:string"/>
+            <xsd:element name="beneficiario" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="generarResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="documento" nillable="true" type="bons1:DocumentoOtroPago"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="generarRequestMsg">
+    <wsdl:part element="tns:generar" name="generarParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generarResponseMsg">
+    <wsdl:part element="tns:generarResponse" name="generarResult">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GeneraDocViaOtroPago">
+    <wsdl:operation name="generar">
+      <wsdl:input message="tns:generarRequestMsg" name="generarRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:generarResponseMsg" name="generarResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

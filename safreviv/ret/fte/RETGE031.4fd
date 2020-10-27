@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{0c11fa7d-719a-4da5-94a1-bab292b92633}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{24c2a5a7-91c1-4760-9fef-ea8fbc7afec8}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_proceso_desc" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{9b61bca9-8f48-44ba-a735-2aea38f8f675}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_opera_desc" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{b8e92bfb-61a8-42bb-a14d-3d4465dc10c2}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_nom_archivo" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{04ad8a4b-9117-457e-8165-fece82d46436}"/>
+    <RecordField colName="" fieldIdRef="4" name="reg_archivo" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{3420126f-31ae-4190-b49b-fed0fdcbe8ea}"/>
+    <RecordField colName="" fieldIdRef="5" name="reg_procesados" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{ad7c2c54-6806-4e8b-a75d-0ae448a22bfd}"/>
+    <RecordField colName="" fieldIdRef="6" name="reg_rechazados" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{a9bd4fd2-61ee-413e-9368-071fafb12126}"/>
+  </Record>
+  <Form gridHeight="21" gridWidth="133" name="form" text="Form">
+    <Grid gridHeight="19" gridWidth="130" name="grd_carga_archivo" posX="1" posY="1">
+      <Group gridChildrenInParent="true" gridHeight="7" gridWidth="126" name="grp_carga_archivo" posX="1" posY="1" text="Carga de Archivo">
+        <Label gridHeight="1" gridWidth="11" name="lbl_proceso" posX="2" posY="2" text="Proceso"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="75" name="v_proceso_desc" posX="14" posY="2" rowCount="" scroll="true" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_operacion" posX="2" posY="3" text="Operación"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="75" name="v_opera_desc" posX="14" posY="3" rowCount="" scroll="true" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="11" name="lbl_nombre_archivo" posX="2" posY="5" text="Nombre Archivo"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="75" items="" name="v_nom_archivo" notNull="true" posX="14" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="formonly.ComboBox1" widget="ComboBox"/>
+      </Group>
+      <Group gridChildrenInParent="true" gridHeight="8" gridWidth="126" name="grp_total_registros" posX="1" posY="10" text="Total de Registros">
+        <Label gridHeight="1" gridWidth="15" name="lbl_registros" posX="2" posY="2" text="En el Archivo"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="25" name="reg_archivo" posX="23" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="formonly.Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_procesados" posX="2" posY="4" text="Procesados"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="25" name="reg_procesados" posX="23" posY="4" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="formonly.Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_noprocesados" posX="2" posY="6" text="No Procesados"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="25" name="reg_rechazados" posX="23" posY="6" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="formonly.Edit3" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5AGIANgAxAGIAYwBhADkALQA4AGYANAA4AC0ANAA0AGIAYQAtAGEANwAzADUALQAyAGEAZQBhADMAOABmADgAZgA2ADcANQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADQAYQBkADgAYQA0AGIALQA5ADEAMQA3AC0ANAA1ADcAZQAtADgAMQA2ADUALQBmAGUAYwBlADgAMgBkADQANgA0ADMANgB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADgAZQA5ADIAYgBmAGIALQA2ADEAYQA4AC0ANAAyAGIAYgAtAGEAMQA0AGQALQAzAGQANAA0ADYANQBkAGMAMQAwAGMAMgB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADQAYwAyAGEANQBhADcALQA5ADEAYwAxAC0ANAA3ADYAMAAtADkAZgBlAGYALQBlAGEAOABmAGIAYwA3AGEAZgBlAGMAOAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADkAYgBkADQAZgBkADIALQA2ADEAZQBlAC0ANAAxADMAZQAtADkAMwA2ADgALQAwADcAMQBmAGEAZgBiADEAMgAxADIANgB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADQAMgAwADEAMgA2AGYALQAzADEAYQBlAC0ANAAxADkAMAAtAGIANAA5AGIALQBmAGUAZAAwAGYAZABjAGIAZQA4AGUAYQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGQANwBjADIAYwA1ADQALQA2ADgAMAA2AC0ANABlADgAYgAtAGEANwA1AGQALQAwAGEAZQA0ADQAOABhADIAMgBiAGYAZAB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

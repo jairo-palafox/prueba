@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{677a7745-eef4-46dc-bad9-c8a96f17ca18}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_rechazos" order="" uid="{29ab1da7-8514-4d00-9f11-8eb630f0bb4b}" where="">
+    <RecordField colName="" fieldIdRef="8" name="col_id_rechazo" sqlTabName="" table_alias_name="" uid="{f16d2eab-dac6-491d-a040-5eca36defd9c}"/>
+    <RecordField colName="" fieldIdRef="9" name="col_motivo" sqlTabName="" table_alias_name="" uid="{6646391b-cf94-4cbb-93cb-f2c30fb905b6}"/>
+    <RecordField colName="" fieldIdRef="10" name="col_descrip" sqlTabName="" table_alias_name="" uid="{9b38d2e6-486d-4ee3-936d-f6f54f74ba68}"/>
+    <RecordField colName="" fieldIdRef="11" name="col_posicion" sqlTabName="" table_alias_name="" uid="{92964dbd-2d50-42b9-b8be-1101a23f1188}"/>
+    <RecordField colName="" fieldIdRef="12" name="col_valor_archivo" sqlTabName="" table_alias_name="" uid="{6b3f855b-950a-467d-8fa2-c2fd58c2c47b}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_nss" order="" uid="{f8075f6a-79ec-4726-905d-419e90db0b7e}" where="">
+    <RecordField colName="" fieldIdRef="4" name="col_afore_cod" sqlTabName="" table_alias_name="" uid="{a95afa93-6579-4bf7-8cbf-128cc17fc547}"/>
+    <RecordField colName="" fieldIdRef="3" name="col_afore_desc" sqlTabName="" table_alias_name="" uid="{a6f6009c-4027-4f83-bdb1-9bc562c8e5f3}"/>
+    <RecordField colName="" fieldIdRef="1" name="col_nss" sqlTabName="" table_alias_name="" uid="{975c0431-6dd2-4531-8034-44e4e7500f6e}"/>
+    <RecordField colName="" fieldIdRef="2" name="col_nombre_trabajador" sqlTabName="" table_alias_name="" uid="{46d3718a-18e7-4627-be35-23c8dc3002b7}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="108" name="Form" text="Form">
+    <Grid gridHeight="25" gridWidth="106" name="Grid1" posX="2" posY="0">
+      <Group gridHeight="9" gridWidth="97" name="Group1" posX="1" posY="1" text="Registros Rechazados de Afore.">
+        <Table gridHeight="7" gridWidth="93" name="Table1" posX="2" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="7" name="col_afore_cod" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Afore Cod." widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="27" name="col_afore_desc" posX="7" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Descripción Afore" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="11" name="col_nss" posX="34" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="43" name="col_nombre_trabajador" posX="45" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Nombre Trabajador" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="15" gridWidth="97" name="Group2" posX="1" posY="10" text="Detalle de Registro Rechazado.">
+        <Table gridHeight="6" gridWidth="92" name="Table3" posX="2" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="5" name="col_id_rechazo" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Rechazo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="7" hidden="true" name="col_motivo" posX="5" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Motivo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="47" name="col_descrip" posX="12" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Descripción" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="10" name="col_posicion" posX="59" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Posición" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="17" name="col_valor_archivo" posX="69" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Valor en Archivo" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADgAMAA3ADUAZgA2AGEALQA3ADkAZQBjAC0ANAA3ADIANgAtADkAMAA1AGQALQA0ADEAOQBlADkAMABkAGIAMABiADcAZQB9wEkAAAAAAADAdqAAAAAAAD+nCj1wo9cPAQAAAEwAewA2ADYANAA2ADMAOQAxAGIALQBjAGYAOQA0AC0ANABjAGIAYgAtADkAMwBjAGIALQBmADIAYwAzADAAZgBiADkAMAA1AGIANgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcANQBjADAANAAzADEALQA2AGQAZAAyAC0ANAA1ADMAMQAtADgAMAAzADQALQA0ADQAZQA0AGUANwA1ADAAMABmADYAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADkANQBhAGYAYQA5ADMALQA2ADUANwA5AC0ANABiAGYANwAtADgAYwBiAGYALQAxADIAOABjAGMAMQA3AGYAYwA1ADQANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADEANgBkADIAZQBhAGIALQBkAGEAYwA2AC0ANAA5ADEAZAAtAGEAMAA0ADAALQA1AGUAYwBhADMANgBkAGUAZgBkADkAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADIAOQA2ADQAZABiAGQALQAyAGQANQAwAC0ANAAyAGIAOQAtAGIAOABiAGUALQAxADEAMAAxAGEAMgAzAGYAMQAxADgAOAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBhADYAZgA2ADAAMAA5AGMALQA0ADAAMgA3AC0ANABmADgAMwAtAGIAZABiADEALQA5AGIAYwA1ADYAMgBjADgAZQA1AGYAMwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGIAMwA4AGQAMgBlADYALQA0ADgANgBkAC0ANABlAGUAMwAtADkAMwA2AGQALQBmADYAZgA1ADQAZgA3ADQAYgBhADYAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADYAZAAzADcAMQA4AGEALQAxADgAZQA3AC0ANAA2ADIANwAtAGIAZQAzADUALQAyADMAYwA4AGQAYwAzADAAMAAyAGIANwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAyADkAYQBiADEAZABhADcALQA4ADUAMQA0AC0ANABkADAAMAAtADkAZgAxADEALQA4AGUAYgA2ADMAMABmADAAYgBiADQAYgB9wGwAAAAAAADAdyAAAAAAAD+i8an752yPAQAAAEwAewA2AGIAMwBmADgANQA1AGIALQA5ADUAMABhAC0ANAA2ADcAZAAtADgAZgBhADIALQBjADIAZgBkADUAOABjADIAYwA0ADcAYgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

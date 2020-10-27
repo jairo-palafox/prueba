@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACRL20.rdd" RWFglReportName="reporte_liquidacion"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="center">
+                    <LAYOUTNODE name="LayoutNode7" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" alignment="far" floatingBehavior="enclosed" url="logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="22.1356" length="720.24" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" x="7.5" y="298.617" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="LIQUIDACIÓN TRANSFERENCIA ACR" localizeText="false"/>
+                            <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_reporte Value" x="7.5" y="625.609" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox16" y="0" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Instituto:" borderColor="#ffffff">
+                                <WORDWRAPBOX name="WordWrapBox" x="66.0763" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontBold="false" floatingBehavior="enclosed" text="v_codigo_afore"/>
+                            </WORDBOX>
+                            <WORDWRAPBOX name="WordWrapBox1" x="0" y="232.887" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_razon_social"/>
+                            <WORDWRAPBOX name="WordWrapBox4" x="0" y="628.422" width="71.9209" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_usuario"/>
+                            <LAYOUTNODE name="LayoutNode5_1" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox17" y="0" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Instituto:" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox5" x="66.0763" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontBold="false" floatingBehavior="enclosed" text="v_codigo_afore"/>
+                                </WORDBOX>
+                                <WORDWRAPBOX name="WordWrapBox6" x="0" y="232.887" width="width(&quot;M&quot;)*20" length="20.7753" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_razon_social"/>
+                                <WORDWRAPBOX name="WordWrapBox7" x="0" y="628.422" width="71.9209" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_usuario"/>
+                                <LAYOUTNODE name="LayoutNode5_1_1" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <WORDBOX name="WordBox30" y="0" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Instituto:" borderColor="#ffffff">
+                                        <WORDWRAPBOX name="WordWrapBox10" x="66.0763" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontBold="false" floatingBehavior="enclosed" text="v_codigo_afore"/>
+                                    </WORDBOX>
+                                    <WORDWRAPBOX name="WordWrapBox11" x="0" y="232.887" width="width(&quot;M&quot;)*20" length="20.7753" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_razon_social"/>
+                                    <WORDWRAPBOX name="WordWrapBox12" x="0" y="628.422" width="71.9209" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_usuario"/>
+                                    <LAYOUTNODE name="LayoutNode5_1_2" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                        <LAYOUTNODE name="LayoutNode3_1" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                                        <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                        <WORDBOX name="p_usuario Value" x="4.3125" y="628.422" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{p_usuario}}"/>
+                                    </LAYOUTNODE>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDWRAPBOX name="WordWrapBox3" x="1.2" y="544.298" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="Insert your text here"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode2_1" width="22.8884" length="720.24" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox18" x="6.4461" y="1.7262" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Folio:"/>
+                        <WORDBOX name="WordBox19" x="7.3191" y="180.97" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Fecha Liquidación:"/>
+                        <rtl:input-variable name="p_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_folio Value" x="6.4461" y="85.3507" anchorX="0" anchorY="1" color="#ffffff" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{p_folio}}"/>
+                        <rtl:input-variable name="p_f_liquida" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_f_liquida Value" x="7.3191" y="298.617" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{p_f_liquida}}"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage3" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode6" width="20.5225" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox9" x="11.349" y="326.885" width="714.849" length="18.7651" anchorX="0.5" anchorY="0.440316" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="TOTALES POR SUBCUENTA"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode7_1" y="max" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode6_1" width="22.162" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed" roundedCorners="true" borderColor="#ce050f">
+                        <WORDBOX name="WordBox20" x="13.7753" y="192.81" anchorX="0.576199" anchorY="0.38025" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Fondo"/>
+                        <WORDBOX name="WordBox21" x="11.9071" y="366.904" anchorX="0.5" anchorY="0.440316" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Subcuenta"/>
+                        <WORDBOX name="WordBox22" x="11.9071" y="561.954" anchorX="0.5" anchorY="0.28688" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Acciones"/>
+                        <WORDBOX name="WordBox23" x="11.9071" y="667.478" anchorX="0.5" anchorY="0.221639" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Pesos"/>
+                        <WORDBOX name="WordBox24" x="5.0686" y="67.4302" width="31.2809" anchorX="2.46321e-14" anchorY="0.5" alignment="near" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Item"/>
+                        <LAYOUTNODE name="LayoutNode3_5" width="1.2" length="max" alignment="far" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode8_1" y="max" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage4" width="min" length="535.676" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode9" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="arr_tot_liquida.consecutivo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_tot_liquida.consecutivo Value" x="4.6002" y="65.2285" width="56.1909" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{arr_tot_liquida.consecutivo}}"/>
+                                <rtl:input-variable name="arr_tot_liquida.cve_sie" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_tot_liquida.cve_sie Value" x="4.6002" y="69.9149" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_tot_liquida.cve_sie}}"/>
+                                <rtl:input-variable name="arr_tot_liquida.des_sie" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_tot_liquida.des_sie Value" x="4.6002" y="178.236" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_tot_liquida.des_sie}}"/>
+                                <rtl:input-variable name="arr_tot_liquida.cve_subcuenta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_tot_liquida.cve_subcuenta Value" x="4.6002" y="358.059" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{arr_tot_liquida.cve_subcuenta}}"/>
+                                <rtl:input-variable name="arr_tot_liquida.des_subcuenta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="arr_tot_liquida.des_subcuenta Value" x="4.6002" y="364.062" width="87.73" length="16.101" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_tot_liquida.des_subcuenta}}"/>
+                                <rtl:input-variable name="arr_tot_liquida.sum_aivs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_tot_liquida.sum_aivs Value" x="4.6002" y="588.846" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_tot_liquida.sum_aivs}}"/>
+                                <rtl:input-variable name="arr_tot_liquida.sum_pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_tot_liquida.sum_pesos Value" x="4.6002" y="690.517" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_tot_liquida.sum_pesos}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <LAYOUTNODE name="LayoutNode9_1_1" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox25" x="8.0424" y="257.939" anchorX="0" anchorY="0" color="#ce050f" floatingBehavior="enclosed" text="TOTAL LIQUIDADO POR SUBCUENTAS"/>
+                        <LAYOUTNODE name="LayoutNode9_1_1_1" width="24.3349" length="719.495" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox26" x="8.0424" y="257.939" anchorX="0" anchorY="0" color="#ce050f" floatingBehavior="enclosed" text="TOTAL LIQUIDADO POR SUBCUENTAS"/>
+                            <LAYOUTNODE name="LayoutNode7_2" width="1.2" length="max" alignment="far" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode9_1_1_1_1_1" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox21_1_1" x="16.8251" y="448.565" anchorX="0.51051" anchorY="1" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="ACCIONES"/>
+                        <WORDBOX name="WordBox21_1" x="16.8251" y="307.06" width="89.3147" length="15.1568" anchorX="0.51051" anchorY="1" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="MOVIMIENTO"/>
+                    </LAYOUTNODE>
+                    <rtl:input-variable name="arr_deudor.movimiento_desc" type="FGLString" expectedLocation="expectedBefore"/>
+                    <WORDWRAPBOX name="arr_deudor.movimiento_desc Value" x="13.5473" y="399.041" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_deudor.movimiento_desc}}"/>
+                    <LAYOUTNODE name="LayoutNode9_1_1_1_1" width="-1.83156" length="719.495" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox32" x="110.221" y="256.441" anchorX="0" anchorY="0" color="#ce050f" floatingBehavior="enclosed" text="TOTAL MOVIMIENTOS DEUDOR"/>
+                        <LAYOUTNODE name="LayoutNode7_3" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <rtl:input-variable name="arr_liquida.subcuenta_desc" type="FGLString" expectedLocation="expectedBefore"/>
+                        <WORDWRAPBOX name="arr_liquida.subcuenta_desc Value" x="14.3395" y="4.90417" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_liquida.subcuenta_desc}}"/>
+                        <rtl:input-variable name="arr_liquida.movimiento" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="arr_liquida.movimiento Value" x="14.3395" y="284.465" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{arr_liquida.movimiento}}"/>
+                        <rtl:input-variable name="arr_liquida.monto_acciones" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="arr_liquida.monto_acciones Value" x="14.3395" y="447.067" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_liquida.monto_acciones}}"/>
+                    </LAYOUTNODE>
+                    <rtl:input-variable name="arr_deudor.aivs" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                    <DECIMALFORMATBOX name="arr_deudor.aivs Value" x="337.054" y="399.041" anchorX="1" anchorY="0" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_deudor.aivs}}"/>
+                    <rtl:input-variable name="arr_deudor.pesos" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                    <DECIMALFORMATBOX name="arr_deudor.pesos Value" x="492.344" y="399.041" anchorX="1" anchorY="0" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_deudor.pesos}}"/>
+                    <rtl:input-variable name="arr_liquida.monto_pesos" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                    <DECIMALFORMATBOX name="arr_liquida.monto_pesos Value" x="608.623" y="268.878" anchorX="1" anchorY="0" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_liquida.monto_pesos}}"/>
+                    <WORDBOX name="WordBox21_1_2_1" x="584.404" y="253.708" anchorX="0.51051" anchorY="1" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="PESOS"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../CATM16.rdd" RWFglReportName="genera_PDF"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="baseline">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="/safreviv/img/logo_infonavit.gif" intendedResolution="96"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage1" width="32.75" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox" x="15" y="329.509" width="200" length="0" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="14" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Catálogo Causales Rechazo" localizeText="false"/>
+                            <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario Value" class="grwStringValue" x="5" y="55" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                            <WORDBOX name="WordBox2" x="5" y="5" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage2" width="27.75" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox4" x="12" y="601" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="g_hoy" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_hoy Value" class="grwStringValue" x="5" y="633" floatingBehavior="enclosed" text="{{g_hoy}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage4" width="min" length="max" layoutDirection="leftToRight">
+                            <MINIPAGE name="barraTitsSubcuenta" width="28" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="nomArch" x="4" width="120" length="20" alignment="near" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Causal"/>
+                                <WORDBOX name="f_ini" x="4" width="500" length="20" alignment="baseline" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Descripción"/>
+                                <WORDBOX name="operacion" x="4" width="50" length="20" alignment="baseline" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Entidad"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode12" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage5" width="min" length="max" layoutDirection="leftToRight">
+                            <MINIPAGE name="barraTitulo" width="min" length="min" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_visibilidad" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <rtl:input-variable name="p_titulo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_titulo Value" rtl:condition="v_visibilidad.value==1" class="grwStringValue" width="max" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="{{p_titulo}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="barraTitsSubcuent2" width="31.25" length="max" layoutDirection="leftToRight">
+                                <WORDBOX name="WordBox14" x="4" width="120" length="20" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Causal"/>
+                                <WORDWRAPBOX name="TotalReg2" x="4" width="500" length="20" alignment="center" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Descripción&#10;" textAlignment="center"/>
+                                <WORDBOX name="Sin_orig2" x="4" width="50" length="20" alignment="baseline" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Entidad"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="barraVariales" width="min" length="720.868" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_causal.causal" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_causal.causal Value" class="grwStringValue" width="120" floatingBehavior="enclosed" textAlignment="center" text="{{p_causal.causal}}"/>
+                            <rtl:input-variable name="p_causal.descripcion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_causal.descripcion Value" class="grwStringValue" width="500" floatingBehavior="enclosed" text="{{p_causal.descripcion}}"/>
+                            <rtl:input-variable name="p_causal.entidad" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_causal.entidad Value" class="grwStringValue" y="630" floatingBehavior="enclosed" textAlignment="center" text="{{p_causal.entidad}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

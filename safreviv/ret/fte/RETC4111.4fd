@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{9040564e-eb96-4aa7-bdcf-10e74f8b336f}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{7528e202-0d9b-4216-81a4-f5370a94407b}" where="">
+    <RecordField colName="" fieldIdRef="1" length="11" name="v_nss" sqlTabName="" table_alias_name="" uid="{1350c323-61f1-4ac5-8d90-cdd3752222de}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_indicador_marca" sqlTabName="" table_alias_name="" uid="{515f8b4e-227a-4da3-b3cf-7f66c0d5457f}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_estado_indicador" sqlTabName="" table_alias_name="" uid="{3568ab4b-89a3-42c1-8d4d-f101efd80df2}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_origen" sqlTabName="" table_alias_name="" uid="{b13d81f9-a612-4a17-9833-17628b6b4033}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_fecha_inicio" sqlTabName="" table_alias_name="" uid="{5a76c6be-3037-4cd5-8cab-fd2455e2ce87}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_fecha_fin" sqlTabName="" table_alias_name="" uid="{e952a2e7-7f7e-422a-b9b8-a078c35ccc47}"/>
+  </Record>
+  <Form gridHeight="11" gridWidth="81" name="form" text="Form">
+    <Grid gridHeight="9" gridWidth="76" name="grid1" posX="2" posY="1">
+      <Group gridHeight="8" gridWidth="73" name="group1" posX="1" posY="0" text="Consulta Marca Desmarca PROCESAR">
+        <Label gridHeight="1" gridWidth="67" name="label9" posX="2" posY="1" text=""/>
+        <Label gridHeight="1" gridWidth="15" name="label1" posX="2" posY="2" text="NSS"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" length="11" name="v_nss" posX="19" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="label2" posX="2" posY="3" text="Proceso"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="15" items="" name="v_indicador_marca" posX="19" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="combobox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="label3" posX="2" posY="4" text="Estado"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" items="" name="v_estado_indicador" posX="19" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="combobox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="label5" posX="2" posY="5" text="Modalidad"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="15" items="" name="v_origen" posX="19" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="combobox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="label4" posX="2" posY="6" text="Fecha inicio"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="dd/mm/yyyy" gridHeight="1" gridWidth="15" name="v_fecha_inicio" posX="19" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="15" name="label7" posX="36" posY="6" text="Fecha Fin"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="dd/mm/yyyy" gridHeight="1" gridWidth="15" name="v_fecha_fin" posX="53" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA1ADEANQBmADgAYgA0AGUALQAyADIANwBhAC0ANABkAGEAMwAtAGIAMwBjAGYALQA3AGYANgA2AGMAMABkADUANAA1ADcAZgB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGEANwA2AGMANgBiAGUALQAzADAAMwA3AC0ANABjAGQANQAtADgAYwBhAGIALQBmAGQAMgA0ADUANQBlADIAYwBlADgANwB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADUAMgA4AGUAMgAwADIALQAwAGQAOQBiAC0ANAAyADEANgAtADgAMQBhADQALQBmADUAMwA3ADAAYQA5ADQANAAwADcAYgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADkANQAyAGEAMgBlADcALQA3AGYANwBlAC0ANAAyADIAYQAtAGIAOQBiADgALQBhADAANwA4AGMAMwA1AGMAYwBjADQANwB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUANgA4AGEAYgA0AGIALQA4ADkAYQAzAC0ANAAyAGMAMQAtADgAZAA0AGQALQBmADEAMAAxAGUAZgBkADgAMABkAGYAMgB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADEAMwBkADgAMQBmADkALQBhADYAMQAyAC0ANABhADEANwAtADkAOAAzADMALQAxADcANgAyADgAYgA2AGIANAAwADMAMwB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADMANQAwAGMAMwAyADMALQA2ADEAZgAxAC0ANABhAGMANQAtADgAZAA5ADAALQBjAGQAZAAzADcANQAyADIAMgAyAGQAZQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

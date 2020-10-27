@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="27.94cm" RWPageLength="28.00cm" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="GRTC09.rdd" RWFglReportName="descarga_pdf"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="721.837" alignment="baseline">
+                    <LAYOUTNODE name="First Page header" width="min" length="171.25" alignment="near" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" width="114.5" length="77.5984" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="18" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Etiqueta_titulo" x="9" y="333.643" width="292.619" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontSize="12" fontBold="false" fontItalic="false" fidelity="false" floatingBehavior="enclosed" textAlignment="left" text="REPORTE DE PAGOS DISPERSADOS A CARTERA" localizeText="false"/>
+                                <WORDBOX name="Etiqueta_usuario" y="2" width="50.4147" alignment="baseline" color="#ffffff" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="p_rfc_usr_ef" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rfc_usr_ef Value" class="grwStringValue" x="0.6382" y="59.7492" width="129.499" color="#ffffff" floatingBehavior="enclosed" text="{{p_rfc_usr_ef}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="min" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="18" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Etiqueta_fecha" x="8.5" y="592.805" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Fecha:  "/>
+                                <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha Value" class="grwStringValue" x="1.3693" y="628.091" width="88.0513" color="#ffffff" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="Barra_separadora" width="18.0405" length="716.184" alignment="near" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="Dato_nss" width="28.2546" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="Etiqueta_nss" x="20.5051" y="2" width="29.2426" length="14.5116" anchorX="0.959277" anchorY="1.05017e-16" alignment="baseline" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="NSS: "/>
+                            <rtl:input-variable name="g_nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_nss Value" class="grwStringValue" x="18.9142" y="34.1658" width="94.2375" anchorX="1" anchorY="3.39622e-15" fontSize="10" underline="false" floatingBehavior="enclosed" text="{{g_nss}}"/>
+                            <rtl:input-variable name="p_nombre_rpt" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_nombre_rpt Value1" class="grwStringValue" x="18.9142" y="136.935" width="403.258" anchorX="1" anchorY="0.00353924" fontSize="10" fontItalic="false" underline="false" fidelity="false" floatingBehavior="enclosed" text="{{p_nombre_rpt}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Sumario" width="37.0813" length="max" alignment="far" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <WORDWRAPBOX name="WordWrapBox" x="10.0271" width="max" length="29.2705" alignment="baseline" fontSize="9" fontItalic="true" floatingBehavior="enclosed" text="La presente información se transmite sin prejuzgar sobre la evidencia de su contenido y veracidad de los datos proporcionados, no creando derechos ni obligaciones diversas a las comprendidas en las disposiciones y ordenamientos legales en vigor."/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Encabezado_det_pagos1" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="Etiqueta_importe1" x="11.4393" y="2" width="77.3464" length="17.6936" anchorX="0.5" anchorY="0" alignment="baseline" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Importe($)"/>
+                        <WORDBOX name="Etiqueta_liquida1" x="11.4393" y="85.393" width="63.4024" length="17.6936" anchorX="0.5" anchorY="0" alignment="baseline" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Liquidación"/>
+                        <WORDBOX name="Etiqueta_estatus1" x="11.4393" y="172.589" width="64.324" length="17.6936" anchorX="0.5" anchorY="0" alignment="baseline" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Estatus"/>
+                        <WORDBOX name="Etiqueta_accion1" x="11.4393" y="354.138" width="99.6416" length="17.6936" anchorX="0.5" anchorY="0" alignment="baseline" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Acción sugerida"/>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage_arreglo_pagos" width="30.568" length="max" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="g_arr_pago_ug.importe" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_arr_pago_ug.importe Value" class="grwTableNumericColumnValue" x="6.7557" y="2" width="80.5171" anchorX="0.5" anchorY="3.04816e-15" alignment="far" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="---,---,---,--&amp;.&amp;&amp;" value="{{g_arr_pago_ug.importe}}"/>
+                                    <rtl:input-variable name="g_arr_pago_ug.f_liquida" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_pago_ug.f_liquida Value" class="grwStringValue" x="6.7557" y="85.393" width="83.4995" anchorX="0.5" anchorY="0.00627096" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{g_arr_pago_ug.f_liquida}}" trimText="left"/>
+                                    <rtl:input-variable name="g_arr_pago_ug.estado_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_pago_ug.estado_desc Value" class="grwTableStringColumnValue" x="8.0227" y="172.589" width="177.715" length="13.9775" anchorX="0.5" anchorY="2.49701e-15" alignment="far" fontSize="8" floatingBehavior="enclosed" clip="false" text="{{g_arr_pago_ug.estado_desc}}" localizeText="false"/>
+                                    <rtl:input-variable name="g_arr_pago_ug.accion" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_pago_ug.accion Value" class="grwTableStringColumnValue" x="0.89" y="353.191" width="359.855" length="14.5" anchorX="1.96012e-14" anchorY="0" alignment="far" fontSize="8" floatingBehavior="enclosed" text="{{g_arr_pago_ug.accion}}" textAlignment="left"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

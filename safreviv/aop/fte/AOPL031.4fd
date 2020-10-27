@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{46e604b6-d05b-4cb5-938a-c1a9c4b4d0d1}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{992c4f28-c1c7-4ddf-8a66-ac4ddeb45e54}" where="">
+    <RecordField colName="" fieldIdRef="1" name="folio" sqlTabName="" table_alias_name="" uid="{fc649ccf-bf92-4694-8089-454f59caa5c5}"/>
+    <RecordField colName="" fieldIdRef="2" name="nombre_funcion" sqlTabName="" table_alias_name="" uid="{9fea317c-aef4-4f85-80d0-c7d88b005f52}"/>
+    <RecordField colName="" fieldIdRef="4" name="folio_ajustado" sqlTabName="" table_alias_name="" uid="{24182e8e-572b-4b1c-9424-fc0ffab19e8b}"/>
+    <RecordField colName="" fieldIdRef="5" name="proceso_cod_ajuste" sqlTabName="" table_alias_name="" uid="{d69fd070-8a9e-40c4-bd5d-d00e5b0681d8}"/>
+    <RecordField colName="" fieldIdRef="3" name="usuario" sqlTabName="" table_alias_name="" uid="{58f5bd00-bc44-471c-bf52-8610e47a25ce}"/>
+  </Record>
+  <Form gridHeight="19" gridWidth="147" name="Form" text="Form">
+    <Grid gridHeight="17" gridWidth="144" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="139" name="Group1" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="18" name="Label1" posX="1" posY="1" text="Folio de Reverso Operativo"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="19" items="" name="folio" posX="22" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="3" gridWidth="139" name="Group2" posX="1" posY="5" text="Funcion a ejecutar">
+        <Label gridHeight="1" gridWidth="16" name="Label2" posX="3" posY="1" text="Nombre de la funcion"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="40" name="nombre_funcion" posX="22" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="7" gridWidth="139" name="Group3" posX="1" posY="9" text="Parametros de entrada">
+        <Label gridHeight="1" gridWidth="16" name="Label4" posX="3" posY="1" text="Folio reversado"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="23" name="folio_ajustado" posX="22" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label5" posX="3" posY="3" text="Codigo de proceso"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="23" name="proceso_cod_ajuste" posX="22" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label6" posX="3" posY="5" text="Usuario"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="23" name="usuario" posX="22" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmAGMANgA0ADkAYwBjAGYALQBiAGYAOQAyAC0ANAA2ADkANAAtADgAMAA4ADkALQA0ADUANABmADUAOQBjAGEAYQA1AGMANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADYAOQBmAGQAMAA3ADAALQA4AGEAOQBlAC0ANAAwAGMANAAtAGIAZAA1AGQALQBkADAAMABlADUAYgAwADYAOAAxAGQAOAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAyADQAMQA4ADIAZQA4AGUALQA1ADcAMgBiAC0ANABiADEAYwAtADkANAAyADQALQBmAGMAMABmAGYAYQBiADEAOQBlADgAYgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADgAZgA1AGIAZAAwADAALQBiAGMANAA0AC0ANAA3ADEAYwAtAGIAZgA1ADIALQA4ADYAMQAwAGUANAA3AGEAMgA1AGMAZQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADkAMgBjADQAZgAyADgALQBjADEAYwA3AC0ANABkAGQAZgAtADgAYQA2ADYALQBhAGMANABkAGQAZQBiADQANQBlADUANAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGYAZQBhADMAMQA3AGMALQBhAGUAZgA0AC0ANABmADgANQAtADgAMABkADAALQBjADcAZAA4ADgAYgAwADAANQBmADUAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

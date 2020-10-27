@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{a12fc30b-3ae6-41e1-85d1-d10056a4ecbe}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{a07f40ae-f5ac-486c-9aaa-8d67efb6b267}" where="">
+    <RecordField colName="" fieldIdRef="2" name="f_fecha_ini" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{7365a949-9ec7-4d76-a298-91fb79dc1776}"/>
+    <RecordField colName="" fieldIdRef="3" name="f_fecha_fin" sqlTabName="" table_alias_name="" uid="{b85c1478-76f4-4159-9fe1-7f139452d36a}"/>
+    <RecordField colName="" fieldIdRef="1" name="v_folio_liquidacion" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{083817ff-a971-4aed-873e-f6d4432fb590}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="src_acre" order="" uid="{8a556d26-0e9d-41af-b553-e851cc9e30ed}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="src_tot_acre" order="" uid="{54fc308b-37bb-4baf-8524-994a3aa36686}" where="">
+    <RecordField colName="" fieldIdRef="14" name="tot_nada" sqlTabName="" table_alias_name="" uid="{4fe87229-da16-475e-a83f-c1446a76ab0e}"/>
+    <RecordField colName="" fieldIdRef="8" name="tot_deudor" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{e9bc8ba5-cca6-4c98-8ba1-040b65fdcb05}"/>
+    <RecordField colName="" fieldIdRef="7" name="tot_monto92" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{c2f30df8-6d4d-479a-a490-019085736c7f}"/>
+    <RecordField colName="" fieldIdRef="9" name="tot_monto97" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{63003184-2815-48ca-ab01-24d27dc98d90}"/>
+    <RecordField colName="" fieldIdRef="6" name="tot_montoSI" sqlTabName="" table_alias_name="" uid="{7c88805d-2331-46c5-a219-ae0848ae63d4}"/>
+    <RecordField colName="" fieldIdRef="15" name="tot_diferencia" sqlTabName="" table_alias_name="" uid="{03e883a0-e5ec-4f6e-8e7d-9fded2b06987}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="src_acre_2" order="" uid="{a7f9c2c0-17fe-40ce-acf4-8fb7aa0354ca}" where="">
+    <RecordField colName="" fieldIdRef="10" name="t_nada" sqlTabName="" table_alias_name="" uid="{61443ff8-ea72-4039-82d3-299ff0ab6382}"/>
+    <RecordField colName="" fieldIdRef="12" name="t_deudor1" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{dac4f702-7893-4564-ac2f-fdf5f505d44a}"/>
+    <RecordField colName="" fieldIdRef="11" name="t_monto1_92" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{d9ac6fcd-824b-48d1-bc25-8fa0cfeb71b4}"/>
+    <RecordField colName="" fieldIdRef="5" name="t_monto1_97" sqlTabName="" table_alias_name="" uid="{5c2f3b19-7773-44dd-ad7a-1334692b7766}"/>
+    <RecordField colName="" fieldIdRef="4" name="t_monto1_SI" sqlTabName="" table_alias_name="" uid="{ba34cece-c601-437e-9046-ec155c1fbd08}"/>
+    <RecordField colName="" fieldIdRef="13" name="t_diferencia1" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{0cbf67bd-4d20-41d6-9ad4-1ce026a3c742}"/>
+  </Record>
+  <Form gridHeight="20" gridWidth="140" name="Form" text="Form">
+    <Grid gridHeight="18" gridWidth="137" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="134" name="Group1" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="11" name="Label1" posX="1" posY="1" text="Folio Liquidación"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="v_folio_liquidacion" posX="20" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label2" posX="52" posY="1" text="Fecha Liquidación Inicial"/>
+        <DateEdit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_fecha_ini" posX="69" posY="1" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label3" posX="88" posY="1" text="Fecha Liquidación Final"/>
+        <DateEdit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_fecha_fin" posX="104" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="134" name="Group4" posX="1" posY="4" text="Deudor Transferencia de Acreditados">
+        <Table gridHeight="6" gridWidth="129" name="Table3" posX="1" posY="1" totalRows="3">
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="15" name="t_nada" noEntry="true" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="12" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="t_deudor1" posX="15" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Deudor" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="11" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="t_monto1_92" posX="35" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Monto&#10;Aportación &#10;92" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="t_monto1_97" posX="55" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Monto&#10;Aportación &#10;97" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="t_monto1_SI" posX="75" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Monto&#10;Aportación&#10;Solo Infonavit" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="13" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="t_diferencia1" posX="95" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Diferencia" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="4" gridWidth="134" name="Group3" posX="1" posY="13" text="">
+        <Table gridHeight="2" gridWidth="129" name="Table2" posX="1" posY="1" totalRows="1">
+          <Edit colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="15" name="tot_nada" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tot_deudor" posX="15" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Deudor" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tot_monto92" posX="35" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Aportación 92" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tot_monto97" posX="55" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Aportación 97" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tot_montoSI" posX="75" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Solo Infonavit" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="15" format="-###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tot_diferencia" posX="95" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Diferencia" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBlADkAYgBjADgAYgBhADUALQBjAGMAYQA2AC0ANABjADkAOAAtADgAYgBhADEALQAwADQAMABiADYANQBmAGQAYwBiADAANQB9QBQAAAAAAABASIAAAAAAAD+QYk3S8an+AQAAAEwAewBiAGEAMwA0AGMAZQBjAGUALQBjADYAMAAxAC0ANAAzADcAZQAtADkAMAA0ADYALQBlAGMAMQA1ADUAYwAxAGYAYgBkADAAOAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGMAMgBmADMAYgAxADkALQA3ADcANwAzAC0ANAA0AGQAZAAtAGEAZAA3AGEALQAxADMAMwA0ADYAOQAyAGIANwA3ADYANgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADIAZgAzADAAZABmADgALQA2AGQANABkAC0ANAA3ADkAYQAtAGEANAA5ADAALQAwADEAOQAwADgANQA3ADMANgBjADcAZgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGMAYgBmADYANwBiAGQALQA0AGQAMgAwAC0ANAAxAGQANgAtADkAYQBkADQALQAxAGMAZQAwADIANgBhADMAYwA3ADQAMgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADEANAA0ADMAZgBmADgALQBlAGEANwAyAC0ANAAwADMAOQAtADgAMgBkADMALQAyADkAOQBmAGYAMABhAGIANgAzADgAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADMAZQA4ADgAMwBhADAALQBlADUAZQBjAC0ANABmADYAZQAtADgAZQA3AGQALQA5AGYAZABlAGQAMgBiADAANgA5ADgANwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADkAYQBjADYAZgBjAGQALQA4ADIANABiAC0ANAA4AGQAMQAtAGIAYwAyADUALQA4AGYAYQAwAGMAZgBlAGIANwAxAGIANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADMANgA1AGEAOQA0ADkALQA5AGUAYwA3AC0ANABkADcANgAtAGEAMgA5ADgALQA5ADEAZgBiADcAOQBkAGMAMQA3ADcANgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADcAZgA5AGMAMgBjADAALQAxADcAZgBlAC0ANAAwAGMAZQAtAGEAYwBmADQALQA4AGYAYgA3AGEAYQAwADMANQA0AGMAYQB9AAAAAAAAAAAAAAAAAAAAAD+EeuFHrhR8AQAAAEwAewA4AGEANQA1ADYAZAAyADYALQAwAGUAOQBkAC0ANAAxAGEAZgAtAGIANQA1ADMALQBlADgANQAxAGMAYwA5AGUAMwAwAGUAZAB9wGGgAAAAAABAZoAAAAAAAD+AYk3S8an8AQAAAEwAewAwADgAMwA4ADEANwBmAGYALQBhADkANwAxAC0ANABhAGUAZAAtADgANwAzAGUALQBmADYAZAA0ADQAMwAyAGYAYgA1ADkAMAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADAANwBmADQAMABhAGUALQBmADUAYQBjAC0ANAA4ADYAYwAtADkAYQBhAGEALQA4AGQANgA3AGUAZgBiADYAYgAyADYANwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADMAMAAwADMAMQA4ADQALQAyADgAMQA1AC0ANAA4AGMAYQAtAGEAYgAwADEALQAyADQAZAAyADcAZABjADkAOABkADkAMAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADQAZgBjADMAMAA4AGIALQAzADcAYgBiAC0ANABiAGEAZgAtADgANQAyADQALQA5ADkANABhADMAYQBhADMANgA2ADgANgB9wHVQAAAAAABALAAAAAAAAD+GhysCDEm8AQAAAEwAewA0AGYAZQA4ADcAMgAyADkALQBkAGEAMQA2AC0ANAA3ADUAZQAtAGEAOAAzAGYALQBjADEANAA0ADYAYQA3ADYAYQBiADAAZQB9QBQAAAAAAABAOgAAAAAAAD+MrAgxJul8AQAAAEwAewBkAGEAYwA0AGYANwAwADIALQA3ADgAOQAzAC0ANAA1ADYANAAtAGEAYwAyAGYALQBmAGQAZgA1AGYANQAwADUAZAA0ADQAYQB9QBQAAAAAAABASIAAAAAAAD+SbpeNT98+AQAAAEwAewA3AGMAOAA4ADgAMAA1AGQALQAyADMAMwAxAC0ANAA2AGMANQAtAGEAMgAxADkALQBhAGUAMAA4ADQAOABhAGUANgAzAGQANAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADgANQBjADEANAA3ADgALQA3ADYAZgA0AC0ANAAxADUAOQAtADkAZgBlADEALQA3AGYAMQAzADkANAA1ADIAZAAzADYAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

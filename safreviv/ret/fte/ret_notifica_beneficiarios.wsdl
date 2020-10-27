@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:tns="http://mx/com/infonavit/sgcj/ws/confpago/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="ConfirmaPagoService" targetNamespace="http://mx/com/infonavit/sgcj/ws/confpago/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://mx/com/infonavit/sgcj/ws/confpago/" schemaLocation="./ConfirmaPagoService_schema1.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="confPagoJuridicoSSVResponse">
+    <part name="parameters" element="tns:confPagoJuridicoSSVResponse">
+    </part>
+  </message>
+  <message name="confPagoJuridicoSSV">
+    <part name="parameters" element="tns:confPagoJuridicoSSV">
+    </part>
+  </message>
+  <portType name="ConfirmaPagoService">
+    <operation name="confPagoJuridicoSSV">
+      <input message="tns:confPagoJuridicoSSV" wsam:Action="confPagoJuridicoSSV">
+    </input>
+      <output message="tns:confPagoJuridicoSSVResponse" wsam:Action="http://mx/com/infonavit/sgcj/ws/confpago/ConfirmaPagoService/confPagoJuridicoSSVResponse">
+    </output>
+    </operation>
+  </portType>
+  <binding name="ConfirmaPagoServicePortBinding" type="tns:ConfirmaPagoService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="confPagoJuridicoSSV">
+      <soap:operation soapAction="confPagoJuridicoSSV"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ConfirmaPagoService">
+    <port name="ConfirmaPagoServicePort" binding="tns:ConfirmaPagoServicePortBinding">
+      <soap:address location="http://091402WQ178:9080/sgcjDSSV/ConfirmaPagoService"/>
+    </port>
+  </service>
+</definitions>

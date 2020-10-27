@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="27.9cm" RWPageLength="27.9cm" RWLeftMargin="1.0cm" RWTopMargin="1.0cm" RWRightMargin="1.0cm" RWBottomMargin="1.0cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/CBDC11.rdd" RWFglReportName="cifras"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezado" width="max" length="min" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="logo" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="titulo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox" width="max" color="#ffffff" bgColor="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="DETALLE DE SALDO INFONAVIT" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="fecha" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox1" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                            <WORDWRAPBOX name="WordWrapBox42" width="max/4" fontSize="10" floatingBehavior="enclosed" text="  "/>
+                            <WORDWRAPBOX name="WordWrapBox43" width="max/4" fontSize="10" floatingBehavior="enclosed" text="  " textAlignment="right"/>
+                            <rtl:input-variable name="v_today" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_today Value" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_today}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="folio" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox2" width="max/4" alignment="baseline" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text=" "/>
+                            <WORDWRAPBOX name="WordWrapBox3" width="max/4" fontSize="10" floatingBehavior="enclosed" text=" "/>
+                            <WORDWRAPBOX name="WordWrapBox4" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Fecha de corte" textAlignment="right"/>
+                            <rtl:input-variable name="v_f_conciliacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_f_conciliacion Value" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_f_conciliacion}}"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador" width="5" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="inicio_infonavit" width="max" length="min" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="inicio_titulo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderStyle="solid" borderColor="#ce050f">
+                            <WORDWRAPBOX name="WordWrapBox13" width="max" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="SALDOS INFONAVIT" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="tab_inicio" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderRightStyle="solid" borderLeftStyle="solid" borderRightColor="#ce050f" borderLeftColor="#ce050f">
+                            <WORDWRAPBOX name="WordWrapBox14" width="max/8" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Saldo Inicial al " borderWidth="1"/>
+                            <rtl:input-variable name="v_f_inicio_infonavit" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_f_inicio_infonavit Value" width="max/8" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="{{v_f_inicio_infonavit}}" borderWidth="1"/>
+                            <WORDWRAPBOX name="WordWrapBox15" width="max/4" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Subcuenta" textAlignment="center" borderWidth="1"/>
+                            <WORDWRAPBOX name="WordWrapBox16" width="max/4" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="AIVS" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="inicio97" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderRightStyle="solid" borderLeftStyle="solid" borderRightColor="#ce050f" borderLeftColor="#ce050f">
+                            <WORDWRAPBOX name="WordWrapBox17" width="max/4" length="12" alignment="baseline" fontSize="8" floatingBehavior="enclosed" text=" " textAlignment="center" borderWidth="1"/>
+                            <rtl:input-variable name="subcuenta97" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="subcuenta97 Value" width="max/4" length="12" fontSize="8" floatingBehavior="enclosed" text="{{subcuenta97}}" borderWidth="1"/>
+                            <rtl:input-variable name="acciones_in97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="acciones_in97 Value" width="max/4" length="12" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{acciones_in97}}" borderWidth="1"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="inicio92" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderRightStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid" borderRightColor="#ce050f" borderBottomColor="#ce050f" borderLeftColor="#ce050f">
+                            <WORDWRAPBOX name="WordWrapBox18" width="max/4" length="12" fontSize="8" floatingBehavior="enclosed" text=" " textAlignment="center" borderWidth="1"/>
+                            <rtl:input-variable name="subcuenta92" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="subcuenta92 Value" width="max/4" length="12" fontSize="8" floatingBehavior="enclosed" text="{{subcuenta92}}" borderWidth="1"/>
+                            <rtl:input-variable name="acciones_in92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="acciones_in92 Value" width="max/4" length="12" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{acciones_in92}}" borderWidth="1"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador3" width="5" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="conciliacion" width="max" length="min" floatingBehavior="enclosed" borderWidth="1" borderStyle="solid" borderColor="#ce050f">
+                        <LAYOUTNODE name="conciliacion_titulo" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1">
+                            <WORDWRAPBOX name="WordWrapBox19" width="max" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="DETALLE DEL PERIODO" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="tab_conciliacion" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderStyle="solid" borderColor="#ce050f">
+                            <WORDWRAPBOX name="WordWrapBox20" width="max/7.1" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="&#10;Modulo&#10;Operativo&#10; &#10; " textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox21" width="max/7.1" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="&#10;&#10;Subcuenta&#10;&#10; " textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox22" width="max/7.1" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="Movimientos&#10;Periodo&#10;Cargo&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox23" width="max/7.1" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="Movimiento&#10;Periodo&#10;Abono&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox24" width="max/7.1" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="Neto&#10;Periodo&#10;&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox44" width="max/7.1" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="Movimientos&#10;No&#10;Confirmados&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            <WORDWRAPBOX name="WordWrapBox25" width="max/7.1" color="#ce050f" fontSize="8" floatingBehavior="enclosed" text="Movimientos&#10;No&#10;Confirmados&#10;Historicos&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                        </LAYOUTNODE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <LAYOUTNODE name="cifras" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="p_lista.modulo_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_lista.modulo_concilia Value" width="max/7.05" length="12" fontSize="5" floatingBehavior="enclosed" text="{{p_lista.modulo_desc}}" borderWidth="1" borderTopWidth="1" borderStyle="none" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                                <rtl:input-variable name="p_lista.subcuenta_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_lista.subcuenta_concilia Value" width="max/7.05" length="12" fontSize="7" floatingBehavior="enclosed" text="{{p_lista.subcuenta_desc}}" borderWidth="1" borderTopWidth="1" borderStyle="none" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                                <rtl:input-variable name="p_lista.cargo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_lista.cargo_concilia Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{p_lista.cargo}}" borderWidth="1" borderTopWidth="1" borderStyle="none" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                                <rtl:input-variable name="p_lista.abono" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_lista.abono_concilia Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{p_lista.abono}}" borderWidth="1" borderTopWidth="1" borderStyle="none" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                                <rtl:input-variable name="p_lista.neto" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_lista.neto_concilia Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{p_lista.neto}}" borderWidth="1" borderTopWidth="1" borderStyle="none" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                                <rtl:input-variable name="p_lista.no_confirmados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_lista.no_confirmados_concilia Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{p_lista.no_confirmados}}" borderWidth="1" borderTopWidth="1" borderStyle="none" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                                <rtl:input-variable name="p_lista.no_confirmados_his" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_lista.no_confirmados_his Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{p_lista.no_confirmados_his}}" borderWidth="1" borderTopWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#cd050f"/>
+                            </LAYOUTNODE>
+                        </rtl:match>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="sum_conciliacion" width="max" length="min" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="tab_sumatoria" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox30" width="max/9.1" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="SUMATORIA" textAlignment="center"/>
+                            <WORDWRAPBOX name="WordWrapBox31" width="max/9.1" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Subcuenta" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="sum97" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox32" width="max/7.05" length="12" fontSize="6" floatingBehavior="enclosed" text=" " textAlignment="center" borderWidth="1" borderTopStyle="none" borderLeftStyle="none" borderColor="#ce050f"/>
+                            <rtl:input-variable name="subcuenta97" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDWRAPBOX name="subcuenta97 Value1" width="max/7.05" length="12" fontSize="7" floatingBehavior="enclosed" text="{{subcuenta97}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="cargo_sum97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="cargo_sum97 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{cargo_sum97}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="abono_sum97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="abono_sum97 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{abono_sum97}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="neto_sum97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="neto_sum97 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{neto_sum97}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="no_confirmado_sum97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="no_confirmado_sum97 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{no_confirmado_sum97}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="no_confirmado__his_sum97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="no_confirmado__his_sum97 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{no_confirmado__his_sum97}}" borderWidth="1" borderTopStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="sum92" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox33" width="max/7.05" length="12" fontSize="6" floatingBehavior="enclosed" text=" " textAlignment="center" borderWidth="1" borderTopStyle="none" borderLeftStyle="none" borderColor="#ce050f"/>
+                            <rtl:input-variable name="subcuenta92" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDWRAPBOX name="subcuenta92 Value1" width="max/7.05" length="12" fontSize="7" floatingBehavior="enclosed" text="{{subcuenta92}}" borderWidth="1" borderTopStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="cargo_sum92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="cargo_sum92 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{cargo_sum92}}" borderWidth="1" borderTopStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="abono_sum92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="abono_sum92 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{abono_sum92}}" borderWidth="1" borderTopStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="neto_sum92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="neto_sum92 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{neto_sum92}}" borderWidth="1" borderTopStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="no_confirmado_sum92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="no_confirmado_sum92 Value" width="max/7.05" length="12" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{no_confirmado_sum92}}" borderWidth="1" borderTopStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                            <rtl:input-variable name="no_confirmado__his_sum92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="no_confirmado__his_sum92 Value" width="max/7.05" length="12" anchorX="1" alignment="baseline" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{no_confirmado__his_sum92}}" borderWidth="1" borderTopStyle="solid" borderBottomStyle="solid" borderLeftStyle="solid" borderColor="#ce050f"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador4" width="5" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="fin_infonavit" width="max" length="min" floatingBehavior="enclosed" borderWidth="1" borderStyle="solid" borderColor="#ce050f">
+                        <LAYOUTNODE name="tab_fin" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox34" width="max/4" fontSize="10" floatingBehavior="enclosed" text=" " textAlignment="center"/>
+                            <WORDWRAPBOX name="WordWrapBox35" width="max/8" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Saldo Final al"/>
+                            <rtl:input-variable name="v_f_fin_infonavit" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="v_f_fin_infonavit Value" width="max/8" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="{{v_f_fin_infonavit}}"/>
+                            <WORDWRAPBOX name="WordWrapBox36" width="max/4" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Subcuenta" textAlignment="center"/>
+                            <WORDWRAPBOX name="WordWrapBox37" width="max/4" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="AIVS" textAlignment="center"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="fin97" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox38" width="max/2" length="12" fontSize="6" floatingBehavior="enclosed" text=" " textAlignment="center"/>
+                            <rtl:input-variable name="subcuenta97" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDWRAPBOX name="subcuenta97 Value2" width="max/4" length="12" fontSize="8" floatingBehavior="enclosed" text="{{subcuenta97}}"/>
+                            <rtl:input-variable name="acciones_fn97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="acciones_fn97 Value" width="max/4" length="12" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{acciones_fn97}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="fin92" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="WordWrapBox39" width="max/2" length="12" fontSize="6" floatingBehavior="enclosed" text=" " textAlignment="center"/>
+                            <rtl:input-variable name="subcuenta92" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDWRAPBOX name="subcuenta92 Value2" width="max/4" length="12" fontSize="8" floatingBehavior="enclosed" text="{{subcuenta92}}"/>
+                            <rtl:input-variable name="acciones_fn92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="acciones_fn92 Value" width="max/4" length="12" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{acciones_fn92}}"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

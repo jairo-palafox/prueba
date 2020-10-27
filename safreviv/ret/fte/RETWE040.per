@@ -1,0 +1,28 @@
+--===============================================================
+-- Version: 1.0.0
+-- Fecha ultima modificacion:
+--===============================================================
+
+SCHEMA FORMONLY
+
+
+LAYOUT
+  GROUP ( TEXT = "Status")
+    GRID
+    {
+       [msg                              ]
+       [                                 ]
+       [                                 ]
+    }
+    END
+  END
+
+END  -- layout
+
+
+ATTRIBUTES
+TEXTEDIT msg=formonly.msg, NOENTRY, STRETCH=X,SCROLLBARS=NONE,TITLE="Message",COLOR=GREEN;
+
+END
+
+

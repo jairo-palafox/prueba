@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGC22.rdd" RWFglReportName="rpt_analisis_registro_pagos"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="baseline">
+                    <LAYOUTNODE name="Page header" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage12" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode13" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox1" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode14" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage13" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode15" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox8" x="7.3162" y="328.512" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="ANÁLISIS DEL REGISTRO DE PAGOS" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode16" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage14" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="ly_fecha_hoy" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox11" x="6.741" y="545.56" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha:">
+                                    <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedAhead"/>
+                                    <WORDBOX name="v_fecha_reporte Value1" x="46.2601" y="-0.2992" width="111.922" length="15" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                                </WORDBOX>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode16_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <LAYOUTNODE name="ly_fecha_correspondiente" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox13" x="6.741" y="50" width="215.345" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Periodo correspondiente:">
+                                    <rtl:input-variable name="p_anio" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                    <rtl:input-variable name="p_mes" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                    <WORDBOX name="v_fecha_reporte Value2" x="158.829" y="-1.1076" width="251.946" length="15" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{p_anio.fglValue+&quot;_&quot;+(p_mes&lt;10?(&quot;0&quot;+p_mes):(&quot;&quot;+p_mes))}}"/>
+                                </WORDBOX>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="titTotalesMov1" width="25.0643" length="718.873" alignment="near" layoutDirection="leftToRight"/>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <LAYOUTNODE name="TablaGeneral" width="max" length="min" floatingBehavior="enclosed" borderWidth="1" borderStyle="solid" borderColor="#ce050f">
+                            <LAYOUTNODE name="Encabezados" width="42.3912" length="max" alignment="none" color="#ffffff" bgColor="#ce050f" layoutDirection="leftToRight" baselineType="leftleft" floatingBehavior="enclosed" marginBottomWidth="1">
+                                <LAYOUTNODE name="LayoutNode24" x="max*0" width="103.436" length="max" alignment="center" floatingBehavior="free" borderWidth="0" borderRightWidth="0" borderStyle="none" borderColor="#ffffff">
+                                    <WORDBOX name="WordBox" x="0" y="max*0.5" width="max" length="min" anchorX="0" anchorY="0.5" alignment="center" layoutDirection="topToBottom" floatingBehavior="free" textAlignment="center" text="Concepto"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode25" x="0" width="97" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderLeftWidth="1" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox" x="0" y="max*0.5" width="max" length="min" anchorY="0.5" alignment="center" layoutDirection="topToBottom" floatingBehavior="free" text="{{&quot;Número&#10;de pagos&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode26" width="90" length="max" alignment="center" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderLeftWidth="0" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox1" y="max*0.5" width="max" length="min" anchorY="0.5" baselineType="leftleft" floatingBehavior="enclosed" text="{{&quot;Porcentaje No.&#10;Registros&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode" width="112" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderLeftWidth="1" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox6" y="max*0.5" width="max" length="min" anchorY="0.5" floatingBehavior="enclosed" text="{{&quot;Importe&#10;Aportación&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode27" width="117" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderLeftWidth="0" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox5" y="max*0.5" width="max" length="min" anchorY="0.5" floatingBehavior="enclosed" text="{{&quot;Importe&#10;Amortización&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode28" width="112" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderLeftWidth="0" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox2" y="max*0.5" width="max" anchorY="0.5" floatingBehavior="enclosed" text="{{&quot;Suma aportación y&#10;amortización&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode29" width="81" length="max" floatingBehavior="enclosed" borderWidth="0" borderLeftWidth="0" borderStyle="none" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox4" y="max*0.5" width="max" anchorY="0.5" floatingBehavior="enclosed" text="{{&quot;Porcentaje&#10;Importe&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="Renglon 1" width="70" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                <LAYOUTNODE name="LayoutNode24_1_1" width="103.436" length="max" color="#fefefe" bgColor="#ce050f" floatingBehavior="enclosed" borderWidth="0" borderTopWidth="1" borderBottomWidth="1" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox3" x="max*0" y="max*0.5" width="max" length="min" anchorY="0.5" floatingBehavior="enclosed" text="{{&quot;Total de pagos recibidos en el &#10;LQINFO masivo&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode25_1_1" width="98" length="max" alignment="near" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_num_pagos_lqinfo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_num_pagos_lqinfo Value" y="max*0.5" width="max" length="min" anchorX="1" anchorY="0.5" alignment="baseline" floatingBehavior="enclosed" textAlignment="center" format="--,---,---,--#" value="{{p_num_pagos_lqinfo}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode26_1_1" width="91" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <WORDBOX name="WordBox22" y="max*0.5" width="max" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" text="{{&quot;100%&quot;}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode30_1" width="113" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_importe_aporta_lqinfo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_importe_aporta_lqinfo Value" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_importe_aporta_lqinfo}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode27_1_1" width="116" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_importe_amorta_lqinfo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_importe_amorta_lqinfo Value" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_importe_amorta_lqinfo}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode28_1_1" width="112.3" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_suma_aporta_amorta_lqinfo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_suma_aporta_amorta_lqinfo Value" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{p_suma_aporta_amorta_lqinfo}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode29_1_1" width="81" length="max" floatingBehavior="enclosed">
+                                    <WORDBOX name="WordBox26" y="max*0.5" width="max" length="min" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" text="{{&quot;100%&quot;}}"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="Renglon 2" width="70" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                <LAYOUTNODE name="LayoutNode24_2_1" width="103.436" length="max" color="#fefefe" bgColor="#ce050f" floatingBehavior="enclosed" borderWidth="0" borderTopWidth="1" borderBottomWidth="1" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox7" x="max*0" y="max*0.5" width="max" length="min" anchorY="0.5" floatingBehavior="enclosed" text="{{&quot;Total de pagos marcados&#10;en aclaratorio&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode25_2_1" width="98" length="max" alignment="near" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_num_pagos_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_num_pagos_lqinfo Value1" y="max*0.5" width="max" length="min" anchorX="1" anchorY="0.5" alignment="baseline" floatingBehavior="enclosed" textAlignment="center" format="--,---,---,--#" value="{{p_num_pagos_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode26_2_1" width="91" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_porciento_no_reg_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_porciento_no_reg_aclara Value" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="--&amp;.&amp;&amp;%" value="{{p_porciento_no_reg_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode32_1" width="113" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_importe_aporta_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_importe_aporta_lqinfo Value1" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_importe_aporta_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode27_2_1" width="116" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_importe_amorta_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_importe_amorta_lqinfo Value1" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_importe_amorta_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode28_2_1" width="112.3" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_suma_aporta_amorta_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_suma_aporta_amorta_lqinfo Value1" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{p_suma_aporta_amorta_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode29_2_1" width="81" length="max" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="p_porciento_importe_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_porciento_importe_aclara Value" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="--&amp;.&amp;&amp;%" value="{{p_porciento_importe_aclara}}"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="Renglon 3" width="80" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                <LAYOUTNODE name="LayoutNode24_3_1" width="103.436" length="max" color="#fefefe" bgColor="#ce050f" floatingBehavior="enclosed" borderWidth="0" borderTopWidth="1" borderBottomWidth="1" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox8" x="max*0" y="max*0.5" width="max" length="min" anchorY="0.5" floatingBehavior="enclosed" text="{{&quot;Total de pagos &#10;que salieron de &#10;aclaratorio por&#10;tener causal 13 y/o 17&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode25_3_1" width="98" length="max" alignment="near" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_num_pagos_causa13_17" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_num_pagos_lqinfo Value2" y="max*0.5" width="max" length="min" anchorX="1" anchorY="0.5" alignment="baseline" floatingBehavior="enclosed" textAlignment="center" format="--,---,---,--#" value="{{p_num_pagos_causa13_17}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode26_3_1" width="91" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_porciento_no_reg_causa13_17" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_porciento_no_reg_aclara Value1" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="--&amp;.&amp;&amp;%" value="{{p_porciento_no_reg_causa13_17}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode33_1" width="113" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_importe_aporta_causa13_17" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_importe_aporta_lqinfo Value2" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_importe_aporta_causa13_17}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode27_3_1" width="116" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_importe_amorta_causa13_17" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_importe_amorta_lqinfo Value2" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_importe_amorta_causa13_17}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode28_3_1" width="112.3" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_suma_aporta_amorta_causa13_17" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_suma_aporta_amorta_lqinfo Value2" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{p_suma_aporta_amorta_causa13_17}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode29_3_1" width="81" length="max" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="p_porciento_importe_causa13_17" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_porciento_importe_aclara Value1" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="--&amp;.&amp;&amp;%" value="{{p_porciento_importe_causa13_17}}"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="Renglon 4" width="75" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <LAYOUTNODE name="LayoutNode24_4_1" width="103.436" length="max" color="#fefefe" bgColor="#ce050f" floatingBehavior="enclosed" borderWidth="0" borderTopWidth="1" borderBottomWidth="1" borderStyle="solid" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox9" x="max*0" y="max*0.5" width="max" length="max" anchorY="0.5" floatingBehavior="enclosed" text="{{&quot;Total de registros &#10;que efectivamente &#10;se registraron en &#10;aclaratorio&quot;}}" textAlignment="center"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode25_4_1" width="98" length="max" alignment="near" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_num_pagos_reg_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_num_pagos_lqinfo Value3" y="max*0.5" width="max" length="min" anchorX="1" anchorY="0.5" alignment="baseline" floatingBehavior="enclosed" textAlignment="center" format="--,---,---,--#" value="{{p_num_pagos_reg_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode26_4_1" width="91" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_porciento_no_reg_reg_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_porciento_no_reg_aclara Value2" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="--&amp;.&amp;&amp;%" value="{{p_porciento_no_reg_reg_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode34_1" width="113" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_importe_aporta_reg_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_importe_aporta_lqinfo Value3" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_importe_aporta_reg_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode27_4_1" width="116" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_importe_amorta_reg_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_importe_amorta_lqinfo Value3" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_importe_amorta_reg_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode28_4_1" width="112.3" length="max" floatingBehavior="enclosed" borderWidth="0" borderRightWidth="1" borderStyle="solid" borderColor="#ce050f">
+                                    <rtl:input-variable name="p_suma_aporta_amorta_reg_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_suma_aporta_amorta_lqinfo Value3" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{p_suma_aporta_amorta_reg_aclara}}"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode29_4_1" width="81" length="max" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="p_porciento_importe_reg_aclara" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_porciento_importe_aclara Value2" y="max*0.5" width="max" anchorX="1" anchorY="0.5" floatingBehavior="enclosed" textAlignment="center" format="--&amp;.&amp;&amp;%" value="{{p_porciento_importe_reg_aclara}}"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                        </LAYOUTNODE>
+                    </rtl:match>
+                    <MINIPAGE name="MiniPage11" x="15.0831" y="529.891" width="720.411" length="20.1241" anchorX="0.0220048" anchorY="0.5" alignment="near">
+                        <PAGENOBOX name="PageNoBox" x="689.199" y="10.6781" width="38.5" length="19.7862" anchorX="0.523843" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

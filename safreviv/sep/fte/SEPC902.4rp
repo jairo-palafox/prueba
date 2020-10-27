@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/SEPC90.rdd" RWFglReportName="fn_reporte_virtuales"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="Page Header" width="max" length="min" port="anyPageHeader">
+                        <MINIPAGE name="MiniPage6" width="13.9775" length="524.384" alignment="near" layoutDirection="rightToLeft">
+                            <rtl:input-variable name="max_pages" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="max_pages Value" class="grwNumericValue" anchorX="1" fontSize="11" fontItalic="true" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{max_pages}}"/>
+                            <WORDBOX name="WordBox" fontSize="11" fontItalic="true" floatingBehavior="enclosed" text=" de "/>
+                            <PAGENOBOX name="PageNoBox1" fontSize="11" fontItalic="true" floatingBehavior="enclosed" paddingWidth="2" paddingRightWidth="2" paddingLeftWidth="2"/>
+                            <WORDBOX name="WordBox29" alignment="baseline" fontSize="11" fontItalic="true" floatingBehavior="enclosed" text="Página" paddingWidth="2" paddingRightWidth="2" paddingLeftWidth="2"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage7" width="109.585" length="524.385" alignment="near" layoutDirection="leftToRight">
+                            <IMAGEBOX name="ImageBox1" x="2.9814" y="5.4168" width="128.551" length="103.461" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="infonavit_logo.jpg" intendedResolution="96"/>
+                            <WORDBOX name="WordBox30" x="43.2941" y="172.579" anchorX="0" anchorY="0" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="REPORTE DE CUENTAS VIRTUALES DE SEPARACIÓN"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage8" width="520.751" length="53.9414" alignment="near">
+                            <WORDBOX name="WordBox31" x="63.4431" y="8.9056" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="false" floatingBehavior="enclosed" text="nss Invadido"/>
+                            <WORDBOX name="WordBox32" x="63.4431" y="23.1353" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="false" floatingBehavior="enclosed" text="nss Virtual"/>
+                            <WORDBOX name="WordBox33" x="63.4431" y="37.3245" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="false" floatingBehavior="enclosed" text="Fecha Apertura"/>
+                            <rtl:input-variable name="filtro.v_virtual" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro.v_virtual Value" x="149.599" y="23.1353" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro.v_virtual}}"/>
+                            <rtl:input-variable name="filtro.v_f_ini_apertura" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro.v_f_ini_apertura Value" x="149.599" y="37.3245" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro.v_f_ini_apertura}}"/>
+                            <rtl:input-variable name="filtro.v_invadido" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro.v_invadido Value" x="149.599" y="8.9056" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro.v_invadido}}"/>
+                            <WORDBOX name="WordBox35" x="232.676" y="37.3245" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="al"/>
+                            <rtl:input-variable name="filtro.v_f_fin_apertura" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro.v_f_fin_apertura Value" x="246.762" y="37.3245" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro.v_f_fin_apertura}}"/>
+                            <WORDBOX name="WordBox37" x="329.558" y="8.9056" anchorX="0" anchorY="0" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Fecha Emisión"/>
+                            <WORDBOX name="WordBox38" x="329.558" y="22.2686" anchorX="0" anchorY="0" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Total Cuentas"/>
+                            <rtl:input-variable name="r_f_emision" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="r_f_emision Value" x="430" y="8.9056" width="75" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" textAlignment="center" text="{{r_f_emision}}" borderWidth="0.5" borderStyle="solid" marginWidth="1"/>
+                            <rtl:input-variable name="r_total_cuentas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_total_cuentas Value" x="430" y="22.2686" width="75" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" textAlignment="center" format="----------#" value="{{r_total_cuentas}}" borderWidth="0.5" borderStyle="solid" marginWidth="1"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage9" width="524.384" length="30.5393" alignment="near">
+                            <WORDBOX name="WordBox41" x="105.817" y="14.2171" width="64.75" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="nss Invadido" borderWidth="0.8" borderStyle="solid" marginWidth="1" marginRightWidth="1" marginLeftWidth="1"/>
+                            <WORDBOX name="WordBox42" x="171.638" y="14.2171" width="61" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="nss Virtual" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox43" x="234.349" y="14.2171" width="72.5" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Fecha apertura" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox42_1" x="308.432" y="14.2171" width="122.5" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Estado" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage4_1" width="522.137" length="16.6196" alignment="near">
+                            <rtl:input-variable name="v_tabla_resultado.v_r_invadido" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_tabla_resultado.v_r_invadido Value" x="104.317" y="2.9178" width="65.5" anchorX="0" anchorY="0" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{v_tabla_resultado.v_r_invadido}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_virtual" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_tabla_resultado.v_r_virtual Value" x="170.888" y="2.9178" width="61" anchorX="0" anchorY="0" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{v_tabla_resultado.v_r_virtual}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_f_apertura" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_tabla_resultado.v_r_f_apertura Value" x="233.599" y="2.9178" width="71.75" anchorX="0" anchorY="0" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{v_tabla_resultado.v_r_f_apertura}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_descripcion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_tabla_resultado.v_r_descripcion Value" class="grwTableStringColumnValue" x="306.182" y="2.9178" width="127.25" length="8.75" anchorX="0" anchorY="0" fontSize="8" floatingBehavior="enclosed" text="{{v_tabla_resultado.v_r_descripcion}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{f0f0435b-67c6-4174-9f34-4092aefa79c5}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_cat_proceso" order="" uid="{754977a2-555d-4cc2-a7f8-e460b2862489}" where="">
+    <RecordField colName="" fieldIdRef="1" name="col_modulo_cod" sqlTabName="" table_alias_name="" uid="{9b77b32d-7076-4606-8600-ab69f0c86c0b}"/>
+    <RecordField colName="" fieldIdRef="4" name="col_proceso_cod" sqlTabName="" table_alias_name="" uid="{ed179d7e-f71a-4332-b3a9-93d864769cd1}"/>
+    <RecordField colName="" fieldIdRef="2" name="col_proceso_desc" sqlTabName="" table_alias_name="" uid="{3f54596f-c5f0-4647-a7e9-6ca0240f669b}"/>
+    <RecordField colName="" fieldIdRef="5" name="col_proceso_ext" sqlTabName="" table_alias_name="" uid="{a5265619-3ae6-472e-8cbe-fcad06e1f219}"/>
+    <RecordField colName="" fieldIdRef="8" name="col_f_actualiza" sqlTabName="" table_alias_name="" uid="{0105bd4b-d905-4094-b2c7-398a73c220ef}"/>
+    <RecordField colName="" fieldIdRef="9" name="col_usuario" sqlTabName="" table_alias_name="" uid="{fa428f24-4b57-416f-83f7-3cda34c363b0}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{eabdc8e8-e301-4181-979b-c51a91f2af05}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_cat_operacion" order="" uid="{e0009244-f482-4a40-969c-4da26ec535b2}" where="">
+    <RecordField colName="" fieldIdRef="19" name="col_proceso_cod_op" sqlTabName="" table_alias_name="" uid="{dcd242eb-d7cb-413e-8e04-659839aa7990}"/>
+    <RecordField colName="" fieldIdRef="21" name="col_opera_cod" sqlTabName="" table_alias_name="" uid="{d4c4589f-efb2-4c02-90ce-9855955dc8c9}"/>
+    <RecordField colName="" fieldIdRef="20" name="col_opera_desc" sqlTabName="" table_alias_name="" uid="{9a285a68-2102-412e-83bc-1cb9db389148}"/>
+    <RecordField colName="" fieldIdRef="22" name="col_programa_cod" sqlTabName="" table_alias_name="" uid="{aa256853-18fd-4067-afa3-66d27ac8060d}"/>
+    <RecordField colName="" fieldIdRef="23" name="col_layout_cod" sqlTabName="" table_alias_name="" uid="{45395076-ecb1-4be1-b22d-b742525394aa}"/>
+    <RecordField colName="" fieldIdRef="3" name="col_ejecuta_cod" sqlTabName="" table_alias_name="" uid="{3509dd6f-0a0e-4001-8883-1f459de41dab}"/>
+    <RecordField colName="" fieldIdRef="6" name="col_extension" sqlTabName="" table_alias_name="" uid="{36452a64-86e7-4cbf-b136-a433bf25eb46}"/>
+    <RecordField colName="" fieldIdRef="7" name="col_opera_cod_ant" sqlTabName="" table_alias_name="" uid="{111c675f-c055-418a-8d57-af4677495eab}"/>
+    <RecordField colName="" fieldIdRef="10" name="col_opera_cod_post" sqlTabName="" table_alias_name="" uid="{682dc105-768d-4df5-923e-cd2056e8ce3a}"/>
+  </Record>
+  <Form gridHeight="101" gridWidth="524" name="Form" text="Catálogo Procesos-Operación">
+    <VBox gridHeight="27" gridWidth="120" name="VBox1" posX="10" posY="4">
+      <Group gridHeight="11" gridWidth="120" name="grp_cat_proceso" posX="0" posY="1" text="Catálogo de procesos">
+        <Grid gridHeight="9" gridWidth="97" name="Grid1" posX="2" posY="1">
+          <Table gridHeight="7" gridWidth="93" name="tbl_cat_proceso" posX="2" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="9" name="col_proceso_cod" posX="0" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Modulo" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="9" justify="center" name="col_modulo_cod" posX="9" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Proceso" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="46" name="col_proceso_desc" posX="18" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Descripción" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_proceso_ext" posX="64" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Ruta bin" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_f_actualiza" posX="67" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Fec. actualización" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_usuario" posX="70" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Usuario" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="14" gridWidth="120" name="grp_cat_operacion" posX="0" posY="12" text="Operaciones del proceso">
+        <Table gridHeight="12" gridWidth="110" name="tbl_cat_operacion" posX="1" posY="1" totalRows="10">
+          <Edit colName="" columnCount="" fieldId="19" gridHeight="1" gridWidth="9" name="col_proceso_cod_op" posX="0" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Proceso" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="21" gridHeight="1" gridWidth="8" name="col_opera_cod" posX="9" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Operación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="20" gridHeight="1" gridWidth="34" name="col_opera_desc" posX="17" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Descripción de la operación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="22" gridHeight="1" gridWidth="9" name="col_programa_cod" posX="51" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Programa&#10;Cod." widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="23" gridHeight="1" gridWidth="7" name="col_layout_cod" posX="60" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Layout&#10;Cod." widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="9" name="col_ejecuta_cod" posX="67" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Ejecut&#10;Cod." widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="col_extension" posX="76" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Extension" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="8" name="col_opera_cod_ant" posX="84" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Código&#10;Ant." widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="8" name="col_opera_cod_post" posX="92" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Código&#10;Post" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBlADAAMAAwADkAMgA0ADQALQBmADQAOAAyAC0ANABhADQAMAAtADkANgA5AGMALQA0AGQAYQAyADYAZQBjADUAMwA1AGIAMgB9wIB4AAAAAADAIgAAAAAAAD+ZmZmZmZmeAQAAAEwAewAxADEAMQBjADYANwA1AGYALQBjADAANQA1AC0ANAAxADgAYQAtADgAZAA1ADcALQBhAGYANAA2ADcANwA0ADkANQBlAGEAYgB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGIANwA3AGIAMwAyAGQALQA3ADAANwA2AC0ANAA2ADAANgAtADgANgAwADAALQBhAGIANgA5AGYAMABjADgANgBjADAAYgB9QBQAAAAAAABAOgAAAAAAAD+i8an752yPAQAAAEwAewA2ADgAMgBkAGMAMQAwADUALQA3ADYAOABkAC0ANABkAGYANQAtADkAMgAzAGUALQBjAGQAMgAwADUANgBlADgAYwBlADMAYQB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGQAMQA3ADkAZAA3AGUALQBmADcAMQBhAC0ANAAzADMAMgAtAGIAMwBhADkALQA5ADMAZAA4ADYANAA3ADYAOQBjAGQAMQB9QBQAAAAAAABASIAAAAAAAD+ibpeNT98/AQAAAEwAewBhADUAMgA2ADUANgAxADkALQAzAGEAZQA2AC0ANAA3ADIAZQAtADgAYwBiAGUALQBmAGMAYQBkADAANgBlADEAZgAyADEAOQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGYANQA0ADUAOQA2AGYALQBjADUAZgAwAC0ANAA2ADQANwAtAGEANwBlADkALQA2AGMAYQAwADIANAAwAGYANgA2ADkAYgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADYANAA1ADIAYQA2ADQALQA4ADYAZQA3AC0ANABjAGIAZgAtAGIAMQAzADYALQBhADQAMwAzAGIAZgAyADUAZQBiADQANgB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEAYgBkAGMAOABlADgALQBlADMAMAAxAC0ANAAxADgAMQAtADkANwA5AGIALQBjADUAMQBhADkAMQBmADIAYQBmADAANQB9AAAAAAAAAAAAAAAAAAAAAD+MrAgxJul8AQAAAEwAewAzADUAMAA5AGQAZAA2AGYALQAwAGEAMABlAC0ANAAwADAAMQAtADgAOAA4ADMALQAxAGYANAA1ADkAZABlADQAMQBkAGEAYgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADEAMAA1AGIAZAA0AGIALQBkADkAMAA1AC0ANAAwADkANAAtAGIAMgBjADcALQAzADkAOABhADcAMwBjADIAMgAwAGUAZgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADUANAA5ADcANwBhADIALQA1ADUANQBkAC0ANABjAGMAMgAtAGEANwBmADgALQBlADQANgAwAGIAMgA4ADYAMgA0ADgAOQB9wHJgAAAAAABAFAAAAAAAAD+h64UeuFHvAQAAAEwAewA5AGEAMgA4ADUAYQA2ADgALQAyADEAMAAyAC0ANAAxADIAZQAtADgAMwBiAGMALQAxAGMAYgA5AGQAYgAzADgAOQAxADQAOAB9QBQAAAAAAABAUgAAAAAAAD+dsi0OVgQeAQAAAEwAewBhAGEAMgA1ADYAOAA1ADMALQAxADgAZgBkAC0ANAAwADYANwAtAGEAZgBhADMALQA2ADYAZAAyADcAYQBjADgAMAA2ADAAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQAYwA0ADUAOAA5AGYALQBlAGYAYgAyAC0ANABjADAAMgAtADkAMABjAGUALQA5ADgANQA1ADkANQA1AGQAYwA4AGMAOQB9QBQAAAAAAABASIAAAAAAAD+j987ZFocvAQAAAEwAewA0ADUAMwA5ADUAMAA3ADYALQBlAGMAYgAxAC0ANABiAGUAMQAtAGIAMgAyAGQALQBiADcANAAyADUAMgA1ADMAOQA0AGEAYQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGEANAAyADgAZgAyADQALQA0AGIANQA3AC0ANAAxADYAZgAtADgAMwBmADcALQAzAGMAZABhADMANABjADMANgAzAGIAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGMAZAAyADQAMgBlAGIALQBkADcAYwBiAC0ANAAxADMAZQAtADgAZQAwADQALQA2ADUAOQA4ADMAOQBhAGEANwA5ADkAMAB9QBQAAAAAAABAOgAAAAAAAD+jdLxqfvnfAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

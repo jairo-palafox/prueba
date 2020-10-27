@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{fd11b046-faf6-49f9-9da4-39a3ccd42311}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{5805d9ae-8457-40aa-bba4-09cfbaf6134a}" where="">
+    <RecordField colName="" fieldIdRef="1" name="m_ent_financiera" sqlTabName="" table_alias_name="" uid="{550f17a1-1c1a-4006-8efc-7ab3e9e3a457}"/>
+    <RecordField colName="" fieldIdRef="2" name="m_tpo_credito" sqlTabName="" table_alias_name="" uid="{c6ea5c92-c621-4422-918e-32ed24fd131f}"/>
+    <RecordField colName="" fieldIdRef="3" name="m_banco_inter" sqlTabName="" table_alias_name="" uid="{f05540ca-910f-4804-8967-07df5fd2d449}"/>
+    <RecordField colName="" fieldIdRef="4" name="m_clabe" sqlTabName="" table_alias_name="" uid="{e570656f-b5f3-425a-89b3-8b0783bb7025}"/>
+    <RecordField colName="" fieldIdRef="5" name="m_rfc_ent_financiera" sqlTabName="" table_alias_name="" uid="{05d2913e-d587-4296-b6d4-6cb2609b67ba}"/>
+    <RecordField colName="" fieldIdRef="6" name="m_cuenta_contable" sqlTabName="" table_alias_name="" uid="{ad052de3-7970-49ab-a834-9b54dd04aacb}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="88" name="form" text="Modificar Entidad Financiera">
+    <Grid gridHeight="13" gridWidth="84" name="grid1" posX="2" posY="2">
+      <Button gridHeight="1" gridWidth="12" name="accept" posX="42" posY="1" tabIndex="8" text="Aceptar"/>
+      <Button gridHeight="1" gridWidth="12" name="cancel" posX="55" posY="1" tabIndex="7" text="Cancelar"/>
+      <Group gridHeight="8" gridWidth="65" name="group1" posX="2" posY="2" text="Modificar">
+        <Label gridHeight="1" gridWidth="17" name="label1" posX="1" posY="1" text="Entidad Financiera :"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="44" name="m_ent_financiera" posX="19" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="17" name="label2" posX="1" posY="2" text="Tipo de Credito :"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="30" name="m_tpo_credito" posX="19" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="17" name="label3" posX="1" posY="3" text="Banco Interlocutor :"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="12" name="m_banco_inter" posX="19" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="17" name="label4" posX="1" posY="4" text="CLABE :"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="18" name="m_clabe" posX="19" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="edit4" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="17" name="label5" posX="1" posY="5" text="RFC Entidad Financiera :"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="12" name="m_rfc_ent_financiera" posX="19" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="edit5" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="17" name="label6" posX="1" posY="6" text="Cuenta Contable :"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="12" name="m_cuenta_contable" posX="19" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit6" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADAANQA1ADQAMABjAGEALQA5ADEAMABmAC0ANAA4ADAANAAtADgAOQA2ADcALQAwADcAZABmADUAZgBkADIAZAA0ADQAOQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADYAZQBhADUAYwA5ADIALQBjADYAMgAxAC0ANAA0ADIAMgAtADkAMQA4AGUALQAzADIAZQBkADIANABmAGQAMQAzADEAZgB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADgAMAA1AGQAOQBhAGUALQA4ADQANQA3AC0ANAAwAGEAYQAtAGIAYgBhADQALQAwADkAYwBmAGIAYQBmADYAMQAzADQAYQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADUAMABmADEANwBhADEALQAxAGMAMQBhAC0ANAAwADAANgAtADgAZQBmAGMALQA3AGEAYgAzAGUAOQBlADMAYQA0ADUANwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGQAMAA1ADIAZABlADMALQA3ADkANwAwAC0ANAA5AGEAYgAtAGEAOAAzADQALQA5AGIANQA0AGQAZAAwADQAYQBhAGMAYgB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADUAZAAyADkAMQAzAGUALQBkADUAOAA3AC0ANAAyADkANgAtAGIANgBkADQALQA2AGMAYgAyADYAMAA5AGIANgA3AGIAYQB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADUANwAwADYANQA2AGYALQBiADUAZgAzAC0ANAAyADUAYQAtADgAOQBiADMALQA4AGIAMAA3ADgAMwBiAGIANwAwADIANQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

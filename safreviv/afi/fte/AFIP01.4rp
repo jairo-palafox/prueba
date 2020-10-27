@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AFIP01.rdd" RWFglReportName="rpt_cifras_control"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="center">
+                    <LAYOUTNODE name="encabezado" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="Logotipo_institucional" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separador1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="encabezado_reporte" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox" width="719.103" alignment="far" color="#ffffff" fontName="Arial" fontSize="14" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte de Integración de Movimientos Afiliatorios"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separador1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="folio_fecha" width="min" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="titFolio" width="44.8203" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="Folio:"/>
+                            <rtl:input-variable name="p_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_folio Value" width="84.1458" anchorX="1" fontName="Arial" fontSize="11" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{p_folio}}"/>
+                            <WORDBOX name="espacio1" width="100.551" length="13.2247" alignment="near" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="titUsuario" width="74.124" alignment="baseline" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="Usuario:"/>
+                            <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_usuario_cod Value" width="119.428" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                            <WORDBOX name="espacio2" width="148.731" length="12.4719" alignment="near" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="titFecha" width="43.0337" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="v_fecha_texto" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_texto Value" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="{{v_fecha_texto}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage5" width="min" length="77.2495" alignment="near">
+                            <MINIPAGE name="Etiquetas" width="min" length="max" layoutDirection="leftToRight">
+                                <WORDBOX name="lblTipo_Mov" width="200" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Tipo Movimiento"/>
+                                <WORDBOX name="lblProcesados" x="0" y="269.135" width="138.27" anchorX="0" anchorY="0.5" alignment="baseline" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Procesados"/>
+                                <WORDBOX name="lblAceptados" x="0" y="407.405" width="138.27" anchorX="3.69482e-14" anchorY="0.5" alignment="baseline" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Aceptados"/>
+                                <WORDBOX name="lblRechazados" x="0" y="545.675" width="138.27" anchorX="3.69482e-14" anchorY="0.5" alignment="baseline" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Rechazados"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="AltasAceptadas" width="10" length="max" layoutDirection="leftToRight">
+                                <WORDBOX name="lblAltasAceptadas" width="200" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="01 Altas"/>
+                                <rtl:input-variable name="p_regs_aceptados_alta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_regs_aceptados_alta Value" x="9.1417" y="335.386" width="100" anchorX="1" anchorY="6.96332e-15" alignment="far" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_regs_aceptados_alta}}"/>
+                                <rtl:input-variable name="p_regs_rechazados_alta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_regs_rechazados_alta Value" x="9.1417" y="475.814" width="100" anchorX="1" anchorY="0" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_regs_rechazados_alta}}"/>
+                                <rtl:input-variable name="p_regs_procesados_alta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_regs_procesados_alta Value" x="9.1417" y="200.104" width="100" anchorX="0.94" anchorY="1.19962e-15" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_regs_procesados_alta}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="BajasRealizadas" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="lblBajas" width="200" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="02 Bajas"/>
+                                <rtl:input-variable name="p_bajas_procesadas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_bajas_procesadas Value" width="100" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_bajas_procesadas}}"/>
+                                <rtl:input-variable name="p_bajas_aceptadas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_bajas_aceptadas Value" x="10" y="335.386" width="100" anchorX="1" anchorY="4.93056e-15" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_bajas_aceptadas}}"/>
+                                <rtl:input-variable name="p_bajas_rechazadas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_bajas_rechazadas Value" x="10" y="475.496" width="100" anchorX="1" anchorY="1.33893e-15" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_bajas_rechazadas}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="NSSUnificadores" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="lblUnificadores" width="200" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="05 Cambio de NSS"/>
+                                <rtl:input-variable name="p_regs_cambio_nss" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_regs_cambio_nss Value" width="100" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_regs_cambio_nss}}"/>
+                                <rtl:input-variable name="p_cambio_nss_aceptados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_cambio_nss_aceptados Value" x="8.3272" y="335.386" width="100" anchorX="0.895322" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_cambio_nss_aceptados}}"/>
+                                <rtl:input-variable name="p_cambio_nss_rechazados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_cambio_nss_rechazados Value" x="8.3272" y="475.496" width="100" anchorX="1" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_cambio_nss_rechazados}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="CambiosDeNombre" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="lblCambioNombre" width="200" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="06 Cambios de nombre"/>
+                                <rtl:input-variable name="p_cambios_nombre_realizados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_cambios_nombre_realizados Value" width="100" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_cambios_nombre_realizados}}"/>
+                                <rtl:input-variable name="p_cambio_nom_aceptados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_cambio_nom_aceptados Value" x="10" y="335.386" width="100" anchorX="1" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_cambio_nom_aceptados}}"/>
+                                <rtl:input-variable name="p_cambio_nom_rechazados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_cambio_nom_rechazados Value" x="10" y="475.496" width="100" anchorX="1" anchorY="0" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_cambio_nom_rechazados}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="Reingresos" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="lblReingresos" width="200" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="08 Reingresos"/>
+                                <rtl:input-variable name="p_reingresos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_reingresos Value" width="100" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_reingresos}}"/>
+                                <rtl:input-variable name="p_reingresos_aceptados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_reingresos_aceptados Value" x="9.6734" y="335.386" width="100" anchorX="1" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_reingresos_aceptados}}"/>
+                                <rtl:input-variable name="p_reingresos_rechazados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_reingresos_rechazados Value" x="8.7951" y="475.814" width="100" anchorX="1" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_reingresos_rechazados}}"/>
+                            </MINIPAGE>
+                            <WORDBOX name="lblReingresos1" width="200" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="21 RISS"/>
+                            <rtl:input-variable name="p_riss" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_riss Value" x="300.203" y="59.6734" width="100.486" length="10.1213" anchorX="1" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_riss}}"/>
+                            <rtl:input-variable name="p_riss_aceptados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_riss_aceptados Value" x="434.85" y="59.673" width="99.3395" anchorX="1" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_riss_aceptados}}"/>
+                            <rtl:input-variable name="p_riss_rechazados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_riss_rechazados Value" x="575.946" y="59.6734" width="99.5218" anchorX="1" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_riss_rechazados}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="resumenAltasRealizadas" width="min" length="min">
+                            <MINIPAGE name="AltasEnAlta" width="min" length="max" layoutDirection="leftToRight">
+                                <WORDBOX name="p_regs_aceptados_alta Caption" width="250" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="left" text="Registros que se dan de alta por cuenta inexistente:" localizeText="true"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="archivoProcesado" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="lblArchivoprocesado" width="48.0787" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Archivo:"/>
+                                <rtl:input-variable name="p_nombre_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_nombre_archivo Value" width="300" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_nombre_archivo}}">
+                                    <rtl:input-variable name="p_regs_aceptados_tot" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_regs_aceptados_tot Value" x="252.124" y="0.2726" width="101.09" anchorX="1" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_regs_aceptados_tot}}"/>
+                                </WORDWRAPBOX>
+                            </MINIPAGE>
+                            <MINIPAGE name="AltasEnReingreso" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="p_num_altas_en_reingreso Caption" width="250" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="left" text="Registros por reingreso dados de alta por cuenta inexistente:" localizeText="true"/>
+                                <rtl:input-variable name="p_num_altas_en_reingreso" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_num_altas_en_reingreso Value" width="80" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_num_altas_en_reingreso}}"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="espacioSeccionRechazos1" width="13.101" length="max" layoutDirection="leftToRight"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="numPagina" width="13.9775" length="max" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <PAGENOBOX name="PageNoBox" width="max" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:input-variable name="p_afi_rch_afiliatorio.cod_rechazo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <MINIPAGE name="MiniPage" rtl:condition="p_afi_rch_afiliatorio.cod_rechazo&gt;0" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_desc_rechazo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_desc_rechazo Value" width="500" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="{{v_desc_rechazo}}"/>
+                            <MINIPAGE name="titRechazos" width="min" length="max" layoutDirection="leftToRight">
+                                <WORDWRAPBOX name="titTpoMov1" width="20" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Tipo Mov."/>
+                                <WORDWRAPBOX name="titNRP1" width="50" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="NRP"/>
+                                <WORDWRAPBOX name="titFecMov1" width="50" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Fec. Mov."/>
+                                <WORDWRAPBOX name="titCURP_RFC1" width="100" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="CURP/RFC"/>
+                                <WORDWRAPBOX name="titTTrabajador1" width="20" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Tip. Trab."/>
+                                <WORDWRAPBOX name="titNSS1" width="70" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="NSS"/>
+                                <WORDWRAPBOX name="titNombre1" width="120" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Nombre"/>
+                                <WORDWRAPBOX name="titPresentacion1" width="40" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Present."/>
+                                <WORDWRAPBOX name="titJornada1" width="20" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Jor."/>
+                                <WORDWRAPBOX name="titSDI1" width="30" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="SDI"/>
+                                <WORDWRAPBOX name="titSexo1" width="10" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Sexo"/>
+                                <WORDWRAPBOX name="titNSSCorrecto1" width="70" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="NSS Correcto"/>
+                                <WORDWRAPBOX name="titNombreCorrecto1" width="120" color="#ffffff" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Nombre Correcto"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="p_afi_rch_afiliatorio.cod_rechazo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <MINIPAGE name="MiniPage6" rtl:condition="p_afi_rch_afiliatorio.cod_rechazo&gt;0" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.tpo_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.tpo_movimiento Value1" width="20" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.tpo_movimiento}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.nrp" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.nrp Value1" width="50" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.nrp}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.f_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.f_movimiento Value1" width="50" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.f_movimiento}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.curp_rfc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.curp_rfc Value1" width="100" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.curp_rfc}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.t_trabajador" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.t_trabajador Value1" width="20" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{(p_afi_rch_afiliatorio.t_trabajador).format(&quot;-----#&quot;)}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.nss Value1" width="70" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.nss}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.nombre" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.nombre Value" width="120" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.nombre}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.presentacion_extemp" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.presentacion_extemp Value1" width="40" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{(p_afi_rch_afiliatorio.presentacion_extemp).format(&quot;-----#&quot;)}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.jornada_semana" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.jornada_semana Value1" width="20" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{(p_afi_rch_afiliatorio.jornada_semana).format(&quot;-----#&quot;)}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.sdi" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_afi_rch_afiliatorio.sdi Value" width="30" anchorX="1" alignment="baseline" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="------&amp;" value="{{p_afi_rch_afiliatorio.sdi}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.sexo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.sexo Value1" width="10" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.sexo}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.nss_correcto" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.nss_correcto Value1" width="70" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.nss_correcto}}"/>
+                                <rtl:input-variable name="p_afi_rch_afiliatorio.nombre_correcto" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_afi_rch_afiliatorio.nombre_correcto Value" width="120" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{p_afi_rch_afiliatorio.nombre_correcto}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

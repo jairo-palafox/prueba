@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{b48674c3-c8dc-44d2-9666-e41d8dc084c4}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_a" order="" uid="{9e4ec269-6684-4c2b-9973-cf24f91e66d6}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_corte" sqlTabName="" table_alias_name="" uid="{76160a8b-7de9-447d-a656-f0a325bac181}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="lista_saldos" order="" uid="{a40d3fed-2166-4cf8-a263-3bfaa0e761d5}" where="">
+    <RecordField colName="" fieldIdRef="5" name="modulo" sqlTabName="" table_alias_name="" uid="{4a73eef9-4c1b-452c-a6da-d941b97bee0e}"/>
+    <RecordField colName="" fieldIdRef="2" name="subcuenta" sqlTabName="" table_alias_name="" uid="{54017d61-f6fa-4886-819f-cf63d2ecc487}"/>
+    <RecordField colName="" fieldIdRef="3" name="pesos" sqlTabName="" table_alias_name="" uid="{7271702b-b95a-481f-b4f3-9c49281e7c4d}"/>
+    <RecordField colName="" fieldIdRef="4" name="acciones" sqlTabName="" table_alias_name="" uid="{f38e6d85-d821-4537-986d-7c0575bb0bf1}"/>
+  </Record>
+  <Form gridHeight="21" gridWidth="133" name="Form" text="Form">
+    <Grid gridHeight="19" gridWidth="130" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="126" name="Group1" posX="1" posY="1" text="Criterio para obtener la información">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Fecha Corte"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="f_corte" posX="12" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="13" gridWidth="126" name="Group2" posX="1" posY="5" text="Resumen de movimientos adelantados">
+        <Table gridHeight="11" gridWidth="122" name="Table1" posX="1" posY="1" totalRows="10">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" name="modulo" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Modulo" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="35" name="subcuenta" posX="15" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="30" name="pesos" posX="50" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Pesos" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="30" name="acciones" posX="80" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="AIVS" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA1ADQAMAAxADcAZAA2ADEALQBmADYAZgBhAC0ANAA4ADgANgAtADgAMQA5AGYALQBjAGYANgAzAGQAMgBlAGMAYwA0ADgANwB9QBQAAAAAAABASIAAAAAAAD98rAgxJul5AQAAAEwAewA0AGEANwAzAGUAZQBmADkALQA0AGMAMQBiAC0ANAA1ADIAYwAtAGEANgBkAGEALQBkADkANAAxAGIAOQA3AGIAZQBlADAAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADYAMQA2ADAAYQA4AGIALQA3AGQAZQA5AC0ANAA0ADcAZAAtAGEANgA1ADYALQBmADAAYQAzADIANQBiAGEAYwAxADgAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADMAOABlADYAZAA4ADUALQBkADgAMgAxAC0ANAA1ADMANwAtADkAOAA2AGQALQA3AGMAMAA1ADcANQBiAGIAMABiAGYAMQB9QBQAAAAAAABAV8AAAAAAAD+CbpeNT988AQAAAEwAewA3ADIANwAxADcAMAAyAGIALQBiADkANQBhAC0ANAA4ADEAZgAtAGIANABmADMALQA5AGMANAA5ADIAOAAxAGUANwBjADQAZAB9QBQAAAAAAABAUgAAAAAAAD+AYk3S8an8AQAAAEwAewA5AGUANABlAGMAMgA2ADkALQA2ADYAOAA0AC0ANABjADIAYgAtADkAOQA3ADMALQBjAGYAMgA0AGYAOQAxAGUANgA2AGQANgB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewBhADQAMABkADMAZgBlAGQALQAyADEANgA2AC0ANABjAGYAOAAtAGEAMgA2ADMALQAzAGIAZgBhAGEAMABlADcANgAxAGQANQB9wHhwAAAAAABAHAAAAAAAAD94k3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

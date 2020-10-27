@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project defaultApplication="4" gstVersion="2321b" version="3.0">
+  <Settings/>
+  <LanguageList version="1.0"/>
+  <PlatformList version="1.0"/>
+  <Group label="Application Generator">
+    <Library id="6" label="Databases">
+      <File filePath="../../safre_viv.sch"/>
+    </Library>
+    <Application dependencies="6" description="WS GENERACION DE SOLICITUD DE RETIRO PARA EL FLUJO DE RETIRO GENERICO 4 GRUPOS" externalDependencies="GLOG01.42x||GLOG02.42x||GLOG04.42x" id="479690458" label="RETWS15">
+      <File filePath="ret_saldo_preliminar.4gl"/>
+      <File filePath="ret_saldo_preliminar.inc"/>
+      <File filePath="ret_ws_cons_rel_laboral.4gl"/>
+      <File filePath="ret_ws_cons_rel_laboral.inc"/>
+      <File filePath="RETWS15.4gl"/>
+      <File filePath="RETX30_1.4gl"/>
+    </Application>
+    <Application dependencies="6" description="WS ACTUALIZACION DE LOS PORCENTAJES DE BENEFICIARIOS Y AUTORIZACION DE LA SOLICITUD" id="4" label="RETWS16">
+      <File filePath="RETWS16.4gl"/>
+    </Application>
+  </Group>
+</Project>

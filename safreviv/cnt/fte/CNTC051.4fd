@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{1db58e34-cd33-40ef-8cf8-e39b832a69b0}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{d9ccc857-9d78-4bb1-bfed-61842213d8ac}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_cmb_proceso" sqlTabName="" table_alias_name="" uid="{bb161023-f3ee-4ef2-98d2-6f74b91975e9}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_fecha_inicial" sqlTabName="" table_alias_name="" uid="{613cf4b5-67b8-4102-877f-db3816fe22e2}"/>
+    <RecordField colName="" fieldIdRef="11" name="f_fecha_final" sqlTabName="" table_alias_name="" uid="{19aced29-2333-41ef-8907-824c1deb4203}"/>
+    <RecordField colName="" fieldIdRef="8" name="f_folio_cnt" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{6fae1f6b-7d94-4564-9cfb-450821ae6ccf}"/>
+    <RecordField colName="" fieldIdRef="9" name="f_folio_liquida" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{7706e468-9eee-44c3-b6f7-b0b686ce72a3}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_procesos_cons" order="" uid="{fc61ce0f-d159-4656-933b-d93882ccfcee}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_valida_procesos" order="" uid="{2d542562-89e4-4fca-962a-fbaa356dfe0d}" where="">
+    <RecordField colName="" fieldIdRef="10" name="tb_f_liquida" sqlTabName="" table_alias_name="" uid="{074a0610-abe7-4c2a-a675-6cd304788c1b}"/>
+    <RecordField colName="" fieldIdRef="3" name="tb_proceso" sqlTabName="" table_alias_name="" uid="{97dfe732-fa93-4dc9-b325-a8223e48cbc0}"/>
+    <RecordField colName="" fieldIdRef="6" name="tb_cta_contable" sqlTabName="" table_alias_name="" uid="{0a2b7596-d37e-47f6-a4aa-1816792ca665}"/>
+    <RecordField colName="" fieldIdRef="4" name="tb_folio" sqlTabName="" table_alias_name="" uid="{ff5886ad-f4c9-4f3f-80d2-27a40b546e71}"/>
+    <RecordField colName="" fieldIdRef="5" name="tb_documento" sqlTabName="" table_alias_name="" uid="{ae27c4c3-d46f-455a-ae8e-e73e490cdfad}"/>
+    <RecordField colName="" fieldIdRef="7" name="tb_importe" sqlTabName="" table_alias_name="" uid="{078a2024-299a-48f7-85a2-b663ba7f1719}"/>
+  </Record>
+  <Form gridHeight="32" gridWidth="146" name="Form" text="Form">
+    <Grid gridHeight="28" gridWidth="140" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="7" gridWidth="83" name="f_fecha_final" posX="2" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Proceso"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="45" items="" name="v_cmb_proceso" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="Label6" posX="59" posY="1" text="Folio Contable"/>
+        <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="10" name="f_folio_cnt" posX="71" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="5" name="Label5" posX="27" posY="3" text=""/>
+        <Label gridHeight="1" gridWidth="16" name="Label2" posX="1" posY="5" text="Fecha Liquidación Inicial"/>
+        <DateEdit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" name="f_fecha_inicial" posX="18" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label3" posX="30" posY="5" text="Fecha Liquidación Final"/>
+        <DateEdit colName="" columnCount="" fieldId="11" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" name="f_fecha_final" posX="46" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label4" posX="59" posY="5" text="Folio Liquidación"/>
+        <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="10" name="f_folio_liquida" posX="71" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="18" gridWidth="136" name="grp_valida_proceso" posX="2" posY="9" text="Cuadro Validación por Proceso">
+        <Table gridHeight="16" gridWidth="133" name="Table1" posX="1" posY="1" totalRows="15">
+          <Edit colName="" columnCount="" fieldId="10" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="tb_f_liquida" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Fecha&#10;Liquidación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="57" name="tb_proceso" posX="10" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Proceso" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="13" justify="center" name="tb_cta_contable" posX="67" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Folio&#10;Liquidación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" justify="center" name="tb_folio" posX="80" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Folio&#10;Contable" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="18" justify="center" name="tb_documento" posX="92" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Documento&#10;Contable&#10;SAP - FICO" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="16" name="tb_importe" posX="110" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Estado" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBkADkAYwBjAGMAOAA1ADcALQA5AGQANwA4AC0ANABiAGIAMQAtAGIAZgBlAGQALQA2ADEAOAA0ADIAMgAxADMAZAA4AGEAYwB9AAAAAAAAAAAAAAAAAAAAAD/BaHKwIMSfAQAAAEwAewA2AGYAYQBlADEAZgA2AGIALQA3AGQAOQA0AC0ANAA1ADYANAAtADkAYwBmAGIALQA0ADUAMAA4ADIAMQBhAGUANgBjAGMAZgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAxADkAYQBjAGUAZAAyADkALQAyADMAMwAzAC0ANAAxAGUAZgAtADgAOQAwADcALQA4ADIANABjADEAZABlAGIANAAyADAAMwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcAZABmAGUANwAzADIALQBmAGEAOQAzAC0ANABkAGMAOQAtAGIAMwAyADUALQBhADgAMgAyADMAZQA0ADgAYwBiAGMAMAB9QBQAAAAAAABASIAAAAAAAD/BysCDEm6bAQAAAEwAewA2ADEAMwBjAGYANABiADUALQA2ADcAYgA4AC0ANAAxADAAMgAtADgANwA3AGYALQBkAGIAMwA4ADEANgBmAGUAMgAyAGUAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGMANgAxAGMAZQAwAGYALQBkADEANQA5AC0ANAA2ADUANgAtADkAMwAzAGIALQBkADkAMwA4ADgAMgBjAGMAZgBjAGUAZQB9QFTAAAAAAADAVcAAAAAAAD+5mZmZmZmfAQAAAEwAewAyAGQANQA0ADIANQA2ADIALQA4ADkAZQA0AC0ANABmAGMAYQAtADkANgAyAGEALQBmAGIAYQBhADMANQA2AGQAZgBlADAAZAB9wGrgAAAAAADAOgAAAAAAAD/BqfvnbItHAQAAAEwAewBmAGYANQA4ADgANgBhAGQALQBmADQAYwA5AC0ANABmADMAZgAtADgAMABkADIALQAyADcAYQA0ADAAYgA1ADQANgBlADcAMQB9QBQAAAAAAABAV8AAAAAAAD+2yLQ5WBBnAQAAAEwAewBiAGIAMQA2ADEAMAAyADMALQBmADMAZQBlAC0ANABlAGYAMgAtADkAOABkADIALQA2AGYANwA0AGIAOQAxADkANwA1AGUAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGUAMgA3AGMANABjADMALQBkADQANgBmAC0ANAA1ADUAYQAtAGEAZQA4AGUALQBlADcAMwBlADQAOQAwAGMAZABmAGEAZAB9QBQAAAAAAABAXYAAAAAAAD+6XjU/fO2XAQAAAEwAewAwAGEAMgBiADcANQA5ADYALQBkADMANwBlAC0ANAA3AGYANgAtAGEANABhAGEALQAxADgAMQA2ADcAOQAyAGMAYQA2ADYANQB9QBQAAAAAAABAUgAAAAAAAD/BiTdLxqfzAQAAAEwAewAwADcAOABhADIAMAAyADQALQAyADkAOQBhAC0ANAA4AGYANwAtADgANQBhADIALQBiADYANgAzAGIAYQA3AGYAMQA3ADEAOQB9QBQAAAAAAABAYaAAAAAAAD+7peNT987fAQAAAEwAewA3ADcAMAA2AGUANAA2ADgALQA5AGUAZQBlAC0ANAA0AGMAMwAtAGIANgBmADcALQBiADAAYgA2ADgANgBjAGUANwAyAGEAMwB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADcANABhADAANgAxADAALQBhAGIAZQA3AC0ANABjADIAYQAtAGEANgA3ADUALQA2AGMAZAAzADAANAA3ADgAOABjADEAYgB9QBQAAAAAAABAOgAAAAAAAD/B64UeuFHvAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

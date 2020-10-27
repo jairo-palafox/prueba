@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="27.94cm" RWPageLength="28.00cm" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACRP28.rdd" RWFglReportName="genera_PDF"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="baseline">
+                    <LAYOUTNODE name="First Page header" width="min" length="241.894" alignment="near" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" width="138.5" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="18" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="9" y="308.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="CONCILIACIÓN SOLICITUDES NO ATENDIDAS ACR" localizeText="false"/>
+                                <WORDBOX name="WordBox2" y="2" color="#ffffff" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="p_v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_v_usuario Value" class="grwStringValue" y="54.5311" width="82.75" alignment="baseline" color="#ffffff" fontSize="12" fontBold="false" floatingBehavior="enclosed" text="{{p_v_usuario}}"/>
+                                <WORDBOX name="fecha" x="8.5" y="594.605" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Fecha: "/>
+                                <rtl:input-variable name="v_f_presenta" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_presenta Value1" class="grwStringValue" x="2" y="635.99" width="80.6878" color="#ffffff" fontSize="12" floatingBehavior="enclosed" text="{{v_f_presenta}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="min" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="18" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox3" x="2" y="2" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Folio: "/>
+                                <WORDBOX name="fecha1" x="8.5" y="540.04" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Fecha movimiento:  "/>
+                                <rtl:input-variable name="v_f_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_movimiento Value" class="grwStringValue" x="2" y="635.99" width="80.7123" color="#ffffff" fontSize="12" floatingBehavior="enclosed" text="{{v_f_movimiento}}"/>
+                                <rtl:input-variable name="p_d_folio" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_d_folio Value" class="grwStringValue" x="2.2197" y="54.5311" width="83.0468" color="#ffffff" floatingBehavior="enclosed" text="{{p_d_folio}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="barraTotalesSubcuenta1_1" width="28.5" length="716.184" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="titTotalesSubcuenta2" x="7" y="225.055" width="254.129" length="14.25" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="RESUMEN"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="barra_global1_1" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="f_ini2" y="219.035" width="81.1422" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Fecha inicio"/>
+                            <WORDBOX name="f_fin2" y="379.674" width="66.8083" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Fecha fin"/>
+                            <WORDBOX name="operacion2" y="530.626" width="70.3241" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Operación"/>
+                            <WORDBOX name="nomArch2" y="20" width="117.042" length="17.9522" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Nombre archivo"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage5_1_1_1" width="26.4462" length="718.126" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_v_arch_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_v_arch_proceso Value2" class="grwStringValue" x="4" y="20" width="192.926" fontSize="12" floatingBehavior="enclosed" text="{{p_v_arch_proceso}}"/>
+                            <rtl:input-variable name="v_r_bat_ctr_opera.fecha_ini" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_r_bat_ctr_opera.fecha_ini Value2" class="grwStringValue" x="4" y="219.035" width="156.403" fontSize="12" floatingBehavior="enclosed" text="{{v_r_bat_ctr_opera.fecha_ini}}"/>
+                            <rtl:input-variable name="v_desc_operacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_desc_operacion Value2" class="grwStringValue" x="4" y="530.626" width="182.25" length="17.25" fontSize="11" floatingBehavior="enclosed" text="{{v_desc_operacion}}"/>
+                            <rtl:input-variable name="v_r_bat_ctr_opera.fecha_fin" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_r_bat_ctr_opera.fecha_fin Value" class="grwStringValue" x="4" y="379.674" width="146.655" floatingBehavior="enclosed" text="{{v_r_bat_ctr_opera.fecha_fin}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="barra_global1_1_1" width="15.8309" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="f_ini3" y="219.035" width="81.1422" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros"/>
+                            <WORDBOX name="f_fin3" y="379.674" width="66.8083" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS92"/>
+                            <WORDBOX name="operacion3" y="530.626" width="70.3241" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS97"/>
+                            <WORDBOX name="nomArch3" y="20" width="117.042" length="17.9522" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total archivo"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage5_1_1_1_1" width="22.7339" length="718.126" layoutDirection="leftToRight">
+                            <WORDBOX name="nomArch3_1" y="20" width="117.042" length="17.9522" alignment="near" color="#000000" fontBold="false" floatingBehavior="enclosed" textAlignment="left" text="Archivo"/>
+                            <rtl:input-variable name="r_total_global.t_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_total_global.t_registros Value" class="grwNumericValue" x="16.4405" y="219.035" width="133.17" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_total_global.t_registros}}"/>
+                            <rtl:input-variable name="r_total_global.aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_total_global.aivs92 Value" class="grwNumericValue" x="16.4405" y="379.674" width="137.352" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_total_global.aivs92}}"/>
+                            <rtl:input-variable name="r_total_global.aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_total_global.aivs97 Value" class="grwNumericValue" x="16.4405" y="530.626" width="125.154" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_total_global.aivs97}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="Transferencia_acreditados" width="19.183" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="Registros2" x="10.5358" y="20" width="176.499" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Transferencia de Acreditados"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage9_1_1" width="16.5313" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="Registros" x="7.0664" y="273.895" width="85.7488" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros"/>
+                            <WORDBOX name="AIVS 97" x="7.0664" y="374.193" width="61.0898" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 92"/>
+                            <WORDBOX name="PESOS 97" x="7.0664" y="481.292" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="AIVS  97"/>
+                            <WORDBOX name="PORCENTAJE" x="7.0664" y="603.178" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Porcentaje"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Totales_ta" width="16.8477" length="715.678" layoutDirection="leftToRight">
+                            <WORDBOX name="Registros1" x="7.8164" y="20" width="45.9988" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#000000" fontSize="12" fontBold="false" floatingBehavior="enclosed" textAlignment="left" text="Total"/>
+                            <rtl:input-variable name="r_total_ta.t_registros" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_total_ta.t_registros Value" class="grwNumericValue" x="14.3839" y="273.895" width="96.5772" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_total_ta.t_registros}}"/>
+                            <rtl:input-variable name="r_total_ta.aivs92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_total_ta.aivs92 Value" class="grwNumericValue" x="14.3839" y="374.193" width="102.35" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_total_ta.aivs92}}"/>
+                            <rtl:input-variable name="r_total_ta.aivs97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_total_ta.aivs97 Value" class="grwNumericValue" x="14.3839" y="481.292" width="110.305" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_total_ta.aivs97}}"/>
+                            <rtl:input-variable name="r_total_ta.porc_concatena" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="r_total_ta.porc_concatena Value" class="grwStringValue" x="0.4899" y="603.178" width="105.941" floatingBehavior="enclosed" text="{{r_total_ta.porc_concatena}}" trimText="left"/>
+                        </MINIPAGE>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="array_ta" width="21.227" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_ta.estado_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="arr_ta.estado_desc Value" class="grwStringValue" y="20" width="250.004" alignment="baseline" fontSize="11" floatingBehavior="enclosed" text="{{arr_ta.estado_desc}}"/>
+                                    <rtl:input-variable name="arr_ta.t_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_ta.t_registros Value" class="grwNumericValue" y="273.895" width="97.0468" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_ta.t_registros}}"/>
+                                    <rtl:input-variable name="arr_ta.aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_ta.aivs92 Value" class="grwNumericValue" y="374.193" width="103.047" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_ta.aivs92}}"/>
+                                    <rtl:input-variable name="arr_ta.aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_ta.aivs97 Value" class="grwNumericValue" y="481.292" width="110.471" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_ta.aivs97}}"/>
+                                    <rtl:input-variable name="arr_ta.porc_concatena" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_ta.porc_concatena Value" class="grwStringValue" y="603.178" width="106.41" length="max" floatingBehavior="enclosed" text="{{arr_ta.porc_concatena}}" trimText="left"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="Anualidades_garantizadas" width="19.183" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="Registros3" x="10.5358" y="20" width="176.499" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Anualidades Garantizadas"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage9_1_1_1" width="16.5313" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="Registros4" x="7.0664" y="273.895" width="85.7488" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros"/>
+                            <WORDBOX name="AIVS 98" x="7.0664" y="374.193" width="61.0898" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 92"/>
+                            <WORDBOX name="PESOS 98" x="7.0664" y="481.292" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="AIVS  97"/>
+                            <WORDBOX name="PORCENTAJE1" x="7.0664" y="603.178" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Porcentaje"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Totales_ag" width="16.8477" length="715.678" layoutDirection="leftToRight">
+                            <WORDBOX name="Registros5" x="7.8164" y="20" width="45.9988" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#000000" fontSize="12" fontBold="false" floatingBehavior="enclosed" textAlignment="left" text="Total"/>
+                            <rtl:input-variable name="r_total_ag.t_registros" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_total_ag.t_registros Value" class="grwNumericValue" y="273.895" width="96.0468" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_total_ag.t_registros}}"/>
+                            <rtl:input-variable name="r_total_ag.aivs92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_total_ag.aivs92 Value" class="grwNumericValue" y="374.193" width="102.88" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_total_ag.aivs92}}"/>
+                            <rtl:input-variable name="r_total_ag.aivs97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_total_ag.aivs97 Value" class="grwNumericValue" y="481.292" width="115.608" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_total_ag.aivs97}}"/>
+                            <rtl:input-variable name="r_total_ag.porc_concatena" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="r_total_ag.porc_concatena Value" class="grwStringValue" y="603.178" width="108.593" floatingBehavior="enclosed" text="{{r_total_ag.porc_concatena}}" trimText="left"/>
+                        </MINIPAGE>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="array_ta1" width="23.3483" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_ag.estado_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="arr_ag.estado_desc Value" class="grwStringValue" y="20" width="249.626" fontSize="11" floatingBehavior="enclosed" text="{{arr_ag.estado_desc}}"/>
+                                    <rtl:input-variable name="arr_ag.t_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_ag.t_registros Value" class="grwNumericValue" y="273.895" width="96.8042" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_ag.t_registros}}"/>
+                                    <rtl:input-variable name="arr_ag.aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_ag.aivs92 Value" class="grwNumericValue" y="374.193" width="103.107" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_ag.aivs92}}"/>
+                                    <rtl:input-variable name="arr_ag.aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_ag.aivs97 Value" class="grwNumericValue" y="481.292" width="115.835" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_ag.aivs97}}"/>
+                                    <rtl:input-variable name="arr_ag.porc_concatena" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_ag.porc_concatena Value" class="grwStringValue" y="603.178" width="110.941" floatingBehavior="enclosed" text="{{arr_ag.porc_concatena}}" trimText="left"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="DETALLE_RECHAZOS" width="22.5636" length="716.707" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="Registros1_1_1_2" x="14.6573" y="20.6307" width="148.815" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="DETALLE RECHAZOS"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="r_sol_nuevas1_1" width="18.5788" length="716.638" alignment="center" layoutDirection="leftToRight">
+                            <WORDBOX name="tot_registros1" x="10.7315" y="164.954" width="143.515" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Descripción del rechazo"/>
+                            <WORDBOX name="desc_estado1" x="10.7315" y="20" width="90.979" length="16.7332" anchorX="0.5" anchorY="8.46018e-15" alignment="near" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="NSS"/>
+                        </MINIPAGE>
+                        <rtl:match name="Foreach" nameConstraint="Foreach" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForeachItem" nameConstraint="ForeachItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage10_1_2_1" width="24.4222" length="max" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="r_rch_integra.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="r_rch_integra.nss Value" class="grwStringValue" x="0.9181" y="20.6307" width="139.11" floatingBehavior="enclosed" text="{{r_rch_integra.nss}}"/>
+                                    <rtl:input-variable name="r_rch_integra.estado_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="r_rch_integra.estado_desc Value" class="grwStringValue" x="0.9181" y="164.954" width="344.025" fontSize="11" floatingBehavior="enclosed" text="{{r_rch_integra.estado_desc}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{88605829-86b2-403e-a7f2-26c99cc8c844}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{da245f6d-36e1-457b-9ef1-58452c10880d}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cmbtpomdt" sqlTabName="" table_alias_name="" uid="{65225750-4d05-43c1-bfae-d45f60eb8d25}"/>
+    <RecordField colName="" fieldIdRef="4" name="cmbmdt" sqlTabName="" table_alias_name="" uid="{a2de7fa6-872e-4b32-a3be-ae7efdbf1e3e}"/>
+    <RecordField colName="" fieldIdRef="7" name="desc_larga_mandato" sqlTabName="" table_alias_name="" uid="{de514ea5-3933-4276-a600-cc90db1045be}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record1" order="" uid="{1c5bdb1b-f936-4135-bc62-073af47ff394}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="r_atributos_mdt" order="" uid="{32588c0b-8685-49a0-9054-53efa576b6e3}" where="">
+    <RecordField colName="" fieldIdRef="2" name="etiqueta" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{f80c445a-4d8f-4795-a7f4-52e49f78182a}"/>
+    <RecordField colName="" fieldIdRef="3" name="valor_etiqueta" sqlTabName="" table_alias_name="" uid="{04feffdd-ee56-4e82-b919-652602b2b1f4}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="r_atributos_img" order="" uid="{1231a402-457f-4519-a6af-b089fe84e49b}" where="">
+    <RecordField colName="" fieldIdRef="5" name="nombre_imagen" sqlTabName="" table_alias_name="" uid="{2b54dd08-c134-4440-ab9e-88b80d0ef6c0}"/>
+    <RecordField colName="" fieldIdRef="6" name="desc__imagen" sqlTabName="" table_alias_name="" uid="{0f918457-031d-47cc-ac83-23aad6fa660f}"/>
+  </Record>
+  <Form fourSTFile="../bin/mdtstyle.4st" gridHeight="69" gridWidth="130" name="Form" text="Consulta de mandatos">
+    <VBox gridHeight="38" gridWidth="129" name="VBox1" posX="1" posY="1">
+      <Group gridChildrenInParent="false" gridHeight="16" gridWidth="129" name="Group1" posX="0" posY="1" text="Atributos del Mandato">
+        <Grid gridHeight="11" gridWidth="69" name="Grid1" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="13" name="Label2" posX="2" posY="1" text="Tipo de Mandato:"/>
+          <ComboBox colName="" columnCount="" fieldId="1" fontPitch="fixed" gridHeight="1" gridWidth="50" items="" name="cmbtpomdt" noEntry="true" notNull="true" posX="16" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+          <HLine gridWidth="63" name="HLine1" posX="2" posY="2"/>
+          <Label gridHeight="1" gridWidth="13" name="Label1" posX="2" posY="3" style="LabelUrl" text="Mandato:"/>
+          <ComboBox colName="" columnCount="" fieldId="4" fontPitch="fixed" gridHeight="1" gridWidth="50" items="" name="cmbmdt" noEntry="true" notNull="true" posX="16" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+          <HLine gridWidth="63" name="HLine2" posX="2" posY="4"/>
+          <Label gridHeight="1" gridWidth="13" name="Label3" posX="2" posY="5" style="LabelUrl" text="Descripción:"/>
+          <TextEdit colName="" columnCount="" fieldId="7" fontPitch="fixed" gridHeight="2" gridWidth="50" name="desc_larga_mandato" posX="16" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="TextEdit1" widget="TextEdit"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="11" gridWidth="129" name="Group2" posX="0" posY="17" text="">
+        <Table fontPitch="variable" gridHeight="8" gridWidth="125" name="atributo" posX="3" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="32" name="etiqueta" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ATRIBUTO" unmovable="false" unsortable="true" widget="Edit"/>
+          <Edit colName="" color="white" columnCount="" fieldId="3" fontPitch="variable" gridHeight="1" gridWidth="90" name="valor_etiqueta" posX="32" posY="0" rowCount="" scroll="false" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="VALOR" unmovable="false" unsortable="true" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="9" gridWidth="129" name="Group3" posX="0" posY="28" text="">
+        <Table fontPitch="variable" gridHeight="6" gridWidth="88" name="Table1" posX="3" posY="1" style="LabelURL" totalRows="5">
+          <FFLabel colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="40" name="nombre_imagen" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" style="LabelUrl" table_alias_name="" title="IMAGEN" unmovable="false" unsortable="true" widget="FFLabel"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="45" name="desc__imagen" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="DESCRIPCIÓN" unmovable="false" unsortable="true" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhADIAZABlADcAZgBhADYALQA4ADcAMgBlAC0ANABiADMAMgAtAGEAMwBiAGUALQBhAGUANwBlAGYAZABiAGYAMQBlADMAZQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGEAMgA0ADUAZgA2AGQALQAzADYAZQAxAC0ANAA1ADcAYgAtADkAZQBmADEALQA1ADgANAA1ADIAYwAxADAAOAA4ADAAZAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADUAMgAyADUANwA1ADAALQA0AGQAMAA1AC0ANAAzAGMAMQAtAGIAZgBhAGUALQBkADQANQBmADYAMABlAGIAOABkADIANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGUANQAxADQAZQBhADUALQAzADkAMwAzAC0ANAAyADcANgAtAGEANgAwADAALQBjAGMAOQAwAGQAYgAxADAANAA1AGIAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADgAMABjADQANAA1AGEALQA0AGQAOABmAC0ANAA3ADkANQAtAGEANwBmADQALQA1ADIAZQA0ADkAZgA3ADgAMQA4ADIAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGMANQBiAGQAYgAxAGIALQBmADkAMwA2AC0ANAAxADMANQAtAGIAYwA2ADIALQAwADcAMwBhAGYANAA3AGYAZgAzADkANAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADIANQA4ADgAYwAwAGIALQA4ADYAOAA1AC0ANAA5AGEAMAAtADkAMAA1ADQALQA1ADMAZQBmAGEANQA3ADYAYgA2AGUAMwB9wGzgAAAAAABAMQAAAAAAAD+EeuFHrhR8AQAAAEwAewAyAGIANQA0AGQAZAAwADgALQBjADEAMwA0AC0ANAA0ADQAMAAtAGEAYgA5AGUALQA4ADgAYgA4ADAAZAAwAGUAZgA2AGMAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADQAZgBlAGYAZgBkAGQALQBlAGUANQA2AC0ANABlADgAMgAtAGIAOQAxADkALQA2ADUAMgA2ADAAMgBiADIAYgAxAGYANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGYAOQAxADgANAA1ADcALQAwADMAMQBkAC0ANAA3AGMAYwAtAGEAYwA4ADMALQAyADMAYQBhAGQANgBmAGEANgA2ADAAZgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADIAMwAxAGEANAAwADIALQA0ADUANwBmAC0ANAA1ADEAOQAtAGEANgBhAGYALQBiADAAOAA5AGYAZQA4ADQAZQA0ADkAYgB9wGlgAAAAAADAW0AAAAAAAD+Ik3S8an78AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

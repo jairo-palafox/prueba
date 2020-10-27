@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AGRS02.rdd" RWFglReportName="reporte_archivo_salida"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="baseline">
+                    <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" x="7.5" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="RESUMEN DE LOS ARCHIVOS DE SALIDA DE AMORTIZACIÓN AGR" localizeText="false"/>
+                            <WORDBOX name="WordBox2" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario: "/>
+                            <rtl:input-variable name="p_v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_v_usuario Value" color="#ffffff" floatingBehavior="enclosed" text="{{p_v_usuario}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode5" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox3" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Folio: "/>
+                            <WORDBOX name="WordBox4" x="6.741" y="489.659" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha Presentación: "/>
+                            <rtl:input-variable name="v_fecha_present" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_present Value1" x="6.741" y="638.813" width="103.888" anchorX="0.5" anchorY="0.5" color="#ffffff" floatingBehavior="enclosed" text="{{v_fecha_present}}"/>
+                            <rtl:input-variable name="p_d_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_d_folio Value" width="55.9103" anchorX="1" color="#ffffff" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_d_folio}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage3" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode6" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="infornavit" width="min" length="min">
+                        <MINIPAGE name="titulos_inf" width="min" length="720" layoutDirection="leftToRight">
+                            <WORDBOX name="Nombre del archivo" width="176.452" length="19.2697" anchorX="0" anchorY="0" alignment="baseline" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="NOMBRE DE ARCHIVO"/>
+                            <WORDBOX name="Saldo deudor92" width="196.942" length="19.2697" anchorX="0" anchorY="0" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="SALDO DEUDOR VIV 92"/>
+                            <WORDBOX name="Saldo deudor97" width="195.436" length="19.2697" anchorX="0" anchorY="0" alignment="near" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="SALDO DEUDOR VIV 97"/>
+                            <WORDBOX name="total registros" width="150" length="19.2697" anchorX="0" anchorY="0" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="TOTAL DE REGISTROS"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="VALORES" width="min" length="720" fontName="Arial" fontSize="9" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_v_arch_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_v_arch_proceso Value" width="162.258" floatingBehavior="enclosed" text="{{p_v_arch_proceso}}"/>
+                            <rtl:input-variable name="p_total_deudor92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_total_deudor92 Value" width="192.686" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,--&amp;.&amp;&amp;" value="{{p_total_deudor92}}"/>
+                            <rtl:input-variable name="p_total_deudor97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_total_deudor97 Value" width="197.203" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,--&amp;.&amp;&amp;" value="{{p_total_deudor97}}"/>
+                            <rtl:input-variable name="p_count_reg" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_count_reg Value" width="165.854" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{p_count_reg}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage4" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <MINIPAGE name="barraTotalesSubcuenta" width="min" length="min" layoutDirection="leftToRight"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode7" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

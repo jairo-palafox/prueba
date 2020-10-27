@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="legallength" RWPageLength="legalwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RETF02.rdd" RWFglReportName="rpt_modulo_liquida"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="MiniPage" width="max" length="max">
+                    <LAYOUTNODE name="LayoutNode17" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="logos" x="97.9394" y="0" width="41.7282" length="200.032" anchorX="0.5" anchorY="0.0109314" alignment="center" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" x="5.9362" y="1.9177" width="42.7303" length="34.8101" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="titulos" x="-0.9729" y="44.9288" width="30.2475" length="926.924" anchorX="0" anchorY="0" alignment="near" color="#ffffff" bgColor="#d90000" fontName="Arial" fontSize="15" fontBold="true" fontItalic="false" layoutDirection="leftToRight" swapX="false" baselineType="leftleft" floatingBehavior="enclosed" roundedCorners="false">
+                            <WORDBOX name="WordBox" x="6.9702" y="max*0.4917" width="min" anchorX="7.31441e-16" anchorY="0.452401" floatingBehavior="enclosed" text="Reporte Liquidación"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha Value" x="32.1539" y="810.162" anchorX="0" anchorY="0" color="#000000" fontName="SimHei" fontSize="13" fontBold="false" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </LAYOUTNODE>
+                        <WORDWRAPBOX name="WordWrapBox" x="764.472" y="75.5771" width="min" length="15.468" anchorX="0" anchorY="0" alignment="baseline" fontSize="14" floatingBehavior="enclosed" text="Fecha:"/>
+                        <WORDWRAPBOX name="WordWrapBox1" x="9.3506" y="75.0995" width="min" anchorX="0" anchorY="0" fontSize="14" floatingBehavior="enclosed" text="Usuario:"/>
+                        <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="g_usuario Value" x="76.832" y="74.7658" width="81.5731" length="18.5169" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage7" width="min" length="min" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage6" width="31.6664" length="925.247" alignment="near" bgColor="#af0000" fontItalic="false" layoutDirection="leftToRight">
+                            <WORDBOX name="lbl_id_solicitud" x="16.411" y="35.458" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Id Solicitud"/>
+                            <WORDBOX name="lbl_id_derechohabiente" x="16.411" y="151.722" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Id Derechohabiente"/>
+                            <WORDBOX name="lbl_nss" x="16.411" y="253.744" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="NSS"/>
+                            <WORDBOX name="lbl_movimiento" x="16.411" y="345.579" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Movimiento"/>
+                            <WORDBOX name="lbl_f_liquidacion" x="16.411" y="471.615" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha Liquidación"/>
+                            <WORDBOX name="lbl_folio" x="16.411" y="578.15" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Folio"/>
+                            <WORDBOX name="lbl_imp_viv" x="16.411" y="691.696" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Importe Vivienda"/>
+                        </MINIPAGE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage5" width="34.2639" length="919.228" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                                <rtl:input-variable name="p_liquida.id_derechohabiente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_liquida.id_derechohabiente Value" x="13.8313" y="151.722" anchorX="0.5" anchorY="0.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{p_liquida.id_derechohabiente}}"/>
+                                <rtl:input-variable name="p_liquida.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_liquida.nss Value" x="13.8313" y="253.744" anchorX="0.5" anchorY="0.510499" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_liquida.nss}}"/>
+                                <rtl:input-variable name="p_liquida.movimiento" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_liquida.movimiento Value" x="13.8313" y="345.579" anchorX="0.5" anchorY="0.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{p_liquida.movimiento}}"/>
+                                <rtl:input-variable name="p_liquida.f_liquida" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_liquida.f_liquida Value" x="13.8313" y="471.615" anchorX="0.5" anchorY="0.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_liquida.f_liquida}}"/>
+                                <rtl:input-variable name="p_liquida.id_referencia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_liquida.id_referencia Value" x="13.8313" y="35.458" width="70" anchorX="0.5" anchorY="0.508647" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{p_liquida.id_referencia}}"/>
+                                <rtl:input-variable name="p_liquida.folio_liquida" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_liquida.folio_liquida Value" x="13.8313" y="578.15" anchorX="0.5" anchorY="0.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{p_liquida.folio_liquida}}"/>
+                                <rtl:input-variable name="p_liquida.monto_pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_liquida.monto_pesos Value" x="13.8313" y="691.696" width="90" anchorX="0.5" anchorY="0.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{p_liquida.monto_pesos}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

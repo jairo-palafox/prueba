@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:p1="http://infonavit.org.mx/SDI/PORTAL/sndSDI_NSS" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SI_SalarioDiarioIntegrado_SO" targetNamespace="http://infonavit.org.mx/SDI/PORTAL/sndSDI_NSS">
+	<wsdl:documentation/>
+	<wsp:UsingPolicy wsdl:required="true"/>
+	<wsp:Policy wsu:Id="OP_SI_SalarioDiarioIntegrado_SO"/>
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://infonavit.org.mx/SDI/PORTAL/sndSDI_NSS" targetNamespace="http://infonavit.org.mx/SDI/PORTAL/sndSDI_NSS">
+			<xsd:element name="MT_SDI_res" type="DT_SDI_res"/>
+			<xsd:element name="MT_SDI_req" type="DT_SDI_req"/>
+			<xsd:complexType name="DT_DATA"><xsd:annotation>
+				<xsd:appinfo source="http://sap.com/xi/VersionID">55cb3fe2814811e7c05b0000006a88da</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="NRP" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">567dceaa814811e78f7e542241f9b618</xsd:appinfo>
+							<xsd:documentation>Número de Registro Patronal.</xsd:documentation>
+							</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="SALARIO" type="xsd:string" minOccurs="0">
+								<xsd:annotation>
+									<xsd:appinfo source="http://sap.com/xi/TextID">567dceab814811e79b5e542241f9b618</xsd:appinfo><xsd:documentation>Salario Diario Integrado del trabajador</xsd:documentation>
+									</xsd:annotation>
+									</xsd:element>
+									<xsd:element name="FECHAF" type="xsd:string" minOccurs="0">
+										<xsd:annotation>
+											<xsd:appinfo source="http://sap.com/xi/TextID">567dceac814811e7a357542241f9b618</xsd:appinfo>
+											<xsd:documentation>Formato de fecha AAAAMMDD</xsd:documentation>
+											</xsd:annotation>
+											</xsd:element>
+											<xsd:element name="FECHAT" type="xsd:string" minOccurs="0">
+												<xsd:annotation>
+													<xsd:appinfo source="http://sap.com/xi/TextID">567dcead814811e7b876542241f9b618</xsd:appinfo>
+													<xsd:documentation>Formato de fecha AAAAMMDD</xsd:documentation>
+													</xsd:annotation>
+													</xsd:element>
+													<xsd:element name="NOMBRE" type="xsd:string" minOccurs="0">
+														<xsd:annotation>
+															<xsd:appinfo source="http://sap.com/xi/TextID">567dfeb8814811e7b28a542241f9b618</xsd:appinfo>
+															<xsd:documentation>Nombre completo</xsd:documentation>
+															</xsd:annotation>
+															</xsd:element>
+															</xsd:sequence>
+															</xsd:complexType>
+															<xsd:complexType name="DT_MESSAGES">
+																<xsd:annotation>
+																	<xsd:appinfo source="http://sap.com/xi/VersionID">e3e6209792ae11e7aece0000006a88db</xsd:appinfo>
+																	</xsd:annotation>
+																	<xsd:sequence><xsd:element name="MSG_LOGNO" type="xsd:string" minOccurs="0">
+																		<xsd:annotation>
+																			<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53e8814711e7a68b542241f9b618</xsd:appinfo>
+																			<xsd:documentation>Número de log</xsd:documentation>
+																			</xsd:annotation>
+																			</xsd:element>
+																			<xsd:element name="MSG_LINENO" type="xsd:string" minOccurs="0">
+																				<xsd:annotation>
+																					<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53e9814711e79a54542241f9b618</xsd:appinfo>
+																					<xsd:documentation>Número consecutivo interno de mensaje</xsd:documentation>
+																					</xsd:annotation>
+																					</xsd:element>
+																					<xsd:element name="MSG_LENGUAGE" type="xsd:string" minOccurs="0">
+																						<xsd:annotation>
+																							<xsd:appinfo source="http://sap.com/xi/TextID">e62b14b692ae11e7a9a254452bec8c18</xsd:appinfo>
+																							<xsd:documentation>Idioma según ISO 639</xsd:documentation>
+																							</xsd:annotation>
+																							</xsd:element>
+																							<xsd:element name="MSG_TYPE" type="xsd:string" minOccurs="0">
+																								<xsd:annotation>
+																									<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53ea814711e7c42d542241f9b618</xsd:appinfo><xsd:documentation>Idioma según ISO 639</xsd:documentation>
+																									</xsd:annotation>
+																									</xsd:element>
+																									<xsd:element name="MSG_ID" type="xsd:string" minOccurs="0">
+																										<xsd:annotation>
+																											<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53eb814711e7abd8542241f9b618</xsd:appinfo>
+																											<xsd:documentation>Tipo de mensaje</xsd:documentation>
+																											</xsd:annotation>
+																											</xsd:element>
+																											<xsd:element name="MSG_NO" type="xsd:string" minOccurs="0">
+																												<xsd:annotation>
+																													<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53ec814711e7a086542241f9b618</xsd:appinfo>
+																													<xsd:documentation>Clase de mensajes</xsd:documentation>
+																													</xsd:annotation>
+																													</xsd:element>
+																													<xsd:element name="MSG_V1" type="xsd:string" minOccurs="0">
+																													<xsd:annotation>
+																														<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53ed814711e7ca3e542241f9b618</xsd:appinfo><xsd:documentation>Número de mensaje</xsd:documentation>
+																														</xsd:annotation>
+																														</xsd:element>
+																														<xsd:element name="MSG_V2" type="xsd:string" minOccurs="0">
+<xsd:annotation>
+	<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53ee814711e79379542241f9b618</xsd:appinfo>
+	<xsd:documentation>Variable de mensaje</xsd:documentation>
+	</xsd:annotation>
+	</xsd:element><xsd:element name="MSG_V3" type="xsd:string" minOccurs="0">
+	<xsd:annotation>
+		<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53ef814711e7c53f542241f9b618</xsd:appinfo><xsd:documentation>Variable de mensaje</xsd:documentation>
+		</xsd:annotation>
+		</xsd:element>
+		<xsd:element name="MSG_V4" type="xsd:string" minOccurs="0">
+			<xsd:annotation>
+				<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53f0814711e7b7b6542241f9b618</xsd:appinfo>
+				<xsd:documentation>Variable de mensaje</xsd:documentation></xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MSG_TXT" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53f1814711e7a461542241f9b618</xsd:appinfo>
+						<xsd:documentation>Texto de mensajes con parámetros</xsd:documentation></xsd:annotation>
+						</xsd:element><xsd:element name="MSG_CONT" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">f7dd53f2814711e7c644542241f9b618</xsd:appinfo><xsd:documentation>Número natural</xsd:documentation>
+							</xsd:annotation>
+							</xsd:element>
+							</xsd:sequence>
+							</xsd:complexType>
+							<xsd:complexType name="DT_SDI_res">
+								<xsd:annotation>
+									<xsd:appinfo source="http://sap.com/xi/VersionID">693234e6814811e7cd430000006a88da</xsd:appinfo>
+									</xsd:annotation>
+									<xsd:sequence>
+										<xsd:element name="ET_DATA" type="DT_DATA" minOccurs="0" maxOccurs="unbounded"/>
+										<xsd:element name="E_MESSAGES" type="DT_MESSAGES" minOccurs="0"/>
+										</xsd:sequence>
+										</xsd:complexType>
+										<xsd:complexType name="DT_SDI_req">
+											<xsd:annotation>
+												<xsd:appinfo source="http://sap.com/xi/VersionID">79ab493192ae11e7a0200000006a88db</xsd:appinfo>
+												</xsd:annotation>
+												<xsd:sequence>
+													<xsd:element name="I_NSS" type="xsd:string">
+														<xsd:annotation>
+															<xsd:appinfo source="http://sap.com/xi/TextID">7bec1d0e92ae11e7c5a454452bec8c18</xsd:appinfo>
+															</xsd:annotation>
+															</xsd:element><xsd:element name="I_FECHA" type="xsd:string"/>
+															</xsd:sequence>
+															</xsd:complexType>
+															</xsd:schema>
+															</wsdl:types>
+															<wsdl:message name="MT_SDI_req">
+																<wsdl:documentation/>
+																<wsdl:part name="MT_SDI_req" element="p1:MT_SDI_req"/>
+																</wsdl:message>
+																<wsdl:message name="MT_SDI_res">
+																	<wsdl:documentation/>
+																	<wsdl:part name="MT_SDI_res" element="p1:MT_SDI_res"/>
+																	</wsdl:message>
+																	<wsdl:portType name="SI_SalarioDiarioIntegrado_SO">
+																		<wsdl:documentation/>
+																		<wsdl:operation name="SI_SalarioDiarioIntegrado_SO">
+																			<wsdl:documentation/>
+																			<wsp:Policy>
+																				<wsp:PolicyReference URI="#OP_SI_SalarioDiarioIntegrado_SO"/>
+																				</wsp:Policy>
+																				<wsdl:input message="p1:MT_SDI_req"/>
+																				<wsdl:output message="p1:MT_SDI_res"/>
+																				</wsdl:operation>
+																				</wsdl:portType>
+																				<wsdl:binding name="SI_SalarioDiarioIntegrado_SOBinding" type="p1:SI_SalarioDiarioIntegrado_SO">
+																					<soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+																					<wsdl:operation name="SI_SalarioDiarioIntegrado_SO">
+																						<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://sap.com/xi/WebService/soap1.1"/>
+																						<wsdl:input>
+																							<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+																							</wsdl:input>
+																							<wsdl:output>
+																								<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+																								</wsdl:output>
+																								</wsdl:operation>
+																								</wsdl:binding>
+																								<wsdl:service name="SI_SalarioDiarioIntegrado_SOService">
+																									<wsdl:port name="HTTP_Port" binding="p1:SI_SalarioDiarioIntegrado_SOBinding">
+																										<!--soap:address location="http://091402ai204.infonavit.net:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BC_PORTAL&amp;receiverParty=&amp;receiverService=&amp;interface=SI_SalarioDiarioIntegrado_SO&amp;interfaceNamespace=http%3A%2F%2Finfonavit.org.mx%2FSDI%2FPORTAL%2FsndSDI_NSS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/-->
+																											<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="https://172.16.16.197/servicio"/>
+																											</wsdl:port>
+																											</wsdl:service>
+																											</wsdl:definitions>

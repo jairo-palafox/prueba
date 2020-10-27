@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{7dc2d9cf-5ad5-4f07-baa1-7994a22f103f}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{befe0ede-695e-4f33-9dde-60da5dcb6614}" where="">
+    <RecordField colName="" fieldIdRef="1" name="nss" sqlTabName="" table_alias_name="" uid="{85c57c9b-6e08-4e68-b304-475729c95ac5}"/>
+    <RecordField colName="" fieldIdRef="2" name="id_derechohabiente" sqlTabName="" table_alias_name="" uid="{6dc60c92-eac6-4215-9ab4-75a921fcf890}"/>
+    <RecordField colName="" fieldIdRef="4" name="rfc" sqlTabName="" table_alias_name="" uid="{0bbbef9b-a566-4d5a-a907-2e2529c1cf9c}"/>
+    <RecordField colName="" fieldIdRef="5" name="curp" sqlTabName="" table_alias_name="" uid="{d54da011-9225-4946-a484-f7a641bb1adc}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_nacimiento" sqlTabName="" table_alias_name="" uid="{d1fca6d4-ae62-4431-9797-68f4c6d038db}"/>
+    <RecordField colName="" fieldIdRef="8" name="ap_paterno_af" sqlTabName="" table_alias_name="" uid="{27a36d63-770f-4c1f-a8fb-86dd5072e5c4}"/>
+    <RecordField colName="" fieldIdRef="9" name="ap_materno_af" sqlTabName="" table_alias_name="" uid="{01e97dd0-525c-4ef1-94c3-47ed1dc47b74}"/>
+    <RecordField colName="" fieldIdRef="10" name="nombre_af" sqlTabName="" table_alias_name="" uid="{cd3822ba-3a2f-41f4-835b-13d00599afea}"/>
+    <RecordField colName="" fieldIdRef="11" name="nombre_imss" sqlTabName="" table_alias_name="" uid="{13077291-45df-42ae-a6e9-2ca67763793d}"/>
+    <RecordField colName="" fieldIdRef="13" name="desc_tipo_trab" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{7bb2ff0a-41a5-4e31-944e-43195bbd3d21}"/>
+    <RecordField colName="" fieldIdRef="16" name="id_credito" sqlTabName="" table_alias_name="" uid="{cc975d43-ee7c-4497-acbe-3fe2a20364ad}"/>
+    <RecordField colName="" fieldIdRef="17" name="desc_credito" sqlTabName="" table_alias_name="" uid="{30fcb2f5-3893-47b5-a41a-08827a9aaaae}"/>
+    <RecordField colName="" fieldIdRef="20" name="desc_origen" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{d9f00d83-a014-416e-8fb3-949f1cf47488}"/>
+    <RecordField colName="" fieldIdRef="3" name="tipo_trabajador" sqlTabName="" table_alias_name="" uid="{dbb35d5b-56e2-48a9-ab55-a39c8c0bf7c1}"/>
+    <RecordField colName="" fieldIdRef="7" name="origen_afiliacion" sqlTabName="" table_alias_name="" uid="{571002b2-c466-4085-b224-f830aeb43c58}"/>
+  </Record>
+  <Form gridHeight="22" gridWidth="103" name="Form" text="Consulta Derechohabientes">
+    <Grid gridHeight="18" gridWidth="97" name="Grid1" posX="3" posY="1">
+      <Group gridHeight="16" gridWidth="93" name="Group1" posX="2" posY="1" text="Información de Derechohabientes">
+        <Label gridHeight="1" gridWidth="14" name="Label1" posX="1" posY="1" text="NSS"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" name="nss" posX="17" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="Label4" posX="34" posY="1" text="Id Derechohabiente"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="26" name="id_derechohabiente" posX="48" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label3" posX="1" posY="2" text="RFC"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="15" name="rfc" posX="17" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="Label2" posX="34" posY="2" text="CURP"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="26" name="curp" posX="48" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label5" posX="1" posY="4" text="Fecha de Nacimiento"/>
+        <Edit colName="" columnCount="" fieldId="6" format="dd-mm-yyyy" gridHeight="1" gridWidth="12" name="f_nacimiento" posX="17" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label9" posX="1" posY="6" text="Nombre IMSS"/>
+        <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="44" name="nombre_imss" posX="17" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label6" posX="1" posY="8" text="Paterno"/>
+        <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="44" name="ap_paterno_af" posX="17" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label7" posX="1" posY="9" text="Materno"/>
+        <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="44" name="ap_materno_af" posX="17" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label8" posX="1" posY="10" text="Nombre"/>
+        <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="44" name="nombre_af" posX="17" posY="10" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label11" posX="1" posY="12" text="Tipo Trabajador"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="3" name="tipo_trabajador" posX="17" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="13" format="dd-mm-yyyy" gridHeight="1" gridWidth="24" name="desc_tipo_trab" posX="21" posY="12" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label15" posX="1" posY="13" text="Origen Afiliación"/>
+        <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="3" name="origen_afiliacion" posX="17" posY="13" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="20" format="dd-mm-yyyy" gridHeight="1" gridWidth="24" name="desc_origen" posX="21" posY="13" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label14" posX="1" posY="14" text="Indicador Crédito"/>
+        <Edit colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="3" name="id_credito" posX="17" posY="14" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="24" name="desc_credito" posX="21" posY="14" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit4" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

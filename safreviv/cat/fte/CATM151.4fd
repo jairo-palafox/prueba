@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="ManagedForm" uid="{e9ef2ed3-c9f2-4824-a59b-fc96ea24ec99}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{b0cc1e0e-8555-4ed5-a69a-a6513c6865f4}" where="">
+    <RecordField colName="" fieldIdRef="1" name="captura_fecha" sqlTabName="" table_alias_name="" uid="{fbb59cee-e2c3-4259-87b3-422a9aab1d21}"/>
+    <RecordField colName="" fieldIdRef="2" name="captura_celebracion" sqlTabName="" table_alias_name="" uid="{606cae76-48d0-4d8d-8822-9207f85c3a71}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_fechas_feriadas" order="" uid="{4a8ee2f5-f0f0-4ba5-9599-147fc8e391c8}" where="">
+    <RecordField colName="" fieldIdRef="5" name="seleccion" sqlTabName="" table_alias_name="" uid="{ac0adaed-ade0-45b6-8964-45098554f050}"/>
+    <RecordField colName="" fieldIdRef="3" name="fecha" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{c625b471-0300-4da4-a0e7-b516d8c685a1}"/>
+    <RecordField colName="" fieldIdRef="4" name="celebracion" sqlTabName="" table_alias_name="" uid="{fcf8c2d1-d65f-44ca-a237-06ae222d7c73}"/>
+  </Record>
+  <Form gridHeight="30" gridWidth="92" name="Form" text="Form">
+    <Grid gridHeight="25" gridWidth="90" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="8" gridWidth="80" name="gpo_captura" posX="1" posY="1" text="Fecha Feriada">
+        <Label gridHeight="1" gridWidth="10" name="lbl_fecha" posX="2" posY="2" text="Fecha"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" name="captura_fecha" posX="13" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_celebracion" posX="2" posY="4" text="Celebración"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="41" name="captura_celebracion" posX="13" posY="4" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="14" gridWidth="80" hidden="false" name="gpo_dias_inhabiles" posX="1" posY="10" text="Fechas Feriadas del Ejercicio Actual">
+        <Table gridHeight="11" gridWidth="77" name="Table1" posX="2" posY="2" totalRows="10">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="4" hidden="true" name="seleccion" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" justify="center" name="fecha" posX="4" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" table_alias_name="" title="Fecha" widget="FFLabel"/>
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="52" justify="left" name="celebracion" posX="17" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Celebración" widget="FFLabel"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADYAMgA1AGIANAA3ADEALQAwADMAMAAwAC0ANABkAGEANAAtAGEAMABlADcALQBiADUAMQA2AGQAOABjADYAOAA1AGEAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGMAZgA4AGMAMgBkADEALQBkADYANQBmAC0ANAA0AGMAYQAtAGEAMgAzADcALQAwADYAYQBlADIAMgAyAGQANwBjADcAMwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGEAOABlAGUAMgBmADUALQBmADAAZgAwAC0ANABiAGEANQAtADkANQA5ADkALQAxADQANwBmAGMAOABlADMAOQAxAGMAOAB9wIEwAAAAAADAQgAAAAAAAD+CbpeNT988AQAAAEwAewA2ADAANgBjAGEAZQA3ADYALQA0ADgAZAAwAC0ANABkADgAZAAtADgAOAAyADIALQA5ADIAMAA3AGYAOAA1AGMAMwBhADcAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADAAYwBjADEAZQAwAGUALQA4ADUANQA1AC0ANABlAGQANQAtAGEANgA5AGEALQBhADYANQAxADMAYwA2ADgANgA1AGYANAB9wG5gAAAAAADAJAAAAAAAAD+EeuFHrhR8AQAAAEwAewBmAGIAYgA1ADkAYwBlAGUALQBlADIAYwAzAC0ANAAyADUAOQAtADgANwBiADMALQA0ADIAMgBhADkAYQBhAGIAMQBkADIAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGMAMABhAGQAYQBlAGQALQBhAGQAZQAwAC0ANAA1AGIANgAtADgAOQA2ADQALQA0ADUAMAA5ADgANQA1ADQAZgAwADUAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

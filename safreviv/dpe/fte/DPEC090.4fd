@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{29ce4b58-6c39-494f-9443-fc5a6b1b6a8e}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_detalle" order="" uid="{c0a18d30-c860-423e-8e48-2501abdbbf07}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="otro" order="" uid="{be38861f-59ff-48f4-8dbf-42a9332d8af9}" where="">
+    <RecordField colName="" fieldIdRef="17" name="cmb_folio" sqlTabName="" table_alias_name="" uid="{ed341b37-7613-4d1d-8e5e-fee946281948}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_conteo" order="" uid="{c3b2069c-6200-469a-b7a5-380bd28f95d7}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{9c1eb779-23b1-49c7-8726-6a3c51f0abc2}" where="">
+    <RecordField colName="" fieldIdRef="16" name="cmb_registro" sqlTabName="" table_alias_name="" uid="{6a06ca6f-0f5a-4a39-8d5d-d0e71ced7dd2}"/>
+    <RecordField colName="" fieldIdRef="1" name="v_s_reporte" sqlTabName="" table_alias_name="" uid="{56344bf2-7d71-4248-a0fa-8005233fba76}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb_rechazo" order="" uid="{2c5760c5-c077-4632-86c8-71776fedfbac}" where="">
+    <RecordField colName="" fieldIdRef="2" name="rg_patronal" sqlTabName="" table_alias_name="" uid="{0ed51b5f-f4a7-4d71-808e-f1e3a9fba99e}"/>
+    <RecordField colName="" fieldIdRef="9" name="id_ref_rch" sqlTabName="" table_alias_name="" uid="{12c97b1f-ec85-4c2e-bd97-c7b6c78689e4}"/>
+    <RecordField colName="" fieldIdRef="10" name="id_ref_hst" sqlTabName="" table_alias_name="" uid="{b5e76eff-3b7f-4761-80ba-9e3d470893f7}"/>
+    <RecordField colName="" fieldIdRef="3" name="campo_valor" sqlTabName="" table_alias_name="" uid="{476d01c0-1142-494e-8f0d-3b9013078f00}"/>
+    <RecordField colName="" fieldIdRef="4" name="diagnostico" sqlTabName="" table_alias_name="" uid="{576d2936-9e64-40b3-9ca0-2bf0d263acc3}"/>
+    <RecordField colName="" fieldIdRef="5" name="des_diagnostico" sqlTabName="" table_alias_name="" uid="{d07d270e-4854-4887-8ebc-fbcf31092cba}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb_registro" order="" uid="{d61d46d7-6dc7-4ee1-b889-13d8b539ffcd}" where="">
+    <RecordField colName="" fieldIdRef="6" name="v_c_registro" sqlTabName="" table_alias_name="" uid="{37970647-ec8f-445a-9d0d-4f408a1b0f58}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_c_desc_registro" sqlTabName="" table_alias_name="" uid="{a69edf22-0149-4291-801a-57affd7ee752}"/>
+    <RecordField colName="" fieldIdRef="8" name="Edit1" sqlTabName="" table_alias_name="" uid="{035dbb48-8f79-4c1d-9372-abf05aaa7324}"/>
+  </Record>
+  <Form gridHeight="49" gridWidth="252" name="Form" text="CONSULTA DE DIAGNOSTICOS DE DEVOLUCION DE PAGOS EN EXCESO">
+    <VBox fontPitch="fixed" gridHeight="36" gridWidth="130" name="VBox1" posX="1" posY="0" sizePolicy="fixed">
+      <Group gridHeight="7" gridWidth="130" name="Group2" posX="0" posY="1" text="Consulta de Rechazos sólo INFONAVIT">
+        <Grid gridHeight="4" gridWidth="106" name="Grid1" posX="2" posY="1">
+          <Label gridHeight="1" gridWidth="11" justify="left" name="Label2" posX="1" posY="1" text="Folio Lote"/>
+          <ComboBox colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="26" items="" name="cmb_folio" notNull="true" posX="13" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+          <Label gridHeight="1" gridWidth="64" name="Label10" posX="40" posY="1" sizePolicy="fixed" text=""/>
+          <Label gridHeight="1" gridWidth="11" justify="left" name="Label3" posX="1" posY="2" text="Tipo de Registro"/>
+          <ComboBox colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="17" items="" name="cmb_registro" notNull="true" posX="13" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+          <Label gridHeight="1" gridWidth="73" name="Label6" posX="31" posY="2" text=""/>
+        </Grid>
+      </Group>
+      <Group gridHeight="10" gridWidth="130" hidden="false" name="gruregistro" posX="0" posY="8" text="Tipo de Registros Rechazo de Archivo Devolución de Pagos en Exceso INFONAVIT">
+        <Grid gridHeight="8" gridWidth="105" name="Grid2" posX="2" posY="1">
+          <Table gridHeight="6" gridWidth="54" name="tb_registro" posX="1" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" justify="center" name="v_c_registro" noEntry="true" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Tipo &#10;Registro" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="28" name="v_c_desc_registro" noEntry="true" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Descripción" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="14" name="Edit1" posX="36" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Total&#10;Tipo&#10;Registro" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="17" gridWidth="130" name="grudetalle" posX="0" posY="18" text="Detalle Rechazo de Archivo Devolución de Pagos en Exceso INFONAVIT">
+        <Grid gridHeight="15" gridWidth="126" name="Grid3" posX="3" posY="1">
+          <Table gridHeight="11" gridWidth="125" name="tb_rechazo" posX="1" posY="1" totalRows="9">
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="22" justify="center" name="rg_patronal" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Llave SDD -&#10;NSS" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="8" hidden="true" name="id_ref_rch" posX="22" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="id_ref_rch" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="8" hidden="true" name="id_ref_hst" posX="30" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="id_ref_hst" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="24" justify="center" name="campo_valor" posX="38" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Campo Valor" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="5" justify="center" name="diagnostico" posX="62" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Diagnostico" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="51" name="des_diagnostico" posX="67" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Descripción del diagnostico" widget="Edit"/>
+          </Table>
+          <Label gridHeight="1" gridWidth="5" name="Label1" posX="1" posY="12" text=""/>
+          <Button gridHeight="1" gridWidth="8" name="reporte" posX="1" posY="13" tabIndex="6" text="Reporte"/>
+          <FFLabel colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="81" name="v_s_reporte" posX="10" posY="13" rowCount="" sqlTabName="" stepX="" stepY="" style="LabelUrl" table_alias_name="" title="Edit1" widget="FFLabel"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhADYAOQBlAGQAZgAyADIALQAwADEANAA5AC0ANAAyADkAMQAtADgAMAAxAGEALQA1ADcAYQBmAGYAZAA3AGUAZQA3ADUAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGQAMwA0ADEAYgAzADcALQA3ADYAMQAzAC0ANABkADEAZAAtADgAZQA1AGUALQBmAGUAZQA5ADQANgAyADgAMQA5ADQAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGUAZAA1ADEAYgA1AGYALQBmADQAYQA3AC0ANABkADcAMQAtADgAMAA4AGUALQBmADEAZQAzAGEAOQBmAGIAYQA5ADkAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADcANgBkADAAMQBjADAALQAxADEANAAyAC0ANAA5ADQAZQAtADgAZgAwAGQALQAzAGIAOQAwADEAMwAwADcAOABmADAAMAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADcANgBkADIAOQAzADYALQA5AGUANgA0AC0ANAAwAGIAMwAtADkAYwBhADAALQAyAGIAZgAwAGQAMgA2ADMAYQBjAGMAMwB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGUAMwA4ADgANgAxAGYALQA1ADkAZgBmAC0ANAA4AGYANAAtADgAZABiAGYALQA0ADIAYQA5ADMAMwAyAGQAOABhAGYAOQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADYAMwA0ADQAYgBmADIALQA3AGQANwAxAC0ANAAyADQAOAAtAGEAMABmAGEALQA4ADAAMAA1ADIAMwAzAGYAYgBhADcANgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGEAMAA2AGMAYQA2AGYALQAwAGYANQBhAC0ANABhADMAOQAtADgAZAA1AGQALQBkADAAZQA3ADEAYwBlAGQANwBkAGQAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADIAYwA5ADcAYgAxAGYALQBlAGMAOAA1AC0ANABjADIAZQAtAGIAZAA5ADcALQBjADcAYgA2AGMANwA4ADYAOAA5AGUANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADMANQBkAGIAYgA0ADgALQA4AGYANwA5AC0ANABjADEAZAAtADkAMwA3ADIALQBhAGIAZgAwADUAYQBhAGEANwAzADIANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADUAZQA3ADYAZQBmAGYALQAzAGIANwBmAC0ANAA3ADYAMQAtADgAMABiAGEALQA5AGUAMwBkADQANwAwADgAOQAzAGYANwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADAAYQAxADgAZAAzADAALQBjADgANgAwAC0ANAAyADMAZQAtADgAZQA0ADgALQAyADUAMAAxAGEAYgBkAGIAYgBmADAANwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADMAYgAyADAANgA5AGMALQA2ADIAMAAwAC0ANAA2ADkAYQAtAGIANwBhADUALQAzADgAMABiAGQAMgA4AGYAOQA1AGQANwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADAANwBkADIANwAwAGUALQA0ADgANQA0AC0ANAA4ADgANwAtADgAZQBiAGMALQBmAGIAYwBmADMAMQAwADkAMgBjAGIAYQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGMAMQBlAGIANwA3ADkALQAyADMAYgAxAC0ANAA5AGMANwAtADgANwAyADYALQA2AGEAMwBjADUAMQBmADAAYQBiAGMAMgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADYAMQBkADQANgBkADcALQA2AGQAYwA3AC0ANABlAGUAMQAtAGIAOAA4ADkALQAxADMAZAA4AGIANQAzADkAZgBmAGMAZAB9AAAAAAAAAAAAAAAAAAAAAD/JFocrAgxPAQAAAEwAewAyAGMANQA3ADYAMABjADUALQBjADAANwA3AC0ANAA2ADMAMgAtADgANgBjADgALQA3ADEANwA3ADYAZgBlAGQAZgBiAGEAYwB9wHKQAAAAAADAZuAAAAAAAD/Ik3S8an7/AQAAAEwAewAzADcAOQA3ADAANgA0ADcALQBlAGMAOABmAC0ANAA0ADUAYQAtADkAZAAwAGQALQA0AGYANAAwADgAYQAxAGIAMABmADUAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

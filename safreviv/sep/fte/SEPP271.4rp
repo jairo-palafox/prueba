@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/SEPP27.rdd" RWFglReportName="rpt_expedientes_baja_notificacion"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="LayoutNode" width="min" length="min" floatingBehavior="enclosed">
+                        <PAGENOBOX name="PageNoBox" alignment="far" floatingBehavior="enclosed" textExpression="&quot;Pág. &quot;+format(getPhysicalPageNumber(),ARABIC)+&quot; de &quot;+format(getTotalNumberOfPhysicalPages(),ARABIC)"/>
+                        <IMAGEBOX name="ImageBox" width="max" alignment="near" floatingBehavior="enclosed" url="SEPP27_enc.JPG">
+                            <rtl:input-variable name="v_fecha_rpt" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha_rpt Value" x="661.084" y="112.445" width="100.437" length="11" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha_rpt}}" textAlignment="center"/>
+                            <rtl:input-variable name="v_archivo_salida" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_archivo_salida Value" x="661.084" y="129.448" width="100.437" length="11.1178" fontSize="6" floatingBehavior="enclosed" text="{{v_archivo_salida}}" textAlignment="center"/>
+                            <rtl:input-variable name="p_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_folio Value" x="661.084" y="146.471" width="100.281" length="11.0414" anchorX="3.34373e-16" anchorY="0" fontSize="8" floatingBehavior="enclosed" textAlignment="center" format="&amp;&amp;&amp;&amp;" value="{{p_folio}}"/>
+                            <rtl:input-variable name="v_total_expedientes" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_expedientes Value" x="661.084" y="163.162" width="101.261" length="11" anchorX="0.00780025" anchorY="0" scaleY="1" fontSize="8" floatingBehavior="enclosed" textAlignment="center" format="----------#" value="{{v_total_expedientes}}"/>
+                        </IMAGEBOX>
+                        <IMAGEBOX name="ImageBox1" width="max" alignment="near" floatingBehavior="enclosed" url="SEPP27_det.jpg"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight">
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="v_conteo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_conteo Value" width="25" anchorX="1" fontSize="7" floatingBehavior="enclosed" textAlignment="center" format="-----#" value="{{v_conteo}}"/>
+                            <rtl:input-variable name="rec_sep_expediente.trabajador" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="rec_sep_expediente.trabajador Value" width="70" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="{{rec_sep_expediente.trabajador}}"/>
+                            <rtl:input-variable name="rec_sep_expediente.nombre_trabajador" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="rec_sep_expediente.nombre_trabajador Value" width="215" fontSize="7" floatingBehavior="enclosed" text="{{rec_sep_expediente.nombre_trabajador}}"/>
+                            <rtl:input-variable name="rec_sep_expediente.num_caso" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="rec_sep_expediente.num_caso Value" width="52" fontSize="7" floatingBehavior="enclosed" text="{{rec_sep_expediente.num_caso}}" textAlignment="center"/>
+                            <rtl:input-variable name="rec_sep_expediente.acreditado" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="rec_sep_expediente.acreditado Value" width="63" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="{{rec_sep_expediente.acreditado}}"/>
+                            <rtl:input-variable name="rec_sep_expediente.nombre_acreditado" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="rec_sep_expediente.nombre_acreditado Value" width="224" fontSize="7" floatingBehavior="enclosed" text="{{rec_sep_expediente.nombre_acreditado}}"/>
+                            <rtl:input-variable name="rec_sep_expediente.f_confirmacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="rec_sep_expediente.f_confirmacion Value" width="62" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="{{rec_sep_expediente.f_confirmacion}}"/>
+                            <rtl:input-variable name="rec_sep_expediente.f_confirmacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="rec_sep_expediente.f_confirmacion Value1" width="55" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="{{rec_sep_expediente.f_confirmacion}}"/>
+                        </rtl:match>
+                        <IMAGEBOX name="ImageBox2" width="max" floatingBehavior="enclosed" url="SEPP27_sum.jpg">
+                            <rtl:input-variable name="v_conteo" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="v_conteo Value1" y="4.8547" width="85" anchorX="1.17031e-15" anchorY="0" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_conteo}}"/>
+                        </IMAGEBOX>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

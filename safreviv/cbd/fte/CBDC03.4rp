@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterwidth" RWPageLength="letterlength" RWLeftMargin="1.0cm" RWTopMargin="1.0cm" RWRightMargin="1.0cm" RWBottomMargin="1.0cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/CBDC03.rdd" RWFglReportName="cifras"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="LayoutNode9" width="min" length="min" floatingBehavior="enclosed">
+                        <MINIPAGE name="Logotipo_institucional" x="0.6364" y="0.7135" width="min" length="max" anchorX="6.05515e-16" anchorY="6.30131e-15" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" x="0" y="0" width="68.085" length="104.352" anchorX="4.1006e-15" anchorY="4.24993e-15" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" x="0" y="0" anchorX="0" anchorY="6.76707e-17" alignment="far" floatingBehavior="enclosed" url="../../dis/bin/logo_infonavit.gif"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="Separador" x="0" y="69.3014" width="3" length="max" anchorX="0" anchorY="8.02453e-15" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage" x="-0.595" y="72.6758" width="min" length="max" anchorX="0" anchorY="0" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode1" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" width="max" alignment="center" color="#ffffff" fontSize="10" fontBold="true" baselineType="leftleft" floatingBehavior="enclosed" textAlignment="center" text="RESUMEN SALDOS CONCILIADOS"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode2" x="-0.691" y="170.831" width="17.3034" length="3214.92" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" x="0.7255" y="89.1162" width="min" length="max" anchorX="0" anchorY="3.01981e-15" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode3" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox1" width="max/4" color="#ffffff" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                                <WORDWRAPBOX name="WordWrapBox6" width="max/2" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="   "/>
+                                <rtl:input-variable name="v_today" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_today Value" width="max/4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_today}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage2" x="0.7704" y="100.633" width="min" length="max" anchorX="1.27474e-17" anchorY="3.10862e-14" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode4" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox2" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Folio: "/>
+                                <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_folio Value" anchorX="1" alignment="baseline" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{v_folio}}"/>
+                                <WORDBOX name="WordBox3" width="325.35" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="           "/>
+                                <WORDBOX name="WordBox4" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Fecha Conciliación: "/>
+                                <rtl:input-variable name="v_f_conciliacion" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_conciliacion Value" color="#ffffff" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{v_f_conciliacion}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage3" x="-0.061" y="113.06" width="min" length="max" anchorX="0" anchorY="1.58096e-14" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox5" width="max" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="SALDOS INFONAVIT"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage4" x="-0.6726" y="126.866" width="min" length="max" anchorX="0" anchorY="1.58096e-14" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode6" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="0">
+                                <WORDWRAPBOX name="WordWrapBox1" width="max/6.2" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="&#10;&#10;SUBCUENTA&#10;&#10;&#10;" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                                <WORDWRAPBOX name="WordWrapBox" width="max/6.2" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="SALDO&#10;INICIAL&#10;INFONAVIT&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                                <WORDWRAPBOX name="WordWrapBox2" width="max/6.2" alignment="baseline" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="SALDO&#10;FINAL&#10;INFONAVIT&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                                <WORDWRAPBOX name="WordWrapBox3" width="max/6.1" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="SALDO&#10;A&#10;CONCILIAR&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                                <WORDWRAPBOX name="WordWrapBox4" width="max/6" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="SALDO&#10;BDNSVIV&#10;&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                                <WORDWRAPBOX name="WordWrapBox5" width="max/6" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="DIFERENCIAS&#10;&#10;&#10;&#10;AIVS" textAlignment="center" borderWidth="1" borderStyle="solid" borderColor="#ce050f"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <PAGENOBOX name="PageNoBox" x="332.399" y="738.064" anchorX="0.5" anchorY="1" floatingBehavior="enclosed"/>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage7" width="min" length="max" layoutDirection="leftToRight">
+                                <LAYOUTNODE name="LayoutNode7" x="2.0712" y="1.4614" width="min" length="max" anchorX="2.84217e-14" anchorY="0" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="p_lista.subcuenta" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_lista.subcuenta Value" width="max/6.2" fontSize="10" floatingBehavior="enclosed" text="{{p_lista.subcuenta}}" borderWidth="1"/>
+                                    <rtl:input-variable name="p_lista.inicio_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_lista.inicio_infonavit Value" width="max/6.2" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_lista.inicio_infonavit}}" borderWidth="1"/>
+                                    <rtl:input-variable name="p_lista.fin_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_lista.fin_infonavit Value" width="max/6" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_lista.fin_infonavit}}" borderWidth="1"/>
+                                    <rtl:input-variable name="p_lista.saldo_a_conciliar" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_lista.saldo_a_conciliar Value" width="max/6" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_lista.saldo_a_conciliar}}" borderWidth="1"/>
+                                    <rtl:input-variable name="p_lista.saldo_bdnsviv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_lista.saldo_bdnsviv Value" width="max/6" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_lista.saldo_bdnsviv}}" borderWidth="1"/>
+                                    <rtl:input-variable name="p_lista.diferencias" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_lista.diferencias Value" width="max/6" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_lista.diferencias}}" borderWidth="1"/>
+                                </LAYOUTNODE>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </rtl:match>
+                    <MINIPAGE name="MiniPage8" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode8" x="1" y="-2.458" width="min" length="max" anchorX="9.4739e-15" anchorY="7.58487e-16" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed" borderWidth="1" borderTopStyle="solid" borderTopColor="#ce050f">
+                            <WORDBOX name="WordBox6" width="max/6.2" alignment="far" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="SUMATORIA" borderWidth="1"/>
+                            <rtl:input-variable name="v_sum_inicio_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_sum_inicio_infonavit Value" width="max/6.2" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_inicio_infonavit}}" borderWidth="1"/>
+                            <rtl:input-variable name="v_sum_fin_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_sum_fin_infonavit Value" width="max/6.2" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_fin_infonavit}}" borderWidth="1"/>
+                            <rtl:input-variable name="v_sum_saldo_concilia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_sum_saldo_concilia Value" width="max/6.1" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_saldo_concilia}}" borderWidth="1"/>
+                            <rtl:input-variable name="v_sum_saldo_bdnsviv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_sum_saldo_bdnsviv Value" width="max/6" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_saldo_bdnsviv}}" borderWidth="1"/>
+                            <rtl:input-variable name="v_sum_diferencias" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_sum_diferencias Value" width="max/6" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_diferencias}}" borderWidth="1"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

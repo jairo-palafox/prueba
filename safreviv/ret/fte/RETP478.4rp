@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.238329cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="RETP478.rdd" RWFglReportName="pdf_carta_negativa"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <MINIPAGE name="MiniPage" width="max" length="max" baselineType="leftleft" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="LayoutNode" width="435.5" length="435.5" alignment="near" widthAdjustment="expandToParent" lengthAdjustment="expandToParent" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" width="522" length="97.5" transformTransparently="true" floatingBehavior="enclosed" url="../../img/encabezado_ae.png" intendedResolution="96"/>
+                            <rtl:input-variable name="v_titulo_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_titulo_reporte Value" class="grwStringValue" width="522.75" length="30.25" alignment="near" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="{{v_titulo_reporte}}" textAlignment="center"/>
+                            <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha_reporte Value" class="grwStringValue" y="140" width="522.75" alignment="near" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_fecha_reporte}}" textAlignment="right"/>
+                            <rtl:input-variable name="v_gerencia" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_gerencia Value" class="grwStringValue" y="160" width="522.75" alignment="near" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_gerencia}}" textAlignment="right"/>
+                            <rtl:input-variable name="v_caso_goci" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_caso_goci Value" class="grwStringValue" y="180" width="522" alignment="near" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_caso_goci}}" textAlignment="right"/>
+                            <rtl:input-variable name="v_nombre" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre Value" class="grwStringValue" y="230" width="max" alignment="baseline" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_nombre}}"/>
+                            <WORDBOX name="WordBox" y="260" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="PRESENTE"/>
+                            <rtl:input-variable name="v_parrafo1" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parrafo1 Value" class="grwStringValue" y="290" width="522.52" length="58.75" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_parrafo1}}" textAlignment="justified"/>
+                            <rtl:input-variable name="v_parrafo2" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parrafo2 Value" class="grwStringValue" y="360" width="522" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_parrafo2}}" textAlignment="justified"/>
+                            <rtl:input-variable name="v_parrafo3" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parrafo3 Value" class="grwStringValue" y="390" width="522.12" length="68.25" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_parrafo3}}" textAlignment="justified"/>
+                            <WORDBOX name="WordBox1" y="550" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Firma electrónica"/>
+                            <LAYOUTNODE name="LayoutNode1_1" y="640" width="min" length="515" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <LAYOUTNODE name="LayoutNode6" width="110" length="min" floatingBehavior="enclosed">
+                                    <WORDBOX name="WordBox4" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Cadena original"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode7" y="110" width="400" length="min" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="p_cadena_original" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_cadena_original Value" class="grwStringValue" width="400" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_cadena_original}}"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode1" y="580" width="min" length="515" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <LAYOUTNODE name="LayoutNode2" width="110" length="min" floatingBehavior="enclosed">
+                                    <WORDBOX name="WordBox2" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Sello digital Infonavit:"/>
+                                </LAYOUTNODE>
+                                <LAYOUTNODE name="LayoutNode3" y="110" width="400" length="min" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="p_sello" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_sello Value" class="grwStringValue" width="400" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_sello}}"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

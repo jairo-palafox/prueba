@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:fjs="http://www.infonavit.gob.mx/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="retiroCreaSolicitudDevAutomaticaLey73" targetNamespace="http://www.infonavit.gob.mx/">
+  <wsdl:types>
+    <xsd:schema xmlns:s1="http://www.infonavit.gob.mx/" elementFormDefault="qualified" targetNamespace="http://www.infonavit.gob.mx/">
+      <xsd:complexType name="fn_ret_sol_dev_automatica_ley73Request_fn_ret_sol_dev_automatica_ley73Request">
+        <xsd:sequence>
+          <xsd:element nillable="true" name="nss">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="11"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="caso_adai">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element type="xsd:short" name="grupo" nillable="true"/>
+          <xsd:element type="xsd:short" name="medio_entrega" nillable="true"/>
+          <xsd:element nillable="true" name="arr_beneficiario">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="element" maxOccurs="unbounded" nillable="true">
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element type="xsd:short" name="tipo_beneficiario" nillable="true"/>
+                      <xsd:element nillable="true" name="clabe_bancaria">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="18"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="rfc">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="13"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="email">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="50"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="telefono">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="10"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="tel_movil">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="10"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="nombre">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="40"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="ap_paterno">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="40"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="ap_materno">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="40"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="entidad_federativa">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="2"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="fn_ret_sol_dev_automatica_ley73Request" type="s1:fn_ret_sol_dev_automatica_ley73Request_fn_ret_sol_dev_automatica_ley73Request"/>
+      <xsd:complexType name="fn_ret_sol_dev_automatica_ley73Response_fn_ret_sol_dev_automatica_ley73Response">
+        <xsd:sequence>
+          <xsd:element nillable="true" name="nss">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="11"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="caso_adai">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="18"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="sello">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="64"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element type="xsd:base64Binary" name="archivopdf" nillable="true"/>
+          <xsd:element nillable="true" name="arr_modalidad_retiro">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="element" maxOccurs="unbounded" nillable="true">
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element type="xsd:short" name="subcuenta" nillable="true"/>
+                      <xsd:element type="xsd:short" name="estado_solicitud" nillable="true"/>
+                      <xsd:element type="xsd:short" name="cod_rechazo" nillable="true"/>
+                      <xsd:element nillable="true" name="des_rechazo">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="100"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="monto_avis">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:decimal">
+                            <xsd:totalDigits value="22"/>
+                            <xsd:fractionDigits value="6"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="monto_pesos">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:decimal">
+                            <xsd:totalDigits value="22"/>
+                            <xsd:fractionDigits value="2"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element nillable="true" name="referencia_dap">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="12"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="fn_ret_sol_dev_automatica_ley73Response" type="s1:fn_ret_sol_dev_automatica_ley73Response_fn_ret_sol_dev_automatica_ley73Response"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="fn_ret_sol_dev_automatica_ley73In">
+    <wsdl:part name="parameters" element="fjs:fn_ret_sol_dev_automatica_ley73Request"/>
+  </wsdl:message>
+  <wsdl:message name="fn_ret_sol_dev_automatica_ley73Out">
+    <wsdl:part name="parameters" element="fjs:fn_ret_sol_dev_automatica_ley73Response"/>
+  </wsdl:message>
+  <wsdl:portType name="retiroCreaSolicitudDevAutomaticaLey73PortType">
+    <wsdl:operation name="fn_ret_sol_dev_automatica_ley73">
+      <wsdl:input message="fjs:fn_ret_sol_dev_automatica_ley73In" name="fn_ret_sol_dev_automatica_ley73Request"/>
+      <wsdl:output message="fjs:fn_ret_sol_dev_automatica_ley73Out" name="fn_ret_sol_dev_automatica_ley73Response"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="retiroCreaSolicitudDevAutomaticaLey73Binding" type="fjs:retiroCreaSolicitudDevAutomaticaLey73PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="fn_ret_sol_dev_automatica_ley73">
+      <soap:operation soapAction="fn_ret_sol_dev_automatica_ley73"/>
+      <wsdl:input name="fn_ret_sol_dev_automatica_ley73Request">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="fn_ret_sol_dev_automatica_ley73Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="retiroCreaSolicitudDevAutomaticaLey73">
+    <wsdl:port binding="fjs:retiroCreaSolicitudDevAutomaticaLey73Binding" name="retiroCreaSolicitudDevAutomaticaLey73PortType">
+      <soap:address location="http://10.90.8.132/CreaSoloDev/ws/r/retiroCreaSolicitudDevAutomaticaLey73"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

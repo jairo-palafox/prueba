@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/TIAS11.rdd" RWFglReportName="rpt_analisis_decretos"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <MINIPAGE name="logo" width="min" length="769.689" layoutDirection="leftToRight">
+                        <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="logo_infonavit.gif" intendedResolution="96"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="encabezado" width="min" length="min">
+                        <WORDWRAPBOX name="titulo" width="max" fontName="Arial" fontSize="13" fontBold="true" floatingBehavior="enclosed" text="REPORTE ANÁLISIS DECRETOS" textAlignment="center" paddingTopWidth="8" paddingBottomWidth="15"/>
+                        <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight" paddingBottomWidth="5">
+                            <WORDWRAPBOX name="WordWrapBox1" width="62.5123" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Usuario:" paddingLeftWidth="5"/>
+                            <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_usuario_cod Value" width="146.698" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                            <WORDBOX name="fecha_actual" width="444.9" alignment="baseline" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Fecha emisión:" paddingRightWidth="10"/>
+                            <rtl:input-variable name="v_fecha_actual" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_actual Value" width="94.5731" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_fecha_actual}}"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="fecha_inicio" width="81.3147" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha inicio:" paddingBottomWidth="5" paddingLeftWidth="5"/>
+                            <rtl:input-variable name="p_fecha_inicio" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_fecha_inicio Value" width="105.618" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_fecha_inicio}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode1" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" paddingBottomWidth="10">
+                            <WORDBOX name="WordBox" width="81.1125" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha fin:" paddingLeftWidth="5"/>
+                            <rtl:input-variable name="p_fecha_fin" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_fecha_fin Value" width="106.124" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_fecha_fin}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed" paddingTopWidth="5" paddingBottomWidth="5">
+                            <WORDBOX name="num_casos_consistente" width="158.935" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="6" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Num. casos consistente" paddingTopWidth="5" paddingBottomWidth="5"/>
+                            <WORDBOX name="saldo_inicial_consistente" width="87" color="#ffffff" fontName="Arial" fontSize="6" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Saldo inicial consistente" paddingTopWidth="5" paddingBottomWidth="5"/>
+                            <WORDBOX name="movimientos_consistente" width="87" color="#ffffff" fontName="Arial" fontSize="6" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Movimientos consistente" paddingTopWidth="5" paddingBottomWidth="5"/>
+                            <WORDBOX name="saldo_final_consistente" width="87" color="#ffffff" fontName="Arial" fontSize="6" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Saldo final consistente" paddingTopWidth="5" paddingBottomWidth="5"/>
+                            <WORDBOX name="num_casos_inconsistente" width="87" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="6" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Num. casos inconsistente" paddingTopWidth="5" paddingBottomWidth="5"/>
+                            <WORDBOX name="saldo_inicial_inconsistente" width="87" color="#ffffff" fontName="Arial" fontSize="6" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Saldo inicial inconsistente" paddingTopWidth="5" paddingBottomWidth="5"/>
+                            <WORDBOX name="movimientos_inconsistente" width="87" color="#ffffff" fontName="Arial" fontSize="6" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Movimientos inconsistente" paddingTopWidth="5" paddingBottomWidth="5"/>
+                            <WORDBOX name="saldo_final_inconsistente" width="89.25" color="#ffffff" fontName="Arial" fontSize="6" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Saldo final inconsistente" paddingTopWidth="5" paddingBottomWidth="5"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <rtl:match name="Group p_tpo_reporte" nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage1" width="min" length="789.939" layoutDirection="leftToRight" paddingBottomWidth="5">
+                            <rtl:input-variable name="p_tpo_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_tpo_reporte Value" width="86.0732" fontSize="7" floatingBehavior="enclosed" text="{{p_tpo_reporte}}" paddingLeftWidth="2"/>
+                            <rtl:input-variable name="v_total_tpo_rpt.num_casos_consistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_tpo_rpt.num_casos_consistente Value" width="69.5687" anchorX="1" bgColor="#d9ffd9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;" value="{{v_total_tpo_rpt.num_casos_consistente}}"/>
+                            <rtl:input-variable name="v_total_tpo_rpt.saldo_inicial_consistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_tpo_rpt.saldo_inicial_consistente Value" width="80.9634" anchorX="1" bgColor="#d9ffd9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_tpo_rpt.saldo_inicial_consistente}}"/>
+                            <rtl:input-variable name="v_total_tpo_rpt.movimientos_consistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_tpo_rpt.movimientos_consistente Value" width="87.6531" anchorX="1" bgColor="#d9ffd9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_tpo_rpt.movimientos_consistente}}"/>
+                            <rtl:input-variable name="v_total_tpo_rpt.saldo_total_consistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_tpo_rpt.saldo_total_consistente Value" width="86.0277" anchorX="1" bgColor="#d9ffd9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_tpo_rpt.saldo_total_consistente}}" paddingRightWidth="2"/>
+                            <rtl:input-variable name="v_total_tpo_rpt.num_casos_inconsistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_tpo_rpt.num_casos_inconsistente Value" width="89.1929" anchorX="1" bgColor="#ffdfdf" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;" value="{{v_total_tpo_rpt.num_casos_inconsistente}}"/>
+                            <rtl:input-variable name="v_total_tpo_rpt.saldo_inicial_inconsistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_tpo_rpt.saldo_inicial_inconsistente Value" width="89.1929" anchorX="1" alignment="baseline" bgColor="#ffe9e9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_tpo_rpt.saldo_inicial_inconsistente}}"/>
+                            <rtl:input-variable name="v_total_tpo_rpt.movimientos_inconsistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_tpo_rpt.movimientos_inconsistente Value" width="86.6607" anchorX="1" bgColor="#ffe9e9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_tpo_rpt.movimientos_inconsistente}}"/>
+                            <rtl:input-variable name="v_total_tpo_rpt.saldo_total_inconsistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_tpo_rpt.saldo_total_inconsistente Value" width="87.459" anchorX="1" bgColor="#ffe9e9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_tpo_rpt.saldo_total_inconsistente}}" paddingRightWidth="2"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <MINIPAGE name="MiniPage2" width="min" length="778.689" layoutDirection="leftToRight">
+                        <rtl:input-variable name="v_total_saldos.tpo_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_total_saldos.tpo_reporte Value" width="86.0732" fontSize="7" floatingBehavior="enclosed" text="{{v_total_saldos.tpo_reporte}}" paddingLeftWidth="2"/>
+                        <rtl:input-variable name="v_total_saldos.num_casos_consistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_saldos.num_casos_consistente Value" width="69.5687" anchorX="1" bgColor="#d9fed9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;" value="{{v_total_saldos.num_casos_consistente}}"/>
+                        <rtl:input-variable name="v_total_saldos.saldo_inicial_consistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_saldos.saldo_inicial_consistente Value" width="80.9634" anchorX="1" bgColor="#d9fed9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_saldos.saldo_inicial_consistente}}"/>
+                        <rtl:input-variable name="v_total_saldos.movimientos_consistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_saldos.movimientos_consistente Value" width="87.6531" anchorX="1" bgColor="#d9fed9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_saldos.movimientos_consistente}}"/>
+                        <rtl:input-variable name="v_total_saldos.saldo_total_consistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_saldos.saldo_total_consistente Value" width="86.0277" anchorX="1" bgColor="#d9fed9" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_saldos.saldo_total_consistente}}" paddingRightWidth="2"/>
+                        <rtl:input-variable name="v_total_saldos.num_casos_inconsistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_saldos.num_casos_inconsistente Value" width="89.1929" anchorX="1" bgColor="#ffdfdf" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;" value="{{v_total_saldos.num_casos_inconsistente}}"/>
+                        <rtl:input-variable name="v_total_saldos.saldo_inicial_inconsistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_saldos.saldo_inicial_inconsistente Value" width="89.1929" anchorX="1" bgColor="#ffdfdf" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_saldos.saldo_inicial_inconsistente}}"/>
+                        <rtl:input-variable name="v_total_saldos.movimientos_inconsistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_saldos.movimientos_inconsistente Value" width="86.6607" anchorX="1" bgColor="#ffdfdf" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_saldos.movimientos_inconsistente}}"/>
+                        <rtl:input-variable name="v_total_saldos.saldo_total_inconsistente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_saldos.saldo_total_inconsistente Value" width="88.209" anchorX="1" bgColor="#ffdfdf" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_saldos.saldo_total_inconsistente}}" paddingRightWidth="2"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="barra_roja" width="1.64192" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed" paddingTopWidth="10"/>
+                    <PAGENOBOX name="pagina" x="717.966" y="512.685" anchorX="8.49865e-15" anchorY="0" alignment="far" fontSize="8" floatingBehavior="enclosed" textExpression="&quot;Pág. &quot;+format(getPhysicalPageNumber(),ARABIC)+&quot; de &quot;+format(getTotalNumberOfPhysicalPages(),ARABIC)"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

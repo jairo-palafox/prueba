@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{4206d56a-b1c9-45a3-8917-6f6e3c723985}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{ecb00031-62b0-452b-ba7b-b123896a2b22}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_f_ini" sqlTabName="" table_alias_name="" uid="{3dbb1151-a0a2-44e3-b06b-45cacbb47565}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_f_fin" sqlTabName="" table_alias_name="" uid="{a4fd1b55-087a-4e07-be58-c085eb710e25}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record1" order="" uid="{255bb6ee-0d11-422d-b12e-787c38e18879}" where="">
+    <RecordField colName="" fieldIdRef="3" name="edit1" sqlTabName="" table_alias_name="" uid="{7246fc01-e435-4189-80ee-9ae6861e071c}"/>
+    <RecordField colName="" fieldIdRef="9" name="edit7" sqlTabName="" table_alias_name="" uid="{5626ccd9-4c0d-4724-af74-f727796f5fb2}"/>
+    <RecordField colName="" fieldIdRef="4" name="edit2" sqlTabName="" table_alias_name="" uid="{f3efc7db-985d-4401-996e-b72bbebb74a2}"/>
+    <RecordField colName="" fieldIdRef="5" name="edit3" sqlTabName="" table_alias_name="" uid="{368102f8-5f75-410a-9128-7fc8ac42af3c}"/>
+    <RecordField colName="" fieldIdRef="6" name="edit4" sqlTabName="" table_alias_name="" uid="{e040cf1d-6522-44a5-891b-44581c8e0eda}"/>
+    <RecordField colName="" fieldIdRef="7" name="edit5" sqlTabName="" table_alias_name="" uid="{a1901eac-86c8-4614-9fd4-4af09a7f22d3}"/>
+    <RecordField colName="" fieldIdRef="8" name="edit6" sqlTabName="" table_alias_name="" uid="{1cdaf0fe-dd10-40d2-b88a-1fc7877e8b75}"/>
+  </Record>
+  <Form gridHeight="24" gridWidth="90" name="form" text="Form">
+    <Grid gridHeight="21" gridWidth="78" name="grid1" posX="3" posY="1">
+      <Group gridHeight="4" gridWidth="55" name="rango" posX="3" posY="2" text="Reporte de actualización BATCH">
+        <Label gridHeight="1" gridWidth="10" name="label1" posX="1" posY="2" text=" Fecha inicial "/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" format="dd/mm/yyyy" gridHeight="1" gridWidth="13" name="v_f_ini" posX="13" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="2" name="label2" posX="27" posY="2" text=""/>
+        <Label gridHeight="1" gridWidth="10" name="label3" posX="30" posY="2" text=" Fecha final"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" format="dd/mm/yyyy" gridHeight="1" gridWidth="13" name="v_f_fin" posX="41" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="dateedit2" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="12" gridWidth="68" name="archivo" posX="3" posY="7" text="Archivos disponibles del periodo seleccionado">
+        <Table doubleClick="false" gridHeight="9" gridWidth="63" name="table1" posX="2" posY="2" totalRows="5">
+          <Phantom colName="" fieldId="3" name="edit1" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="9" name="edit7" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="30" name="edit2" noEntry="true" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Nombre del archivo" widget="Edit"/>
+          <Phantom colName="" fieldId="5" name="edit3" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="10" name="edit4" noEntry="true" posX="30" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Usuario" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="dd/mm/yyyy" gridHeight="1" gridWidth="10" name="edit5" noEntry="true" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha proceso" widget="Edit"/>
+          <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" name="edit6" notNull="true" posX="50" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" text="" title="Generar" widget="CheckBox"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBlAGMAYgAwADAAMAAzADEALQA2ADIAYgAwAC0ANAA1ADIAYgAtAGIAYQA3AGIALQBiADEAMgAzADgAOQA2AGEAMgBiADIAMgB9wHhQAAAAAABAIgAAAAAAAD9wYk3S8an8AQAAAEwAewBhADQAZgBkADEAYgA1ADUALQAwADgANwBhAC0ANABlADAANwAtAGIAZQA1ADgALQBjADAAOAA1AGUAYgA3ADEAMABlADIANQB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADYAOAAxADAAMgBmADgALQA1AGYANwA1AC0ANAAxADAAYQAtADkAMQAyADgALQA3AGYAYwA4AGEAYwA0ADIAYQBmADMAYwB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADIANAA2AGYAYwAwADEALQBlADQAMwA1AC0ANAAxADgAOQAtADgAMABlAGUALQA5AGEAZQA2ADgANgAxAGUAMAA3ADEAYwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADUANQBiAGIANgBlAGUALQAwAGQAMQAxAC0ANAAyADIAZAAtAGIAMQAyAGUALQA3ADgANwBjADMAOABlADEAOAA4ADcAOQB9wGvgAAAAAABAZCAAAAAAAD90euFHrhR7AQAAAEwAewBhADEAOQAwADEAZQBhAGMALQA4ADYAYwA4AC0ANAA2ADEANAAtADkAZgBkADQALQA0AGEAZgAwADkAYQA3AGYAMgAyAGQAMwB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGQAYgBiADEAMQA1ADEALQBhADAAYQAyAC0ANAA0AGUAMwAtAGIAMAA2AGIALQA0ADUAYwBhAGMAYgBiADQANwA1ADYANQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADAANAAwAGMAZgAxAGQALQA2ADUAMgAyAC0ANAA0AGEANQAtADgAOQAxAGIALQA0ADQANQA4ADEAYwA4AGUAMABlAGQAYQB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADMAZQBmAGMANwBkAGIALQA5ADgANQBkAC0ANAA0ADAAMQAtADkAOQA2AGUALQBiADcAMgBiAGIAZQBiAGIANwA0AGEAMgB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGMAZABhAGYAMABmAGUALQBkAGQAMQAwAC0ANAAwAGQAMgAtAGIAOAA4AGEALQAxAGYAYwA3ADgANwA3AGUAOABiADcANQB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADYAMgA2AGMAYwBkADkALQA0AGMAMABkAC0ANAA3ADIANAAtAGEAZgA3ADQALQBmADcAMgA3ADcAOQA2AGYANQBmAGIAMgB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

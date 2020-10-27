@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{cdac9b27-9ab4-400a-9d0b-7aedc1c9e18c}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tabla_estado" order="" uid="{9e3a74d7-4d3f-4ab5-9b5d-41dd075db2f3}" where="">
+    <RecordField colName="" fieldIdRef="1" name="arch" sqlTabName="" table_alias_name="" uid="{c76f6c4b-d954-47e1-8577-0126351624f1}"/>
+    <RecordField colName="" fieldIdRef="2" name="mot" sqlTabName="" table_alias_name="" uid="{5a5c8752-e2be-495e-996b-f7bb176cf222}"/>
+    <RecordField colName="" fieldIdRef="3" name="orig" sqlTabName="" table_alias_name="" uid="{88434ca5-6755-4d07-bc75-dec49627d41a}"/>
+    <RecordField colName="" fieldIdRef="4" name="sdo" sqlTabName="" table_alias_name="" uid="{1afc17f7-afda-4165-b668-4915853aa9e2}"/>
+    <RecordField colName="" fieldIdRef="5" name="f_proceso" sqlTabName="" table_alias_name="" uid="{f290ba47-b124-49a2-913c-523d9b865535}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{d50059ba-0619-4962-ad4f-c691e77f6063}" where="">
+    <RecordField colName="" fieldIdRef="6" name="lbl_ruta_reporte" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{bbe3ee76-48d4-4bda-accf-5c1602838a8c}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="146" name="Form" text="Form">
+    <Grid gridHeight="20" gridWidth="142" name="Grid1" posX="2" posY="3">
+      <Group gridHeight="18" gridWidth="139" name="Group1" posX="1" posY="1" text="Consulta ">
+        <Table gridHeight="14" gridWidth="134" name="Table1" posX="1" posY="1" totalRows="13">
+          <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" name="arch" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Archivo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="39" name="mot" posX="15" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Motivo del rechazo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="38" name="orig" posX="54" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Tipo de Originación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="18" name="sdo" posX="92" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Saldo deudor" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_proceso" posX="110" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha" widget="Edit"/>
+        </Table>
+        <FFLabel colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="61" hidden="false" name="lbl_ruta_reporte" posX="1" posY="16" rowCount="" sqlTabName="" sqlType="STRING" stepX="" stepY="" style="LabelUrl" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADIAOQAwAGIAYQA0ADcALQBiADEAMgA0AC0ANAA5AGEAMgAtADkAMQAzAGMALQA1ADIAMwBkADkAYgA4ADYANQA1ADMANQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGEANQBjADgANwA1ADIALQBlADIAYgBlAC0ANAA5ADUAZQAtADkAOQA2AGIALQBmADcAYgBiADEANwA2AGMAZgAyADIAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGEAZgBjADEANwBmADcALQBhAGYAZABhAC0ANAAxADYANQAtAGIANgA2ADgALQA0ADkAMQA1ADgANQAzAGEAYQA5AGUAMgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGUAMwBhADcANABkADcALQA0AGQAMwBmAC0ANABhAGIANQAtADkAYgA1AGQALQA0ADEAZABkADAANwA1AGQAYgAyAGYAMwB9wGUgAAAAAADASoAAAAAAAD+CbpeNT988AQAAAEwAewA4ADgANAAzADQAYwBhADUALQA2ADcANQA1AC0ANABkADAANwAtAGIAYwA3ADUALQBkAGUAYwA0ADkANgAyADcAZAA0ADEAYQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADcANgBmADYAYwA0AGIALQBkADkANQA0AC0ANAA3AGUAMQAtADgANQA3ADcALQAwADEAMgA2ADMANQAxADYAMgA0AGYAMQB9QBQAAAAAAABAOgAAAAAAAD+AYk3S8an8AQAAAEwAewBkADUAMAAwADUAOQBiAGEALQAwADYAMQA5AC0ANAA5ADYAMgAtAGEAZAA0AGYALQBjADYAOQAxAGUANwA3AGYANgAwADYAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGIAZQAzAGUAZQA3ADYALQA0ADgAZAA0AC0ANABiAGQAYQAtAGEAYwBjAGYALQA1AGMAMQA2ADAAMgA4ADMAOABhADgAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm databaseName="safre_viv" gstVersion="21e00" name="ManagedForm" uid="{f0f0435b-67c6-4174-9f34-4092aefa79c5}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_seg_modulo" order="" uid="{754977a2-555d-4cc2-a7f8-e460b2862489}" where="">
+    <RecordField colName="" fieldIdRef="1" name="col_modulo_cod" sqlTabName="" table_alias_name="" uid="{9b77b32d-7076-4606-8600-ab69f0c86c0b}"/>
+    <RecordField colName="" fieldIdRef="2" name="col_modulo_desc" sqlTabName="" table_alias_name="" uid="{3f54596f-c5f0-4647-a7e9-6ca0240f669b}"/>
+    <RecordField colName="" fieldIdRef="3" name="col_ruta_listados" sqlTabName="" table_alias_name="" uid="{71545ca6-d129-4c3d-94e5-4d24cec7d2df}"/>
+    <RecordField colName="" fieldIdRef="4" name="col_ruta_fte" sqlTabName="" table_alias_name="" uid="{ed179d7e-f71a-4332-b3a9-93d864769cd1}"/>
+    <RecordField colName="" fieldIdRef="5" name="col_ruta_bin" sqlTabName="" table_alias_name="" uid="{a5265619-3ae6-472e-8cbe-fcad06e1f219}"/>
+    <RecordField colName="" fieldIdRef="6" name="col_ruta_envio" sqlTabName="" table_alias_name="" uid="{1c66dc10-39a9-4e21-af46-66da513fb5e1}"/>
+    <RecordField colName="" fieldIdRef="7" name="col_ruta_rescate" sqlTabName="" table_alias_name="" uid="{57b18844-e749-414c-bd30-0a91ea48405a}"/>
+    <RecordField colName="" fieldIdRef="8" name="col_f_actualiza" sqlTabName="" table_alias_name="" uid="{0105bd4b-d905-4094-b2c7-398a73c220ef}"/>
+    <RecordField colName="" fieldIdRef="9" name="col_usuario" sqlTabName="" table_alias_name="" uid="{fa428f24-4b57-416f-83f7-3cda34c363b0}"/>
+    <RecordField colName="" fieldIdRef="19" name="col_ruta_bitacora" sqlTabName="" table_alias_name="" uid="{c9855e4c-ad34-4390-b141-1a42e92d93f2}"/>
+    <RecordField colName="" fieldIdRef="20" name="col_ruta_docto" sqlTabName="" table_alias_name="" uid="{c31766de-2636-4b84-8481-1e7cd33bfb98}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{eabdc8e8-e301-4181-979b-c51a91f2af05}" where="">
+    <RecordField colName="" fieldIdRef="10" name="modulo_cod" sqlTabName="" table_alias_name="" uid="{0b1a7b51-cae5-4e6a-8ce2-45ba4158d32f}"/>
+    <RecordField colName="" fieldIdRef="11" name="modulo_desc" sqlTabName="" table_alias_name="" uid="{f73c7a84-30cd-4d3c-bdf3-2923d02460b4}"/>
+    <RecordField colName="" fieldIdRef="12" name="ruta_fte" sqlTabName="" table_alias_name="" uid="{c5c76e0b-9e63-487e-a6a0-8477f0d2b086}"/>
+    <RecordField colName="" fieldIdRef="13" name="ruta_bin" sqlTabName="" table_alias_name="" uid="{002fe832-68b1-4dda-af4f-73986d3bc357}"/>
+    <RecordField colName="" fieldIdRef="14" name="ruta_envio" sqlTabName="" table_alias_name="" uid="{e299b7d3-a685-4db3-8214-7d4b862847e6}"/>
+    <RecordField colName="" fieldIdRef="15" name="ruta_rescate" sqlTabName="" table_alias_name="" uid="{b549bc36-8b74-41ca-8259-db819fb0dc4d}"/>
+    <RecordField colName="" fieldIdRef="16" name="ruta_listados" sqlTabName="" table_alias_name="" uid="{d07da174-e201-438f-87e0-29599bf4d2ac}"/>
+    <RecordField colName="" fieldIdRef="17" name="f_actualiza" sqlTabName="" table_alias_name="" uid="{a21418ea-c643-4791-962f-248d4be196e9}"/>
+    <RecordField colName="" fieldIdRef="18" name="usuario" sqlTabName="" table_alias_name="" uid="{db1076d2-b0ea-4bf1-bd9d-9638ae9ef6aa}"/>
+  </Record>
+  <Form gridHeight="49" gridWidth="301" name="Form" text="Catálogo de módulos">
+    <VBox gridHeight="26" gridWidth="171" name="VBox1" posX="0" posY="0">
+      <Group gridHeight="11" gridWidth="171" name="grp_seg_modulo" posX="0" posY="1" text="Catálogo de módulos">
+        <Grid gridHeight="9" gridWidth="105" name="Grid1" posX="2" posY="1">
+          <Table gridHeight="7" gridWidth="103" name="tbl_seg_modulo" posX="2" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="6" justify="center" name="col_modulo_cod" posX="0" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Cod." widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="48" name="col_modulo_desc" posX="6" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Descripción" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_ruta_fte" posX="54" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Ruta fuente" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_ruta_bin" posX="57" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Ruta bin" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_ruta_envio" posX="60" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Ruta envío" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_ruta_rescate" posX="63" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Ruta rescate" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_ruta_listados" posX="66" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Ruta listados" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="19" gridHeight="1" gridWidth="3" hidden="true" name="col_ruta_bitacora" posX="69" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="19" table_alias_name="" title="Edit1" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="20" gridHeight="1" gridWidth="3" hidden="true" name="col_ruta_docto" posX="72" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="20" table_alias_name="" title="Edit2" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_f_actualiza" posX="75" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Fec. actualización" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="3" hidden="true" invisible="false" name="col_usuario" posX="78" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Usuario" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="13" gridWidth="171" name="grp_modulo" posX="0" posY="12" text="Datos del módulo">
+        <Grid gridHeight="11" gridWidth="89" name="Grid2" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="7" name="lbl_modulo_cod" posX="2" posY="1" text="Código:"/>
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="6" name="modulo_cod" posX="10" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="2" name="lbl_espacio" posX="17" posY="1" text=""/>
+          <Label gridHeight="1" gridWidth="10" name="lbl_modulo_desc" posX="20" posY="1" text="Descripción:"/>
+          <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="42" name="modulo_desc" posX="31" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="lbl_espacio2" posX="2" posY="2" text=""/>
+          <Label gridHeight="1" gridWidth="13" name="lbl_rutas" posX="2" posY="3" text="Rutas del módulo"/>
+          <Label gridHeight="1" gridWidth="13" justify="right" name="lbl_ruta_fte" posX="2" posY="4" text="Ruta fuente"/>
+          <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="57" name="ruta_fte" posX="16" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="13" justify="right" name="lbl_ruta_bin" posX="2" posY="5" text="Ruta BIN"/>
+          <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="57" name="ruta_bin" posX="16" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Edit2" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="13" justify="right" name="lbl_ruta_envio" posX="2" posY="6" text="Ruta envío"/>
+          <Edit colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="57" name="ruta_envio" posX="16" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Edit3" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="13" justify="right" name="lbl_ruta_rescate" posX="2" posY="7" text="Ruta rescate"/>
+          <Edit colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="57" name="ruta_rescate" posX="16" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Edit4" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="13" justify="right" name="lbl_ruta_listados" posX="2" posY="8" text="Ruta listados"/>
+          <Edit colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="57" name="ruta_listados" posX="16" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="16" table_alias_name="" title="Edit5" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="10" name="f_actualiza" posX="16" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="17" table_alias_name="" title="Edit6" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="18" gridHeight="1" gridWidth="10" name="usuario" posX="27" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="18" table_alias_name="" title="Edit7" widget="Edit"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADkAOAA1ADUAZQA0AGMALQBhAGQAMwA0AC0ANAAzADkAMAAtAGIAMQA0ADEALQAxAGEANAAyAGUAOQAyAGQAOQAzAGYAMgB9QBQAAAAAAABAbSAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGIAMQBhADcAYgA1ADEALQBjAGEAZQA1AC0ANABlADYAYQAtADgAYwBlADIALQA0ADUAYgBhADQAMQA1ADgAZAAzADIAZgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADEANQA0ADUAYwBhADYALQBkADEAMgA5AC0ANABjADMAZAAtADkANABlADUALQA0AGQAMgA0AGMAZQBjADcAZAAyAGQAZgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADcAYgAxADgAOAA0ADQALQBlADcANAA5AC0ANAAxADQAYwAtAGIAZAAzADAALQAwAGEAOQAxAGUAYQA0ADgANAAwADUAYQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADUAYwA3ADYAZQAwAGIALQA5AGUANgAzAC0ANAA4ADcAZQAtAGEANgBhADAALQA4ADQANwA3AGYAMABkADIAYgAwADgANgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADUANAA5AGIAYwAzADYALQA4AGIANwA0AC0ANAAxAGMAYQAtADgAMgA1ADkALQBkAGIAOAAxADkAZgBiADAAZABjADQAZAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGIANwA3AGIAMwAyAGQALQA3ADAANwA2AC0ANAA2ADAANgAtADgANgAwADAALQBhAGIANgA5AGYAMABjADgANgBjADAAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGQAMQA3ADkAZAA3AGUALQBmADcAMQBhAC0ANAAzADMAMgAtAGIAMwBhADkALQA5ADMAZAA4ADYANAA3ADYAOQBjAGQAMQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBhADUAMgA2ADUANgAxADkALQAzAGEAZQA2AC0ANAA3ADIAZQAtADgAYwBiAGUALQBmAGMAYQBkADAANgBlADEAZgAyADEAOQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGYANQA0ADUAOQA2AGYALQBjADUAZgAwAC0ANAA2ADQANwAtAGEANwBlADkALQA2AGMAYQAwADIANAAwAGYANgA2ADkAYgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADAANwBkAGEAMQA3ADQALQBlADIAMAAxAC0ANAAzADgAZgAtADgANwBlADAALQAyADkANQA5ADkAYgBmADQAZAAyAGEAYwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEAYgBkAGMAOABlADgALQBlADMAMAAxAC0ANAAxADgAMQAtADkANwA5AGIALQBjADUAMQBhADkAMQBmADIAYQBmADAANQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADcAMwBjADcAYQA4ADQALQAzADAAYwBkAC0ANABkADMAYwAtAGIAZABmADMALQAyADkAMgAzAGQAMAAyADQANgAwAGIANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADIAMQA0ADEAOABlAGEALQBjADYANAAzAC0ANAA3ADkAMQAtADkANgAyAGYALQAyADQAOABkADQAYgBlADEAOQA2AGUAOQB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewAwADEAMAA1AGIAZAA0AGIALQBkADkAMAA1AC0ANAAwADkANAAtAGIAMgBjADcALQAzADkAOABhADcAMwBjADIAMgAwAGUAZgB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBlADIAOQA5AGIANwBkADMALQBhADYAOAA1AC0ANABkAGIAMwAtADgAMgAxADQALQA3AGQANABiADgANgAyADgANAA3AGUANgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADUANAA5ADcANwBhADIALQA1ADUANQBkAC0ANABjAGMAMgAtAGEANwBmADgALQBlADQANgAwAGIAMgA4ADYAMgA0ADgAOQB9wHJgAAAAAABAFAAAAAAAAD98rAgxJul5AQAAAEwAewAwADAAMgBmAGUAOAAzADIALQA2ADgAYgAxAC0ANABkAGQAYQAtAGEAZgA0AGYALQA3ADMAOQA4ADYAZAAzAGIAYwAzADUANwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADMAMQA3ADYANgBkAGUALQAyADYAMwA2AC0ANABiADgANAAtADgANAA4ADEALQAxAGUANwBjAGQAMwAzAGIAZgBiADkAOAB9QBQAAAAAAABAcAAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGMANgA2AGQAYwAxADAALQAzADkAYQA5AC0ANABlADIAMQAtAGEAZgA0ADYALQA2ADYAZABhADUAMQAzAGYAYgA1AGUAMQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGIAMQAwADcANgBkADIALQBiADAAZQBhAC0ANABiAGYAMQAtAGIAZAA5AGQALQA5ADYAMwA4AGEAZQA5AGUAZgA2AGEAYQB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGEANAAyADgAZgAyADQALQA0AGIANQA3AC0ANAAxADYAZgAtADgAMwBmADcALQAzAGMAZABhADMANABjADMANgAzAGIAMAB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

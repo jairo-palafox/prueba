@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ConsultaPago" targetNamespace="http://services.infonavit.org.mx" xmlns:tns="http://services.infonavit.org.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://services.infonavit.org.mx" xmlns:tns="http://services.infonavit.org.mx" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:include schemaLocation="SalidaCPA.xsd"/>
+      <xsd:include schemaLocation="EntradaCPA.xsd"/>
+      <xsd:element name="consultar">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="entrada" nillable="true" type="tns:EntradaCPA"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="salida" nillable="true" type="tns:SalidaCPA"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarResponseMsg">
+    <wsdl:part element="tns:consultarResponse" name="consultarResult">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarRequestMsg">
+    <wsdl:part element="tns:consultar" name="consultarParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ConsultaPago">
+    <wsdl:operation name="consultar">
+      <wsdl:input message="tns:consultarRequestMsg" name="consultarRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:consultarResponseMsg" name="consultarResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

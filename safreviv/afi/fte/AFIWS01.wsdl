@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><?FJSWSDLUpdate http://localhost:8080/WSHomonimia/services/ConsultaHomonimiaServices?wsdl?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services.safre.efp.com" xmlns:intf="http://services.safre.efp.com" xmlns:tns1="http://vo.safre.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.safre.efp.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://services.safre.efp.com">
+   <import namespace="http://vo.safre.efp.com"/>
+   <element name="consultarHomonimia">
+    <complexType>
+     <sequence>
+      <element name="consultaHomonimiaRequest" type="tns1:ConsultaHomonimiaRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarHomonimiaResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarHomonimiaReturn" type="tns1:ConsultaHomonimiaResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.safre.efp.com">
+   <complexType name="ConsultaHomonimiaRequest">
+    <sequence>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ConsultaHomonimiaResponse">
+    <sequence>
+     <element name="codigoRespuesta" nillable="true" type="xsd:string"/>
+     <element name="fechaTramite" nillable="true" type="xsd:dateTime"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="consultarHomonimiaRequest">
+
+      <wsdl:part element="impl:consultarHomonimia" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarHomonimiaResponse">
+
+      <wsdl:part element="impl:consultarHomonimiaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ConsultaHomonimiaServices">
+
+      <wsdl:operation name="consultarHomonimia">
+
+         <wsdl:input message="impl:consultarHomonimiaRequest" name="consultarHomonimiaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultarHomonimiaResponse" name="consultarHomonimiaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ConsultaHomonimiaServicesSoapBinding" type="impl:ConsultaHomonimiaServices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="consultarHomonimia">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultarHomonimiaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultarHomonimiaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ConsultaHomonimiaServicesService">
+
+      <wsdl:port binding="impl:ConsultaHomonimiaServicesSoapBinding" name="ConsultaHomonimiaServices">
+
+         <wsdlsoap:address location="http://localhost:8080/WSHomonimia/services/ConsultaHomonimiaServices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

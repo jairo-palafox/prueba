@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{cb90ef08-b9d9-4430-9f25-9e77c0ac232a}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_despliegue" order="" uid="{bad19d25-8e7f-4ea7-88ad-806051877042}" where="">
+    <RecordField colName="" fieldIdRef="12" name="folio_liquida" sqlTabName="" table_alias_name="" uid="{b911f55c-44da-4c9b-9493-728e9c8f9faa}"/>
+    <RecordField colName="" fieldIdRef="1" name="subcuenta" sqlTabName="" table_alias_name="" uid="{cdc07487-2cee-4c76-9788-6deacd46af9f}"/>
+    <RecordField colName="" fieldIdRef="2" name="fondo_inversion" sqlTabName="" table_alias_name="" uid="{ac2cbe3e-c8dd-4384-8a30-c8214f45bfc4}"/>
+    <RecordField colName="" fieldIdRef="3" name="monto_acciones" sqlTabName="" table_alias_name="" uid="{95005fa6-e8af-461f-879b-004eacef87fe}"/>
+    <RecordField colName="" fieldIdRef="4" name="pesos_liquidacion" sqlTabName="" table_alias_name="" uid="{d4d863b6-c273-4474-b94d-eed7d8126cdb}"/>
+    <RecordField colName="" fieldIdRef="5" name="pesos_restitucion" sqlTabName="" table_alias_name="" uid="{54bd34a7-dbe3-4d93-88be-1c6e8eb78bb0}"/>
+    <RecordField colName="" fieldIdRef="6" name="rendimiento" sqlTabName="" table_alias_name="" uid="{6069f477-7ffb-4a33-8cea-f4a7b70abaf8}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{9d9558e4-f82b-45f9-8254-f81428efdd8d}" where="">
+    <RecordField colName="" fieldIdRef="7" name="v_tot_pesos_liquidacion" sqlTabName="" table_alias_name="" uid="{b5aee51e-c8da-438e-ab98-3d77e6341c85}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_tot_rendimiento" sqlTabName="" table_alias_name="" uid="{c9dc8e23-b9be-45f4-a2c2-ec69124e5ce0}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_tot_pesos_restitucion" sqlTabName="" table_alias_name="" uid="{d61d8a5d-a8aa-4958-bda9-12a720307261}"/>
+    <RecordField colName="" fieldIdRef="10" name="v_tot_monto_acciones" sqlTabName="" table_alias_name="" uid="{527dcb75-2300-4420-ae71-cf26180d943d}"/>
+    <RecordField colName="" fieldIdRef="11" name="v_d_folio_restitucion" sqlTabName="" table_alias_name="" uid="{3deb1b68-d727-4e36-a29f-6ca15f3c9d4a}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="85" name="v_tot_monto_acciones" text="Form">
+    <VBox gridHeight="21" gridWidth="84" name="VBox1" posX="1" posY="0">
+      <Grid gridHeight="5" gridWidth="84" name="Grid2" posX="0" posY="1">
+        <Label gridHeight="1" gridWidth="14" name="Label6" posX="4" posY="1" text="Folio de Restitución:"/>
+        <FFLabel colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="13" name="v_d_folio_restitucion" posX="19" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+      </Grid>
+      <Table gridHeight="9" gridWidth="84" name="tbl_despliegue" posX="0" posY="6" totalRows="5">
+        <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="8" name="folio_liquida" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Folio Liquida" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="8" name="subcuenta" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Subcuenta" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="8" name="fondo_inversion" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Fondo inversión" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="8" name="monto_acciones" posX="24" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="AIVs" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="8" name="pesos_liquidacion" posX="32" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Liquidación" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="8" name="pesos_restitucion" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Restitución" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="rendimiento" posX="48" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Rendimiento" widget="Edit"/>
+      </Table>
+      <Grid gridHeight="5" gridWidth="84" name="Grid1" posX="0" posY="15">
+        <Label gridHeight="1" gridWidth="14" name="Label1" posX="19" posY="1" text="AIVs"/>
+        <Label gridHeight="1" gridWidth="14" name="Label2" posX="34" posY="1" text="Liquidación"/>
+        <Label gridHeight="1" gridWidth="14" name="Label3" posX="49" posY="1" text="Restitución"/>
+        <Label gridHeight="1" gridWidth="14" name="Label4" posX="64" posY="1" text="Rendimiento"/>
+        <Label gridHeight="1" gridWidth="9" name="Label5" posX="9" posY="2" text="Totales"/>
+        <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="14" name="v_tot_monto_acciones" posX="19" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="14" name="v_tot_pesos_liquidacion" posX="34" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="14" name="v_tot_pesos_restitucion" posX="49" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="14" name="v_tot_rendimiento" posX="64" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Grid>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5AGQAOQA1ADUAOABlADQALQBmADgAMgBiAC0ANAA1AGYAOQAtADgAMgA1ADQALQBmADgAMQA0ADIAOABlAGYAZABkADgAZAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADkAMQAxAGYANQA1AGMALQA0ADQAZABhAC0ANABjADkAYgAtADkANAA5ADMALQA3ADIAOABlADkAYwA4AGYAOQBmAGEAYQB9QBQAAAAAAABAOgAAAAAAAD90euFHrhR7AQAAAEwAewBiAGEAZAAxADkAZAAyADUALQA4AGUANwBmAC0ANABlAGEANwAtADgAOABhAGQALQA4ADAANgAwADUAMQA4ADcANwAwADQAMgB9AAAAAAAAAAAAAAAAAAAAAD9gYk3S8an8AQAAAEwAewAzAGQAZQBiADEAYgA2ADgALQBkADcAMgA3AC0ANABlADMANgAtAGEAMgA5AGYALQA2AGMAYQAxADUAZgAzAGMAOQBkADQAYQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGQAYwAwADcANAA4ADcALQAyAGMAZQBlAC0ANABjADcANgAtADkANwA4ADgALQA2AGQAZQBhAGMAZAA0ADYAYQBmADkAZgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQAZAA4ADYAMwBiADYALQBjADIANwAzAC0ANAA0ADcANAAtAGIAOQA0AGQALQBlAGUAZAA3AGQAOAAxADIANgBjAGQAYgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADIANwBkAGMAYgA3ADUALQAyADMAMAAwAC0ANAA0ADIAMAAtAGEAZQA3ADEALQBjAGYAMgA2ADEAOAAwAGQAOQA0ADMAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADAANgA5AGYANAA3ADcALQA3AGYAZgBiAC0ANABhADMAMwAtADgAYwBlAGEALQBmADQAYQA3AGIANwAwAGEAYgBhAGYAOAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADUAMAAwADUAZgBhADYALQBlADgAYQBmAC0ANAA2ADEAZgAtADgANwA5AGIALQAwADAANABlAGEAYwBlAGYAOAA3AGYAZQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADkAZABjADgAZQAyADMALQBiADkAYgBlAC0ANAA1AGYANAAtAGEAMgBjADIALQBlAGMANgA5ADEAMgA0AGUANQBjAGUAMAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADYAMQBkADgAYQA1AGQALQBhADgAYQBhAC0ANAA5ADUAOAAtAGIAZABhADkALQAxADIAYQA3ADIAMAAzADAANwAyADYAMQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADQAYgBkADMANABhADcALQBkAGIAZQAzAC0ANABkADkAMwAtADgAOABiAGUALQAxAGMANgBlADgAZQBiADcAOABiAGIAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADUAYQBlAGUANQAxAGUALQBjADgAZABhAC0ANAAzADgAZQAtAGEAYgA5ADgALQAzAGQANwA3AGUANgAzADQAMQBjADgANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGMAMgBjAGIAZQAzAGUALQBjADgAZABkAC0ANAAzADgANAAtADgAYQAzADAALQBjADgAMgAxADQAZgA0ADUAYgBmAGMANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

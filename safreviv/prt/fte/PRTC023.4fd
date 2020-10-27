@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{a052c761-3f14-40b4-a02d-f3c1c0e1fd2c}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{a94cce75-5d36-4a4f-ad66-b05120fbf6b2}" where="">
+    <RecordField colName="" fieldIdRef="1" name="modulo_cod" sqlTabName="" table_alias_name="" uid="{fb18bcae-462e-479b-b791-0d5f3dfd8e7c}"/>
+    <RecordField colName="" fieldIdRef="2" name="id_cat_bus_proceso" sqlTabName="" table_alias_name="" uid="{ed9ddbff-dd4d-49bf-ac94-60946e93975b}"/>
+    <RecordField colName="" fieldIdRef="3" name="id_cat_bus_operacion" sqlTabName="" table_alias_name="" uid="{d45c81bc-cbae-4c22-96da-11aed4f9b43c}"/>
+    <RecordField colName="" fieldIdRef="4" name="id_cat_bus_contrato" sqlTabName="" table_alias_name="" uid="{17ee5991-65ad-45c0-b854-5f3aa2840761}"/>
+    <RecordField colName="" defaultValue="1" fieldIdRef="5" name="tipo_consulta" sqlTabName="" table_alias_name="" uid="{ffac705a-848a-475a-8ade-e20ac2f9c604}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_operacion_inicio" sqlTabName="" table_alias_name="" uid="{99c62efc-3620-4df3-8ff5-05ca06684779}"/>
+    <RecordField colName="" fieldIdRef="7" name="f_operacion_fin" sqlTabName="" table_alias_name="" uid="{098f28f1-1843-4659-8c16-e0c2195c99bc}"/>
+    <RecordField colName="" fieldIdRef="8" name="f_operacion_ack_inicio" sqlTabName="" table_alias_name="" uid="{daa92cfe-3665-4ddd-8c71-430771127926}"/>
+    <RecordField colName="" fieldIdRef="9" name="f_proceso_ack_fin" sqlTabName="" table_alias_name="" uid="{b741b74d-aaf4-4c32-bb3c-72ecd55d05b8}"/>
+    <RecordField colName="" fieldIdRef="10" name="nss" sqlTabName="" table_alias_name="" uid="{cc91f386-8468-4c3f-b068-586cbac56c8e}"/>
+    <RecordField colName="" fieldIdRef="11" name="curp" sqlTabName="" table_alias_name="" uid="{8fdaee00-4ca7-460a-9d3c-5f52d3c3d328}"/>
+    <RecordField colName="" fieldIdRef="12" name="cod_transaccion_opr" sqlTabName="" table_alias_name="" uid="{bdc0ca86-356c-40c2-b755-f457d769188a}"/>
+    <RecordField colName="" fieldIdRef="13" name="cod_respuesta" sqlTabName="" table_alias_name="" uid="{9d60fb94-e96f-4eb9-812b-0f3faa57cfc0}"/>
+    <RecordField colName="" fieldIdRef="14" name="cod_respuesta_opr" sqlTabName="" table_alias_name="" uid="{cc7bf886-34a5-4817-86f9-aba35f61a5ea}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="98" name="Form" text="Form">
+    <Grid gridHeight="24" gridWidth="95" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="10" gridWidth="91" name="gpo_modulo" posX="1" posY="1" text="Módulo">
+        <RadioGroup colName="" columnCount="" defaultValue="1" fieldId="5" gridHeight="2" gridWidth="10" include="1|2" items="Todas, Excepciones" name="tipo_consulta" notNull="true" posX="75" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="RadioGroup1" widget="RadioGroup">
+          <Item lstrtext="false" name="1" text="Todas"/>
+          <Item lstrtext="false" name="2" text="Excepciones"/>
+        </RadioGroup>
+        <Label gridHeight="1" gridWidth="10" name="lbl_modulo" posX="3" posY="2" text="Módulo:"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="52" items="" name="modulo_cod" posX="15" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_proceso" posX="3" posY="4" text="Proceso:"/>
+        <ComboBox colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="52" items="" name="id_cat_bus_proceso" posX="15" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="ComboBox2" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_operacion" posX="3" posY="6" text="Operación:"/>
+        <ComboBox colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="52" items="" name="id_cat_bus_operacion" posX="15" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox3" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_contrato" posX="3" posY="8" text="Contrato:"/>
+        <ComboBox colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="52" items="" name="id_cat_bus_contrato" posX="15" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="ComboBox4" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="10" gridWidth="91" name="gpo_filtros" posX="1" posY="12" text="Filtros">
+        <Label gridHeight="1" gridWidth="15" name="lbl_fecha_operacion" posX="3" posY="2" text="Fecha operación:"/>
+        <DateEdit colName="" columnCount="" fieldId="6" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_operacion_inicio" posX="20" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="3" name="lbl_al1" posX="32" posY="2" text="al"/>
+        <DateEdit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_operacion_fin" posX="37" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="18" name="lbl_cod_oper_transaccion" posX="50" posY="2" text="Código oper transacción:"/>
+        <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="16" name="cod_transaccion_opr" posX="70" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_fecha_operacion_ack" posX="3" posY="4" text="Fecha operación ACK:"/>
+        <DateEdit colName="" columnCount="" fieldId="8" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_operacion_ack_inicio" posX="20" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="3" name="lbl_al2" posX="32" posY="4" text="al"/>
+        <DateEdit colName="" columnCount="" fieldId="9" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_proceso_ack_fin" posX="37" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="18" name="lbl_cod_resp_ack" posX="50" posY="4" text="Código respuesta ACK:"/>
+        <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="16" name="cod_respuesta" posX="70" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_nss" posX="3" posY="6" text="NSS:"/>
+        <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="18" name="nss" posX="20" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="18" name="lbl_cod_resp_oper_ack" posX="50" posY="6" text="Código respuesta oper ACK:"/>
+        <Edit colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="16" name="cod_respuesta_opr" posX="70" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_curp" posX="3" posY="8" text="CURP:"/>
+        <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="23" name="curp" posX="20" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Edit2" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhADkANABjAGMAZQA3ADUALQA1AGQAMwA2AC0ANABhADQAZgAtAGEAZAA2ADYALQBiADAANQAxADIAMABmAGIAZgA2AGIAMgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGMAOQAxAGYAMwA4ADYALQA4ADQANgA4AC0ANABjADMAZgAtAGIAMAA2ADgALQA1ADgANgBjAGIAYQBjADUANgBjADgAZQB9QBQAAAAAAABAbSAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGYAZABhAGUAZQAwADAALQA0AGMAYQA3AC0ANAA2ADAAYQAtADkAZAAzAGMALQA1AGYANQAyAGQAMwBjADMAZAAzADIAOAB9QBQAAAAAAABAcAAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGIAMQA4AGIAYwBhAGUALQA0ADYAMgBlAC0ANAA3ADkAYgAtAGIANwA5ADEALQAwAGQANQBmADMAZABmAGQAOABlADcAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADkAYwA2ADIAZQBmAGMALQAzADYAMgAwAC0ANABkAGYAMwAtADgAZgBmADUALQAwADUAYwBhADAANgA2ADgANAA3ADcAOQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADcANAAxAGIANwA0AGQALQBhAGEAZgA0AC0ANABjADMAMgAtAGIAYgAzAGMALQA3ADIAZQBjAGQANQA1AGQAMAA1AGIAOAB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQANQBjADgAMQBiAGMALQBjAGIAYQBlAC0ANABjADIAMgAtADkANgBkAGEALQAxADEAYQBlAGQANABmADkAYgA0ADMAYwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADkAOABmADIAOABmADEALQAxADgANAAzAC0ANAA2ADUAOQAtADgAYwAxADYALQBlADAAYwAyADEAOQA1AGMAOQA5AGIAYwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGQAYwAwAGMAYQA4ADYALQAzADUANgBjAC0ANAAwAGMAMgAtAGIANwA1ADUALQBmADQANQA3AGQANwA2ADkAMQA4ADgAYQB9QBQAAAAAAABAcXAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGQANgAwAGYAYgA5ADQALQBlADkANgBmAC0ANABlAGIAOQAtADgAMQAyAGIALQAwAGYAMwBmAGEAYQA1ADcAYwBmAGMAMAB9QBQAAAAAAABAcuAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGQAOQBkAGQAYgBmAGYALQBkAGQANABkAC0ANAA5AGIAZgAtAGEAYwA5ADQALQA2ADAAOQA0ADYAZQA5ADMAOQA3ADUAYgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADcAZQBlADUAOQA5ADEALQA2ADUAYQBkAC0ANAA1AGMAMAAtAGIAOAA1ADQALQA1AGYAMwBhAGEAMgA4ADQAMAA3ADYAMQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGYAYQBjADcAMAA1AGEALQA4ADQAOABhAC0ANAA3ADUAYQAtADgAYQBkAGUALQBlADIAMABhAGMAMgBmADkAYwA2ADAANAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGEAYQA5ADIAYwBmAGUALQAzADYANgA1AC0ANABkAGQAZAAtADgAYwA3ADEALQA0ADMAMAA3ADcAMQAxADIANwA5ADIANgB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGMANwBiAGYAOAA4ADYALQAzADQAYQA1AC0ANAA4ADEANwAtADgANgBmADkALQBhAGIAYQAzADUAZgA2ADEAYQA1AGUAYQB9QBQAAAAAAABAdFAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

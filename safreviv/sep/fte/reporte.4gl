@@ -1,0 +1,7 @@
+DATABASE safre_viv
+
+MAIN
+
+
+
+END MAIN

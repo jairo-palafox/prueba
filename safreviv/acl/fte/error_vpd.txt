@@ -1,0 +1,224 @@
+ACLC10.4gl:377:                          CALL fn_mensaje("Error",
+ACLC10.4gl:378:                             "Ocurrio un error al efectuar la preliquidación",
+ACLC10.4gl:603:   --WHENEVER ERROR CONTINUE
+ACLC10.4gl:651:      --CALL errorlog()
+ACLC10.4gl:663:      CALL fn_display_proceso_error(0,"Selección aclaratorio", v_opera_cod)
+ACLC10.4gl:672:      CALL fn_display_proceso_error(1,"Selección aclaratorio",v_opera_cod)
+ACLC10.4gl:688:      CALL fn_display_proceso_error(0,"Preliquidación aclaratorio", v_opera_cod)
+ACLC10.4gl:700:      CALL fn_display_proceso_error(1,"Preliquidación aclaratorio", v_opera_cod)
+ACLC10.4gl:709:      LET p_mensaje = "El proceso de Selección y Preliquidación han finalizado pero con errores.\nNo se puede continuar con el proceso de Liquidación."  
+ACLC10.4gl:713:                             NULL, p_titulo,p_mensaje)      DISPLAY "\nError en sp_preliquida_manual_acl (Codigo):",SQLCA.SQLCODE
+ACLC10.4gl:714:      DISPLAY "Error en sp_preliquida_manual_acl (Codigo):",SQLCA.SQLERRM,"\n"
+ACLC10.4gl:720:FUNCTION fn_display_proceso_error(p_inicio_fin, p_etapa, v_opera_cod)
+ACLC10.4gl:730:          CALL ERRORLOG(v_cadena)
+ACLC10.4gl:732:          --CALL ERRORLOG(v_cadena)
+ACLC10.4gl:734:          --CALL ERRORLOG(v_cadena)
+ACLC10.4gl:739:          CALL ERRORLOG(v_cadena)
+ACLC10.4gl:741:          --CALL ERRORLOG(v_cadena)
+ACLC10.4gl:743:          --CALL ERRORLOG(v_cadena)
+ACLC10.4gl:749:          CALL ERRORLOG(v_cadena)
+ACLC10.4gl:751:          --CALL ERRORLOG(v_cadena)
+ACLC10.4gl:753:          --CALL ERRORLOG(v_cadena)
+ACLC10.4gl:758:          CALL ERRORLOG(v_cadena)
+ACLC10.4gl:760:          --CALL ERRORLOG(v_cadena)
+ACLC10.4gl:762:          --CALL ERRORLOG(v_cadena)
+ACLG01.4gl:25:       v_error                 BOOLEAN,
+ACLG01.4gl:35:   LET v_error = FALSE
+ACLG01.4gl:84:               ERROR "Capture folio" ATTRIBUTE(REVERSE)
+ACLG01.4gl:88:               ERROR "Capture folio válido" ATTRIBUTE(REVERSE)
+ACLG01.4gl:100:               ERROR "No existe folio" ATTRIBUTE(REVERSE)
+ACLG01.4gl:129:                     --Si es diferente de cero indica que ocurrio error en el reverso
+ACLG01.4gl:130:                     LET v_error = TRUE
+ACLG01.4gl:131:                     CALL fn_mensaje("Error # "||r_sql_code
+ACLG01.4gl:132:                                    ,"Ocurrió un error al realizar\n el reverso de la preliquidación"
+ACLG01.4gl:133:                                    ,"error")
+ACLG01.4gl:155:               IF v_error = FALSE THEN 
+ACLG01.4gl:188:       v_error_sql     SMALLINT,
+ACLG01.4gl:189:       v_error_isam    SMALLINT,
+ACLG01.4gl:190:       v_mensaje_error VARCHAR(255)
+ACLG01.4gl:195:   INTO v_error_sql,v_error_isam,v_mensaje_error
+ACLG01.4gl:197:   IF(v_error_sql = 0)THEN                                                           
+ACLG01.4gl:200:      DISPLAY "\nError ejecucion sp_preliquida_sin_cambio_nss (Codigo): ",v_error_sql
+ACLG01.4gl:201:      DISPLAY "Error en sp_preliquida_sin_cambio_nss (Mensaje):",v_mensaje_error,"\n"
+ACLG01.4gl:202:      DISPLAY "Error en sp_preliquida_sin_cambio_nss (Mensaje):",v_error_isam,"\n"   
+ACLL02.4gl:43:   --LET g_proceso_cod =  # Devolucion por errores de operacion
+ACLL06.4gl:43:   --LET g_proceso_cod =  # Devolucion por errores de operacion
+ACLL07.4gl:104:      -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL07.4gl:289:                     CALL fn_mensaje(p_v_nom_prog,"Ocurrio un error al ejecutar la integración","about")
+ACLL07.4gl:297:                  -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL08.4gl:176:       v_si_codigo       SMALLINT -- codigo de error
+ACLL09.4gl:108:      -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL09.4gl:298:                     CALL fn_mensaje(p_v_nom_prog,"Ocurrio un error al ejecutar la integración","about")
+ACLL09.4gl:305:                  -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL10.4gl:178:       v_si_codigo       SMALLINT -- codigo de error
+ACLL11.4gl:105:      -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL11.4gl:288:                     CALL fn_mensaje(p_v_nom_prog,"Ocurrio un error al ejecutar la integración","about")
+ACLL11.4gl:295:                  -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL12.4gl:176:       v_si_codigo       SMALLINT -- codigo de error
+ACLL13.4gl:186:              -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL13.4gl:223:               -- si hubo un error al ejecutarlo
+ACLL14.4gl:303:                     CALL fn_mensaje(p_v_nom_prog,"Ocurrió un error al ejecutar la integración","about")
+ACLL14.4gl:304:                     CALL fn_error_opera(v_d_pid, v_i_proceso_cod, v_i_opera_cod)
+ACLL14.4gl:312:                     LET p_mensaje = "El proceso de Generación del Archivo ha finalizado pero con errores."  
+ACLL14.4gl:323:                  -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL16.4gl:98:      -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL16.4gl:275:                     CALL fn_mensaje(p_v_nom_prog,"Ocurrio un error al ejecutar la integración","about")
+ACLL16.4gl:282:                  -- en caso de error se muestra un mensaje a usuario y no continua
+ACLL17.4gl:174:       v_si_codigo       SMALLINT -- codigo de error
+ACLL18.4gl:38:   --LET g_proceso_cod =  # Devolucion por errores de operacion
+ACLP01.4gl:46:   --WHENEVER ERROR CONTINUE
+ACLP01.4gl:102:            LET p_titulo = "Error de operación - Aclaraciones Sin Cambio - Integración"
+ACLP01.4gl:108:            CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP01.4gl:137:               LET p_titulo = "Error de operación - Aclaraciones Sin Cambio - Integración"
+ACLP01.4gl:145:               CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP01.4gl:167:                  LET p_titulo = "Error de operación - Aclaraciones Sin Cambio - Integración"
+ACLP01.4gl:175:                  CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP01.4gl:177:                  --LET p_mensaje = "El proceso de Integración ha finalizado pero con errores.\nNo se puede continuar con el proceso de Preliquidación."
+ACLP01.4gl:220:       v_error_isam    INTEGER,
+ACLP01.4gl:221:       v_mensaje_error VARCHAR(255)
+ACLP01.4gl:225:   --WHENEVER ERROR CONTINUE
+ACLP01.4gl:230:   INTO v_resultado, v_error_isam, v_mensaje_error
+ACLP01.4gl:233:      # Ejecucion sin error
+ACLP01.4gl:236:      DISPLAY "\nError ejecucion sp_historicos_sin_cambio_nss (Codigo): ",v_resultado
+ACLP01.4gl:237:      DISPLAY "Error en sp_historicos_sin_cambio_nss (Mensaje):",v_mensaje_error,"\n"
+ACLP02.4gl:55:            LET p_titulo = "Error de operación - Aclaraciones Sin Cambio - Preliquidación"
+ACLP02.4gl:71:               LET p_titulo = "Error de operación - Aclaraciones Sin Cambio - Preliquidación"
+ACLP02.4gl:78:               CALL fn_error_opera(p_pid,p_proceso_cod,g_opera_cod_integracion) 
+ACLP02.4gl:88:                  LET p_titulo = "Error de operación - Aclaraciones Sin Cambio - Preliquidación"
+ACLP02.4gl:97:                  CALL fn_error_opera(p_pid,p_proceso_cod,g_opera_cod_integracion) 
+ACLP02.4gl:132:       v_error_sql     SMALLINT,
+ACLP02.4gl:133:       v_error_isam    SMALLINT,
+ACLP02.4gl:134:       v_mensaje_error VARCHAR(255)
+ACLP02.4gl:136:   --WHENEVER ERROR CONTINUE
+ACLP02.4gl:141:   INTO v_error_sql,v_error_isam,v_mensaje_error
+ACLP02.4gl:142:   IF(v_error_sql = 0)THEN
+ACLP02.4gl:145:      --DISPLAY "\nError en sp_preliquida_sin_cambio_nss (Codigo):",SQLCA.SQLCODE
+ACLP02.4gl:146:      --DISPLAY "Error en sp_preliquida_sin_cambio_nss (Codigo):",SQLCA.SQLERRM,"\n"
+ACLP02.4gl:147:      DISPLAY "\nError ejecucion sp_preliquida_sin_cambio_nss (Codigo): ",v_error_sql
+ACLP02.4gl:148:      DISPLAY "Error en sp_preliquida_sin_cambio_nss (Mensaje):",v_mensaje_error,"\n"
+ACLP02.4gl:149:      DISPLAY "Error en sp_preliquida_sin_cambio_nss (Mensaje):",v_error_isam,"\n"
+ACLP03.4gl:46:   WHENEVER ERROR CONTINUE
+ACLP03.4gl:86:         LET p_titulo = "Error de operación - Aclaraciones Con Cambios - Integración"
+ACLP03.4gl:98:            LET p_titulo = "Error de operación - Aclaraciones Con Cambios - Integración"
+ACLP03.4gl:105:            CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP03.4gl:129:               LET p_titulo = "Error de operación - Aclaraciones Con Cambios - Integración"
+ACLP03.4gl:138:               CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP03.4gl:164:                  LET p_titulo = "Error de operación - Aclaraciones Con Cambios - Integración"
+ACLP03.4gl:173:                  CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP03.4gl:215:       v_cod_error     SMALLINT,
+ACLP03.4gl:216:       v_error_isam    INTEGER,
+ACLP03.4gl:217:       v_mensaje_error VARCHAR(255)
+ACLP03.4gl:220:   WHENEVER SQLERROR CONTINUE
+ACLP03.4gl:224:   INTO    v_cod_error, v_error_isam, v_mensaje_error
+ACLP03.4gl:226:   -- se verifica si ocurrio un error al integrar el archivo
+ACLP03.4gl:227:   IF ( v_cod_error = 0 ) THEN
+ACLP03.4gl:228:      DISPLAY v_mensaje_error
+ACLP03.4gl:231:      DISPLAY "\nError ejecucion sp_historicos_con_cambio_nss (Codigo): ",v_cod_error
+ACLP03.4gl:232:      DISPLAY v_mensaje_error
+ACLP03.4gl:236:   WHENEVER SQLERROR STOP
+ACLP04.4gl:56:            LET p_titulo = "Error de operación - Aclaraciones Con Cambios - Preliquidación"
+ACLP04.4gl:70:               LET p_titulo = "Error de operación - Aclaraciones Con Cambios - Preliquidación"
+ACLP04.4gl:77:               CALL fn_error_opera(p_pid,p_proceso_cod,g_opera_cod_integracion) 
+ACLP04.4gl:87:                  LET p_titulo = "Error de operación - Aclaraciones Con Cambios - Preliquidación"
+ACLP04.4gl:95:                  CALL fn_error_opera(p_pid,p_proceso_cod,g_opera_cod_integracion) 
+ACLP04.4gl:129:       v_error_sql     SMALLINT,
+ACLP04.4gl:130:       v_error_isam    SMALLINT,
+ACLP04.4gl:131:       v_mensaje_error VARCHAR(255)
+ACLP04.4gl:133:   --WHENEVER ERROR CONTINUE
+ACLP04.4gl:138:  INTO v_error_sql,v_error_isam,v_mensaje_error
+ACLP04.4gl:140:   IF(v_error_sql = 0)THEN
+ACLP04.4gl:143:      DISPLAY "\nError ejecucion sp_preliquida_con_cambio_nss (Codigo): ",v_error_sql      
+ACLP04.4gl:144:      DISPLAY "Error en sp_preliquida_con_cambio_nss (Mensaje):",v_error_isam,"\n"
+ACLP04.4gl:145:      DISPLAY "Error en sp_preliquida_con_cambio_nss (Mensaje):",v_mensaje_error,"\n"
+ACLP05.4gl:45:   --WHENEVER ERROR CONTINUE
+ACLP05.4gl:89:      CALL fn_error_opera(g_pid, g_proceso_cod, g_opera_cod_integra) 
+ACLP05.4gl:94:      LET p_mensaje = "El proceso de Integración ha finalizado pero con errores.\nNo se puede continuar con el proceso de Preliquidación."              
+ACLP05.4gl:137:       v_cod_error      SMALLINT,
+ACLP05.4gl:138:       v_error_isam     INTEGER,
+ACLP05.4gl:139:       v_mensaje_error  VARCHAR(255)
+ACLP05.4gl:141:   --WHENEVER ERROR CONTINUE
+ACLP05.4gl:148:   INTO    v_cod_error, v_error_isam, v_mensaje_error
+ACLP05.4gl:150:   IF ( v_cod_error = 0 ) THEN
+ACLP05.4gl:151:      DISPLAY v_mensaje_error
+ACLP05.4gl:154:      DISPLAY "\nError ejecucion sp_historicos_enaclara (Codigo): ",v_cod_error
+ACLP05.4gl:155:      DISPLAY "\nError ejecucion sp_historicos_enaclara (Mensaje): ",v_mensaje_error
+ACLP05.4gl:156:      DISPLAY v_mensaje_error
+ACLP06.4gl:54:            LET p_titulo = "Error de operación - Aclaraciones Enaclara - Preliquidación"
+ACLP06.4gl:71:               LET p_titulo = "Error de operación - Aclaraciones Enaclara - Preliquidación"
+ACLP06.4gl:78:               CALL fn_error_opera(p_pid,p_proceso_cod,g_opera_cod_integracion) 
+ACLP06.4gl:91:                  LET p_titulo = "Error de operación - Aclaraciones Enaclara - Preliquidación"
+ACLP06.4gl:99:                  CALL fn_error_opera(p_pid,p_proceso_cod,g_opera_cod_integracion) 
+ACLP06.4gl:135:        v_cod_error       SMALLINT,
+ACLP06.4gl:136:       v_error_isam       INTEGER,
+ACLP06.4gl:137:       v_mensaje_error    VARCHAR(255)
+ACLP06.4gl:139:   --WHENEVER ERROR CONTINUE
+ACLP06.4gl:143:   INTO v_cod_error, v_error_isam, v_mensaje_error
+ACLP06.4gl:145:   IF(v_cod_error = 0)THEN
+ACLP06.4gl:146:   	  DISPLAY v_mensaje_error
+ACLP06.4gl:147:      DISPLAY v_cod_error
+ACLP06.4gl:148:      # Ejecucion sin error
+ACLP06.4gl:151:   	  DISPLAY "\nError de ejecución en 'sp_preliquida_enaclara_nss' (Código): ",v_cod_error
+ACLP06.4gl:152:      DISPLAY "Error en 'sp_preliquida_enaclara_nss' (Mensaje):",v_mensaje_error,"\n"
+ACLP06.4gl:153:      DISPLAY "Error en 'sp_preliquida_enaclara_nss' (Mensaje):",v_error_isam,"\n"
+ACLP07.4gl:119:      LET v_cadena = " --- ERROR ---\n",
+ACLP07.4gl:121:                     " Código de error: ", v_bandera,"\n \n",
+ACLP07.4gl:125:      CALL fn_error_opera(pid, p_proceso_cod, p_opera_cod)
+ACLP07.4gl:127:      LET p_mensaje = "El proceso de Liquidación ha finalizado pero con errores.\nNo se puede continuar con el proceso de Generación del Archivo."  
+ACLP08.4gl:41:   WHENEVER ERROR CONTINUE
+ACLP08.4gl:87:         LET p_titulo = "Error de operación - Aclaraciones Enaclara - Integración"
+ACLP08.4gl:99:            LET p_titulo = "Error de operación - Aclaraciones Enaclara - Integración"
+ACLP08.4gl:105:            CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP08.4gl:128:               LET p_titulo = "Error de operación - Aclaraciones Enaclara - Integración"
+ACLP08.4gl:136:               CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP08.4gl:158:               LET p_mensaje = "El proceso de Integración ha finalizado pero con errores.\nNo se puede continuar con el proceso de Preliquidación."  
+ACLP08.4gl:161:                  LET p_titulo = "Error de operación - Aclaraciones Enaclara - Integración"
+ACLP08.4gl:170:                  CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod_integracion) 
+ACLP08.4gl:216:   WHENEVER ERROR CONTINUE
+ACLP08.4gl:221:      # Ejecucion sin error
+ACLP08.4gl:224:      DISPLAY "\nError ejecucion sp_historicos_aclaracion1402 (Codigo): ",SQLCA.SQLCODE
+ACLP08.4gl:225:      DISPLAY "Error en sp_historicos_aclaracion1402 (Mensaje):",SQLCA.SQLERRM,"\n"
+ACLP09.4gl:61:            LET p_titulo = "Error de operación - Aclaraciones ACL-1402 - Preliquidación"
+ACLP09.4gl:74:               LET p_titulo = "Error de operación - Aclaraciones ACL-1402 - Preliquidación"
+ACLP09.4gl:81:               CALL fn_error_opera(p_pid,p_proceso_cod,g_opera_cod_integracion) 
+ACLP09.4gl:92:                  LET p_titulo = "Error de operación - Aclaraciones ACL-1402 - Preliquidación"
+ACLP09.4gl:101:                  CALL fn_error_opera(p_pid,p_proceso_cod,g_opera_cod_integracion) 
+ACLP09.4gl:137:   WHENEVER ERROR CONTINUE
+ACLP09.4gl:144:      DISPLAY "\nError en sp_preliquida_aclaracion1402 (Codigo):",SQLCA.SQLCODE
+ACLP09.4gl:145:      DISPLAY "Error en sp_preliquida_aclaracion1402 (Codigo):",SQLCA.SQLERRM,"\n"
+ACLR02.4gl:94:               ERROR "Capture folio" ATTRIBUTE(REVERSE)
+ACLR02.4gl:98:               ERROR "Capture folio válido" ATTRIBUTE(REVERSE)
+ACLR02.4gl:109:               ERROR "No existe folio" ATTRIBUTE(REVERSE)
+ACLR05.4gl:94:               ERROR "Capture folio" ATTRIBUTE(REVERSE)
+ACLR05.4gl:98:               ERROR "Capture folio válido" ATTRIBUTE(REVERSE)
+ACLR05.4gl:109:               ERROR "No existe folio" ATTRIBUTE(REVERSE)
+ACLR07.4gl:95:               ERROR "Capture folio" ATTRIBUTE(REVERSE)
+ACLR07.4gl:99:               ERROR "Capture folio válido" ATTRIBUTE(REVERSE)
+ACLR07.4gl:110:               ERROR "No existe folio" ATTRIBUTE(REVERSE)
+ACLR08.4gl:94:               ERROR "Capture folio" ATTRIBUTE(REVERSE)
+ACLR08.4gl:98:               ERROR "Capture folio válido" ATTRIBUTE(REVERSE)
+ACLR08.4gl:109:               ERROR "No existe folio" ATTRIBUTE(REVERSE)
+ACLR10.4gl:57:    --otro caso mensaje de error
+ACLR10.4gl:197:                      DISPLAY "\nError en eliminar registro (Codigo):",SQLCA.SQLCODE
+ACLR10.4gl:198:                      DISPLAY "Error en eliminar registro (Codigo):",SQLCA.SQLERRM,"\n"
+ACLR10.4gl:200:                                    "Ocurrió un Error al realizar el reverso",
+ACLR11.4gl:192:                                DISPLAY "\nError en eliminar registro (Codigo):",SQLCA.SQLCODE
+ACLR11.4gl:193:                                DISPLAY "Error en eliminar registro (Codigo):",SQLCA.SQLERRM,"\n"
+ACLR11.4gl:197:                            DISPLAY "\nError en eliminar registro (Codigo):",SQLCA.SQLCODE
+ACLR11.4gl:198:                            DISPLAY "Error en eliminar registro (Codigo):",SQLCA.SQLERRM,"\n"
+ACLR11.4gl:202:                        DISPLAY "\nError en eliminar registro (Codigo):",SQLCA.SQLCODE
+ACLR11.4gl:203:                        DISPLAY "Error en eliminar registro (Codigo):",SQLCA.SQLERRM,"\n"
+ACLR11.4gl:221:                                        "Ocurrió un Error al realizar el reverso",
+ACLR12.4gl:34:       v_error                 BOOLEAN,
+ACLR12.4gl:147:            LET v_error = FALSE
+ACLR12.4gl:181:                     --Si es diferente de cero indica que ocurrio error en el reverso
+ACLR12.4gl:182:                     LET v_error = TRUE
+ACLR12.4gl:183:                     CALL fn_mensaje("Error # "||r_sql_code
+ACLR12.4gl:184:                                    ,"Ocurrió un error al realizar\n el reverso de la Liquidación"
+ACLR12.4gl:185:                                    ,"error")
+ACLR12.4gl:200:               IF v_error = FALSE THEN 
+ACLR13.4gl:92:               ERROR "Capture folio" ATTRIBUTE(REVERSE)
+ACLR13.4gl:96:               ERROR "Capture folio válido" ATTRIBUTE(REVERSE)
+ACLR13.4gl:107:               ERROR "No existe folio" ATTRIBUTE(REVERSE)
+ACLR14.4gl:90:               ERROR "Capture folio" ATTRIBUTE(REVERSE)
+ACLR14.4gl:94:               ERROR "Capture folio válido" ATTRIBUTE(REVERSE)
+ACLR14.4gl:105:               ERROR "No existe folio" ATTRIBUTE(REVERSE)

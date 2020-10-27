@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/TIAC09.rdd" RWFglReportName="rpt_reporte_tia_contabilidad"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="720.098" length="max" alignment="center">
+                    <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="barraLogoInfonavit" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" width="50" alignment="far" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="barraTituloReporte" width="19.1243" length="720.24" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="lblTituloReporte" width="max" length="max" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="CONSULTA DINAMICA TRASPASOS INFONAVIT-AFORE"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="GrupoDatosUsuario" width="min" length="max" layoutDirection="leftToRight">
+                        <MINIPAGE name="BarraDatosUsuario" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <WORDBOX name="lblFechaEmision" width="80" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Fecha reporte:"/>
+                            <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_reporte Value" width="70" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                            <WORDBOX name="lblEspacioPeriodo" width="30" length="15" alignment="baseline" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="lblNombreUsuario" width="60" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                            <rtl:input-variable name="p_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_nombre_usuario Value" width="250" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{p_nombre_usuario}}"/>
+                            <WORDBOX name="lblEspacioUsuarioIN" width="100" length="15" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="lblINUsuario" width="15" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="IN:"/>
+                            <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_usuario_cod Value" width="70" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <MINIPAGE name="barraSubtitulo" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="espacioBarra" width="10" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="BarraPeriodoConsulta" width="min" length="min" floatingBehavior="enclosed">
+                        <MINIPAGE name="TituloDatosTabulados" width="min" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="v_periodo_inicio Caption" width="200" alignment="baseline" floatingBehavior="enclosed" text="Periodo Inicio" localizeText="true"/>
+                            <WORDBOX name="v_periodo_final Caption" width="200" alignment="baseline" floatingBehavior="enclosed" text="Periodo Final" localizeText="true"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_periodo_inicio" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_periodo_inicio Value" width="200" alignment="baseline" floatingBehavior="enclosed" text="{{v_periodo_inicio}}"/>
+                            <rtl:input-variable name="v_periodo_final" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_periodo_final Value" width="200" floatingBehavior="enclosed" text="{{v_periodo_final}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:input-variable name="p_tipo_registro" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                        <MINIPAGE name="titulosCortePeriodoDetalle" rtl:condition="p_tipo_registro==2" width="min" length="min">
+                            <LAYOUTNODE name="barraEspacioDetalle" width="15" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="barraPeriodoYArchivo" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_fecha_cadena_det" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_fecha_cadena_det Value" width="100" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{v_fecha_cadena_det}}"/>
+                                <rtl:input-variable name="p_nombre_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_nombre_archivo Value1" width="200" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_nombre_archivo}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="barraTitulosDetalle" width="min" length="min">
+                                <MINIPAGE name="tituloSeccionDetalle" width="min" length="max" layoutDirection="leftToRight">
+                                    <WORDBOX name="espacioNIU" width="max/7" length="min" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text=""/>
+                                    <WORDBOX name="cargadoDetalle" width="(max/7)*2" color="#ffffff" bgColor="#ce050f" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Cargado"/>
+                                    <WORDBOX name="liquidadoDetalle" width="(max/7)*2" color="#ffffff" bgColor="#ce050f" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Liquidado"/>
+                                    <WORDBOX name="incidenciaDetalle" width="(max/7)*2" color="#ffffff" bgColor="#ce050f" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Incidencia"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="subtituloSeccionDetalle" width="min" length="max" layoutDirection="leftToRight">
+                                    <WORDBOX name="v_registro_cifra_detalle.consec_cuenta Caption" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="NIU" localizeText="true"/>
+                                    <WORDBOX name="v_registro_cifra_detalle.saldo_viv92_cargado Caption" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Saldo Viv92" localizeText="true"/>
+                                    <WORDBOX name="v_registro_cifra_detalle.aivs_viv92_cargado Caption" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Aivs Viv92" localizeText="true"/>
+                                    <WORDBOX name="v_registro_cifra_detalle.saldo_viv92_liquidado Caption" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Saldo Viv92" localizeText="true"/>
+                                    <WORDBOX name="v_registro_cifra_detalle.aivs_viv92_liquidado Caption" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Aivs Viv92" localizeText="true"/>
+                                    <WORDBOX name="v_registro_cifra_detalle.saldo_viv92_incidencia Caption" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Saldo Viv92" localizeText="true"/>
+                                    <WORDBOX name="v_registro_cifra_detalle.aivs_viv92_incidencia Caption" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Aivs Viv92" localizeText="true"/>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="p_tipo_registro" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <MINIPAGE name="cifrasGlobalesResumen" rtl:condition="p_tipo_registro==1" width="min" length="max" layoutDirection="leftToRight">
+                                <MINIPAGE name="BarraCifrasGlobales" width="min" length="min">
+                                    <LAYOUTNODE name="separadorCifrasGlobales" width="15" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                                    <MINIPAGE name="barraPeriodo" width="min" length="max" layoutDirection="leftToRight">
+                                        <WORDBOX name="v_registro_cifra_global.periodo Caption" width="70" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Periodo" localizeText="true"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.periodo" type="FGLString" expectedLocation="expectedHere"/>
+                                        <WORDWRAPBOX name="v_registro_cifra_global.periodo Value" width="100" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_registro_cifra_global.periodo}}"/>
+                                        <WORDBOX name="p_nombre_archivo Caption" width="70" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Archivo cargado" localizeText="true"/>
+                                        <rtl:input-variable name="p_nombre_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                                        <WORDWRAPBOX name="p_nombre_archivo Value" width="width(&quot;M&quot;)*20" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_nombre_archivo}}"/>
+                                        <WORDBOX name="lblfechaLiquidacion" width="80" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha de proceso"/>
+                                        <rtl:input-variable name="v_fecha_cadena" type="FGLString" expectedLocation="expectedHere"/>
+                                        <WORDWRAPBOX name="v_fecha_cadena Value" width="width(&quot;M&quot;)*20" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha_cadena}}"/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="titulosSeccionesCifrasGlobales" width="min" length="min">
+                                        <MINIPAGE name="titulosSeccion" width="min" length="max" layoutDirection="leftToRight">
+                                            <WORDBOX name="titCargados" width="max/3" alignment="baseline" color="#ffffff" bgColor="#ce050f" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Cargados" roundedCorners="true" borderWidth="1"/>
+                                            <WORDBOX name="titLiquidados" width="max/3" color="#ffffff" bgColor="#ce050f" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Liquidados" roundedCorners="true" borderWidth="1"/>
+                                            <WORDBOX name="titIncidencia" width="max/3" color="#ffffff" bgColor="#ce050f" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Incidencia" roundedCorners="true" borderWidth="1"/>
+                                        </MINIPAGE>
+                                        <MINIPAGE name="barraSubtitulos" width="min" length="max" layoutDirection="leftToRight">
+                                            <WORDBOX name="v_registro_cifra_global.registros_cargados Caption" width="max/9" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Registros" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                            <WORDBOX name="v_registro_cifra_global.saldo_viv92_cargados Caption" width="max/9" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Saldo Viv92" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                            <WORDBOX name="v_registro_cifra_global.aivs_viv92_cargados Caption" width="max/9" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Aivs Viv92" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                            <WORDBOX name="v_registro_cifra_global.registros_liquidados Caption" width="max/9" bgColor="#aaaaff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Registros" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                            <WORDBOX name="v_registro_cifra_global.saldo_viv92_liquidados Caption" width="max/9" bgColor="#aaaaff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Saldo Viv92" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                            <WORDBOX name="v_registro_cifra_global.aivs_viv92_liquidados Caption" width="max/9" bgColor="#aaaaff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Aivs Viv92" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                            <WORDBOX name="v_registro_cifra_global.registros_incidencia Caption" width="max/9" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Registros" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                            <WORDBOX name="v_registro_cifra_global.saldo_viv92_incidencia Caption" width="max/9" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Saldo Viv92" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                            <WORDBOX name="v_registro_cifra_global.aivs_viv92_incidencia Caption" width="max/9" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Aivs Viv92" localizeText="true" roundedCorners="false" borderWidth="1" borderStyle="none" borderBottomStyle="dotted"/>
+                                        </MINIPAGE>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="datosCifrasGlobales" width="min" length="max" layoutDirection="leftToRight">
+                                        <rtl:input-variable name="v_registro_cifra_global.registros_cargados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.registros_cargados Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_registro_cifra_global.registros_cargados}}"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.saldo_viv92_cargados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.saldo_viv92_cargados Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_global.saldo_viv92_cargados}}"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.aivs_viv92_cargados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.aivs_viv92_cargados Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_global.aivs_viv92_cargados}}"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.registros_liquidados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.registros_liquidados Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_registro_cifra_global.registros_liquidados}}"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.saldo_viv92_liquidados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.saldo_viv92_liquidados Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_global.saldo_viv92_liquidados}}"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.aivs_viv92_liquidados" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.aivs_viv92_liquidados Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_global.aivs_viv92_liquidados}}"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.registros_incidencia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.registros_incidencia Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_registro_cifra_global.registros_incidencia}}"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.saldo_viv92_incidencia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.saldo_viv92_incidencia Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_global.saldo_viv92_incidencia}}"/>
+                                        <rtl:input-variable name="v_registro_cifra_global.aivs_viv92_incidencia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_registro_cifra_global.aivs_viv92_incidencia Value" width="max/9" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_global.aivs_viv92_incidencia}}"/>
+                                    </MINIPAGE>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                            <rtl:input-variable name="p_tipo_registro" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <MINIPAGE name="cifrasDetalle" rtl:condition="p_tipo_registro==2" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_registro_cifra_detalle.consec_cuenta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_registro_cifra_detalle.consec_cuenta Value" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_detalle.consec_cuenta}}"/>
+                                <rtl:input-variable name="v_registro_cifra_detalle.saldo_viv92_cargado" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_registro_cifra_detalle.saldo_viv92_cargado Value" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_detalle.saldo_viv92_cargado}}"/>
+                                <rtl:input-variable name="v_registro_cifra_detalle.aivs_viv92_cargado" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_registro_cifra_detalle.aivs_viv92_cargado Value" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_detalle.aivs_viv92_cargado}}"/>
+                                <rtl:input-variable name="v_registro_cifra_detalle.saldo_viv92_liquidado" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_registro_cifra_detalle.saldo_viv92_liquidado Value" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_detalle.saldo_viv92_liquidado}}"/>
+                                <rtl:input-variable name="v_registro_cifra_detalle.aivs_viv92_liquidado" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_registro_cifra_detalle.aivs_viv92_liquidado Value" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_detalle.aivs_viv92_liquidado}}"/>
+                                <rtl:input-variable name="v_registro_cifra_detalle.saldo_viv92_incidencia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_registro_cifra_detalle.saldo_viv92_incidencia Value" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_detalle.saldo_viv92_incidencia}}"/>
+                                <rtl:input-variable name="v_registro_cifra_detalle.aivs_viv92_incidencia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_registro_cifra_detalle.aivs_viv92_incidencia Value" width="{max/7}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_registro_cifra_detalle.aivs_viv92_incidencia}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

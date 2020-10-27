@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RETC333.rdd" RWFglReportName="rpt_detalle_sol_canint"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min" alignment="near">
+                            <IMAGEBOX name="imgLogoInfonavit" width="70" length="45" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte Solicitudes de Retiro Archivo CANINT"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="18.4943" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lblUsuario" width="36.0337" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Usuario:"/>
+                            <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario_cod Value" width="80" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                            <WORDBOX name="espacioUsuarioNombre" width="22.2584" length="16.2359" color="#000000" floatingBehavior="enclosed" text=""/>
+                            <rtl:input-variable name="v_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_usuario Value" width="320" color="#000000" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nombre_usuario}}"/>
+                            <WORDBOX name="espacioUsuarioNombre1" width="88.5058" length="16.2359" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="lblFecha" width="49" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha Value" width="67.4042" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="numPagina" width="min" length="max" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="700" alignment="near" layoutDirection="leftToRight"/>
+                        <PAGENOBOX name="PageNoBox" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Encabezado General" width="min" length="max" alignment="near" bgColor="#860309" layoutDirection="leftToRight">
+                        <MINIPAGE name="MiniPageEncCANINT" width="min" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="lblFolio" width="70" alignment="center" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="Folio"/>
+                            <WORDBOX name="lblNSS" width="70" alignment="center" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="NSS"/>
+                            <WORDBOX name="lblDescMovto" width="80" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Descripción Movimiento"/>
+                            <WORDBOX name="lblFechaLiquida" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Fecha Liquidación"/>
+                            <WORDBOX name="lblTpoMovimiento" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Tipo Movimiento"/>
+                            <WORDBOX name="lblFechaCanint" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Fecha CANINT"/>
+                            <WORDBOX name="lblDescTpoMovto" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Desc Tipo Movto"/>
+                            <WORDBOX name="lblAVIs" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="AIV's"/>
+                            <WORDBOX name="lblEstSolCANINT" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Est Sol CANINT"/>
+                            <WORDBOX name="lblCodRchCANINT" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Inconsistencia"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPageEncSol" width="min" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="lblFechaSol" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Fecha Solicitud"/>
+                            <WORDBOX name="lblFolioSol" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Folio Solicitud"/>
+                            <WORDBOX name="lblTipoRetiro" width="90" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Tipo Retiro"/>
+                            <WORDBOX name="lblAIVs92Sol" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="AIV's 92 Sol"/>
+                            <WORDBOX name="lblAIVs97Sol" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="AIVs 97 Sol"/>
+                            <WORDBOX name="lblPesos92Sol" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Pesos 92 Sol"/>
+                            <WORDBOX name="lblPesos97Sol" width="70" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Pesos 97 Sol"/>
+                            <WORDBOX name="lblEdoSolicitud" width="100" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Estado Solicitud"/>
+                            <WORDBOX name="lblCodRech" width="100" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Código Rechazo"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="registrosTabulados" width="min" length="max" layoutDirection="leftToRight">
+                            <MINIPAGE name="MiniPageCANINT" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_r_despliegue.v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_folio Value" width="70" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="left" format="&amp;&amp;&amp;&amp;&amp;&amp;" value="{{v_r_despliegue.v_folio}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_nss Value" width="70" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_nss}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_desc_movto" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_desc_movto Value" width="80" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_desc_movto}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_f_liquidacion" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_f_liquidacion Value" width="70" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_f_liquidacion}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_tpo_movto" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_tpo_movto Value" width="70" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_tpo_movto}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_f_canint" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_f_canint Value" width="70" alignment="baseline" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_f_canint}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_desc_tpo_movto" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_desc_tpo_movto Value" width="70" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_desc_tpo_movto}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_aivs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_aivs Value" width="80" anchorX="1" alignment="baseline" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{v_r_despliegue.v_aivs}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_edo_sol_canint" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_r_despliegue.v_edo_sol_canint Value" width="70" length="6.773" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_edo_sol_canint}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_cod_rech_canint" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_r_despliegue.v_cod_rech_canint Value" width="70" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_cod_rech_canint}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPageSol" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_r_despliegue.v_f_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_f_solicitud Value" width="70" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_f_solicitud}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_folio_solicitud" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_folio_solicitud Value" width="70" anchorX="1" alignment="baseline" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="left" format="&amp;&amp;&amp;&amp;&amp;&amp;" value="{{v_r_despliegue.v_folio_solicitud}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_tpo_retiro" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_tpo_retiro Value" width="90" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_tpo_retiro}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_aivs92_sol" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_aivs92_sol Value" width="70" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{v_r_despliegue.v_aivs92_sol}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_aivs97_sol" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_aivs97_sol Value" width="70" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{v_r_despliegue.v_aivs97_sol}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_pesos92_sol" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_pesos92_sol Value" width="70" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.v_pesos92_sol}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_pesos97_sol" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_pesos97_sol Value" width="70" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.v_pesos97_sol}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_estado_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_r_despliegue.v_estado_solicitud Value" width="100" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_estado_solicitud}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_cod_rechazo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_r_despliegue.v_cod_rechazo Value" width="100" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="{{v_r_despliegue.v_cod_rechazo}}"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

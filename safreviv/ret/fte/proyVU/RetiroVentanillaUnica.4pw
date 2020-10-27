@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project defaultApplication="400565752" gstVersion="2321b" version="3.0">
+  <Settings/>
+  <LanguageList version="1.0"/>
+  <PlatformList version="1.0"/>
+  <Group label="VentanillaUnica">
+    <Library id="6" label="Databases">
+      <File filePath="../../../safre_viv.sch"/>
+    </Library>
+    <Application id="317127576" label="PruebaJava">
+      <File filePath="PruebaJava.4gl"/>
+    </Application>
+    <Application dependencies="6" description="Web service de consulta de disponibilidad de ventanilla unica" id="4" label="RETWS41">
+      <File filePath="ret_disponibilidad_ley73.4gl"/>
+      <File filePath="ret_disponibilidad_ley73.inc"/>
+      <File filePath="ret_disponibilidadFA.4gl"/>
+      <File filePath="ret_disponibilidadFA.inc"/>
+      <File filePath="ret_disponibilidadSI.4gl"/>
+      <File filePath="ret_disponibilidadSI.inc"/>
+      <File filePath="RETWS41.4gl"/>
+      <File filePath="ws_ret_disponibilidadFA.inc"/>
+    </Application>
+    <Application dependencies="6||346140708" id="400565752" label="RETWS42">
+      <File filePath="RETWS42.4gl"/>
+    </Application>
+    <Application id="768829780" label="RETWS43"/>
+    <Library id="346140708" label="RETWSMARCAVU">
+      <File filePath="ret_ws_marca_fa.4gl"/>
+      <File filePath="ret_ws_marca_fa.inc"/>
+      <File filePath="ret_ws_marca_ley73.4gl"/>
+      <File filePath="ret_ws_marca_ley73.inc"/>
+      <File filePath="ret_ws_marca_si.4gl"/>
+      <File filePath="ret_ws_marca_si.inc"/>
+    </Library>
+  </Group>
+</Project>

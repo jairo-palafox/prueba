@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ConsultarEstatusLaboral_ConsultarEstatusLaboralHttp_Service" targetNamespace="http://services.inofnavit.org.mx/estatuslaboralie/Binding" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:Port_0="http://services.inofnavit.org.mx/estatuslaboralie" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://services.inofnavit.org.mx/estatuslaboralie/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <import location="ConsultarEstatusLaboral.wsdl" namespace="http://services.inofnavit.org.mx/estatuslaboralie">
+    </import>
+  <binding name="ConsultarEstatusLaboral_ConsultarEstatusLaboralHttpBinding" type="Port_0:ConsultarEstatusLaboral">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="consultarTrabajador">
+      <soap:operation soapAction=""/>
+      <input name="consultarTrabajadorRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="consultarTrabajadorResponse">
+        <soap:body use="literal"/>
+      </output>
+      <fault name="fault1">
+        <soap:fault name="fault1" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="ConsultarEstatusLaboral_ConsultarEstatusLaboralHttpService">
+    <port binding="this:ConsultarEstatusLaboral_ConsultarEstatusLaboralHttpBinding" name="ConsultarEstatusLaboral_ConsultarEstatusLaboralHttpPort">
+      <soap:address location="http://10.90.1.31:80/EstatusLaboralIEV2Web/sca/ConsultarEstatusLaboral"/>
+    </port>
+  </service>
+</definitions>

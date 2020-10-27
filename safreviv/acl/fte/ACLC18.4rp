@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACLC18.rdd" RWFglReportName="rpt_aclaracion_inconsistencia"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="far">
+                    <LAYOUTNODE name="Page header" width="720.934" length="122.949" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage12" width="86.5003" length="684.841" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode20" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox1" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2_1" width="16.5687" length="718.766" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode22" width="19.1501" length="718.6" alignment="far" color="#ffffff" bgColor="#ce050f" fontName="Arial" fontSize="10" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox14" x="9.2368" width="max" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="INCONSISTENCIAS ACLARATORIO CON CAMBIO DE NSS" localizeText="false"/>
+                                <WORDBOX name="WordBox11_2" x="84.1897" y="522.306" width="40.0234" length="17.5738" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode21_1" width="18.0113" length="719.008" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox14_1" x="8.1689" y="9.4289" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Folio" localizeText="false"/>
+                            <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio Value" x="2.2394" y="39.7808" width="71.1012" length="12.4944" anchorX="0" anchorY="0.0294245" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{v_folio}}"/>
+                            <WORDBOX name="WordBox14_1_1" x="8.1689" y="584.74" width="44.8316" length="12" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Fecha" localizeText="false"/>
+                            <WORDBOX name="v_fecha_reporte Value" x="2.23945" y="613.63" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{Date.today().format(&quot;dd-mm-yyyy&quot;)}}"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage11" x="33.9741" y="507.197" width="697.827" length="20.1241" anchorX="0.0220048" anchorY="0.5" alignment="near">
+                        <PAGENOBOX name="PageNoBox" x="676.077" y="10.0621" width="38.5" length="19.7862" anchorX="0.523843" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode" x="-1.7216" y="144.478" width="15.4832" length="402.429" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="Origen_pago1_3_1_5" width="197.506" length="12.4944" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total  importe Aportaciones Patronales"/>
+                        <rtl:input-variable name="v_tot_imp_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_imp_ap_pat Value" x="0" y="237.582" width="120.191" length="14" anchorX="1.21807e-14" anchorY="0.0379026" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_imp_ap_pat}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode23" x="-0.8338" y="169.309" width="15.4832" length="394.148" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="Origen_pago1_3_1_1_1" width="197.506" length="12.4944" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total  importe Amortización de Crédito"/>
+                        <rtl:input-variable name="v_tot_imp_am_cre" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_imp_am_cre Value" x="0" y="236.694" width="121.202" length="11.4944" anchorX="2.40491e-14" anchorY="0.0281331" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_imp_am_cre}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode23_1" x="0" y="193.52" width="15.4832" length="394.148" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="Origen_pago1_3_1_3_1" width="235.147" length="13.2472" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total  importe Rendimiento pago extemporáneo"/>
+                        <rtl:input-variable name="v_tot_imp_ren_viv_pgo_ext" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_imp_ren_viv_pgo_ext Value" x="1.5731" y="234.648" width="117.933" length="12.4944" anchorX="0.0537963" anchorY="8.23818e-16" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_imp_ren_viv_pgo_ext}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode23_1_1" x="-2.5582" y="249.991" width="15.4832" length="394.148" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="Origen_pago1_3_1_4_1" width="199.012" length="12.4944" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total  AIV Aportaciones Patronales "/>
+                        <rtl:input-variable name="v_tot_aiv_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_aiv_ap_pat Value" x="1.5527" y="237.206" width="119.911" length="11.4944" anchorX="0.132748" anchorY="0.0159095" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_aiv_ap_pat}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode23_1_1_1" x="-1.7216" y="275.474" width="15.4832" length="394.148" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="Origen_pago1_3_1_4_2" width="199.012" length="12.4944" alignment="center" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total  Intereses pago extemporáneo"/>
+                        <rtl:input-variable name="v_tot_int_gen_pgo_ext" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_int_gen_pgo_ext Value" x="1.2212" y="237.582" width="121.168" length="11.4944" anchorX="6.55886e-15" anchorY="0.0331929" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_int_gen_pgo_ext}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode23_1_1_2" x="1.0893" y="222.435" width="15.4832" length="394.148" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="Origen_pago1_3_1_4_3" width="189.978" length="12.4944" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total de Intereses Pago Extemporáneo"/>
+                    </LAYOUTNODE>
+                    <rtl:input-variable name="v_tot_int_gen_pgo_ext" type="FGLNumeric" expectedLocation="expectedHere"/>
+                    <DECIMALFORMATBOX name="v_tot_int_gen_pgo_ext Value1" x="234.648" y="222.435" width="118.685" length="13.2472" anchorX="4.11909e-16" anchorY="3.04518e-14" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_int_gen_pgo_ext}}"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

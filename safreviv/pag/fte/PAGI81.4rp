@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGC81.rdd" RWFglReportName="rpt_consulta_lqinfo"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min">
+                            <IMAGEBOX name="imgLogoInfonavit" width="70" length="45" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Cifras extractor preca"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="18.4943" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lbFolio" width="60" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha consulta"/>
+                            <rtl:input-variable name="v_fecha_consulta" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_consulta Value" width="45" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha_consulta}}"/>
+                            <WORDBOX name="espacioDatosReporte" width="53.8779" length="10.9662" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="lblUsuario" width="36.0337" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Usuario"/>
+                            <rtl:input-variable name="g_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario_cod Value" width="77.1907" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{g_usuario_cod}}"/>
+                            <WORDBOX name="espacioUsuarioNombre" width="15.4831" length="16.2359" floatingBehavior="enclosed" text=""/>
+                            <rtl:input-variable name="v_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_usuario Value" width="286.372" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nombre_usuario}}"/>
+                            <WORDBOX name="lblFecha" width="48.3147" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha Value1" width="67.4042" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode2" width="min" length="min" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox3" width="705.812" length="16.2359" alignment="baseline" floatingBehavior="enclosed" text=""/>
+                        <PAGENOBOX name="PageNoBox" width="14.5169" fontName="Arial" fontSize="7" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="encabezadoGeneral" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight">
+                        <WORDWRAPBOX name="titConceptoGral1" y="10" width="160" length="21.7866" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Concepto"/>
+                        <WORDWRAPBOX name="WordWrapBox" y="263" width="47" length="31.0337" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Núm. Regs." textAlignment="center"/>
+                        <WORDWRAPBOX name="titImpAporPatGral1" y="475" width="112.022" length="33.7866" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Importe" textAlignment="center"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage" width="719.363" length="4.76406" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="min" length="min">
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="datosTabulados" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_cifras.origen" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_cifras.origen Value" y="10" width="161.004" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_cifras.origen}}"/>
+                                <rtl:input-variable name="v_cifras.registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_cifras.registros Value" y="250" width="47.5679" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{v_cifras.registros}}"/>
+                                <rtl:input-variable name="v_cifras.importe" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_cifras.importe Value" y="450" width="104.01" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{v_cifras.importe}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

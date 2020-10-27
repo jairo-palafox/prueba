@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="0.576862cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/DISC38.rdd" RWFglReportName="rpt_tramite_restituidos"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="center">
+                    <LAYOUTNODE name="Page Header" width="max" length="98.842" alignment="near" port="anyPageHeader" floatingBehavior="enclosed" paddingBottomWidth="40">
+                        <LAYOUTNODE name="Logo" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox1" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Usuario" width="14.8826" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox320" x="7.3826" y="max*0.5144" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Consulta Dispersión de Pagos (Créditos en Trámite)" localizeText="false"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Periodo" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed" paddingBottomWidth="10">
+                            <WORDBOX name="WordBox322" x="7.5" y="23" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                            <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario Value" class="grwStringValue" x="1.0391" y="59.3152" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                            <WORDBOX name="WordBox321" x="7.5" y="657.798" width="110.338" length="15.4831" anchorX="0.5" anchorY="0.437131" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="">
+                                <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha Value" class="grwStringValue" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                            </WORDBOX>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Columnas" width="32" length="1097.3" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed" paddingBottomWidth="30">
+                            <WORDBOX name="WordBox386" width="23.75" length="16.75" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="NSS" paddingRightWidth="20" paddingLeftWidth="25"/>
+                            <WORDBOX name="WordBox387" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="NRP" paddingRightWidth="25" paddingLeftWidth="20"/>
+                            <WORDBOX name="WordBox388" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Bimestre" paddingRightWidth="20" paddingLeftWidth="15"/>
+                            <WORDWRAPBOX name="WordWrapBox8" x="2.8228" y="216.58" width="min" length="24.625" anchorX="0" anchorY="0" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio &#10;SUA" paddingLeftWidth="30"/>
+                            <WORDWRAPBOX name="WordWrapBox9" x="2.8228" y="268.198" width="min" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Aportación&#10;     AIVS"/>
+                            <WORDWRAPBOX name="WordWrapBox10" x="2.82275" y="341.41" width="min" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Aportación&#10;   Pesos"/>
+                            <WORDBOX name="WordBox389" x="3.86105" y="405.701" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Amortización"/>
+                            <WORDWRAPBOX name="WordWrapBox11" x="4.8368" y="499.095" width="min" length="22.625" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha&#10;Pago&#10;"/>
+                            <WORDWRAPBOX name="WordWrapBox12" x="4.8368" y="556.797" width="min" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio&#10;Pago"/>
+                            <WORDWRAPBOX name="WordWrapBox13" x="4.8368" y="601.554" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="    Folio&#10;   Dispersión"/>
+                            <WORDWRAPBOX name="WordWrapBox14" x="4.8368" y="676.025" width="min" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Número &#10;Crédito"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Body" width="max" length="min">
+                        <LAYOUTNODE name="LayoutNode14" y="28.6871" width="1.2" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed" paddingTopWidth="50"/>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage3" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="p_rec_consulta.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_consulta.nss Value" class="grwStringValue" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" text="{{p_rec_consulta.nss}}"/>
+                                <rtl:input-variable name="p_rec_consulta.nrp" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_consulta.nrp Value" class="grwStringValue" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" text="{{p_rec_consulta.nrp}}" paddingLeftWidth="15"/>
+                                <rtl:input-variable name="p_rec_consulta.periodo_pago" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_consulta.periodo_pago Value" class="grwStringValue" alignment="near" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" text="{{p_rec_consulta.periodo_pago}}" paddingLeftWidth="25"/>
+                                <rtl:input-variable name="p_rec_consulta.folio_sua" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_consulta.folio_sua Value" class="grwNumericValue" width="30" anchorX="1" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="#####&amp;" value="{{p_rec_consulta.folio_sua}}" paddingLeftWidth="25"/>
+                                <rtl:input-variable name="p_rec_consulta.aiv_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_consulta.aiv_ap_pat Value" class="grwNumericValue" width="30" anchorX="1" alignment="far" fontName="Arial" fontSize="8" swapX="false" floatingBehavior="enclosed" textAlignment="right" format="---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{p_rec_consulta.aiv_ap_pat}}" paddingLeftWidth="35"/>
+                                <rtl:input-variable name="p_rec_consulta.imp_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_consulta.imp_ap_pat Value" class="grwNumericValue" width="50" anchorX="1" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="$---,------,--&amp;.&amp;&amp;" value="{{p_rec_consulta.imp_ap_pat}}" paddingLeftWidth="30"/>
+                                <rtl:input-variable name="p_rec_consulta.imp_am_cre" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_consulta.imp_am_cre Value" class="grwNumericValue" width="30" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{p_rec_consulta.imp_am_cre}}" paddingLeftWidth="40"/>
+                                <rtl:input-variable name="p_rec_consulta.f_pago" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_consulta.f_pago Value" class="grwStringValue" width="30" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_rec_consulta.f_pago}}" paddingLeftWidth="40"/>
+                                <rtl:input-variable name="p_rec_consulta.folio_reg_pagos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_consulta.folio_reg_pagos Value" class="grwNumericValue" width="30" anchorX="1" alignment="far" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="###############" value="{{p_rec_consulta.folio_reg_pagos}}" paddingLeftWidth="15" marginLeftWidth="15"/>
+                                <rtl:input-variable name="p_rec_consulta.folio_liquida" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_consulta.id_ref_reg_pagos Value" class="grwNumericValue" anchorX="1" alignment="far" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="###############" value="{{p_rec_consulta.folio_liquida}}" paddingLeftWidth="25"/>
+                                <rtl:input-variable name="p_rec_consulta.num_crd_ifv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_consulta.num_crd_ifv Value" class="grwNumericValue" width="30" anchorX="1" alignment="far" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;" value="{{p_rec_consulta.num_crd_ifv}}" paddingLeftWidth="30" marginLeftWidth="20"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                        <MINIPAGE name="MiniPage4" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="MiniPage5" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode17" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" color="#ce050f" floatingBehavior="enclosed" text="Total de Registros"/>
+                                <rtl:input-variable name="v_registros" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="v_registros Value" class="grwNumericValue" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_registros}}" paddingLeftWidth="10"/>
+                                <rtl:input-variable name="g_total_AIVS" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="g_total_AIVS Value" class="grwNumericValue" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;" value="{{g_total_AIVS}}" paddingLeftWidth="136"/>
+                                <rtl:input-variable name="g_total_pesos" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="g_total_pesos Value" class="grwNumericValue" anchorX="0.99" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="$----,---,---,--&amp;.&amp;&amp;" value="{{g_total_pesos}}" paddingLeftWidth="11"/>
+                                <rtl:input-variable name="g_total_Amorti" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="g_total_Amorti Value" class="grwNumericValue" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{g_total_Amorti}}" paddingLeftWidth="35"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="Pie Pagina" x="403.31" y="526.778" width="max" length="25.5777" anchorX="0.5" anchorY="0.5" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="Linea Roja Pie" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <PAGENOBOX name="PageNoBox3" x="705.155" y="15.9003" width="11.0225" length="10.7528" anchorX="0.5" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

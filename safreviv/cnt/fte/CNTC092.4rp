@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/CNTC09.rdd" RWFglReportName="rpt_cntc092"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="720.793" length="538.275" alignment="near">
+                    <LAYOUTNODE name="First Page Header" width="718.756" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="Imagen" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                        <MINIPAGE name="Tituo Reporte" width="min" length="717.25" bgColor="#d7050f" layoutDirection="leftToRight">
+                            <WORDBOX name="Txt_Ust" x="7" y="26.7828" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                            <WORDBOX name="Txt_Titulo" x="7" y="366.58" anchorX="0.5" anchorY="0.5" alignment="center" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="RESUMEN DE OPERACIONES"/>
+                            <WORDBOX name="Txt_fecha" x="7" y="609.863" anchorX="0.5" anchorY="0.5" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_usuario Value" x="7" y="97.634" width="79.8203" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_usuario}}"/>
+                            <rtl:input-variable name="p_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_fecha_reporte Value" x="7" y="672.118" width="82.809" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_fecha_reporte}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Stitulo Reporte" width="min" length="717.25" layoutDirection="leftToRight">
+                            <MINIPAGE name="Stitulo" width="min" length="718.252" layoutDirection="leftToRight">
+                                <WORDBOX name="Txt_Stitulo1_2" x="7.4822" y="263.843" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Partidas Confirmadas"/>
+                                <WORDBOX name="Txt_Stitulo1_1_1" x="7.4822" y="505.82" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Partidas en Conciación Operativa"/>
+                            </MINIPAGE>
+                            <LAYOUTNODE name="LineaRoja" width="1" length="717.25" bgColor="#d7050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="Titulo Columnas1" width="min" length="717.25" layoutDirection="leftToRight">
+                                <MINIPAGE name="Stitulo3" width="min" length="717.499" alignment="far" layoutDirection="leftToRight">
+                                    <WORDBOX name="Txt_Columna7" x="7.4822" y="36.4958" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Proceso"/>
+                                    <WORDBOX name="Txt_Columna8" x="7.4822" y="216.591" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Aportaciones"/>
+                                    <WORDBOX name="Txt_Columna9" x="7.4822" y="314.054" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Amortizaciones"/>
+                                    <WORDBOX name="Txt_Columna10" x="7.4822" y="454.681" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Aportaciones"/>
+                                    <WORDBOX name="Txt_Columna11" x="7.4822" y="557.185" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Amortizaciones"/>
+                                </MINIPAGE>
+                                <LAYOUTNODE name="LineaRoja3" width="1" length="717.25" bgColor="#d7050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Page Header" width="max" length="min" port="anyPageHeader">
+                        <LAYOUTNODE name="Imagen1" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox1" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                        <MINIPAGE name="Tituo Reporte1" width="min" length="718.756" bgColor="#d7050f" layoutDirection="leftToRight">
+                            <WORDBOX name="Txt_Ust1" x="7" y="26.7828" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                            <WORDBOX name="Txt_Titulo1" x="7" y="366.58" anchorX="0.5" anchorY="0.5" alignment="center" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="RESUMEN DE OPERACIONES"/>
+                            <WORDBOX name="Txt_fecha1" x="7" y="609.863" anchorX="0.5" anchorY="0.5" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_usuario Value1" x="7" y="97.634" width="79.8203" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_usuario}}"/>
+                            <rtl:input-variable name="p_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_fecha_reporte Value1" x="7" y="672.118" width="82.809" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_fecha_reporte}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Stitulo Reporte1" width="min" length="717.25" layoutDirection="leftToRight">
+                            <MINIPAGE name="Stitulo1" width="min" length="718.252" layoutDirection="leftToRight">
+                                <WORDBOX name="Txt_Stitulo1" x="7.4822" y="262.898" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Partidas Confirmadas"/>
+                                <WORDBOX name="Txt_Stitulo1_1" x="7.4822" y="505.82" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Partidas en Conciación Operativa"/>
+                            </MINIPAGE>
+                            <LAYOUTNODE name="LineaRoja1" width="1" length="717.25" bgColor="#d7050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="Titulo Columnas" width="min" length="717.25" layoutDirection="leftToRight">
+                                <MINIPAGE name="Stitulo2" width="min" length="717.499" layoutDirection="leftToRight">
+                                    <WORDBOX name="Txt_Columna1" x="7.4822" y="36.4958" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Proceso"/>
+                                    <WORDBOX name="Txt_Columna3" x="7.4822" y="216.591" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Aportaciones"/>
+                                    <WORDBOX name="Txt_Columna4" x="7.4822" y="314.054" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Amortizaciones"/>
+                                    <WORDBOX name="Txt_Columna5" x="7.4822" y="454.681" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Aportaciones"/>
+                                    <WORDBOX name="Txt_Columna6" x="7.4822" y="557.185" anchorX="0.5" anchorY="0.5" color="#d7050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Amortizaciones"/>
+                                </MINIPAGE>
+                                <LAYOUTNODE name="LineaRoja2" width="1" length="717.25" bgColor="#d7050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="Table Row" width="16.9888" length="max" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_rcd_cta_importe.v_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_rcd_cta_importe.v_proceso Value" x="9.0613" y="3.7507" width="99.775" length="11.4381" anchorX="0.5" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_rcd_cta_importe.v_proceso}}"/>
+                            <rtl:input-variable name="p_rcd_cta_importe.v_apo_con" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rcd_cta_importe.v_apo_con Value" x="9.8153" y="249.362" anchorX="0.575401" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_rcd_cta_importe.v_apo_con}}"/>
+                            <rtl:input-variable name="p_rcd_cta_importe.v_amo_con" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rcd_cta_importe.v_amo_con Value" x="9.8153" y="489.13" anchorX="0.5" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_rcd_cta_importe.v_amo_con}}"/>
+                            <rtl:input-variable name="p_rcd_cta_importe.v_apo_ope" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rcd_cta_importe.v_apo_ope Value" x="9.0613" y="350.919" anchorX="0.5" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_rcd_cta_importe.v_apo_ope}}"/>
+                            <rtl:input-variable name="p_rcd_cta_importe.v_amo_ope" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rcd_cta_importe.v_amo_ope Value" x="9.0613" y="593.165" anchorX="0.5" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_rcd_cta_importe.v_amo_ope}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <LAYOUTNODE name="LayoutN" y="max" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <WORDBOX name="Recaudacion_fiscal" y="max" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

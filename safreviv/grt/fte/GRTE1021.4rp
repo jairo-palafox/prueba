@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/GRTE102.rdd" RWFglReportName="reporte_cifras_ctl"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="center">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="7.5" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="REPORTE CIFRAS CONTROL RECEPCIÓN ENTIDADES FINANCIERAS" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox4" x="6.741" y="545.56" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value" x="6.741" y="632.617" width="103.641" anchorX="0.427249" anchorY="0.5" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                                <WORDBOX name="WordBox2_1" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario: "/>
+                                <rtl:input-variable name="p_v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_v_usuario Value" width="90.5619" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="{{p_v_usuario}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage12" width="29.811" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox5" x="4.68173" y="0" anchorX="0" anchorY="0" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Nombre Archivo:"/>
+                            <rtl:input-variable name="p_nomArch_proc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_nomArch_proc Value" class="grwStringValue" x="5.80134" y="102.521" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{p_nomArch_proc}}"/>
+                            <WORDBOX name="WordBox6" x="5.8013" y="527.865" anchorX="0" anchorY="0" color="#dc050f" fontBold="true" floatingBehavior="enclosed" text="Registros Totales:"/>
+                            <rtl:input-variable name="p_rec_totales.v_cnt_tot" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rec_totales.v_cnt_tot Value" class="grwNumericValue" x="5.80134" y="710.679" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_rec_totales.v_cnt_tot}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage13" width="289.355" length="max" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_rec_totales.v_cnt_tot_sp5" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rec_totales.v_cnt_tot_sp5 Value" class="grwNumericValue" x="144.005" y="309.542" width="146.5" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_rec_totales.v_cnt_tot_sp5}}"/>
+                            <WORDBOX name="WordBox5_1_1_1_1" x="144.005" y="62.6055" width="89" anchorX="0" anchorY="0" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Subproceso 5:"/>
+                            <WORDBOX name="WordBox5_1_1_1" x="109.842" y="62.6055" width="89" length="20.6055" anchorX="0" anchorY="0" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Subproceso 3:"/>
+                            <rtl:input-variable name="p_rec_totales.v_cnt_tot_sp3" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rec_totales.v_cnt_tot_sp3 Value" class="grwNumericValue" x="109.842" y="309.542" width="146.5" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_rec_totales.v_cnt_tot_sp3}}"/>
+                            <rtl:input-variable name="p_rec_totales.v_cnt_tot_sp2" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rec_totales.v_cnt_tot_sp2 Value" class="grwNumericValue" x="77.8142" y="309.542" width="146.5" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_rec_totales.v_cnt_tot_sp2}}"/>
+                            <WORDBOX name="WordBox5_1_1" x="78.75" y="62.6055" width="89" length="20.961" anchorX="0" anchorY="0" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Subproceso 2:"/>
+                            <WORDBOX name="WordBox5_1" x="45.0249" y="62.6055" width="89" length="20.5665" anchorX="0" anchorY="0" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="Subproceso 1:"/>
+                            <rtl:input-variable name="p_rec_totales.v_cnt_tot_sp1" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_rec_totales.v_cnt_tot_sp1 Value" class="grwNumericValue" x="45.0249" y="309.542" width="146.5" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_rec_totales.v_cnt_tot_sp1}}"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode12" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Linea separadora" width="1.17968" length="max" color="#ce050f" bgColor="#ce050f" layoutDirection="leftToRight"/>
+                    <MINIPAGE name="MiniPage11" x="15.0831" y="529.891" width="720.411" length="20.1241" anchorX="0.0220048" anchorY="0.5" alignment="near">
+                        <PAGENOBOX name="PageNoBox" x="689.199" y="10.6781" width="38.5" length="19.7862" anchorX="0.523843" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

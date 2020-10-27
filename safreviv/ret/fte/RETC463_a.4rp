@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="RETWS13.rdd" RWFglReportName="pdf_acuse"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <LAYOUTNODE name="LayoutNode" width="max" length="max" alignment="near" floatingBehavior="enclosed">
+                        <rtl:input-variable name="pm_arr_detalle.pesosTotal" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="pm_arr_detalle.pesosTotal Value" class="grwStringValue" x="185.555" y="335.209" width="201.6" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{pm_arr_detalle.pesosTotal}}"/>
+                        <rtl:input-variable name="pm_arr_detalle.pesosViv97" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="pm_arr_detalle.pesosViv97 Value" class="grwStringValue" x="185.555" y="315.419" width="201.8" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{pm_arr_detalle.pesosViv97}}"/>
+                        <rtl:input-variable name="pm_arr_detalle.pesosViv92" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="pm_arr_detalle.pesosViv92 Value" class="grwStringValue" x="185.555" y="294.749" width="203" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{pm_arr_detalle.pesosViv92}}"/>
+                        <rtl:input-variable name="pm_arr_detalle.medioSolicitud" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="pm_arr_detalle.medioSolicitud Value" class="grwStringValue" x="185.555" y="230.249" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{pm_arr_detalle.medioSolicitud}}"/>
+                        <rtl:input-variable name="p_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_fecha Value" class="grwStringValue" x="185.555" y="198.137" width="232" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{p_fecha}}"/>
+                        <rtl:input-variable name="pm_arr_detalle.tramite" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="pm_arr_detalle.tramite Value" class="grwStringValue" x="185.555" y="147.901" width="334.375" length="13.7" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{pm_arr_detalle.tramite}}"/>
+                        <rtl:input-variable name="v_nombre" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_nombre Value" class="grwStringValue" x="185.555" y="116.52" width="333" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{v_nombre}}"/>
+                        <rtl:input-variable name="pm_arr_detalle.curp" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="pm_arr_detalle.curp Value" class="grwStringValue" x="185.555" y="97.8343" width="221.2" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{pm_arr_detalle.curp}}"/>
+                        <rtl:input-variable name="pm_arr_detalle.nss" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="pm_arr_detalle.nss Value" class="grwStringValue" x="185.555" y="78.497" width="221.2" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{pm_arr_detalle.nss}}"/>
+                        <WORDBOX name="WordBox19" x="22.9163" y="417.725" anchorX="0" anchorY="0" fontSize="11" floatingBehavior="enclosed" text="fecha del trámite."/>
+                        <WORDBOX name="WordBox18" x="22.9163" y="405.836" anchorX="0" anchorY="0" fontSize="11" floatingBehavior="enclosed" text="El  depósito  de  los  recursos  se  realizará  en un término de hasta 10 días hábiles a partir de la"/>
+                        <WORDBOX name="WordBox17" x="22.9163" y="381.205" anchorX="0" anchorY="0" fontSize="11" floatingBehavior="enclosed" text="disposiciones y ordenamientos legales en vigor."/>
+                        <WORDBOX name="WordBox15" x="22.9163" y="356.597" width="498" length="15" anchorX="0" anchorY="0" fontSize="11" floatingBehavior="enclosed" textAlignment="left" text="Este acuse es emitido sin prejuzgar sobre la evidencia de su contenido y veracidad de los datos" localizeText="false"/>
+                        <WORDBOX name="WordBox16" x="22.9163" y="368.61" width="498" length="14.2286" anchorX="0" anchorY="0" fontSize="11" floatingBehavior="enclosed" text="proporcionados,  no  creando  derechos  ni  obligaciones  diversas  a  las  comprendidas  en las" localizeText="false"/>
+                        <WORDBOX name="WordBox14" x="22.9163" y="335.209" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Total:"/>
+                        <WORDBOX name="WordBox13" x="22.9163" y="315.419" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Vivienda 97:"/>
+                        <WORDBOX name="WordBox12" x="22.9163" y="294.749" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Vivienda 92:"/>
+                        <WORDBOX name="WordBox10" x="39.1288" y="682.498" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Sello digital:"/>
+                        <WORDBOX name="WordBox9" x="22.9163" y="268.949" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="Recursos del saldo de la subcuenta de vivienda a devolver:"/>
+                        <WORDBOX name="WordBox8" x="22.9163" y="230.249" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Medio de solicitud"/>
+                        <WORDBOX name="WordBox7" x="22.9163" y="213.261" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Número de operación:"/>
+                        <WORDBOX name="WordBox6" x="22.9163" y="198.137" width="min" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Fecha y hora del Trámite:"/>
+                        <WORDBOX name="WordBox5" x="22.9163" y="162.384" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Grupo:"/>
+                        <WORDBOX name="WordBox4" x="22.9163" y="147.901" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Trámite:"/>
+                        <WORDBOX name="WordBox3" x="22.9163" y="116.52" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Nombre:"/>
+                        <MINIPAGE name="MiniPage" x="9.4075" y="140.825" width="2" length="max" anchorX="0.0168953" anchorY="1" alignment="near" bgColor="#000000" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="MiniPage1" x="9.2788" y="191.724" width="2" length="max" anchorX="0.0168953" anchorY="1" alignment="near" bgColor="#000000" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="MiniPage1_1" x="9.2788" y="253.524" width="2" length="max" anchorX="0.0168953" anchorY="1" alignment="near" bgColor="#000000" layoutDirection="leftToRight"/>
+                        <WORDBOX name="WordBox2_1" x="22.9163" y="102.748" anchorX="0.0278926" anchorY="0.440267" fontBold="true" floatingBehavior="enclosed" text="CURP:"/>
+                        <WORDBOX name="WordBox2" x="22.9163" y="86.0657" anchorX="0.0278926" anchorY="0.440267" fontBold="true" floatingBehavior="enclosed" text="NSS:"/>
+                        <WORDBOX name="WordBox" x="221.926" y="31.7919" width="117.6" length="16.6299" anchorX="0.218906" anchorY="1" alignment="center" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="ACUSE DE RECIBO"/>
+                        <WORDBOX name="WordBox1" x="158.085" y="53.2032" width="350" length="18.0285" anchorX="0.218906" anchorY="1" alignment="center" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="DEVOLUCIÓN DEL SALDO DE LA SUBCUENTA DE VIVIENDA"/>
+                        <IMAGEBOX name="ImageBox" alignment="far" floatingBehavior="enclosed" url="../../img/logo_infonavit_pequeno.jpg" intendedResolution="120"/>
+                        <rtl:input-variable name="pm_arr_detalle.sello" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="pm_arr_detalle.sello Value" class="grwStringValue" x="40.1524" y="699.615" width="477.6" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{pm_arr_detalle.sello}}"/>
+                        <rtl:input-variable name="pm_arr_detalle.grupo" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="pm_arr_detalle.grupo Value" class="grwStringValue" x="185.555" y="164.503" width="334.375" length="12.6593" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{pm_arr_detalle.grupo}}"/>
+                        <rtl:input-variable name="p_aviso" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="p_aviso Value" class="grwStringValue" x="22.9163" y="450.304" width="463.6" length="91.4" anchorX="0" anchorY="0" fontSize="11" floatingBehavior="enclosed" text="{{p_aviso}}" textAlignment="justified"/>
+                        <rtl:input-variable name="pm_arr_detalle.caso_crm" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="pm_arr_detalle.caso_crm Value" class="grwStringValue" x="186.432" y="213.261" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{pm_arr_detalle.caso_crm}}"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

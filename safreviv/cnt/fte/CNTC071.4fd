@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{73b10a35-6ca5-4452-86d2-dd663044b70c}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{459a768a-18e9-4799-b83d-0466a9c5c0fc}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_cmb_sub_cta" sqlTabName="" table_alias_name="" uid="{ad590868-4a71-41f2-9334-4223abae58f2}"/>
+    <RecordField colName="" fieldIdRef="8" name="f_fecha_ini" sqlTabName="" table_alias_name="" uid="{85007a6b-4722-49d1-91f6-a4a2de30fe0e}"/>
+    <RecordField colName="" fieldIdRef="9" name="f_fecha_fin" sqlTabName="" table_alias_name="" uid="{a8c554fe-e8c6-4d9f-8ba7-3170ed981958}"/>
+    <RecordField colName="" fieldIdRef="10" name="dif_subcuenta" sqlTabName="" table_alias_name="" uid="{0fe72a4d-796d-42be-9558-36c2ff5ff6f7}"/>
+    <RecordField colName="" fieldIdRef="11" name="due1_subcuenta" sqlTabName="" table_alias_name="" uid="{ea6a83f4-8fcf-4de2-94ef-ccb2f87fd6e8}"/>
+    <RecordField colName="" fieldIdRef="12" name="due2_subcuenta" sqlTabName="" table_alias_name="" uid="{1ac5f9a0-b441-47eb-8ac3-35d4d50a0b3b}"/>
+    <RecordField colName="" fieldIdRef="13" name="dif_deudor" sqlTabName="" table_alias_name="" uid="{896d61a5-97c2-4f4f-a2ed-cd3fab7e09b2}"/>
+    <RecordField colName="" fieldIdRef="14" name="due1_deudor" sqlTabName="" table_alias_name="" uid="{ebc27632-1f14-454c-8db0-32e21bea45f1}"/>
+    <RecordField colName="" fieldIdRef="15" name="due2_deudor" sqlTabName="" table_alias_name="" uid="{da2a7dad-a7ea-4e66-90f8-d0e06bbaa2c6}"/>
+    <RecordField colName="" fieldIdRef="16" name="dif_diferencia" sqlTabName="" table_alias_name="" uid="{6bcf28c8-d9f3-4235-ae75-14b529a94142}"/>
+    <RecordField colName="" fieldIdRef="17" name="deu1_diferencia" sqlTabName="" table_alias_name="" uid="{2690a0fa-4c37-415f-a69c-ef1329bc99cf}"/>
+    <RecordField colName="" fieldIdRef="18" name="deu2_diferencia" sqlTabName="" table_alias_name="" uid="{1dea52ea-1c40-4a4a-a2d6-defb46743022}"/>
+    <RecordField colName="" fieldIdRef="2" name="sum_subcuenta" sqlTabName="" table_alias_name="" uid="{4461f513-8aba-4fd8-8691-2a4d7c371e35}"/>
+    <RecordField colName="" fieldIdRef="3" name="sum_deudor" sqlTabName="" table_alias_name="" uid="{4063f87d-dacf-42ee-b2bb-8f0be3ac3bc6}"/>
+    <RecordField colName="" fieldIdRef="4" name="sum_diferencia" sqlTabName="" table_alias_name="" uid="{32cf8b66-86f5-4b4b-9dd3-3ccb7dbfe9a8}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record1" order="" uid="{ff90cbb2-cc49-43d4-b7cf-b1691a8e9e0b}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record2" order="" uid="{47a8dc7a-06e8-4785-939b-12efb0537ecb}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record3" order="" uid="{6efd6077-921e-4da2-bd90-2ed6dcafc8f3}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record4" order="" uid="{cd71a135-86ba-4a7d-83ed-76e4aa5d9e9a}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record5" order="" uid="{0137f78e-aec9-4a50-bf50-5840a5e159a3}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record6" order="" uid="{d39a6163-e8ba-4ba4-a6c0-4c46428d948f}" where=""/>
+  <Form gridHeight="17" gridWidth="110" name="Form" text="Form">
+    <Grid gridHeight="15" gridWidth="106" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="102" name="Group1" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Subcuenta"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="48" items="" name="v_cmb_sub_cta" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="8" name="Label6" posX="61" posY="1" text="Fecha Inicial"/>
+        <DateEdit colName="" columnCount="" fieldId="8" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_fecha_ini" posX="70" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="8" name="Label7" posX="81" posY="1" text="Fecha Final"/>
+        <DateEdit colName="" columnCount="" fieldId="9" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_fecha_fin" posX="90" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="9" gridWidth="101" name="gr_deudor" posX="1" posY="5" text="Deudor por Homonimias Separación de Cuentas">
+        <Label gridHeight="2" gridWidth="10" name="Label5" posX="20" posY="1" text="    Monto&#10;Subcuenta"/>
+        <Label gridHeight="1" gridWidth="10" name="Label8" posX="42" posY="1" text="&#10;Deudor"/>
+        <Label gridHeight="1" gridWidth="10" name="Label9" posX="59" posY="1" text="&#10;Diferencia"/>
+        <Label gridHeight="1" gridWidth="10" name="Label2" posX="1" posY="3" text="Sin Diferencia"/>
+        <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="20" name="dif_subcuenta" posX="13" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit6" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="22" name="dif_deudor" posX="34" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit9" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="12" name="dif_diferencia" posX="57" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit12" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label3" posX="1" posY="4" text="Deudor &gt; SSV"/>
+        <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="20" name="due1_subcuenta" posX="13" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit7" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="22" name="due1_deudor" posX="34" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit10" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="12" name="deu1_diferencia" posX="57" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" tag="" title="Edit13" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label4" posX="1" posY="5" text="Deudor &lt; SSV"/>
+        <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="20" name="due2_subcuenta" posX="13" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="22" name="due2_deudor" posX="34" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit11" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="18" gridHeight="1" gridWidth="12" name="deu2_diferencia" posX="57" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Edit14" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label10" posX="1" posY="7" text="Sumatoria"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="20" name="sum_subcuenta" posX="13" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="22" name="sum_deudor" posX="34" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Edit11" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" name="sum_diferencia" posX="57" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Edit14" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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NgAxAGYANQAxADMALQA4AGEAYgBhAC0ANABmAGQAOAAtADgANgA5ADEALQAyAGEANABkADcAYwAzADcAMQBlADMANQB9QBQAAAAAAABAcuAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADUAOQBhADcANgA4AGEALQAxADgAZQA5AC0ANAA3ADkAOQAtAGIAOAAzAGQALQAwADQANgA2AGEAOQBjADUAYwAwAGYAYwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGEAMgBhADcAZABhAGQALQBhADcAZQBhAC0ANABlADYANgAtADkAMABmADgALQBkADAAZQAwADYAYgBiAGEAYQAyAGMANgB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEANgBhADgAMwBmADQALQA4AGYAYwBmAC0ANABkAGUAMgAtADkANABlAGYALQBjAGMAYgAyAGYAOAA3AGYAZAA2AGUAOAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGQAZQBhADUAMgBlAGEALQAxAGMANAAwAC0ANABhADQAYQAtAGEAMgBkADYALQBkAGUAZgBiADQANgA3ADQAMwAwADIAMgB9QBQAAAAAAABAcXAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

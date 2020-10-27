@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{93422d17-4e4a-46ad-93b4-fb615cd7af2c}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{eb18ce72-ccb0-4b9b-a85a-4612f05ea0b6}" where="">
+    <RecordField colName="" fieldIdRef="3" name="v_nrp" sqlTabName="" table_alias_name="" uid="{76a4fec0-99ca-49f2-8fae-648e9ecb407d}"/>
+    <RecordField colName="" fieldIdRef="7" name="fecha_alta_ini" sqlTabName="" table_alias_name="" uid="{7ade064f-9a2c-4e5a-9d2e-558de0df0402}"/>
+    <RecordField colName="" fieldIdRef="8" name="fecha_alta_fin" sqlTabName="" table_alias_name="" uid="{243b772a-4d94-4702-b12d-a5cc4a2eecd1}"/>
+    <RecordField colName="" fieldIdRef="1" name="v_nombre" sqlTabName="" table_alias_name="" uid="{7a7317a2-d452-4e76-a40e-7456313a7d43}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_usuario" sqlTabName="" table_alias_name="" uid="{c3eb526a-bddc-4e30-9c0e-ad61ed4988e4}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_det_patrones" order="" uid="{a57e645e-70d5-4a0d-846f-70076e046979}" where="">
+    <RecordField colName="" fieldIdRef="12" name="nrp" sqlTabName="" table_alias_name="" uid="{f4265797-3211-4665-bae8-abe8ec18d782}"/>
+    <RecordField colName="" fieldIdRef="13" name="nombre" sqlTabName="" table_alias_name="" uid="{521d437f-d30e-419b-ada8-d41d6c74f45b}"/>
+    <RecordField colName="" fieldIdRef="15" name="f_alta" sqlTabName="" table_alias_name="" uid="{cf56930f-3d8a-4edc-bb33-eda519f4b589}"/>
+    <RecordField colName="" fieldIdRef="18" name="usuario" sqlTabName="" table_alias_name="" uid="{62f80ca9-322c-4dba-ba37-4fdeafbcb3e6}"/>
+  </Record>
+  <Form gridHeight="43" gridWidth="236" name="MantPatrones" text="Mantenimiento a Patrones">
+    <VBox gridHeight="29" gridWidth="116" name="VBox1" posX="2" posY="0">
+      <Group gridHeight="13" gridWidth="116" name="Grp_filtros" posX="0" posY="1" text="Filtros para la consulta">
+        <Grid gridHeight="11" gridWidth="111" name="Grid2" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="lbl_nrp" posX="1" posY="1" text="NRP:"/>
+          <Edit case="upper" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="18" name="v_nrp" posX="19" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="16" name="lbl_patron" posX="1" posY="3" text="Nombre patrón"/>
+          <Edit case="upper" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="57" name="v_nombre" posX="19" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit2" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="36" name="lbl_rango_alta" posX="1" posY="5" text="Periodo de búsqueda"/>
+          <Label gridHeight="1" gridWidth="5" name="lbl_del" posX="1" posY="7" text="Del:"/>
+          <DateEdit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" name="fecha_alta_ini" posX="7" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+          <Label gridHeight="1" gridWidth="3" name="lbl_al" posX="21" posY="7" text="al"/>
+          <DateEdit colName="" columnCount="" fieldId="8" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" name="fecha_alta_fin" posX="25" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+          <Label gridHeight="1" gridWidth="16" name="lbl_Usuario" posX="1" posY="9" text="Usuario:"/>
+          <Edit case="upper" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="21" name="v_usuario" posX="19" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit3" widget="Edit"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="14" gridWidth="116" name="Grp_det_marcas" posX="0" posY="14" text="Detalle patrones">
+        <Grid gridHeight="9" gridWidth="111" name="Grid3" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="108" name="tbl_det_patrones" posX="2" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="12" name="nrp" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="NRP" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="50" name="nombre" posX="12" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Nombre patrón" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="10" name="f_alta" posX="62" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Fecha&#10;Alta" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="18" gridHeight="1" gridWidth="15" name="usuario" posX="72" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Usuario" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjAGYANQA2ADkAMwAwAGYALQAzAGQAOABhAC0ANABlAGQAYwAtAGIAYgAzADMALQBlAGQAYQA1ADEAOQBmADQAYgA1ADgAOQB9QBQAAAAAAABAUQAAAAAAAD+GhysCDEm8AQAAAEwAewA3ADYAYQA0AGYAZQBjADAALQA5ADkAYwBhAC0ANAA5AGYAMgAtADgAZgBhAGUALQA2ADQAOABlADkAZQBjAGIANAAwADcAZAB9QBQAAAAAAABAOAAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADIAZgA4ADAAYwBhADkALQAzADIAMgBjAC0ANABkAGIAYQAtAGIAYQAzADcALQA0AGYAZABlAGEAZgBiAGMAYgAzAGUANgB9QBQAAAAAAABAVoAAAAAAAD+Kn752yLQ8AQAAAEwAewBlAGIAMQA4AGMAZQA3ADIALQBjAGMAYgAwAC0ANABiADkAYgAtAGEAOAA1AGEALQA0ADYAMQAyAGYAMAA1AGUAYQAwAGIANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGEANwAzADEANwBhADIALQBkADQANQAyAC0ANABlADcANgAtAGEANAAwAGUALQA3ADQANQA2ADMAMQAzAGEANwBkADQAMwB9QBQAAAAAAABAVoAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADQAMgA2ADUANwA5ADcALQAzADIAMQAxAC0ANAA2ADYANQAtAGIAYQBlADgALQBhAGIAZQA4AGUAYwAxADgAZAA3ADgAMgB9QBQAAAAAAABAOAAAAAAAAD+AYk3S8an8AQAAAEwAewA1ADIAMQBkADQAMwA3AGYALQBkADMAMABlAC0ANAAxADkAYgAtAGEAZABhADgALQBkADQAMQBkADYAYwA3ADQAZgA0ADUAYgB9QBQAAAAAAABARwAAAAAAAD+EeuFHrhR8AQAAAEwAewAyADQAMwBiADcANwAyAGEALQA0AGQAOQA0AC0ANAA3ADAAMgAtAGIAMQAyAGQALQBhADUAYwBjADQAYQAyAGUAZQBjAGQAMQB9QBQAAAAAAABAUQAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGEAZABlADAANgA0AGYALQA5AGEAMgBjAC0ANABlADUAYQAtADkAZAAyAGUALQA1ADUAOABkAGUAMABkAGYAMAA0ADAAMgB9QBQAAAAAAABARwAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADMAZQBiADUAMgA2AGEALQBiAGQAZABjAC0ANABlADMAMAAtADkAYwAwAGUALQBhAGQANgAxAGUAZAA0ADkAOAA4AGUANAB9QBQAAAAAAABAXAAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADUANwBlADYANAA1AGUALQA3ADAAZAA1AC0ANABhADAAZAAtADgANAA2AGYALQA3ADAAMAA3ADYAZQAwADQANgA5ADcAOQB9QGzgAAAAAABAHAAAAAAAAD+Ik3S8an78AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

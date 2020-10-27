@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:fjs="http://www.infonavit.org.mx/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="retiroMarcaLey73" targetNamespace="http://www.infonavit.org.mx/">
+  <wsdl:types>
+    <xsd:schema xmlns:s1="http://www.infonavit.org.mx/" elementFormDefault="qualified" targetNamespace="http://www.infonavit.org.mx/">
+      <xsd:complexType name="fn_marcaje_ley73Request_fn_marcaje_ley73Request">
+        <xsd:sequence>
+          <xsd:element nillable="true" name="nss">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="11"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="caso_adai">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="cuenta_clabe">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="18"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element type="xsd:short" name="ind_marca" nillable="true"/>
+          <xsd:element type="xsd:short" name="cod_rechazo" nillable="true"/>
+          <xsd:element type="xsd:short" name="grupo" nillable="true"/>
+          <xsd:element type="xsd:short" name="medio_entrega" nillable="true"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="fn_marcaje_ley73Request" type="s1:fn_marcaje_ley73Request_fn_marcaje_ley73Request"/>
+      <xsd:complexType name="fn_marcaje_ley73Response_fn_marcaje_ley73Response">
+        <xsd:sequence>
+          <xsd:element nillable="true" name="nss">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="11"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element type="xsd:short" name="est_marca" nillable="true"/>
+          <xsd:element type="xsd:int" name="con_retiro" nillable="true"/>
+          <xsd:element type="xsd:short" name="cod_rechazo" nillable="true"/>
+          <xsd:element nillable="true" name="des_rechazo">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="saldo_aivs_viv92">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="14"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="saldo_pesos_viv92">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="14"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="saldo_aivs_viv97">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="14"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element nillable="true" name="saldo_pesos_viv97">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="14"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="fn_marcaje_ley73Response" type="s1:fn_marcaje_ley73Response_fn_marcaje_ley73Response"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="fn_marcaje_ley73In">
+    <wsdl:part name="parameters" element="fjs:fn_marcaje_ley73Request"/>
+  </wsdl:message>
+  <wsdl:message name="fn_marcaje_ley73Out">
+    <wsdl:part name="parameters" element="fjs:fn_marcaje_ley73Response"/>
+  </wsdl:message>
+  <wsdl:portType name="retiroMarcaLey73PortType">
+    <wsdl:operation name="fn_marcaje_ley73">
+      <wsdl:input message="fjs:fn_marcaje_ley73In" name="fn_marcaje_ley73Request"/>
+      <wsdl:output message="fjs:fn_marcaje_ley73Out" name="fn_marcaje_ley73Response"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="retiroMarcaLey73Binding" type="fjs:retiroMarcaLey73PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="fn_marcaje_ley73">
+      <soap:operation soapAction="fn_marcaje_ley73"/>
+      <wsdl:input name="fn_marcaje_ley73Request">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="fn_marcaje_ley73Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="retiroMarcaLey73">
+    <wsdl:port binding="fjs:retiroMarcaLey73Binding" name="retiroMarcaLey73PortType">
+      <soap:address location="http://10.90.8.132/marcaLey73/ws/r/retiroMarcaLey73"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:rfc="urn:sap-com:document:sap:rfc:functions" xmlns:p1="http://infonavit.org.mx/ConsultarEstatusPago/sndCredito" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SI_RECFISC_ConsultarEstatusPago_SO" targetNamespace="http://infonavit.org.mx/ConsultarEstatusPago/sndCredito">
+  <wsdl:documentation/>
+  <wsp:UsingPolicy wsdl:required="true"/>
+  <wsp:Policy wsu:Id="OP_SI_ConsultarEstatusPago_SO"/>
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:sap-com:document:sap:rfc:functions" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:element name="ZFICO_CONSULTAPAGOTABLET">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element name="DOCUMENTO">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="EJERCICIO">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="4"/>
+                  <xsd:pattern value="\d+"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="SOCIEDAD" minOccurs="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="4"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZFICO_CONSULTAPAGOTABLET.Response">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element name="T_MESS_PAGO">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="item" type="ZFI_CONSULTAPAGOSACI" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ZFI_CONSULTAPAGOSACI">
+        <xsd:sequence>
+          <xsd:element name="DOCU" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Accounting Document Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="EJER" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Fiscal Year</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4"/>
+                <xsd:pattern value="\d+"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="ESTATUS" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Subroutines for return code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+                <xsd:pattern value="\d+"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="MONTO" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Amount in document currency</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="13"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="WT_WITHCD" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Withholding tax code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="REFPAGO" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Reference Document Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="16"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="FECHPAGO" type="xsd:string" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Clearing Date</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="DESCSTAT" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Assignment Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="18"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="rfc.ZFICO_CONSULTAPAGOTABLET.Input">
+    <wsdl:documentation/>
+    <wsdl:part xmlns:rfc="urn:sap-com:document:sap:rfc:functions" name="parameters" element="rfc:ZFICO_CONSULTAPAGOTABLET"/>
+  </wsdl:message>
+  <wsdl:message name="rfc.ZFICO_CONSULTAPAGOTABLET.Output">
+    <wsdl:documentation/>
+    <wsdl:part xmlns:rfc="urn:sap-com:document:sap:rfc:functions" name="parameters" element="rfc:ZFICO_CONSULTAPAGOTABLET.Response"/>
+  </wsdl:message>
+  <wsdl:portType name="SI_RECFISC_ConsultarEstatusPago_SO">
+    <wsdl:documentation/>
+    <wsdl:operation name="SI_ConsultarEstatusPago_SO">
+      <wsdl:documentation/>
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_SI_ConsultarEstatusPago_SO"/>
+      </wsp:Policy>
+      <wsdl:input message="p1:rfc.ZFICO_CONSULTAPAGOTABLET.Input"/>
+      <wsdl:output message="p1:rfc.ZFICO_CONSULTAPAGOTABLET.Output"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SI_RECFISC_ConsultarEstatusPago_SOBinding" type="p1:SI_RECFISC_ConsultarEstatusPago_SO">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SI_ConsultarEstatusPago_SO">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://sap.com/xi/WebService/soap1.1"/>
+      <wsdl:input>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SI_RECFISC_ConsultarEstatusPago_SOService">
+    <wsdl:port name="HTTPS_Port" binding="p1:SI_RECFISC_ConsultarEstatusPago_SOBinding">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="https://091402aq137.infonavit.net:50101/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BC_CREDITO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_RECFISC_ConsultarEstatusPago_SO&amp;interfaceNamespace=http%3A%2F%2Finfonavit.org.mx%2FConsultarEstatusPago%2FsndCredito"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{57afb646-d762-4cac-b177-29f029ab286b}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="busqueda" order="" uid="{4d627c78-dfd9-4fd0-a848-a91246099798}" where="">
+    <RecordField colName="" fieldIdRef="2" name="v_nss" sqlTabName="" table_alias_name="" uid="{7bb0a6af-60a2-4324-bd7c-5f34711dcc65}"/>
+    <RecordField colName="" fieldIdRef="1" name="v_caso_adai" sqlTabName="" table_alias_name="" uid="{e5d5b284-5328-43db-bcfe-0f72112f4aef}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="resultados" order="" uid="{37c299c0-cb2e-4853-a8d7-d31ef41a7665}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{dfadc4de-5357-4d36-8fde-a0b198d9ef2d}" where="">
+    <RecordField colName="" fieldIdRef="5" name="nombre_af" sqlTabName="" table_alias_name="" uid="{aa33067d-6d4f-44e4-aaa9-04fa0f7f2f45}"/>
+    <RecordField colName="" fieldIdRef="6" name="ap_paterno_af" sqlTabName="" table_alias_name="" uid="{87655f18-de77-4b3d-806b-0b93afc8ded0}"/>
+    <RecordField colName="" fieldIdRef="7" name="ap_materno_af" sqlTabName="" table_alias_name="" uid="{9de77a79-504e-437d-a1a3-3cc78159c92e}"/>
+    <RecordField colName="" fieldIdRef="8" name="estado_solicitud" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{7479b179-7eda-4124-8712-df7f6157efeb}"/>
+    <RecordField colName="" fieldIdRef="3" name="id_solicitud" sqlTabName="" table_alias_name="" uid="{bcacf0a5-e8dc-42ff-b707-05ea03ce59b9}"/>
+  </Record>
+  <Form gridHeight="15" gridWidth="65" name="Form" text="Form">
+    <Grid gridHeight="13" gridWidth="61" name="Grid1" posX="2" posY="1">
+      <Group gridHeight="5" gridWidth="25" name="Group1" posX="1" posY="1" text="Parametros de Consulta">
+        <Label gridHeight="1" gridWidth="5" justify="center" lstrtext="true" name="Label1" posX="1" posY="1" text="NSS"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="11" justify="left" name="v_nss" posX="13" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="9" justify="center" name="Label2" posX="1" posY="2" text="Caso ADAI"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" justify="left" name="v_caso_adai" posX="13" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="6" gridWidth="59" name="Group3" posX="1" posY="6" text="Resultados">
+        <Label gridHeight="1" gridWidth="6" lstrtext="true" name="Label5" posX="1" posY="1" text="Nombre"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="30" name="nombre_af" posX="19" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Nombre" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" lstrtext="true" name="Label6" posX="1" posY="2" text="Apellido Paterno"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="30" name="ap_paterno_af" posX="19" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Apellido Paterno" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" lstrtext="true" name="Label7" posX="1" posY="3" text="Apellido Materno"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="30" name="ap_materno_af" posX="19" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Apellido Materno" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" lstrtext="true" name="Label8" posX="1" posY="4" text="Estado Solicitud"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="3" name="estado_solicitud" posX="19" posY="4" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Estado Solicitud" widget="Edit"/>
+        <Phantom colName="" fieldId="3" name="id_solicitud" sqlTabName="" sqlType="CHAR" table_alias_name="" widget="Phantom"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiAGMAYQBjAGYAMABhADUALQBlADgAZABjAC0ANAAyAGYAZgAtAGIANwAwADcALQAwADUAZQBhADAAMwBjAGUANQA5AGIAOQB9QBQAAAUAAABAXYAAB2AAAAAAAAAAAAAAAQAAAEwAewA5AGQAZQA3ADcAYQA3ADkALQA1ADAANABlAC0ANAAzADcAZAAtAGEAMQBhADMALQAzAGMAYwA3ADgAMQA1ADkAYwA5ADIAZQB9QBQAAAUAAABAUgAABIAAAAAAAAAAAAAAAQAAAEwAewA3ADQANwA5AGIAMQA3ADkALQA3AGUAZABhAC0ANAAxADIANAAtADgANwAxADIALQBkAGYANwBmADYAMQA1ADcAZQBmAGUAYgB9QBQAAAUAAABAV8AABfAAAAAAAAAAAAAAAQAAAEwAewA4ADcANgA1ADUAZgAxADgALQBkAGUANwA3AC0ANABiADMAZAAtADgAMAA2AGIALQAwAGIAOQAzAGEAZgBjADgAZABlAGQAMAB9QBQAAAUAAABASIAABiAAAAAAAAAAAAAAAQAAAEwAewA3AGIAYgAwAGEANgBhAGYALQA2ADAAYQAyAC0ANAAzADIANAAtAGIAZAA3AGMALQA1AGYAMwA0ADcAMQAxAGQAYwBjADYANQB9QBQAAAUAAABAOgAABoAAAD9QYk3S8an8AQAAAEwAewBhAGEAMwAzADAANgA3AGQALQA2AGQANABmAC0ANAA0AGUANAAtAGEAYQBhADkALQAwADQAZgBhADAAZgA3AGYAMgBmADQANQB9QBQAAAUAAABAOgAABoAAAAAAAAAAAAAAAQAAAEwAewAzADcAYwAyADkAOQBjADAALQBjAGIAMgBlAC0ANAA4ADUAMwAtAGEAOABkADcALQBkADMAMQBlAGYANAAxAGEANwA2ADYANQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGYAYQBkAGMANABkAGUALQA1ADMANQA3AC0ANABkADMANgAtADgAZgBkAGUALQBhADAAYgAxADkAOABkADkAZQBmADIAZAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGQANgAyADcAYwA3ADgALQBkAGYAZAA5AC0ANABmAGQAMAAtAGEAOAA0ADgALQBhADkAMQAyADQANgAwADkAOQA3ADkAOAB9QHEgAARIAADACAAABgAAAD+EeuFHrhR8AQAAAEwAewBlADUAZAA1AGIAMgA4ADQALQA1ADMAMgA4AC0ANAAzAGQAYgAtAGIAYwBmAGUALQAwAGYANwAyADEAMQAyAGYANABhAGUAZgB9QBQAAAUAAABASIAABiAAAD9gYk3S8an8AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

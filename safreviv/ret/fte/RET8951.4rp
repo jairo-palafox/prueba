@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RET895.rdd" RWFglReportName="rpt_detalle_solicitado"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded"/>
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min">
+                            <IMAGEBOX name="imgLogoInfonavit" width="70" length="45" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="520.733" length="2.76656"/>
+                        <MINIPAGE name="tituloReporte" width="520.103" length="20">
+                            <WORDBOX name="WordBox" width="522.128" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte de Movimientos de Abono no aplicados"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="18.4943" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lblFecha" width="86.6406" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha de proceso:"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

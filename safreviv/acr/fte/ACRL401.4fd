@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{110ba1fa-f437-45d9-aeea-af86346bde64}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{c4d05d2a-14f4-4ad0-83c0-1452d0bdbb89}" where="">
+    <RecordField colName="" fieldIdRef="1" name="gentrada" sqlTabName="" table_alias_name="" uid="{9281816d-fb37-4511-aca5-a82143dbd922}"/>
+    <RecordField colName="" fieldIdRef="2" name="gsalida" sqlTabName="" table_alias_name="" uid="{b192c870-a45e-4608-b4f3-c04ecb06884c}"/>
+    <RecordField colName="" fieldIdRef="3" name="gtransacciones" sqlTabName="" table_alias_name="" uid="{12de6f1f-d4de-4dcd-854d-8d12a317a6ba}"/>
+  </Record>
+  <Form gridHeight="22" gridWidth="84" name="Form" text="Form">
+    <Grid gridHeight="20" gridWidth="80" name="Grid1" posX="2" posY="1">
+      <Label gridHeight="1" gridWidth="9" name="Label1" posX="2" posY="1" text="Reverso"/>
+      <Group gridHeight="6" gridWidth="65" name="gentrada" posX="5" posY="2" text="Archivos de entrada">
+        <RadioGroup colName="" columnCount="" fieldId="1" gridHeight="4" gridWidth="61" items="Devoluciones saldo, Rechazos, Confirmación saldo, Devolución fondo ahorro" name="gentrada" posX="2" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="RadioGroup1" widget="RadioGroup">
+          <Item lstrtext="false" name="opt1" text="Devoluciones saldo"/>
+          <Item lstrtext="false" name="opt2" text="Rechazos"/>
+          <Item lstrtext="false" name="opt3" text="Confirmación saldo"/>
+          <Item lstrtext="false" name="opt8" text="Devolución fondo ahorro"/>
+        </RadioGroup>
+      </Group>
+      <Group gridHeight="3" gridWidth="65" name="gsalida" posX="5" posY="9" text="Archivos de salida">
+        <RadioGroup colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="61" items="Solicitud de devolución" name="gsalida" posX="2" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="RadioGroup2" widget="RadioGroup">
+          <Item lstrtext="false" name="opt4" text="Solicitud de devolución"/>
+        </RadioGroup>
+      </Group>
+      <Group gridHeight="6" gridWidth="65" name="gtransacciones" posX="5" posY="13" text="Transacciones">
+        <RadioGroup colName="" columnCount="" fieldId="3" gridHeight="4" gridWidth="60" items="Agrupación, Preliquidación, Liquidación, Liquidación fondo 72" name="gtransacciones" posX="2" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="RadioGroup3" widget="RadioGroup">
+          <Item lstrtext="false" name="opt5" text="Agrupación"/>
+          <Item lstrtext="false" name="opt6" text="Preliquidación"/>
+          <Item lstrtext="false" name="opt7" text="Liquidación"/>
+          <Item lstrtext="false" name="opt9" text="Liquidación fondo 72"/>
+        </RadioGroup>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxADIAZABlADYAZgAxAGYALQBkADQAZABlAC0ANABkAGMAZAAtADgANQA0AGQALQA4AGQAMQAyAGEAMwAxADcAYQA2AGIAYQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADQAZAAwADUAZAAyAGEALQAxADQAZgA0AC0ANABhAGQAMAAtADgAMwBjADAALQAxADQANQAyAGQAMABiAGQAYgBiADgAOQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADIAOAAxADgAMQA2AGQALQBmAGIAMwA3AC0ANAA1ADEAMQAtAGEAYwBhADUALQBhADgAMgAxADQAMwBkAGIAZAA5ADIAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADEAOQAyAGMAOAA3ADAALQBhADQANQBlAC0ANAA2ADAAOAAtAGIANABmADMALQBjADAANABlAGMAYgAwADYAOAA4ADQAYwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

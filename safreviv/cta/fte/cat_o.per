@@ -1,0 +1,37 @@
+database safre_viv@vivop_tcp
+screen size 24 by 80
+{
+proceso_cod        [f000  ]
+opera_cod          [f001  ]
+opera_desc         [f002                                    ]
+programa_cod       [f003      ]
+layout_cod         [f004  ]
+recurrencia        [f005  ]
+ejecuta_cod        [f006  ]
+descripcion        [f007      ]
+hora_prog          [f008 ]
+categoria          [f009  ]
+n_parametros       [f010  ]
+extension          [f011      ]
+opera_cod_ant      [f012  ]
+opera_cod_post     [f013  ]
+}
+end
+tables
+cat_operacion
+attributes
+f000 = cat_operacion.proceso_cod;
+f001 = cat_operacion.opera_cod;
+f002 = cat_operacion.opera_desc;
+f003 = cat_operacion.programa_cod;
+f004 = cat_operacion.layout_cod;
+f005 = cat_operacion.recurrencia;
+f006 = cat_operacion.ejecuta_cod;
+f007 = cat_operacion.descripcion;
+f008 = cat_operacion.hora_prog;
+f009 = cat_operacion.categoria;
+f010 = cat_operacion.n_parametros;
+f011 = cat_operacion.extension;
+f012 = cat_operacion.opera_cod_ant;
+f013 = cat_operacion.opera_cod_post;
+end

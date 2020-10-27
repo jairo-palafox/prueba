@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="DISE18.rdd" RWFglReportName="rep_dis_nss"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="PageHeader" width="min" length="min" alignment="near" port="anyPageHeader" floatingBehavior="enclosed">
+                        <IMAGEBOX name="Logo Infonavit" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        <LAYOUTNODE name="Titulo" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="wb_titulo" x="7.5001" y="max*0.5036" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="DISPERSIÓN POR NÚMERO DE SEGURIDAD SOCIAL" localizeText="false"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Detalle titulo 1" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="wb_usuario" x="6.5" y="23.4995" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                            <rtl:input-variable name="v_rusuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_rusuario Value" x="1" y="50" alignment="center" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_rusuario}}"/>
+                            <WORDBOX name="wb_fecha" x="6.5" y="604.743" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="v_rfec_proc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_rfec_proc Value" x="1" y="638.505" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_rfec_proc}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Detalle titulo 2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="wb_folio" x="6.5" y="29.9139" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Folio:"/>
+                            <rtl:input-variable name="v_rfolio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_rfolio Value" x="1" y="90.4321" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-#####" value="{{v_rfolio}}"/>
+                            <WORDBOX name="wb_nombre_archivo" x="6.5" y="488.326" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Archivo integrado:"/>
+                            <rtl:input-variable name="v_nom_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nom_archivo Value" x="1" y="536.982" width="width(&quot;M&quot;)*20" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_nom_archivo}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="Columnas" x="0" y="143.559" width="20.3064" length="721.619" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <LAYOUTNODE name="Linea Roja 1" x="0.8975" y="0" width="1.5" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <WORDBOX name="wb_estado" x="2.5255" y="150" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="Estado"/>
+                            <WORDBOX name="wb_desc_estado" x="2.5255" y="230" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="Descripción de Estado"/>
+                            <WORDBOX name="wb_tot_estado" x="2.5255" y="500.764" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="Total Estado"/>
+                            <LAYOUTNODE name="Linea Roja 2" x="18.2839" y="0" width="1.5" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="PageFooter" width="min" length="min" port="anyPageFooter" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="17.3317" length="720.415" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="Linea Roja 1_1" x="0.8975" y="0" width="1.5" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <WORDBOX name="lbl_page_footer" x="5" alignment="center" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                            <PAGENOBOX name="PageNoBox" x="5" y="718.633" anchorX="0" anchorY="1" alignment="far" color="#ce050f" fontName="Arial" fontSize="8" baselineType="leftleft" floatingBehavior="enclosed" pageName="Page Root"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Body" width="721.206" length="150.136" alignment="near" floatingBehavior="enclosed">
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="Table Row" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <rtl:input-variable name="rec_dis_nss.v_estado" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="rec_dis_nss.v_estado Value" x="16.0674" y="143.637" width="39.3819" anchorX="1" alignment="baseline" fontName="Arial" fontSize="11" floatingBehavior="enclosed" textAlignment="right" format="-----&amp;" value="{{rec_dis_nss.v_estado}}"/>
+                                <rtl:input-variable name="rec_dis_nss.v_desc_estado" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="rec_dis_nss.v_desc_estado Value" x="2.3994" y="231.441" width="width(&quot;M&quot;)*20" alignment="center" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="{{rec_dis_nss.v_desc_estado}}" textAlignment="left"/>
+                                <rtl:input-variable name="rec_dis_nss.v_tot_estado" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="rec_dis_nss.v_tot_estado Value" x="16.0674" y="517.809" width="43.1459" anchorX="1" alignment="baseline" fontName="Arial" fontSize="11" floatingBehavior="enclosed" textAlignment="right" format="-##,###,##&amp;" value="{{rec_dis_nss.v_tot_estado}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                        <MINIPAGE name="Totales" x="-3.8565" y="78.2958" width="42.5844" length="721.622" anchorX="0" anchorY="2.87603e-14" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="Linea Roja 3" x="0" y="0" width="1.40882" length="721.199" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <WORDBOX name="wb_tot_reg_rec" x="3.5217" y="342.391" anchorX="0" anchorY="0" color="#d8050f" fontName="Arial" floatingBehavior="enclosed" text="Total Registros Recibidos:"/>
+                            <rtl:input-variable name="v_tot_nss" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tot_nss Value" x="4.3802" y="569.675" anchorX="0" anchorY="1" fontName="Arial" fontSize="11" floatingBehavior="enclosed" textAlignment="right" format="-##,###,##&amp;" value="{{v_tot_nss}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

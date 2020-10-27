@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{acd11808-6515-42d3-a488-ec65f16e3b20}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{64bb2285-05a6-4fae-8dd4-de1910bbdfd4}" where="">
+    <RecordField colName="" fieldIdRef="1" name="caso_adai" sqlTabName="" table_alias_name="" uid="{cfd9b912-a6c9-4dec-bec2-4837aa60d600}"/>
+    <RecordField colName="" fieldIdRef="2" name="id_expediente" sqlTabName="" table_alias_name="" uid="{670a0c1d-762a-4742-af09-e85d128928c2}"/>
+    <RecordField colName="" fieldIdRef="3" name="nss" sqlTabName="" table_alias_name="" uid="{4d99582c-acca-4f15-87f2-02ab769fced7}"/>
+    <RecordField colName="" fieldIdRef="4" name="tipo_nss" sqlTabName="" table_alias_name="" uid="{9edbc6c7-eb6f-4269-b06b-c8cd5fd2f807}"/>
+    <RecordField colName="" fieldIdRef="5" name="estado" sqlTabName="" table_alias_name="" uid="{fc1691e8-78fd-4496-bf99-63747ad6d1b2}"/>
+    <RecordField colName="" fieldIdRef="8" name="tot_expedientes" sqlTabName="" table_alias_name="" uid="{d8a0155e-b113-42f6-b352-674e3b1c6523}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_expediente" order="" uid="{da1102bb-cc1a-4ef0-90bc-2417f1ef36e9}" where="">
+    <RecordField colName="" fieldIdRef="16" name="d_id_expediente" sqlTabName="" table_alias_name="" uid="{7838c485-20cb-43db-b821-a9c2e2be935a}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_caso_adai" sqlTabName="" table_alias_name="" uid="{e7c79a88-c45d-4936-b714-4d6b5fd93be6}"/>
+    <RecordField colName="" fieldIdRef="7" name="flujo_cod" sqlTabName="" table_alias_name="" uid="{fe3b153b-382f-47af-bcb7-3387ba7216f4}"/>
+    <RecordField colName="" fieldIdRef="9" name="f_captura" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{d042e3f0-fcef-4e7e-9136-fc6b712b378e}"/>
+    <RecordField colName="" fieldIdRef="10" name="canal_cod" sqlTabName="" table_alias_name="" uid="{c83631e0-ca77-4eec-ab7d-4b07f6c5634e}"/>
+    <RecordField colName="" fieldIdRef="11" name="nss_acred" sqlTabName="" table_alias_name="" uid="{4b4ae86a-e07c-427d-9df6-1288018cba53}"/>
+    <RecordField colName="" fieldIdRef="12" name="nss_trab1" sqlTabName="" table_alias_name="" uid="{e6de618c-0cc1-4854-8dbf-be21f1c3ef44}"/>
+    <RecordField colName="" fieldIdRef="13" name="nss_trab2" sqlTabName="" table_alias_name="" uid="{4631f496-40fc-4f4f-9277-61b5edc7d4c3}"/>
+    <RecordField colName="" fieldIdRef="14" name="nss_trab3" sqlTabName="" table_alias_name="" uid="{bbe62fe5-fa97-4a90-a700-599b522fc1f3}"/>
+    <RecordField colName="" fieldIdRef="15" name="nss_trab4" sqlTabName="" table_alias_name="" uid="{893e16da-738e-411d-862f-45cc328cef3b}"/>
+  </Record>
+  <Form gridHeight="40" gridWidth="152" name="Form" text="Form">
+    <Grid gridHeight="32" gridWidth="150" name="Grid1" posX="2" posY="1">
+      <Group gridHeight="8" gridWidth="54" name="Group1" posX="2" posY="1" text="Captura">
+        <Label gridHeight="1" gridWidth="15" name="Label1" posX="2" posY="1" text="Número de Caso:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="34" name="caso_adai" posX="18" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label2" posX="2" posY="2" text="Id Expediente:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="34" name="id_expediente" posX="18" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label3" posX="2" posY="3" text="NSS:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="34" name="nss" posX="18" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label4" posX="2" posY="4" text="Tipo Trabajador:"/>
+        <RadioGroup aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="34" items="Acreditado, Trabajador" name="tipo_nss" orientation="horizontal" posX="18" posY="4" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="RadioGroup">
+          <Item lstrtext="false" name="1" text="Acreditado"/>
+          <Item lstrtext="false" name="2" text="Trabajador"/>
+        </RadioGroup>
+        <Label gridHeight="1" gridWidth="15" name="Label5" posX="2" posY="5" text="Estado:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="34" name="estado" posX="18" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="22" gridWidth="148" name="Group2" posX="2" posY="9" text="Expedientes encontrados">
+        <Table gridHeight="16" gridWidth="130" name="Table1" posX="2" posY="1" totalRows="15">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="d_id_expediente" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="16" table_alias_name="" title="ID" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="v_caso_adai" posX="8" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Caso" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="16" name="flujo_cod" posX="16" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Tipo Flujo" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" name="f_captura" posX="32" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Fecha Captura" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="45" name="canal_cod" posX="43" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Origen Expediente" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="13" justify="right" name="nss_acred" posX="88" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Invadido" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="13" justify="right" name="nss_trab1" posX="101" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Asociado" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="1" hidden="true" name="nss_trab2" posX="114" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Trabajador 2" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="1" hidden="true" name="nss_trab3" posX="115" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Trabajador 3" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="1" hidden="true" name="nss_trab4" posX="116" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Trabajador 4" widget="Edit"/>
+        </Table>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="13" name="tot_expedientes" posX="2" posY="20" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="22" name="Label6" posX="16" posY="20" text="Expedientes encontrados"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

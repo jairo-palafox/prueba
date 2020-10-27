@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.procesar.com.mx/TraspasosInfonavit/ConsultaSaldo/consultaSaldo/" xmlns:WL5G3N2="http://www.procesar.com.mx/TraspasosInfonavit/ConsultaSaldo/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" name="ConsultaSaldo" targetNamespace="http://www.procesar.com.mx/TraspasosInfonavit/ConsultaSaldo/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.procesar.com.mx/TraspasosInfonavit/ConsultaSaldo/" xmlns:tns1="http://www.procesar.com.mx/TraspasosInfonavit/ConsultaSaldo/consultaSaldo/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:import namespace="http://www.procesar.com.mx/TraspasosInfonavit/ConsultaSaldo/consultaSaldo/" schemaLocation="ConsultaSaldo_9fed41f4d288c73e1b8fc9c08ed47a90.xsd"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="consultaSaldo">
+    <WL5G3N0:part element="WL5G3N1:ConsultaSaldoVO" name="consulta"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="consultaSaldoResponse">
+    <WL5G3N0:part element="WL5G3N1:ConsultaSaldoRespVO" name="consultaSaldoReturn"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="ConsultaSaldoSOAP">
+    <WL5G3N0:operation name="consultaSaldo">
+      <WL5G3N0:input message="WL5G3N2:consultaSaldo"/>
+      <WL5G3N0:output message="WL5G3N2:consultaSaldoResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="ConsultaSaldoSOAPBinding" type="WL5G3N2:ConsultaSaldoSOAP">
+    <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="consultaSaldo">
+      <WL5G3N3:operation soapAction="http://www.procesar.com.mx/TraspasosInfonavit/ConsultaSaldo/consultaSaldo/"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="ConsultaSaldo">
+    <WL5G3N0:port binding="WL5G3N2:ConsultaSaldoSOAPBinding" name="ConsultaSaldoSOAP">
+      <WL5G3N3:address location="http://172.21.61.132:7100/TraspasosInfonavit/ConsultaSaldo"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

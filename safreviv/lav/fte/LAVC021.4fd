@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{54e0e197-079d-47ed-87a4-3115b99116b3}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="parametros" order="" uid="{73502dd3-2d70-4d8e-bdc8-aa7ca73443d6}" where="">
+    <RecordField colName="" fieldIdRef="20" name="de_f_valor" sqlTabName="" table_alias_name="" uid="{2a7217a6-b8d0-4271-8822-5faf018c3e17}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{c88369c9-388c-43bd-a52d-683a378c8598}" where="">
+    <RecordField colName="" fieldIdRef="1" name="de_f_registro" sqlTabName="" table_alias_name="" uid="{efd1d4b5-a62a-48c0-872e-d3f201798970}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_detalles" order="" uid="{c3960d81-ba7d-43ad-8918-e7302088dfe2}" where="">
+    <RecordField colName="" fieldIdRef="2" name="v_id_tipo_cambio" sqlTabName="" table_alias_name="" uid="{c567f80e-fb1b-4ed4-bafa-a4f0c60946a6}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_fecha_valor" sqlTabName="" table_alias_name="" uid="{a9109c03-4395-4044-a4b3-074ceaca4475}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_valor" sqlTabName="" table_alias_name="" uid="{448358be-2287-405c-9e11-f90cb962c619}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_fecha_registro" sqlTabName="" table_alias_name="" uid="{f9f56058-94a1-4cb2-8cea-9e34c026761c}"/>
+  </Record>
+  <Form gridHeight="32" gridWidth="56" name="Form" text="Form">
+    <Grid gridHeight="29" gridWidth="52" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="5" gridWidth="48" name="gr_parametros" posX="1" posY="1" text="Consulta de detección de lavado de dinero">
+        <Label gridHeight="1" gridWidth="10" name="lbl_f_ini" posX="2" posY="1" text="Fecha valor"/>
+        <DateEdit colName="" columnCount="" fieldId="20" format="dd-mm-yyyy" gridHeight="1" gridWidth="22" name="de_f_valor" posX="13" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_f_ini1" posX="2" posY="3" text="Fecha registro"/>
+        <DateEdit colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="22" name="de_f_registro" posX="13" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="20" gridWidth="49" name="gr_detalles" posX="1" posY="7" text="Detalles de consulta">
+        <Table gridHeight="17" gridWidth="42" name="scr_detalles" posX="2" posY="2" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="2" hidden="true" name="v_id_tipo_cambio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="tc" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" name="v_fecha_valor" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Fecha Valor" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="" gridHeight="1" gridWidth="10" justify="center" name="v_valor" posX="13" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Valor" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="dd-mm-yyyy" gridHeight="1" gridWidth="12" name="v_fecha_registro" posX="23" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Fecha Registro" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBlAGYAZAAxAGQANABiADUALQBhADYAMgBhAC0ANAA4AGMAMAAtADgANwAyAGUALQBkADMAZgAyADAAMQA3ADkAOAA5ADcAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADMANQAwADIAZABkADMALQAyAGQANwAwAC0ANABkADgAZQAtAGIAZABjADgALQBhAGEANwBjAGEANwAzADQANAAzAGQANgB9wGogAAAAAABAZaAAAAAAAD90euFHrhR7AQAAAEwAewBjADgAOAAzADYAOQBjADkALQAzADgAOABjAC0ANAAzAGIAZAAtAGEANQAyAGQALQA2ADgAMwBhADMANwA4AGMAOAA1ADkAOAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGEANwAyADEANwBhADYALQBiADgAZAAwAC0ANAAyADcAMQAtADgAOAAyADIALQA1AGYAYQBmADAAMQA4AGMAMwBlADEANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADQAOAAzADUAOABiAGUALQAyADIAOAA3AC0ANAAwADUAYwAtADkAZQAxADEALQBmADkAMABjAGIAOQA2ADIAYwA2ADEAOQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADkAMQAwADkAYwAwADMALQA0ADMAOQA1AC0ANAAwADQANAAtAGEANABiADMALQAwADcANABjAGUAYQBjAGEANAA0ADcANQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADkAZgA1ADYAMAA1ADgALQA5ADQAYQAxAC0ANABjAGIAMgAtADgAYwBlAGEALQA5AGUAMwA0AGMAMAAyADYANwA2ADEAYwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADMAOQA2ADAAZAA4ADEALQBiAGEANwBkAC0ANAAzAGEAZAAtADgAOQAxADgALQBlADcAMwAwADIAMAA4ADgAZABmAGUAMgB9AAAAAAAAAAAAAAAAAAAAAD+AYk3S8an8AQAAAEwAewBjADUANgA3AGYAOAAwAGUALQBmAGIAMQBiAC0ANABlAGQANAAtAGIAYQBmAGEALQBhADQAZgAwAGMANgAwADkANAA2AGEANgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/SEPC90.rdd" RWFglReportName="fn_reporte_virtuales_liq"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="Page Header" width="max" length="min" port="anyPageHeader">
+                        <MINIPAGE name="MiniPage6" width="13.9775" length="max" alignment="near" layoutDirection="rightToLeft">
+                            <PAGENOBOX name="PageNoBox" x="0" y="4.8822" anchorX="1.18424e-15" anchorY="0" alignment="near" fontSize="10" floatingBehavior="enclosed" textExpression="&quot;Pág. &quot;+format(getPhysicalPageNumber(),ARABIC)+&quot; de &quot;+format(getTotalNumberOfPhysicalPages(),ARABIC)"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage7" width="109.585" length="max" alignment="near" layoutDirection="leftToRight">
+                            <IMAGEBOX name="ImageBox1" x="2.9814" y="5.4168" width="128.551" length="103.461" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="infonavit_logo.jpg" intendedResolution="96"/>
+                            <WORDBOX name="WordBox35" x="44.3581" y="293.186" anchorX="0" anchorY="0" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="REPORTE DE CUENTAS VIRTUALES DE SEPARACIÓN LIQUIDADAS"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage8" width="max" length="71.1914" alignment="near">
+                            <WORDBOX name="WordBox36" x="283.763" y="8.9056" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="false" floatingBehavior="enclosed" text="nss Invadido"/>
+                            <WORDBOX name="WordBox37" x="283.763" y="23.1353" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="false" floatingBehavior="enclosed" text="nss Virtual"/>
+                            <WORDBOX name="WordBox38" x="283.763" y="37.3245" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="false" floatingBehavior="enclosed" text="Fecha Apertura"/>
+                            <WORDBOX name="WordBox39" x="283.763" y="51.7493" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="false" floatingBehavior="enclosed" text="Fecha Liquidación"/>
+                            <WORDBOX name="WordBox40" x="453" y="37.3245" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="al"/>
+                            <WORDBOX name="WordBox41" x="453" y="54.2206" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="al"/>
+                            <WORDBOX name="WordBox42" x="549.882" y="8.9056" anchorX="0" anchorY="0" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Fecha Emisión"/>
+                            <WORDBOX name="WordBox43" x="549.882" y="22.2686" anchorX="0" anchorY="0" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Total Cuentas"/>
+                            <WORDBOX name="WordBox44" x="549.882" y="36.4524" anchorX="0" anchorY="0" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Total Viv97 Virtual"/>
+                            <WORDBOX name="WordBox45" x="549.882" y="51.7493" anchorX="0" anchorY="0" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Total Viv92 Virtual"/>
+                            <rtl:input-variable name="r_f_emision" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="r_f_emision Value" x="650.324" y="8.9056" width="75" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" textAlignment="center" text="{{r_f_emision}}" borderWidth="0.5" borderStyle="solid" marginWidth="1"/>
+                            <rtl:input-variable name="r_total_v92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_total_v92 Value" x="650.324" y="51.7493" width="75" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" textAlignment="right" format="$---,---,---,--&amp;.&amp;&amp;" value="{{r_total_v92}}" borderWidth="0.5" borderStyle="solid" marginWidth="1"/>
+                            <rtl:input-variable name="r_total_cuentas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_total_cuentas Value" x="650.324" y="22.2686" width="75" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" textAlignment="center" format="----------#" value="{{r_total_cuentas}}" borderWidth="0.5" borderStyle="solid" marginWidth="1"/>
+                            <rtl:input-variable name="r_total_v97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_total_v97 Value" x="650.324" y="37.3245" width="75" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" textAlignment="right" format="$---,---,---,--&amp;.&amp;&amp;" value="{{r_total_v97}}" borderWidth="0.5" borderStyle="solid" marginWidth="1"/>
+                            <rtl:input-variable name="filtro_liq.vl_invadido" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro_liq.vl_invadido Value" class="grwStringValue" x="369.923" y="8.90611" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro_liq.vl_invadido}}"/>
+                            <rtl:input-variable name="filtro_liq.vl_virtual" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro_liq.vl_virtual Value" class="grwStringValue" x="369.923" y="22.2681" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro_liq.vl_virtual}}"/>
+                            <rtl:input-variable name="filtro_liq.vl_f_ini_apertura" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro_liq.vl_f_ini_apertura Value" class="grwStringValue" x="369.923" y="37.3241" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro_liq.vl_f_ini_apertura}}"/>
+                            <rtl:input-variable name="filtro_liq.vl_f_ini_liquida" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro_liq.vl_f_ini_liquida Value" class="grwStringValue" x="369.923" y="51.7491" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro_liq.vl_f_ini_liquida}}"/>
+                            <rtl:input-variable name="filtro_liq.vl_f_fin_apertura" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro_liq.vl_f_fin_apertura Value" class="grwStringValue" x="468.385" y="37.3241" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro_liq.vl_f_fin_apertura}}"/>
+                            <rtl:input-variable name="filtro_liq.vl_f_fin_liquida" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="filtro_liq.vl_f_fin_liquida Value" class="grwStringValue" x="468.385" y="51.7491" anchorX="0" anchorY="0" fontSize="9" fontBold="true" fontItalic="true" floatingBehavior="enclosed" text="{{filtro_liq.vl_f_fin_liquida}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage9" width="max" length="30.5393" alignment="near">
+                            <WORDBOX name="WordBox46" x="6.45" y="14.2171" width="55" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="nss Invadido" borderWidth="0.8" borderStyle="solid" marginWidth="1" marginRightWidth="1" marginLeftWidth="1"/>
+                            <WORDBOX name="WordBox47" x="62.9873" y="14.2171" width="52" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="nss Virtual" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox48" x="116.788" y="14.2171" width="60.5" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Fecha apertura" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox49" x="179.289" y="14.2171" width="61.5" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Fecha Liquida" borderWidth="0.8" borderStyle="solid" marginWidth="1" marginTopWidth="0"/>
+                            <WORDBOX name="WordBox50" x="564.474" y="14.2171" width="76" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="PesosViv97 Al Día" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox51" x="502.569" y="14.2171" width="60" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="SaldoViv97" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox42_1" x="694.233" y="14.2171" width="62.5" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Estado" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox45_1" x="450.616" y="14.2171" width="49.5" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="AivsViv92" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox46_1" x="642.547" y="14.2171" width="48.75" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="AivsViv97" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox49_1" x="243.008" y="14.2171" width="75.3852" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Total Pesos Al Día" borderWidth="0.8" borderStyle="solid" marginWidth="1" marginTopWidth="0"/>
+                            <WORDBOX name="WordBox50_1" x="320.935" y="14.2171" width="54" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="SaldoViv92" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                            <WORDBOX name="WordBox50_2" x="376.982" y="14.2171" width="71.5" length="11" anchorX="0" anchorY="0" color="#ffffff" bgColor="#aa0000" fontSize="8.5" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="PesosViv92 Al Día" borderWidth="0.8" borderStyle="solid" marginWidth="1"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage4_1_1" width="max" length="16.6196" alignment="near" fontSize="7.5">
+                            <rtl:input-variable name="v_tabla_resultado.v_r_invadido" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_tabla_resultado.v_r_invadido Value" x="6.3303" y="2.9178" width="56.5" anchorX="0" anchorY="0" fontSize="7.5" floatingBehavior="enclosed" textAlignment="center" text="{{v_tabla_resultado.v_r_invadido}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_virtual" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_tabla_resultado.v_r_virtual Value" x="64.4568" y="2.9178" width="50.5" anchorX="0" anchorY="0" fontSize="7.5" floatingBehavior="enclosed" textAlignment="center" text="{{v_tabla_resultado.v_r_virtual}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_f_apertura" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_tabla_resultado.v_r_f_apertura Value" x="115.785" y="2.9178" width="62" anchorX="0" anchorY="0" fontSize="7.5" floatingBehavior="enclosed" textAlignment="center" text="{{v_tabla_resultado.v_r_f_apertura}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_viv92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tabla_resultado.v_r_viv92 Value" x="321.616" y="2.9178" width="50.25" anchorX="0" anchorY="0" fontSize="7.5" floatingBehavior="enclosed" textAlignment="center" format="$---,---,---,--&amp;.&amp;&amp;" value="{{v_tabla_resultado.v_r_viv92}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_f_liquida" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_tabla_resultado.v_r_f_liquida Value" x="181.429" y="2.9178" width="57.75" anchorX="0" anchorY="0" fontSize="7.5" floatingBehavior="enclosed" textAlignment="center" text="{{v_tabla_resultado.v_r_f_liquida}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_viv97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tabla_resultado.v_r_viv97 Value" x="504.906" y="2.9178" width="56.75" anchorX="0.0136276" anchorY="7.30844e-14" fontSize="7.5" floatingBehavior="enclosed" textAlignment="center" format="$---,---,---,--&amp;.&amp;&amp;" value="{{v_tabla_resultado.v_r_viv97}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_descripcion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_tabla_resultado.v_r_descripcion Value" class="grwTableStringColumnValue" x="696.785" y="2.1189" width="71.1014" length="8.75" anchorX="0" anchorY="0" fontSize="7.5" floatingBehavior="enclosed" text="{{v_tabla_resultado.v_r_descripcion}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_aiv97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tabla_resultado.v_r_aiv97 Value" class="grwTableNumericColumnValue" x="691.396" y="2.9178" width="49.5" anchorX="1" anchorY="0" fontSize="7.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tabla_resultado.v_r_aiv97}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_aiv92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tabla_resultado.v_r_aiv92 Value" class="grwTableNumericColumnValue" x="500.319" y="2.9178" width="49.75" anchorX="1" anchorY="0" fontSize="7.5" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tabla_resultado.v_r_aiv92}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_total_pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tabla_resultado.v_r_total_pesos Value" class="grwNumericValue" x="313.435" y="2.9178" width="69.75" anchorX="1" anchorY="0" floatingBehavior="enclosed" textAlignment="center" format="$---,---,---,--&amp;.&amp;&amp;" value="{{v_tabla_resultado.v_r_total_pesos}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_viv92_dia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tabla_resultado.v_r_viv92_dia Value" class="grwNumericValue" x="446.116" y="2.91741" width="67.6215" anchorX="1" anchorY="0" floatingBehavior="enclosed" textAlignment="center" format="$---,---,---,--&amp;.&amp;&amp;" value="{{v_tabla_resultado.v_r_viv92_dia}}"/>
+                            <rtl:input-variable name="v_tabla_resultado.v_r_viv97_dia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tabla_resultado.v_r_viv97_dia Value" class="grwNumericValue" x="636.115" y="2.91741" width="68.7971" anchorX="1" anchorY="0" floatingBehavior="enclosed" textAlignment="center" format="$---,---,---,--&amp;.&amp;&amp;" value="{{v_tabla_resultado.v_r_viv97_dia}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

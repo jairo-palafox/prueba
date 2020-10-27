@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGS03.rdd" RWFglReportName="rpt_consulta_lqinfo"/>
+    <report:Conflicts>
+        <report:Conflict nodeName="MiniPage5_1" message="Node was in trigger &quot;For&quot;, but trigger was removed during schema update"/>
+    </report:Conflicts>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="718.432" length="525.549" alignment="center">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min" alignment="near">
+                            <IMAGEBOX name="imgLogoInfonavit" width="70.75" length="45" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage6" width="min" length="714.5" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox15" x="2.5645" y="220" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Reporte de duplicados en cza pago patronal"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage1" width="23" length="716" alignment="near" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox16" x="0.8347" y="2.2863" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                        <WORDBOX name="WordBox17" x="0.8347" y="295.741" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Archivo:"/>
+                        <WORDBOX name="WordBox18" x="-35.777" y="596.07" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                        <rtl:input-variable name="g_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="g_usuario_cod Value" class="grwStringValue" x="0.8347" y="49.1844" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="{{g_usuario_cod}}"/>
+                        <rtl:input-variable name="v_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_nombre_usuario Value" class="grwStringValue" x=".8347" y="111.4" width="170" length="13" alignment="baseline" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="{{v_nombre_usuario}}"/>
+                        <WORDBOX name="WordBox16_1" x="0.8347" y="541.82" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Fecha ejecución:"/>
+                        <rtl:input-variable name="g_nom_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="g_nom_archivo Value" class="grwStringValue" x="0.8347" y="342.718" width="178.4" length="12.488" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="{{g_nom_archivo}}"/>
+                        <rtl:input-variable name="v_fecha_ejecucion" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_fecha_ejecucion Value1" class="grwStringValue" y="633.323" width="70" anchorX="1" alignment="baseline" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="{{v_fecha_ejecucion}}"/>
+                        <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_fecha Value" class="grwStringValue" x="-35.777" y="647.123" width="70.2" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage4" width="9.5" length="713.75" layoutDirection="leftToRight"/>
+                    <MINIPAGE name="MiniPage5" width="33.5" length="715.25" bgColor="#ce050f" layoutDirection="leftToRight">
+                        <WORDWRAPBOX name="Registros1" y="20" width="42.2" length="31.0337" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Núm. Regs." textAlignment="center"/>
+                        <WORDWRAPBOX name="WordWrapBox4" x="7.7909" y="200" width="min" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Periodo pago">
+                            <WORDBOX name="WordBox14" x="125" y="1.4616" width="51.75" length="20.625" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="NRP" borderColor="#ffffff"/>
+                            <WORDBOX name="WordBox14_1" x="210" y="1.4616" width="51.75" length="20.625" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Folio SUA" borderColor="#ffffff"/>
+                        </WORDWRAPBOX>
+                        <WORDBOX name="WordBox13" x="9.2525" y="120" width="65.45" length="23.4194" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Folio" borderColor="#ffffff"/>
+                        <WORDWRAPBOX name="Registros1_1" y="540" width="42.2" length="31.0337" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="CveEntRecep" textAlignment="center"/>
+                        <WORDBOX name="WordBox13_1" x="9.2525" y="643" width="65.45" length="23.4194" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Fecha pago" borderColor="#ffffff"/>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage5_1" width="26" length="715.25" alignment="near" color="#ffffff" fontName="Arial" fontSize="11" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode14" x="2.962" y="229.074" width="24.5" length="68.75" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_dups.cuantos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_dups.cuantos Value" class="grwNumericValue" x="3.8586" y="-175" anchorX="0" anchorY="1" color="#000000" fontName="Arial" fontSize="11" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_arr_dups.cuantos}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode15" x="2.962" y="303.205" width="24.5" length="88.25" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_dups.periodo_pago" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_dups.periodo_pago Value" class="grwStringValue" x="3.8586" y="-50" anchorX="0" anchorY="1" color="#000000" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="{{v_arr_dups.periodo_pago}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode16" x="2.962" y="395.159" width="24.5" length="98" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_dups.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_dups.folio Value" class="grwNumericValue" x="3.8586" y="-245" width="95" anchorX="0" anchorY="1" color="#000000" fontName="Arial" fontSize="11" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{v_arr_dups.folio}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode17" x="3.883" y="497.751" width="23.75" length="107.75" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_dups.nrp" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_dups.nrp Value" class="grwStringValue" x="2.93761" y="-95" width="95" anchorY="1" color="#000000" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="{{v_arr_dups.nrp}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode17_1" x="2.962" y="616.35" width="23.75" length="107.75" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_dups.folio_sua" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_dups.folio_sua Value" class="grwStringValue" x="2.93761" y="-103" width="95" anchorX="0" anchorY="1" color="#000000" fontName="Arial" floatingBehavior="enclosed" text="{{v_arr_dups.folio_sua}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode17_1_1" x="2.962" y="616.35" width="23.75" length="107.75" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_dups.cve_ent_recep" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_dups.cve_ent_recep Value" class="grwStringValue" x="2.93761" y="30" width="95" anchorX="0" anchorY="1" color="#000000" floatingBehavior="enclosed" text="{{v_arr_dups.cve_ent_recep}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode17_1_1_1" x="2.962" y="616.35" width="23.75" length="107.75" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_fecha_pago" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_fecha_pago Value" class="grwStringValue" x="2.93761" y="127" width="95" anchorX="0" anchorY="1" color="#000000" floatingBehavior="enclosed" text="{{v_fecha_pago}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

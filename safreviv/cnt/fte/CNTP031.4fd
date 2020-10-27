@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{284ce7b4-3b2c-4f94-b346-78ec30b7b164}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="r_criterios" order="" uid="{b9401e9e-d2eb-45f7-8016-084ff477da14}" where="">
+    <RecordField colName="" fieldIdRef="1" name="p_folio_liquida" sqlTabName="" table_alias_name="" uid="{c26b0170-5ab9-4864-9bcb-dd01bdde0921}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="r_resultado" order="" uid="{3df28042-c35d-44b2-8f0d-30a441397163}" where="">
+    <RecordField colName="" fieldIdRef="8" name="v_id" sqlTabName="" table_alias_name="" uid="{98111f7d-5119-42dd-8c99-0ece71338733}"/>
+    <RecordField colName="" fieldIdRef="11" name="v_id_subcuenta" sqlTabName="" table_alias_name="" uid="{d868f116-8a4c-46ac-9d39-07dfb1a5dece}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_subcuenta" sqlTabName="" table_alias_name="" uid="{f7568a09-15b4-4da5-8c4f-6b42dd5ace0f}"/>
+    <RecordField colName="" fieldIdRef="12" name="v_id_movimiento" sqlTabName="" table_alias_name="" uid="{6a229b74-b17c-4142-98bc-a27fbe6ea9d2}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_movimiento" sqlTabName="" table_alias_name="" uid="{2fc5575a-e638-47e6-a811-75fa5d277963}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_monto_pesos" sqlTabName="" table_alias_name="" uid="{90cf7f9b-ac86-4bf0-af5c-8d592b283fbb}"/>
+    <RecordField colName="" fieldIdRef="10" name="v_liquida" sqlTabName="" table_alias_name="" uid="{bdff4b6b-4e83-4f5a-b804-859fc79a6c33}"/>
+    <RecordField colName="" fieldIdRef="5" name="btn_buscar" sqlTabName="" table_alias_name="" uid="{9b1cce9e-e8b3-480e-91d6-168039f4863c}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_cuenta" sqlTabName="" table_alias_name="" uid="{e3c2de07-11d7-4b68-91d4-f0cbffa7cd34}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_desc_cuenta" sqlTabName="" table_alias_name="" uid="{689639bc-57d3-4d8a-bc2d-22bf241442c5}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_estado" sqlTabName="" table_alias_name="" uid="{c923818b-0381-4105-a6d8-dde86daa563c}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="172" name="frm_ajuste_conc" text="Form">
+    <Grid gridHeight="16" gridWidth="166" name="grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="164" name="group1" posX="1" posY="1" text="Criterio de búsqueda">
+        <Label gridHeight="1" gridWidth="11" name="label1" posX="1" posY="1" text="Folio Liquidación"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="p_folio_liquida" posX="13" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="11" gridWidth="164" name="group2" posX="1" posY="4" text="Detalle Ajuste Conciliación">
+        <Table gridHeight="9" gridWidth="162" name="tb_resultado" posX="1" posY="1" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="3" hidden="true" name="v_id" noEntry="true" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="ID" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="3" hidden="true" name="v_id_subcuenta" posX="3" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Id Subcuenta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="30" name="v_subcuenta" noEntry="true" posX="6" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="3" hidden="true" name="v_id_movimiento" posX="36" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Id Movimiento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" name="v_movimiento" noEntry="true" posX="39" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Movimiento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="15" name="v_monto_pesos" noEntry="true" posX="54" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Monto &#10;Pesos" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" format="dd-mm-yyyy" gridHeight="1" gridWidth="8" name="v_liquida" noEntry="true" posX="69" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Fecha &#10;Liquidación" widget="Edit"/>
+          <ButtonEdit action="consulta_cuenta" aggregateColName="" aggregateName="aggregate1" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="3" image="zoom" name="btn_buscar" posX="77" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Buscar" widget="ButtonEdit">
+            <Initializer image="zoom"/>
+          </ButtonEdit>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="10" name="v_cuenta" noEntry="true" posX="80" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Cuenta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="45" name="v_desc_cuenta" noEntry="true" posX="90" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Descripción cuenta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="15" name="v_estado" noEntry="true" posX="135" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Estado" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzAGQAZgAyADgAMAA0ADIALQBjADMANQBkAC0ANAA0AGIAMgAtADgAZgAwAGQALQAzADAAYQA0ADQAMQAzADkANwAxADYAMwB9wGzgAAAAAADAHAAAAAAAAD+AYk3S8an8AQAAAEwAewAyAGYAYwA1ADUANwA1AGEALQBlADYAMwA4AC0ANAA3AGUANgAtAGEAOAAxADEALQA3ADUAZgBhADUAZAAyADcANwA5ADYAMwB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADAAYwBmADcAZgA5AGIALQBhAGMAOAA2AC0ANABiAGYAMAAtAGEAZgA1AGMALQA4AGQANQA5ADIAYgAyADgAMwBmAGIAYgB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADcANQA2ADgAYQAwADkALQAxADUAYgA0AC0ANABkAGEANQAtADgAYwA0AGYALQA2AGIANAAyAGQAZAA1AGEAYwBlADAAZgB9QCQAAAAAAABAVQAAAAAAAD9wYk3S8an8AQAAAEwAewBkADgANgA4AGYAMQAxADYALQA4AGEANABjAC0ANAA2AGEAYwAtADkAZAAzADkALQAwADcAZABmAGIAMQBhADUAZABlAGMAZQB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGEAMgAyADkAYgA3ADQALQBiADEANwBjAC0ANAAxADQAMgAtADkAOABiAGMALQBhADIANwBmAGIAZQA2AGUAYQA5AGQAMgB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADgAMQAxADEAZgA3AGQALQA1ADEAMQA5AC0ANAAyAGQAZAAtADgAYwA5ADkALQAwAGUAYwBlADcAMQAzADMAOAA3ADMAMwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADkAMgAzADgAMQA4AGIALQAwADMAOAAxAC0ANAAxADAANQAtAGEANgBkADgALQBkAGQAZQA4ADYAZABhAGEANQA2ADMAYwB9QCQAAAAAAABAcMAAAAAAAD+EeuFHrhR8AQAAAEwAewBjADIANgBiADAAMQA3ADAALQA1AGEAYgA5AC0ANAA4ADYANAAtADkAYgBjAGIALQBkAGQAMAAxAGIAZABkAGUAMAA5ADIAMQB9QCQAAAAAAABAQwAAAAAAAD90euFHrhR7AQAAAEwAewBiAGQAZgBmADQAYgA2AGIALQA0AGUAOAAzAC0ANABmADUAYQAtAGIAOAAwADQALQA4ADUAOQBmAGMANwA5AGEANgBjADMAMwB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADMAYwAyAGQAZQAwADcALQAxADEAZAA3AC0ANABiADYAOAAtADkAMQBkADQALQBmADAAYwBiAGYAZgBhADcAYwBkADMANAB9QCQAAAAAAABAa8AAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADgAOQA2ADMAOQBiAGMALQA1ADcAZAAzAC0ANABkADgAYQAtAGIAYwAyAGQALQAyADIAYgBmADIANAAxADQANAAyAGMANQB9QCQAAAAAAABAbqAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADkANAAwADEAZQA5AGUALQBkADIAZQBiAC0ANAA1AGYANwAtADgAMAAxADYALQAwADgANABmAGYANAA3ADcAZABhADEANAB9wIBIAAAAAADAMgAAAAAAAD94k3S8an76AQAAAEwAewA5AGIAMQBjAGMAZQA5AGUALQBlADgAYgAzAC0ANAA4ADAAZQAtADkAMQBkADYALQAxADYAOAAwADMAOQBmADQAOAA2ADMAYwB9QCQAAAAAAABAaOAAAAAAAD+Ik3S8an78AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

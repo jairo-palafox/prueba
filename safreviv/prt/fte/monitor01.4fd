@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{92e94473-1b28-447f-9eb1-bfe814c6864d}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_servicios" order="" uid="{902fe522-e5fd-4779-86af-b9af0766c287}" where="">
+    <RecordField colName="" fieldIdRef="1" name="id_servicio" sqlTabName="" table_alias_name="" uid="{b5f8585f-a98f-41e3-a0d4-a6819554aa4a}"/>
+    <RecordField colName="" fieldIdRef="11" name="imagen" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{b9ef7cac-0904-4eab-ae45-c89cfd12f108}"/>
+    <RecordField colName="" fieldIdRef="17" name="proceso_cod" sqlTabName="" table_alias_name="" uid="{64ac644e-c17d-4e0a-9bc2-673ff62f6cd8}"/>
+    <RecordField colName="" fieldIdRef="2" name="servicio_desc" sqlTabName="" table_alias_name="" uid="{0e70a0c3-6fff-429e-905a-e911ce540c9b}"/>
+    <RecordField colName="" fieldIdRef="3" name="modulo" sqlTabName="" table_alias_name="" uid="{87f2e1aa-7e2a-4659-8f10-abfa84347a72}"/>
+    <RecordField colName="" fieldIdRef="4" name="estado" sqlTabName="" table_alias_name="" uid="{de08e59e-c38a-4433-ab16-7c40f34f5a6a}"/>
+    <RecordField colName="" fieldIdRef="10" name="wsdl" sqlTabName="" table_alias_name="" uid="{f6372d4d-def9-42e2-890e-5d8f01676c7c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_bitacora" order="" uid="{7a0c6093-d004-4b7d-b136-71b97552d7e8}" where="">
+    <RecordField colName="" fieldIdRef="12" name="bit_pid" sqlTabName="" table_alias_name="" uid="{39870f54-ca00-465b-bc06-a1693cb74117}"/>
+    <RecordField colName="" fieldIdRef="13" name="bit_fecha_registro" qualFraction="SECOND" sqlTabName="" sqlType="DATETIME" table_alias_name="" uid="{56441669-df46-452e-af96-5cae02c366b6}"/>
+    <RecordField colName="" fieldIdRef="8" name="bit_registro_obj" sqlTabName="" table_alias_name="" uid="{954a1673-3d70-43b1-b1bb-241a8d3ed087}"/>
+    <RecordField colName="" fieldIdRef="14" name="bit_ip_externa" sqlTabName="" table_alias_name="" uid="{937f9f73-3e3c-41c3-8f5e-9d1d85d203b0}"/>
+    <RecordField colName="" fieldIdRef="15" name="bit_metodo_http" sqlTabName="" table_alias_name="" uid="{4760454d-335f-43fa-b56a-4cf31c9c1f46}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_datos" order="" uid="{4f8ecf85-cc77-434f-894e-ce5de38234e6}" where="">
+    <RecordField colName="" fieldIdRef="19" name="nodo" sqlTabName="" table_alias_name="" uid="{8836a962-1147-4bf6-9b1d-372db2ff53f3}"/>
+    <RecordField colName="" fieldIdRef="20" name="expandido" sqlTabName="" table_alias_name="" uid="{d72c1e98-271a-4a19-bda9-8dd3f7f3e308}"/>
+    <RecordField colName="" fieldIdRef="23" name="phantom1" sqlTabName="" table_alias_name="" uid="{5bbf26d6-89db-4825-9d78-9c256f5c4c10}"/>
+    <RecordField colName="" fieldIdRef="24" name="phantom2" sqlTabName="" table_alias_name="" uid="{e99232f8-858c-4597-8764-d2b32f5b610d}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{6e445690-5be2-4c2e-9dc4-9040d8768623}" where="">
+    <RecordField colName="" fieldIdRef="16" name="objeto_peticion" sqlTabName="" sqlType="TEXT" table_alias_name="" uid="{729c6ab5-30e2-4ade-9b66-75501006ef20}"/>
+    <RecordField colName="" fieldIdRef="5" name="filtro_modulo" sqlTabName="" table_alias_name="" uid="{37a90317-cfa1-4f01-b9a9-c182ff32aac0}"/>
+    <RecordField colName="" fieldIdRef="6" name="filtro_servicio" sqlTabName="" sqlType="INTEGER" table_alias_name="" uid="{804ca7d6-674d-4dac-a6c8-e6ffc73ce5b1}"/>
+    <RecordField colName="" defaultValue="1" fieldIdRef="7" name="filtro_activo" sqlTabName="" table_alias_name="" uid="{e4ad5b3e-5c50-40bd-be28-704b2806cf62}"/>
+    <RecordField colName="" defaultValue="0" fieldIdRef="18" name="filtro_inactivo" sqlTabName="" table_alias_name="" uid="{58a632e2-dd5e-462b-bd6f-4b6db96254b2}"/>
+  </Record>
+  <Form gridHeight="76" gridWidth="180" name="consulta_servicios">
+    <Grid gridHeight="72" gridWidth="171" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="17" gridWidth="65" name="gpo_servicio" posX="2" posY="3" text="Servicio">
+        <Button gridHeight="1" gridWidth="12" name="actualizar" posX="2" posY="2" tabIndex="12" text="Actualizar"/>
+        <Button gridHeight="1" gridWidth="12" name="filtrar" posX="16" posY="2" tabIndex="13" text="Filtrar"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_modulo" posX="2" posY="4" text="Módulo:"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="44" items="" name="filtro_modulo" posX="18" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="combobox2" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_servicio" posX="2" posY="6" text="Servicio:"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="44" items="" name="filtro_servicio" posX="18" posY="6" rowCount="" sqlTabName="" sqlType="INTEGER" stepX="" stepY="" tabIndex="16" table_alias_name="" title="combobox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_estado" posX="2" posY="8" text="Estado:"/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" defaultValue="1" fieldId="7" gridHeight="1" gridWidth="10" name="filtro_activo" notNull="true" posX="18" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="19" table_alias_name="" text="Activo" title="checkbox1" widget="CheckBox"/>
+        <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" defaultValue="0" fieldId="18" gridHeight="1" gridWidth="10" name="filtro_inactivo" notNull="true" posX="18" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="20" table_alias_name="" text="Inactivo" title="checkbox2" widget="CheckBox"/>
+      </Group>
+      <Group gridHeight="17" gridWidth="88" name="gpo_servicios" posX="69" posY="3" text="Servicios">
+        <Table gridHeight="13" gridWidth="83" name="Table1" posX="2" posY="3" totalRows="12">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="2" hidden="true" name="id_servicio" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="id_servicio" widget="Edit"/>
+          <FFImage aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" autoScale="true" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="4" justify="center" name="imagen" posX="2" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" table_alias_name="" title="" widget="FFImage"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="1" hidden="true" name="proceso_cod" posX="6" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="proceso_cod" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="33" name="servicio_desc" posX="7" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Servicio" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="19" name="modulo" posX="40" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Módulo" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="15" justify="center" name="estado" posX="59" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Estado" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="1" hidden="true" name="wsdl" posX="74" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="wsdl" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="16" gridWidth="65" name="gpo_registros_ws" posX="2" posY="21" text="Bitácora">
+        <Table gridHeight="11" gridWidth="61" name="table2" posX="2" posY="2" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="8" justify="center" name="bit_pid" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="PID" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="20" justify="center" name="bit_fecha_registro" posX="8" posY="0" qualFraction="SECOND" rowCount="" sqlTabName="" sqlType="DATETIME" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Fecha registro" widget="Edit"/>
+          <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" items="SI, NO" justify="center" name="bit_registro_obj" posX="28" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Registró&#10;Mensaje" widget="ComboBox">
+            <Item lstrtext="false" name="1" text="SI"/>
+            <Item lstrtext="false" name="0" text="NO"/>
+          </ComboBox>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="10" justify="center" name="bit_ip_externa" posX="36" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="IP Cliente" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="9" hidden="true" name="bit_metodo_http" posX="46" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Método http" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="16" gridWidth="93" name="gpo_objeto_peticion" posX="69" posY="21" text="Mensaje">
+        <TextEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="16" gridHeight="13" gridWidth="89" name="objeto_peticion" posX="2" posY="2" rowCount="" sqlTabName="" sqlType="TEXT" stepX="" stepY="" tabIndex="10" table_alias_name="" title="textedit1" widget="TextEdit"/>
+      </Group>
+      <Group gridHeight="27" gridWidth="93" name="gpo_informacion" posX="69" posY="38" text="Datos">
+        <Tree expandedColumn="expandido" gridHeight="23" gridWidth="68" idColumn="phantom2" name="datos" parentIdColumn="phantom1" posX="2" posY="2" totalRows="22">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="19" gridHeight="1" gridWidth="43" name="nodo" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="17" table_alias_name="" title="Datos" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="20" gridHeight="1" gridWidth="8" hidden="true" name="expandido" posX="43" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="18" table_alias_name="" title="Expandido" widget="Edit"/>
+          <Phantom colName="" fieldId="23" name="phantom1" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="24" name="phantom2" sqlTabName="" table_alias_name="" widget="Phantom"/>
+        </Tree>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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NwBmADkAZgA3ADMALQAzAGUAMwBjAC0ANAAxAGMAMwAtADgAZgA1AGUALQA5AGQAMQBkADgANQBkADIAMAAzAGIAMAB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADQAYQBkADUAYgAzAGUALQA1AGMANQAwAC0ANAAwAGIAZAAtAGIAZQAyADgALQA3ADAANABiADIAOAAwADYAYwBmADYAMgB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADkAOAA3ADAAZgA1ADQALQBjAGEAMAAwAC0ANAA2ADUAYgAtAGIAYwAwADYALQBhADEANgA5ADMAYwBiADcANAAxADEANwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADAAMgBmAGUANQAyADIALQBlADUAZgBkAC0ANAA3ADcAOQAtADgANgBhAGYALQBiADkAYQBmADAANwA2ADYAYwAyADgANwB9wCgAAAAAAADAFAAAAAAAAD+TdLxqfvneAQAAAEwAewA0AGYAOABlAGMAZgA4ADUALQBjAGMANwA3AC0ANAAzADQAZgAtADgAOQA0AGUALQBjAGUANQBkAGUAMwA4ADIAMwA0AGUANgB9QGbgAAAAAABAamAAAAAAAD+crAgxJul+AQAAAEwAewBiADkAZQBmADcAYwBhAGMALQAwADkAMAA0AC0ANABlAGEAYgAtAGEAZQA0ADUALQBjADgAOQBjAGYAZAAxADIAZgAxADAAOAB9QCQAAAAAAABAToAAAAAAAD94k3S8an76AQAAAEwAewA4ADAANABjAGEANwBkADYALQA2ADcANABkAC0ANABkAGEAYwAtAGEANgBjADgALQBlADYAZgBmAGMANwAzAGMAZQA1AGIAMQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADIAOQBjADYAYQBiADUALQAzADAAZQAyAC0ANABhAGQAZQAtADkAYgA2ADYALQA3ADUANQAwADEAMAAwADYAZQBmADIAMAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

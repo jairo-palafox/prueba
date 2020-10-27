@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{f900f233-8665-4d80-a170-4d0ccc4ffd70}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{03963afd-d6c1-4982-8478-ce423d248de9}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_folio" sqlTabName="" table_alias_name="" uid="{2bdfa262-4af7-422a-8492-bbbd80a99884}"/>
+    <RecordField colName="" fieldIdRef="16" name="f_tot_ava_apo" sqlTabName="" table_alias_name="" uid="{7d386262-70d1-4e46-ae8e-a27919e34885}"/>
+    <RecordField colName="" fieldIdRef="17" name="f_tot_ava_amo" sqlTabName="" table_alias_name="" uid="{b023c42f-1999-45b5-9669-e83c5a498770}"/>
+    <RecordField colName="" fieldIdRef="18" name="f_tot_pag_apo" sqlTabName="" table_alias_name="" uid="{509b4358-243f-4f83-b51b-350bba5f65f2}"/>
+    <RecordField colName="" fieldIdRef="19" name="f_tot_pag_amo" sqlTabName="" table_alias_name="" uid="{8cc9a4d7-4625-487d-8723-156c68bc4e75}"/>
+    <RecordField colName="" fieldIdRef="20" name="v_total_registros" sqlTabName="" table_alias_name="" uid="{479d890a-ac7b-41f6-a3f3-b794d9b678c1}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="src_avances" order="" uid="{565e2a03-8821-4185-ae3f-752b62ea5508}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tb_folio_dis" sqlTabName="" table_alias_name="" uid="{1596cc10-f56a-4d67-a1e7-bc633975f603}"/>
+    <RecordField colName="" fieldIdRef="3" name="tb_nss" sqlTabName="" table_alias_name="" uid="{a0cb0989-6cc3-4d82-810b-231ad08109ef}"/>
+    <RecordField colName="" fieldIdRef="4" name="tb_nrp" sqlTabName="" table_alias_name="" uid="{6d77b8a6-5e51-468c-84b1-a50d90e0a549}"/>
+    <RecordField colName="" fieldIdRef="5" name="tb_periodo_pago" sqlTabName="" table_alias_name="" uid="{616839a4-e626-4d65-9c62-4ecef2b8dfd6}"/>
+    <RecordField colName="" fieldIdRef="6" name="tb_apo_avance" sqlTabName="" table_alias_name="" uid="{a093ecac-7bf8-4612-9d04-a7d784b771c8}"/>
+    <RecordField colName="" fieldIdRef="7" name="tb_amo_avance" sqlTabName="" table_alias_name="" uid="{6fe1cd00-75a2-4f81-882f-2ac550cf52f1}"/>
+    <RecordField colName="" fieldIdRef="8" name="tb_folio_pago" sqlTabName="" table_alias_name="" uid="{14f4e792-218e-4bcb-a2e8-ccd31defc9ce}"/>
+    <RecordField colName="" fieldIdRef="9" name="tb_apo_pag" sqlTabName="" table_alias_name="" uid="{c2b59df3-37d2-4c9d-9c8d-f92dfd9ef645}"/>
+    <RecordField colName="" fieldIdRef="10" name="tb_amo_pag" sqlTabName="" table_alias_name="" uid="{8c5ef2cb-d100-401a-a6c3-d4ce6c3ce847}"/>
+    <RecordField colName="" fieldIdRef="11" name="tb_folio_sua" sqlTabName="" table_alias_name="" uid="{93b31181-4f9f-4f01-8704-d495f21cb9c6}"/>
+    <RecordField colName="" fieldIdRef="12" name="tb_f_pago" sqlTabName="" table_alias_name="" uid="{64fc7489-9c49-485f-bfba-19b612184363}"/>
+    <RecordField colName="" fieldIdRef="13" name="tb_edo_apo" sqlTabName="" table_alias_name="" uid="{a2e7cc29-9e73-4e19-a39f-5187b24cb5e7}"/>
+    <RecordField colName="" fieldIdRef="14" name="tb_edo_amo" sqlTabName="" table_alias_name="" uid="{f8248fa8-1871-4b59-8028-a0a25d528a62}"/>
+    <RecordField colName="" fieldIdRef="15" name="tb_tipo_pago" sqlTabName="" table_alias_name="" uid="{1f5e79b1-9c8a-459d-a013-e3382a963eea}"/>
+  </Record>
+  <Form gridHeight="40" gridWidth="272" name="Form" text="Form">
+    <Grid gridHeight="38" gridWidth="266" name="Grid1" posX="3" posY="1">
+      <Group gridHeight="3" gridWidth="262" name="Group1" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="6" name="Label1" posX="5" posY="1" text="Folio:"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="11" name="f_folio" posX="14" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="3" gridWidth="186" name="gr_info_reg_pag" posX="1" posY="5" text="Información de Registro de Pagos">
+        <Label gridHeight="1" gridWidth="60" name="lbl_reg_pag" posX="2" posY="1" text="Folio de Registro de Pagos:"/>
+      </Group>
+      <Group gridHeight="22" gridWidth="262" name="gr_avances" posX="1" posY="9" text="Información de Avances">
+        <Table gridHeight="16" gridWidth="255" name="Table1" posX="3" posY="1" totalRows="15">
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="18" name="tb_folio_dis" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Folio Dispersión" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="18" justify="center" name="tb_nss" posX="18" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="18" justify="center" name="tb_nrp" posX="36" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="NRP" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" justify="center" name="tb_periodo_pago" posX="54" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Periodo Pago" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" format="###,###,###,##&amp;.##" gridHeight="1" gridWidth="19" name="tb_apo_avance" posX="69" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Avance&#10;Aportación &#10;" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" format="###,###,###,##&amp;.##" gridHeight="1" gridWidth="19" name="tb_amo_avance" posX="88" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Avance&#10;Amortización" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="17" name="tb_folio_pago" posX="107" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Folio Pago" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" format="###,###,###,##&amp;.##" gridHeight="1" gridWidth="19" name="tb_apo_pag" posX="124" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Pago&#10;Aportación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" format="###,###,###,##&amp;.##" gridHeight="1" gridWidth="21" name="tb_amo_pag" posX="143" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" tag="" title="Pago&#10;Amortización" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="14" name="tb_folio_sua" posX="164" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Folio SUA" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="12" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" justify="center" name="tb_f_pago" posX="178" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Fecha Pago" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="13" hidden="true" name="tb_edo_apo" posX="192" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Edo Apo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="13" hidden="true" name="tb_edo_amo" posX="205" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Edo Amo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="22" hidden="true" name="tb_tipo_pago" posX="218" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Tipo Pago" widget="Edit"/>
+        </Table>
+        <Label gridHeight="1" gridWidth="13" name="Label2" posX="3" posY="18" text="Total de Registros:"/>
+        <Edit colName="" columnCount="" fieldId="20" gridHeight="1" gridWidth="18" name="v_total_registros" posX="17" posY="18" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="20" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="16" format="###,###,###,##&amp;.##" gridHeight="1" gridWidth="21" name="f_tot_ava_apo" posX="71" posY="18" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="16" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="17" format="###,###,###,##&amp;.##" gridHeight="1" gridWidth="22" name="f_tot_ava_amo" posX="93" posY="18" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="17" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="18" format="###,###,###,##&amp;.##" gridHeight="1" gridWidth="24" name="f_tot_pag_apo" posX="135" posY="18" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="18" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="19" format="###,###,###,##&amp;.##" gridHeight="1" gridWidth="21" name="f_tot_pag_amo" posX="161" posY="18" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="19" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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YwA5AGEANABkADcALQA0ADYAMgA1AC0ANAA4ADcAZAAtADgANwAyADMALQAxADUANgBjADYAOABiAGMANABlADcANQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADMAYgAzADEAMQA4ADEALQA0AGYAOQBmAC0ANABmADAAMQAtADgANwAwADQALQBkADQAOQA1AGYAMgAxAGMAYgA5AGMANgB9QBQAAAAAAABAbSAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADQAZgBjADcANAA4ADkALQA5AGMANAA5AC0ANAA4ADUAZgAtAGIAZgBiAGEALQAxADkAYgA2ADEAMgAxADgANAAzADYAMwB9QBQAAAAAAABAcAAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADIAYgA1ADkAZABmADMALQAzADcAZAAyAC0ANABjADkAZAAtADkAYwA4AGQALQBmADkAMgBkAGYAZAA5AGUAZgA2ADQANQB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewAxADUAOQA2AGMAYwAxADAALQBmADUANgBhAC0ANABkADYANwAtAGEAMQBlADcALQBiAGMANgAzADMAOQA3ADUAZgA2ADAAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

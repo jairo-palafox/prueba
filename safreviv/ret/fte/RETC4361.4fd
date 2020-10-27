@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{40d2cfb0-f3ce-4016-b0fb-9beff0f09481}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_detalle2" order="" uid="{5a3e5fb3-528d-4784-803b-a3e9f6394b9e}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{f71bef87-352d-435b-849b-d781617a22a2}" where="">
+    <RecordField colName="" defaultValue="" fieldIdRef="1" name="d_inicial" sqlTabName="" table_alias_name="" uid="{fbbcf573-e19f-412c-a17e-7bbeb660773e}"/>
+    <RecordField colName="" fieldIdRef="2" name="d_final" sqlTabName="" table_alias_name="" uid="{e202c225-1b0f-4fbe-935a-b2b66f0dff8c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_detalle" order="" uid="{dc56cc57-bb4f-4409-82bd-0ddecbc17962}" where="">
+    <RecordField colName="" fieldIdRef="4" name="c_id_datamart" sqlTabName="" table_alias_name="" uid="{102abf95-14fe-447b-8aed-f06b83be40c2}"/>
+    <RecordField colName="" fieldIdRef="5" name="c_fecha" sqlTabName="" table_alias_name="" uid="{7f922ccd-a912-41e4-bf53-f400e55651d4}"/>
+    <RecordField colName="" fieldIdRef="3" name="c_nss" sqlTabName="" table_alias_name="" uid="{6bcabeee-0d62-4d76-b3d6-a726b9fd4961}"/>
+    <RecordField colName="" fieldIdRef="6" name="c_paterno" sqlTabName="" table_alias_name="" uid="{2231542e-e8f4-4c7e-9618-5f5b1fce4537}"/>
+    <RecordField colName="" fieldIdRef="7" name="c_materno" sqlTabName="" table_alias_name="" uid="{6ce6fa0b-7d80-46fd-a730-8d5f0eff8eaf}"/>
+    <RecordField colName="" fieldIdRef="8" name="c_nombre" sqlTabName="" table_alias_name="" uid="{018b1c9b-fa1f-47bc-a26c-ce4043cb8a11}"/>
+    <RecordField colName="" fieldIdRef="9" name="c_avis_92_saci" sqlTabName="" table_alias_name="" uid="{7238f711-46d9-4aef-b8b9-03edd6946437}"/>
+    <RecordField colName="" fieldIdRef="10" name="c_aivs_97_saci" sqlTabName="" table_alias_name="" uid="{6164477b-c2bc-4136-973c-d46469cf5a06}"/>
+  </Record>
+  <Form gridHeight="32" gridWidth="148" name="SALDOS INSUFICIENTES EN SOLICITUDES DE RETIRO POR TRANSFERENCIA" text="Form">
+    <Grid gridHeight="30" gridWidth="146" name="Grid1" posX="2" posY="1">
+      <Group gridHeight="7" gridWidth="134" name="Group1" posX="2" posY="1" text="Parámetros de consulta">
+        <Label gridHeight="1" gridWidth="15" name="lbl_fecha_inicial" posX="3" posY="2" text="Fecha Inicial"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" defaultValue="" fieldId="1" format="dd/mm/yyyy" gridHeight="1" gridWidth="20" name="d_inicial" posX="21" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_fecha_final" posX="3" posY="4" text="Fecha Final"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" format="dd/mm/yyyy" gridHeight="1" gridWidth="20" name="d_final" posX="21" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="dateedit2" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="13" gridWidth="144" name="group2" posX="2" posY="9" text="Detalle">
+        <Table gridHeight="8" gridWidth="140" name="tbl_detalle" posX="3" posY="2" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="c_id_datamart" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Id Datamart" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="c_fecha" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha Actualiza" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" name="c_nss" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="20" name="c_paterno" posX="31" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Paterno" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="20" name="c_materno" posX="51" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Materno" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="20" name="c_nombre" posX="71" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Nombre" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="20" name="c_avis_92_saci" posX="91" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="AIVS 92 SACI" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="20" name="c_aivs_97_saci" posX="111" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="AVIS 97 SACI" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADcAMQBiAGUAZgA4ADcALQAzADUAMgBkAC0ANAAzADUAYgAtADgANAA5AGIALQBkADcAOAAxADYAMQA3AGEAMgAyAGEAMgB9wHRAACiAACJAQgAAJAAAID9gYk3S8an8AQAAAEwAewAwADEAOABiADEAYwA5AGIALQBmAGEAMQBmAC0ANAA3AGIAYwAtAGEAMgA2AGMALQBjAGUANAAwADQAMwBjAGIAOABhADEAMQB9QCAAAAQAAABAXWZmbcAAAAAAAAAAAAAAAQAAAEwAewA1AGEAMwBlADUAZgBiADMALQA1ADIAOABkAC0ANAA3ADgANAAtADgAMAAzAGIALQBhADMAZQA5AGYANgAzADkANABiADkAZQB9wGFMzOqTM0rAVjMzWQzM6T+GhysCDEm8AQAAAEwAewA3ADIAMwA4AGYANwAxADEALQA0ADYAZAA5AC0ANABhAGUAZgAtAGIAOABiADkALQAwADMAZQBkAGQANgA5ADQANgA0ADMANwB9QCAAAAQAAABAYOZmaqAAAAAAAAAAAAAAAQAAAEwAewBlADIAMAAyAGMAMgAyADUALQAxAGIAMABmAC0ANABmAGIAZQAtADkAMwA1AGEALQBiADIAYgA2ADYAZgAwAGQAZgBmADgAYwB9QCAAAAwAAANAR5mZq0zM0QAAAAAAAAAAAQAAAEwAewBmAGIAYgBjAGYANQA3ADMALQBlADEAOQBmAC0ANAAxADIAYwAtAGEAMQA3AGUALQA3AGIAYgBlAGIANgA2ADAANwA3ADMAZQB9QCAAAAwAAANAPZmZr8zM0gAAAAAAAAAAAQAAAEwAewBkAGMANQA2AGMAYwA1ADcALQBiAGIANABmAC0ANAA0ADAAOQAtADgAMgBiAGQALQAwAGQAZABlAGMAYgBjADEANwA5ADYAMgB9QDgAABIAAAVAOAAAEgAABT+QYk3S8an+AQAAAEwAewA2ADEANgA0ADQANwA3AGIALQBjADIAYgBjAC0ANAAxADMANgAtADkANwAzAGMALQBkADQANgA0ADYAOQBjAGYANQBhADAANgB9QCAAAAQAAABAYxmZnmAAAAAAAAAAAAAAAQAAAEwAewAxADAAMgBhAGIAZgA5ADUALQAxADQAZgBlAC0ANAA0ADcAYgAtADgAYQBlAGQALQBmADAANgBiADgAMwBiAGUANAAwAGMAMgB9QCAAAAQAAABAPZmZoQAAAAAAAAAAAAAAAQAAAEwAewA3AGYAOQAyADIAYwBjAGQALQBhADkAMQAyAC0ANAAxAGUANAAtAGIAZgA1ADMALQBmADQAMAAwAGUANQA1ADYANQAxAGQANAB9QCAAAAQAAABAR5mZn4AAAAAAAAAAAAAAAQAAAEwAewA2AGIAYwBhAGIAZQBlAGUALQAwAGQANgAyAC0ANABkADcANgAtAGIAMwBkADYALQBhADcAMgA2AGIAOQBmAGQANAA5ADYAMQB9QCAAAAQAAABAUDMzN0AAAD+OuFHrhR68AQAAAEwAewA2AGMAZQA2AGYAYQAwAGIALQA3AGQAOAAwAC0ANAA2AGYAZAAtAGEANwAzADAALQA4AGQANQBmADAAZQBmAGYAOABlAGEAZgB9QCAAAAQAAABAWQAABkAAAAAAAAAAAAAAAQAAAEwAewAyADIAMwAxADUANAAyAGUALQBlADgAZgA0AC0ANABjADcAZQAtADkANgAxADgALQA1AGYANQBiADEAZgBjAGUANAA1ADMANwB9QCAAAAQAAABAVJmZnsAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

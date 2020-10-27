@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{563934c6-dd61-45f7-9c33-d712650ba884}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_pendientes" order="" uid="{41ac8bd4-9bc1-4ba6-9a8b-7409ba63a1f9}" where="">
+    <RecordField colName="" fieldIdRef="1" name="arch_pendientes" sqlTabName="" table_alias_name="" uid="{7f447ee5-6768-4c80-b5ae-03ad75e3e930}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_elegidos" order="" uid="{932bbeef-3ee5-4d12-9f3f-589c506e10ad}" where="">
+    <RecordField colName="" fieldIdRef="2" name="arch_eleg" sqlTabName="" table_alias_name="" uid="{894077be-f638-4187-92a6-d29e6412bca9}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_compensacion_deudor" order="" uid="{4e2542f7-7451-488f-a214-54347970d2ea}" where="">
+    <RecordField colName="" fieldIdRef="7" name="num" sqlTabName="" table_alias_name="" uid="{786ab773-2215-4399-b1a2-dc5c93ec4bf4}"/>
+    <RecordField colName="" fieldIdRef="3" name="nss" sqlTabName="" table_alias_name="" uid="{5fca0211-0635-4319-8115-215a1d3c193c}"/>
+    <RecordField colName="" fieldIdRef="4" name="credito" sqlTabName="" table_alias_name="" uid="{9b8ba1c0-d955-4855-8fce-f2d510aa158e}"/>
+    <RecordField colName="" fieldIdRef="5" name="periodo" sqlTabName="" table_alias_name="" uid="{bfbc9695-d9ee-4558-a968-91327865129d}"/>
+    <RecordField colName="" fieldIdRef="6" name="total_aportacion" sqlTabName="" table_alias_name="" uid="{698f1b28-692b-4b40-a349-0ffda20964b3}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="121" name="Form" text="Form">
+    <VBox gridHeight="21" gridWidth="116" name="VBox1" posX="1" posY="1">
+      <Group gridHeight="11" gridWidth="116" name="Group1" posX="0" posY="1" text="Elegir archivo">
+        <Grid gridHeight="9" gridWidth="106" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="45" name="arch_pend" posX="1" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="40" name="arch_pendientes" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Pendientes" widget="Edit"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="45" name="arch_eleg" posX="54" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="40" name="arch_eleg" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Elegido" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="8" gridWidth="116" name="Group2" posX="0" posY="12" text="Detalle de compensación deudor">
+        <Table gridHeight="6" gridWidth="114" name="tbl_elegidos" posX="1" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="8" name="num" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="No." widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="25" justify="center" name="nss" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="25" justify="center" name="credito" posX="33" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Crédito" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="25" justify="center" name="periodo" posX="58" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Periodo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="25" justify="center" name="total_aportacion" posX="83" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total Aportación" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0AGUAMgA1ADQAMgBmADcALQA3ADQANQAxAC0ANAA4ADgAZgAtAGEAMgAxADQALQA1ADQAMwA0ADcAOQA3ADAAZAAyAGUAYQB9wEQAAAAAAABAUEAAAAAAAD+SbpeNT98+AQAAAEwAewA1AGYAYwBhADAAMgAxADEALQAwADYAMwA1AC0ANAAzADEAOQAtADgAMQAxADUALQAyADEANQBhADEAZAAzAGMAMQA5ADMAYwB9QBQAAAAAAABASIAAAAAAAD94k3S8an76AQAAAEwAewA5AGIAOABiAGEAMQBjADAALQBkADkANQA1AC0ANAA4ADUANQAtADgAZgBjAGUALQBmADIAZAA1ADEAMABhAGEAMQA1ADgAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGYANAA0ADcAZQBlADUALQA2ADcANgA4AC0ANABjADgAMAAtAGIANQBhAGUALQAwADMAYQBkADcANQBlADMAZQA5ADMAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADMAMgBiAGIAZQBlAGYALQAzAGUAZQA1AC0ANABkADEAMgAtADkAZgAzAGYALQA1ADgAOQBjADUAMAA2AGUAMQAwAGEAZAB9wGogAAAAAABATgAAAAAAAD+RaHKwIMSeAQAAAEwAewA0ADEAYQBjADgAYgBkADQALQA5AGIAYwAxAC0ANABiAGEANgAtADkAYQA4AGIALQA3ADQAMAA5AGIAYQA2ADMAYQAxAGYAOQB9wHiAAAAAAABATYAAAAAAAD+QYk3S8an+AQAAAEwAewA4ADkANAAwADcANwBiAGUALQBmADYAMwA4AC0ANAAxADgANwAtADkAMgBhADYALQBkADIAOQBlADYANAAxADIAYgBjAGEAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADgANgBhAGIANwA3ADMALQAyADIAMQA1AC0ANAAzADkAOQAtAGIAMQBhADIALQBkAGMANQBjADkAMwBlAGMANABiAGYANAB9QBQAAAAAAABAOgAAAAAAAD+UeuFHrhR+AQAAAEwAewBiAGYAYgBjADkANgA5ADUALQBkADkAZQBlAC0ANAA1ADUAOAAtAGEAOQA2ADgALQA5ADEAMwAyADcAOAA2ADUAMQAyADkAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADkAOABmADEAYgAyADgALQA2ADkAMgBiAC0ANABiADQAMAAtAGEAMwA0ADkALQAwAGYAZgBkAGEAMgAwADkANgA0AGIAMwB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

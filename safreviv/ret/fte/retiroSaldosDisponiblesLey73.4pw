@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project defaultApplication="640076360" gstVersion="2321b" version="3.0">
+  <Settings/>
+  <LanguageList version="1.0"/>
+  <PlatformList version="1.0"/>
+  <Group label="Retiro Saldos Disponibles">
+    <Library id="100109432" label="Database">
+      <File filePath="../../safre_viv.sch"/>
+    </Library>
+    <Application dependencies="100109432||180157120" description="WS consulta de disponibilidad de retiro ley73" externalDependencies="GLOG01.42x||GLOG02.42x||GLOG04.42x" id="375334898" label="RETWS07">
+      <File filePath="RETWS07.4gl"/>
+    </Application>
+    <Application dependencies="180157120||100109432" description="WS de marcaje para retiro Ley 73" externalDependencies="GLOG01.42x||GLOG02.42x||GLOG04.42x" id="218376748" label="RETWS08">
+      <File filePath="RETWS08.4gl"/>
+    </Application>
+    <Application dependencies="180157120||100109432" description="WS de creación de solicitud de retiro por Ley73" externalDependencies="GLOG01.42x||GLOG02.42x||GLOG04.42x" id="640076360" label="RETWS09">
+      <File filePath="RETWS09.4gl"/>
+    </Application>
+    <Library dependencies="100109432" id="180157120" label="RETWSXLEY73">
+      <File filePath="ret_actualiza_estado_crm.4gl"/>
+      <File filePath="ret_actualiza_estado_crm.inc"/>
+      <File filePath="ret_adjunta_docto_crm.4gl"/>
+      <File filePath="ret_adjunta_docto_crm.inc"/>
+      <File filePath="ret_busca_caso_crm.4gl"/>
+      <File filePath="ret_busca_caso_crm.inc"/>
+      <File filePath="ret_cancela_caso_crm.4gl"/>
+      <File filePath="ret_cancela_caso_crm.inc"/>
+      <File filePath="ret_confirma_pago_ae.4gl"/>
+      <File filePath="ret_confirma_pago_ae.inc"/>
+      <File filePath="ret_confirma_pago_crm.4gl"/>
+      <File filePath="ret_confirma_pago_crm.inc"/>
+      <File filePath="ret_crea_caso_crm.4gl"/>
+      <File filePath="ret_crea_caso_crm.inc"/>
+      <File filePath="ret_saldo_preliminar.4gl"/>
+      <File filePath="ret_saldo_preliminar.inc"/>
+      <File filePath="ret_ws_cons_rel_laboral.4gl"/>
+      <File filePath="ret_ws_cons_rel_laboral.inc"/>
+      <File filePath="RETG01.4gl"/>
+      <File filePath="RETX30_1.4gl"/>
+      <File filePath="RETX33.4gl"/>
+    </Library>
+  </Group>
+</Project>

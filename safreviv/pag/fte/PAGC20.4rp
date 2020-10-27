@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGC20.rdd" RWFglReportName="rpt_detalle_pagos"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="520.745" alignment="baseline">
+                    <LAYOUTNODE name="First Page header" width="721.265" length="394.285" alignment="center" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" alignment="near" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="12.7416" length="719.76" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="7.5" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="CONSULTA ESTADO DEL PAGO" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="15" length="719.006" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox4" x="7.5" y="605.995" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value" x="2.5023" y="634.586" width="81.0559" length="12.24" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                                <WORDBOX name="WordBox13" x="7.5" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="REGISTROS DETALLE DE PAGO" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode12" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage4" width="39.5732" length="719.006" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="folio" width="119.246" length="17.9522" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Folio"/>
+                                <rtl:input-variable name="r_registros_aux.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="r_registros_aux.folio Value" x="14.2134" y="3.4227" anchorX="0" anchorY="0.0267746" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="#########&amp;" value="{{r_registros_aux.folio}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="barraTitsSubcuenta" width="19.8801" length="721.463" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="nss" width="368.427" length="17.9522" alignment="near" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="NSS Derechohabiente"/>
+                                <WORDBOX name="Origen_pago" width="241.17" length="16.2584" alignment="center" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Estado del pago"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage5" width="20.2103" length="719.145" alignment="baseline" fontName="Arial" fontSize="9" layoutDirection="leftToRight">
+                                <rtl:input-variable name="r_registros_aux.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_registros_aux.nss Value" x="3.0078" y="2.093" width="324.114" length="14" anchorX="0" anchorY="0" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{r_registros_aux.nss}}"/>
+                                <rtl:input-variable name="r_registros_aux.estado_pago" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_registros_aux.estado_pago Value" x="3.0078" y="451.71" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{r_registros_aux.estado_pago}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage15" width="41" length="720.512" alignment="near" scaleX="1" layoutDirection="leftToRight">
+                                <rtl:input-variable name="r_registros_aux.tpo_aclaracion" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_registros_aux.tpo_aclaracion Value" x="19.76" y="3.4181" width="437.035" length="11.2276" anchorX="0" anchorY="0" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{r_registros_aux.tpo_aclaracion}}"/>
+                                <rtl:input-variable name="r_registros_aux.f_actualiza" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="r_registros_aux.f_actualiza Value" x="19.76" y="451.71" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{r_registros_aux.f_actualiza}}"/>
+                                <WORDWRAPBOX name="tipo_aclaracion" width="438.013" length="15.6277" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Tipo de aclaración" textAlignment="left"/>
+                                <WORDBOX name="fecha_actualizacion" width="122.471" length="14.244" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Fecha Actualización"/>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Page header" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="LayoutNode14" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode16" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode19" width="min" length="min" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage11" x="19.2264" y="522.229" width="720.411" length="20.1241" anchorX="0.0220048" anchorY="0.5" alignment="near">
+                        <PAGENOBOX name="PageNoBox" x="689.199" y="10.6781" width="38.5" length="19.7862" anchorX="0.523843" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AFIC07.rdd" RWFglReportName="rpt_detalles"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="min" length="538.527" alignment="near" floatingBehavior="enclosed">
+                    <LAYOUTNODE name="First Page Header" width="718.693" length="87.2451" alignment="near" port="firstPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" x="0" y="0" width="107.2" length="68.7273" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <MINIPAGE name="MiniPage2_1" width="3.5" length="718.13" alignment="near" layoutDirection="leftToRight"/>
+                        <LAYOUTNODE name="LayoutNode8_1_2_2" width="1.2" length="718.693" anchorX="0.5" anchorY="1" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1_1" width="min" length="718.693" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" x="-73.4502" y="107.487" width="67.2872" length="612.342" anchorX="4.45273e-14" anchorY="0.00176322" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="9.4616" y="258.224" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="REPORTE TRÁMITE DE UNIFICACIÓN" localizeText="false"/>
+                                <WORDBOX name="WordBox1" x="7.5" y="673.17" length="46.7865" anchorX="0.5" anchorY="0.437131" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="">
+                                    <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_fecha_reporte Value" x="-106.164" y="46.6622" width="83.1915" length="15" anchorX="0.5" anchorY="0.5" bgColor="#ce050f" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" textAlignment="right" text="{{v_fecha_reporte}}"/>
+                                </WORDBOX>
+                                <WORDBOX name="WordBox2" width="137.854" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="">
+                                    <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="WordBox2_1" x="73.47" y="26.2777" width="145.787" anchorX="0.5" anchorY="0.5" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="{{&quot;Usuario: &quot;+p_usuario}}"/>
+                                </WORDBOX>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1_1_2" x="0" y="140.103" width="1.2" length="max" anchorX="0" anchorY="1" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode7_1_1" x="0" y="72.3174" width="15.5731" length="718.628" anchorX="0" anchorY="0.135707" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="wn_no_credito" x="2.5743" y="3.7508" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="NSS PROSPECTO"/>
+                            <WORDBOX name="wb_nss" x="1.7868" y="104.584" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="TIPO"/>
+                            <WORDBOX name="wb_precio_fondo" x="1.7868" y="152.307" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="MOVIMIENTO"/>
+                            <WORDBOX name="wb_imp_amortizacion" x="1.7868" y="247.273" width="min" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="FECHA APERTURA"/>
+                            <WORDBOX name="wb_monto_aivs" x="0.7104" y="354.517" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="OP 21 SOLICITUD"/>
+                            <WORDBOX name="wb_folio_liquida" x="0.7104" y="460.182" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="OP 21 RESPUESTA"/>
+                            <WORDBOX name="wb_fecha_liquida" x="0.7104" y="570.527" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="OP22 NOTIFICA"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Page Header" width="min" length="86.346" alignment="near" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="LayoutNode10" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox1" x="0" y="0" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode8_1_2_1" width="1.2" length="max" anchorX="0.5" anchorY="1" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode1_1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode2_1" x="104.584" y="1.2927" width="67.2872" length="612.342" anchorX="4.45273e-14" anchorY="0.00176322" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox24" x="9.4616" y="258.224" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="REPORTE TRÁMITE DE UNIFICACIÓN" localizeText="false"/>
+                            <WORDBOX name="WordBox25" x="7.5" y="673.17" length="46.7865" anchorX="0.5" anchorY="0.437131" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="">
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value1" x="-106.164" y="46.6622" width="83.1915" length="15" anchorX="0.5" anchorY="0.5" bgColor="#ce050f" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" textAlignment="right" text="{{v_fecha_reporte}}"/>
+                            </WORDBOX>
+                            <WORDBOX name="WordBox26" width="137.854" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="">
+                                <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="WordBox2_2" x="73.47" y="26.2777" width="145.787" anchorX="0.5" anchorY="0.5" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="{{&quot;Usuario: &quot;+p_usuario}}"/>
+                            </WORDBOX>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode7_1_1_1" x="0" y="72.3174" width="15.5731" length="718.628" anchorX="0" anchorY="0.135707" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="wn_no_credito1" x="2.5743" y="32.2508" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="NSS"/>
+                            <WORDBOX name="wb_nss1" x="1.7868" y="104.584" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="TIPO"/>
+                            <WORDBOX name="wb_precio_fondo1" x="1.7868" y="153.925" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="MOVIMIENTO"/>
+                            <WORDBOX name="wb_imp_amortizacion1" x="1.7868" y="247.273" width="min" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="FECHA APERTURA"/>
+                            <WORDBOX name="wb_monto_aivs1" x="1.7868" y="354.517" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="OP 21 SOLICITUD"/>
+                            <WORDBOX name="wb_folio_liquida1" x="1.7868" y="460.182" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="OP 21 RESPUESTA"/>
+                            <WORDBOX name="wb_fecha_liquida1" x="1.7868" y="568.513" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="OP22 NOTIFICA"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="anyPageFooter2" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="LayoutNode1_1_1_1" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox18" x="2.1806" y="10.6207" anchorX="0" anchorY="0" color="#d7050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Trámite de Unnificación de Cuentas"/>
+                            <PAGENOBOX name="PageNoBox" x="3.1112" y="713.38" width="5.65126" length="7.36538" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Body" width="max" length="30.4778" alignment="near">
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage4_1" width="15.0863" length="max" alignment="near" fontName="Arial" fontSize="8" layoutDirection="leftToRight" borderWidth="0" marginTopWidth="0" marginLeftWidth="0">
+                                <rtl:input-variable name="arr_detalles.v_nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_detalles.v_nss Value" class="grwStringValue" x="2.92951" y="10.6207" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_detalles.v_nss}}"/>
+                                <rtl:input-variable name="arr_detalles.v_tipo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_detalles.v_tipo Value" class="grwStringValue" x="2.92951" y="85.7166" width="53.3934" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_detalles.v_tipo}}"/>
+                                <rtl:input-variable name="arr_detalles.v_f_apertura" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_detalles.v_f_apertura Value" class="grwStringValue" x="2.9295" y="247.273" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_detalles.v_f_apertura}}"/>
+                                <rtl:input-variable name="arr_detalles.v_op_21_solicitud" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_detalles.v_op_21_solicitud Value" class="grwNumericValue" x="2.9295" y="429.922" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{arr_detalles.v_op_21_solicitud}}"/>
+                                <rtl:input-variable name="arr_detalles.v_op_21_respuesta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_detalles.v_op_21_respuesta Value" class="grwNumericValue" x="2.9295" y="536.617" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{arr_detalles.v_op_21_respuesta}}"/>
+                                <rtl:input-variable name="arr_detalles.v_op_22_notifica" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_detalles.v_op_22_notifica Value" class="grwStringValue" x="2.9295" y="570.527" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_detalles.v_op_22_notifica}}"/>
+                                <rtl:input-variable name="arr_detalles.v_mov_imss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_detalles.v_mov_imss Value" class="grwStringValue" x="2.9295" y="152.307" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{arr_detalles.v_mov_imss}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

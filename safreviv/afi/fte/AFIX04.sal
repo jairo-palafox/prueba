@@ -1,0 +1,33 @@
+export DBDATE='Y2MD'; onpladm run job FA31DIC.TXT.job -fl -p afi
+INICIA CARGA DE INFORMACIÓN EN TABLA DE PASO
+Connecting to onpload, Please wait...
+Successful connection to onpload established 
+Tue Apr  3 09:53:24 2012
+
+SHMBASE        0x0000000044000000
+CLIENTNUM      0x0000000049010000
+Session ID 10
+
+Load Database   -> safre_tmp
+Load Table      -> tmp_saldo72
+Device Array    -> FA31DIC.TXT.device
+Record Mapping  -> FA31DIC.TXT.map
+Convert Reject  -> /ds/safreviv_int/BD/safreviv.FA31DIC.TXT.rjt
+Filter Reject   -> /ds/safreviv_int/BD/safreviv.FA31DIC.TXT.flt
+09:53:28 Records Processed ->  10064
+09:53:28 Records Processed ->  20128
+09:53:28 Records Processed ->  30192
+09:53:28 Records Processed ->  40256
+09:53:28 Records Processed ->  50320
+
+Database Load Completed -- Processed 53290 Records
+Records Inserted-> 53290
+Detected Errors--> 0
+Engine Rejected--> 0
+
+Tue Apr  3 09:53:30 2012
+
+Job Completed Successfully ... connection closed
+FINALIZA CARGA DE INFORMACIÓN
+INICIA CARGA DE INFORMACIÓN EN TABLA DE SALDOS72
+FINALIZA CARGA DE INFORMACIÓN

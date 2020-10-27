@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AGRP32.rdd" RWFglReportName="rep_resultados"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near" layoutDirection="topToBottom" swapX="false" hidePageHeaderOnLastPage="false" hidePageFooterOnLastPage="false">
+                    <MINIPAGE name="MiniPage" width="75" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="75" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" width="85" length="75" floatingBehavior="enclosed" url="../../img/logo_infonavit_pequeno.jpg" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" width="max" alignment="baseline" color="#ffffff" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="RESUMEN DEL ARCHIVO DE SOLICITUD DE SALDO AGR"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode3" width="1" length="max" bgColor="#fafafa" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode4" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_usuario Value" x="2.236" y="68.2472" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="{{v_usuario}}"/>
+                            <WORDBOX name="WordBox6" x="2.236" y="7.6855" width="78.865" anchorX="3.55271e-14" anchorY="0.0357417" alignment="far" color="#fcfcfc" fontBold="true" floatingBehavior="enclosed" text="USUARIO:"/>
+                            <WORDBOX name="WordBox7" x="2.236" y="597.12" anchorX="3.55271e-14" anchorY="0.0424682" alignment="far" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="FECHA :"/>
+                            <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_reporte Value" x="2.236" y="648.28" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage3" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage4" width="max" length="60">
+                        <MINIPAGE name="MiniPage8" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox8" width="max" alignment="near" color="#fdfdfd" bgColor="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="     ARCHIVO ENTRADA                  ARCHIVO SALIDA                      SDO VIV92                       SDO VIV97                       TOTAL GENERAL "/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage6" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded"/>
+                            <rtl:input-variable name="p_reporte.sdo_viv97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="p_reporte.sdo_viv97 Value" x="2.626" y="593.726" width="101" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{p_reporte.sdo_viv97}}"/>
+                            <rtl:input-variable name="p_reporte.sdo_viv92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="p_reporte.sdo_viv92 Value" x="1.1063" y="458.49" width="101" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="center" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{p_reporte.sdo_viv92}}"/>
+                            <rtl:input-variable name="v_nom_archivo" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDWRAPBOX name="v_nom_archivo Value1" x="2.626" y="0" width="129.315" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_nom_archivo}}" textAlignment="center"/>
+                            <rtl:input-variable name="v_nom_archivo_salida" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDWRAPBOX name="v_nom_archivo_salida Value" x="1.1063" y="175.441" width="196.185" length="13.0034" anchorX="1.42109e-14" anchorY="0.123164" alignment="far" floatingBehavior="enclosed" text="{{v_nom_archivo_salida}}" textAlignment="center"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage7" width="min" length="max" alignment="near" layoutDirection="leftToRight"/>
+                        <rtl:input-variable name="v_total_general_reporte.total_general" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_general_reporte.total_general Value" x="648.28" y="31.1513" width="101" length="17.7641" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="center" format="----------#" value="{{v_total_general_reporte.total_general}}"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode6" width="1" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <WORDBOX name="WordBox9" x="258.819" y="779.529" width="18.6411" length="14.4711" anchorX="0.324987" anchorY="0.234875" alignment="far" floatingBehavior="enclosed" textAlignment="center" text="1"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

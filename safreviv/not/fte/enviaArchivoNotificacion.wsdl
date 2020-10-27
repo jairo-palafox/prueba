@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:p1="http://infonavit.org.mx/MARKETING_ALERTAS/sndCargarCampana" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SI_CargarCampana_SO" targetNamespace="http://infonavit.org.mx/MARKETING_ALERTAS/sndCargarCampana">
+	<wsdl:documentation/>
+	<wsp:UsingPolicy wsdl:required="true"/>
+	<wsp:Policy wsu:Id="OP_SI_CargarCampana_SO"/>
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://infonavit.org.mx/MARKETING_ALERTAS/sndCargarCampana" targetNamespace="http://infonavit.org.mx/MARKETING_ALERTAS/sndCargarCampana">
+			<xsd:element name="MT_CargarCampana_res" type="DT_CargarCampana_res"/>
+			<xsd:element name="MT_CargarCampana_req" type="DT_CargarCampana"/>
+			<xsd:complexType name="DT_CargarCampana">
+				<xsd:annotation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">f5de17e3a99511e5956e0000006a88db</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="archivoB64" type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">f12cdfa7a90a11e58663546355c96a0d</xsd:appinfo>
+							<xsd:documentation>archivo Base 64</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="fechaOperacion" type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">f12cdfa8a90a11e59376546355c96a0d</xsd:appinfo>
+							<xsd:documentation>Fecha Operación</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="idCampana" type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">f12cdfa9a90a11e5ca65546355c96a0d</xsd:appinfo>
+							<xsd:documentation>ID Campaña</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="nombreArchivo" type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">f12cdfaaa90a11e5aee0546355c96a0d</xsd:appinfo>
+							<xsd:documentation>Nombre de Archivo</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="noColumnas" type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">f12cdfaba90a11e5a236546355c96a0d</xsd:appinfo>
+							<xsd:documentation>Número de Columnas</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="noRegistros" type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">f12cdfaca90a11e5b805546355c96a0d</xsd:appinfo>
+							<xsd:documentation>Número de Registros</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DT_CargarCampana_res">
+				<xsd:annotation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">ea364972a99511e5bbb30000006a88db</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="codigoRetorno" type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">137a0695a90b11e5a585546355c96a0d</xsd:appinfo>
+							<xsd:documentation>Código de Retorno</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="descripcion" type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">137a0696a90b11e5a314546355c96a0d</xsd:appinfo>
+							<xsd:documentation>Descripción del Código</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="MT_CargarCampana_req">
+		<wsdl:documentation/>
+		<wsdl:part name="MT_CargarCampana_req" element="p1:MT_CargarCampana_req"/>
+	</wsdl:message>
+	<wsdl:message name="MT_CargarCampana_res">
+		<wsdl:documentation/>
+		<wsdl:part name="MT_CargarCampana_res" element="p1:MT_CargarCampana_res"/>
+	</wsdl:message>
+	<wsdl:portType name="SI_CargarCampana_SO">
+		<wsdl:documentation/>
+		<wsdl:operation name="SI_CargarCampana_SO">
+			<wsdl:documentation/>
+			<wsp:Policy>
+				<wsp:PolicyReference URI="#OP_SI_CargarCampana_SO"/>
+			</wsp:Policy>
+			<wsdl:input message="p1:MT_CargarCampana_req"/>
+			<wsdl:output message="p1:MT_CargarCampana_res"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SI_CargarCampana_SOBinding" type="p1:SI_CargarCampana_SO">
+		<soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="SI_CargarCampana_SO">
+			<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://sap.com/xi/WebService/soap1.1"/>
+			<wsdl:input>
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="SI_CargarCampana_SOService">
+		<wsdl:port name="HTTP_Port" binding="p1:SI_CargarCampana_SOBinding">
+			<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://091402ai203.infonavit.net:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BC_SACI&amp;receiverParty=&amp;receiverService=&amp;interface=SI_CargarCampana_SO&amp;interfaceNamespace=http%3A%2F%2Finfonavit.org.mx%2FMARKETING_ALERTAS%2FsndCargarCampana"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

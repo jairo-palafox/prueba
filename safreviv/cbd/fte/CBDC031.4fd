@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{850e8a7f-192e-4869-a905-87113cec2dae}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_a" order="" uid="{7ba0209a-1883-450c-821f-2fa8f10d3e10}" where="">
+    <RecordField colName="" fieldIdRef="1" name="folio" sqlTabName="" table_alias_name="" uid="{6d1aa615-9306-4f30-9baa-13459e1854d2}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_conciliacion" sqlTabName="" table_alias_name="" uid="{3c5e62e1-1109-47fa-a552-0b995e7f52e6}"/>
+    <RecordField colName="" fieldIdRef="9" name="sum_inicio_infonavit" sqlTabName="" table_alias_name="" uid="{e650ef91-fe59-46a8-8b6a-dff7e3023663}"/>
+    <RecordField colName="" fieldIdRef="10" name="sum_fin_infonavit" sqlTabName="" table_alias_name="" uid="{2e502f07-a3e6-4fc7-a06e-6b040a6c2497}"/>
+    <RecordField colName="" fieldIdRef="11" name="sum_saldo_concilia" sqlTabName="" table_alias_name="" uid="{81b12efe-c821-4a8f-96df-041f64c98aae}"/>
+    <RecordField colName="" fieldIdRef="12" name="sum_saldo_bdnsviv" sqlTabName="" table_alias_name="" uid="{6adb9b0d-dcf1-468b-9a5d-6fc184f740ff}"/>
+    <RecordField colName="" fieldIdRef="13" name="sum_diferencias" sqlTabName="" table_alias_name="" uid="{156a7de9-ed22-4fcc-b3bf-ed447a4cbe04}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="lista_conciliacion" order="" uid="{d27c74db-4d15-48ea-bd85-db151b529a6b}" where="">
+    <RecordField colName="" fieldIdRef="3" name="subcuenta" sqlTabName="" table_alias_name="" uid="{7a3cf777-26f5-456b-b075-cdfa80781830}"/>
+    <RecordField colName="" fieldIdRef="4" name="inicio_infonavit" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{86cfc8f4-99c2-4ec1-9700-d64884103bcc}"/>
+    <RecordField colName="" fieldIdRef="5" name="fin_infonavit" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{e717a142-45dd-41eb-8df1-bbe1dde186b5}"/>
+    <RecordField colName="" fieldIdRef="6" name="saldo_a_conciliar" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{f797b576-2625-4225-a81f-fbbdfbf9b0f4}"/>
+    <RecordField colName="" fieldIdRef="7" name="saldo_bdnsviv" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{9bc520af-fd8a-4623-8092-6cb0f03e6e94}"/>
+    <RecordField colName="" fieldIdRef="8" name="diferencias" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{c869b77d-601b-4a70-bcfb-3e9972ed4655}"/>
+  </Record>
+  <Form gridHeight="16" gridWidth="150" name="Form" text="Form">
+    <Grid gridHeight="14" gridWidth="147" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="110" name="Group1" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="folio" posX="13" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="12" name="Label2" posX="52" posY="1" text="Fecha Conciliación"/>
+        <DateEdit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="10" name="f_conciliacion" posX="65" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="145" name="Group2" posX="1" posY="5" text="Saldos Infonavit">
+        <Table gridHeight="4" gridWidth="141" name="Table1" posX="1" posY="1" totalRows="2">
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="17" name="subcuenta" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="25" name="inicio_infonavit" posX="17" posY="0" precisionDecimal="22" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Saldo&#10;Inicial&#10;Infonavit&#10;&#10;AIVS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="23" name="fin_infonavit" posX="42" posY="0" precisionDecimal="22" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Saldo&#10;Final&#10;Infonavit&#10;&#10;AIVS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="23" name="saldo_a_conciliar" posX="65" posY="0" precisionDecimal="22" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Saldo&#10;a&#10;Conciliar&#10;&#10;AIVS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="23" name="saldo_bdnsviv" posX="88" posY="0" precisionDecimal="22" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Saldo&#10;BDNSVIV&#10;&#10;&#10;AIVS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="23" name="diferencias" posX="111" posY="0" precisionDecimal="22" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Diferencias&#10;&#10;&#10;&#10;AIVS" widget="Edit"/>
+        </Table>
+        <Label gridHeight="1" gridWidth="10" name="Label3" posX="1" posY="6" text="Sumatoria"/>
+        <Edit colName="" columnCount="" fieldId="9" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="sum_inicio_infonavit" posX="19" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="10" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="sum_fin_infonavit" posX="42" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit9" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="11" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="sum_saldo_concilia" posX="65" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Edit10" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="12" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="sum_saldo_bdnsviv" posX="88" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Edit11" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="13" format="-#,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="sum_diferencias" posX="111" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Edit12" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{4a0e558d-0153-466c-b51f-70f425843710}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="solicitud_detalle" order="" uid="{b4396e08-ad8e-480b-b265-18aa5d0e218c}" where="">
+    <RecordField colName="" fieldIdRef="1" length="11" name="nss" sqlTabName="" table_alias_name="" uid="{96dac2d9-dd7b-4948-ba6d-12275ae29250}"/>
+    <RecordField colName="" fieldIdRef="2" name="marca" sqlTabName="" table_alias_name="" uid="{8d1e68ec-c207-4850-8359-0c7b2848a4fb}"/>
+    <RecordField colName="" fieldIdRef="9" name="tipo" sqlTabName="" table_alias_name="" uid="{58f63b6a-56a6-4652-b4d4-a0790ccd3931}"/>
+    <RecordField colName="" fieldIdRef="3" name="fecha_marca" sqlTabName="" table_alias_name="" uid="{02d9fac3-7903-467c-92bb-d00e0df8fbf0}"/>
+    <RecordField colName="" fieldIdRef="4" name="diagnostico" sqlTabName="" table_alias_name="" uid="{45ced8a5-cd26-400a-aa6a-a5216f16cc0d}"/>
+    <RecordField colName="" fieldIdRef="11" name="hora_consulta" sqlTabName="" table_alias_name="" uid="{430d9be4-c5ae-4e74-8863-06e987934013}"/>
+    <RecordField colName="" fieldIdRef="5" name="viv92_aivs" sqlTabName="" table_alias_name="" uid="{cdee47f5-9b95-4939-ad98-975a2b73d712}"/>
+    <RecordField colName="" fieldIdRef="6" name="viv92_pesos" sqlTabName="" table_alias_name="" uid="{9e39273a-dd69-4983-a0a2-7df88e8ddef6}"/>
+    <RecordField colName="" fieldIdRef="7" name="viv97_aivs" sqlTabName="" table_alias_name="" uid="{c59e9aae-2688-446d-a52c-79aefc2a305e}"/>
+    <RecordField colName="" fieldIdRef="8" name="viv97_pesos" sqlTabName="" table_alias_name="" uid="{bb02ddff-cbb7-4c67-9807-3f88fa6dc533}"/>
+    <RecordField colName="" fieldIdRef="10" name="tpo_cambio" sqlTabName="" table_alias_name="" uid="{334c9b7f-b0fe-422e-9648-14f4de905d9d}"/>
+  </Record>
+  <Form gridHeight="15" gridWidth="196" name="form" text="Form">
+    <Grid gridHeight="12" gridWidth="190" name="grid1" posX="2" posY="1">
+      <Group gridHeight="10" gridWidth="188" name="group1" posX="2" posY="1" text="Resultado de Solicitudes de Marcas/Desmarcas a Procesar">
+        <Table gridHeight="6" gridWidth="186" name="table1" posX="1" posY="2" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="12" length="11" name="nss" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="25" name="marca" posX="12" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Marca" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="10" name="tipo" posX="37" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Marca /&#10;Desmarca" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="12" name="fecha_marca" posX="47" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Fecha Intento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="30" name="diagnostico" posX="59" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Diagnostico&#10;de marca" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="10" name="hora_consulta" posX="89" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Hora&#10;Consulta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" name="viv92_aivs" posX="99" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Vivienda 92 AIV&apos;s" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="15" name="viv92_pesos" posX="114" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Vivienda 92 Pesos" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="15" name="viv97_aivs" posX="129" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Vivienda 97 AIV&apos;s" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="15" name="viv97_pesos" posX="144" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Vivienda 97 Pesos" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="15" name="tpo_cambio" posX="159" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Tipo de cambio&#10;informado" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzADMANABjADkAYgA3AGYALQBiADAAZgBlAC0ANAAyADIAZQAtADkANgA0ADgALQAxADQAZgA0AGQAZQA5ADAANQBkADkAZAB9QCQAAAUAAABAcMAABDAAAAAAAAAAAAAAAQAAAEwAewBiAGIAMAAyAGQAZABmAGYALQBjAGIAYgA3AC0ANABjADYANwAtADkAOAAwADcALQAzAGYAOAA4AGYAYQA2AGQAYwA1ADMAMwB9QCQAAAUAAABAbqAAB6gAAAAAAAAAAAAAAQAAAEwAewBjADUAOQBlADkAYQBhAGUALQAyADYAOAA4AC0ANAA0ADYAZAAtAGEANQAyAGMALQA3ADkAYQBlAGYAYwAyAGEAMwAwADUAZQB9QCQAAAUAAABAa8AABvAAAAAAAAAAAAAAAQAAAEwAewA1ADgAZgA2ADMAYgA2AGEALQA1ADYAYQA2AC0ANAA2ADUAMgAtAGIANABkADQALQBhADAANwA5ADAAYwBjAGQAMwA5ADMAMQB9QCQAAAUAAABAVQAABUAAAAAAAAAAAAAAAQAAAEwAewA4AGQAMQBlADYAOABlAGMALQBjADIAMAA3AC0ANAA4ADUAMAAtADgAMwA1ADkALQAwAGMANwBiADIAOAA0ADgAYQA0AGYAYgB9QCQAAAUAAABAToAAB6AAAAAAAAAAAAAAAQAAAEwAewA0ADUAYwBlAGQAOABhADUALQBjAGQAMgA2AC0ANAAwADAAYQAtAGEAYQA2AGEALQBhADUAMgAxADYAZgAxADYAYwBjADAAZAB9QCQAAAUAAABAYEAABBAAAAAAAAAAAAAAAQAAAEwAewA5ADYAZABhAGMAMgBkADkALQBkAGQANwBiAC0ANAA5ADQAOAAtAGIAYQA2AGQALQAxADIAMgA3ADUAYQBlADIAOQAyADUAMAB9QCQAAAUAAABAQwAABMAAAAAAAAAAAAAAAQAAAEwAewA5AGUAMwA5ADIANwAzAGEALQBkAGQANgA5AC0ANAA5ADgAMwAtAGEAMABhADIALQA3AGQAZgA4ADgAZQA4AGQAZABlAGYANgB9QCQAAAUAAABAaOAABjgAAAAAAAAAAAAAAQAAAEwAewBiADQAMwA5ADYAZQAwADgALQBhAGQAOABlAC0ANAA4ADAAYgAtAGIAMgA2ADUALQAxADgAYQBhADUAZAAwAGUAMgAxADgAYwB9QCQAAAUAAABAJAAABQAAAAAAAAAAAAAAAQAAAEwAewAwADIAZAA5AGYAYQBjADMALQA3ADkAMAAzAC0ANAA2ADcAYwAtADkAMgBiAGIALQBkADAAMABlADAAZABmADgAZgBiAGYAMAB9QCQAAAUAAABAWsAABrAAAAAAAAAAAAAAAQAAAEwAewBjAGQAZQBlADQANwBmADUALQA5AGIAOQA1AC0ANAA5ADMAOQAtAGEAZAA5ADgALQA5ADcANQBhADIAYgA3ADMAZAA3ADEAMgB9QCQAAAUAAABAZgAABYAAAAAAAAAAAAAAAQAAAEwAewA0ADMAMABkADkAYgBlADQALQBjADUAYQBlAC0ANABlADcANAAtADgAOAA2ADMALQAwADYAZQA5ADgANwA5ADMANAAwADEAMwB9QCQAAAUAAABAYyAABMgAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

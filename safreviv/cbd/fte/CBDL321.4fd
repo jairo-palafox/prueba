@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{b39fb94f-0566-41e5-9fe5-0facd97a78f5}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{4d31cbf5-388e-4edb-a3a2-e22dbc4158fc}" where="">
+    <RecordField colName="" fieldIdRef="1" name="folio" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{2df02a12-1d8b-4aa9-a313-f315445b9fc2}"/>
+    <RecordField colName="" fieldIdRef="2" name="nom_archivo" sqlTabName="" table_alias_name="" uid="{79cb5de8-faab-4f55-adf3-dd2da604d64e}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="cifras" order="" uid="{1f63a4a3-b933-4cfc-bd82-981f4844dc6c}" where="">
+    <RecordField colName="" fieldIdRef="3" name="subcuenta" sqlTabName="" table_alias_name="" uid="{c1c636aa-3094-40c4-b725-062b570011da}"/>
+    <RecordField colName="" fieldIdRef="4" name="acciones" sqlTabName="" table_alias_name="" uid="{b8c74125-0ed5-4dd5-8abf-baf74f046fa2}"/>
+    <RecordField colName="" fieldIdRef="5" name="registros" sqlTabName="" table_alias_name="" uid="{1452f5c2-c785-4dbc-a77f-fb056561cee4}"/>
+  </Record>
+  <Form gridHeight="14" gridWidth="109" name="Form" text="Form">
+    <Grid gridHeight="12" gridWidth="106" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="103" name="Group1" posX="1" posY="1" text="Información del proceso">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" name="folio" posX="12" posY="1" precisionDecimal="9" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="14" name="Label2" posX="32" posY="1" text="Nombre Archivo"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="50" name="nom_archivo" posX="47" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="6" gridWidth="103" name="Group2" posX="1" posY="5" text="Cifras globales">
+        <Table gridHeight="4" gridWidth="96" name="cifras" posX="1" posY="1" totalRows="2">
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="40" name="subcuenta" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="-#,###,###,##&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" gridHeight="1" gridWidth="35" name="acciones" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Total Acciones" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" name="registros" posX="75" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Registros" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyAGQAZgAwADIAYQAxADIALQAxAGQAOABiAC0ANABhAGEAOQAtAGEAMwAxADMALQBmADMAMQA1ADQANAA1AGIAOQBmAGMAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADkAYwBiADUAZABlADgALQBmAGEAYQBiAC0ANABmADUANQAtAGEAZABmADMALQBkAGQAMgBkAGEANgAwADQAZAA2ADQAZQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADQANQAyAGYANQBjADIALQBjADcAOAA1AC0ANABkAGIAYwAtAGEANwA3AGYALQBmAGIAMAA1ADYANQA2ADEAYwBlAGUANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADEAYwA2ADMANgBhAGEALQAzADAAOQA0AC0ANAAwAGMANAAtAGIANwAyADUALQAwADYAMgBiADUANwAwADAAMQAxAGQAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADgAYwA3ADQAMQAyADUALQAwAGUAZAA1AC0ANABkAGQANQAtADgAYQBiAGYALQBiAGEAZgA3ADQAZgAwADQANgBmAGEAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGQAMwAxAGMAYgBmADUALQAzADgAOABlAC0ANABlAGQAYgAtAGEAMwBhADIALQBlADIAMgBkAGIAYwA0ADEANQA4AGYAYwB9wHSAAAAAAABAOAAAAAAAAD94k3S8an76AQAAAEwAewAxAGYANgAzAGEANABhADMALQBiADkAMwAzAC0ANABjAGYAYwAtAGIAZAA4ADIALQA5ADgAMQBmADQAOAA0ADQAZABjADYAYwB9wF4AAAAAAABAPwAAAAAAAD+CbpeNT988AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

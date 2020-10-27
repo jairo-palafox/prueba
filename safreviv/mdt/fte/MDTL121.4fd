@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{a644ef11-0996-41b8-851c-1c846c4c0bba}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{74afa8f1-90dd-4d4b-9342-01e2349c1b69}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cb_lote_reverso" sqlTabName="" table_alias_name="" uid="{abfce73b-eb4a-49c8-8df0-87d3078e1243}"/>
+    <RecordField colName="" fieldIdRef="7" name="flbl_total" sqlTabName="" table_alias_name="" uid="{c4ab521f-b280-45ef-a145-617e54eee490}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_detalle_lote" order="" uid="{39d14511-675d-4afb-a063-4bb031f2ea6a}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tlbl_lote" sqlTabName="" table_alias_name="" uid="{08c76efa-c386-4fa0-a1d2-cadb2968faea}"/>
+    <RecordField colName="" fieldIdRef="3" name="tlbl_fecha_lote" sqlTabName="" table_alias_name="" uid="{1ac32f11-0d95-4924-93bb-6a13822c9753}"/>
+    <RecordField colName="" fieldIdRef="4" name="tlbl_tipo_operacion" sqlTabName="" table_alias_name="" uid="{4717b20e-28d1-4a6f-ba27-80a1f3a90f64}"/>
+    <RecordField colName="" fieldIdRef="5" name="tlbl_estado" sqlTabName="" table_alias_name="" uid="{b29e555a-d05f-4f31-85dc-026a13f04797}"/>
+    <RecordField colName="" fieldIdRef="6" name="tlbl_total" sqlTabName="" table_alias_name="" uid="{fb08851a-48b1-4ef7-b36a-0488741937c6}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="92" name="frm_reverso_val_inst_recurrentes" text="Form">
+    <Grid gridHeight="24" gridWidth="87" name="grd_reverso_val_inst_recurrentes" posX="0" posY="0">
+      <Group gridHeight="5" gridWidth="60" name="gpo_lote" posX="3" posY="1" text="Selección de Folio">
+        <Label gridHeight="1" gridWidth="11" name="lbl_lote_reverso" posX="10" posY="2" text="Folio a reversar"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="24" items="" name="cb_lote_reverso" notNull="true" posX="22" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="14" gridWidth="60" name="gpo_detalle_lote" posX="3" posY="8" text="Detalle de Folio a Reversar">
+        <Table gridHeight="9" gridWidth="54" name="Table1" posX="3" posY="2" totalRows="8">
+          <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="10" justify="right" name="tlbl_lote" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Folio" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="10" justify="center" name="tlbl_fecha_lote" posX="10" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Fecha proceso" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" justify="left" name="tlbl_tipo_operacion" posX="20" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Tipo Operación" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="8" justify="center" name="tlbl_estado" posX="32" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Estado" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" justify="right" name="tlbl_total" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Total" widget="FFLabel"/>
+        </Table>
+        <Label gridHeight="1" gridWidth="8" justify="right" name="lbl_total" posX="32" posY="12" text="Total"/>
+        <FFLabel colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="8" name="flbl_total" posX="41" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Edit1" widget="FFLabel"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA3ADQAYQBmAGEAOABmADEALQA5ADAAZABkAC0ANABkADQAYgAtADkAMwA0ADIALQAwADEAZQAyADMANAA5AGMAMQBiADYAOQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADIAOQBlADUANQA1AGEALQBkADAANQBmAC0ANABmADMAMQAtADgANQBkAGMALQAwADIANgBhADEAMwBmADAANAA3ADkANwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADQAYQBiADUAMgAxAGYALQBiADIAOAAwAC0ANAA1AGUAZgAtAGEAMQA0ADUALQA2ADEANwBlADUANABlAGUAZQA0ADkAMAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGEAYwAzADIAZgAxADEALQAwAGQAOQA1AC0ANAA5ADIANAAtADkAMwBiAGIALQA2AGEAMQAzADgAMgAyAGMAOQA3ADUAMwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADkAZAAxADQANQAxADEALQA2ADcANQBkAC0ANABhAGYAYgAtAGEAMAA2ADMALQA0AGIAYgAwADMAMQBmADIAZQBhADYAYQB9AAAAAAAAAAAAAAAAAAAAAD94k3S8an76AQAAAEwAewBhAGIAZgBjAGUANwAzAGIALQBlAGIANABhAC0ANAA5AGMAOAAtADgAZABmADAALQA4ADcAZAAzADAANwA4AGUAMQAyADQAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADgAYwA3ADYAZQBmAGEALQBjADMAOAA2AC0ANABmAGEAMAAtAGEAMQBkADIALQBjAGEAZABiADIAOQA2ADgAZgBhAGUAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGIAMAA4ADgANQAxAGEALQA0ADgAYgAxAC0ANABlAGYANwAtAGIAMwA2AGEALQAwADQAOAA4ADcANAAxADkAMwA3AGMANgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADcAMQA3AGIAMgAwAGUALQAyADgAZAAxAC0ANABhADYAZgAtAGIAYQAyADcALQA4ADAAYQAxAGYAMwBhADkAMABmADYANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

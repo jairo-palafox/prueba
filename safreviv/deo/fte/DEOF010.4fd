@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{778e911b-146d-4a78-9c9f-972d60fc184e}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{95714a29-65be-4291-a023-a1af7084eca7}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cmb_afore" sqlTabName="" table_alias_name="" uid="{992eceae-f923-4d23-a4c8-01a238c91627}"/>
+    <RecordField colName="" fieldIdRef="2" name="txt_importe" sqlTabName="" table_alias_name="" uid="{6d4372d5-f4a1-4dd3-a9a9-8732000d269f}"/>
+    <RecordField colName="" fieldIdRef="3" name="dte_fecha" sqlTabName="" table_alias_name="" uid="{2802b05d-099c-40cb-8ae1-8ac15f927ce4}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_saldos_capturados" order="" uid="{eb6c9b50-d2ed-4c21-947c-8ef8769e513a}" where="">
+    <RecordField colName="" fieldIdRef="4" name="col_afore_cod" sqlTabName="" table_alias_name="" uid="{8efcabb7-ee3e-41ab-8eca-db8bf88bd895}"/>
+    <RecordField colName="" fieldIdRef="5" name="col_afore_desc" sqlTabName="" table_alias_name="" uid="{6645bd42-6cd2-46cd-a8d2-c246fe385bbd}"/>
+    <RecordField colName="" fieldIdRef="6" name="col_importe" sqlTabName="" table_alias_name="" uid="{530be13b-2ca5-4fc4-9bd0-75600b903c0f}"/>
+    <RecordField colName="" fieldIdRef="7" name="col_fecha_devolucion" sqlTabName="" table_alias_name="" uid="{db5b2645-04cf-4cc8-963e-ce890683cc56}"/>
+  </Record>
+  <Form gridHeight="57" gridWidth="321" name="Captura de saldos para devolución por errores de operación" perSchemaComment="FORMONLY" text="Form">
+    <VBox gridHeight="20" gridWidth="87" name="VBox1" posX="5" posY="5">
+      <Group gridHeight="9" gridWidth="87" name="grp_saldos_afore" posX="0" posY="1" text="Montos depositados por AFORE">
+        <Grid gridHeight="7" gridWidth="51" name="Grid1" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="13" name="lbl_afore" posX="1" posY="1" text="AFORE"/>
+          <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="34" items="" name="cmb_afore" notNull="true" posX="16" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+          <Label gridHeight="1" gridWidth="13" name="lbl_importe" posX="1" posY="3" text="Importe"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="14" name="txt_importe" posX="16" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="13" name="lbl_fecha" posX="1" posY="5" text="Fecha Devolución"/>
+          <DateEdit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="dte_fecha" posX="16" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="9" gridWidth="87" name="grp_montos_capturados" posX="0" posY="10" text="Montos capturados">
+        <Grid gridHeight="7" gridWidth="85" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="84" name="tbl_saldos_capturados" posX="1" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" name="col_afore_cod" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="33" name="col_afore_desc" posX="11" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="AFORE" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="6" format="$###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="col_importe" posX="44" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Importe" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" name="col_fecha_devolucion" posX="64" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Fecha&#10;Devolución" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5ADkAMgBlAGMAZQBhAGUALQBmADkAMgAzAC0ANABkADIAMwAtAGEANABjADgALQAwADEAYQAyADMAOABjADkAMQA2ADIANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADgAMAAyAGIAMAA1AGQALQAwADkAOQBjAC0ANAAwAGMAYgAtADgAYQBlADEALQA4AGEAYwAxADUAZgA5ADIANwBjAGUANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGQANAAzADcAMgBkADUALQBmADQAYQAxAC0ANABkAGQAMwAtAGEAOQBhADkALQA4ADcAMwAyADAAMAAwAGQAMgA2ADkAZgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGIANQBiADIANgA0ADUALQAwADQAYwBmAC0ANABjAGMAOAAtADkANgAzAGUALQBjAGUAOAA5ADAANgA4ADMAYwBjADUANgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADUANwAxADQAYQAyADkALQA2ADUAYgBlAC0ANAAyADkAMQAtAGEAMAAyADMALQBhADEAYQBmADcAMAA4ADQAZQBjAGEANwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewBlAGIANgBjADkAYgA1ADAALQBkADIAZQBkAC0ANABjADIAMQAtADkANAA3AGMALQA4AGUAZgA4ADcANgA5AGUANQAxADMAYQB9wGtAAAAAAAA/8AAAAAAAAD90euFHrhR7AQAAAEwAewA4AGUAZgBjAGEAYgBiADcALQBlAGUAMwBlAC0ANAAxAGEAYgAtADgAZQBjAGEALQBkAGIAOABiAGYAOAA4AGIAZAA4ADkANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADYANAA1AGIAZAA0ADIALQA2AGMAZAAyAC0ANAA2AGMAZAAtAGEAOABkADIALQBjADIANAA2AGYAZQAzADgANQBiAGIAZAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADMAMABiAGUAMQAzAGIALQAyAGMAYQA1AC0ANABmAGMANAAtADkAYgBkADAALQA3ADUANgAwADAAYgA5ADAAMwBjADAAZgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

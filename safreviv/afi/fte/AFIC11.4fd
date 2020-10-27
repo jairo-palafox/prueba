@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{ced827a5-05a5-4327-986b-b7a1836b638b}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{767f8f2c-01be-497e-8725-f5601c762dab}" where="">
+    <RecordField colName="" fieldIdRef="1" fieldType="NON_DATABASE" name="nss" sqlTabName="" table_alias_name="" uid="{3095ec5c-9498-4c7f-b7fa-23123b17c7b1}"/>
+    <RecordField colName="" fieldIdRef="2" fieldType="NON_DATABASE" name="rfc" sqlTabName="" table_alias_name="" uid="{042c5238-c7b4-4d12-9c5d-de951328be08}"/>
+    <RecordField colName="" fieldIdRef="3" fieldType="NON_DATABASE" name="curp" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{653d65f9-62fd-4f4c-84d6-d4150318893c}"/>
+    <RecordField colName="" fieldIdRef="4" name="folio" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{32527f35-61e5-4579-928a-b46bba3161f2}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb2" order="" uid="{4d949e52-2da4-414d-8602-f6334e5662fb}" where="">
+    <RecordField colName="" fieldIdRef="5" fieldType="NON_DATABASE" name="arr_nss" sqlTabName="" table_alias_name="" uid="{29aded88-cb95-4ca8-8e0c-074c2f20dc8c}"/>
+    <RecordField colName="" fieldIdRef="6" fieldType="NON_DATABASE" name="arr_rfc" sqlTabName="" table_alias_name="" uid="{6920cd19-6555-40be-85f9-776d230d6f9a}"/>
+    <RecordField colName="" fieldIdRef="7" fieldType="NON_DATABASE" name="arr_curp" sqlTabName="" table_alias_name="" uid="{d6fdf4e5-f586-4315-8af3-142fc78c2e33}"/>
+    <RecordField colName="" fieldIdRef="8" fieldType="NON_DATABASE" name="arr_paterno" sqlTabName="" table_alias_name="" uid="{45bcb101-1728-4b81-8902-e6190d2141ea}"/>
+    <RecordField colName="" fieldIdRef="9" fieldType="NON_DATABASE" name="arr_materno" sqlTabName="" table_alias_name="" uid="{40be5f2d-8e34-4163-8edf-9215912febcd}"/>
+    <RecordField colName="" fieldIdRef="10" fieldType="NON_DATABASE" name="arr_nombre" sqlTabName="" table_alias_name="" uid="{3913b1fb-426c-44aa-801d-d94de0a53800}"/>
+    <RecordField colName="" fieldIdRef="11" name="arr_folio" sqlTabName="" table_alias_name="" uid="{891abe01-a21d-4549-a284-7ddc36248576}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="169" name="Form" text="Form">
+    <VBox gridHeight="20" gridWidth="167" name="VBox1" posX="2" posY="1">
+      <Group fontPitch="variable" gridChildrenInParent="true" gridHeight="7" gridWidth="167" lstrcomment="false" lstrtext="false" name="gb10" posX="0" posY="1" text="Criterios de Búsqueda">
+        <Grid gridHeight="5" gridWidth="113" name="Grid1" posX="1" posY="1">
+          <Label colorCondition="black" gridHeight="1" gridWidth="8" lstrcomment="false" lstrtext="false" name="lb16" posX="1" posY="1" text="NSS"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="1" fieldType="NON_DATABASE" gridHeight="1" gridWidth="20" length="1" lstrcomment="false" name="nss" posX="10" posY="1" rowCount="" sizePolicy="initial" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+          <Label colorCondition="black" gridHeight="1" gridWidth="8" lstrcomment="false" lstrtext="false" name="lb15" posX="32" posY="1" text="RFC"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" colorCondition="black" columnCount="" fieldId="2" fieldType="NON_DATABASE" gridHeight="1" gridWidth="20" length="1" lstrcomment="false" name="rfc" posX="41" posY="1" rowCount="" sizePolicy="initial" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="49" name="Label1" posX="62" posY="1" text=""/>
+          <Label colorCondition="black" gridHeight="1" gridWidth="8" lstrcomment="false" lstrtext="false" name="lb14" posX="1" posY="3" text="CURP"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" colorCondition="black" columnCount="" fieldId="3" fieldType="NON_DATABASE" gridHeight="1" gridWidth="20" length="1" lstrcomment="false" name="curp" posX="10" posY="3" rowCount="" sizePolicy="initial" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="8" name="Label3" posX="32" posY="3" text="FOLIO"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="20" name="folio" posX="41" posY="3" precisionDecimal="9" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="49" name="Label2" posX="62" posY="3" text=""/>
+        </Grid>
+      </Group>
+      <Group gridHeight="11" gridWidth="167" lstrcomment="false" lstrtext="false" name="gb9" posX="0" posY="8" text="Listado de Derechohabientes">
+        <Table gridHeight="8" gridWidth="160" name="tb2" posX="1" posY="2" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="5" fieldType="NON_DATABASE" gridHeight="1" gridWidth="12" length="1" lstrcomment="false" lstrtitle="false" name="arr_nss" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="6" fieldType="NON_DATABASE" gridHeight="1" gridWidth="16" length="1" lstrcomment="false" lstrtitle="false" name="arr_rfc" posX="12" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="RFC" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="7" fieldType="NON_DATABASE" gridHeight="1" gridWidth="25" length="1" lstrcomment="false" lstrtitle="false" name="arr_curp" posX="28" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="CURP" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="8" fieldType="NON_DATABASE" gridHeight="1" gridWidth="30" length="1" lstrcomment="false" lstrtitle="false" name="arr_paterno" posX="53" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Primer apellido" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="9" fieldType="NON_DATABASE" gridHeight="1" gridWidth="30" length="1" lstrcomment="false" lstrtitle="false" name="arr_materno" posX="83" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Segundo apellido" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" colorCondition="black" columnCount="" fieldId="10" fieldType="NON_DATABASE" gridHeight="1" gridWidth="30" length="1" lstrcomment="false" lstrtitle="false" name="arr_nombre" posX="113" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Nombre" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="8" name="arr_folio" posX="143" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Folio" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA3ADYANwBmADgAZgAyAGMALQAwADEAYgBlAC0ANAA5ADcAZQAtADgANwAyADUALQBmADUANgAwADEAYwA3ADYAMgBkAGEAYgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADUAMwBkADYANQBmADkALQA2ADIAZgBkAC0ANABmADQAYwAtADgANABkADYALQBkADQAMQA1ADAAMwAxADgAOAA5ADMAYwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADUAYgBjAGIAMQAwADEALQAxADcAMgA4AC0ANABiADgAMQAtADgAOQAwADIALQBlADYAMQA5ADAAZAAyADEANAAxAGUAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAzADAAOQA1AGUAYwA1AGMALQA5ADQAOQA4AC0ANABjADcAZgAtAGIANwBmAGEALQAyADMAMQAyADMAYgAxADcAYwA3AGIAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADIANQAyADcAZgAzADUALQA2ADEAZQA1AC0ANAA1ADcAOQAtADkAMgA4AGEALQBiADQANgBiAGIAYQAzADEANgAxAGYAMgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADkAMgAwAGMAZAAxADkALQA2ADUANQA1AC0ANAAwAGIAZQAtADgANQBmADkALQA3ADcANgBkADIAMwAwAGQANgBmADkAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADYAZgBkAGYANABlADUALQBmADUAOAA2AC0ANAAzADEANQAtADgAYQBmADMALQAxADQAMgBmAGMANwA4AGMAMgBlADMAMwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADAAYgBlADUAZgAyAGQALQA4AGUAMwA0AC0ANAAxADYAMwAtADgAZQBkAGYALQA5ADIAMQA1ADkAMQAyAGYAZQBiAGMAZAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADkAMQBhAGIAZQAwADEALQBhADIAMQBkAC0ANAA1ADQAOQAtAGEAMgA4ADQALQA3AGQAZABjADMANgAyADQAOAA1ADcANgB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADQAMgBjADUAMgAzADgALQBjADcAYgA0AC0ANABkADEAMgAtADkAYwA1AGQALQBkAGUAOQA1ADEAMwAyADgAYgBlADAAOAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADkAYQBkAGUAZAA4ADgALQBjAGIAOQA1AC0ANABjAGEAOAAtADgAZQAwAGMALQAwADcANABjADIAZgAyADAAZABjADgAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADkAMQAzAGIAMQBmAGIALQA0ADIANgBjAC0ANAA0AGEAYQAtADgAMAAxAGQALQBkADkANABkAGUAMABhADUAMwA4ADAAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGQAOQA0ADkAZQA1ADIALQAyAGQAYQA0AC0ANAAxADQAZAAtADgANgAwADIALQBmADYAMwAzADQAZQA1ADYANgAyAGYAYgB9AAAAAAAAAAAAAAAAAAAAAD9ok3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

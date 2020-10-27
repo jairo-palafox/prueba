@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{57523b62-dccd-4c70-985a-53671cc0ff44}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="t_retiro" order="" uid="{c88941b8-8f88-4e51-b999-3030d864a729}" where="">
+    <RecordField colName="" fieldIdRef="6" name="cb_id" sqlTabName="" table_alias_name="" uid="{8a91dc84-292d-4fac-ae2b-0926a142bb0d}"/>
+    <RecordField colName="" fieldIdRef="1" name="e_id_tipo_retiro" sqlTabName="" table_alias_name="" uid="{22ce18aa-a702-4b34-9779-cf501584f520}"/>
+    <RecordField colName="" fieldIdRef="4" name="e_movimiento" sqlTabName="" table_alias_name="" uid="{c2fcf242-b88e-4a9f-9cc8-ee956592c09a}"/>
+    <RecordField colName="" fieldIdRef="5" name="e_importe" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{ba73eb10-39d0-4ad9-8593-ea88070223d2}"/>
+    <RecordField colName="" fieldIdRef="12" name="e_importe49" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{73d63200-5688-4ec9-ad3f-56a305c37e5f}"/>
+    <RecordField colName="" fieldIdRef="8" name="e_aivs92" sqlTabName="" table_alias_name="" uid="{e58be119-1bff-4483-9a23-1712cb9c5d96}"/>
+    <RecordField colName="" fieldIdRef="9" name="e_aivs97" sqlTabName="" table_alias_name="" uid="{451c3e6d-d1a2-4e41-8413-2ab2cf17c09c}"/>
+    <RecordField colName="" fieldIdRef="2" name="e_tipo_retiro" sqlTabName="" table_alias_name="" uid="{440a8870-4165-404e-8dcb-b41d4226bc49}"/>
+    <RecordField colName="" fieldIdRef="7" name="e_id_matriz_derecho" sqlTabName="" table_alias_name="" uid="{10f7cacd-edba-45a3-b543-f1cc6a2fac94}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Total" order="" uid="{90f5ccf9-4246-49bc-885d-4455b091b16c}" where="">
+    <RecordField colName="" fieldIdRef="3" name="ff_total" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{7067ac6a-b096-4489-842c-59ad26d73f43}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{5c6adfdf-3cc2-4d81-bff9-7b1cc08f600d}" where="">
+    <RecordField colName="" fieldIdRef="10" name="ff_total1" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{32a28a73-89c2-4cd0-ac53-1b67deb3fde3}"/>
+    <RecordField colName="" fieldIdRef="11" name="ff_total2" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{f3a6cf10-5303-443e-8459-c7c7a4f84a80}"/>
+    <RecordField colName="" fieldIdRef="13" name="ff_total3" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{e95fadf7-31ba-4cd9-ae7d-1afa95e62163}"/>
+  </Record>
+  <Form gridHeight="40" gridWidth="149" name="Form" text="Form">
+    <Grid gridHeight="40" gridWidth="149" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="23" gridWidth="148" name="Group1" posX="1" posY="1" text="Totales por Tipo de Retiro">
+        <Table gridHeight="11" gridWidth="145" lstrcomment="true" name="t_totales" posX="2" posY="1" sizePolicy="fixed" totalRows="10" unmovableColumns="true" unsizableColumns="true" unsortableColumns="true">
+          <CheckBox colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="6" name="cb_id" notNull="true" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" text="" title="" unhidable="true" unmovable="true" unsizable="true" unsortable="true" widget="CheckBox"/>
+          <Edit colName="" columnCount="" fieldId="1" format="" gridHeight="1" gridWidth="19" hidden="false" invisible="false" name="e_id_tipo_retiro" noEntry="true" posX="6" posY="0" rowCount="" sizePolicy="fixed" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Tipo Retiro" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" name="e_movimiento" noEntry="true" posX="25" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Movimiento" unhidable="true" unmovable="true" unsortable="true" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="##,###,##&amp;.##" gridHeight="1" gridWidth="19" justify="right" name="e_importe" noEntry="true" posX="36" posY="0" precisionDecimal="16" rowCount="" scaleDecimal="6" sizePolicy="fixed" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Importe&#10;viv72" unhidable="true" unmovable="true" unsortable="true" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="12" format="##,###,##&amp;.##" gridHeight="1" gridWidth="19" justify="right" name="e_importe49" noEntry="true" posX="55" posY="0" precisionDecimal="16" rowCount="" scaleDecimal="6" sizePolicy="fixed" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Importe&#10;viv49" unhidable="true" unmovable="true" unsortable="true" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" format="##,###,##&amp;.######" gridHeight="1" gridWidth="19" name="e_aivs92" noEntry="true" posX="74" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Total&#10;aivs92" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" format="##,###,##&amp;.######" gridHeight="1" gridWidth="19" name="e_aivs97" noEntry="true" posX="93" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Total&#10;aivs97" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="10" hidden="true" name="e_tipo_retiro" noEntry="true" posX="112" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="tipo_retiro" unhidable="true" unmovable="true" unsortable="true" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="13" hidden="true" name="e_id_matriz_derecho" noEntry="true" posX="122" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="id_matriz_derecho" widget="Edit"/>
+        </Table>
+        <Label gridHeight="1" gridWidth="46" name="Label5" posX="2" posY="12" text=""/>
+        <HLine gridWidth="86" name="HLine1" posX="49" posY="12"/>
+        <Label gridHeight="1" gridWidth="32" name="Label4" posX="2" posY="13" text=""/>
+        <Label blink="true" color="red" gridHeight="1" gridWidth="13" justify="right" name="Label3" posX="35" posY="13" sizePolicy="fixed" text="TOTALES:"/>
+        <FFLabel colName="" color="red" columnCount="" fieldId="3" format="###,###,###,##&amp;.###" gridHeight="1" gridWidth="23" justify="right" name="ff_total" posX="49" posY="13" precisionDecimal="16" rowCount="" scaleDecimal="6" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" color="red" columnCount="" fieldId="13" format="###,###,###,##&amp;.###" gridHeight="1" gridWidth="23" justify="right" name="ff_total3" posX="73" posY="13" precisionDecimal="16" rowCount="" scaleDecimal="6" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" color="red" columnCount="" fieldId="10" format="###,###,###,##&amp;.###" gridHeight="1" gridWidth="23" justify="right" name="ff_total1" posX="97" posY="13" precisionDecimal="16" rowCount="" scaleDecimal="6" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" color="red" columnCount="" fieldId="11" format="###,###,###,##&amp;.###" gridHeight="1" gridWidth="23" justify="right" name="ff_total2" posX="121" posY="13" precisionDecimal="16" rowCount="" scaleDecimal="6" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5ADAAZgA1AGMAYwBmADkALQA0ADIANAA2AC0ANAA5AGIAYwAtADgAOAA1AGQALQA0ADQANQA1AGIAMAA5ADEAYgAxADYAYwB9wHcQAAAAAADAZOAAAAAAAD+gYk3S8an/AQAAAEwAewA0ADQAMABhADgAOAA3ADAALQA0ADEANgA1AC0ANAAwADQAZQAtADgAZABjAGIALQBiADQAMQBkADQAMgAyADYAYgBjADQAOQB9QBQAAAAAAABAZ2AAAAAAAD+GhysCDEm8AQAAAEwAewA1AGMANgBhAGQAZgBkAGYALQAzAGMAYwAyAC0ANABkADgAMQAtAGIAZgBmADkALQA3AGIAMQBjAGMAMAA4AGYANgAwADAAZAB9AAAAAAAAAAAAAAAAAAAAAD+mBBiTdLxvAQAAAEwAewA3ADMAZAA2ADMAMgAwADAALQA1ADYAOAA4AC0ANABlAGMAOQAtAGEAZAAzAGYALQA1ADYAYQAzADAANQBjADMANwBlADUAZgB9QBQAAAAAAABAXYAAAAAAAD+k/fO2RaHPAQAAAEwAewAxADAAZgA3AGMAYQBjAGQALQBlAGQAYgBhAC0ANAA1AGEAMwAtAGIANQA0ADMALQBmADEAYwBjADYAYQAyAGYAYQBjADkANAB9QBQAAAAAAABAakAAAAAAAD+bpeNT987eAQAAAEwAewBjADgAOAA5ADQAMQBiADgALQA4AGYAOAA4AC0ANABlADUAMQAtAGIAOQA5ADkALQAzADAAMwAwAGQAOAA2ADQAYQA3ADIAOQB9wGUgAAAAAADAaEAAAAAAAD+h64UeuFHvAQAAAEwAewAyADIAYwBlADEAOABhAGEALQBhADcAMAAyAC0ANABiADMANAAtADkANwA3ADkALQBjAGYANQAwADEANQA4ADQAZgA1ADIAMAB9QBQAAAAAAABASIAAAAAAAD+haHKwIMSfAQAAAEwAewBmADMAYQA2AGMAZgAxADAALQA1ADMAMAAzAC0ANAA0ADMAZQAtADgANAA1ADkALQBjADcAYwA3AGEANABmADgANABhADgAMAB9QBQAAAAAAABASIAAAAAAAD+lgQYk3S8fAQAAAEwAewBjADIAZgBjAGYAMgA0ADIALQBiADgAOABlAC0ANABhADkAZgAtADkAYwBjADgALQBlAGUAOQA1ADYANQA5ADIAYwAwADkAYQB9QBQAAAAAAABAUgAAAAAAAD+Kn752yLQ8AQAAAEwAewAzADIAYQAyADgAYQA3ADMALQA4ADkAYwAyAC0ANABjAGQAMAAtAGEAYwA1ADMALQAxAGIANgA3AGQAZQBiADMAZgBkAGUAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADkANQBmAGEAZABmADcALQAzADEAYgBhAC0ANABjAGQAOQAtAGEAZQA3AGQALQAxAGEAZgBhADkANQBlADYAMgAxADYAMwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADUAOABiAGUAMQAxADkALQAxAGIAZgBmAC0ANAA0ADgAMwAtADkAYQAyADMALQAxADcAMQAyAGMAYgA5AGMANQBkADkANgB9QBQAAAAAAABAYaAAAAAAAD+j987ZFocvAQAAAEwAewA4AGEAOQAxAGQAYwA4ADQALQAyADkAMgBkAC0ANABmAGEAYwAtAGEAZQAyAGIALQAwADkAMgA2AGEAMQA0ADIAYgBiADAAZAB9QBQAAAAAAABAOgAAAAAAAD98rAgxJul5AQAAAEwAewA3ADAANgA3AGEAYwA2AGEALQBiADAAOQA2AC0ANAA0ADgAOQAtADgANAAyAGMALQA1ADkAYQBkADIANgBkADcAMwBmADQAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADUAMQBjADMAZQA2AGQALQBkADEAYQAyAC0ANABlADQAMQAtADgANAAxADMALQAyAGEAYgAyAGMAZgAxADcAYwAwADkAYwB9QBQAAAAAAABAZIAAAAAAAD+jdLxqfvnfAQAAAEwAewBiAGEANwAzAGUAYgAxADAALQAzADkAZAAwAC0ANABhAGQAOQAtADgANQA5ADMALQBlAGEAOAA4ADAANwAwADIAMgAzAGQAMgB9QBQAAAAAAABAV8AAAAAAAD+OuFHrhR68AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

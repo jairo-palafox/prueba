@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{78192ce7-e276-4438-83ec-137ac81e5851}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{08f12639-6c74-4a78-80f0-ed6722a975d7}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_proceso_desc" sqlTabName="" table_alias_name="" uid="{65d0964b-263a-439f-9470-1b9e67dc10b1}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_folio" sqlTabName="" table_alias_name="" uid="{a1925949-4991-481a-b2ea-2e6b5dbbe687}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_nss" sqlTabName="" table_alias_name="" uid="{957122b1-ea92-4f21-96bd-54e854b458d4}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_nombre" sqlTabName="" table_alias_name="" uid="{f1e24254-5a99-486e-a3ec-f403d1b498ad}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_cod_rechazo" sqlTabName="" table_alias_name="" uid="{099e5187-39a9-4603-85e7-7a75c707a59f}"/>
+  </Record>
+  <Form gridHeight="30" gridWidth="120" name="Form" text="Form">
+    <Group gridHeight="27" gridWidth="112" name="Group1" posX="4" posY="3" text="Validación manual de solicitudes">
+      <Grid gridHeight="15" gridWidth="110" name="Grid1" posX="1" posY="1">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Proceso"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="51" name="v_proceso_desc" posX="18" posY="1" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label2" posX="1" posY="2" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="16" name="v_folio" posX="18" posY="2" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+        <HLine gridWidth="107" name="HLine1" posX="1" posY="3"/>
+        <Label gridHeight="1" gridWidth="44" name="lblInstrucciones" posX="1" posY="4" text="Teclee el NSS de la solicitud que desea validar"/>
+        <Label gridHeight="1" gridWidth="16" name="Label4" posX="1" posY="5" text="NSS"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="16" name="v_nss" posX="18" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label5" posX="1" posY="6" text="Nombre"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="51" name="v_nombre" posX="18" posY="6" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit4" widget="Edit"/>
+        <HLine gridWidth="107" name="HLine2" posX="1" posY="8"/>
+        <Label gridHeight="1" gridWidth="44" name="Label3" posX="1" posY="9" text="Rechazo manual de la solicitud"/>
+        <Label gridHeight="1" gridWidth="16" name="Label7" posX="1" posY="10" text="Diagnóstico"/>
+        <ComboBox colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="51" items="CREDITO, LAUDO, TRAMITE DEVOLUCION, PAGO DEVOLUCION" name="v_cod_rechazo" posX="18" posY="10" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="ComboBox1" widget="ComboBox">
+          <Item lstrtext="false" name="100" text="CREDITO"/>
+          <Item lstrtext="false" name="601" text="LAUDO"/>
+          <Item lstrtext="false" name="598" text="TRAMITE DEVOLUCION"/>
+          <Item lstrtext="false" name="602" text="PAGO DEVOLUCION"/>
+        </ComboBox>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5ADUANwAxADIAMgBiADEALQBlAGEAOQAyAC0ANABmADIAMQAtADkANgBiAGQALQA1ADQAZQA4ADUANABiADQANQA4AGQANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADEAOQAyADUAOQA0ADkALQA0ADkAOQAxAC0ANAA4ADEAYQAtAGIAMgBlAGEALQAyAGUANgBiADUAZABiAGIAZQA2ADgANwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADUAZAAwADkANgA0AGIALQAyADYAMwBhAC0ANAAzADkAZgAtADkANAA3ADAALQAxAGIAOQBlADYANwBkAGMAMQAwAGIAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADgAZgAxADIANgAzADkALQA2AGMANwA0AC0ANABhADcAOAAtADgAMABmADAALQBlAGQANgA3ADIAMgBhADkANwA1AGQANwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADkAOQBlADUAMQA4ADcALQAzADkAYQA5AC0ANAA2ADAAMwAtADgANQBlADcALQA3AGEANwA1AGMANwAwADcAYQA1ADkAZgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADEAZQAyADQAMgA1ADQALQA1AGEAOQA5AC0ANAA4ADYAZQAtAGEAMwBlAGMALQBmADQAMAAzAGQAMQBiADQAOQA4AGEAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

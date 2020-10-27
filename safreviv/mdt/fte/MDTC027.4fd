@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{eaa47e22-5f7b-479a-b9eb-0075971642cb}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{22efc2d7-2e1c-468c-8431-578772e5776c}" where="">
+    <RecordField colName="" fieldIdRef="1" name="tpo_mandato" sqlTabName="" table_alias_name="" uid="{3c2d0756-0101-4d30-8c8a-d9018921934a}"/>
+    <RecordField colName="" fieldIdRef="2" name="mandato" sqlTabName="" table_alias_name="" uid="{c8f80549-d111-40a0-b13e-03319ecde36e}"/>
+    <RecordField colName="" fieldIdRef="3" name="cb_recurrencia" sqlTabName="" table_alias_name="" uid="{cb30a801-9e3d-4225-8d9e-83bc5bb711f7}"/>
+    <RecordField colName="" fieldIdRef="4" name="cb_tipo" sqlTabName="" table_alias_name="" uid="{8b614c8b-773e-4d11-a63d-ac73b7c15a04}"/>
+    <RecordField colName="" fieldIdRef="5" name="cb_descripcion" sqlTabName="" table_alias_name="" uid="{f2466c7f-14cf-4818-893a-24148374acda}"/>
+    <RecordField colName="" fieldIdRef="6" name="cb_tipo_ejecucion" sqlTabName="" table_alias_name="" uid="{e94c4788-d9b0-48bf-ab59-c705f193d46f}"/>
+    <RecordField colName="" fieldIdRef="7" name="dtedi_descripcion" sqlTabName="" table_alias_name="" uid="{2ee3d1be-afed-461b-904a-4335eef8a150}"/>
+  </Record>
+  <Form gridHeight="20" gridWidth="105" name="Form" text="Form">
+    <Grid gridHeight="19" gridWidth="99" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="14" gridWidth="89" name="gpo_recurrencia" posX="2" posY="2" text="Recurrencia">
+        <Label gridHeight="1" gridWidth="10" name="lbl_tipo_mandato" posX="3" posY="2" text="Tipo mandato:"/>
+        <FFLabel colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="34" name="tpo_mandato" posX="15" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_mandato" posX="3" posY="4" text="Mandato:"/>
+        <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="34" name="mandato" posX="15" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel2" widget="FFLabel"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_recurrencia" posX="3" posY="6" text="Recurrencia"/>
+        <ComboBox colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="30" items="" name="cb_recurrencia" notNull="true" posX="15" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <ComboBox colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="25" items="" name="cb_tipo_ejecucion" notNull="true" posX="47" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="ComboBox4" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_tipo" posX="3" posY="8" text="Tipo:"/>
+        <ComboBox colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="30" items="" name="cb_tipo" notNull="true" posX="15" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox2" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_descripcion" posX="3" posY="10" text="Descripción:"/>
+        <ComboBox colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="30" items="" name="cb_descripcion" notNull="true" posX="15" posY="10" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="ComboBox3" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_descripcion_dia" posX="3" posY="12" text="Descripción:"/>
+        <DateEdit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="12" name="dtedi_descripcion" notNull="true" posX="15" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyADIAZQBmAGMAMgBkADcALQAyAGUAMQBjAC0ANAA2ADgAYwAtADgANAAzADEALQA1ADcAOAA3ADcAMgBlADUANwA3ADYAYwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADgAZgA4ADAANQA0ADkALQBkADEAMQAxAC0ANAAwAGEAMAAtAGIAMQAzAGUALQAwADMAMwAxADkAZQBjAGQAZQAzADYAZQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGUAZQAzAGQAMQBiAGUALQBhAGYAZQBkAC0ANAA2ADEAYgAtADkAMAA0AGEALQA0ADMAMwA1AGUAZQBmADgAYQAxADUAMAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGIAMwAwAGEAOAAwADEALQA5AGUAMwBkAC0ANAAyADIANQAtADgAZAA5AGUALQA4ADMAYgBjADUAYgBiADcAMQAxAGYANwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADIANAA2ADYAYwA3AGYALQAxADQAYwBmAC0ANAA4ADEAOAAtADgAOQAzAGEALQAyADQAMQA0ADgAMwA3ADQAYQBjAGQAYQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGMAMgBkADAANwA1ADYALQAwADEAMAAxAC0ANABkADMAMAAtADgAYwA4AGEALQBkADkAMAAxADgAOQAyADEAOQAzADQAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADkANABjADQANwA4ADgALQBkADkAYgAwAC0ANAA4AGIAZgAtAGEAYgA1ADkALQBjADcAMAA1AGYAMQA5ADMAZAA0ADYAZgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGIANgAxADQAYwA4AGIALQA3ADcAMwBlAC0ANABkADEAMQAtAGEANgAzAGQALQBhAGMANwAzAGIANwBjADEANQBhADAANAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

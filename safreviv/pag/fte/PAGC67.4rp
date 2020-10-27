@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGC67.rdd" RWFglReportName="rpt_genera_reporte_cifras_control"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" alignment="near" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min">
+                            <IMAGEBOX name="imgLogoInfonavit" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" alignment="baseline" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte antigüedad de aportaciones voluntarias"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="18.4943" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lbl_fecha" width="74.0525" floatingBehavior="enclosed" text="Fecha corte"/>
+                            <WORDBOX name="WordBox28" width="20" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="p_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_fecha Value" width="width(&quot;M&quot;)*20" fontSize="10" floatingBehavior="enclosed" text="{{p_fecha}}"/>
+                            <WORDBOX name="WordBox29" width="20" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="lbl_usuario" width="42.5169" floatingBehavior="enclosed" text="Usuario"/>
+                            <WORDBOX name="WordBox30" width="20" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="g_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario_cod Value" fontSize="10" floatingBehavior="enclosed" text="{{g_usuario_cod}}"/>
+                            <WORDBOX name="WordBox32" width="110" floatingBehavior="enclosed" text=" "/>
+                        </MINIPAGE>
+                        <MINIPAGE name="seccionNombreArchivo" width="23.3988" length="685.318" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lbl_fecha_pago" width="58.4944" alignment="baseline" fontName="Arial" fontSize="12" fontBold="false" floatingBehavior="enclosed" text="Fecha:"/>
+                            <WORDBOX name="WordBox31" width="36" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha Value" width="width(&quot;M&quot;)*20" alignment="baseline" fontSize="10" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage" width="min" length="min" layoutDirection="leftToRight"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode2" width="min" length="min" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox3" width="705.812" length="16.2359" alignment="near" floatingBehavior="enclosed" text=""/>
+                        <PAGENOBOX name="PageNoBox" width="14.5169" fontName="Arial" fontSize="7" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="espacioTotalizador" width="12.4719" length="705.812" layoutDirection="leftToRight" floatingBehavior="enclosed" borderBottomWidth="1" borderBottomStyle="solid" borderBottomColor="#000000">
+                        <WORDBOX name="WordBox5" width="85" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros"/>
+                        <WORDBOX name="WordBox6" width="85" alignment="near" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="A"/>
+                        <WORDBOX name="WordBox7" width="85" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="B"/>
+                        <WORDBOX name="WordBox8" width="85" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="C"/>
+                        <WORDBOX name="WordBox9" width="85" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="D"/>
+                        <WORDBOX name="WordBox10" width="85" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="E"/>
+                        <WORDBOX name="WordBox11" width="85" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="F"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage1" width="min" length="min">
+                        <MINIPAGE name="vcont12" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_cont.cont_12" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_cont.cont_12 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{v_cont.cont_12}}"/>
+                            <WORDBOX name="WordBox27" width="80" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="v_imp.imp_12" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_imp.imp_12 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_imp.imp_12}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="vcont24" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_cont.cont_24" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_cont.cont_24 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{v_cont.cont_24}}"/>
+                            <WORDBOX name="WordBox12" width="165" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="v_imp.imp_24" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_imp.imp_24 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_imp.imp_24}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="vcont36" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_cont.cont_36" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_cont.cont_36 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{v_cont.cont_36}}"/>
+                            <WORDBOX name="WordBox13" width="125" alignment="baseline" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox14" width="125" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="v_imp.imp_36" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_imp.imp_36 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_imp.imp_36}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="vcont48" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_cont.cont_48" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_cont.cont_48 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{v_cont.cont_48}}"/>
+                            <WORDBOX name="WordBox15" width="104" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox17" width="104" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox16" width="126" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="v_imp.imp_48" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_imp.imp_48 Value" anchorX="1" alignment="baseline" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_imp.imp_48}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="vcont60" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_cont.cont_60" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_cont.cont_60 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{v_cont.cont_60}}"/>
+                            <WORDBOX name="WordBox18" width="106" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox19" width="106" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox20" width="106" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox21" width="106" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="v_imp.imp_60" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_imp.imp_60 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_imp.imp_60}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="vcont72" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_cont.cont_72" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_cont.cont_72 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{v_cont.cont_72}}"/>
+                            <WORDBOX name="WordBox22" width="102" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox23" width="102" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox24" width="100" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox25" width="100" floatingBehavior="enclosed" text=" "/>
+                            <WORDBOX name="WordBox26" width="100" floatingBehavior="enclosed" text=" "/>
+                            <rtl:input-variable name="v_imp.imp_72" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_imp.imp_72 Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_imp.imp_72}}"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode" width="106.724" length="136.234" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <WORDBOX name="WordBox34" floatingBehavior="enclosed" text=" A = Menor a 12 meses"/>
+                    <WORDBOX name="WordBox35" floatingBehavior="enclosed" text=" B = Mayor a 12 meses y Menor a 24 meses"/>
+                    <WORDBOX name="WordBox36" floatingBehavior="enclosed" text=" C = Mayor a 24 meses y Menor a 36 meses"/>
+                    <WORDBOX name="WordBox37" alignment="baseline" floatingBehavior="enclosed" text=" D = Mayor a 36 meses y Menor a 48 meses"/>
+                    <WORDBOX name="WordBox38" alignment="baseline" floatingBehavior="enclosed" text=" E = Mayor a 48 meses y Menor a 60 meses"/>
+                    <WORDBOX name="WordBox39" floatingBehavior="enclosed" text=" F = Mayor a 60 meses"/>
+                    <WORDBOX name="WordBox40" width="487.9" length="39.8967" floatingBehavior="enclosed" text=" "/>
+                    <MINIPAGE name="MiniPage2" width="min" length="max" alignment="near" layoutDirection="rightToLeft">
+                        <WORDBOX name="WordBox41" alignment="baseline" floatingBehavior="enclosed" text="Importes expresados en Pesos"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

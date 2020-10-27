@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="ManagedForm" uid="{6b7d0a2e-1a84-467a-b867-e02166829df1}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_despliegue" order="" uid="{080a342a-e9bd-45c6-b104-e82ccb3b4d11}" where="">
+    <RecordField colName="" fieldIdRef="1" name="idsolicitud" sqlTabName="" table_alias_name="" uid="{a9136e7a-3ac5-4fb3-a158-c3882c833b2c}"/>
+    <RecordField colName="" fieldIdRef="2" name="nss" sqlTabName="" table_alias_name="" uid="{deb4b2fe-0147-4307-9c8e-d5c072c2bfa9}"/>
+    <RecordField colName="" fieldIdRef="3" name="movimiento" sqlTabName="" table_alias_name="" uid="{eac79424-cde9-4948-a6e9-aa5bab53c155}"/>
+    <RecordField colName="" fieldIdRef="4" name="fpreliquidacion" sqlTabName="" table_alias_name="" uid="{8661b3cf-c7c4-48c7-8b8f-8d7588fc4958}"/>
+    <RecordField colName="" fieldIdRef="5" name="folio" sqlTabName="" table_alias_name="" uid="{6f329903-a180-4870-b35f-1cbb0c08016a}"/>
+    <RecordField colName="" fieldIdRef="6" name="montoaivs" sqlTabName="" table_alias_name="" uid="{bc4f21ac-d1b2-41ec-8d8c-1de5205f8850}"/>
+    <RecordField colName="" fieldIdRef="7" name="montoacciones" sqlTabName="" table_alias_name="" uid="{22cb2000-659d-4c25-b152-9244c5fd6ca1}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="160" name="Form" text="Form">
+    <Group gridHeight="24" gridWidth="152" name="Group1" posX="2" posY="1" text="Resultados">
+      <Grid gridHeight="22" gridWidth="148" name="Grid1" posX="1" posY="1">
+        <Table gridHeight="20" gridWidth="137" name="tbl_despliegue" posX="2" posY="1" totalRows="15">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="12" name="idsolicitud" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Núm.&#10;Solicitud" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="16" name="nss" posX="12" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="24" justify="center" name="movimiento" posX="28" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Movimiento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" name="fpreliquidacion" posX="52" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Fecha&#10;Preliquidación" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="########&amp;" gridHeight="1" gridWidth="10" name="folio" posX="65" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Folio" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" format="###,##&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" gridHeight="1" gridWidth="21" name="montoaivs" posX="75" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="AIVs" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="21" name="montoacciones" posX="96" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Pesos" widget="Edit"/>
+        </Table>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyADIAYwBiADIAMAAwADAALQA2ADUAOQBkAC0ANABjADIANQAtAGIAMQA1ADIALQA5ADIANAA0AGMANQBmAGQANgBjAGEAMQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGYAMwAyADkAOQAwADMALQBhADEAOAAwAC0ANAA4ADcAMAAtAGIAMwA1AGYALQAxAGMAYgBiADAAYwAwADgAMAAxADYAYQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADgAMABhADMANAAyAGEALQBlADkAYgBkAC0ANAA1AGMANgAtAGIAMQAwADQALQBlADgAMgBjAGMAYgAzAGIANABkADEAMQB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewBkAGUAYgA0AGIAMgBmAGUALQAwADEANAA3AC0ANAAzADAANwAtADkAYwA4AGUALQBkADUAYwAwADcAMgBjADIAYgBmAGEAOQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEAYwA3ADkANAAyADQALQBjAGQAZQA5AC0ANAA5ADQAOAAtAGEANgBlADkALQBhAGEANQBiAGEAYgA1ADMAYwAxADUANQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADYANgAxAGIAMwBjAGYALQBjADcAYwA0AC0ANAA4AGMANwAtADgAYgA4AGYALQA4AGQANwA1ADgAOABmAGMANAA5ADUAOAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBhADkAMQAzADYAZQA3AGEALQAzAGEAYwA1AC0ANABmAGIAMwAtAGEAMQA1ADgALQBjADMAOAA4ADIAYwA4ADMAMwBiADIAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGMANABmADIAMQBhAGMALQBkADEAYgAyAC0ANAAxAGUAYwAtADgAZAA4AGMALQAxAGQAZQA1ADIAMAA1AGYAOAA4ADUAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

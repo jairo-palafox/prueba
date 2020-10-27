@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/DPEC13.rdd" RWFglReportName="rpt_detalle_solicitud"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="720.993" length="540.318" alignment="near">
+                    <PAGENOBOX name="PageNoBox" y="529.978" width="8.76407" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="Logotipo_institucional" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="separador1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="encabezado_reporte" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox1" x="6.9396" y="650.983" width="108.371" anchorX="0.5" anchorY="0.437131" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="{{v_fecha_reporte}}"/>
+                            <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox2" width="131.461" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot; Usuario: &quot;+p_usuario}}"/>
+                            <WORDBOX name="WordBox" width="57.7859" length="13.9775" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="WordBox2_2" x="0.8621" y="335.441" width="340.743" anchorX="0" anchorY="0.5" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="REPORTE DETALLE DE SOLICITUDES PENDIENTES RESPUESTA PROCESAR POR NRP"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="separador2_2" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode2_1" width="39.8386" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="p_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <WORDBOX name="folio" x="4.5212" y="4.334" width="131.461" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot; Folio:      &quot;+p_folio}}"/>
+                            <rtl:input-variable name="p_diagnostico_desc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="resultado_op" x="0.7374" y="720.993" width="193.944" length="12.7528" anchorX="3.31587e-14" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Resultado Operación: &quot;+p_diagnostico_desc}}"/>
+                            <rtl:input-variable name="p_nrp" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="nrp" x="29.7222" y="4.334" width="131.461" anchorX="0.5" anchorY="2.4869e-14" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot; NRP:      &quot;+p_nrp}}"/>
+                            <rtl:input-variable name="p_folio_sua" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <WORDBOX name="folio_sua" x="10.5212" y="276.628" width="131.461" anchorX="0.5" anchorY="2.4869e-14" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot; Folio SUA:      &quot;+p_folio_sua}}"/>
+                            <rtl:input-variable name="p_periodo_pago" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <WORDBOX name="periodo_pago" x="29.7222" y="276.628" width="131.461" anchorX="0.5" anchorY="2.4869e-14" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Periodo de Pago:      &quot;+p_periodo_pago}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="separador2" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="separador2_1" width="0.447185" length="720.993" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="separador2_3" width="1.95281" length="720.993" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="separador2_1_1" width="1.2" length="719.487" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="separador2_1_1_1" width="0.447185" length="720.24" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode7" width="30.5394" length="720.115" alignment="baseline" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="nss" x="14.8146" y="30.5427" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="NSS"/>
+                        <WORDBOX name="pesos_sol" x="14.8146" y="132.065" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Pesos"/>
+                        <WORDBOX name="aivs_sol" x="14.8146" y="215.508" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="AIVS"/>
+                        <WORDBOX name="pesos_parcial" x="14.8146" y="348.865" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Pesos"/>
+                        <WORDBOX name="aivs_parcial" x="14.8146" y="425.785" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="AIVS"/>
+                        <WORDBOX name="pesos_sol1" x="2.9034" y="132.065" width="109.798" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="        SOLICITUD"/>
+                        <WORDBOX name="pesos_sol1_1" x="2.9034" y="348.865" width="109.798" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="         PARCIAL"/>
+                        <WORDBOX name="pesos_parcial1" x="14.8146" y="567.761" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Pesos"/>
+                        <WORDBOX name="aivs_parcial1" x="14.8146" y="641.385" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="AIVS"/>
+                        <WORDBOX name="pesos_sol1_1_1" x="2.9034" y="567.761" width="109.798" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="        PROCESAR"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador2_1_2" width="0.447185" length="720.993" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage" width="18.4944" length="720.543" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode7_1" x="1.1338" y="0" width="20.7528" length="720.115" anchorX="0.06077" anchorY="8.7817e-16" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="p_arr_det_solicitud.v_nss_det" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_arr_det_solicitud.v_nss_det Value" x="2.5499" y="6.4151" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_arr_det_solicitud.v_nss_det}}"/>
+                                <rtl:input-variable name="p_arr_det_solicitud.v_aivs_solicitud" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_arr_det_solicitud.v_aivs_solicitud Value" x="2.5499" y="266.971" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_arr_det_solicitud.v_aivs_solicitud}}"/>
+                                <rtl:input-variable name="p_arr_det_solicitud.v_pesos_solicitud" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_arr_det_solicitud.v_pesos_solicitud Value" x="2.5499" y="184.796" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_arr_det_solicitud.v_pesos_solicitud}}"/>
+                                <rtl:input-variable name="p_arr_det_solicitud.v_aivs_parcial" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_arr_det_solicitud.v_aivs_parcial Value" x="2.5499" y="483.96" anchorX="0.0859983" anchorY="1" alignment="far" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_arr_det_solicitud.v_aivs_parcial}}"/>
+                                <rtl:input-variable name="p_arr_det_solicitud.v_pesos_parcial" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_arr_det_solicitud.v_pesos_parcial Value" x="2.5499" y="397.201" anchorX="3.2482e-14" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_arr_det_solicitud.v_pesos_parcial}}"/>
+                                <rtl:input-variable name="p_arr_det_solicitud.v_pesos_procesar" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_arr_det_solicitud.v_pesos_procesar Value" x="2.5499" y="605.938" anchorX="3.2482e-14" anchorY="0.982822" alignment="near" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_arr_det_solicitud.v_pesos_procesar}}"/>
+                                <rtl:input-variable name="p_arr_det_solicitud.v_aivs_procesar" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_arr_det_solicitud.v_aivs_procesar Value" x="2.5499" y="709.87" anchorX="3.17207e-15" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_arr_det_solicitud.v_aivs_procesar}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

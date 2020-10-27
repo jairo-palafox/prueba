@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{70e71cbb-5c0c-4a96-b7c3-e006d8c892bb}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_tree" order="" uid="{940aed25-0a2f-4f81-89a3-1ed68e880af8}" where="">
+    <RecordField colName="" fieldIdRef="1" name="name" sqlTabName="" table_alias_name="" uid="{5f596ac9-7757-4e08-a1be-88bbfffcbf7b}"/>
+    <RecordField colName="" fieldIdRef="3" name="pid" sqlTabName="" table_alias_name="" uid="{5b4ddaf3-19fe-4596-8dd3-d140ce477659}"/>
+    <RecordField colName="" fieldIdRef="4" name="id" sqlTabName="" table_alias_name="" uid="{30e3be49-b993-409a-89ec-1732d786e004}"/>
+    <RecordField colName="" fieldIdRef="2" name="idx" sqlTabName="" table_alias_name="" uid="{cf172cbc-8811-47ae-a33a-58c32037e836}"/>
+    <RecordField colName="" fieldIdRef="5" name="exp" sqlTabName="" table_alias_name="" uid="{a69efe21-65fd-4453-b3f9-a471fe00d7ee}"/>
+    <RecordField colName="" fieldIdRef="9" name="municipio" sqlTabName="" table_alias_name="" uid="{9beeb7a2-041f-4246-9056-a0f5cda9adf4}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{1aaf45b4-6e3b-41e1-9d43-60e9c52f5d87}" where="">
+    <RecordField colName="" fieldIdRef="6" name="cb_tpo_mandato" sqlTabName="" table_alias_name="" uid="{154fa34f-c688-4b41-b635-d09ef71e2544}"/>
+    <RecordField colName="" fieldIdRef="7" name="cb_municipio" sqlTabName="" table_alias_name="" uid="{d9308608-7ae6-438b-bc25-f926370d5647}"/>
+    <RecordField colName="" fieldIdRef="8" name="cb_entidad_federativa" sqlTabName="" table_alias_name="" uid="{da1cdb2a-8363-4515-a3cc-9c6d17214412}"/>
+  </Record>
+  <Form fourSTFile="../bin/mdtstyle.4st" gridHeight="55" gridWidth="190" name="Form" spacing="compact" text="Form">
+    <VBox gridHeight="34" gridWidth="114" name="VBox1" posX="1" posY="0">
+      <Group gridHeight="10" gridWidth="114" name="Group2" posX="0" posY="1" text="Filtros">
+        <Grid gridHeight="8" gridWidth="109" name="Grid2" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="lbl_tipo_mandato" posX="1" posY="1" text="Tipo Mandato:"/>
+          <ComboBox colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="27" items="" name="cb_tpo_mandato" posX="16" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+          <Label gridHeight="1" gridWidth="14" name="lbl_municipio" posX="1" posY="3" text="Municipio:"/>
+          <ComboBox colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="27" items="" name="cb_municipio" posX="16" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+          <Label gridHeight="1" gridWidth="14" name="lbl_entidad_federativa" posX="1" posY="5" text="Entidad Federativa:"/>
+          <ComboBox colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="27" items="" name="cb_entidad_federativa" posX="16" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox2" widget="ComboBox"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="22" gridWidth="114" name="Group1" posX="0" posY="11" text="Catálogo de Mandatos de Servicios">
+        <Grid gridHeight="19" gridWidth="109" name="Grid1" posX="1" posY="1">
+          <Tree expandedColumn="exp" fontPitch="fixed" gridHeight="16" gridWidth="108" idColumn="id" imageCollapsed="folder" imageExpanded="open" imageLeaf="stop2" name="arbol_mandato" parentIdColumn="pid" posX="1" posY="1" style="textonegro barragris" totalRows="15" wantFixedPageSize="false">
+            <FFLabel colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="77" name="name" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="" widget="FFLabel"/>
+            <Phantom colName="" fieldId="3" name="pid" sqlTabName="" table_alias_name="" widget="Phantom"/>
+            <Phantom colName="" fieldId="4" name="id" sqlTabName="" table_alias_name="" widget="Phantom"/>
+            <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="8" hidden="true" name="idx" posX="77" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Index" widget="FFLabel"/>
+            <Phantom colName="" fieldId="5" name="exp" sqlTabName="" table_alias_name="" widget="Phantom"/>
+            <FFLabel colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="18" name="municipio" posX="85" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Municipio" widget="FFLabel"/>
+          </Tree>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzADAAZQAzAGIAZQA0ADkALQBiADkAOQAzAC0ANAAwADkAYQAtADgAOQBlAGMALQAxADcAMwAyAGQANwA4ADYAZQAwADAANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGYANQA5ADYAYQBjADkALQA3ADcANQA3AC0ANABlADAAOAAtAGEAMQBiAGUALQA4ADgAYgBiAGYAZgBmAGMAYgBmADcAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADQAMABhAGUAZAAyADUALQAwAGEAMgBmAC0ANABmADgAMQAtADgAOQBhADMALQAxAGUAZAA2ADgAZQA4ADgAMABhAGYAOAB9wGJgAAAAAADAGAAAAAAAAD9wYk3S8an8AQAAAEwAewA5AGIAZQBlAGIANwBhADIALQAwADQAMQBmAC0ANAAyADQANgAtADkAMAA1ADYALQBhADAAZgA1AGMAZABhADkAYQBkAGYANAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGYAMQA3ADIAYwBiAGMALQA4ADgAMQAxAC0ANAA3AGEAZQAtAGEAMwAzAGEALQA1ADgAYwAzADIAMAAzADcAZQA4ADMANgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBkADkAMwAwADgANgAwADgALQA3AGEAZQA2AC0ANAAzADgAYgAtAGIAYwAyADUALQBmADkAMgA2ADMANwAwAGQANQA2ADQANwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGIANABkAGQAYQBmADMALQAxADkAZgBlAC0ANAA1ADkANgAtADgAZABkADMALQBkADEANAAwAGMAZQA0ADcANwA2ADUAOQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGEAYQBmADQANQBiADQALQA2AGUAMwBiAC0ANAAxAGUAMQAtADkAZAA0ADMALQA2ADAAZQA5AGMANQAyAGYANQBkADgANwB9QBwAAAAAAADAGAAAAAAAAD9ok3S8an76AQAAAEwAewBkAGEAMQBjAGQAYgAyAGEALQA4ADMANgAzAC0ANAA1ADEANQAtAGEAMwBjAGMALQA5AGMANgBkADEANwAyADEANAA0ADEAMgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADUANABmAGEAMwA0AGYALQBjADYAOAA4AC0ANABiADQAMQAtAGIANgAzADUALQBkADAAOQBlAGYANwAxAGUAMgA1ADQANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADYAOQBlAGYAZQAyADEALQA2ADUAZgBkAC0ANAA0ADUAMwAtAGIAMwBmADkALQBhADQANwAxAGYAZQAwADAAZAA3AGUAZQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{07c0f6c0-3983-474e-be16-adbdec9e8fe9}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_pendiente" order="" uid="{3eec5e72-b43f-4a7c-9145-6562686b6e0e}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_lote_pend" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{f6c9772b-86fc-493e-8806-1b094593fad8}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_elegido" order="" uid="{6c6aa929-cff4-4f79-a187-d68294a43158}" where="">
+    <RecordField colName="" fieldIdRef="2" name="f_lote_eleg" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{35d89319-1730-4e26-97db-cae1ce7284eb}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_lotes_elegidos" order="" uid="{266e94db-898e-401d-b9f3-c8cf32373d23}" where="">
+    <RecordField colName="" fieldIdRef="3" name="f_lote" sqlTabName="" table_alias_name="" uid="{8947c198-d343-4d73-a330-7bf4bb94cb5d}"/>
+    <RecordField colName="" fieldIdRef="4" name="lote" sqlTabName="" table_alias_name="" uid="{f314cf11-83fc-45e8-9529-9f35c09f1d25}"/>
+    <RecordField colName="" fieldIdRef="5" name="tot_reg" sqlTabName="" table_alias_name="" uid="{a8410bd1-d63b-4ca3-9050-c6edd7459446}"/>
+  </Record>
+  <Form gridHeight="55" gridWidth="180" name="frm_integra_acreditados" text="RECURRENTE">
+    <VBox gridHeight="35" gridWidth="90" name="VBox1" posX="4" posY="2">
+      <Group gridHeight="16" gridWidth="90" name="Group1" posX="0" posY="1" text="Elegir Folio">
+        <Grid gridHeight="11" gridWidth="85" name="Grid1" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="32" name="tbl_pend" posX="1" posY="3" totalRows="5" unsortableColumns="false">
+            <Edit colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="27" justify="left" name="f_lote_pend" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="1" table_alias_name="" title="PENDIENTES" widget="Edit"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="33" name="tbl_eleg" posX="47" posY="3" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="27" name="f_lote_eleg" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ELEGIDOS" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="17" gridWidth="90" name="Group2" posX="0" posY="17" text="">
+        <Grid gridHeight="13" gridWidth="85" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="78" name="tbl_eleg_proc" posX="1" posY="3" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="25" justify="center" name="f_lote" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Fecha Del Folio" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="21" name="lote" posX="25" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Folio" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="20" name="tot_reg" posX="46" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Total De Registros" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADYAYwA5ADcANwAyAGIALQA4ADYAZgBjAC0ANAA5ADMAZQAtADgAOAAwADYALQAxAGIAMAA5ADQANQA5ADMAZgBhAGQAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUAZAA4ADkAMwAxADkALQAxADcAMwAwAC0ANABlADIANgAtADkANwBkAGIALQBjAGEAZQAxAGMAZQA3ADIAOAA0AGUAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGUAZQBjADUAZQA3ADIALQBiADQAMwBmAC0ANABhADcAYwAtADkAMQA0ADUALQA2ADUANgAyADYAOAA2AGIANgBlADAAZQB9wG4gAAAAAADAZGAAAAAAAD+i8an752yPAQAAAEwAewA4ADkANAA3AGMAMQA5ADgALQBkADMANAAzAC0ANABkADcAMwAtAGEAMwAzADAALQA3AGIAZgA0AGIAYgA5ADQAYwBiADUAZAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADgANAAxADAAYgBkADEALQBkADYAMwBiAC0ANABjAGEAMwAtADkAMAA1ADAALQBjADYAZQBkAGQANwA0ADUAOQA0ADQANgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADMAMQA0AGMAZgAxADEALQA4ADMAZgBjAC0ANAA1AGUAOAAtADkANQAyADkALQA5AGYAMwA1AGMAMAA5AGYAMQBkADIANQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGMANgBhAGEAOQAyADkALQBjAGYAZgA0AC0ANABmADcAOQAtAGEAMQA4ADcALQBkADYAOAAyADkANABhADQAMwAxADUAOAB9wHRwAAAAAADANwAAAAAAAD+ibpeNT98/AQAAAEwAewAyADYANgBlADkANABkAGIALQA4ADkAOABlAC0ANAAwADEAZAAtAGIAOQBmADMALQBjADgAYwBmADMAMgAzADcAMwBkADIAMwB9wFyAAAAAAADATQAAAAAAAD+j987ZFocvAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

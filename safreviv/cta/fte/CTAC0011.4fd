@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{9b7533fa-1b83-49f4-b470-bdcbdde2a332}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{305c2268-49a7-40b3-9c41-c237859bf1d2}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_movimiento" sqlTabName="" sqlType="INTEGER" table_alias_name="" uid="{b44e1df8-f9f3-4b1f-9768-709bb88fd012}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_tpo_movimiento" sqlTabName="" sqlType="INTEGER" table_alias_name="" uid="{1f25a69b-327a-4171-a704-2f0caee0f0f0}"/>
+    <RecordField colName="" fieldIdRef="3" length="3" name="v_modulo" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{a277f17b-4b99-4aa0-9eaa-fc7a47ccac81}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="lista_movimientos" order="" uid="{bb961480-1cba-41c9-8005-012b2e7d7764}" where="">
+    <RecordField colName="" fieldIdRef="4" name="movimiento" sqlTabName="" sqlType="INTEGER" table_alias_name="" uid="{b2a7fe3e-c257-4b4e-82d3-bc3fd092696b}"/>
+    <RecordField colName="" fieldIdRef="5" length="60" name="movimiento_desc" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{9066ffc7-7f6a-46bc-b311-a54c353f21ad}"/>
+    <RecordField colName="" fieldIdRef="6" length="20" name="tipo_mov" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{55378eb2-e1a2-41a7-9944-6edce2ac712e}"/>
+    <RecordField colName="" fieldIdRef="7" length="60" name="modulo" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{18d5a2c8-9b30-4f98-aa93-e69a36073bb5}"/>
+    <RecordField colName="" fieldIdRef="8" length="2" name="ind_visible" sqlTabName="" table_alias_name="" uid="{0c514e85-81fd-4f93-b993-c908053245f4}"/>
+    <RecordField colName="" fieldIdRef="9" length="60" name="desc_ciudadana" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{47c7d94b-ef00-41a4-a877-2104487e2280}"/>
+    <RecordField colName="" fieldIdRef="10" name="f_modifica" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{2360fcc2-99bf-49d2-ba6b-be89f2c13fec}"/>
+    <RecordField colName="" fieldIdRef="11" length="40" name="usuario" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{9b32e128-d929-4d71-a1dd-29252d858bb8}"/>
+    <RecordField colName="" fieldIdRef="12" length="60" name="tipo_modifica" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{536cd6ba-a972-4d20-bca5-49a4cb8b16e9}"/>
+  </Record>
+  <Form gridHeight="32" gridWidth="245" name="form" text="Form">
+    <Grid gridHeight="30" gridWidth="240" name="grid1" posX="1" posY="1">
+      <Group gridHeight="7" gridWidth="82" name="group1" posX="1" posY="1" text="Parametros de busqueda">
+        <Label gridHeight="1" gridWidth="15" name="label1" posX="1" posY="1" text="Clave movimiento"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="20" name="v_movimiento" posX="25" posY="1" rowCount="" sqlTabName="" sqlType="INTEGER" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="label2" posX="1" posY="3" text="Tipo de movimiento"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="20" items="" name="v_tpo_movimiento" posX="25" posY="3" rowCount="" sqlTabName="" sqlType="INTEGER" stepX="" stepY="" tabIndex="2" table_alias_name="" title="combobox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="label3" posX="1" posY="5" text="Proceso"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="50" items="" length="3" name="v_modulo" posX="25" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="combobox2" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="20" gridWidth="238" name="group2" posX="1" posY="9" text="Lista de movimientos">
+        <Table gridHeight="16" gridWidth="232" name="lista_movimientos" posX="1" posY="1" totalRows="15">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" justify="center" name="movimiento" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="INTEGER" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Clave movimiento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="40" length="60" name="movimiento_desc" posX="12" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Descripcion movimiento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="15" justify="center" length="20" name="tipo_mov" posX="52" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Tipo de movimiento" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="30" length="60" name="modulo" posX="67" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Proceso" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="15" justify="center" length="2" name="ind_visible" posX="97" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Movimiento visible" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="45" length="60" name="desc_ciudadana" posX="112" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Descripcion ciudadana" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" justify="center" name="f_modifica" posX="157" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Fecha modificacion" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="20" justify="left" length="40" name="usuario" posX="172" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Usuario" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="30" length="60" name="tipo_modifica" posX="192" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Cambio realizado" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxAGYAMgA1AGEANgA5AGIALQAzADIANwBhAC0ANAAxADcAMQAtAGEANwAwADQALQAyAGYAMABjAGEAZQBlADAAZgAwAGYAMAB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADIAYQA3AGYAZQAzAGUALQBjADIANQA3AC0ANABiADQAZQAtADgAMgBkADMALQBiAGMAMwBmAGQAMAA5ADIANgA5ADYAYgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADgAZAA1AGEAMgBjADgALQA5AGIAMwAwAC0ANABmADkAOAAtAGEAYQA5ADMALQBlADYAOQBhADMANgAwADcAMwBiAGIANQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADQANABlADEAZABmADgALQBmADkAZgAzAC0ANABiADEAZgAtADkANwA2ADgALQA3ADAAOQBiAGIAOAA4AGYAZAAwADEAMgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADIANwA3AGYAMQA3AGIALQA0AGIAOQA5AC0ANABhAGEAMAAtADkAZQBhAGEALQBmAGMANwBhADQANwBjAGMAYQBjADgAMQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGIAMwAyAGUAMQAyADgALQBkADkAMgA5AC0ANABkADcAMQAtAGEAMQBkAGQALQAyADkAMgA1ADIAZAA4ADUAOABiAGIAOAB9QCQAAAAAAABAaOAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGIAOQA2ADEANAA4ADAALQAxAGMAYgBhAC0ANAAxAGMAOQAtADgAMAAwADUALQAwADEAMgBiADIAZQA3AGQANwA3ADYANAB9QFLAAAAAAABAJAAAAAAAAD90euFHrhR7AQAAAEwAewA1ADUAMwA3ADgAZQBiADIALQBlADEAYQAyAC0ANAAxAGEANwAtADkAOQA0ADQALQA2AGUAZABjAGUAMgBhAGMANwAxADIAZQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADcAYwA3AGQAOQA0AGIALQBlAGYAMAAwAC0ANAAxAGEANAAtAGEAOAA3ADcALQAyADEAMAA0ADQAOAA3AGUAMgAyADgAMAB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADAANgA2AGYAZgBjADcALQA3AGYANgBhAC0ANAA2AGIAYwAtAGIAMwAxADEALQBhADUANABjADMANQAzAGYAMgAxAGEAZAB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGMANQAxADQAZQA4ADUALQA4ADEAZgBkAC0ANABmADkAMwAtAGIAOQA5ADMALQBjADkAMAA4ADAANQAzADIANAA1AGYANAB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADMANgAwAGYAYwBjADIALQA5ADkAYgBmAC0ANAA5AGQAMgAtAGIAYQA2AGIALQBiAGUAOAA5AGYAMgBjADEAMwBmAGUAYwB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADMANgBjAGQANgBiAGEALQBhADkANwAyAC0ANABkADIAMAAtAGIAYwBhADUALQA0ADkAYQA0AGMAYgA4AGIAMQA2AGUAOQB9QCQAAAAAAABAa8AAAAAAAAAAAAAAAAAAAQAAAEwAewAzADAANQBjADIAMgA2ADgALQA0ADkAYQA3AC0ANAAwAGIAMwAtADkAYwA0ADEALQBjADIAMwA3ADgANQA5AGIAZgAxAGQAMgB9wGNgAAAAAABAMAAAAAAAAD9wYk3S8an8AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

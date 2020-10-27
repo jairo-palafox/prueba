@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N2="http://www.procesar.com.mx/CuentaCLABE/" xmlns:WL5G3N1="http://www.procesar.com.mx/CuentaCLABE/notificacionCuentaClabe/" name="CuentaCLABE" targetNamespace="http://www.procesar.com.mx/CuentaCLABE/">
+<WL5G3N0:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns1="http://www.procesar.com.mx/CuentaCLABE/notificacionCuentaClabe/" xmlns:tns="http://www.procesar.com.mx/CuentaCLABE/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+      <xsd:import schemaLocation="notificacionCuentaClabe.xsd" namespace="http://www.procesar.com.mx/CuentaCLABE/notificacionCuentaClabe/"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="notificacionCuentaClabeRequest">
+    <WL5G3N0:part element="WL5G3N1:notificacionCuentaClabeRequest" name="notificacionCuentaClabeRequest"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="notificacionCuentaClabeResponse">
+    <WL5G3N0:part element="WL5G3N1:notificacionCuentaClabeResponse" name="notificacionCuentaClabeResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="CuentaCLABEPort">
+    <WL5G3N0:operation name="notificacionCuentaClabe">
+      <WL5G3N0:input message="WL5G3N2:notificacionCuentaClabeRequest"/>
+      <WL5G3N0:output message="WL5G3N2:notificacionCuentaClabeResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="CuentaCLABESOAP" type="WL5G3N2:CuentaCLABEPort">
+    <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="notificacionCuentaClabe">
+      <WL5G3N3:operation soapAction="http://www.procesar.com.mx/CuentaCLABE/notificacionCuentaClabe"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="CuentaCLABE">
+    <WL5G3N0:port binding="WL5G3N2:CuentaCLABESOAP" name="CuentaCLABEPort">
+      <WL5G3N3:address location="http://192.168.1.4:7101/CuentaCLABE/ProxyServices/CuentaCLABE"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{5d09e0f0-7b29-4c47-be48-d010aa53a279}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="forma" order="" uid="{656bd7ee-6177-4ab3-a305-c67b700ec01d}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_cmb_sub_cta" sqlTabName="" table_alias_name="" uid="{e3f98bc1-7b75-448e-a6ff-ea9d77e467ec}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_fecha_corte" sqlTabName="" table_alias_name="" uid="{9ab68164-489a-4360-b959-039ba42c18a9}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_operacion" order="" uid="{8a711c42-c6b6-4f75-b747-57985a3a66de}" where="">
+    <RecordField colName="" fieldIdRef="4" name="tbl_proceso" sqlTabName="" table_alias_name="" uid="{f8182433-b8d9-44c7-8566-5dfd7add7e1c}"/>
+    <RecordField colName="" fieldIdRef="5" name="tbl_apo_con" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{0c7c5a5c-1591-478c-bdc8-b6d4c1a54f86}"/>
+    <RecordField colName="" fieldIdRef="6" name="tbl_apo_ope" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{98dd8eee-4e44-4fd0-ac46-cde05a8c5ab8}"/>
+    <RecordField colName="" fieldIdRef="7" name="tbl_amo_con" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{f16a59c5-256a-43e7-842b-9c8eff95ba4d}"/>
+    <RecordField colName="" fieldIdRef="8" name="tbl_amo_ope" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{b13982d1-1e3b-4002-961d-11009fd31eba}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="148" name="Form" text="Form">
+    <Grid gridHeight="23" gridWidth="145" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="142" name="Group1" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Subcuenta"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="49" items="" name="v_cmb_sub_cta" notNull="true" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="12" name="Label5" posX="65" posY="1" text=""/>
+        <Label gridHeight="1" gridWidth="9" name="Label4" posX="80" posY="1" text="Fecha Corte"/>
+        <DateEdit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_fecha_corte" posX="91" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="17" gridWidth="142" name="grp_res_ope" posX="1" posY="5" text="Resumen Operaciones">
+        <Label gridHeight="2" gridWidth="28" justify="center" name="Label2" posX="58" posY="1" text="PARTIDAS CONFIRMADAS"/>
+        <Label gridHeight="2" gridWidth="28" justify="center" name="Label3" posX="87" posY="1" text="PARTIDAS EN CONCILIACION OPERATIVA"/>
+        <Table gridHeight="12" gridWidth="139" name="Table1" posX="1" posY="4" totalRows="10">
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="40" name="tbl_proceso" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Procesos" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tbl_apo_con" posX="40" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Aportaciones" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tbl_amo_con" posX="60" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Amortizaciones" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tbl_apo_ope" posX="80" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Aportaciones" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="tbl_amo_ope" posX="100" posY="0" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Amortizaciones" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADEAMwA5ADgAMgBkADEALQAxAGUAMwBiAC0ANAAwADAAMgAtADkANgAxAGQALQAxADEAMAAwADkAZgBkADMAMQBlAGIAYQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGEANwAxADEAYwA0ADIALQBjADYAYgA2AC0ANABmADcANQAtAGIANwA0ADcALQA1ADcAOQA4ADUAYQAzAGEANgA2AGQAZQB9wHNQAAAAAADACAAAAAAAAD+CbpeNT988AQAAAEwAewBmADEANgBhADUAOQBjADUALQAyADUANgBhAC0ANAAzAGUANwAtADgANAAyAGIALQA5AGMAOABlAGYAZgA5ADUAYgBhADQAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGMANwBjADUAYQA1AGMALQAxADUAOQAxAC0ANAA3ADgAYwAtAGIAZABjADgALQBiADYAZAA0AGMAMQBhADUANABmADgANgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADMAZgA5ADgAYgBjADEALQA3AGIANwA1AC0ANAA0ADgAZQAtAGEANgBmAGYALQBlAGEAOQBkADcANwBlADQANgA3AGUAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADgAMQA4ADIANAAzADMALQBiADgAZAA5AC0ANAA0AGMANwAtADgANQA2ADYALQA1AGQAZgBkADcAYQBkAGQANwBlADEAYwB9QBQAAAAAAABAOgAAAAAAAD98rAgxJul5AQAAAEwAewA5ADgAZABkADgAZQBlAGUALQA0AGUANAA0AC0ANABmAGQAMAAtAGEAYwA0ADYALQBjAGQAZQAwADUAYQA4AGMANQBhAGIAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADUANgBiAGQANwBlAGUALQA2ADEANwA3AC0ANABhAGIAMwAtAGEAMwAwADUALQBjADYANwBiADcAMAAwAGUAYwAwADEAZAB9AAAAAAAAAAAAAAAAAAAAAD90euFHrhR7AQAAAEwAewA5AGEAYgA2ADgAMQA2ADQALQA0ADgAOQBhAC0ANAAzADYAMAAtAGIAOQA1ADkALQAwADMAOQBiAGEANAAyAGMAMQA4AGEAOQB9QBQAAAAAAABASIAAAAAAAD9ok3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

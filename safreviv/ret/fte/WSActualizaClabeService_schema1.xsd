@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.actualizaClabe.org.infonavit.mx/" targetNamespace="http://ws.actualizaClabe.org.infonavit.mx/" version="1.0">
+
+  <xs:element name="ProcesarExcepcion" type="tns:ProcesarExcepcion"/>
+
+  <xs:element name="actualizaClabe" type="tns:actualizaClabe"/>
+
+  <xs:element name="actualizaClabeResponse" type="tns:actualizaClabeResponse"/>
+
+  <xs:complexType name="actualizaClabe">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:entradaBean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="entradaBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aiv_92" type="xs:string"/>
+      <xs:element minOccurs="0" name="aiv_97" type="xs:string"/>
+      <xs:element minOccurs="0" name="beneficiario" type="xs:string"/>
+      <xs:element minOccurs="0" name="clabe" type="xs:string"/>
+      <xs:element minOccurs="0" name="clave1" type="xs:string"/>
+      <xs:element minOccurs="0" name="clave2" type="xs:string"/>
+      <xs:element minOccurs="0" name="comentarios" type="xs:string"/>
+      <xs:element minOccurs="0" name="contabilizado" type="xs:string"/>
+      <xs:element minOccurs="0" name="curpB" type="xs:string"/>
+      <xs:element minOccurs="0" name="curpT" type="xs:string"/>
+      <xs:element minOccurs="0" name="cve_afore" type="xs:string"/>
+      <xs:element minOccurs="0" name="entidad" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechaPago" type="xs:string"/>
+      <xs:element minOccurs="0" name="fecha_viv" type="xs:string"/>
+      <xs:element minOccurs="0" name="folioNoti" type="xs:string"/>
+      <xs:element minOccurs="0" name="folioOper" type="xs:string"/>
+      <xs:element minOccurs="0" name="grupo" type="xs:string"/>
+      <xs:element minOccurs="0" name="maternoB" type="xs:string"/>
+      <xs:element minOccurs="0" name="maternoT" type="xs:string"/>
+      <xs:element minOccurs="0" name="neto1" type="xs:string"/>
+      <xs:element minOccurs="0" name="neto2" type="xs:string"/>
+      <xs:element minOccurs="0" name="neto_viv_mxn" type="xs:string"/>
+      <xs:element minOccurs="0" name="nombreB" type="xs:string"/>
+      <xs:element minOccurs="0" name="nombreT" type="xs:string"/>
+      <xs:element minOccurs="0" name="nss" type="xs:string"/>
+      <xs:element minOccurs="0" name="observaciones" type="xs:string"/>
+      <xs:element minOccurs="0" name="otros1" type="xs:string"/>
+      <xs:element minOccurs="0" name="otros2" type="xs:string"/>
+      <xs:element minOccurs="0" name="otros_viv" type="xs:string"/>
+      <xs:element minOccurs="0" name="paternoB" type="xs:string"/>
+      <xs:element minOccurs="0" name="paternoT" type="xs:string"/>
+      <xs:element minOccurs="0" name="pension" type="xs:string"/>
+      <xs:element minOccurs="0" name="prestacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="referencia" type="xs:string"/>
+      <xs:element minOccurs="0" name="regimen" type="xs:string"/>
+      <xs:element minOccurs="0" name="retiro" type="xs:string"/>
+      <xs:element minOccurs="0" name="retiro92_1" type="xs:string"/>
+      <xs:element minOccurs="0" name="retiro92_2" type="xs:string"/>
+      <xs:element minOccurs="0" name="retiro97_1" type="xs:string"/>
+      <xs:element minOccurs="0" name="retiro97_2" type="xs:string"/>
+      <xs:element minOccurs="0" name="rfcB" type="xs:string"/>
+      <xs:element minOccurs="0" name="rfcT" type="xs:string"/>
+      <xs:element minOccurs="0" name="secuencia" type="xs:string"/>
+      <xs:element minOccurs="0" name="seguro" type="xs:string"/>
+      <xs:element minOccurs="0" name="semanas" type="xs:string"/>
+      <xs:element minOccurs="0" name="total" type="xs:string"/>
+      <xs:element minOccurs="0" name="viv_92_mxn" type="xs:string"/>
+      <xs:element minOccurs="0" name="viv_97_mxn" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="actualizaClabeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:respuestaBean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="respuestaBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoRetorno" type="xs:string"/>
+      <xs:element minOccurs="0" name="mensaje" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProcesarExcepcion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

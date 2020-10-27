@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{b36b6549-9b7b-46e5-be1c-c774c292cde6}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{cec10eed-5076-4753-84ea-e0a2006454ac}" where="">
+    <RecordField colName="" fieldIdRef="11" name="lbl_v92_invadido" sqlTabName="" table_alias_name="" uid="{b5932604-afd4-4552-bf0d-773bb998bee1}"/>
+    <RecordField colName="" fieldIdRef="12" name="lbl_v92_asociado" sqlTabName="" table_alias_name="" uid="{ee2c5fc4-d58a-401e-a3ac-4030d57db2c4}"/>
+    <RecordField colName="" fieldIdRef="13" name="lbl_v97_invadido" sqlTabName="" table_alias_name="" uid="{bc875953-6319-44f6-9472-0c6a9c917fe9}"/>
+    <RecordField colName="" fieldIdRef="14" name="lbl_v97_asociado" sqlTabName="" table_alias_name="" uid="{844a6ae9-84aa-4b0e-b474-ec03311a328a}"/>
+    <RecordField colName="" fieldIdRef="15" name="lbl_v92" sqlTabName="" table_alias_name="" uid="{5162e431-0726-45f4-acc4-f4579a218b44}"/>
+    <RecordField colName="" fieldIdRef="16" name="lbl_v97" sqlTabName="" table_alias_name="" uid="{9ca36754-ed48-4888-9394-e44fc8f906b6}"/>
+    <RecordField colName="" fieldIdRef="17" name="lbl_total_parejas" sqlTabName="" table_alias_name="" uid="{7dc267c6-83c0-436d-b45e-374abe90786c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_pendientes" order="" uid="{882e6586-dfdd-407b-8a26-8663fb48855d}" where="">
+    <RecordField colName="" fieldIdRef="1" name="tlbl_archivo_pendiente" sqlTabName="" table_alias_name="" uid="{b0119be9-6107-4cce-b4ad-1746e2ad51ed}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_elegido" order="" uid="{149065ff-f843-4608-aede-09d3cb404a62}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tlbl_elegido" sqlTabName="" table_alias_name="" uid="{13e81794-66d0-4ed3-8f41-e5a50d30d5c4}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_saldos_preliquidar" order="" uid="{f0573f53-19ce-4dcc-b850-7afda80a3f9e}" where="">
+    <RecordField colName="" fieldIdRef="3" name="tlbl_clasifiacion" sqlTabName="" table_alias_name="" uid="{e0d02757-7ff7-4f38-9b3c-1d242432f834}"/>
+    <RecordField colName="" fieldIdRef="4" name="tlbl_v92_invadido" sqlTabName="" table_alias_name="" uid="{038dc831-6876-48f1-b25b-0f99b9b53981}"/>
+    <RecordField colName="" fieldIdRef="5" name="tlbl_v92_asociado" sqlTabName="" table_alias_name="" uid="{8c8b7d72-a723-4f3d-944c-6447871b3258}"/>
+    <RecordField colName="" fieldIdRef="6" name="tlbl_v97_invadido" sqlTabName="" table_alias_name="" uid="{3d24bf20-e05f-4afe-86ec-098f22407e41}"/>
+    <RecordField colName="" fieldIdRef="7" name="tlbl_v97_asociado" sqlTabName="" table_alias_name="" uid="{524207ae-ff26-4b8b-8a71-b27a0d372d9d}"/>
+    <RecordField colName="" fieldIdRef="8" name="tlbl_v92" sqlTabName="" table_alias_name="" uid="{8ef14767-71c0-4640-a8d1-1895e5130dcc}"/>
+    <RecordField colName="" fieldIdRef="9" name="tlbl_v97" sqlTabName="" table_alias_name="" uid="{435b32ed-2e7e-4ce9-8fbf-5ecc59db1f58}"/>
+    <RecordField colName="" fieldIdRef="10" name="tlbl_total_parejas" sqlTabName="" table_alias_name="" uid="{e41a3f75-86c5-4f7c-8be4-dbfc9e624d43}"/>
+  </Record>
+  <Form gridHeight="35" gridWidth="105" name="Form" text="Form">
+    <VBox gridHeight="25" gridWidth="103" name="VBox1" posX="2" posY="1">
+      <Group gridHeight="10" gridWidth="103" name="gpo_notificacion_separacion" posX="0" posY="1" text="Elegir Folio Pendiente">
+        <Grid gridHeight="8" gridWidth="99" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="38" name="tbl_pendiente" posX="1" posY="1" totalRows="5">
+            <FFLabel colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="36" name="tlbl_archivo_pendiente" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Pendientes" widget="FFLabel"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="38" name="tbl_elegido" posX="41" posY="1" totalRows="5">
+            <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="36" name="tlbl_elegido" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Elegido" widget="FFLabel"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="13" gridWidth="103" name="gpo_saldos_preliquidar" posX="0" posY="11" text="Saldos a Preliquidar">
+        <Grid gridHeight="11" gridWidth="99" name="Grid1" posX="1" posY="1">
+          <Table gridHeight="7" gridWidth="95" name="Table1" posX="1" posY="1" totalRows="5">
+            <FFLabel colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="9" justify="center" name="tlbl_clasifiacion" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Clasificación" widget="FFLabel"/>
+            <FFLabel colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" justify="right" name="tlbl_v92_invadido" posX="9" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="v92 invadido" widget="FFLabel"/>
+            <FFLabel colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="11" justify="right" name="tlbl_v92_asociado" posX="20" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="v92 Asociado" widget="FFLabel"/>
+            <FFLabel colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="11" justify="right" name="tlbl_v97_invadido" posX="31" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="v97 Invadido" widget="FFLabel"/>
+            <FFLabel colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="11" justify="right" name="tlbl_v97_asociado" posX="42" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="v97 Asociado" widget="FFLabel"/>
+            <FFLabel colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="11" justify="right" name="tlbl_v92" posX="53" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="v92" widget="FFLabel"/>
+            <FFLabel colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="11" justify="right" name="tlbl_v97" posX="64" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="v97" widget="FFLabel"/>
+            <FFLabel colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="11" justify="right" name="tlbl_total_parejas" posX="75" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Total Parejas" widget="FFLabel"/>
+          </Table>
+          <Label gridHeight="1" gridWidth="9" name="lbl_totales" posX="1" posY="9" text="TOTALES"/>
+          <FFLabel colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="10" justify="right" name="lbl_v92_invadido" posX="11" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="10" justify="right" name="lbl_v92_asociado" posX="22" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="10" justify="right" name="lbl_v97_invadido" posX="33" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="10" justify="right" name="lbl_v97_asociado" posX="44" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="10" justify="right" name="lbl_v92" posX="55" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="10" justify="right" name="lbl_v97" posX="66" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="10" justify="right" name="lbl_total_parejas" posX="77" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0ADMANQBiADMAMgBlAGQALQAyAGUANwBlAC0ANABjAGUAOQAtADgAZgBiAGYALQA1AGUAYwBjADUAOQBkAGIAMQBmADUAOAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADAAMQAxADkAYgBlADkALQA2ADEAMAA3AC0ANABjAGMAZQAtAGIANABhAGQALQAxADcANAA2AGUAMgBhAGQANQAxAGUAZAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADQAMQBhADMAZgA3ADUALQA4ADYAYwA1AC0ANABmADcAYwAtADgAYgBlADQALQBkAGIAZgBjADkAZQA2ADIANABkADQAMwB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADEANgAyAGUANAAzADEALQAwADcAMgA2AC0ANAA1AGYANAAtAGEAYwBjADQALQBmADQANQA3ADkAYQAyADEAOABiADQANAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADAANQA3ADMAZgA1ADMALQAxADkAYwBlAC0ANABkAGMAYwAtAGIAOAA1ADAALQA3AGEAZgBkAGEAOAAwAGEAMwBmADkAZQB9QGrgAAAAAABAVwAAAAAAAD+jdLxqfvnfAQAAAEwAewAxADMAZQA4ADEANwA5ADQALQA2ADYAZAAwAC0ANABlAGQAMwAtADgAZgA0ADEALQBlADUAYQA1ADAAZAAzADAAZAA1AGMANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADUAOQAzADIANgAwADQALQBhAGYAZAA0AC0ANAA1ADUAMgAtAGIAZgAwAGQALQA3ADcAMwBiAGIAOQA5ADgAYgBlAGUAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGQAYwAyADYANwBjADYALQA4ADMAYwAwAC0ANAAzADYAZAAtAGIANAA1AGUALQAzADcANABhAGIAZQA5ADAANwA4ADYAYwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGMAYQAzADYANwA1ADQALQBlAGQANAA4AC0ANAA4ADgAOAAtADkAMwA5ADQALQBlADQANABmAGMAOABmADkAMAA2AGIANgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADIANAAyADAANwBhAGUALQBmAGYAMgA2AC0ANABiADgAYgAtADgAYQA3ADEALQBiADIANwBhADAAZAAzADcAMgBkADkAZAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADgAMgBlADYANQA4ADYALQBkAGYAZABkAC0ANAAwADcAYgAtADgAYQAyADYALQA4ADYANgAzAGYAYgA0ADgAOAA1ADUAZAB9wGIAAAAAAABAVwAAAAAAAD+bpeNT987eAQAAAEwAewBlADAAZAAwADIANwA1ADcALQA3AGYAZgA3AC0ANABmADMAOAAtADkAYgAzAGMALQAxAGQAMgA0ADIANAAzADIAZgA4ADMANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADQAOQAwADYANQBmAGYALQBmADgANAAzAC0ANAA2ADAAOAAtAGEAZQBkAGUALQAwADkAZAAzAGMAYgA0ADAANABhADYAMgB9QESAAAAAAABAVsAAAAAAAD+euFHrhR6+AQAAAEwAewBjAGUAYwAxADAAZQBlAGQALQA1ADAANwA2AC0ANAA3ADUAMwAtADgANABlAGEALQBlADAAYQAyADAAMAA2ADQANQA0AGEAYwB9QHmwAAAAAABAVsAAAAAAAD+ibpeNT98/AQAAAEwAewA4AGUAZgAxADQANwA2ADcALQA3ADEAYwAwAC0ANAA2ADQAMAAtAGEAOABkADEALQAxADgAOQA1AGUANQAxADMAMABkAGMAYwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADQANABhADYAYQBlADkALQA4ADQAYQBhAC0ANABiADAAZQAtAGIANAA3ADQALQBlAGMAMAAzADMAMQAxAGEAMwAyADgAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGMAOABiADcAZAA3ADIALQBhADcAMgAzAC0ANABmADMAZAAtADkANAA0AGMALQA2ADQANAA3ADgANwAxAGIAMwAyADUAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGQAMgA0AGIAZgAyADAALQBlADAANQBmAC0ANABhAGYAZQAtADgANgBlAGMALQAwADkAOABmADIAMgA0ADAANwBlADQAMQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAwADMAOABkAGMAOAAzADEALQA2ADgANwA2AC0ANAA4AGYAMQAtAGIAMgA1AGIALQAwAGYAOQA5AGIAOQBiADUAMwA5ADgAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGUAMgBjADUAZgBjADQALQBkADUAOABhAC0ANAAwADEAZQAtAGEAMwBhAGMALQA0ADAAMwAwAGQANQA3AGQAYgAyAGMANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGMAOAA3ADUAOQA1ADMALQA2ADMAMQA5AC0ANAA0AGYANgAtADkANAA3ADIALQAwAGMANgBhADkAYwA5ADEANwBmAGUAOQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

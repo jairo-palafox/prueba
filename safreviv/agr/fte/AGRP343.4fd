@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{896fe970-dd49-4e95-85d4-59d770ffde93}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tabla_creditos" order="" uid="{e7f01cfe-0ea0-4d61-91a5-64e2b23a8df2}" where="">
+    <RecordField colName="" fieldIdRef="1" name="id_cre_acred" sqlTabName="" table_alias_name="" uid="{58ca4d03-0631-448b-a5ac-c5444f8fa7d5}"/>
+    <RecordField colName="" fieldIdRef="2" name="nss" sqlTabName="" table_alias_name="" uid="{6b580c0a-de2e-41de-92be-fb9897841389}"/>
+    <RecordField colName="" fieldIdRef="3" name="originacion" sqlTabName="" table_alias_name="" uid="{720ae50b-040d-45d6-95a2-661619f23476}"/>
+    <RecordField colName="" fieldIdRef="4" name="credito" sqlTabName="" table_alias_name="" uid="{b85c878c-9137-4107-adb0-600068d759b3}"/>
+    <RecordField colName="" fieldIdRef="5" name="num_credito" sqlTabName="" table_alias_name="" uid="{1b618925-c7de-49cf-b504-3b56cf889290}"/>
+    <RecordField colName="" fieldIdRef="6" name="edo_infonavit" sqlTabName="" table_alias_name="" uid="{ea9fa7a8-30cd-4eea-a5bb-4a9d454bd26b}"/>
+    <RecordField colName="" fieldIdRef="7" name="edo_procesar" sqlTabName="" table_alias_name="" uid="{3b91c9c6-684f-4171-a258-18c19bd7251d}"/>
+    <RecordField colName="" fieldIdRef="8" name="fec_otorga" sqlTabName="" table_alias_name="" uid="{60f8bf3a-3451-4a42-aae0-61e0311493fb}"/>
+    <RecordField colName="" fieldIdRef="9" name="sdo_deudor" sqlTabName="" table_alias_name="" uid="{daf98e9f-a820-4721-b4c3-6ddacc85353d}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="181" name="Form" text="Form">
+    <Grid gridHeight="15" gridWidth="163" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="13" gridWidth="160" name="Group1" posX="2" posY="1" text="Seleccionar crédito">
+        <Table gridHeight="11" gridWidth="157" name="table_derechohabiente" posX="2" posY="1" totalRows="9">
+          <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="2" hidden="true" name="id_cre_acred" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="12" name="nss" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="4" hidden="true" name="originacion" posX="14" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Originación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="22" name="credito" posX="18" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Tipo de&#10;Crédito" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="14" name="num_credito" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Número&#10;Crédito" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="32" name="edo_infonavit" posX="54" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Estado Infonavit" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="34" hidden="false" name="edo_procesar" posX="86" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Estado Procesar" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="12" name="fec_otorga" posX="120" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Fecha&#10;Otorgamiento" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="12" name="sdo_deudor" posX="132" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Saldo&#10;Deudor" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADgANQBjADgANwA4AGMALQA5ADEAMwA3AC0ANAAxADAANwAtAGEAZABiADAALQA2ADAAMAAwADYAOABkADcANQA5AGIAMwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEAOQBmAGEANwBhADgALQAzADAAYwBkAC0ANABlAGUAYQAtAGEANQBiAGIALQA0AGEAOQBkADQANQA0AGIAZAAyADYAYgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGEAZgA5ADgAZQA5AGYALQBhADgAMgAwAC0ANAA3ADIAMQAtAGIANABjADMALQA2AGQAZABhAGMAYwA4ADUAMwA1ADMAZAB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADcAZgAwADEAYwBmAGUALQAwAGUAYQAwAC0ANABkADYAMQAtADkAMQBhADUALQA2ADQAZQAyAGIAMgAzAGEAOABkAGYAMgB9AAAAAAAAAAAAAAAAAAAAAD90euFHrhR7AQAAAEwAewA2AGIANQA4ADAAYwAwAGEALQBkAGUAMgBlAC0ANAAxAGQAZQAtADkAMgBiAGUALQBmAGIAOQA4ADkANwA4ADQAMQAzADgAOQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADAAZgA4AGIAZgAzAGEALQAzADQANQAxAC0ANABhADQAMgAtAGEAYQBlADAALQA2ADEAZQAwADMAMQAxADQAOQAzAGYAYgB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADIAMABhAGUANQAwAGIALQAwADQAMABkAC0ANAA1AGQANgAtADkANQBhADIALQA2ADYAMQA2ADEAOQBmADIAMwA0ADcANgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGIAOQAxAGMAOQBjADYALQA2ADgANABmAC0ANAAxADcAMQAtAGEAMgA1ADgALQAxADgAYwAxADkAYgBkADcAMgA1ADEAZAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGIANgAxADgAOQAyADUALQBjADcAZABlAC0ANAA5AGMAZgAtAGIANQAwADQALQAzAGIANQA2AGMAZgA4ADgAOQAyADkAMAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADgAYwBhADQAZAAwADMALQAwADYAMwAxAC0ANAA0ADgAYgAtAGEANQBhAGMALQBjADUANAA0ADQAZgA4AGYAYQA3AGQANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{e80c8fe4-94f8-4a4b-8c01-fb17d5c8a5f7}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_servicios" order="" uid="{fdd44da3-19ef-49f6-a49f-feeb207ebf29}" where="">
+    <RecordField colName="" fieldIdRef="2" name="id_servicio" sqlTabName="" table_alias_name="" uid="{a04f4427-5681-42ee-9bb4-24393244173b}"/>
+    <RecordField colName="" fieldIdRef="3" name="servicio_cod" sqlTabName="" table_alias_name="" uid="{db8ccb98-5597-41d1-94b5-e12b6188cde1}"/>
+    <RecordField colName="" fieldIdRef="4" name="servicio_desc" sqlTabName="" table_alias_name="" uid="{b21e1e27-60d6-4176-941f-b3cc382d887d}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{7e9dd8d2-3941-4ff9-901e-33ff6a9f5e95}" where="">
+    <RecordField colName="" fieldIdRef="1" name="filtro_modulo_cod" sqlTabName="" table_alias_name="" uid="{46f743e3-190c-4843-b9f3-61a44d4a2af0}"/>
+    <RecordField colName="" fieldIdRef="9" name="con_servicio_cod" sqlTabName="" table_alias_name="" uid="{4ed49243-1475-48bd-b6d9-5543abf99616}"/>
+    <RecordField colName="" fieldIdRef="5" name="con_servicio_desc" sqlTabName="" table_alias_name="" uid="{f57e6de1-1e75-4275-bae9-88a370ed167a}"/>
+    <RecordField colName="" fieldIdRef="6" name="con_archivo_conf" sqlTabName="" table_alias_name="" uid="{4042f628-31c5-4694-b5aa-38377e8e55af}"/>
+    <RecordField colName="" fieldIdRef="8" name="con_registra_log" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{d07f96f9-b1f5-4f97-bfc9-81c39ea87256}"/>
+    <RecordField colName="" fieldIdRef="7" name="con_url" sqlTabName="" table_alias_name="" uid="{e6cedb7c-47bd-4e29-bc4f-65744356e020}"/>
+  </Record>
+  <Form gridHeight="28" gridWidth="146" name="form" text="Form">
+    <Grid gridHeight="27" gridWidth="144" name="grid1" posX="0" posY="0">
+      <Group gridHeight="3" gridWidth="68" name="gpo_modulo" posX="2" posY="1" text="Modulos">
+        <Label gridHeight="1" gridWidth="9" name="lbl_modulo" posX="2" posY="1" text="Módulo:"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="54" items="" name="filtro_modulo_cod" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="combobox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="20" gridWidth="68" name="gpo_arbol_servicios" posX="2" posY="5" text="Servicios">
+        <Table gridHeight="16" gridWidth="63" name="servicios" posX="2" posY="2" totalRows="15">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="2" hidden="true" name="id_servicio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="id_servicio" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="10" justify="center" name="servicio_cod" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Código" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="47" name="servicio_desc" posX="12" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Servicio" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="16" gridWidth="69" name="gpo_consulta_srv" posX="72" posY="5" text="Servicio">
+        <Label gridHeight="1" gridWidth="15" name="lbl_con_srv" posX="3" posY="2" text="Código:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="12" name="con_servicio_cod" posX="19" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_con_servicio_desc" posX="3" posY="4" text="Servicio:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="42" name="con_servicio_desc" posX="19" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_con_url" posX="3" posY="6" text="URL Servicio:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="48" name="con_url" posX="19" posY="6" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_con_arch_conf" posX="3" posY="8" text="Archivo configuración:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="42" name="con_archivo_conf" posX="19" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_con_registra_log" posX="3" posY="10" text="Registra LOG:"/>
+        <RadioGroup aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="2" gridWidth="10" items="SI, NO" name="con_registra_log" notNull="true" posX="19" posY="10" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="8" table_alias_name="" title="radiogroup1" widget="RadioGroup">
+          <Item lstrtext="false" name="1" text="SI"/>
+          <Item lstrtext="false" name="0" text="NO"/>
+        </RadioGroup>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADUANwBlADYAZABlADEALQAxAGUANwA1AC0ANAAyADcANQAtAGIAYQBlADkALQA4ADgAYQAzADcAMABlAGQAMQA2ADcAYQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADAANAAyAGYANgAyADgALQAzADEAYwA1AC0ANAA2ADkANAAtAGIANQBhAGEALQAzADgAMwA3ADcAZQA4AGUANQA1AGEAZgB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADIAMQBlADEAZQAyADcALQA2ADAAZAA2AC0ANAAxADcANgAtADkANAAxAGYALQBiADMAYwBjADMAOAAyAGQAOAA4ADcAZAB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGIAOABjAGMAYgA5ADgALQA1ADUAOQA3AC0ANAAxAGQAMQAtADkANABiADUALQBlADEAMgBiADYAMQA4ADgAYwBkAGUAMQB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGQAZAA0ADQAZABhADMALQAxADkAZQBmAC0ANAA5AGYANgAtAGEANAA5AGYALQBmAGUAZQBiADIAMAA3AGUAYgBmADIAOQB9QDQAAAAAAABANAAAAAAAAD98rAgxJul5AQAAAEwAewBlADYAYwBlAGQAYgA3AGMALQA0ADcAYgBkAC0ANABlADIAOQAtAGIAYwA0AGYALQA2ADUANwA0ADQAMwA1ADYAZQAwADIAMAB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADAANwBmADkANgBmADkALQBiADEAZgA1AC0ANABmADkANwAtAGIAZgBjADkALQA4ADEAYwAzADkAZQBhADgANwAyADUANgB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGUAZAA0ADkAMgA0ADMALQAxADQANwA1AC0ANAA4AGIAZAAtAGIANgBkADkALQA1ADUANAAzAGEAYgBmADkAOQA2ADEANgB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADYAZgA3ADQAMwBlADMALQAxADkAMABjAC0ANAA4ADQAMwAtAGIAOQBmADMALQA2ADEAYQA0ADQAZAA0AGEAMgBhAGYAMAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADAANABmADQANAAyADcALQA1ADYAOAAxAC0ANAAyAGUAZQAtADkAYgBiADQALQAyADQAMwA5ADMAMgA0ADQAMQA3ADMAYgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGUAOQBkAGQAOABkADIALQAzADkANAAxAC0ANABmAGYAOQAtADkAMAAxAGUALQAzADMAZgBmADYAYQA5AGYANQBlADkANQB9wGmgAAAAAADAToAAAAAAAD94k3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

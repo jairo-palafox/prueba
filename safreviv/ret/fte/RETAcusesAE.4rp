@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="RETAcusesAE.rdd" RWFglReportName="pdf_acuse"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <LAYOUTNODE name="LayoutNode" width="max" length="max" alignment="near" floatingBehavior="enclosed">
+                        <rtl:input-variable name="v_nombre" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_nombre Value" class="grwStringValue" x="83.4248" y="173.914" width="333" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_nombre}}"/>
+                        <WORDBOX name="WordBox18" x="22.9163" y="511.104" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Recuerda que tus datos personales están protegidos con medidas de seguridad. Consulta nuestro"/>
+                        <WORDBOX name="WordBox15" x="22.9163" y="402.909" width="438.6" length="15" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" text="La devolución se efectúa mediante transferencia electrónica a la cuenta indicada por el solicitante" localizeText="false"/>
+                        <WORDBOX name="WordBox16" x="22.9163" y="469.236" width="498" length="14.2286" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Este  acuse  es  emitido  sin  prejuzgar  la  veracidad  de  los  datos  asentados. Quedan a salvo las" localizeText="false"/>
+                        <WORDBOX name="WordBox14" x="23.6073" y="357.625" width="103.6" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Cuenta CLABE:"/>
+                        <WORDBOX name="WordBox12" x="22.9163" y="332.938" width="102.4" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Monto a favor:"/>
+                        <WORDBOX name="WordBox10" x="22.9163" y="562.246" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Sello digital:"/>
+                        <WORDBOX name="WordBox8" x="22.9163" y="276.478" width="108.2" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Medio de solicitud:"/>
+                        <WORDBOX name="WordBox7" x="22.0676" y="307.433" width="108.4" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Número de caso:"/>
+                        <WORDBOX name="WordBox6" x="263.5" y="277.678" width="139.4" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha y hora del Trámite:"/>
+                        <WORDBOX name="WordBox3" x="22.0676" y="173.914" width="52" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Nombre:"/>
+                        <MINIPAGE name="MiniPage" x="6.8581" y="259.673" width="2" length="max" anchorX="0.0168953" anchorY="1" alignment="near" bgColor="#d90000" layoutDirection="leftToRight" borderColor="#d50000"/>
+                        <MINIPAGE name="MiniPage1_1" x="7.0613" y="387.532" width="2" length="max" anchorX="0.0168953" anchorY="1" alignment="near" bgColor="#d90000" layoutDirection="leftToRight" borderColor="#d90000"/>
+                        <WORDBOX name="WordBox2_1" x="26.9228" y="229.892" width="201" length="13.8621" anchorX="0.0278926" anchorY="0.440267" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Registro Federal de Contribuyentes:"/>
+                        <WORDBOX name="WordBox2" x="26.9228" y="202.963" width="166" anchorX="0.0278926" anchorY="0.440267" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Número de Seguridad Social:"/>
+                        <WORDBOX name="WordBox" x="206.782" y="94.9639" width="117.6" length="16.6299" anchorX="0.218906" anchorY="1" alignment="center" fontName="Arial" fontSize="14" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="ACUSE DE RECIBO"/>
+                        <WORDBOX name="WordBox1" x="153.438" y="114.598" width="350" length="18.0285" anchorX="0.218906" anchorY="1" alignment="center" fontName="Arial" fontSize="14" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Trámite de devolución de pagos en exceso"/>
+                        <IMAGEBOX name="ImageBox" width="521.677" length="78.6651" alignment="far" floatingBehavior="enclosed" url="../../img/encabezado_ae.png" intendedResolution="120"/>
+                        <rtl:input-variable name="p_nss" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_nss Value" class="grwStringValue" x="182.552" y="198.529" width="100" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_nss}}"/>
+                        <rtl:input-variable name="p_fecha_hora" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_fecha_hora Value" class="grwStringValue" x="416.237" y="277.678" width="103.2" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_fecha_hora}}"/>
+                        <rtl:input-variable name="v_medioSolicitud" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_medioSolicitud Value" class="grwStringValue" x="146.762" y="277.678" width="95" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" text="{{v_medioSolicitud}}"/>
+                        <rtl:input-variable name="p_sello" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="p_sello Value" class="grwStringValue" x="101.211" y="564.646" width="394.975" length="13.0958" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_sello}}"/>
+                        <rtl:input-variable name="p_aviso" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="p_aviso Value" class="grwStringValue" x="23.6073" y="654.332" width="465.6" length="63" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_aviso}}" textAlignment="justified"/>
+                        <rtl:input-variable name="p_caso" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_caso Value" class="grwStringValue" x="146.762" y="306.335" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_caso}}"/>
+                        <rtl:input-variable name="v_pesos" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_pesos Value" class="grwStringValue" x="138.362" y="334.138" width="200" length="14.6" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" text="{{v_pesos}}"/>
+                        <WORDBOX name="WordBox20" x="22.9163" y="445.187" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="solicitud en Mi Cuenta Infonavit &gt; Contáctanos &gt; Sigue tu caso."/>
+                        <rtl:input-variable name="p_clabe" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_clabe Value" class="grwStringValue" x="146.762" y="358.769" width="min" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_clabe}}"/>
+                        <rtl:input-variable name="p_rfc" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_rfc Value" class="grwStringValue" x="212.473" y="224.771" width="114.4" length="12.0786" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_rfc}}"/>
+                        <WORDBOX name="WordBox21" x="22.0676" y="427.411" width="482.4" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Tus recursos serán depositados en un lapso no mayor a 10 días hábiles. Consulta el estado de tu "/>
+                        <WORDBOX name="WordBox22" x="23.6073" y="484.199" width="470.2" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="facultades de este Instituto para cualquier aclaración posterior."/>
+                        <WORDBOX name="WordBox23" x="22.9163" y="526.764" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" underline="true" floatingBehavior="enclosed" text=" Aviso de privacidad."/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

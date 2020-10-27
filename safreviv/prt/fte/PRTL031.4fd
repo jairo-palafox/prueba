@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{cf0f6101-5f4c-4d45-a38b-72625b5c9fdb}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_pendientes" order="" uid="{e20abc2c-b79a-4a6e-a636-6d18f35f20f3}" where="">
+    <RecordField colName="" fieldIdRef="1" name="pendiente" sqlTabName="" table_alias_name="" uid="{0f028c69-48ce-40dd-9de4-f8a5cbfc8b95}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_elegido" order="" uid="{6d697ef1-39b2-4a3e-90c6-9c5716232ad6}" where="">
+    <RecordField colName="" fieldIdRef="3" name="elegido" sqlTabName="" table_alias_name="" uid="{82928944-be0b-4086-881a-d5e9da0c8e77}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_cifras" order="" uid="{f7856bac-06a5-4173-ae77-e64e3564e99b}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tpo_operacion" sqlTabName="" table_alias_name="" uid="{c7f46e1f-44bd-4c04-9c63-5c9f6d0e5189}"/>
+    <RecordField colName="" fieldIdRef="4" name="monto_pesos" sqlTabName="" table_alias_name="" uid="{f5d5b9b2-cd40-49c4-8b21-e97423d9db6d}"/>
+  </Record>
+  <Form gridHeight="22" gridWidth="85" name="Form" text="Form">
+    <VBox gridHeight="21" gridWidth="84" name="VBox1" posX="0" posY="0">
+      <Group gridHeight="10" gridWidth="84" name="gpo_folios" posX="0" posY="1" text="Folio">
+        <Grid gridHeight="8" gridWidth="81" name="Grid1" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="38" name="tbl_pendiente" posX="1" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="36" name="pendiente" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Pendiente" widget="Edit"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="38" name="tbl_elegido" posX="41" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="36" name="elegido" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Elegido" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="9" gridWidth="84" name="gpo_saldos_preliquidar" posX="0" posY="11" text="Saldos a Preliquidar">
+        <Table gridHeight="6" gridWidth="71" name="Table1" posX="5" posY="2" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="38" name="tpo_operacion" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Tipo Operación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="30" name="monto_pesos" posX="38" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Monto Pesos" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADcAZgA0ADYAZQAxAGYALQA0ADQAYgBkAC0ANABjADAANAAtADkAYwA2ADMALQA1AGMAOQBmADYAZAAwAGUANQAxADgAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADIAMABhAGIAYwAyAGMALQBiADcAOQBhAC0ANABhADYAZQAtAGEANgAzADYALQA2AGQAMQA4AGYAMwA1AGYAMgAwAGYAMwB9wHcgAAAAAADATgAAAAAAAD9wYk3S8an8AQAAAEwAewA2AGQANgA5ADcAZQBmADEALQAzADkAYgAyAC0ANABhADMAZQAtADkAMABjADYALQA5AGMANQA3ADEANgAyADMAMgBhAGQANgB9wGpgAAAAAADATAAAAAAAAD90euFHrhR7AQAAAEwAewBmADUAZAA1AGIAOQBiADIALQBjAGQANAAwAC0ANAA5AGMANAAtADgAYgAyADEALQBlADkANwA0ADIAMwBkADkAZABiADYAZAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGYAMAAyADgAYwA2ADkALQA0ADgAYwBlAC0ANAAwAGQAZAAtADkAZABlADQALQBmADgAYQA1AGMAYgBmAGMAOABiADkANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADIAOQAyADgAOQA0ADQALQBiAGUAMABiAC0ANAAwADgANgAtADgAOAAxAGEALQBkADUAZQA5AGQAYQAwAGMAOABlADcANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADcAOAA1ADYAYgBhAGMALQAwADYAYQA1AC0ANAAxADcAMwAtAGEAZQA3ADcALQBlADYANABlADMANQA2ADQAZQA5ADkAYgB9wHJgAAAAAABASAAAAAAAAD98rAgxJul5AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{778e911b-146d-4a78-9c9f-972d60fc184e}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{95714a29-65be-4291-a023-a1af7084eca7}" where="">
+    <RecordField colName="" fieldIdRef="2" name="total_importe" sqlTabName="" table_alias_name="" uid="{6d4372d5-f4a1-4dd3-a9a9-8732000d269f}"/>
+    <RecordField colName="" fieldIdRef="3" name="f_operacion_procesar" sqlTabName="" table_alias_name="" uid="{2802b05d-099c-40cb-8ae1-8ac15f927ce4}"/>
+    <RecordField colName="" fieldIdRef="8" name="folio" sqlTabName="" table_alias_name="" uid="{1c922f53-1834-4015-a734-0b1984f24ac7}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_saldos_capturados" order="" uid="{eb6c9b50-d2ed-4c21-947c-8ef8769e513a}" where=""/>
+  <Form gridHeight="57" gridWidth="321" name="Captura de montos" perSchemaComment="FORMONLY" text="Form">
+    <Group gridHeight="10" gridWidth="73" name="grp_monto_notificado" posX="5" posY="2" text="Monto notificado">
+      <Grid gridHeight="7" gridWidth="66" name="Grid1" posX="1" posY="1">
+        <Label gridHeight="1" gridWidth="15" name="lbl_folio" posX="1" posY="1" text="Folio"/>
+        <ComboBox colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="33" items="" name="folio" posX="26" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="20" name="lbl_fecha" posX="1" posY="3" text="Fecha Operación PROCESAR"/>
+        <DateEdit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="f_operacion_procesar" posX="26" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="20" name="lbl_importe" posX="1" posY="5" text="Importe total del Archivo"/>
+        <Edit colName="" columnCount="" fieldId="2" format="###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="33" name="total_importe" posX="26" posY="5" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyADgAMAAyAGIAMAA1AGQALQAwADkAOQBjAC0ANAAwAGMAYgAtADgAYQBlADEALQA4AGEAYwAxADUAZgA5ADIANwBjAGUANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGQANAAzADcAMgBkADUALQBmADQAYQAxAC0ANABkAGQAMwAtAGEAOQBhADkALQA4ADcAMwAyADAAMAAwAGQAMgA2ADkAZgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGMAOQAyADIAZgA1ADMALQAxADgAMwA0AC0ANAAwADEANQAtAGEANwAzADQALQAwAGIAMQA5ADgANABmADIANABhAGMANwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADUANwAxADQAYQAyADkALQA2ADUAYgBlAC0ANAAyADkAMQAtAGEAMAAyADMALQBhADEAYQBmADcAMAA4ADQAZQBjAGEANwB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewBlAGIANgBjADkAYgA1ADAALQBkADIAZQBkAC0ANABjADIAMQAtADkANAA3AGMALQA4AGUAZgA4ADcANgA5AGUANQAxADMAYQB9wGtAAAAAAAA/8AAAAAAAAD90euFHrhR7AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{9b432f1d-c8e1-42ed-946e-1ad2cb42cfb8}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record1" order="" uid="{aa2a092f-e787-4691-b70a-c91a0e36ee67}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record2" order="" uid="{2b9fde83-2aec-42fd-aef7-3ad39671e19d}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record3" order="" uid="{c154b4f3-c478-466b-a240-7c5793a8b9d8}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_pendientes" order="" uid="{e00f9cab-18f1-43a6-86d6-dc9b35e899e5}" where="">
+    <RecordField colName="" fieldIdRef="1" name="arch_pendientes" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{c2a98682-55a2-4d3c-8666-310eb535a6ba}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_integrar" order="" uid="{ecca4b62-7d9a-4562-9971-0043473aac18}" where="">
+    <RecordField colName="" fieldIdRef="2" name="arch_integrar" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{357c7250-0a4b-46ee-a720-54c2fb40dbf0}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_integrados" order="" uid="{43262758-80fd-4c9b-afe2-e57bccc3e6fc}" where="">
+    <RecordField colName="" fieldIdRef="3" name="nom_archivo" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{8a24e129-18bc-4a85-a5f2-fd1e34d36e26}"/>
+    <RecordField colName="" fieldIdRef="4" name="fecha_trans" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{38d0d8c5-0e26-42e0-9c4e-dfbabc6b9a74}"/>
+    <RecordField colName="" fieldIdRef="5" name="lote" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{f707b935-3786-40fb-bb4b-e14c96dd3633}"/>
+    <RecordField colName="" fieldIdRef="6" name="fecha_asigna" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{b4952cf1-5bb9-4261-82f1-85b89e27aae1}"/>
+    <RecordField colName="" fieldIdRef="7" name="tot_reg" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{9c76a7a4-96c7-4d26-bdaf-d298a63f3095}"/>
+    <RecordField colName="" fieldIdRef="8" name="Edit2" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{9225be72-f3a4-4c34-9ee8-5903bb9888a3}"/>
+  </Record>
+  <Form gridHeight="34" gridWidth="118" name="form" text="Form">
+    <VBox gridHeight="26" gridWidth="97" name="VBox1" posX="7" posY="2">
+      <Group gridHeight="13" gridWidth="97" name="Group1" posX="0" posY="1" text="Arrastrar archivos a integrar">
+        <Grid gridHeight="9" gridWidth="95" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="32" name="arch_pend" posX="10" posY="1" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="28" name="arch_pendientes" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Archivos Pendientes de Integrar" widget="Edit"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="33" name="arch_int" posX="49" posY="1" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="30" name="arch_integrar" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Archivos a Integrar" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="11" gridWidth="97" name="Group2" posX="0" posY="14" text="Información preliminar">
+        <Grid gridHeight="8" gridWidth="95" name="Grid3" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="93" name="Table1" posX="2" posY="1" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="13" name="nom_archivo" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Archivo" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="DD-MM-YYYY" gridHeight="1" gridWidth="18" name="fecha_trans" posX="13" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Fecha Transferencia Lote" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="7" name="lote" posX="31" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Lote" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" format="DD-MM-YYYY" gridHeight="1" gridWidth="15" name="fecha_asigna" posX="38" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Fecha Proceso" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="12" name="tot_reg" posX="53" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Total Registros" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" hidden="true" name="Edit2" posX="65" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Folio" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADIAYQA5ADgANgA4ADIALQA1ADUAYQAyAC0ANABkADMAYwAtADgANgA2ADYALQAzADEAMABlAGIANQAzADUAYQA2AGIAYQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADgAZAAwAGQAOABjADUALQAwAGUAMgA2AC0ANAAyAGUAMAAtADkAYwA0AGUALQBkAGYAYgBhAGIAYwA2AGIAOQBhADcANAB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADAAMABmADkAYwBhAGIALQAxADgAZgAxAC0ANAAzAGEANgAtADgANgBkADYALQBkAGMAOQBiADMANQBlADgAOQA5AGUANQB9QG1gAAAAAABAVkAAAAAAAD+CbpeNT988AQAAAEwAewA4AGEAMgA0AGUAMQAyADkALQAxADgAYgBjAC0ANABhADgANQAtAGEANQBmADIALQBmAGQAMQBlADMANABkADMANgBlADIANgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGMANwA2AGEANwBhADQALQA5ADYAYwA3AC0ANABkADIANgAtAGIAZABhAGYALQBkADIAOQA4AGEANgAzAGYAMwAwADkANQB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADIAMgA1AGIAZQA3ADIALQBmADMAYQA0AC0ANABjADMANAAtADkAZQBlADgALQA1ADkAMAAzAGIAYgA5ADgAOAA4AGEAMwB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGEAMgBhADAAOQAyAGYALQBlADcAOAA3AC0ANAA2ADkAMQAtAGIANwAwAGEALQBjADkAMQBhADAAZQAzADYAZQBlADYANwB9QG1AAAAAAABAccAAAAAAAD94k3S8an76AQAAAEwAewAyAGIAOQBmAGQAZQA4ADMALQAyAGEAZQBjAC0ANAAyAGYAZAAtAGEAZQBmADcALQAzAGEAZAAzADkANgA3ADEAZQAxADkAZAB9QG1gAAAAAABAbCAAAAAAAD90euFHrhR7AQAAAEwAewA0ADMAMgA2ADIANwA1ADgALQA4ADAAZgBkAC0ANABjADkAYgAtAGEAZgBlADIALQBlADUANwBiAGMAYwBjADMAZQA2AGYAYwB9QHrQAAAAAABAMQAAAAAAAD+EeuFHrhR8AQAAAEwAewBmADcAMAA3AGIAOQAzADUALQAzADcAOAA2AC0ANAAwAGYAYgAtAGIAYgA0AGIALQBlADEANABjADkANgBkAGQAMwA2ADMAMwB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADEANQA0AGIANABmADMALQBjADQANwA4AC0ANAA2ADYAYgAtAGEAMgA0ADAALQA3AGMANQA3ADkAMwBhADgAYgA5AGQAOAB9QGqAAAAAAABAZQAAAAAAAD98rAgxJul5AQAAAEwAewBlAGMAYwBhADQAYgA2ADIALQA3AGQAOQBhAC0ANAA1ADYAMgAtADkAOQA3ADEALQAwADAANAAzADQANwAzAGEAYQBjADEAOAB9QGyAAAAAAABAMAAAAAAAAD+AYk3S8an8AQAAAEwAewBiADQAOQA1ADIAYwBmADEALQA1AGIAYgA5AC0ANAAyADYAMQAtADgAMgBmADEALQA4ADUAYgA4ADkAZQAyADcAYQBhAGUAMQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUANwBjADcAMgA1ADAALQAwAGEANABiAC0ANAA2AGUAZQAtAGEANwAyADAALQA1ADQAYwAyAGYAYgA0ADAAZABiAGYAMAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

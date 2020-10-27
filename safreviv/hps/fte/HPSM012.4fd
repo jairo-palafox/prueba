@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{91dff731-b088-47b1-8646-f38c566310c5}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tabla_grupo" order="" uid="{85f4fd65-8c56-422b-acd6-64eb4ce565af}" where="">
+    <RecordField colName="" fieldIdRef="5" name="tb_asignar" sqlTabName="" table_alias_name="" uid="{3beb2606-d332-40e0-8907-cf6e692f102c}"/>
+    <RecordField colName="" fieldIdRef="1" name="tb_id_grupo" sqlTabName="" table_alias_name="" uid="{8b9b03c6-0830-4aae-b069-6625e261a248}"/>
+    <RecordField colName="" fieldIdRef="2" name="tb_grupo" sqlTabName="" table_alias_name="" uid="{dfa31690-2534-4a3a-89af-1ab2779b243f}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tabla_elemento" order="" uid="{88d67743-4bcd-42f1-9c76-1f1d6ac95c73}" where="">
+    <RecordField colName="" fieldIdRef="3" name="tb_id_gpo_etiqueta" sqlTabName="" table_alias_name="" uid="{2d8dc5e7-d194-482c-a67d-396a7b1634db}"/>
+    <RecordField colName="" fieldIdRef="9" name="tb_id_cat_gpo" sqlTabName="" table_alias_name="" uid="{129d385e-88ac-40ae-93a2-8085d818f458}"/>
+    <RecordField colName="" fieldIdRef="4" name="tb_etiqueta" sqlTabName="" table_alias_name="" uid="{1ff9cffd-8945-4744-a6bb-64e8b239412e}"/>
+  </Record>
+  <Record active="false" additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tabla_detalle" order="" uid="{22c59672-7a77-410d-9549-1970fc3bbca2}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="v_arr_detalle_tmp" order="" uid="{60150bd7-681a-412a-96a6-1f8ec181b1f5}" where="">
+    <RecordField colName="" fieldIdRef="15" name="id_atr_nivel" sqlTabName="" table_alias_name="" uid="{3a32f015-5543-4427-aa1e-61fa4dad3365}"/>
+    <RecordField colName="" fieldIdRef="16" name="id_gpo_etiqueta" sqlTabName="" table_alias_name="" uid="{9468a1d6-be0f-4379-b7b4-68b3f7569423}"/>
+    <RecordField colName="" fieldIdRef="17" name="id_cat_mandato" sqlTabName="" table_alias_name="" uid="{b3813674-c764-4512-adaf-e2fdbddb4878}"/>
+    <RecordField colName="" fieldIdRef="18" name="id_gpo_mandato" sqlTabName="" table_alias_name="" uid="{b21b6df1-fa35-4b73-a0af-7f2b682f0d67}"/>
+    <RecordField colName="" fieldIdRef="19" name="orden" sqlTabName="" table_alias_name="" uid="{4493f59c-38da-45a5-9430-1985660cd51c}"/>
+    <RecordField colName="" fieldIdRef="20" name="etiqueta" sqlTabName="" table_alias_name="" uid="{1ca3f11f-1dfa-4a87-81e0-5f404991f0b6}"/>
+    <RecordField colName="" fieldIdRef="21" name="valor_etiqueta" sqlTabName="" table_alias_name="" uid="{7f622701-cf2e-4614-8fcb-7290122d8427}"/>
+    <RecordField colName="" fieldIdRef="22" name="id_cat_gpo" sqlTabName="" table_alias_name="" uid="{b3e0b346-2463-4754-8ed1-0bebf1ad913c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_imagenes" order="" uid="{e1025c65-afc9-4e05-82c5-c03624c53b1f}" where="">
+    <RecordField colName="" fieldIdRef="8" name="tedi_id_imagen_docto" sqlTabName="" table_alias_name="" uid="{0e00c95f-0b7c-4941-bdb6-2506ab157eda}"/>
+    <RecordField colName="" fieldIdRef="10" name="tedi_id_gpo_mandato" sqlTabName="" table_alias_name="" uid="{82711319-8d2f-4192-814b-376398f73567}"/>
+    <RecordField colName="" fieldIdRef="12" name="tedi_id_cat_gpo" sqlTabName="" table_alias_name="" uid="{055c080f-2be2-47b6-9b25-04c674cf72aa}"/>
+    <RecordField colName="" fieldIdRef="6" name="tedi_ruta" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{3cf116ae-0407-4284-9e22-2a3d34f6a094}"/>
+    <RecordField colName="" fieldIdRef="11" name="tedi_documento" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{adca29a1-7a97-4d64-854b-547bcae2a026}"/>
+    <RecordField colName="" fieldIdRef="13" name="tedi_documento_oculto" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{1951ca06-f76d-405a-8fec-3205fe0703d0}"/>
+    <RecordField colName="" fieldIdRef="7" name="tedi_descripcion" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{68c26a69-a8f4-4ee1-83df-25b50f9355d7}"/>
+  </Record>
+  <Form gridHeight="36" gridWidth="170" name="Form" text="Form">
+    <VBox gridHeight="36" gridWidth="149" name="VBox1" posX="1" posY="0" splitter="false">
+      <Grid gridHeight="34" gridWidth="149" name="Grid1" posX="0" posY="1">
+        <Group gridHeight="12" gridWidth="57" name="Group2" posX="1" posY="1" text="Grupos Disponibles">
+          <Table gridHeight="8" gridWidth="52" name="tabla_1" posX="1" posY="1" totalRows="5" unmovableColumns="true" unsortableColumns="true">
+            <CheckBox colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="2" name="tb_asignar" notNull="true" posX="0" posY="0" required="true" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" text="" title="" widget="CheckBox"/>
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="1" hidden="true" name="tb_id_grupo" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Id grupos" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="38" name="tb_grupo" noEntry="true" posX="3" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Grupos" unmovable="true" unsortable="true" widget="Edit"/>
+          </Table>
+        </Group>
+        <Group gridChildrenInParent="true" gridHeight="12" gridWidth="63" name="Group3" posX="61" posY="1" text="Elementos del grupo">
+          <Table gridHeight="8" gridWidth="58" name="Table2" posX="2" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="2" hidden="true" name="tb_id_gpo_etiqueta" noEntry="true" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Id elemento" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="2" hidden="true" name="tb_id_cat_gpo" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="id grupo" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="40" name="tb_etiqueta" noEntry="true" posX="4" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Elemento" unmovable="true" unsortable="true" widget="Edit"/>
+          </Table>
+          <HLine gridWidth="58" name="HLine3" posX="2" posY="9"/>
+          <Button gridHeight="1" gridWidth="3" name="agregar" posX="53" posY="10" tabIndex="1" text="Agregar"/>
+          <Button gridHeight="1" gridWidth="3" name="eliminar" posX="57" posY="10" tabIndex="1" text="Eliminar"/>
+        </Group>
+        <Group gridHeight="13" gridWidth="57" name="gpo_imagenes" posX="1" posY="14" text="Imágenes Ingresadas">
+          <Table gridHeight="6" gridWidth="49" name="Table3" posX="1" posY="1" totalRows="5" wantFixedPageSize="false" width="0">
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="1" hidden="true" name="tedi_id_imagen_docto" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="id" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="1" hidden="true" name="tedi_id_gpo_mandato" posX="1" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="16" table_alias_name="" title="id_gpo_mandato" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="1" hidden="true" name="tedi_id_cat_gpo" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="18" table_alias_name="" title="id_cat_gpo" widget="Edit"/>
+            <Edit autoNext="true" colName="" columnCount="" comment="Solo archivos (formato de imagen y PDF) sin acentos" fieldId="6" gridHeight="1" gridWidth="1" name="tedi_ruta" posX="3" posY="0" rowCount="" scroll="true" sizePolicy="dynamic" sqlTabName="" sqlType="STRING" stepX="" stepY="" style="FileUpload" tabIndex="11" table_alias_name="" title="Ruta" widget="Edit"/>
+            <FFLabel colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="17" hidden="false" name="tedi_documento" posX="4" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" style="LabelUrl" table_alias_name="" title="Documento" widget="FFLabel"/>
+            <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="1" hidden="true" name="tedi_documento_oculto" noEntry="true" posX="21" posY="0" rowCount="" sqlTabName="" sqlType="STRING" stepX="" stepY="" tabIndex="19" table_alias_name="" title="Documento" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="19" name="tedi_descripcion" posX="22" posY="0" rowCount="" sqlTabName="" sqlType="STRING" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Descripción" widget="Edit"/>
+          </Table>
+          <HLine gridWidth="52" name="HLine1" posX="1" posY="10"/>
+          <Button gridHeight="1" gridWidth="3" name="btn_img_doc" posX="45" posY="11" tabIndex="13" text="Documento"/>
+          <Button gridHeight="1" gridWidth="3" name="btn_img_quitar" posX="49" posY="11" tabIndex="14" text="Quitar"/>
+        </Group>
+        <Group gridHeight="13" gridWidth="63" name="Group4" posX="61" posY="14" text="Valores">
+          <Table gridHeight="9" gridWidth="58" name="Table1" posX="2" posY="1" totalRows="7">
+            <Edit colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="1" hidden="true" name="id_atr_nivel" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="1" hidden="true" name="id_gpo_etiqueta" posX="1" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit2" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="1" hidden="true" name="id_cat_mandato" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit3" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="18" gridHeight="1" gridWidth="1" hidden="true" name="id_gpo_mandato" posX="3" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit4" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="19" gridHeight="1" gridWidth="1" hidden="true" name="orden" posX="4" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit5" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="20" gridHeight="1" gridWidth="21" name="etiqueta" noEntry="true" posX="5" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Elemento" widget="Edit"/>
+            <Edit case="upper" colName="" columnCount="" fieldId="21" gridHeight="1" gridWidth="22" name="valor_etiqueta" posX="26" posY="0" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Valor" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="22" gridHeight="1" gridWidth="1" hidden="true" name="id_cat_gpo" posX="48" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="id_cat_gpo" widget="Edit"/>
+          </Table>
+          <HLine gridWidth="58" name="HLine2" posX="2" posY="10"/>
+          <Button gridHeight="1" gridWidth="3" name="direccion" posX="49" posY="11" tabIndex="17" text="Dirección"/>
+          <Button gridHeight="1" gridWidth="3" name="subir" posX="53" posY="11" tabIndex="1" text="Subir"/>
+          <Button gridHeight="1" gridWidth="3" name="bajar" posX="57" posY="11" tabIndex="1" text="Bajar"/>
+        </Group>
+      </Grid>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADIAMQBiADYAZABmADEALQBmAGEAMwA1AC0ANABiADcAMwAtAGEAMABhAGYALQA3AGYAMgBiADYAOAAyAGYAMABkADYANwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGYAZgA5AGMAZgBmAGQALQA4ADkANAA1AC0ANAA3ADQANAAtAGEANgBiAGIALQA2ADQAZQA4AGIAMgAzADkANAAxADIAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGUAMAAwAGMAOQA1AGYALQAwAGIANwBjAC0ANAA5ADQAMQAtAGIAZABiADYALQAyADUAMAA2AGEAYgAxADUANwBlAGQAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGMAZgAxADEANgBhAGUALQAwADQAMAA3AC0ANAAyADgANAAtADkAZQAyADIALQAyAGEAMwBkADMANABmADYAYQAwADkANAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADgAZAA2ADcANwA0ADMALQA0AGIAYwBkAC0ANAAyAGYAMQAtADkAYwA3ADYALQAxAGYAMQBkADYAYQBjADkANQBjADcAMwB9QGegAAAAAADAX4AAAAAAAD+6HKwIMSbvAQAAAEwAewAxAGMAYQAzAGYAMQAxAGYALQAxAGQAZgBhAC0ANABhADgANwAtADgAMQBlADAALQA1AGYANAAwADQAOQA5ADEAZgAwAGIANgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADQAOQAzAGYANQA5AGMALQAzADgAZABhAC0ANAA1AGEANQAtADkANAAzADAALQAxADkAOAA1ADYANgAwAGMAZAA1ADEAYwB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADIAYwA1ADkANgA3ADIALQA3AGEANwA3AC0ANAAxADAAZAAtADkANQA0ADkALQAxADkANwAwAGYAYwAzAGIAYgBjAGEAMgB9QGhgAAAAAAA/8AAAAAAAAD+6XjU/fO2XAQAAAEwAewA2ADAAMQA1ADAAYgBkADcALQA2ADgAMQBhAC0ANAAxADIAYQAtADkANgBhADYALQAxAGYAOABlAGMAMQA4ADEAYgAxAGYANQB9QGXgAAAAAABASIAAAAAAAD+7ItDlYEGPAQAAAEwAewA5ADQANgA4AGEAMQBkADYALQBiAGUAMABmAC0ANAAzADcAOQAtAGIANwBiADQALQA2ADgAYgAzAGYANwA1ADYAOQA0ADIAMwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADEAMAAyADUAYwA2ADUALQBhAGYAYwA5AC0ANABlADAANQAtADgAMgBjADUALQBjADAAMwA2ADIANABjADUAMwBiADEAZgB9AAAAAAAAAAAAAAAAAAAAAD+8KPXCj1wvAQAAAEwAewA3AGYANgAyADIANwAwADEALQBjAGYAMgBlAC0ANAA2ADEANAAtADgAZgBjAGIALQA3ADIAOQAwADEAMgAyAGQAOAA0ADIANwB9QBQAAAAAAABAZIAAAAAAAD+5mZmZmZmfAQAAAEwAewBkAGYAYQAzADEANgA5ADAALQAyADUAMwA0AC0ANABhADMAYQAtADgAOQBhAGYALQAxAGEAYgAyADcANwA5AGIAMgA0ADMAZgB9QBQAAAAAAABAUgAAAAAAAD+ybpeNT98/AQAAAEwAewBhAGQAYwBhADIAOQBhADEALQA3AGEAOQA3AC0ANABkADYANAAtADgANQA0AGIALQA1ADQANwBiAGMAYQBlADIAYQAwADIANgB9QBQAAAAAAABAXYAAAAAAAD+87ZFocrAnAQAAAEwAewA2ADgAYwAyADYAYQA2ADkALQBhADgAZgA0AC0ANABlAGUAMQAtADgAMwBkAGYALQAyADUAYgA1ADAAZgA5ADMANQA1AGQANwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADkANQAxAGMAYQAwADYALQBmADcANgBkAC0ANAAwADUAYQAtADgAZgBlAGMALQAzADIAMAA1AGYAZQAwADcAMAAzAGQAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGQAOABkAGMANQBlADcALQBkADEAOQA0AC0ANAA4ADIAYwAtAGEANgA3AGQALQAzADkANgBhADcAYgAxADYAMwA0AGQAYgB9QBQAAAAAAABAOgAAAAAAAD+OuFHrhR68AQAAAEwAewAxADIAOQBkADMAOAA1AGUALQA4ADgAYQBjAC0ANAAwAGEAZQAtADkAMwBhADIALQA4ADAAOAA1AGQAOAAxADgAZgA0ADUAOAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADUANQBjADAAOAAwAGYALQAyAGIAZQAyAC0ANAA3AGIANgAtADkAYgAyADUALQAwADQAYwA2ADcANABjAGYANwAyAGEAYQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGIAOQBiADAAMwBjADYALQAwADgAMwAwAC0ANABhAGEAZQAtAGIAMAA2ADkALQA2ADYAMgA1AGUAMgA2ADEAYQAyADQAOAB9QBQAAAAAAABASIAAAAAAAD+ysCDEm6XnAQAAAEwAewAzAGEAMwAyAGYAMAAxADUALQA1ADUANAAzAC0ANAA0ADIANwAtAGEAYQAxAGUALQA2ADEAZgBhADQAZABhAGQAMwAzADYANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGIAZQBiADIANgAwADYALQBkADMAMwAyAC0ANAAwAGUAMAAtADgAOQAwADcALQBjAGYANgBlADYAOQAyAGYAMQAwADIAYwB9QBQAAAAAAABAOgAAAAAAAD+y8an752yPAQAAAEwAewA4ADUAZgA0AGYAZAA2ADUALQA4AGMANQA2AC0ANAAyADIAYgAtAGEAYwBkADYALQA2ADQAZQBiADQAYwBlADUANgA1AGEAZgB9QCIAAAAAAADAX8AAAAAAAD+9cKPXCj13AQAAAEwAewBiADMAZQAwAGIAMwA0ADYALQAyADQANgAzAC0ANAA3ADUANAAtADgAZQBkADEALQAwAGIAZQBiAGYAMQBhAGQAOQAxADMAYwB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBiADMAOAAxADMANgA3ADQALQBjADcANgA0AC0ANAA1ADEAMgAtAGEAZABhAGYALQBlADIAZgBkAGIAZABkAGIANAA4ADcAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADIANwAxADEAMwAxADkALQA4AGQAMgBmAC0ANAAxADkAMgAtADgAMQA0AGIALQAzADcANgAzADkAOABmADcAMwA1ADYANwB9QBQAAAAAAABASIAAAAAAAD+8rAgxJul/AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

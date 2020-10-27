@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{1319c680-1ca6-41f5-8dbc-ec6dd62abc36}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{b123d8a2-4342-4599-b691-0a4a0b563003}" where="">
+    <RecordField colName="" fieldIdRef="6" name="v_d_tot_avis" sqlTabName="" table_alias_name="" uid="{d3ad9be4-35f6-4911-816d-f989f5a1924c}"/>
+    <RecordField colName="" fieldIdRef="1" name="cmb_folio" sqlTabName="" table_alias_name="" uid="{68fda4bf-f9f5-4cf0-9c14-c0293102cf7c}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_d_importe_aceptados" sqlTabName="" table_alias_name="" uid="{de25ab05-fcb2-45c9-88af-6e7b6d0d7d32}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_i_tot_aceptados" sqlTabName="" table_alias_name="" uid="{cc95dd39-a5f1-45e1-bf17-b0310f4465f3}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_d_importe_rechazados" sqlTabName="" table_alias_name="" uid="{bb640a6b-2f06-4739-ad2e-3178b6d1bebb}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_i_tot_rechazados" sqlTabName="" table_alias_name="" uid="{0605f3a4-9d60-4005-a8aa-b27e123df6e1}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_i_tot_pendientes" sqlTabName="" table_alias_name="" uid="{6fb5e397-868f-4172-897c-a8f663f277f5}"/>
+    <RecordField colName="" fieldIdRef="10" name="v_d_importe_pendientes" sqlTabName="" table_alias_name="" uid="{8151d0c6-5608-4f8f-83f1-391ccababfc8}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_i_tot_registros" sqlTabName="" table_alias_name="" uid="{35f23257-d14a-46f0-a7e2-57ba946f6af9}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_d_tot_vivienda" sqlTabName="" table_alias_name="" uid="{5c7e8b50-4c41-424c-8a3f-663a357db88f}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb_folios_disponibles" order="" uid="{487f14dc-ff0e-4aff-b0f7-bfd1a7ed511e}" where=""/>
+  <Form gridHeight="33" gridWidth="78" name="Form" text="Form">
+    <VBox gridHeight="32" gridWidth="75" name="VBox1" posX="1" posY="0">
+      <Group gridHeight="7" gridWidth="75" name="Group1" posX="0" posY="1" text="Generar archivo">
+        <Grid gridHeight="5" gridWidth="47" name="Grid1" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="lbl_folio" posX="2" posY="2" text="Folio Lote :"/>
+          <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="27" items="" name="cmb_folio" posX="18" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="ComboBox"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="23" gridWidth="75" name="grupo_resumen" posX="0" posY="8" text="Resumen de archivo a Generar">
+        <Grid gridHeight="21" gridWidth="72" name="Grid2" posX="2" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="Label3" posX="1" posY="1" text="Total de Aceptados:"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" justify="right" name="v_i_tot_aceptados" posX="16" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label4" posX="32" posY="1" text=""/>
+          <Label gridHeight="1" gridWidth="14" name="Label2" posX="1" posY="3" text="Importe Aceptados:"/>
+          <Edit colName="" columnCount="" fieldId="2" format="" gridHeight="1" gridWidth="15" justify="right" name="v_d_importe_aceptados" posX="16" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label1" posX="32" posY="3" text=""/>
+          <Label gridHeight="1" gridWidth="14" name="Label10" posX="1" posY="5" text="Total de Rechazados:"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="15" justify="right" name="v_i_tot_rechazados" posX="16" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label11" posX="32" posY="5" text=""/>
+          <Label gridHeight="1" gridWidth="14" name="Label9" posX="1" posY="7" text="Importe Rechazados:"/>
+          <Edit colName="" columnCount="" fieldId="4" format="" gridHeight="1" gridWidth="15" justify="right" name="v_d_importe_rechazados" posX="16" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label8" posX="32" posY="7" text=""/>
+          <Label gridHeight="1" gridWidth="14" name="Label12" posX="1" posY="9" text="Total de Pendientes:"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="15" justify="right" name="v_i_tot_pendientes" posX="16" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label13" posX="32" posY="9" text=""/>
+          <Label gridHeight="1" gridWidth="14" name="Label14" posX="1" posY="11" text="Importe Pendientes:"/>
+          <Edit colName="" columnCount="" fieldId="10" format="" gridHeight="1" gridWidth="15" justify="right" name="v_d_importe_pendientes" posX="16" posY="11" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label18" posX="32" posY="11" text=""/>
+          <HLine gridWidth="72" name="HLine1" posX="0" posY="12"/>
+          <Label gridHeight="1" gridWidth="14" name="Label5" posX="1" posY="13" text="Total de Registros:"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" justify="right" name="v_i_tot_registros" posX="16" posY="13" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label15" posX="32" posY="13" text=""/>
+          <Label gridHeight="1" gridWidth="14" name="Label7" posX="1" posY="15" text="Total Amortización:"/>
+          <Edit colName="" columnCount="" fieldId="7" format="" gridHeight="1" gridWidth="15" justify="right" name="v_d_tot_vivienda" posX="16" posY="15" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label16" posX="32" posY="15" text=""/>
+          <Button gridHeight="1" gridWidth="11" name="Generar" posX="43" posY="17" tabIndex="3" text="Generar"/>
+          <Label gridHeight="1" gridWidth="12" hidden="true" name="Label6" posX="1" posY="19" text="Total AVIS:"/>
+          <Edit colName="" columnCount="" fieldId="6" format="#,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="12" hidden="true" name="v_d_tot_avis" posX="14" posY="19" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" hidden="true" name="Label17" posX="28" posY="19" text=""/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0ADgANwBmADEANABkAGMALQBmAGYAMABlAC0ANABhAGYAZgAtAGIAMABmADcALQBiAGYAZAAxAGEANwBlAGQANQAxADEAZQB9wHBgAAAAAABAAAAAAAAAAD9ok3S8an76AQAAAEwAewA4ADEANQAxAGQAMABjADYALQA1ADYAMAA4AC0ANABmADgAZgAtADgAMwBmADEALQAzADkAMQBjAGMAYQBiAGEAYgBmAGMAOAB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewAwADYAMAA1AGYAMwBhADQALQA5AGQANgAwAC0ANAAwADAANQAtAGEAOABhAGEALQBiADIANwBlADEAMgAzAGQAZgA2AGUAMQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGMANwBlADgAYgA1ADAALQA0AGMANAAxAC0ANAAyADQAYwAtADgAYQAzAGYALQA2ADYAMwBhADMANQA3AGQAYgA4ADgAZgB9QBQAAAAAAABAbSAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADgAZgBkAGEANABiAGYALQBmADkAZgA1AC0ANABjAGYAMAAtADkAYwAxADQALQBjADAAMgA5ADMAMQAwADIAYwBmADcAYwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUAZgAyADMAMgA1ADcALQBkADEANABhAC0ANAA2AGYAMAAtAGEANwBlADIALQA1ADcAYgBhADkANAA2AGYANgBhAGYAOQB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGYAYgA1AGUAMwA5ADcALQA4ADYAOABmAC0ANAAxADcAMgAtADgAOQA3AGMALQBhADgAZgA2ADYAMwBmADIANwA3AGYANQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGMAOQA1AGQAZAAzADkALQBhADUAZgAxAC0ANAA1AGUAMQAtAGIAZgAxADcALQBiADAAMwAxADAAZgA0ADQANgA1AGYAMwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBkADMAYQBkADkAYgBlADQALQAzADUAZgA2AC0ANAA5ADEAMQAtADgAMQA2AGQALQBmADkAOAA5AGYANQBhADEAOQAyADQAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGIANgA0ADAAYQA2AGIALQAyAGYAMAA2AC0ANAA3ADMAOQAtAGEAZAAyAGUALQAzADEANwA4AGIANgBkADEAYgBlAGIAYgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGUAMgA1AGEAYgAwADUALQBmAGMAYgAyAC0ANAA1AGMAOQAtADgAOABhAGYALQA2AGUANwBiADYAZAAwAGQANwBkADMAMgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADEAMgAzAGQAOABhADIALQA0ADMANAAyAC0ANAA1ADkAOQAtAGIANgA5ADEALQAwAGEANABhADAAYgA1ADYAMwAwADAAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><?FJSWSDLUpdate http://localhost:8080/SeparaCuentas/services/RecibeNotificacionContacto?WSDL?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://separacion.safre.efp.com" xmlns:intf="http://separacion.safre.efp.com" xmlns:tns1="http://vo.separacion.safre.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://separacion.safre.efp.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://separacion.safre.efp.com">
+   <import namespace="http://vo.separacion.safre.efp.com"/>
+   <element name="recibeNotificacionContacto">
+    <complexType>
+     <sequence>
+      <element name="notificaContactoRequest" type="tns1:NotificaContactoRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recibeNotificacionContactoResponse">
+    <complexType>
+     <sequence>
+      <element name="recibeNotificacionContactoReturn" type="tns1:NotificaContactoResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.separacion.safre.efp.com">
+   <complexType name="NotificaContactoRequest">
+    <sequence>
+     <element name="nssAsociado" nillable="true" type="xsd:string"/>
+     <element name="nssInvadido" nillable="true" type="xsd:string"/>
+     <element name="numeroCaso" nillable="true" type="xsd:string"/>
+     <element name="resultContactoAsociado" nillable="true" type="xsd:int"/>
+     <element name="resultContactoInvadido" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="NotificaContactoResponse">
+    <sequence>
+     <element name="diagRechazo" nillable="true" type="xsd:string"/>
+     <element name="nssAsociado" nillable="true" type="xsd:string"/>
+     <element name="nssInvadido" nillable="true" type="xsd:string"/>
+     <element name="numeroCaso" nillable="true" type="xsd:string"/>
+     <element name="resultContactoAsociado" nillable="true" type="xsd:int"/>
+     <element name="resultContactoInvadido" nillable="true" type="xsd:int"/>
+     <element name="resultOperacion" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="recibeNotificacionContactoResponse">
+
+      <wsdl:part element="impl:recibeNotificacionContactoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="recibeNotificacionContactoRequest">
+
+      <wsdl:part element="impl:recibeNotificacionContacto" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="RecibeNotificacionContacto">
+
+      <wsdl:operation name="recibeNotificacionContacto">
+
+         <wsdl:input message="impl:recibeNotificacionContactoRequest" name="recibeNotificacionContactoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:recibeNotificacionContactoResponse" name="recibeNotificacionContactoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="RecibeNotificacionContactoSoapBinding" type="impl:RecibeNotificacionContacto">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="recibeNotificacionContacto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="recibeNotificacionContactoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="recibeNotificacionContactoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="RecibeNotificacionContactoService">
+
+      <wsdl:port binding="impl:RecibeNotificacionContactoSoapBinding" name="RecibeNotificacionContacto">
+
+         <wsdlsoap:address location="http://localhost:8080/SeparaCuentas/services/RecibeNotificacionContacto"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

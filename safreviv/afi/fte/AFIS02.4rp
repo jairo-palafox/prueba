@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AFIS02.rdd" RWFglReportName="rep_resultados"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="522.748" alignment="near">
+                    <MINIPAGE name="MiniPage" width="max" length="min">
+                        <LAYOUTNODE name="LayoutNode" width="88.5059" length="523.632" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" width="121.023" length="86.3934" alignment="near" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="0.4269" length="523.632" bgColor="#cdcdcd" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="771.869" length="22.1271">
+                        <LAYOUTNODE name="LayoutNode2" width="21.8721" length="771.868" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox1" width="767.543" length="19.028" alignment="near" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="GENERACIÓN DE ARCHIVO PARA INCONSISTENCIAS RISS OBLIGATORIO"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode3" width="0.426875" length="523.632" bgColor="#cecece" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage2" width="max" length="min" alignment="near">
+                        <LAYOUTNODE name="LayoutNode4" width="min" length="max" alignment="near" color="#ffffff" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" width="min" length="min" alignment="far" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Usuario :"/>
+                            <WORDBOX name="WordBox3" x="0.8202" y="648.923" anchorX="2.43615e-14" anchorY="6.81326e-15" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Fecha :"/>
+                            <rtl:input-variable name="m_v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="m_v_usuario Value" x="0.820225" y="63.6831" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{m_v_usuario}}"/>
+                            <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha_reporte Value" x="0.8202" y="694.828" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage3" width="max" length="min" alignment="near">
+                        <LAYOUTNODE name="LayoutNode5" width="min" length="max" color="#aaaaaa" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage5" width="30" length="max" alignment="near" layoutDirection="leftToRight">
+                        <WORDWRAPBOX name="WordWrapBox" width="150" length="30" alignment="center" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="CAUSAL" textAlignment="center"/>
+                        <WORDWRAPBOX name="WordWrapBox1" y="360.428" width="115.372" length="30" anchorX="0.0888509" anchorY="7.99361e-16" alignment="baseline" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="TOTAL"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage7" width="max" length="15" alignment="near" bgColor="#dadada">
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage10" width="min" length="min" layoutDirection="leftToRight">
+                                <rtl:input-variable name="p_reporte.descripcion" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_reporte.descripcion Value" width="width(&quot;M&quot;)*20" floatingBehavior="enclosed" text="{{p_reporte.descripcion}}"/>
+                                <rtl:input-variable name="p_reporte.cantidad" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_reporte.cantidad Value" y="373.459" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_reporte.cantidad}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage9" width="112.809" length="659.749" alignment="near" layoutDirection="leftToRight">
+                        <WORDWRAPBOX name="WordWrapBox2_1" width="116.123" length="23.2247" alignment="far" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="TOTAL GENERAL"/>
+                        <rtl:input-variable name="v_total_general_reporte.total_general" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_general_reporte.total_general Value" x="98.8141" y="373.459" width="76.5056" length="20.7753" anchorX="0.5" anchorY="0" alignment="far" floatingBehavior="enclosed" textAlignment="left" format="----------#" value="{{v_total_general_reporte.total_general}}"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/DISL56.rdd" RWFglReportName="rep_bitacora"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" class="r" width="max" length="532.79" alignment="near">
+                    <LAYOUTNODE name="Page Header" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="Logo" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="logo_infonavit.gif" intendedResolution="96"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="Linea Roja" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Primer_renglon" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Titulo Reporte" x="8.5668" y="max*0.5409" width="min" anchorX="0.571121" anchorY="0.49246" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Consulta Archivos Integrados" localizeText="false"/>
+                                <WORDBOX name="Usuario" x="8.5668" y="20.1589" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Usuario"/>
+                                <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="g_usuario Value" class="grwStringValue" x="0.948606" y="42.298" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                                <rtl:input-variable name="v_fecha_actual" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_actual Value" class="grwStringValue" x="0.948606" y="637.461" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_fecha_actual}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="Linea" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Segundo renglon" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode12" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Folio" x="8.5668" y="25.4089" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio"/>
+                                <WORDBOX name="Fecha Inicio" x="8.5668" y="175.595" anchorX="0.606928" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha Carga Inicial"/>
+                                <WORDBOX name="Fecha Final" x="8.5668" y="391.984" anchorX="0.606958" anchorY="0.490988" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha Carga Final"/>
+                                <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_folio Value" class="grwNumericValue" x="1.053" y="81.4816" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,--&amp;.&amp;&amp;" value="{{v_folio}}"/>
+                                <rtl:input-variable name="v_f_ini_carga" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_ini_carga Value" class="grwStringValue" x="1.053" y="225.39" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_f_ini_carga}}"/>
+                                <rtl:input-variable name="v_f_ini_carga" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_ini_carga Value1" class="grwStringValue" x="1.053" y="441.737" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_f_ini_carga}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="Tercer_renglon" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode3_1_1_1" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Page Footer" width="min" length="min" alignment="near" port="anyPageFooter" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="Linea Roja Pie2_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <WORDBOX name="WordBox15_1_1_2_1" x="40.8389" y="15.9003" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                        <PAGENOBOX name="PageNoBox2" x="705.155" y="15.9003" width="11.0225" length="10.7528" anchorX="0.5" anchorY="0.5" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <rtl:match name="Group v_tp_rep" nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:input-variable name="v_tp_rep" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                        <MINIPAGE name="Encabezado Int" rtl:condition="v_tp_rep==1" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="E2" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Registros Int" x="7.008" y="238.591" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Registros Integrados"/>
+                                <WORDBOX name="Folio det" x="7.008" y="106.717" width="min" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio"/>
+                                <WORDBOX name="fecha" x="7.008" y="22.6014" anchorX="0.5" anchorY="0.513158" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha"/>
+                                <WORDBOX name="AIVS" x="6.8867" y="384.31" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Importe AIVS"/>
+                                <WORDBOX name="AIVS1" x="6.772" y="492.737" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Importe Pesos "/>
+                                <LAYOUTNODE name="Linea enc 2" x="13" width="1.2" length="max" alignment="far" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <rtl:input-variable name="v_tp_rep" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                        <MINIPAGE name="Encabezado Dup" rtl:condition="v_tp_rep==2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="E3" width="15.258" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Registros Int1" x="8.508" y="237.091" width="92.232" length="14.508" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Registros Duplicados"/>
+                                <WORDBOX name="Folio det1" x="7.758" y="106.717" width="min" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio"/>
+                                <WORDBOX name="fecha1" x="7.758" y="22.6014" anchorX="0.5" anchorY="0.513158" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha"/>
+                                <WORDBOX name="AIVS2" x="7.6367" y="383.56" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Importe AIVS"/>
+                                <WORDBOX name="AIVS3" x="8.272" y="492.737" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Importe Pesos "/>
+                                <LAYOUTNODE name="Linea enc 2_1_1" width="1.2" length="max" alignment="far" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="v_tp_rep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <LAYOUTNODE name="Integrados" rtl:condition="v_tp_rep==1" width="14" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_int_dup.fecha_carga" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_int_dup.fecha_carga Value" class="grwStringValue" x="-0.229" y="3.54511" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_arr_int_dup.fecha_carga}}"/>
+                                <rtl:input-variable name="v_arr_int_dup.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_int_dup.folio Value" class="grwNumericValue" x="0.204006" y="172.163" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="---------&amp;" value="{{v_arr_int_dup.folio}}"/>
+                                <rtl:input-variable name="v_arr_int_dup.tot_reg" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_int_dup.tot_reg Value" class="grwNumericValue" x="0.206" y="292.029" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_arr_int_dup.tot_reg}}"/>
+                                <rtl:input-variable name="v_arr_int_dup.aivs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_int_dup.aivs Value" class="grwNumericValue" x="0.206006" y="416.59" width="86" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{v_arr_int_dup.aivs}}"/>
+                                <rtl:input-variable name="v_arr_int_dup.pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_int_dup.pesos Value" class="grwNumericValue" x="0.206006" y="528.463" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_int_dup.pesos}}"/>
+                            </LAYOUTNODE>
+                            <rtl:input-variable name="v_tp_rep" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <MINIPAGE name="Duplicados" rtl:condition="v_tp_rep==2" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_arr_int_dup.fecha_carga" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_int_dup.fecha_carga Value1" class="grwStringValue" x="1.255" y="3.54511" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_arr_int_dup.fecha_carga}}"/>
+                                <rtl:input-variable name="v_arr_int_dup.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_int_dup.folio Value1" class="grwNumericValue" x="1.168" y="172.163" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="---------&amp;" value="{{v_arr_int_dup.folio}}"/>
+                                <rtl:input-variable name="v_arr_int_dup.tot_reg" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_int_dup.tot_reg Value1" class="grwNumericValue" x="1.255" y="292.108" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_arr_int_dup.tot_reg}}"/>
+                                <rtl:input-variable name="v_arr_int_dup.aivs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_int_dup.aivs Value1" class="grwNumericValue" x="1.16801" y="416.59" width="86" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" value="{{v_arr_int_dup.aivs}}"/>
+                                <rtl:input-variable name="v_arr_int_dup.pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_int_dup.pesos Value1" class="grwNumericValue" x="1.269" y="528.501" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_int_dup.pesos}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

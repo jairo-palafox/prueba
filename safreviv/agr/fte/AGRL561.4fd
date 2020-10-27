@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<Form name="AGRL561.tmp" build="2.32.03-1878.10" text="Form" width="127" height="7">
+  <LStr text="Form"/>
+  <Group name="group1" text="Actualización ">
+    <LStr text="Actualización "/>
+    <Table pageSize="5" name="table1" tabName="r_marca">
+      <TableColumn name="formonly.edit1" colName="edit1" fieldId="0" sqlTabName="formonly" tabIndex="1" text="NSS" noEntry="1">
+        <Edit width="14"/>
+        <LStr text="NSS"/>
+      </TableColumn>
+      <TableColumn name="formonly.edit2" colName="edit2" fieldId="1" sqlTabName="formonly" tabIndex="2" text="Número de Crédito" noEntry="1">
+        <Edit width="14"/>
+        <LStr text="Número de Crédito"/>
+      </TableColumn>
+      <TableColumn name="formonly.edit3" colName="edit3" fieldId="2" sqlTabName="formonly" tabIndex="3" text="Tipo de Crédito" noEntry="1">
+        <Edit width="14"/>
+        <LStr text="Tipo de Crédito"/>
+      </TableColumn>
+      <TableColumn name="formonly.edit4" colName="edit4" fieldId="3" sqlTabName="formonly" tabIndex="4" text="Estado" noEntry="1">
+        <Edit width="8"/>
+        <LStr text="Estado"/>
+      </TableColumn>
+      <TableColumn name="formonly.edit5" colName="edit5" fieldId="4" sqlTabName="formonly" tabIndex="5" text="Estado Procesar" noEntry="1">
+        <Edit width="12"/>
+        <LStr text="Estado Procesar"/>
+      </TableColumn>
+      <TableColumn name="formonly.edit6" colName="edit6" fieldId="5" sqlTabName="formonly" tabIndex="6" text="Marca" noEntry="1">
+        <Edit width="8"/>
+        <LStr text="Marca"/>
+      </TableColumn>
+      <TableColumn name="formonly.edit7" colName="edit7" fieldId="6" sqlTabName="formonly" tabIndex="8" text="Situación " noEntry="1" hidden="1">
+        <Edit width="8"/>
+        <LStr text="Situación "/>
+      </TableColumn>
+      <TableColumn name="formonly.edit8" colName="edit8" fieldId="7" sqlTabName="formonly" tabIndex="9" text="Tipo" noEntry="1" hidden="1">
+        <Edit width="11"/>
+        <LStr text="Tipo"/>
+      </TableColumn>
+      <TableColumn name="formonly.liq_deudor" colName="liq_deudor" fieldId="8" sqlTabName="formonly" tabIndex="10" text="Liq Deudor" noEntry="1" hidden="1">
+        <Edit width="8"/>
+        <LStr text="Liq Deudor"/>
+      </TableColumn>
+      <TableColumn name="formonly.edit9" colName="edit9" fieldId="9" sqlTabName="formonly" tabIndex="11" text="Interna proce" noEntry="1" hidden="1">
+        <Edit width="8"/>
+        <LStr text="Interna proce"/>
+      </TableColumn>
+      <TableColumn name="formonly.checkbox" colName="checkbox" fieldId="10" sqlTabName="formonly" tabIndex="7" text="Verificación">
+        <CheckBox width="10" text="" justify="center">
+          <LStr text=""/>
+        </CheckBox>
+        <LStr text="Verificación"/>
+      </TableColumn>
+    </Table>
+  </Group>
+  <RecordView tabName="formonly">
+    <Link colName="edit1" fieldIdRef="0"/>
+    <Link colName="edit2" fieldIdRef="1"/>
+    <Link colName="edit3" fieldIdRef="2"/>
+    <Link colName="edit4" fieldIdRef="3"/>
+    <Link colName="edit5" fieldIdRef="4"/>
+    <Link colName="edit6" fieldIdRef="5"/>
+    <Link colName="edit7" fieldIdRef="6"/>
+    <Link colName="edit8" fieldIdRef="7"/>
+    <Link colName="liq_deudor" fieldIdRef="8"/>
+    <Link colName="edit9" fieldIdRef="9"/>
+    <Link colName="checkbox" fieldIdRef="10"/>
+  </RecordView>
+</Form>

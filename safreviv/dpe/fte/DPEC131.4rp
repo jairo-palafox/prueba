@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/DPEC13.rdd" RWFglReportName="rpt_cifras_globales"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="720.993" length="540.318" alignment="center">
+                    <PAGENOBOX name="PageNoBox" y="529.978" width="8.76407" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="Logotipo_institucional" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="separador1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="encabezado_reporte" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox1" x="7.5" y="659.153" width="108.371" anchorX="0.5" anchorY="0.437131" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="{{v_fecha_reporte}}"/>
+                            <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox2" width="131.461" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Usuario: &quot;+p_usuario}}"/>
+                            <WORDBOX name="WordBox" width="57.7859" length="13.9775" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="WordBox2_2" x="1.9775" y="359.618" width="340.743" anchorX="0" anchorY="0.5" alignment="far" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="REPORTE CIFRAS GLOBALES PENDIENTES RESPUESTA PROCESAR"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="separador2_2" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode2_1" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="p_folio_resp_procesar" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox5" width="131.461" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Folio: &quot;+p_folio_resp_procesar}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="separador2" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="separador2_1" width="0.447185" length="720.993" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="separador2_3" width="1.95281" length="720.993" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="separador2_1_1" width="1.2" length="719.487" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="separador2_1_1_1" width="0.447185" length="720.24" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="separador2_1_2" width="0.447185" length="720.993" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="cifras_globales" width="224.765" length="720.526" alignment="near" bgColor="#ffffff" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="lbl_relacionadas" x="4.1685" y="218.381" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="RELACIONADAS"/>
+                        <WORDBOX name="lbl_sin_relacion" x="4.1685" y="516.496" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="SIN RELACION"/>
+                        <WORDBOX name="lbl_regs_rel" x="22.9024" y="170.294" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="REGISTROS"/>
+                        <WORDBOX name="lbl_aivs_rel" x="22.9024" y="309.325" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="AIVS"/>
+                        <WORDBOX name="lbl_aivs_srel" x="22.9024" y="594.649" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="AIVS"/>
+                        <WORDBOX name="lbl_regs_srel" x="22.9024" y="455.618" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="REGISTROS"/>
+                        <WORDBOX name="lbl_aceptados" x="54.3428" y="30.0502" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="TOTAL ACEPTADOS"/>
+                        <WORDBOX name="lbl_rechazados" x="69.1822" y="30.0502" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="TOTAL RECHAZADOS"/>
+                        <WORDBOX name="lbl_pendientes" x="83.4404" y="30.0502" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="TOTAL PENDIENTES"/>
+                        <WORDBOX name="lbl_total" x="101.807" y="30.0502" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="TOTAL"/>
+                        <rtl:input-variable name="p_total_regs_rel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_total_regs_rel Value" x="101.807" y="235.221" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_total_regs_rel}}"/>
+                        <rtl:input-variable name="p_total_aivs_rel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_total_aivs_rel Value" x="101.807" y="358.581" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_total_aivs_rel}}"/>
+                        <rtl:input-variable name="p_total_regs_srel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_total_regs_srel Value" x="101.807" y="516.496" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;" value="{{p_total_regs_srel}}"/>
+                        <rtl:input-variable name="p_total_aivs_srel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_total_aivs_srel Value" x="101.807" y="642.971" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_total_aivs_srel}}"/>
+                        <rtl:input-variable name="p_regs_acep_rel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_regs_acep_rel Value1" x="54.3431" y="235.221" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;" value="{{p_regs_acep_rel}}"/>
+                        <rtl:input-variable name="p_regs_rech_rel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_regs_rech_rel Value" x="69.1821" y="235.221" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;" value="{{p_regs_rech_rel}}"/>
+                        <rtl:input-variable name="p_regs_pend_rel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_regs_pend_rel Value" x="83.4401" y="235.221" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;" value="{{p_regs_pend_rel}}"/>
+                        <rtl:input-variable name="p_aivs_acep_rel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_aivs_acep_rel Value" x="54.3431" y="358.581" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_aivs_acep_rel}}"/>
+                        <rtl:input-variable name="p_aivs_rech_rel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_aivs_rech_rel Value" x="69.1822" y="358.581" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_aivs_rech_rel}}"/>
+                        <rtl:input-variable name="p_aivs_pend_rel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_aivs_pend_rel Value" x="83.4404" y="358.581" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_aivs_pend_rel}}"/>
+                        <rtl:input-variable name="p_regs_acep_srel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_regs_acep_srel Value" x="54.3431" y="516.496" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;" value="{{p_regs_acep_srel}}"/>
+                        <rtl:input-variable name="p_regs_rech_srel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_regs_rech_srel Value" x="69.1821" y="516.496" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;" value="{{p_regs_rech_srel}}"/>
+                        <rtl:input-variable name="p_regs_pend_srel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_regs_pend_srel Value" x="83.4401" y="516.496" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;" value="{{p_regs_pend_srel}}"/>
+                        <rtl:input-variable name="p_aivs_acep_srel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_aivs_acep_srel Value" x="54.3431" y="642.971" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_aivs_acep_srel}}"/>
+                        <rtl:input-variable name="p_aivs_rech_srel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_aivs_rech_srel Value" x="69.1821" y="642.971" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_aivs_rech_srel}}"/>
+                        <rtl:input-variable name="p_aivs_pend_srel" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="p_aivs_pend_srel Value" x="83.4401" y="642.971" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_aivs_pend_srel}}"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

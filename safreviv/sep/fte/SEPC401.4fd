@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{4b097f20-32c0-471d-a1b3-3a38623ec918}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{276e5c87-8f13-4a93-987a-61d250185600}" where="">
+    <RecordField colName="" fieldIdRef="1" name="edi_nss_invadido" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{38a7691c-049e-498b-a9e5-9ff03e782fb2}"/>
+    <RecordField colName="" fieldIdRef="7" name="flbl_total_invadidos" sqlTabName="" table_alias_name="" uid="{e4e2dadc-7920-4b30-9d8c-864364260299}"/>
+    <RecordField colName="" fieldIdRef="12" name="flbl_total_asociados" sqlTabName="" table_alias_name="" uid="{d25718b2-0142-4713-8c5f-1d2011245e1e}"/>
+    <RecordField colName="" fieldIdRef="2" name="edi_nss_asociado" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{bbd9272b-a701-488d-9352-bb71c5de66f5}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_nrp_invadido" order="" uid="{de6204f4-1072-4459-b00f-a15e132f6a43}" where="">
+    <RecordField colName="" fieldIdRef="3" name="tlbl_nrp_invadido" sqlTabName="" table_alias_name="" uid="{35bd487a-274b-48ce-9112-fafdc5914aeb}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_nrp_detalle_invadido" order="" uid="{cdae99b5-0052-4ee8-b41d-1a103cfa15de}" where="">
+    <RecordField colName="" fieldIdRef="4" name="tlbl_folio_invadido" sqlTabName="" table_alias_name="" uid="{43296ea6-dcc0-4bb7-9372-7b2fd0154298}"/>
+    <RecordField colName="" fieldIdRef="5" name="tlbl_fecha_proceso_invadido" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{1187de08-a971-4d75-8062-2e0fdcc08d06}"/>
+    <RecordField colName="" fieldIdRef="6" name="tlbl_nrp_invadido_detalle" sqlTabName="" table_alias_name="" uid="{111ed69a-afbf-4a88-8875-f05c327818d1}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_nrp_asociado" order="" uid="{f428299a-b9b1-44cf-8829-a85f6644b0ea}" where="">
+    <RecordField colName="" fieldIdRef="8" name="tlbl_nrp_asociado" sqlTabName="" table_alias_name="" uid="{2c0672c4-f0c2-429e-85e9-348d180c3b93}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_nrp_detalle_asociado" order="" uid="{6d747c27-bfc3-4837-b1be-febee1a3c961}" where="">
+    <RecordField colName="" fieldIdRef="9" name="tlbl_folio_asociado" sqlTabName="" table_alias_name="" uid="{bfd07de2-ddb9-4f21-85ad-b8c92ea14c08}"/>
+    <RecordField colName="" fieldIdRef="10" name="tlbl_fecha_proceso_asociado" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{042d2a12-af99-4635-bb83-79812bf57832}"/>
+    <RecordField colName="" fieldIdRef="11" name="tlbl_nrp_asociado_detalle" sqlTabName="" table_alias_name="" uid="{d998f20a-f277-4215-aa47-7b1f8356dd5a}"/>
+  </Record>
+  <Form gridHeight="36" gridWidth="132" name="frm_consulta_nrp" text="Form">
+    <VBox gridHeight="29" gridWidth="129" name="VBox1" posX="3" posY="1">
+      <Group gridHeight="7" gridWidth="129" name="gpo_captura_nss" posX="0" posY="1" text="Captura">
+        <Grid gridHeight="5" gridWidth="100" name="Grid3" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="8" name="lbl_nss_invadido" posX="2" posY="1" text="Invadido"/>
+          <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="24" name="edi_nss_invadido" posX="11" posY="1" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="46" name="Label1" posX="36" posY="1" text=" "/>
+          <Label gridHeight="1" gridWidth="8" name="lbl_nss_asociado" posX="2" posY="3" text="Asociado"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="24" name="edi_nss_asociado" posX="11" posY="3" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="46" name="Label2" posX="36" posY="3" text=" "/>
+        </Grid>
+      </Group>
+      <HBox gridHeight="20" gridWidth="129" name="HBox1" posX="0" posY="8">
+        <Group gridHeight="20" gridWidth="63" name="gpo_nrp_invadido" posX="2" posY="0" text="NRP´S Invadido">
+          <Grid gridHeight="17" gridWidth="58" name="Grid1" posX="1" posY="1">
+            <Table gridHeight="6" gridWidth="50" name="tbl_nrp_invadido" posX="2" posY="1" totalRows="5">
+              <FFLabel colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="30" name="tlbl_nrp_invadido" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Invadidos" widget="FFLabel"/>
+            </Table>
+            <Table gridHeight="6" gridWidth="50" name="Table1" posX="2" posY="8" totalRows="5">
+              <FFLabel colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" name="tlbl_folio_invadido" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Folio" widget="FFLabel"/>
+              <FFLabel colName="" columnCount="" fieldId="5" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" name="tlbl_fecha_proceso_invadido" posX="11" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" table_alias_name="" title="Fecha Proceso" widget="FFLabel"/>
+              <FFLabel colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="18" name="tlbl_nrp_invadido_detalle" posX="26" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="NRP" widget="FFLabel"/>
+            </Table>
+            <FFLabel colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="7" name="flbl_total_invadidos" posX="2" posY="15" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+            <Label gridHeight="1" gridWidth="10" name="lbl_total_invadidos" posX="10" posY="15" text="Total"/>
+          </Grid>
+        </Group>
+        <Group gridHeight="20" gridWidth="62" name="gpo_nrp_asociado" posX="65" posY="0" text="NRP´S Asociado">
+          <Grid gridHeight="17" gridWidth="57" name="Grid2" posX="1" posY="1">
+            <Table gridHeight="6" gridWidth="50" name="Table2" posX="2" posY="1" totalRows="5">
+              <FFLabel colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="30" name="tlbl_nrp_asociado" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Asociados" widget="FFLabel"/>
+            </Table>
+            <Table gridHeight="6" gridWidth="50" name="Table3" posX="2" posY="8" totalRows="5">
+              <FFLabel colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="11" justify="left" name="tlbl_folio_asociado" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Folio" widget="FFLabel"/>
+              <FFLabel colName="" columnCount="" fieldId="10" format="dd-mmyyyy" gridHeight="1" gridWidth="15" name="tlbl_fecha_proceso_asociado" posX="11" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" table_alias_name="" title="Fecha Proceso" widget="FFLabel"/>
+              <FFLabel colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="18" name="tlbl_nrp_asociado_detalle" posX="26" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="NRP" widget="FFLabel"/>
+            </Table>
+            <FFLabel colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="7" name="flbl_total_asociados" posX="2" posY="15" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+            <Label gridHeight="1" gridWidth="10" name="lbl_total_asociados" posX="10" posY="15" text="Total"/>
+          </Grid>
+        </Group>
+      </HBox>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA2AGQANwA0ADcAYwAyADcALQBiAGYAYwAzAC0ANAA4ADMANwAtAGIAMQBiAGUALQBmAGUAYgBlAGUAMQBhADMAYwA5ADYAMQB9QH8wAAAAAABAIAAAAAAAAD+MrAgxJul8AQAAAEwAewBmADQAMgA4ADIAOQA5AGEALQBiADkAYgAxAC0ANAA0AGMAZgAtADgAOAAyADkALQBhADgANQBmADYANgA0ADQAYgAwAGUAYQB9QHPQAAAAAABAIAAAAAAAAD+EeuFHrhR8AQAAAEwAewBiAGYAZAAwADcAZABlADIALQBkAGQAYgA5AC0ANABmADIAMQAtADgANQBhAGQALQBiADgAYwA5ADIAZQBhADEANABjADAAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADQAZQAyAGQAYQBkAGMALQA3ADkAMgAwAC0ANABiADMAMAAtADkAZAA4AGMALQA4ADYANAAzADYANAAyADYAMAAyADkAOQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADMAMgA5ADYAZQBhADYALQBkAGMAYwAwAC0ANABiAGIANwAtADkAMwA3ADIALQA3AGIAMgBmAGQAMAAxADUANAAyADkAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUAYgBkADQAOAA3AGEALQAyADcANABiAC0ANAA4AGMAZQAtADkAMQAxADIALQBmAGEAZgBkAGMANQA5ADEANABhAGUAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADQAMgBkADIAYQAxADIALQBhAGYAOQA5AC0ANAA2ADMANQAtAGIAYgA4ADMALQA3ADkAOAAxADIAYgBmADUANwA4ADMAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGUANgAyADAANABmADQALQAxADAANwAyAC0ANAA0ADUAOQAtAGIAMAAwAGYALQBhADEANQBlADEAMwAyAGYANgBhADQAMwB9wEuAAAAAAADAAAAAAAAAAD+CbpeNT988AQAAAEwAewBkADkAOQA4AGYAMgAwAGEALQBmADIANwA3AC0ANAAyADEANQAtAGEAYQA0ADcALQA3AGIAMQBmADgAMwA1ADYAZABkADUAYQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGIAZAA5ADIANwAyAGIALQBhADcAMAAxAC0ANAA4ADgAZAAtADkAMwA1ADIALQBiAGIANwAxAGMANQBkAGUANgA2AGYANQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAyADcANgBlADUAYwA4ADcALQA4AGYAMQAzAC0ANABhADkAMwAtADkAOAA3AGEALQA2ADEAZAAyADUAMAAxADgANQA2ADAAMAB9wFWAAAAAAADAZAAAAAAAAD90euFHrhR7AQAAAEwAewBkADIANQA3ADEAOABiADIALQAwADEANAAyAC0ANAA3ADEAMwAtADgAYwA1AGYALQAxAGQAMgAwADEAMQAyADQANQBlADEAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGQAYQBlADkAOQBiADUALQAwADAANQAyAC0ANABlAGUAOAAtAGIANAAxAGQALQAxAGEAMQAwADMAYwBmAGEAMQA1AGQAZQB9QFvAAAAAAAA/8AAAAAAAAD+Ik3S8an78AQAAAEwAewAxADEAMQBlAGQANgA5AGEALQBhAGYAYgBmAC0ANABhADgAOAAtADgAOAA3ADUALQBmADAANQBjADMAMgA3ADgAMQA4AGQAMQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADgAYQA3ADYAOQAxAGMALQAwADQAOQBlAC0ANAA5ADgAYgAtAGEAOQBlADUALQA5AGYAZgAwADMAZQA3ADgAMgBmAGIAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADEAOAA3AGQAZQAwADgALQBhADkANwAxAC0ANABkADcANQAtADgAMAA2ADIALQAyAGUAMABmAGQAYwBjADAAOABkADAANgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGMAMAA2ADcAMgBjADQALQBmADAAYwAyAC0ANAAyADkAZQAtADgANQBlADkALQAzADQAOABkADEAOAAwAGMAMwBiADkAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

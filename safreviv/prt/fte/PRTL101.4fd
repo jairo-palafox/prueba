@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{a4262987-1234-4b76-b7dd-d34a30857c0b}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_traspasos" order="" uid="{2f334c12-ce02-4108-a07c-e705abb8c660}" where="">
+    <RecordField colName="" fieldIdRef="1" name="tpo_operacion" sqlTabName="" table_alias_name="" uid="{1267aad9-de15-46c9-bb20-f9748040fac5}"/>
+    <RecordField colName="" fieldIdRef="2" name="mto_aivs_afore" sqlTabName="" table_alias_name="" uid="{af8b93e7-6504-4ed3-89ea-bf278b7d15ca}"/>
+    <RecordField colName="" fieldIdRef="3" name="mto_pesos_afore" sqlTabName="" table_alias_name="" uid="{bc8978b1-cc5e-4ad3-ae2f-a5c7c02429dc}"/>
+    <RecordField colName="" fieldIdRef="6" name="mto_aivs_inf_reca" sqlTabName="" table_alias_name="" uid="{d44facf3-ee87-4539-8a18-eec0b7fa8a44}"/>
+    <RecordField colName="" fieldIdRef="7" name="mto_pesos_inf_reca" sqlTabName="" table_alias_name="" uid="{8dc638cb-224f-4d92-b7a6-bc23256124eb}"/>
+    <RecordField colName="" fieldIdRef="4" name="mto_aivs_cedido" sqlTabName="" table_alias_name="" uid="{60017d77-b2f0-4c42-9a7c-9484d9df0eff}"/>
+    <RecordField colName="" fieldIdRef="5" name="mto_pesos_cedido" sqlTabName="" table_alias_name="" uid="{bbaa5339-ec31-4f82-8165-3afe410a769d}"/>
+  </Record>
+  <Form gridHeight="19" gridWidth="175" name="Form" text="Form">
+    <Grid gridHeight="17" gridWidth="173" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="15" gridWidth="168" name="gpo_traspasos_preliquidar" posX="2" posY="1" text="Traspasos">
+        <Table gridHeight="11" gridWidth="163" name="Table1" posX="2" posY="2" totalRows="10">
+          <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="40" name="tpo_operacion" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Tipo operación" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="18" justify="right" name="mto_aivs_afore" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Aivs Afore" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="18" justify="right" name="mto_pesos_afore" posX="58" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Pesos Afore" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="18" justify="right" name="mto_aivs_inf_reca" posX="76" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Aivs Infonavit" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" justify="right" name="mto_pesos_inf_reca" posX="94" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Pesos Infonavit" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="18" justify="right" name="mto_aivs_cedido" posX="114" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Aivs Cedido" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="18" justify="right" name="mto_pesos_cedido" posX="132" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Pesos Cedido" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxADIANgA3AGEAYQBkADkALQBkAGUAMQA1AC0ANAA2AGMAOQAtAGIAYgAyADAALQBmADkANwA0ADgAMAA0ADAAZgBhAGMANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGYAOABiADkAMwBlADcALQA2ADUAMAA0AC0ANABlAGQAMwAtADgAOQBlAGEALQBiAGYAMgA3ADgAYgA3AGQAMQA1AGMAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADAAMAAxADcAZAA3ADcALQBiADIAZgAwAC0ANABjADQAMgAtADkAYQA3AGMALQA5ADQAOAA0AGQAOQBkAGYAMABlAGYAZgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQANABmAGEAYwBmADMALQBlAGUAOAA3AC0ANAA1ADMAOQAtADgAYQAxADgALQBlAGUAYwAwAGIANwBmAGEAOABhADQANAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGIAYQBhADUAMwAzADkALQBlAGMAMwAxAC0ANABmADgAMgAtADgAMQA2ADUALQAzAGEAZgBlADQAMQAwAGEANwA2ADkAZAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGMAOAA5ADcAOABiADEALQBjAGMANQBlAC0ANABhAGQAMwAtAGEAZQAyAGYALQBhADUAYwA3AGMAMAAyADQAMgA5AGQAYwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGYAMwAzADQAYwAxADIALQBjAGUAMAAyAC0ANAAxADAAOAAtAGEAMAA3AGMALQBlADcAMAA1AGEAYgBiADgAYwA2ADYAMAB9AAAAAAAAAAAAAAAAAAAAAD9ok3S8an76AQAAAEwAewA4AGQAYwA2ADMAOABjAGIALQAyADIANABmAC0ANABkADkAMgAtAGIANwBhADYALQBiAGMAMgAzADIANQA2ADEAMgA0AGUAYgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

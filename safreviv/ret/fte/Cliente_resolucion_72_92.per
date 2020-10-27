@@ -1,0 +1,80 @@
+--
+-- FOURJS_START_COPYRIGHT(U,2000)
+-- Property of Four Js*
+-- (c) Copyright Four Js 2000, 2011. All Rights Reserved.
+-- * Trademark of Four Js Development Tools Europe Ltd
+--   in the United States and elsewhere
+-- 
+-- Four Js and its suppliers do not warrant or guarantee that these samples
+-- are accurate and suitable for your purposes. Their inclusion is purely 
+-- for information purposes only.
+-- FOURJS_END_COPYRIGHT
+--
+
+SCHEMA FORMONLY
+ACTION DEFAULTS
+   ACTION plus ( ACCELERATOR=F1 )
+END
+
+LAYOUT
+  GROUP (TEXT="Resolucion Adai cliente DEMO")
+    VBOX
+      HBOX   
+        VBOX
+          GRID
+          {
+                          NSS:   [op1               ]
+               Causal de Adai:   [op2               ]
+                autoriza_pago:   [cb3               ]
+               
+ 
+                       Status:   [wsstatus          ]
+                          NSS:   [r_nss             ]
+             Respuesta operac:   [r_res_op          ]
+                      Rechazo:   [r_cod_rechazo     ]
+          }
+          END
+        END -- vbox
+        VBOX
+          GRID
+          {
+           [bt1 ]
+          }
+          END
+        END -- vbox
+      END -- hbox
+      HBOX
+        GRID
+        {
+          [msg                  ]
+        }
+        END -- group
+      END --hbox
+      HBOX
+        GRID
+        {
+          [msg1                  ]
+        }
+        END -- group
+      END --hbox
+    END --vbox
+  END -- group
+END  -- layout
+
+
+ATTRIBUTES
+EDIT op1=formonly.op1;
+EDIT op2=formonly.op2;
+COMBOBOX cb3= formonly.cb3 , ITEMS=((1,"APROBADO"),(0,"RECHAZADO")), NOT NULL ;
+
+EDIT wsstatus=formonly.wsstatus, COLOR =GREEN ;
+EDIT r_nss= formonly.r_nss;
+EDIT r_res_op =formonly.r_res_op;
+EDIT r_cod_rechazo=formonly.r_cod_rechazo, COLOR = RED;
+
+BUTTON bt1 : plus, TEXT="Enviar",COMMENT="Se ocupa servicio";
+TEXTEDIT msg=formonly.msg, NOENTRY, STRETCH=BOTH,SCROLLBARS=NONE,TITLE="Error description";
+TEXTEDIT msg1=formonly.msg1, NOENTRY, STRETCH=BOTH,SCROLLBARS=NONE,TITLE="Error description";
+END
+
+

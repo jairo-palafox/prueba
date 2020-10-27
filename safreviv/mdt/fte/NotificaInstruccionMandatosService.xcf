@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<?fjsApplicationServerConfiguration Version="2.32"?>
+<CONFIGURATION
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.4js.com/ns/gas/2.32/cfas.xsd">
+  <APPLICATION_SERVER>
+    <!--The resource list contains the resources that can be used throughout the definition of the applications and components.-->
+    <RESOURCE_LIST>
+      <PLATFORM_INDEPENDENT>
+        <RESOURCE Id="res.fglgui" Source="INTERNAL">1</RESOURCE>
+
+        <!-- Directories  -->
+        <RESOURCE Id="res.path.tpl" Source="INTERNAL">$(res.path.as)/tpl</RESOURCE>
+        <RESOURCE Id="res.path.app" Source="INTERNAL">$(res.path.as)/app</RESOURCE>
+        <RESOURCE Id="res.path.services" Source="INTERNAL">$(res.path.as)/services</RESOURCE>
+        <RESOURCE Id="res.path.docroot" Source="INTERNAL">$(res.path.as)/web</RESOURCE>
+        <RESOURCE Id="res.path.tmp" Source="INTERNAL">$(res.path.as)/tmp</RESOURCE>
+        <RESOURCE Id="res.path.tpl.common" Source="INTERNAL">/ds/safreviv/demonio.dir/common</RESOURCE>
+
+        <RESOURCE Id="res.gwcproxy.param" Source="INTERNAL"></RESOURCE>
+        
+        <!-- TCP port-related resources of the connector interface -->
+        <RESOURCE Id="res.ic.base.port" Source="INTERNAL">6000</RESOURCE>
+        <RESOURCE Id="res.ic.port.offset" Source="INTERNAL">102</RESOURCE>
+
+        <!-- Default log resources -->
+        <RESOURCE Id="res.log.output.type" Source="INTERNAL">DAILYFILE</RESOURCE>
+        <RESOURCE Id="res.log.format" Source="INTERNAL">time event-type event-params</RESOURCE>
+        <RESOURCE Id="res.log.categories_filter" Source="INTERNAL">GAS ACCESS PROCESS DEPRECATED ERROR WARNING</RESOURCE>
+        <RESOURCE Id="res.log.raw_data.maxlength" Source="INTERNAL">-1</RESOURCE>
+      </PLATFORM_INDEPENDENT>
+      <WNT>
+        <RESOURCE Id="res.dvm.wa" Source="INTERNAL">"$(res.fgldir)\bin\fglrun.exe"</RESOURCE>
+        <RESOURCE Id="res.fgldir" Source="INTERNAL">/opt/fourjs/2.32/fgl</RESOURCE>
+        <RESOURCE Id="res.path" Source="INTERNAL">$(res.path.as)\bin;$(res.fgldir)\bin;$(res.fgldir)\lib</RESOURCE>
+        <RESOURCE Id="res.fglldpath" Source="INTERNAL">$(res.path.as)\lib;$(res.fgldir)\lib</RESOURCE>
+        <RESOURCE Id="res.path.as" Source="INTERNAL">/opt/fourjs/2.32/gas</RESOURCE>
+        <RESOURCE Id="res.gwsproxy" Source="INTERNAL">"$(res.path.as)\bin\gwsproxy.exe"</RESOURCE>
+        <RESOURCE Id="res.gdcproxy" Source="INTERNAL">"$(res.path.as)\bin\gdcproxy.exe"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy" Source="INTERNAL">"$(res.path.as)\bin\gwcproxy.exe" $(res.gwcproxy.param)</RESOURCE>
+      </WNT>
+      <UNX>
+        
+        <RESOURCE Id="res.path" Source="INTERNAL">$(res.path.as)/bin:$(res.fgldir)/bin:/usr/bin:/bin:$(res.fgldir)/dbdrivers:/opt/fourjs/2.32/gre/lib:$(res.path.as)/lib:/opt/informix/bin:/opt/informix/lib:/opt/informix/lib/esql:/opt/informix/lib/tools</RESOURCE>
+        <RESOURCE Id="res.fglldpath" Source="INTERNAL">$(res.path.as)/lib:$(res.fgldir)/lib:/opt/fourjs/2.32/gre/lib:$(res.path.as)/lib::/opt/informix:/opt/informix/lib:/opt/informix/lib/esql:/opt/informix/lib/tools:/ds/safreviv/glo/bin</RESOURCE>
+        <RESOURCE Id="res.ldlibrarypath" Source="INTERNAL">$(res.fgldir)/lib:$(res.fgldir)/bin:$(res.fgldir)/dbdrivers:/opt/fourjs/2.32/gre/lib:$(res.path.as)/lib::/opt/informix:/opt/informix/lib:/opt/informix/lib/esql:/opt/informix/lib/tools</RESOURCE>
+        
+        <RESOURCE Id="res.dvm.wa" Source="INTERNAL">"$(res.fgldir)/bin/fglrun"</RESOURCE>
+        <RESOURCE Id="res.fgldir" Source="INTERNAL">/opt/fourjs/2.32/fgl</RESOURCE>
+        <RESOURCE Id="res.path.as" Source="INTERNAL">/opt/fourjs/2.32/gas</RESOURCE>
+        <RESOURCE Id="res.gwsproxy" Source="INTERNAL">"$(res.path.as)/bin/gwsproxy"</RESOURCE>
+        <RESOURCE Id="res.gdcproxy" Source="INTERNAL">"$(res.path.as)/bin/gdcproxy"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy" Source="INTERNAL">"$(res.path.as)/bin/gwcproxy" $(res.gwcproxy.param)</RESOURCE>
+      </UNX>
+    </RESOURCE_LIST>
+    <!--The component list contains new items, known as component, that will be used later by applications. Components can be seen - in some ways - as macro definition. -->
+    <COMPONENT_LIST>
+
+      <SERVICE_APPLICATION_EXECUTION_COMPONENT Id="cpn.ws.execution.local">
+        <ENVIRONMENT_VARIABLE Id="FGLDIR">$(res.fgldir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="PATH">$(res.path)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLLDPATH">$(res.fglldpath)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="LD_LIBRARY_PATH">$(res.ldlibrarypath)</ENVIRONMENT_VARIABLE>
+        <!--To enable Web Services debug, set FGLWSDEBUG to 1, 2 or 3. -->
+        <ENVIRONMENT_VARIABLE Id="FGLWSDEBUG">0</ENVIRONMENT_VARIABLE>
+        <DVM>$(res.dvm.wa)</DVM>
+        <POOL>
+          <START>0</START>
+          <MIN_AVAILABLE>0</MIN_AVAILABLE>
+          <MAX_AVAILABLE>1</MAX_AVAILABLE>
+        </POOL>
+      </SERVICE_APPLICATION_EXECUTION_COMPONENT>
+
+      <!--Timeout component for WS applications -->
+      <SERVICE_APPLICATION_TIMEOUT_COMPONENT Id="cpn.ws.timeout">
+        <DVM_AVAILABLE>10</DVM_AVAILABLE>
+        <KEEP_ALIVE>3600</KEEP_ALIVE>
+      </SERVICE_APPLICATION_TIMEOUT_COMPONENT>
+
+    </COMPONENT_LIST>
+
+    <INTERFACE_TO_CONNECTOR>
+      <TCP_BASE_PORT>$(res.ic.base.port)</TCP_BASE_PORT>
+      <TCP_PORT_OFFSET>$(res.ic.port.offset)</TCP_PORT_OFFSET>
+      <LIMIT_REQUEST_SIZE>0</LIMIT_REQUEST_SIZE>
+      <DOCUMENT_ROOT>$(res.path.docroot)</DOCUMENT_ROOT>
+      <TEMPORARY_DIRECTORY>$(res.path.tmp)</TEMPORARY_DIRECTORY>
+    </INTERFACE_TO_CONNECTOR>
+
+    <INTERFACE_TO_DVM>
+      <ADDRESS>127.0.0.1</ADDRESS>
+      <TCP_BASE_PORT>6420</TCP_BASE_PORT>
+      <TCP_PORT_RANGE>10000</TCP_PORT_RANGE>
+      <EXCLUDED_PORT>6667</EXCLUDED_PORT>
+      <EXCLUDED_PORT>7200</EXCLUDED_PORT>
+      <EXCLUDED_PORT>8080</EXCLUDED_PORT>
+      <EXCLUDED_PORT>8081</EXCLUDED_PORT>
+      <EXCLUDED_PORT>9359</EXCLUDED_PORT>
+      <EXCLUDED_PORT>9535</EXCLUDED_PORT>
+      <EXCLUDED_PORT>10080</EXCLUDED_PORT>
+      <EXCLUDED_PORT>10081</EXCLUDED_PORT>
+      <EXCLUDED_PORT>10082</EXCLUDED_PORT>
+      <EXCLUDED_PORT>10083</EXCLUDED_PORT>
+    </INTERFACE_TO_DVM>
+
+    <LOG>
+      <OUTPUT Type="DAILYFILE">/ds/safreviv/demonio.dir/log/</OUTPUT>
+      <FORMAT Type="TEXT">time event-type event-params</FORMAT>
+      <CATEGORIES_FILTER>GAS ACCESS PROCESS DEPRECATED ERROR WARNING</CATEGORIES_FILTER>      
+    </LOG>  
+    
+    <MONITOR>
+        <ALLOW_FROM>172.</ALLOW_FROM>
+    </MONITOR>
+
+    <FILE_TRANSFER>
+      <TIMEOUT>600</TIMEOUT>
+    </FILE_TRANSFER>
+
+    <AUTHENTICATION Type="KERBEROS">
+      <REALM></REALM>
+      <SERVICE_NAME>gassvc</SERVICE_NAME>
+      <KEYTAB>$(res.path.as)/etc/gwc.keytab</KEYTAB>
+    </AUTHENTICATION>
+
+    <APPLICATION_LIST>
+    </APPLICATION_LIST>
+
+    <SERVICE_LIST>
+      <APPLICATION Id="ws.default" Abstract="TRUE">
+        <PROXY>$(res.gwsproxy)</PROXY>
+        <EXECUTION Using="cpn.ws.execution.local"/>
+        <TIMEOUT Using="cpn.ws.timeout"/>
+      </APPLICATION>
+
+      <APPLICATION Id="NotificaInstruccionMandatosService" Parent="ws.default">
+        <EXECUTION>
+          <PATH>/home/jgaleno/Servidores_Prueba/bin</PATH>
+          <MODULE>MANDATOS.42r</MODULE>
+        </EXECUTION>
+      </APPLICATION>
+
+
+      <GROUP Id="_default">$(res.path.services)</GROUP>
+      <GROUP Id="demo">$(res.path.fgldir.demo.services)</GROUP>
+    </SERVICE_LIST>
+
+  </APPLICATION_SERVER>
+</CONFIGURATION>

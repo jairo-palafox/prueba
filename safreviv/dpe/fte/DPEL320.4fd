@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{e3cb3c50-b330-4f1a-a5d1-8c7d0d7f6b3e}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{bcfc1d49-7ceb-4e2e-a305-2832aa563891}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cmb_folio" sqlTabName="" table_alias_name="" uid="{a0a02654-b251-4ab7-bbc5-4196d88572b1}"/>
+    <RecordField colName="" fieldIdRef="2" name="txt_tot_solicitudes" sqlTabName="" table_alias_name="" uid="{31303278-113a-42a5-b004-d00db80484ef}"/>
+    <RecordField colName="" fieldIdRef="3" name="txt_tot_aporta_reg" sqlTabName="" table_alias_name="" uid="{97cf878d-9092-49d7-87a6-04b2b1985ca0}"/>
+    <RecordField colName="" fieldIdRef="4" name="txt_tot_amorti_reg" sqlTabName="" table_alias_name="" uid="{1f5f8468-45e2-464c-a0c4-eaf0ef6be624}"/>
+    <RecordField colName="" fieldIdRef="5" name="txt_tot_aporta_sol" sqlTabName="" table_alias_name="" uid="{dcd71cbf-65ee-4e06-9487-e18172b98658}"/>
+    <RecordField colName="" fieldIdRef="6" name="txt_tot_amorti_sol" sqlTabName="" table_alias_name="" uid="{353ec326-118a-4017-b3ee-9eb159f8dd99}"/>
+  </Record>
+  <Form gridHeight="22" gridWidth="55" name="Form" text="Preliquidación de devolución de pagos indebidos o en exceso.">
+    <VBox gridHeight="21" gridWidth="53" name="VBox1" posX="1" posY="0">
+      <Group gridHeight="6" gridWidth="53" name="grupo_folio" posX="0" posY="1" text="Generar archivo salida sólo INFONAVIT">
+        <Grid gridHeight="4" gridWidth="46" name="Grid1" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="lbl_folio" posX="2" posY="2" text="Folio Lote :"/>
+          <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="27" items="" name="cmb_folio" posX="18" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="ComboBox"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="13" gridWidth="53" name="grupo_resumen" posX="0" posY="7" text="Resumen Archivo">
+        <Grid gridHeight="11" gridWidth="51" name="Grid2" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="16" name="Label1" posX="1" posY="1" text="Solicitudes:"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="9" name="txt_tot_solicitudes" posX="18" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="16" name="Label2" posX="1" posY="3" text="Aportación registrada:"/>
+          <Edit colName="" columnCount="" fieldId="3" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="txt_tot_aporta_reg" posX="18" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="16" name="Label3" posX="1" posY="5" text="Amortización registrada:"/>
+          <Edit colName="" columnCount="" fieldId="4" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="txt_tot_amorti_reg" posX="18" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="16" name="Label4" posX="1" posY="7" text="Aportación solicitada:"/>
+          <Edit colName="" columnCount="" fieldId="5" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="txt_tot_aporta_sol" posX="18" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="16" name="Label5" posX="1" posY="9" text="Amortización solicitada:"/>
+          <Edit colName="" columnCount="" fieldId="6" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="txt_tot_amorti_sol" posX="18" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Button gridHeight="1" gridWidth="10" name="Generar" posX="40" posY="9" tabIndex="7" text="Generar"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiAGMAZgBjADEAZAA0ADkALQA3AGMAZQBiAC0ANABlADIAZQAtAGEAMwAwADUALQAyADgAMwAyAGEAYQA1ADYAMwA4ADkAMQB9AAAAAAAAAAAAAAAAAAAAAD9gYk3S8an8AQAAAEwAewBhADAAYQAwADIANgA1ADQALQBiADIANQAxAC0ANABhAGIANwAtAGIAYgBjADUALQA0ADEAOQA2AGQAOAA4ADUANwAyAGIAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcAYwBmADgANwA4AGQALQA5ADAAOQAyAC0ANAA5AGQANwAtADgANwBhADYALQAwADQAYgAyAGIAMQA5ADgANQBjAGEAMAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUAMwBlAGMAMwAyADYALQAxADEAOABhAC0ANAAwADEANwAtAGIAMwBlAGUALQA5AGUAYgAxADUAOQBmADgAZABkADkAOQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGMAZAA3ADEAYwBiAGYALQA2ADUAZQBlAC0ANABlADAANgAtADkANAA4ADcALQBlADEAOAAxADcAMgBiADkAOAA2ADUAOAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADEAMwAwADMAMgA3ADgALQAxADEAMwBhAC0ANAAyAGEANQAtAGIAMAAwADQALQBkADAAMABkAGIAOAAwADQAOAA0AGUAZgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGYANQBmADgANAA2ADgALQA0ADUAZQAyAC0ANAA2ADQAYwAtAGEAMABjADQALQBlAGEAZgAwAGUAZgA2AGIAZQA2ADIANAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

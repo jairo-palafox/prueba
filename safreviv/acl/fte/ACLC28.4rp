@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACLC27.rdd" RWFglReportName="rpt_consulta_acl_enaclara"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min">
+                            <IMAGEBOX name="imgLogoInfonavit" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Cifras Control Salida de Aclaratorio (Manual)"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="18.4943" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lbFolio" width="33" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Folio"/>
+                            <WORDBOX name="espacioDatosReporte" width="53.8779" length="10.9662" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text=""/>
+                            <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio Value" width="43.82" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="########&amp;" value="{{v_folio}}"/>
+                            <WORDBOX name="lblUsuario" width="36.0337" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Usuario"/>
+                            <rtl:input-variable name="g_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario_cod Value" width="77.1907" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{g_usuario_cod}}"/>
+                            <WORDBOX name="espacioUsuarioNombre" width="15.4831" length="16.2359" floatingBehavior="enclosed" text=""/>
+                            <rtl:input-variable name="v_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_usuario Value" width="337.563" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nombre_usuario}}"/>
+                            <WORDBOX name="lblFecha" width="48.3147" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha Value" width="67.4042" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosArchivo" width="min" length="max" layoutDirection="leftToRight"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode2" width="min" length="min" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox3" width="705.812" length="16.2359" alignment="baseline" floatingBehavior="enclosed" text=""/>
+                        <PAGENOBOX name="PageNoBox" width="14.5169" fontName="Arial" fontSize="7" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <LAYOUTNODE name="espacioSeccion" width="23.7641" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage" width="min" length="720.116" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_leyenda_registro" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_leyenda_registro Value" width="719.43" floatingBehavior="enclosed" textAlignment="center" text="{{v_leyenda_registro}}"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="espacioLeyendaEncabezado" width="15" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="encabezadoGeneral" width="min" length="719" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <WORDWRAPBOX name="titTpoAclara1" width="101" color="#ffffff" fontName="Arial" fontSize="8" fontBold="false" floatingBehavior="enclosed" text="Tipo de Causal" textAlignment="center"/>
+                            <WORDWRAPBOX name="titNumRegs1" width="101" color="#ffffff" fontName="Arial" fontSize="8" fontBold="false" floatingBehavior="enclosed" text="Núm. Registros" textAlignment="center"/>
+                            <WORDWRAPBOX name="titImpApPat1" width="{103}" color="#ffffff" fontName="Arial" fontSize="8" fontBold="false" floatingBehavior="enclosed" text="Importe Aportación (MXN)"/>
+                            <WORDWRAPBOX name="titAivApPat1" width="{103}" color="#ffffff" fontName="Arial" fontSize="8" fontBold="false" floatingBehavior="enclosed" text="Importe Aportación (AIV's)"/>
+                            <WORDWRAPBOX name="titImpAmCre1" width="{103}" color="#ffffff" fontName="Arial" fontSize="8" fontBold="false" floatingBehavior="enclosed" text="Importe Amortización"/>
+                            <WORDWRAPBOX name="titIntGenPgoExt1" width="{103}" color="#ffffff" fontName="Arial" fontSize="8" fontBold="false" floatingBehavior="enclosed" text="Importe Intereses (MXN)"/>
+                            <WORDWRAPBOX name="titAivGenPgoExt1" width="{103}" color="#ffffff" fontName="Arial" fontSize="8" fontBold="false" floatingBehavior="enclosed" text="Importe Intereses (AIV's)"/>
+                        </MINIPAGE>
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight" borderWidth="0" borderStyle="none">
+                                <rtl:input-variable name="v_r_despliegue.tpo_aclaracion" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_r_despliegue.tpo_aclaracion Value" width="101" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_r_despliegue.tpo_aclaracion}}" textAlignment="center" borderBottomWidth="1" borderLeftWidth="1" borderBottomStyle="solid" borderLeftStyle="solid"/>
+                                <rtl:input-variable name="v_r_despliegue.num_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.num_registros Value" width="101" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" format="----------#" value="{{v_r_despliegue.num_registros}}" borderBottomWidth="1" borderBottomStyle="solid"/>
+                                <rtl:input-variable name="v_r_despliegue.imp_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.imp_ap_pat Value" width="{103}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.imp_ap_pat}}" borderBottomWidth="1" borderBottomStyle="solid"/>
+                                <rtl:input-variable name="v_r_despliegue.aiv_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.aiv_ap_pat Value" width="{103}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.aiv_ap_pat}}" borderBottomWidth="1" borderBottomStyle="solid"/>
+                                <rtl:input-variable name="v_r_despliegue.imp_am_cre" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.imp_am_cre Value" width="{103}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.imp_am_cre}}" borderBottomWidth="1" borderBottomStyle="solid"/>
+                                <rtl:input-variable name="v_r_despliegue.int_gen_pgo_ext" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.int_gen_pgo_ext Value" width="{103}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.int_gen_pgo_ext}}" borderBottomWidth="1" borderBottomStyle="solid"/>
+                                <rtl:input-variable name="v_r_despliegue.aiv_gen_pgo_ext" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.aiv_gen_pgo_ext Value" width="{103}" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.aiv_gen_pgo_ext}}" borderRightWidth="1" borderBottomWidth="1" borderRightStyle="solid" borderBottomStyle="solid"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

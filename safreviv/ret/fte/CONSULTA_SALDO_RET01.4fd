@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{a2e58d2a-9298-4702-8187-67b55d6309c0}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{02cc76b8-314c-438d-b664-cda48b151cda}" where="">
+    <RecordField colName="op1" fieldIdRef="0" name="v_nss" sqlTabName="formonly" table_alias_name="" uid="{8eb7f155-46ee-4c14-8be7-61ed78544a10}"/>
+    <RecordField colName="op3" fieldIdRef="1" name="v_fecha_val" sqlTabName="formonly" table_alias_name="" uid="{9c97678a-9ef2-48fb-aa81-c1df7a46cafb}"/>
+    <RecordField colName="op7" fieldIdRef="5" name="v_imp_pago_fico" sqlTabName="formonly" table_alias_name="" uid="{13a18c83-1a82-4614-b0a9-92e4672e4678}"/>
+    <RecordField colName="r_result" fieldIdRef="8" name="wsstatus" sqlTabName="formonly" table_alias_name="" uid="{b229dd40-1d24-4283-98d0-9fdd296f4344}"/>
+    <RecordField colName="r_remaind" fieldIdRef="10" name="v_codret" sqlTabName="formonly" table_alias_name="" uid="{347eec2e-4ed1-409e-83a6-fd2ff9d0c225}"/>
+    <RecordField colName="" fieldIdRef="14" name="v_grupo" sqlTabName="" table_alias_name="" uid="{e7ab87ba-86da-40f3-a095-37c8400724f1}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_mensaje" sqlTabName="" table_alias_name="" uid="{1583aae2-21bd-4286-a5d8-aedf9988d03c}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_nss_respuesta" sqlTabName="" table_alias_name="" uid="{590052b0-ae35-481e-aba0-6896ef3aaf0d}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_ssv97_trans" sqlTabName="" table_alias_name="" uid="{1fae1d32-f3c0-47fe-8d43-115d14c9589f}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_ssv97_no_trans" sqlTabName="" table_alias_name="" uid="{1ae2f0e3-35c4-4735-8df9-053d13b95bbe}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_aiv_92" sqlTabName="" table_alias_name="" uid="{e7dc8ea2-2406-4743-a20b-a6df4bab61c1}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_aiv_97" sqlTabName="" table_alias_name="" uid="{c5554941-ea49-4e42-a962-52ae24d17cb1}"/>
+    <RecordField colName="" fieldIdRef="11" name="v_pesos_92" sqlTabName="" table_alias_name="" uid="{dcc805a3-eb16-4eb1-bceb-ab552199a03b}"/>
+    <RecordField colName="" fieldIdRef="12" name="v_pesos_97" sqlTabName="" table_alias_name="" uid="{de6521d6-25a5-429d-9e3b-088bf7748471}"/>
+    <RecordField colName="" fieldIdRef="13" name="v_tc" sqlTabName="" table_alias_name="" uid="{0312c040-19ff-4b9e-a884-10f31f8510fc}"/>
+    <RecordField colName="" fieldIdRef="15" name="v_estatus_ssv" sqlTabName="" table_alias_name="" uid="{26559c58-2f17-4ff7-8959-a8cad65b03ba}"/>
+    <RecordField colName="" fieldIdRef="16" name="v_id_pro" sqlTabName="" table_alias_name="" uid="{cbff4513-917b-4c2f-bfec-eb381465d2e8}"/>
+    <RecordField colName="" fieldIdRef="17" name="v_grupo_respuesta" sqlTabName="" table_alias_name="" uid="{bf666af1-f145-4cf8-b4b2-6a50b7e992f0}"/>
+    <RecordField colName="" fieldIdRef="18" name="v_saldo_adic" sqlTabName="" table_alias_name="" uid="{0418bbb7-f664-4a9e-9749-4030eeb3eda4}"/>
+    <RecordField colName="" fieldIdRef="19" name="v_saldo_no_tes" sqlTabName="" table_alias_name="" uid="{0e5d7657-9aaf-432b-9e45-ed92bf11c7cb}"/>
+    <RecordField colName="" fieldIdRef="20" name="v_fecha_tc_resp" sqlTabName="" table_alias_name="" uid="{ea56048d-2bc9-466c-9324-795cc0dd1c46}"/>
+    <RecordField colName="" fieldIdRef="21" name="v_aivs_92" sqlTabName="" table_alias_name="" uid="{44f20f2d-7ee4-4904-94bf-843099ebcfcc}"/>
+    <RecordField colName="" fieldIdRef="22" name="v_aivs_97" sqlTabName="" table_alias_name="" uid="{648fb320-ccda-43e0-9ab5-166dd4c966bf}"/>
+  </Record>
+  <Form gridHeight="68" gridWidth="316" name="client_72-92">
+    <Group gridHeight="33" gridWidth="94" name="GrpDatosSolicitud" posX="0" posY="1" text="Consulta de saldo para Retiros">
+      <Grid gridHeight="31" gridWidth="92" name="Grid1" posX="1" posY="1">
+        <Label gridHeight="1" gridWidth="16" name="Label8" posX="1" posY="0" text="NSS"/>
+        <Edit colName="op1" columnCount="" fieldId="0" gridHeight="1" gridWidth="18" name="v_nss" posX="18" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label1" posX="1" posY="1" text="Grupo"/>
+        <Edit colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="18" name="v_grupo" posX="18" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label6" posX="1" posY="2" text="Fecha valuación"/>
+        <Edit colName="op3" columnCount="" fieldId="1" gridHeight="1" gridWidth="18" name="v_fecha_val" posX="18" posY="2" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="2" table_alias_name="" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label7" posX="1" posY="3" text="Estatus SSV"/>
+        <Edit colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="18" name="v_estatus_ssv" posX="18" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="16" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="lblProceso" posX="1" posY="4" text="ID Proceso"/>
+        <Edit colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="18" name="v_id_pro" posX="18" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="17" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label5" posX="1" posY="5" text="Importe pago FICO"/>
+        <Edit colName="op7" columnCount="" fieldId="5" gridHeight="1" gridWidth="18" name="v_imp_pago_fico" posX="18" posY="5" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="3" table_alias_name="" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="v_aivs_92" posX="1" posY="6" text="AIVs Viv92"/>
+        <Edit colName="" columnCount="" fieldId="21" gridHeight="1" gridWidth="18" name="v_aivs_92" posX="18" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="22" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="16" name="Label22" posX="1" posY="7" text="AIVs Viv97"/>
+        <Edit colName="" columnCount="" fieldId="22" gridHeight="1" gridWidth="18" name="v_aivs_97" posX="18" posY="7" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="23" table_alias_name="" title="Edit2" widget="Edit"/>
+        <HLine gridWidth="88" name="HLine1" posX="1" posY="10"/>
+        <Label gridHeight="1" gridWidth="15" name="Label9" posX="1" posY="11" text="Estatus"/>
+        <Edit colName="r_result" columnCount="" fieldId="8" gridHeight="1" gridWidth="29" name="wsstatus" posX="18" posY="11" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="4" table_alias_name="" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label3" posX="1" posY="12" text="Código Retorno"/>
+        <Edit colName="r_remaind" color="red" columnCount="" fieldId="10" gridHeight="1" gridWidth="29" name="v_codret" posX="18" posY="12" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="5" table_alias_name="" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label2" posX="1" posY="13" text="Mensaje"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="71" name="v_mensaje" posX="18" posY="13" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label4" posX="1" posY="14" text="NSS"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="29" name="v_nss_respuesta" posX="18" posY="14" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label18" posX="1" posY="15" text="Grupo"/>
+        <Edit colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="29" name="v_grupo_respuesta" posX="18" posY="15" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="18" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label19" posX="1" posY="16" text="Saldo Adicional"/>
+        <Edit colName="" columnCount="" fieldId="18" gridHeight="1" gridWidth="29" name="v_saldo_adic" posX="18" posY="16" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="19" table_alias_name="" title="Edit4" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label20" posX="1" posY="17" text="Saldo No Tes"/>
+        <Edit colName="" columnCount="" fieldId="19" gridHeight="1" gridWidth="29" name="v_saldo_no_tes" posX="18" posY="17" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="20" table_alias_name="" title="Edit5" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label11" posX="1" posY="18" text="Saldo Transferido"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="29" name="v_ssv97_trans" posX="18" posY="18" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label12" posX="1" posY="19" text="Saldo no Trasnferido"/>
+        <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="29" name="v_ssv97_no_trans" posX="18" posY="19" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit4" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label13" posX="1" posY="20" text="AIVs 92"/>
+        <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="29" name="v_aiv_92" posX="18" posY="20" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Edit5" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label14" posX="1" posY="21" text="AIVs 97"/>
+        <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="29" name="v_aiv_97" posX="18" posY="21" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Edit6" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label15" posX="1" posY="22" text="Pesos 92"/>
+        <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="29" name="v_pesos_92" posX="18" posY="22" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Edit7" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label16" posX="1" posY="23" text="Pesos 97"/>
+        <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="29" name="v_pesos_97" posX="18" posY="23" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label17" posX="1" posY="24" text="Tipo de Cambio"/>
+        <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="29" name="v_tc" posX="18" posY="24" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Edit9" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label21" posX="1" posY="25" text="Fecha Tipo Cambio"/>
+        <Edit colName="" columnCount="" fieldId="20" gridHeight="1" gridWidth="29" name="v_fecha_tc_resp" posX="18" posY="25" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="21" table_alias_name="" title="Edit3" widget="Edit"/>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxADUAOAAzAGEAYQBlADIALQAyADEAYgBkAC0ANAAyADgANgAtAGEANQBkADgALQBhAGUAZABmADkAOQA4ADgAZAAwADMAYwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGYAYQBlADEAZAAzADIALQBmADMAYwAwAC0ANAA3AGYAZQAtADgAZAA0ADMALQAxADEANQBkADEANABjADkANQA4ADkAZgB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGUANQBkADcANgA1ADcALQA5AGEAYQBmAC0ANAAzADIAYgAtADkAZQA0ADUALQBlAGQAOQAyAGIAZgAxADEAYwA3AGMAYgB9QBQAAAAAAABAfPAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADIAMgA5AGQAZAA0ADAALQAxAGQAMgA0AC0ANAAyADgAMwAtADkAOABkADAALQA5AGYAZABkADIAOQA2AGYANAAzADQANAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEANQA2ADAANAA4AGQALQAyAGIAYwA5AC0ANAA2ADYAYwAtADkAMwAyADQALQA3ADkANQBjAGMAMABkAGQAMQBjADQANgB9QBQAAAAAAABAfmAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGUAYgA3AGYAMQA1ADUALQA0ADYAZQBlAC0ANABjADEANAAtADgAYgBlADcALQA2ADEAZQBkADcAOAA1ADQANABhADEAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADQANwBlAGUAYwAyAGUALQA0AGUAZAAxAC0ANAAwADkAZQAtADgAMwBhADYALQBmAGQAMgBmAGYAOQBkADAAYwAyADIANQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADMAYQAxADgAYwA4ADMALQAxAGEAOAAyAC0ANAA2ADEANAAtAGIAMABhADkALQA5ADIAZQA0ADYANwAyAGUANAA2ADcAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADcAZABjADgAZQBhADIALQAyADQAMAA2AC0ANAA3ADQAMwAtAGEAMgAwAGIALQBh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]]>
+  </DiagramLayout>
+</ManagedForm>

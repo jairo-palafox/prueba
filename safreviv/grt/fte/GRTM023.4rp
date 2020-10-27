@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="27.94cm" RWPageLength="28.00cm" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/GRTM02.rdd" RWFglReportName="reporte_pdf"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="721.837" alignment="baseline">
+                    <LAYOUTNODE name="First Page header" width="min" length="131.5" alignment="near" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" width="114.5" length="77.5984" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            </LAYOUTNODE>
+                            <WORDBOX name="WordBox_title1" x="21.7121" y="120.127" width="199.258" anchorX="0" anchorY="0" color="#ffffff" fontSize="9" fontBold="false" floatingBehavior="enclosed" text="Coordinación General de Recaudación Fiscal"/>
+                            <WORDBOX name="WordBox_title2" x="33.1113" y="120.127" width="279.076" anchorX="0" anchorY="0" color="#ffffff" fontSize="9" fontBold="false" floatingBehavior="enclosed" text="Gerencia Sr. de Administración del Patrimonio Social y Servicios"/>
+                            <WORDBOX name="WordBox88" x="46.0995" y="120.127" anchorX="0" anchorY="0" color="#ffffff" fontSize="9" fontBold="false" floatingBehavior="enclosed" text="Gerencia de Operaciones de la Cuenta INFONAVIT"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="18" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Etiqueta_titulo" x="8.6419" y="277.091" width="569.214" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontSize="9" fontBold="true" fontItalic="false" fidelity="false" floatingBehavior="enclosed" textAlignment="left" text="REPORTE DE USUARIOS DE ENTIDADES FINANCIERAS PARA CONSULTA DE INFORMACIÓN DE DERECHOHABIENTES" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="min" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="18" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Etiqueta_fecha" x="8.5" y="620.895" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontSize="9" fontBold="false" floatingBehavior="enclosed" text="Fecha:  "/>
+                                <WORDBOX name="Etiqueta_usuario" x="2.317" y="2" width="50.4147" alignment="baseline" color="#ffffff" fontSize="9" fontBold="false" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="g_usuario Value" class="grwStringValue" x="1.8249" y="41.2489" width="84.2444" color="#ffffff" fontSize="9" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                                <rtl:input-variable name="v_f_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_proceso Value" class="grwStringValue" x="2.0606" y="650.175" width="65.9549" alignment="center" color="#ffffff" fontSize="9" floatingBehavior="enclosed" text="{{v_f_proceso}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Sumario" width="16.1215" length="max" alignment="far" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="Barra_sumario" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox18_1" x="3.1112" y="2" width="177" anchorX="0" anchorY="0" color="#d7050f" fontName="Arial" fontSize="8" fontBold="false" fontItalic="true" floatingBehavior="enclosed" text="Reporte de usuarios de las entidades financieras"/>
+                            <PAGENOBOX name="PageNoBox" x="3.1112" y="710.704" width="5.65126" length="7.36538" anchorX="0" anchorY="0" fontSize="8" floatingBehavior="enclosed"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="det_usuarios" width="max" length="13.279" alignment="near" bgColor="#d2d2d2">
+                        <WORDBOX name="Etiqueta_EF" x="2" y="1.7619" width="103.909" length="10.9551" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="ENTIDAD FINANCIERA"/>
+                        <WORDBOX name="Etiqueta_rfc" x="141.873" y="1.7619" width="37.4297" length="10.9551" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="RFC"/>
+                        <WORDBOX name="Etiqueta_curp" x="213.719" y="1.7619" width="45.3064" length="10.4247" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="CURP"/>
+                        <WORDBOX name="Etiqueta_nombre" x="311.689" y="1.7619" width="48.4884" length="10.9551" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="NOMBRE"/>
+                        <WORDBOX name="Etiqueta_primer_apellido" x="384.657" y="1.7619" width="79.0039" length="11.4854" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="PRIMER APELLIDO"/>
+                        <WORDBOX name="Etiqueta_segundo_apellido" x="463.473" y="1.7619" width="91.5601" length="10.9551" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="SEGUNDO APELLIDO"/>
+                        <WORDBOX name="Etiqueta_f_registro" x="558.51" y="1.7619" width="25.0159" length="10.9551" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="ALTA"/>
+                        <WORDBOX name="Etiqueta_estado" x="668.694" y="1.7619" width="39.8882" length="10.9551" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="ESTADO"/>
+                        <WORDBOX name="Etiqueta_f_baja" x="614.902" y="1.7619" width="25.0159" length="10.9551" alignment="baseline" color="#ce050f" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="BAJA"/>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage_arreglo_pagos" width="17.8822" length="max" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="g_arr_det_rpt.entidad_financiera" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_det_rpt.entidad_financiera Value" class="grwStringValue" x="3" y="0" width="140.144" alignment="baseline" fontSize="7" floatingBehavior="enclosed" text="{{g_arr_det_rpt.entidad_financiera}}" trimText="left"/>
+                                    <rtl:input-variable name="g_arr_det_rpt.rfc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_det_rpt.rfc Value" class="grwStringValue" x="3" y="141.873" width="69.6064" alignment="near" fontSize="7" floatingBehavior="enclosed" text="{{g_arr_det_rpt.rfc}}"/>
+                                    <rtl:input-variable name="g_arr_det_rpt.curp" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_det_rpt.curp Value" class="grwStringValue" x="3" y="213.719" width="94.8671" fontSize="7" floatingBehavior="enclosed" text="{{g_arr_det_rpt.curp}}"/>
+                                    <rtl:input-variable name="g_arr_det_rpt.nombre" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_det_rpt.nombre Value" class="grwStringValue" x="3" y="311.689" width="69.4662" fontSize="7" floatingBehavior="enclosed" text="{{g_arr_det_rpt.nombre}}" trimText="right"/>
+                                    <rtl:input-variable name="g_arr_det_rpt.primer_apellido" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_det_rpt.primer_apellido Value" class="grwStringValue" x="3" y="383.879" width="77.6874" fontSize="7" floatingBehavior="enclosed" text="{{g_arr_det_rpt.primer_apellido}}" trimText="right"/>
+                                    <rtl:input-variable name="g_arr_det_rpt.segundo_apellido" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_det_rpt.segundo_apellido Value" class="grwStringValue" x="3" y="463.473" width="92.8502" fontSize="7" floatingBehavior="enclosed" text="{{g_arr_det_rpt.segundo_apellido}}" trimText="right"/>
+                                    <rtl:input-variable name="g_arr_det_rpt.estatus" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_det_rpt.estatus Value" class="grwStringValue" x="3" y="668.694" width="48.5714" color="{{g_arr_det_rpt.estatus==&quot;ACTIVO  &quot;?Color.BLUE:g_arr_det_rpt.estatus==&quot;INACTIVO&quot;?Color.RED:null}}" fontSize="7" fontBold="false" fontItalic="false" floatingBehavior="enclosed" text="{{g_arr_det_rpt.estatus}}"/>
+                                    <rtl:input-variable name="g_arr_det_rpt.f_registro" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_det_rpt.f_registro Value" class="grwStringValue" x="3" y="558.51" width="53.625" fontSize="7" floatingBehavior="enclosed" text="{{g_arr_det_rpt.f_registro}}"/>
+                                    <rtl:input-variable name="g_arr_det_rpt.f_baja" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_det_rpt.f_baja Value" class="grwStringValue" x="3" y="614.902" width="51.5" fontSize="7" floatingBehavior="enclosed" text="{{g_arr_det_rpt.f_baja}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

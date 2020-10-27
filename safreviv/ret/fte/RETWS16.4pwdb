@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="CP1252" options="3" version="2.0">
+<File m="ret_saldo_preliminar" n="ret_saldo_preliminar.4gl" ts="20200819115458000">
+<Ref t="ret_saldo_preliminar.inc"/>
+<Fct c="10" el="371" l="264" n="ConsultarSaldoPreliminarResponse_g()" t="F">
+<Call c="10" l="275" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="290" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="301" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="304" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="307" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="310" n="WSHelper_ReadStaxSOAP11Fault" t="F"/>
+<Call c="18" l="313" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="316" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="327" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="330" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="332" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="338" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="342" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="346" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="349" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="357" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="362" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="261" l="198" n="ConsultarSaldoPreliminarRequest_g()" t="F">
+<Call c="10" l="207" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="226" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="236" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="237" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="239" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="240" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="244" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="257" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="195" l="38" n="ConsultarSaldoPreliminar_g()" t="F">
+<Call c="10" l="71" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="84" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="85" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="87" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="88" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="92" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="109" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="112" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="115" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="118" n="WSHelper_ReadStaxSOAP11Fault" t="F"/>
+<Call c="18" l="121" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="124" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="135" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="138" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="140" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="146" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="150" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="154" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="157" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="166" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="174" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="181" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="186" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_saldo_preliminar" n="ret_saldo_preliminar.inc" ts="20200819115752000"/>
+<File m="ret_ws_cons_rel_laboral" n="ret_ws_cons_rel_laboral.4gl" ts="20200402140216000">
+<Ref t="ret_ws_cons_rel_laboral.inc"/>
+<Fct c="10" el="371" l="264" n="consultarTrabajadorResponse_g()" t="F">
+<Call c="10" l="275" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="290" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="301" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="304" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="307" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="310" n="WSHelper_ReadStaxSOAP11Fault" t="F"/>
+<Call c="18" l="313" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="316" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="327" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="330" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="332" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="338" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="342" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="346" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="349" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="357" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="362" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="261" l="198" n="consultarTrabajadorRequest_g()" t="F">
+<Call c="10" l="207" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="226" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="236" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="237" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="239" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="240" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="244" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="257" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="195" l="38" n="consultarTrabajador_g()" t="F">
+<Call c="10" l="71" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="84" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="85" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="87" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="88" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="92" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="109" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="112" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="115" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="118" n="WSHelper_ReadStaxSOAP11Fault" t="F"/>
+<Call c="18" l="121" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="124" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="135" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="138" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="140" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="146" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="150" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="154" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="157" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="166" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="174" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="181" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="186" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_ws_cons_rel_laboral" n="ret_ws_cons_rel_laboral.inc" ts="20200402140216000"/>
+<File m="RETWS15" n="RETWS15.4gl" ts="20201019201802815">
+<Ref t="RETG01.4gl"/>
+<Fct c="1" el="260" l="100" n="main()" t="F">
+<Call c="12" l="143" n="fn_crea_servicio_4_grupos_ley73" t="F"/>
+<Call c="14" l="156" n="exitHelp" t="F"/>
+<Call c="8" l="164" n="fn_crea_servicio_4_grupos_ley73" t="F"/>
+</Fct>
+<Fct c="10" el="1760" l="1525" n="fn_genera_solicitud_ret_ley73(p_nss INTEGER,p_id_derechohabiente INTEGER,p_estado_solicitud SMALLINT,p_rechazo SMALLINT,p_aivs_viv92 DECIMAL(24,6),p_pesos_viv92 DECIMAL(22,2),p_aivs_viv97 DECIMAL(24,6),p_pesos_viv97 DECIMAL(22,2),p_id_solicitud INTEGER,p_indice_modalidad SMALLINT,p_gpo_ley73 SMALLINT,p_importe_viv97_anexo1 DECIMAL(12,2))" t="F">
+<Call c="15" l="1622" n="fn_hash_local" t="F"/>
+<Call c="15" l="1704" n="fn_registra_beneficiario_retiro_generico" p="RETX30_1.4gl" t="F"/>
+<Call c="18" l="1722" n="fn_registra_beneficiario_retiro_generico_juridico" p="RETX30_1.4gl" t="F"/>
+<Call c="12" l="1742" n="fn_ret_generico_desmarca_cuenta" p="RETX30_1.4gl" t="F"/>
+<Call c="15" l="1746" n="fn_consulta_saldo_vivienda_afore" p="RETX30_1.4gl" t="F"/>
+<Call c="19" l="1749" n="fn_guarda_consulta_ws_vent_afore" p="RETX30_1.4gl" t="F"/>
+<Call c="19" l="1752" n="fn_guarda_consulta_ws_vent_afore" p="RETX30_1.4gl" t="F"/>
+</Fct>
+<Fct c="10" el="1842" l="1819" n="fn_registra_det_peticion_registro_solicitud(p_id_peticion DECIMAL(9,0),p_modalidad_retiro SMALLINT,p_causal_retiro SMALLINT,p_nrp CHAR(18),p_f_inicio_pension CHAR(8),p_grupo_ley73 SMALLINT,p_num_credito CHAR(20))" t="F"/>
+<Fct c="10" el="1507" l="1469" n="fn_respuesta_ws(p_nss INTEGER,p_rfc INTEGER,p_modalidad SMALLINT,p_estado_solicitud SMALLINT,p_cod_rechazo SMALLINT,p_aivs DECIMAL(24,6),p_pesos DECIMAL(22,2),p_referencia_dap CHAR(12))" t="F">
+<Call c="9" l="1503" n="fn_registra_det_peticion_registro_solicitud_resp" t="F"/>
+</Fct>
+<Fct c="10" el="1374" l="1189" n="fn_retl73_valida_grupo4(p_nss CHAR(11),p_id_derechohabiente INTEGER,p_id_solicitud INTEGER,v_aivs_viv92 DECIMAL(24,6),v_pesos_viv92 DECIMAL(22,2),v_aivs_viv97 DECIMAL(24,6),v_pesos_viv97 DECIMAL(22,2),v_f_inicio_pension DATE,p_indice_modalidad SMALLINT,p_grupo_ley73 SMALLINT)" t="F">
+<Call c="12" l="1215" n="fn_nss_tuvo_retiro" p="RETX30_1.4gl" t="F"/>
+<Call c="15" l="1217" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="15" l="1218" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="15" l="1220" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="18" l="1305" n="fn_verifica_transferencia_tipo_b" p="RETX30_1.4gl" t="F"/>
+<Call c="18" l="1307" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="21" l="1312" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="21" l="1314" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="24" l="1331" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="1332" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="1333" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="24" l="1340" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="27" l="1345" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="27" l="1348" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="27" l="1354" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="12" l="1365" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="12" l="1366" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="12" l="1368" n="fn_genera_solicitud_ret_ley73" t="F"/>
+</Fct>
+<Fct c="10" el="1983" l="1961" n="fn_hash_local(toDigest STRING,algo STRING)" t="F"/>
+<Fct c="10" el="1172" l="990" n="fn_retl73_valida_grupo_2_y_3(p_nss CHAR(11),p_id_derechohabiente INTEGER,p_id_solicitud INTEGER,v_aivs_viv92 DECIMAL(24,6),v_pesos_viv92 DECIMAL(22,2),v_aivs_viv97 DECIMAL(24,6),v_pesos_viv97 DECIMAL(22,2),v_f_inicio_pension DATE,p_indice_modalidad SMALLINT,p_grupo_ley73 SMALLINT)" t="F">
+<Call c="12" l="1016" n="fn_nss_tuvo_retiro" p="RETX30_1.4gl" t="F"/>
+<Call c="15" l="1018" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="15" l="1019" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="15" l="1021" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="18" l="1087" n="fn_verifica_transferencia_tipo_b" p="RETX30_1.4gl" t="F"/>
+<Call c="21" l="1104" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="21" l="1106" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="21" l="1108" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="24" l="1123" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="1124" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="1125" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="24" l="1132" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="27" l="1137" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="27" l="1140" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="27" l="1146" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="12" l="1160" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="12" l="1161" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="12" l="1163" n="fn_genera_solicitud_ret_ley73" t="F"/>
+</Fct>
+<Fct c="10" el="335" l="326" n="exitHelp()" t="F"/>
+<Fct c="10" el="324" l="276" n="fn_crea_servicio_4_grupos_ley73(p_generar_WSDL SMALLINT)" t="F"/>
+<Fct c="10" el="1884" l="1858" n="fn_registra_det_peticion_registro_solicitud_resp(p_id_peticion DECIMAL(9,0),p_modalidad_retiro SMALLINT,p_subcuenta SMALLINT,p_estado_solicitud SMALLINT,p_cod_rechazo SMALLINT,p_monto_aivs DECIMAL(22,6),p_monto_pesos DECIMAL(22,2),p_referencia_dap CHAR(12))" t="F"/>
+<Fct c="10" el="1936" l="1900" n="fn_registra_peticion_registro_solicitud_benef(p_id_peticion DECIMAL(9,0),p_modalidad_retiro SMALLINT,p_consec_benef SMALLINT,p_tipo_beneficiario SMALLINT,p_clabe_bancaria CHAR(18),p_rfc CHAR(13),p_email CHAR(50),p_telefono CHAR(10),p_tel_movil CHAR(10),p_nombre CHAR(40),p_ap_paterno CHAR(40),p_ap_materno CHAR(40),p_entidad_federativa CHAR(2))" t="F"/>
+<Fct c="10" el="1803" l="1776" n="fn_registra_peticion_registro_solicitud(p_nss INTEGER,p_caso_adai INTEGER)" t="F"/>
+<Fct c="10" el="1452" l="1393" n="fn_respuesta_ws_ley73(p_estado_solicitud SMALLINT,p_cod_rechazo SMALLINT,p_subcuenta SMALLINT,p_importe_aivs DECIMAL(24,6),p_fecha_valuacion DATE,p_monto_transferido DECIMAL(22,2))" t="F">
+<Call c="9" l="1447" n="fn_registra_det_peticion_registro_solicitud_resp" t="F"/>
+</Fct>
+<Fct c="10" el="615" l="350" n="fn_4_grupos_solicitud_ley73()" t="F">
+<Call c="12" l="371" n="fn_respuesta_ws" t="F"/>
+<Call c="12" l="382" n="fn_registra_peticion_registro_solicitud" t="F"/>
+<Call c="15" l="403" n="fn_respuesta_ws" t="F"/>
+<Call c="15" l="416" n="fn_registra_det_peticion_registro_solicitud" t="F"/>
+<Call c="18" l="521" n="fn_registra_peticion_registro_solicitud_benef" t="F"/>
+<Call c="21" l="601" n="fn_respuesta_ws" t="F"/>
+<Call c="21" l="605" n="fn_respuesta_ws" t="F"/>
+<Call c="18" l="610" n="fn_ret_disponibilidad_ley73" t="F"/>
+</Fct>
+<Fct c="10" el="974" l="839" n="fn_retl73_valida_grupo1(p_nss CHAR(11),p_id_derechohabiente INTEGER,p_id_solicitud INTEGER,v_aivs_viv92 DECIMAL(24,6),v_pesos_viv92 DECIMAL(22,2),v_aivs_viv97 DECIMAL(24,6),v_pesos_viv97 DECIMAL(22,2),v_fecha_resolucion DATE,p_indice_modalidad SMALLINT,p_grupo_ley73 SMALLINT)" t="F">
+<Call c="12" l="869" n="fn_nss_tuvo_retiro" p="RETX30_1.4gl" t="F"/>
+<Call c="15" l="871" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="15" l="872" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="15" l="875" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="21" l="928" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="932" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="933" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="24" l="938" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="941" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="21" l="948" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="21" l="949" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="21" l="950" n="fn_genera_solicitud_ret_ley73" t="F"/>
+</Fct>
+<Fct c="10" el="822" l="634" n="fn_ret_disponibilidad_ley73(p_nss INTEGER,p_rfc INTEGER,p_grupo_ley73 SMALLINT,p_indice_modalidad SMALLINT)" t="F">
+<Call c="15" l="691" n="fn_trabajador_resolucion_spess" p="RETX30_1.4gl" t="F"/>
+<Call c="18" l="696" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="18" l="697" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="18" l="700" n="fn_genera_solicitud_ret_ley73" t="F"/>
+<Call c="18" l="713" n="fn_calcula_saldo_ley73" p="RETX30_1.4gl" t="F"/>
+<Call c="18" l="716" n="fn_calcula_saldo_ley73" p="RETX30_1.4gl" t="F"/>
+<Call c="18" l="718" n="fn_calcula_saldo_ley73" p="RETX30_1.4gl" t="F"/>
+<Call c="27" l="747" n="fn_recupera_saldo_consulta" p="RETX30_1.4gl" t="F"/>
+<Call c="27" l="783" n="fn_retl73_valida_grupo1" t="F"/>
+<Call c="27" l="786" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="27" l="787" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="792" n="fn_retl73_valida_grupo_2_y_3" t="F"/>
+<Call c="24" l="797" n="fn_retl73_valida_grupo_2_y_3" t="F"/>
+<Call c="24" l="802" n="fn_retl73_valida_grupo4" t="F"/>
+<Call c="24" l="807" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="24" l="808" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="15" l="813" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="15" l="814" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="12" l="818" n="fn_respuesta_ws_ley73" t="F"/>
+<Call c="12" l="819" n="fn_respuesta_ws_ley73" t="F"/>
+</Fct>
+</File>
+<File m="RETX30_1" n="RETX30_1.4gl" ts="20200402140204000">
+<Ref t="RETG01.4gl"/>
+<Ref t="ret_saldo_preliminar.inc"/>
+<Ref t="ret_ws_cons_rel_laboral.inc"/>
+<Fct c="10" el="1449" l="1439" n="fn_calcula_saldos_transferencia_tipo_b(p_nss INTEGER)" t="F"/>
+<Fct c="10" el="1722" l="1683" n="fn_notificacion_correo_retiro(p_email STRING,p_adjunto STRING,p_titulo STRING,p_mensaje STRING)" t="F"/>
+<Fct c="10" el="3076" l="3023" n="fn_valida_solicitud_clabe(p_nss CHAR(11),p_caso_adai CHAR(10),p_cuenta_clabe CHAR(18))" t="F"/>
+<Fct c="10" el="1424" l="1404" n="fn_calcula_saldo_ley73(p_nss INTEGER,p_subcuenta SMALLINT,p_f_valuacion DATE)" t="F"/>
+<Fct c="10" el="909" l="832" n="fn_edad_derechohabiente(p_nss INTEGER)" t="F"/>
+<Fct c="10" el="2408" l="2289" n="fn_consulta_saldo_vivienda_afore_completa(p_nss INTEGER,p_id_cliente SMALLINT)" t="F">
+<Call c="10" l="2335" n="ConsultarSaldoPreliminar_g" p="ret_saldo_preliminar.4gl" t="F"/>
+</Fct>
+<Fct c="10" el="3021" l="2961" n="fn_busca_mov_cargo_fa(p_nss CHAR(11))" t="F"/>
+<Fct c="10" el="1390" l="1366" n="fn_verifica_transferencia_tipo_b(p_id_derechohabiente INTEGER)" t="F"/>
+<Fct c="10" el="1348" l="1337" n="fn_nss_tuvo_retiro(p_nss CHAR(11))" t="F"/>
+<Fct c="10" el="2959" l="2938" n="fn_hash(toDigest STRING,algo STRING)" t="F"/>
+<Fct c="10" el="815" l="791" n="fn_recupera_saldo_fa(p_nss INTEGER,p_rfc INTEGER)" t="F"/>
+<Fct c="10" el="255" l="157" n="fn_registra_beneficiario_retiro_generico(p_id_solicitud INTEGER,p_tpo_beneficiario INTEGER,p_tpo_pago INTEGER,p_cod_parentesco INTEGER,p_ap_paterno INTEGER,p_ap_materno INTEGER,p_nombre INTEGER,p_telefono INTEGER,p_correo INTEGER,p_porcentaje INTEGER,p_aivs INTEGER,p_importe INTEGER,p_clabe CHAR(18),p_referencia_bancaria INTEGER,p_entidad_federativa CHAR(2))" t="F"/>
+<Fct c="10" el="1321" l="1307" n="fn_verifica_tipo_credito_43bis(p_tipo_credito SMALLINT)" t="F"/>
+<Fct c="10" el="2913" l="2851" n="fn_recupera_saldo_consulta(p_nss INTEGER)" t="F"/>
+<Fct c="10" el="774" l="731" n="fn_trabajador_tipo_credito(p_nss INTEGER)" t="F">
+<Call c="9" l="757" n="fn_credito_vivienda" t="F"/>
+</Fct>
+<Fct c="10" el="1292" l="1249" n="fn_ret_ley73_credito_vigente(p_nss INTEGER,p_grupo SMALLINT)" t="F">
+<Call c="9" l="1275" n="fn_credito_vivienda" t="F"/>
+</Fct>
+<Fct c="10" el="2287" l="2169" n="fn_consulta_saldo_vivienda_afore(p_nss INTEGER,p_id_cliente SMALLINT)" t="F">
+<Call c="10" l="2214" n="ConsultarSaldoPreliminar_g" p="ret_saldo_preliminar.4gl" t="F"/>
+</Fct>
+<Fct c="10" el="716" l="701" n="fn_trabajador_credito_vigente(p_nss INTEGER)" t="F">
+<Call c="9" l="712" n="fn_ret_ley73_credito_vigente" t="F"/>
+</Fct>
+<Fct c="10" el="1668" l="1628" n="fn_ret_generico_marca_cuenta(p_id_derechohabiente INTEGER,p_marca_entra INTEGER,p_num_referencia INTEGER,p_folio INTEGER,p_estado_marca SMALLINT,p_codigo_rechazo SMALLINT,p_marca_causa INTEGER,p_fecha_causa DATE,p_usuario INTEGER,p_proceso_cod INTEGER)" t="F"/>
+<Fct c="10" el="1221" l="1217" n="fn_anos_FIP()" t="F"/>
+<Fct c="10" el="1202" l="1181" n="fn_nrp_existe_en_catalogo(p_nrp INTEGER)" t="F"/>
+<Fct c="10" el="1950" l="1920" n="fn_verifica_estructura_clabe(p_clabe CHAR(18))" t="F"/>
+<Fct c="10" el="2836" l="2709" n="fn_guarda_consulta_ws_vent_afore(p_nss INTEGER,p_indicador_marca SMALLINT,p_estado_indicador SMALLINT,p_f_intento DATE,p_h_intento DATETIME HOUR TO SECOND,p_diagnostico SMALLINT,p_estado_cuenta SMALLINT,p_saldo_viv92 DECIMAL(14,2),p_saldo_viv97 DECIMAL(14,2),p_usuario CHAR(20),p_id_solicitud DECIMAL(9,0),p_caso_crm CHAR(10),p_origen SMALLINT)" t="F"/>
+<Fct c="10" el="1165" l="1161" n="fn_prescripcion_fondo_ahorro()" t="F"/>
+<Fct c="10" el="685" l="658" n="fn_verifica_ano_sin_relacion_laboral(p_fecha_relacion_laboral DATE,p_fecha_comparacion DATE)" t="F"/>
+<Fct c="10" el="1146" l="1115" n="fn_rechazo_por_tramite_fondo_ahorro(p_nss INTEGER,p_rfc INTEGER)" t="F"/>
+<Fct c="10" el="141" l="120" n="fn_obtener_id_solicitud_generico_con_estado(p_nss INTEGER,p_rfc INTEGER,p_modalidad SMALLINT,p_caso_adai INTEGER)" t="F"/>
+<Fct c="10" el="1905" l="1887" n="fn_buscar_disponibilidad_retiro(p_modalidad_retiro INTEGER,p_subcuenta INTEGER)" t="F"/>
+<Fct c="10" el="641" l="429" n="fn_trabajador_resolucion_spess(p_nss INTEGER,p_causal SMALLINT)" t="F"/>
+<Fct c="10" el="1873" l="1859" n="fn_obtener_precio_fondo(p_fecha_valuacion DATE,p_fondo INTEGER)" t="F"/>
+<Fct c="10" el="1611" l="1585" n="fn_ret_generico_desmarca_cuenta(p_id_derechohabiente INTEGER,p_marca_entra INTEGER,p_num_referencia INTEGER,p_marca_causa INTEGER,p_usuario INTEGER,p_proceso_cod INTEGER)" t="F"/>
+<Fct c="10" el="1097" l="1018" n="fn_genera_referencia_bancaria(p_causal_retiro SMALLINT,p_tpo_pension INTEGER)" t="F"/>
+<Fct c="10" el="102" l="82" n="fn_obtener_id_solicitud_generico(p_nss INTEGER,p_rfc INTEGER,p_modalidad SMALLINT,p_estado_solicitud SMALLINT)" t="F"/>
+<Fct c="10" el="1845" l="1826" n="fn_fecha_nacimiento_rfc(p_rfc INTEGER)" t="F"/>
+<Fct c="10" el="2694" l="2508" n="fn_detalle_resolucion_spess(p_nss INTEGER,p_causal SMALLINT)" t="F"/>
+<Fct c="10" el="380" l="352" n="fn_trabajador_pensionado(p_nss INTEGER)" t="F"/>
+<Fct c="10" el="1811" l="1738" n="fn_verifica_prescripcion(p_fecha_nacimiento DATE,p_fecha_inicio_pension DATE,p_fecha_comparacion DATE,p_num_anos SMALLINT)" t="F"/>
+<Fct c="10" el="65" l="32" n="fn_existe_solicitud_retiro_generico(p_nss INTEGER,p_rfc INTEGER,p_modalidad SMALLINT,p_rango_estados STRING)" t="F"/>
+<Fct c="10" el="1555" l="1553" n="fn_informa_disponibilidad_retiros_adai()" t="F"/>
+<Fct c="10" el="1538" l="1533" n="fn_verifica_disponibilidad_retiros()" t="F"/>
+<Fct c="10" el="991" l="925" n="fn_edad_derechohabiente_rfc(p_rfc INTEGER)" t="F"/>
+<Fct c="10" el="336" l="271" n="fn_registra_beneficiario_retiro_generico_juridico(p_id_solicitud INTEGER,p_juicio CHAR(15),p_num_acuerdo CHAR(15),p_desc_juez CHAR(100),p_nombre_facultado CHAR(40),p_puesto_facultado CHAR(50),p_fecha_ejecucion CHAR(10),p_procede_juicio CHAR(40),p_tpo_beneficiario INTEGER)" t="F"/>
+<Fct c="10" el="1518" l="1514" n="fn_recibe_estatus_disponibilidad(p_estatus SMALLINT)" t="F"/>
+<Fct c="10" el="1493" l="1487" n="fn_verifica_convivencia_marca(p_nss CHAR(11))" t="F"/>
+<Fct c="10" el="1472" l="1467" n="fn_verifica_saldo_amortizaciones_excedentes(p_nss CHAR(11))" t="F"/>
+<Fct c="10" el="2495" l="2424" n="fn_fecha_ultima_relacion_laboral(p_nss INTEGER)" t="F">
+<Call c="9" l="2437" n="consultarTrabajador_g" t="F"/>
+</Fct>
+</File>
+<File m="RETWS16" n="RETWS16.4gl" ts="20201020185121218">
+<Ref t="RETG01.4gl"/>
+<Fct c="10" el="534" l="503" n="fn_registra_det_peticion_registro_solicitud(p_id_peticion DECIMAL(9,0),p_arr_det_benef RECORD)" t="F"/>
+<Fct c="10" el="609" l="584" n="fn_busca_beneficiario(p_id_solicitud DECIMAL(10),p_arr_beneficiario RECORD)" t="F"/>
+<Fct c="1" el="246" l="86" n="main()" t="F">
+<Call c="12" l="129" n="fn_crea_servicio_porcentaje_benef" t="F"/>
+<Call c="14" l="142" n="exitHelp" t="F"/>
+<Call c="8" l="150" n="fn_crea_servicio_porcentaje_benef" t="F"/>
+</Fct>
+<Fct c="10" el="715" l="699" n="fn_autoriza_solicitud(p_id_solicitud DECIMAL(10))" t="F"/>
+<Fct c="10" el="684" l="624" n="fn_actualiza_porcentaje(p_id_solicitud DECIMAL(10),p_consecutivo SMALLINT,p_porcentaje SMALLINT,p_importe_total DECIMAL(14,2),p_aivs_total DECIMAL(14,2))" t="F"/>
+<Fct c="10" el="320" l="311" n="exitHelp()" t="F"/>
+<Fct c="10" el="569" l="549" n="fn_busca_solicitud(p_nss INTEGER,p_caso_crm INTEGER)" t="F"/>
+<Fct c="10" el="488" l="464" n="fn_registra_peticion_registro_solicitud(p_nss INTEGER,p_caso_crm INTEGER)" t="F"/>
+<Fct c="10" el="309" l="262" n="fn_crea_servicio_porcentaje_benef(p_generar_WSDL SMALLINT)" t="F"/>
+<Fct c="10" el="448" l="335" n="fn_auto_porcentaje_benef()" t="F">
+<Call c="12" l="375" n="fn_registra_peticion_registro_solicitud" t="F"/>
+<Call c="15" l="387" n="fn_registra_det_peticion_registro_solicitud" t="F"/>
+<Call c="15" l="404" n="fn_busca_solicitud" t="F"/>
+<Call c="24" l="414" n="fn_busca_beneficiario" t="F"/>
+<Call c="27" l="416" n="fn_actualiza_porcentaje" t="F"/>
+<Call c="21" l="443" n="fn_autoriza_solicitud" t="F"/>
+</Fct>
+</File>
+</WorkspaceDatabase>

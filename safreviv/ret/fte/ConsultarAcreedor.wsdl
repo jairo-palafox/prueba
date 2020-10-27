@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ConsultarAcreedor" targetNamespace="http://services.infonavit.org.mx/sap/consultaacreedor" xmlns:bons1="http://services.infonavit.org.mx" xmlns:tns="http://services.infonavit.org.mx/sap/consultaacreedor" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://services.infonavit.org.mx/sap/consultaacreedor" xmlns:bons1="http://services.infonavit.org.mx" xmlns:tns="http://services.infonavit.org.mx/sap/consultaacreedor" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://services.infonavit.org.mx" schemaLocation="MediationExcepcion.xsd"/>
+      <xsd:include schemaLocation="Acreedor.xsd"/>
+      <xsd:element name="consultarAcreedor">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="rfc" nillable="true">
+            	<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="16"/>
+				</xsd:restriction>
+				</xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="acreedor" nillable="true">
+          		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="10"/>
+				</xsd:restriction>
+				</xsd:simpleType>
+            </xsd:element>
+            
+            <xsd:element name="cuenta" nillable="true">
+               	<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="18"/>
+				</xsd:restriction>
+				</xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarAcreedorResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="acreedor" nillable="true" type="tns:Acreedor"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarAcreedor_servicesExceptione" type="bons1:MediationExcepcion"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarAcreedorRequestMsg">
+    <wsdl:part element="tns:consultarAcreedor" name="consultarAcreedorPar&#225;metros">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarAcreedor_servicesExceptioneMsg">
+    <wsdl:part element="tns:consultarAcreedor_servicesExceptione" name="servicesExceptione">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarAcreedorResponseMsg">
+    <wsdl:part element="tns:consultarAcreedorResponse" name="consultarAcreedorResult">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ConsultarAcreedor">
+    <wsdl:operation name="consultarAcreedor">
+      <wsdl:input message="tns:consultarAcreedorRequestMsg" name="consultarAcreedorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:consultarAcreedorResponseMsg" name="consultarAcreedorResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:consultarAcreedor_servicesExceptioneMsg" name="servicesException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

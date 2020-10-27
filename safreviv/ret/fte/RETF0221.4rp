@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="legallength" RWPageLength="legalwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RETF02.rdd" RWFglReportName="rpt_modulo_ley73"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="MiniPage" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="LayoutNode17" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="logos" x="97.9394" y="0" width="41.7282" length="200.032" anchorX="0.5" anchorY="0.0109314" alignment="center" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" x="5.9362" y="1.9177" width="42.7303" length="34.8101" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="titulos" x="-0.9729" y="44.9288" width="30.2475" length="926.924" anchorX="0" anchorY="0" alignment="near" color="#ffffff" bgColor="#d90000" fontName="Arial" fontSize="15" fontBold="true" fontItalic="false" layoutDirection="leftToRight" swapX="false" baselineType="leftleft" floatingBehavior="enclosed" roundedCorners="false">
+                            <WORDBOX name="WordBox" x="6.9702" y="max*0.4917" width="min" anchorX="7.31441e-16" anchorY="0.452401" floatingBehavior="enclosed" text="Reporte Ley 73"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha Value" x="32.1539" y="810.162" anchorX="0" anchorY="0" color="#000000" fontName="SimHei" fontSize="13" fontBold="false" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </LAYOUTNODE>
+                        <WORDWRAPBOX name="WordWrapBox" x="764.472" y="75.5771" width="min" length="15.468" anchorX="0" anchorY="0" alignment="baseline" fontSize="14" floatingBehavior="enclosed" text="Fecha:"/>
+                        <WORDWRAPBOX name="WordWrapBox1" x="9.3506" y="75.0995" width="min" anchorX="0" anchorY="0" fontSize="14" floatingBehavior="enclosed" text="Usuario:"/>
+                        <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="g_usuario Value" x="76.832" y="74.7658" width="81.5731" length="18.5169" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage7" width="min" length="min" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage6" width="31.6664" length="925.247" alignment="near" bgColor="#af0000" fontItalic="false" layoutDirection="leftToRight">
+                            <WORDBOX name="lbl_folio" x="10.7647" y="3.8559" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Folio"/>
+                            <WORDBOX name="lbl_id_solicitud" x="10.7647" y="32.2268" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Solicitud"/>
+                            <WORDBOX name="lbl_id_derechohabiente" x="10.7647" y="85.2281" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Derechohabiente"/>
+                            <WORDBOX name="lbl_nss" x="10.7647" y="188.026" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NSS"/>
+                            <WORDBOX name="lbl_f_solicitud" x="10.7647" y="227.938" width="81.6248" length="13.06" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Fecha Solicitud"/>
+                            <WORDBOX name="lbl_imp_viv_92" x="10.7647" y="304.694" width="81.6248" length="13.06" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Importe Viv 92"/>
+                            <WORDBOX name="lbl_imp_viv_97" x="10.7647" y="378.94" width="81.6248" length="13.06" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Importe Viv 97"/>
+                            <WORDBOX name="lbl_aivs_viv_92" x="10.7647" y="456.044" width="61.1483" length="9.78375" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="AIVS Viv 92"/>
+                            <WORDBOX name="lbl_aivs_viv_97" x="10.7647" y="530.205" width="51.5123" length="13.06" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="AIVS Viv 97"/>
+                            <WORDBOX name="lbl_est_sol" x="10.7647" y="590.823" width="82.8293" length="13.06" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Estado Solicitud"/>
+                            <WORDBOX name="lbl_cod_rechazo" x="10.7647" y="671.442" width="82.8293" length="13.06" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Código Rechazo"/>
+                            <WORDBOX name="lbl_cod_retorno" x="10.7647" y="754.857" width="82.8293" length="13.06" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Código Retorno"/>
+                            <WORDBOX name="lbl_tpo_proceso" x="11.3675" y="841.538" width="69.5798" length="12.2729" anchorX="0" anchorY="2.61779e-15" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Tipo Proceso"/>
+                        </MINIPAGE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage5" width="34.2639" length="919.228" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                                <rtl:input-variable name="p_ley73.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.folio Value" width="30" anchorX="1" alignment="baseline" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="---,---,--&amp;" value="{{p_ley73.folio}}"/>
+                                <rtl:input-variable name="p_ley73.id_solicitud" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.id_solicitud Value" width="50" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="---,---,--&amp;" value="{{p_ley73.id_solicitud}}"/>
+                                <rtl:input-variable name="p_ley73.id_derechohabiente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.id_derechohabiente Value" width="90" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="---,---,--&amp;" value="{{p_ley73.id_derechohabiente}}"/>
+                                <rtl:input-variable name="p_ley73.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_ley73.nss Value" width="60" alignment="baseline" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_ley73.nss}}"/>
+                                <rtl:input-variable name="p_ley73.f_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_ley73.f_solicitud Value" width="80" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_ley73.f_solicitud}}"/>
+                                <rtl:input-variable name="p_ley73.importe_viv92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.importe_viv92 Value" width="70" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{p_ley73.importe_viv92}}"/>
+                                <rtl:input-variable name="p_ley73.importe_viv97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.importe_viv97 Value" width="70" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{p_ley73.importe_viv97}}"/>
+                                <rtl:input-variable name="p_ley73.aivs_viv92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.aivs_viv92 Value" width="70" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_ley73.aivs_viv92}}"/>
+                                <rtl:input-variable name="p_ley73.aivs_viv97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.aivs_viv97 Value" width="70" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_ley73.aivs_viv97}}"/>
+                                <rtl:input-variable name="p_ley73.estado_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_ley73.estado_solicitud Value" width="85" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_ley73.estado_solicitud}}"/>
+                                <rtl:input-variable name="p_ley73.cod_rechazo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_ley73.cod_rechazo Value" width="80" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_ley73.cod_rechazo}}"/>
+                                <rtl:input-variable name="p_ley73.cod_retorno" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.cod_retorno Value" width="80" anchorX="1" alignment="baseline" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{p_ley73.cod_retorno}}"/>
+                                <rtl:input-variable name="p_ley73.tpo_proceso" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_ley73.tpo_proceso Value" width="80" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{p_ley73.tpo_proceso}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

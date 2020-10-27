@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{226fd448-1474-4354-8867-0f7563364594}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="gr_encabezado" order="" uid="{bfccae26-d8f0-472d-b484-62343082cbb9}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_folio_carga_cpav" sqlTabName="" table_alias_name="" uid="{6f464aea-5c2a-40db-9c03-22d17397082c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_detalle" order="" uid="{70cb4e2a-d12c-4028-ba4a-de099ed0f23e}" where="">
+    <RecordField colName="" fieldIdRef="2" name="det_folio" sqlTabName="" table_alias_name="" uid="{8cdf7524-8c76-4f69-9d55-941b2edf02fa}"/>
+    <RecordField colName="" fieldIdRef="3" name="det_aportacion" sqlTabName="" table_alias_name="" uid="{8b289e4d-c0b4-4f68-bd5a-33782424d258}"/>
+    <RecordField colName="" fieldIdRef="4" name="det_amortizacion" sqlTabName="" table_alias_name="" uid="{0ba36233-5917-469b-9977-4c9eece2ff70}"/>
+    <RecordField colName="" fieldIdRef="5" name="det_estado" sqlTabName="" table_alias_name="" uid="{2af5a8e3-4e08-4ef0-9d49-590797e8253b}"/>
+  </Record>
+  <Form gridHeight="29" gridWidth="150" name="Form" text="Form">
+    <Grid gridHeight="27" gridWidth="148" name="gr_encabezado" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="146" name="group1" posX="1" posY="1" text="Reverso Archivo Cancelación Parcial Avances Pago">
+        <Label gridHeight="1" gridWidth="10" name="label1" posX="1" posY="1" text="Folio"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="19" name="f_folio_carga_cpav" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="146" name="gr_detalle" posX="1" posY="4" text="Detalle de cifras globales">
+        <Table gridHeight="6" gridWidth="144" name="scr_detalle" posX="1" posY="1" totalRows="3">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="9" name="det_folio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Folio" widget="Edit"/>
+          <Edit aggregate="true" aggregateColName="" aggregateName="aggregate1" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="14" name="det_aportacion" posX="9" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Aportación" widget="Edit"/>
+          <Edit aggregate="true" aggregateColName="" aggregateName="aggregate2" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="14" name="det_amortizacion" posX="23" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Amortización" widget="Edit"/>
+          <Edit aggregate="true" aggregateColName="" aggregateName="aggregate3" aggregateTableAliasName="" aggregateTableName="" aggregateType="count" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="25" name="det_estado" posX="37" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Estado" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAwAGIAYQAzADYAMgAzADMALQA1ADkAMQA3AC0ANAA2ADkAYgAtADkAOQA3ADcALQA0AGMAOQBlAGUAYwBlADIAZgBmADcAMAB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGEAZgA1AGEAOABlADMALQA0AGUAMAA4AC0ANABlAGYAMAAtADkAZAA0ADkALQA1ADkAMAA3ADkANwBlADgAMgA1ADMAYgB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGMAZABmADcANQAyADQALQA4AGMANwA2AC0ANABmADYAOQAtADkAZAA1ADUALQA5ADQAMQBiADIAZQBkAGYAMAAyAGYAYQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGIAMgA4ADkAZQA0AGQALQBjADAAYgA0AC0ANABmADYAOAAtAGIAZAA1AGEALQAzADMANwA4ADIANAAyADQAZAAyADUAOAB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGYAYwBjAGEAZQAyADYALQBkADgAZgAwAC0ANAA3ADIAZAAtAGIANAA4ADQALQA2ADIAMwA0ADMAMAA4ADIAYwBiAGIAOQB9QFDAAAAAAABAVgAAAAAAAD+wIMSbpeNXAQAAAEwAewA2AGYANAA2ADQAYQBlAGEALQA1AGMAMgBhAC0ANAAwAGQAYgAtADkAYwAwADMALQAyADIAZAAxADcAMwA5ADcAMAA4ADIAYwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADAAYwBiADQAZQAyAGEALQBkADEAMgBjAC0ANAAwADIAOAAtAGIAYQA0AGEALQBkAGUAMAA5ADkAZQBkADAAZgAyADMAZQB9QHfQAAAAAABAMAAAAAAAAD+vvnbItDlfAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

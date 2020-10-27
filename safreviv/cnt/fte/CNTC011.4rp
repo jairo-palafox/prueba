@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.0cm" RWTopMargin="1.3cm" RWRightMargin="1.0cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/CNTC01.rdd" RWFglReportName="rpt_detalle_av_pago"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Pagina" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="FirstPage" width="736.802" length="168" alignment="near" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="Imagen1" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox1" alignment="near" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LineaGris1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Usuario1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="ContenedorUsuario1" width="min" length="max" alignment="center" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="TxtTitulo1" x="7.5" y="max*0.489" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="LIQUIDACIÓN DE AVANCE DE PAGOS" localizeText="false"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value1" x="0.5859" y="615.271" width="119.45" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="{{&quot;Fecha: &quot;+v_fecha_reporte}}"/>
+                                <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="g_usuario Value1" x="0.5859" y="2.6983" width="140.787" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="{{&quot;Usuario: &quot;+g_usuario}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="SegundoTitulo1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="NombreColumnas1" width="46.3485" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="Txt_Avance1" x="21" y="79.5168" width="30" length="10" anchorX="0.5" anchorY="0.513279" alignment="far" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="AVANCE"/>
+                                <WORDWRAPBOX name="Txt_Pago1_2" x="21" y="370.883" width="87.7981" anchorX="0.5" anchorY="0.469894" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="RECUPERACIÓN &#10;DE &#10;AVANCES" textAlignment="center"/>
+                                <WORDWRAPBOX name="Txt_Resultado1_1" x="21" y="523.428" width="54.4272" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="AVANCE&#10;POR RECUPERAR" textAlignment="center"/>
+                                <WORDWRAPBOX name="Txt_Pago1_1_1" x="21" y="227.857" width="87.7981" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="CANCELACIÓN - RECHAZO AVANCE" textAlignment="center"/>
+                                <WORDWRAPBOX name="Txt_Cal" x="21" y="674.728" width="85.3706" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="PORCENTAJE RECUPERACIÓN&#10;DE &#10;AVANCES" textAlignment="center"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="Columnas" width="32" length="max" alignment="near" lengthAdjustment="expandToParent" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDWRAPBOX name="TxtPeriodoPago" x="0.6728" width="24.7188" length="32" lengthAdjustment="expandToParent" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Periodo&#10;Pago" textAlignment="center"/>
+                            <WORDBOX name="TxtAvanAportaciones" x="0.6728" y="29.5665" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Aportaciones"/>
+                            <WORDBOX name="TxtAvanAmortizaciones" x="0.6728" y="96.1932" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Amortizaciones"/>
+                            <WORDBOX name="TxtCanAvanceAportaciones" y="175.573" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Aportaciones"/>
+                            <WORDBOX name="TxtCanAvanceAmortizaciones" y="240" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Amortizaciones"/>
+                            <WORDBOX name="TxtComAvanceAportaciones" x="0" y="318.216" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Aportaciones"/>
+                            <WORDBOX name="TxtComAvanceAmortizaciones" x="0" y="391.084" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Amortizaciones"/>
+                            <WORDBOX name="TxtAvanAbiertoAportaciones" x="0" y="470.12" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Aportaciones"/>
+                            <WORDBOX name="TxtAvanAbiertoAmortizaciones" x="0" y="538.403" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Amortizaciones"/>
+                            <WORDBOX name="TxtAvanComLiqAportaciones" x="0" y="618.885" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Aportaciones"/>
+                            <WORDBOX name="TxtAvanComLiqAmortizaciones" x="0" y="690" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="Amortizaciones"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="PiedePagina1_1" x="360.778" y="549.967" width="12.3764" length="min" anchorX="0.5" anchorY="4.55223e-14" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LineaRoja4" y="1.6622" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <WORDBOX name="TxtRecaudacionFiscal3" x="5.8708" y="43.9647" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                            <PAGENOBOX name="PageNoBox3" x="5.8708" y="669.514" width="80.9645" anchorX="0.5" anchorY="0.381173" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Body" width="min" length="min">
+                        <MINIPAGE name="DetalleReporte" width="min" length="max" layoutDirection="leftToRight">
+                            <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                                <LAYOUTNODE name="Registros" width="25.3232" length="max" alignment="center" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="arr_detalles_av_p.v_periodo_pago" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_detalles_av_p.v_periodo_pago Value" x="2.236" y="1.6548" width="40" anchorX="0" anchorY="0" fontName="Arial" fontSize="6" floatingBehavior="enclosed" text="{{arr_detalles_av_p.v_periodo_pago}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_ds_tot_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_ds_tot_aportacion Value" x="11" y="70.4832" width="60" length="6" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_detalles_av_p.v_ds_tot_aportacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_ds_tot_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_ds_tot_amortizacion Value" x="11" y="143.399" width="60" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_detalles_av_p.v_ds_tot_amortizacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_dc_pago_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_dc_pago_aportacion Value" x="11" y="362.899" width="60" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_detalles_av_p.v_dc_pago_aportacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_dc_pago_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_dc_pago_amortizacion Value" x="11" y="440.102" width="60" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_detalles_av_p.v_dc_pago_amortizacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_res_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_res_aportacion Value" x="11" y="511.626" width="60" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_detalles_av_p.v_res_aportacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_res_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_res_amortizacion Value" x="11" y="584.382" width="60" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_detalles_av_p.v_res_amortizacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_can_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_ds_tot_amortizacion Value1" x="11" y="216.561" width="60" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_detalles_av_p.v_can_aportacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_can_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_ds_tot_amortizacion Value1_1" x="11" y="287.422" width="60" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_detalles_av_p.v_can_amortizacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_pca_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_pca_aportacion Value" x="11" y="659.99" width="50" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,--&amp;.&amp;&amp;%" value="{{arr_detalles_av_p.v_pca_aportacion}}"/>
+                                    <rtl:input-variable name="arr_detalles_av_p.v_pca_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_detalles_av_p.v_pca_amortizacion Value" x="11" y="729.391" width="50" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,--&amp;.&amp;&amp;%" value="{{arr_detalles_av_p.v_pca_amortizacion}}"/>
+                                </LAYOUTNODE>
+                            </rtl:match>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LineaRoja1" y="0" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Totales" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="ContenedorTotales" width="18.2361" length="max" alignment="center" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_sum_tot_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_tot_aportacion Value" x="6" y="67.7966" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_tot_aportacion}}"/>
+                                <rtl:input-variable name="v_sum_tot_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_tot_amortizacion Value" x="6" y="144.438" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_tot_amortizacion}}"/>
+                                <rtl:input-variable name="v_sum_pago_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_pago_aportacion Value" x="6" y="362.899" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_pago_aportacion}}"/>
+                                <rtl:input-variable name="v_sum_pago_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_pago_amortizacion Value" x="7.0708" y="440.102" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_pago_amortizacion}}"/>
+                                <rtl:input-variable name="v_sum_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_aportacion Value" x="6" y="510" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_aportacion}}"/>
+                                <rtl:input-variable name="v_sum_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_amortizacion Value" x="7.0708" y="584.382" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_amortizacion}}"/>
+                                <rtl:input-variable name="v_sum_can_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_tot_amortizacion Value1" x="6" y="216.403" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_can_aportacion}}"/>
+                                <rtl:input-variable name="v_sum_can_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_tot_amortizacion Value1_1" x="6" y="287.422" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sum_can_amortizacion}}"/>
+                                <rtl:input-variable name="v_sum_pca_aportacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_pca_aportacion Value" x="6" y="659.99" width="50" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,--&amp;.&amp;&amp;%" value="{{v_sum_pca_aportacion}}"/>
+                                <rtl:input-variable name="v_sum_pca_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_sum_pca_amortizacion Value" x="7.0708" y="729.391" width="50" anchorX="0" anchorY="1" fontName="Arial" fontSize="6" floatingBehavior="enclosed" textAlignment="right" format="-,--&amp;.&amp;&amp;%" value="{{v_sum_pca_amortizacion}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LineaRoja1_1" y="0" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode" x="1.6548" width="40.4177" length="734.418" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDWRAPBOX name="WordWrapBox" x="2" y="9" width="715.682" length="36.4686" alignment="near" fontName="Arial" fontSize="6" fontItalic="true" floatingBehavior="enclosed" text="&#10;&#10;“Los porcentajes de Recuperación de avances de pago en omisión total, se muestran a partir de Octubre de 2012 (5º bimestre 2012), en donde para los bimestres 5º de 1996 al 4º de 2012 se ha continuado recuperando montos partiendo de la carga inicial en el sistema SACI. &#10;&#10;Los pagos virtuales por Amortización están ubicados en el Informe del 5º bimestre de 2005 inclusive y hacia atrás. Anteriormente a ésta fecha de Octubre de 2012, se realizó el proceso de Recuperación de Avances del cual el presente reporte no muestra cifras.”" textAlignment="justified"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

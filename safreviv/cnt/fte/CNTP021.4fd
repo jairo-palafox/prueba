@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{5b857297-37dd-4a29-853e-1c9afa34314a}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{9dbd2637-ff81-4149-b99f-eecc3831bab0}" where="">
+    <RecordField colName="" fieldIdRef="2" name="v_cmb_proceso" sqlTabName="" table_alias_name="" uid="{801a2455-3a90-4562-b7e4-1fcf539f53f9}"/>
+    <RecordField colName="" fieldIdRef="3" name="f_cta_contable" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{28517f65-812c-4a88-92cc-39d43bb9a567}"/>
+    <RecordField colName="" fieldIdRef="27" name="f_folio_liquida" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{d0af6a00-9ac3-4ca1-83c6-2635c06a25b0}"/>
+    <RecordField colName="" fieldIdRef="1" name="v_cmb_sub_cta" sqlTabName="" table_alias_name="" uid="{f65cb854-e528-40c1-96c7-6ba37bec2cfd}"/>
+    <RecordField colName="" fieldIdRef="4" name="f_naturaleza_cta" sqlTabName="" table_alias_name="" uid="{aa4f98cb-178d-46f9-8764-f77bd4a7d8c0}"/>
+    <RecordField colName="" fieldIdRef="5" name="f_importe" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{a1077cf2-fa8b-47e4-bd2a-d89379b024b9}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_fecha_liquidacion" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{b2ba451b-be11-46ff-b2a7-b8466160f7e0}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_cmb_proceso_op" sqlTabName="" table_alias_name="" uid="{addbd59d-f828-4088-b258-bf1141661f63}"/>
+  </Record>
+  <Form gridHeight="24" gridWidth="119" name="Form" text="Form">
+    <Grid gridHeight="22" gridWidth="116" name="Grid1" posX="0" posY="1">
+      <Group gridHeight="20" gridWidth="112" name="gr_hist_reg_pol_cont" posX="1" posY="1" text="Criterios de Alta de Registro Contable">
+        <Label gridHeight="1" gridWidth="13" name="Label2" posX="4" posY="2" text="Proceso Contable"/>
+        <ComboBox colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="72" items="" name="v_cmb_proceso" posX="18" posY="2" required="true" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="13" name="Label8" posX="4" posY="4" text="Proceso Operativo"/>
+        <ComboBox colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="50" items="" name="v_cmb_proceso_op" posX="18" posY="4" required="true" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="13" name="Label4" posX="4" posY="6" text="Folio Liquidación"/>
+        <Edit colName="" columnCount="" fieldId="27" gridHeight="1" gridWidth="9" name="f_folio_liquida" posX="18" posY="6" required="true" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="Label6" posX="4" posY="8" text="Importe"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="14" name="f_importe" posX="18" posY="8" precisionDecimal="10" required="true" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="Label7" posX="4" posY="10" text="Fecha Liquidación"/>
+        <DateEdit colName="" columnCount="" comment="Seleccione la fecha del calendario" fieldId="6" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" name="f_fecha_liquidacion" posX="18" posY="10" required="true" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="7" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="13" name="Label1" posX="4" posY="12" text="Subcuenta"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="34" items="" name="v_cmb_sub_cta" notNull="true" posX="18" posY="12" required="true" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="ComboBox2" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="13" name="Label5" posX="4" posY="14" text="Cuenta Contable"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="16" name="f_cta_contable" posX="18" posY="14" required="true" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="Label3" posX="4" posY="16" text="Naturaleza Cuenta"/>
+        <ComboBox case="upper" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="13" items="" name="f_naturaleza_cta" notNull="false" posX="18" posY="16" required="true" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="ComboBox3" widget="ComboBox"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhAGEANABmADkAOABjAGIALQAxADcAOABkAC0ANAA2AGYAOQAtADgANwA2ADQALQBmADcANwBiAGQANABhADcAZAA4AGMAMAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADgANQAxADcAZgA2ADUALQA4ADEAMgBjAC0ANABhADgAOAAtADkAMgBjAGMALQAzADkAZAA0ADMAYgBiADkAYQA1ADYANwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADAAYQBmADYAYQAwADAALQA5AGEAYwAzAC0ANABjAGEAMQAtADgAMwBjADYALQAyADYAMwA1AGMAMAA2AGEAMgA1AGIAMAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGQAZABiAGQANQA5AGQALQBmADgAMgA4AC0ANAAwADgAOAAtAGIAMgA1ADgALQBiAGYAMQAxADQAMQA2ADYAMQBmADYAMwB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADAAMQBhADIANAA1ADUALQAzAGEAOQAwAC0ANAA1ADYAMgAtAGIANwBlADQALQAxAGYAYwBmADUAMwA5AGYANQAzAGYAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADEAMAA3ADcAYwBmADIALQBmAGEAOABiAC0ANAA3AGUANAAtAGIAZAAyAGEALQBkADgAOQAzADcAOQBiADAAMgA0AGIAOQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGQAYgBkADIANgAzADcALQBmAGYAOAAxAC0ANAAxADQAOQAtAGIAOQA5AGYALQBlAGUAYwBjADMAOAAzADEAYgBhAGIAMAB9QCIAAAAAAAA/8AAAAAAAAD+crAgxJul+AQAAAEwAewBmADYANQBjAGIAOAA1ADQALQBlADUAMgA4AC0ANAAwAGMAMQAtADkANgBjADcALQA2AGIAYQAzADcAYgBlAGMAMgBjAGYAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBiADIAYgBhADQANQAxAGIALQBiAGUAMQAxAC0ANAA2AGYAZgAtAGIAMgBhADcALQBiADgANAA2ADYAMQA2ADAAZgA3AGUAMAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.procesar.com.mx/CuentaCLABE/" xmlns:tns1="http://www.procesar.com.mx/CuentaCLABE/notificacionCuentaClabe/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CuentaCLABE" targetNamespace="http://www.procesar.com.mx/CuentaCLABE/">
+
+  <wsdl:types>
+    <xsd:schema>
+        <xsd:import namespace="http://www.procesar.com.mx/CuentaCLABE/notificacionCuentaClabe/" schemaLocation="../XSD/notificacionCuentaClabe.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="notificacionCuentaClabeRequest">
+    <wsdl:part element="tns1:notificacionCuentaClabeRequest" name="notificacionCuentaClabeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="notificacionCuentaClabeResponse">
+    <wsdl:part element="tns1:notificacionCuentaClabeResponse" name="notificacionCuentaClabeResponse"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="CuentaCLABEPort">
+    <wsdl:operation name="notificacionCuentaClabe">
+      <wsdl:input message="tns:notificacionCuentaClabeRequest"/>
+      <wsdl:output message="tns:notificacionCuentaClabeResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="CuentaCLABESOAP" type="tns:CuentaCLABEPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="notificacionCuentaClabe">
+      <soap:operation soapAction="http://www.procesar.com.mx/CuentaCLABE/notificacionCuentaClabe"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="CuentaCLABE">
+    <wsdl:port binding="tns:CuentaCLABESOAP" name="CuentaCLABEPort">
+      <soap:address location="http://192.168.6.173:7011/CuentaCLABE/ProxyServices/CuentaCLABE"/>
+    </wsdl:port>
+  </wsdl:service>
+  
+</wsdl:definitions>

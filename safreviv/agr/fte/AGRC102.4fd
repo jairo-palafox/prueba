@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{2412cec7-6403-40e5-bb71-c6e8fa050065}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr1" order="" uid="{badb51d2-93f0-4429-8451-0b9dc78d8016}" where="">
+    <RecordField colName="" fieldIdRef="1" fieldType="NON_DATABASE" name="situacion" sqlTabName="" table_alias_name="" uid="{b7d7fb36-f4fa-458a-a896-d60465247be8}"/>
+    <RecordField colName="" fieldIdRef="2" fieldType="NON_DATABASE" name="fecha" sqlTabName="" table_alias_name="" uid="{b4325e9c-98ee-4960-9967-62e983ccda8f}"/>
+    <RecordField colName="" fieldIdRef="3" fieldType="NON_DATABASE" name="total" sqlTabName="" table_alias_name="" uid="{fa500b1d-52d1-4b08-a54c-82ce329e43aa}"/>
+    <RecordField colName="" fieldIdRef="6" name="padre_id" sqlTabName="" table_alias_name="" uid="{160c69f5-142b-420c-9d86-8641472dc8ec}"/>
+    <RecordField colName="" fieldIdRef="7" name="id" sqlTabName="" table_alias_name="" uid="{1d301f8b-f115-430c-849e-105a162e78a9}"/>
+    <RecordField colName="" fieldIdRef="8" name="nivel" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{71502d4b-6859-4394-9a56-9d7857a87a0c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr0" order="" uid="{494639ae-7970-4120-b942-babb0cf67159}" where="">
+    <RecordField colName="" fieldIdRef="4" name="lbl_ruta_reporte" sqlTabName="" sqlType="STRING" table_alias_name="" uid="{a493ed11-7af3-4b45-9e90-1ef0e7ad2bb4}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr2" order="" uid="{7ed0605a-892f-41b9-b262-b0db8edbf368}" where="">
+    <RecordField colName="" fieldIdRef="5" name="solicitud" sqlTabName="" table_alias_name="" uid="{68f2104a-2c79-4613-8d9f-3e1bd6444db7}"/>
+    <RecordField colName="" fieldIdRef="9" name="total_sol" sqlTabName="" table_alias_name="" uid="{66eba237-7b77-4fbc-bf36-6e2c7dc0051e}"/>
+  </Record>
+  <Form gridHeight="42" gridWidth="154" name="Form" text="Form">
+    <Grid gridHeight="20" gridWidth="134" name="Grid1" posX="2" posY="4">
+      <Group gridHeight="18" gridWidth="109" name="Group3" posX="2" posY="1" text="Consulta de solicitud de marcaje a Procesar vía WS por fecha">
+        <Tree expandedColumn="nivel" gridHeight="14" gridWidth="99" idColumn="id" isNodeColumn="nivel" name="scr_1" parentIdColumn="padre_id" posX="1" posY="1" totalRows="13">
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="1" fieldType="NON_DATABASE" gridHeight="1" gridWidth="29" lstrcomment="false" lstrtitle="false" name="situacion" noEntry="true" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Situación" unmovable="true" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="2" fieldType="NON_DATABASE" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" justify="center" lstrcomment="false" lstrtitle="false" name="fecha" noEntry="true" picture="" posX="29" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Fecha" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="3" fieldType="NON_DATABASE" format="" gridHeight="1" gridWidth="8" justify="right" lstrcomment="false" lstrtitle="false" name="total" noEntry="true" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Total" widget="Edit"/>
+          <Phantom colName="" fieldId="6" name="padre_id" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="7" name="id" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="8" name="nivel" sqlTabName="" sqlType="SMALLINT" table_alias_name="" widget="Phantom"/>
+        </Tree>
+        <FFLabel colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="61" hidden="false" name="lbl_ruta_reporte" posX="2" posY="16" rowCount="" sqlTabName="" sqlType="STRING" stepX="" stepY="" style="LabelUrl" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+      </Group>
+    </Grid>
+    <Group gridHeight="11" gridWidth="134" name="Group1" posX="2" posY="24" text="Detalle de situación">
+      <Table gridHeight="8" gridWidth="99" name="scr2" posX="1" posY="1" totalRows="6">
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="39" name="solicitud" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Solicitudes" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="18" name="total_sol" posX="39" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Total" widget="Edit"/>
+      </Table>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA2ADgAZgAyADEAMAA0AGEALQAyAGMANwA5AC0ANAA2ADEAMwAtADgAZAA5AGYALQAzAGUAMQBiAGQANgA0ADQANABkAGIANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADcAZAA3AGYAYgAzADYALQBmADQAZgBhAC0ANAA1ADgAYQAtAGEAOAA5ADYALQBkADYAMAA0ADYANQAyADQANwBiAGUAOAB9QBQAAAAAAABAOgAAAAAAAD+AYk3S8an8AQAAAEwAewBmAGEANQAwADAAYgAxAGQALQA1ADIAZAAxAC0ANABiADAAOAAtAGEANQA0AGMALQA4ADIAYwBlADMAMgA5AGUANAAzAGEAYQB9QBQAAAAAAABAUgAAAAAAAD+EeuFHrhR8AQAAAEwAewA2ADYAZQBiAGEAMgAzADcALQA3AGIANwA3AC0ANABmAGIAYwAtAGIAZgAzADYALQA2AGUAMgBjADcAZABjADAAMAA1ADEAZQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADkANAA2ADMAOQBhAGUALQA3ADkANwAwAC0ANAAxADIAMAAtAGIAOQA0ADIALQBiAGEAYgBiADAAYwBmADYANwAxADUAOQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADQAMwAyADUAZQA5AGMALQA5ADgAZQBlAC0ANAA5ADYAMAAtADkAOQA2ADcALQA2ADIAZQA5ADgAMwBjAGMAZABhADgAZgB9QBQAAAAAAABASIAAAAAAAD+CbpeNT988AQAAAEwAewAxADYAMABjADYAOQBmADUALQAxADQAMgBiAC0ANAAyADAAYwAtADkAZAA4ADYALQA4ADYANAAxADQANwAyAGQAYwA4AGUAYwB9QBQAAAAAAABAV8AAAAAAAD+ZmZmZmZmeAQAAAEwAewBiAGEAZABiADUAMQBkADIALQA5ADMAZgAwAC0ANAA0ADIAOQAtADgANAA1ADEALQAwAGIAOQBkAGMANwA4AGQAOAAwADEANgB9QHXwAAAAAADALAAAAAAAAD+njU/fO2RfAQAAAEwAewAxAGQAMwAwADEAZgA4AGIALQBmADEAMQA1AC0ANAAzADAAYwAtADgANAA5AGUALQAxADAANQBhADEANgAyAGUANwA4AGEAOQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGUAZAAwADYAMAA1AGEALQA4ADkAMgBmAC0ANAAxAGIAOQAtAGIAMgA2ADIALQBiADAAZABiADgAZQBkAGIAZgAzADYAOAB9wHCwAAAAAADACAAAAAAAAD+oEGJN0vGvAQAAAEwAewBhADQAOQAzAGUAZAAxADEALQA3AGEAZgAzAC0ANABiADQANQAtADkAZQA5ADAALQAxAGUAZgAwAGUANwBhAGQAMgBiAGIANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADEANQAwADIAZAA0AGIALQA2ADgANQA5AC0ANAAzADkANAAtADkAYQA1ADYALQA5AGQANwA4ADUANwBhADgANwBhADAAYwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

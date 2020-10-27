@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Consultar_ConsultarAcreedorHttp_Service" targetNamespace="http://services.infonavit.org.mx/sap/consultaacreedor/Binding" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:Port_0="http://services.infonavit.org.mx/sap/consultaacreedor" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://services.infonavit.org.mx/sap/consultaacreedor/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <import location="ConsultarAcreedor.wsdl" namespace="http://services.infonavit.org.mx/sap/consultaacreedor">
+    </import>
+  <binding name="Consultar_ConsultarAcreedorHttpBinding" type="Port_0:ConsultarAcreedor">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="consultarAcreedor">
+      <soap:operation soapAction=""/>
+      <input name="consultarAcreedorRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="consultarAcreedorResponse">
+        <soap:body use="literal"/>
+      </output>
+      <fault name="servicesException">
+        <soap:fault name="servicesException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="Consultar_ConsultarAcreedorHttpService">
+    <port binding="this:Consultar_ConsultarAcreedorHttpBinding" name="Consultar_ConsultarAcreedorHttpPort">
+      <soap:address location="http://10.90.0.118:80/ConsultarAcreedorMediationV2Web/sca/Consultar"/>
+    </port>
+  </service>
+</definitions>

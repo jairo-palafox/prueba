@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{2617a1c6-f78f-4296-b9ee-31779bda964d}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="parametros" order="" uid="{4c183478-5f3c-4bae-b9f1-35c6b7daaf16}" where="">
+    <RecordField colName="" defaultValue="" fieldIdRef="1" name="v_folio_unificacion" sqlTabName="" table_alias_name="" uid="{76252415-2080-42f8-b90c-66c9f2d35799}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_nss_unificador" sqlTabName="" table_alias_name="" uid="{3d8234eb-689b-4155-8d3b-66b804aa1495}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_detalles" order="" uid="{d021053a-1ff8-45ed-a987-0c0066393227}" where="">
+    <RecordField colName="" fieldIdRef="9" name="id_unificador" sqlTabName="" table_alias_name="" uid="{db5cd9b3-4378-427c-9048-10adb6778b42}"/>
+    <RecordField colName="" fieldIdRef="8" name="id_unificado" sqlTabName="" table_alias_name="" uid="{f55b7f72-b77e-44d2-a47f-a35f9197c034}"/>
+    <RecordField colName="" fieldIdRef="7" name="id_derechohabiente" sqlTabName="" table_alias_name="" uid="{ab86fb32-9f67-4081-9b5b-ad12d4863015}"/>
+    <RecordField colName="" fieldIdRef="2" name="nss_unificador" sqlTabName="" table_alias_name="" uid="{3e13f9ce-4e10-4819-9f0b-a4bf9f6c13a1}"/>
+    <RecordField colName="" fieldIdRef="3" name="nss_unificado" sqlTabName="" table_alias_name="" uid="{77ac5ac6-86ac-406f-9c54-be763163bf4b}"/>
+    <RecordField colName="" fieldIdRef="4" name="total_aivs" sqlTabName="" table_alias_name="" uid="{7eb294e0-aca0-45a3-8383-e72bf5b56b80}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_check_box" sqlTabName="" table_alias_name="" uid="{55093116-a6a6-45dd-a737-12e30918f25c}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="78" name="Form" text="Form">
+    <Grid gridHeight="16" gridWidth="75" name="UNIC09" posX="1" posY="1">
+      <Group gridHeight="5" gridWidth="27" name="gr_parametros" posX="2" posY="1" text="Ingrese el folio">
+        <Label gridHeight="1" gridWidth="4" name="Label1" posX="2" posY="1" text="Folio"/>
+        <Edit colName="" columnCount="" defaultValue="" fieldId="1" gridHeight="1" gridWidth="10" name="v_folio_unificacion" picture="3339" posX="8" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="4" name="Label2" posX="2" posY="3" text="NSS"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="11" name="v_nss_unificador" posX="8" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit5" widget="Edit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="70" name="gr_detalles" posX="2" posY="7" text="Cifras Globales">
+        <Table doubleClick="btn_seleccionar" gridHeight="6" gridWidth="67" name="scr_detalles" posX="1" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="1" hidden="true" name="id_unificador" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="id_unificador" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="1" hidden="true" name="id_unificado" posX="1" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="id_unificado" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="1" hidden="true" name="id_derechohabiente" posX="2" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="id_derechohabiente" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="16" name="nss_unificador" noEntry="true" posX="3" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="NSS&#10;Unificador" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" name="nss_unificado" noEntry="true" posX="19" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="NSS&#10;Unificado" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="15" name="total_aivs" noEntry="true" posX="34" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Total&#10;AIVS" widget="Edit"/>
+          <CheckBox colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="v_check_box" notNull="true" posX="49" posY="0" required="false" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" text="" title="Liquidar" widget="CheckBox"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzAGQAOAAyADMANABlAGIALQA2ADgAOQBiAC0ANAAxADUANQAtADgAZAAzAGIALQA2ADYAYgA4ADAANABhAGEAMQA0ADkANQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGIAOAA2AGYAYgAzADIALQA5AGYANgA3AC0ANAAwADgAMQAtADkAYgA1AGIALQBhAGQAMQAyAGQANAA4ADYAMwAwADEANQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADUANQBiADcAZgA3ADIALQBiADcANwBlAC0ANAA0AGQAMgAtAGEANAA3AGYALQBhADMANQBmADkAMQA5ADcAYwAwADMANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGUAYgAyADkANABlADAALQBhAGMAYQAwAC0ANAA1AGEAMwAtADgAMwA4ADMALQBlADcAMgBiAGYANQBiADUANgBiADgAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGMAMQA4ADMANAA3ADgALQA1AGYAMwBjAC0ANABiAGEAZQAtAGIAOQBmADEALQAzADUAYwA2AGIANwBkAGEAYQBmADEANgB9QCoAAAAAAABASwAAAAAAAD+Ik3S8an78AQAAAEwAewA3ADYAMgA1ADIANAAxADUALQAyADAAOAAwAC0ANAAyAGYAOAAtAGIAOQAwAGMALQA2ADYAYwA5AGYAMgBkADMANQA3ADkAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADAAMgAxADAANQAzAGEALQAxAGYAZgA4AC0ANAA1AGUAZAAtAGEAOQA4ADcALQAwAGMAMAAwADYANgAzADkAMwAyADIANwB9QHEgAAAAAABAPQAAAAAAAD+EeuFHrhR8AQAAAEwAewA1ADUAMAA5ADMAMQAxADYALQBhADYAYQA2AC0ANAA1AGQAZAAtAGEANwAzADcALQAxADIAZQAzADAAOQAxADgAZgAyADUAYwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADcAYQBjADUAYQBjADYALQA4ADYAYQBjAC0ANAAwADYAZgAtADkAYwA1ADQALQBiAGUANwA2ADMAMQA2ADMAYgBmADQAYgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGUAMQAzAGYAOQBjAGUALQA0AGUAMQAwAC0ANAA4ADEAOQAtADkAZgAwAGIALQBhADQAYgBmADkAZgA2AGMAMQAzAGEAMQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGIANQBjAGQAOQBiADMALQA0ADMANwA4AC0ANAAyADcAYwAtADkAMAA0ADgALQAxADAAYQBkAGIANgA3ADcAOABiADQAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

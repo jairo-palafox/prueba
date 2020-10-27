@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{cba9b4a5-ae1e-4289-a979-6e7f1fc64759}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="rcd_forma" order="" uid="{990de57f-d254-43cd-85c8-c399e96f4d90}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_folio" sqlTabName="" table_alias_name="" uid="{108df671-3a61-413a-a687-9fb239189587}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_fecha_marca" sqlTabName="" table_alias_name="" uid="{ef53b1e2-4f33-44d4-8f40-e17161789d63}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="rcd_cifras_globales" order="" uid="{ea5c6abb-139b-44ef-b935-b0263dcccbfb}" where="">
+    <RecordField colName="" fieldIdRef="3" name="tb_folio" sqlTabName="" table_alias_name="" uid="{2413dc4c-a29b-42ef-865a-53f1dc57f950}"/>
+    <RecordField colName="" fieldIdRef="4" name="tb_fecha_marca" sqlTabName="" table_alias_name="" uid="{4b978811-d720-4694-afe6-7180acceac54}"/>
+    <RecordField colName="" fieldIdRef="5" name="tb_marca" sqlTabName="" table_alias_name="" uid="{89b1a487-1465-4d3b-a97e-d20567e72b0b}"/>
+    <RecordField colName="" fieldIdRef="6" name="tb_total_cuentas" sqlTabName="" table_alias_name="" uid="{48a35596-e294-4426-933d-fe16da4b0fb4}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="80" name="Form" text="">
+    <Grid gridHeight="13" gridWidth="78" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="76" name="Group1" posX="1" posY="1" text="Reverso Quebranto Avances Abiertos">
+        <Label gridHeight="1" gridWidth="5" name="Label1" posX="1" posY="1" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="f_folio" posX="7" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label2" posX="54" posY="1" text="Fecha Marca"/>
+        <DateEdit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_fecha_marca" posX="65" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="5" gridWidth="76" name="Group2" posX="1" posY="5" text="Cifras Globales">
+        <Table gridHeight="3" gridWidth="74" name="Table1" posX="1" posY="1" totalRows="1">
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="8" name="tb_folio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Folio" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="tb_fecha_marca" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Fecha Marca" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="41" name="tb_marca" posX="18" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Marca" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="10" name="tb_total_cuentas" posX="59" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total Cuentas" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBlAGYANQAzAGIAMQBlADIALQA0AGYAMwAzAC0ANAA0AGQANAAtADgAZgA0ADAALQBlADEANwAxADYAMQA3ADgAOQBkADYAMwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADQAMQAzAGQAYwA0AGMALQBhADIAOQBiAC0ANAAyAGUAZgAtADgANgA1AGEALQA1ADMAZgAxAGQAYwA1ADcAZgA5ADUAMAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADkAYgAxAGEANAA4ADcALQAxADQANgA1AC0ANABkADMAYgAtAGEAOQA3AGUALQBkADIAMAA1ADYANwBlADcAMgBiADAAYgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADgAYQAzADUANQA5ADYALQBlADIAOQA0AC0ANAA0ADIANgAtADkAMwAzAGQALQBmAGUAMQA2AGQAYQA0AGIAMABmAGIANAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEANQBjADYAYQBiAGIALQAxADMAOQBiAC0ANAA0AGUAZgAtAGIAOQAzADUALQBiADAAMgA2ADMAZABjAGMAYwBiAGYAYgB9wHFwAAAAAADAAAAAAAAAAD+Kn752yLQ8AQAAAEwAewA0AGIAOQA3ADgAOAAxADEALQBkADcAMgAwAC0ANAA2ADkANAAtAGEAZgBlADYALQA3ADEAOAAwAGEAYwBjAGUAYQBjADUANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADAAOABkAGYANgA3ADEALQAzAGEANgAxAC0ANAAxADMAYQAtAGEANgA4ADcALQA5AGYAYgAyADMAOQAxADgAOQA1ADgANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADkAMABkAGUANQA3AGYALQBkADIANQA0AC0ANAAzAGMAZAAtADgANQBjADgALQBjADMAOQA5AGUAOQA2AGYANABkADkAMAB9AAAAAAAAAAAAAAAAAAAAAD94k3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

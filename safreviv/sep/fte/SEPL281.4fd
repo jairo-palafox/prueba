@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{8eacefb5-3177-4556-a5fa-941ea81df976}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_solicitudes_restitucion" order="" uid="{7e8dd3f9-a861-49b0-82cc-57d22ab3d90c}" where="">
+    <RecordField colName="" fieldIdRef="1" name="consecutivo" sqlTabName="" table_alias_name="" uid="{122c2c5d-aed7-462c-8e9f-dd9459afa49b}"/>
+    <RecordField colName="" fieldIdRef="2" name="id_expediente" sqlTabName="" table_alias_name="" uid="{04853e2d-2e2c-4e6d-9ee5-952ea162b879}"/>
+    <RecordField colName="" fieldIdRef="3" name="invadido" sqlTabName="" table_alias_name="" uid="{b666d75b-c915-4f5b-b7ee-1e5c7afc43d3}"/>
+    <RecordField colName="" fieldIdRef="4" name="asociado" sqlTabName="" table_alias_name="" uid="{16454224-053a-40cb-ad31-fcfe9aa208df}"/>
+    <RecordField colName="" fieldIdRef="5" name="nss" sqlTabName="" table_alias_name="" uid="{00ee378f-656f-4658-8203-56ff94e5859f}"/>
+    <RecordField colName="" fieldIdRef="6" name="sar92_aivs" sqlTabName="" table_alias_name="" uid="{b808f700-a32d-4298-a6be-425b76835f0d}"/>
+    <RecordField colName="" fieldIdRef="7" name="sar92_pesos" sqlTabName="" table_alias_name="" uid="{b7989dce-02b9-49c0-9d6c-aae0c5332752}"/>
+    <RecordField colName="" fieldIdRef="8" name="viv97_aivs" sqlTabName="" table_alias_name="" uid="{d73548e3-0693-4af5-82f4-65f7e014e791}"/>
+    <RecordField colName="" fieldIdRef="9" name="viv97_pesos" sqlTabName="" table_alias_name="" uid="{40d3326b-a4b7-4a43-a780-dfb8127cd453}"/>
+    <RecordField colName="" fieldIdRef="10" name="ap_aivs" sqlTabName="" table_alias_name="" uid="{05ca5a49-a55f-4d43-9bcb-747f11e1a4cb}"/>
+    <RecordField colName="" fieldIdRef="11" name="ap_pesos" sqlTabName="" table_alias_name="" uid="{6d8528c5-f282-4834-b18b-f896edc7f275}"/>
+    <RecordField colName="" fieldIdRef="12" name="tipo" sqlTabName="" table_alias_name="" uid="{9d1948f2-142c-4570-93f4-50f3926461ce}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{301eb572-cf2c-45f3-9b7a-76c3410c6f1a}" where="">
+    <RecordField colName="" fieldIdRef="13" name="flbl_total_registros" sqlTabName="" table_alias_name="" uid="{be561bf4-b608-4a54-a4f6-542102c8350e}"/>
+    <RecordField colName="" fieldIdRef="14" name="flbl_aivs_sar92" sqlTabName="" table_alias_name="" uid="{4c49369b-0cad-4867-a56a-648cf8226aba}"/>
+    <RecordField colName="" fieldIdRef="15" name="flbl_monto_sar92" sqlTabName="" table_alias_name="" uid="{efcabd72-1a23-4ad4-8cc2-ed8fb402a280}"/>
+    <RecordField colName="" fieldIdRef="16" name="flbl_aivs_viv97" sqlTabName="" table_alias_name="" uid="{cf05fb88-bdba-431f-a813-894386924f2d}"/>
+    <RecordField colName="" fieldIdRef="17" name="flbl_monto_viv97" sqlTabName="" table_alias_name="" uid="{4aa4d685-66e0-4864-9a07-189943ffc5c5}"/>
+    <RecordField colName="" fieldIdRef="18" name="flbl_aivs_ap" sqlTabName="" table_alias_name="" uid="{586b141d-2c90-47da-bf91-7324a9f3fba8}"/>
+    <RecordField colName="" fieldIdRef="19" name="flbl_monto_ap" sqlTabName="" table_alias_name="" uid="{f8bb7664-96d0-4399-b5f0-6cb88773d98d}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="140" name="Form" text="Form">
+    <Grid gridHeight="17" gridWidth="136" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="14" gridWidth="129" name="Group1" posX="2" posY="1" text="Expedientes con Solicitudes de Restitución al SSV">
+        <Table gridHeight="9" gridWidth="124" name="Table1" posX="2" posY="2" totalRows="5">
+          <FFLabel colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="6" name="consecutivo" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="No." widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="10" name="id_expediente" posX="6" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Expediente" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="11" name="invadido" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Invadido" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" name="asociado" posX="27" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Asociado" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="11" name="nss" posX="38" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="NSS Restitución" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="sar92_aivs" posX="49" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Avis Sar92" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="8" name="sar92_pesos" posX="57" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="$ Sar92 " widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" name="viv97_aivs" posX="65" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Aivs Viv97" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="8" name="viv97_pesos" posX="73" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="$ Viv97" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="8" name="ap_aivs" posX="81" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Aivs Ap 5%" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="8" name="ap_pesos" posX="89" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="$ Ap 5%" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="14" name="tipo" posX="97" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Tipo" widget="FFLabel"/>
+        </Table>
+        <FFLabel colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="5" name="flbl_total_registros" posX="2" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <Label gridHeight="1" gridWidth="13" name="Label1" posX="8" posY="12" text="Total Registros"/>
+        <Label gridHeight="1" gridWidth="6" name="Label2" posX="44" posY="12" text="Totales"/>
+        <FFLabel colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="7" name="flbl_aivs_sar92" posX="51" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="7" name="flbl_monto_sar92" posX="59" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="7" name="flbl_aivs_viv97" posX="67" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="7" name="flbl_monto_viv97" posX="75" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="18" gridHeight="1" gridWidth="7" name="flbl_aivs_ap" posX="83" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="19" gridHeight="1" gridWidth="7" name="flbl_monto_ap" posX="91" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

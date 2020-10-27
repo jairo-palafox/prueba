@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{4076a3a1-7b41-47b2-8d16-016a5f8e3cdc}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{0bd1fec2-a580-4c46-9897-2161297b7076}" where="">
+    <RecordField colName="" fieldIdRef="1" name="nss" sqlTabName="" table_alias_name="" uid="{c20258fc-471b-473d-aeb6-68cf6b829f1a}"/>
+    <RecordField colName="" fieldIdRef="2" name="nombre_afore" sqlTabName="" table_alias_name="" uid="{c2c1e612-9232-4c7e-9311-6ff13a196049}"/>
+    <RecordField colName="" fieldIdRef="3" name="folio" sqlTabName="" table_alias_name="" uid="{50308894-376e-474c-ba87-880af6e21c82}"/>
+    <RecordField colName="" fieldIdRef="5" name="nombre_archivo" sqlTabName="" table_alias_name="" uid="{de8dbd8a-e0a6-4393-8867-f16d744b5c7f}"/>
+    <RecordField colName="" fieldIdRef="7" name="f_inicio_pension" sqlTabName="" table_alias_name="" uid="{87c94e5a-52bb-499f-af90-05f7be9d3331}"/>
+    <RecordField colName="" fieldIdRef="12" name="f_resolucion" sqlTabName="" table_alias_name="" uid="{19881a6b-136b-4050-be72-631cc562dd67}"/>
+    <RecordField colName="" fieldIdRef="4" name="f_carga_infonavit" sqlTabName="" table_alias_name="" uid="{a0bf192d-c5fe-41ff-8fac-55ba56b1d407}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_carga_datamart" sqlTabName="" table_alias_name="" uid="{c73d9a10-c206-46ea-ac08-f998b0f4fc2a}"/>
+    <RecordField colName="" fieldIdRef="13" name="paterno_afore" sqlTabName="" table_alias_name="" uid="{2cef806e-8b8d-4682-a8c3-0fcf52926bdb}"/>
+    <RecordField colName="" fieldIdRef="14" name="materno_afore" sqlTabName="" table_alias_name="" uid="{d23d3dd0-f3c6-4f3c-890d-d4a2e2ae231e}"/>
+    <RecordField colName="" fieldIdRef="8" name="regimen" sqlTabName="" table_alias_name="" uid="{62d01d89-ffc1-4034-96d0-828b82e0dfe4}"/>
+    <RecordField colName="" fieldIdRef="9" name="tpo_seguro" sqlTabName="" table_alias_name="" uid="{7e008cab-3881-4c79-942d-ae29dd0c4df0}"/>
+    <RecordField colName="" fieldIdRef="10" name="tpo_pension" sqlTabName="" table_alias_name="" uid="{35292b14-7171-4ed3-9d1a-cfb0d0245624}"/>
+    <RecordField colName="" fieldIdRef="11" name="tpo_prestacion" sqlTabName="" table_alias_name="" uid="{07860025-7f14-4f54-8797-5185f265f450}"/>
+    <RecordField colName="" fieldIdRef="15" name="diag_registro" sqlTabName="" table_alias_name="" uid="{d3dfeb48-dd8b-4740-bcf1-dcbb4eb435a5}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="112" name="Form" text="Form">
+    <Group gridHeight="21" gridWidth="82" name="Group1" posX="3" posY="0" text="Consulta de Archivo Datamart (SPES)">
+      <Grid gridHeight="19" gridWidth="80" name="Grid1" posX="1" posY="1">
+        <Label gridHeight="1" gridWidth="77" justify="center" name="Label7" posX="1" posY="0" text="Criterio de Consulta de Resoluciones"/>
+        <Label gridHeight="1" gridWidth="10" name="Label14" posX="1" posY="1" text=""/>
+        <Label gridHeight="1" gridWidth="40" name="Label6" posX="1" posY="2" text="Datos del trabajador"/>
+        <Label gridHeight="1" gridWidth="15" name="Label1" posX="1" posY="3" text="NSS"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="21" name="nss" posX="17" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label8" posX="45" posY="3" text="Régimen"/>
+        <ComboBox colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="17" items="" name="regimen" posX="61" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="Label2" posX="1" posY="4" text="Nombre"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="27" name="nombre_afore" posX="17" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label9" posX="45" posY="4" text="Tipo de seguro"/>
+        <ComboBox colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="17" items="" name="tpo_seguro" posX="61" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="Label17" posX="1" posY="5" text="Apellido paterno"/>
+        <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="27" name="paterno_afore" posX="17" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label10" posX="45" posY="5" text="Tipo de pensión"/>
+        <ComboBox colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="17" items="" name="tpo_pension" posX="61" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="15" name="Label18" posX="1" posY="6" text="Apellido materno"/>
+        <Edit colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="27" name="materno_afore" posX="17" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label11" posX="45" posY="6" text="Tipo de prestación"/>
+        <ComboBox colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="17" items="" name="tpo_prestacion" posX="61" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="Label21" posX="1" posY="7" text=""/>
+        <Label gridHeight="1" gridWidth="15" name="Label12" posX="1" posY="8" text="Fecha inicio de pensión"/>
+        <DateEdit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_inicio_pension" posX="17" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label19" posX="45" posY="8" text="Diagnóstico"/>
+        <Edit colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="17" name="diag_registro" posX="61" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="15" name="Label13" posX="1" posY="9" text="Fecha resolución"/>
+        <DateEdit colName="" columnCount="" fieldId="12" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_resolucion" posX="17" posY="9" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label20" posX="1" posY="10" text=""/>
+        <HLine gridWidth="77" name="HLine1" posX="1" posY="11"/>
+        <Label gridHeight="1" gridWidth="77" justify="center" name="Label16" posX="1" posY="12" text="Datos de carga"/>
+        <Label gridHeight="1" gridWidth="10" name="Label22" posX="1" posY="13" text=""/>
+        <Label gridHeight="1" gridWidth="18" name="Label3" posX="1" posY="14" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="21" name="folio" posX="20" posY="14" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="18" name="Label15" posX="1" posY="15" text="Fecha de carga DATAMART"/>
+        <DateEdit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="10" name="f_carga_datamart" posX="20" posY="15" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="18" name="Label4" posX="1" posY="16" text="Fecha de carga INFONAVIT"/>
+        <DateEdit colName="" columnCount="" fieldId="4" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="f_carga_infonavit" posX="20" posY="16" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="DateEdit3" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="18" name="Label5" posX="1" posY="17" text="Nombre de archivo"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="21" name="nombre_archivo" posX="20" posY="17" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit5" widget="Edit"/>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADIAYwAxAGUANgAxADIALQA5ADIAMwAyAC0ANABjADcAZQAtADkAMwAxADEALQA2AGYAZgAxADMAYQAxADkANgAwADQAOQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUAMgA5ADIAYgAxADQALQA3ADEANwAxAC0ANABlAGQAMwAtADkAZAAxAGEALQBjAGYAYgAwAGQAMAAyADQANQA2ADIANAB9QBQAAAAAAABAcuAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADAAMwAwADgAOAA5ADQALQAzADcANgBlAC0ANAA3ADQAYwAtAGIAYQA4ADcALQA4ADgAMABhAGYANgBlADIAMQBjADgAMgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADkAOAA4ADEAYQA2AGIALQAxADMANgBiAC0ANAAwADUAMAAtAGIAZQA3ADIALQA2ADMAMQBjAGMANQA2ADIAZABkADYANwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADIAZAAwADEAZAA4ADkALQBmAGYAYwAxAC0ANAAwADMANAAtADkANgBkADAALQA4ADIAOABiADgAMgBlADAAZABmAGUANAB9QBQAAAAAAABAcAAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADAAYgBmADEAOQAyAGQALQBjADUAZgBlAC0ANAAxAGYAZgAtADgAZgBhAGMALQA1ADUAYgBhADUANgBiADEAZAA0ADAANwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADIAMAAyADUAOABmAGMALQA0ADcAMQBiAC0ANAA3ADMAZAAtAGEAZQBiADYALQA2ADgAYwBmADYAYgA4ADIAOQBmADEAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGUAMAAwADgAYwBhAGIALQAzADgAOAAxAC0ANABjADcAOQAtADkANAAyAGQALQBhAGUAMgA5AGQAZAAwAGMANABkAGYAMAB9QBQAAAAAAABAcXAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADcAOAA2ADAAMAAyADUALQA3AGYAMQA0AC0ANABmADUANAAtADgANwA5ADcALQA1ADEAOAA1AGYAMgA2ADUAZgA0ADUAMAB9QBQAAAAAAABAdFAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGIAZAAxAGYAZQBjADIALQBhADUAOAAwAC0ANABjADQANgAtADkAOAA5ADcALQAyADEANgAxADIAOQA3AGIANwAwADcANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGMAZQBmADgAMAA2AGUALQA4AGIAOABkAC0ANAA2ADgAMgAtAGEAOABjADMALQAwAGYAYwBmADUAMgA5ADIANgBiAGQAYgB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADcAMwBkADkAYQAxADAALQBjADIAMAA2AC0ANAA2AGUAYQAtAGEAYwAwADgALQBmADkAOQA4AGIAMABmADQAZgBjADIAYQB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBkADMAZABmAGUAYgA0ADgALQBkAGQAOABiAC0ANAA3ADQAMAAtAGIAYwBmADEALQBkAGMAYgBiADQAZQBiADQAMwA1AGEANQB9QBQAAAAAAABAdcAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGUAOABkAGIAZAA4AGEALQBlADAAYQA2AC0ANAAzADkAMwAtADgAOAA2ADcALQBmADEANgBkADcANAA0AGIANQBjADcAZgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBkADIAMwBkADMAZABkADAALQBmADMAYwA2AC0ANABmADMAYwAtADgAOQAwAGQALQBkADQAYQAyAGUAMgBhAGUAMgAzADEAZQB9QBQAAAAAAABAbSAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADcAYwA5ADQAZQA1AGEALQA1ADIAYgBiAC0ANAA5ADkAZgAtAGEAZgA5ADAALQAwADUAZgA3AGIAZQA5AGQAMwAzADMAMQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

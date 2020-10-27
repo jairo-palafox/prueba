@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="ManagedForm" uid="{a8c6c8e5-f4c3-469d-8a5b-e94a4911cc36}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_movimientos" order="" uid="{6f71d1e2-54d0-4599-9734-935808a064d3}" where="">
+    <RecordField colName="" fieldIdRef="1" name="tlbl_num" sqlTabName="" table_alias_name="" uid="{691996c3-abbb-4be8-8041-9a46a1d1af63}"/>
+    <RecordField colName="" fieldIdRef="2" name="tlbl_expediente" sqlTabName="" table_alias_name="" uid="{aba3e30f-7dd1-4aa7-84af-d73832fbe35e}"/>
+    <RecordField colName="" fieldIdRef="3" name="tlbl_invadido" sqlTabName="" table_alias_name="" uid="{0f7c9517-328d-483a-98e8-df87e3de4958}"/>
+    <RecordField colName="" fieldIdRef="4" name="tlbl_asociado" sqlTabName="" table_alias_name="" uid="{09b36d86-dea2-4333-8724-0be153b6191d}"/>
+    <RecordField colName="" fieldIdRef="5" name="tlbl_nss_ajuste" sqlTabName="" table_alias_name="" uid="{f20f848e-b946-456f-a02f-047aed7688bf}"/>
+    <RecordField colName="" fieldIdRef="6" name="tlbl_monto" sqlTabName="" table_alias_name="" uid="{d4be92b4-3296-4be4-b8d0-6f5ca71c51df}"/>
+    <RecordField colName="" fieldIdRef="7" name="tlbl_estado" sqlTabName="" table_alias_name="" uid="{4a8fbc54-c48f-4ca6-82b0-019dd4a9a7d3}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{846c944b-79f1-48dd-91b2-a8e1ac8f121d}" where="">
+    <RecordField colName="" fieldIdRef="8" name="flbl_total_registros" sqlTabName="" table_alias_name="" uid="{f8e00f79-d209-4257-9453-4d6af6f3aa9b}"/>
+    <RecordField colName="" fieldIdRef="9" name="flbl_monto_total" sqlTabName="" table_alias_name="" uid="{ce292126-abca-4766-98de-42444fa5ce43}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="120" name="Form" text="Form">
+    <Grid gridHeight="18" gridWidth="117" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="16" gridWidth="109" name="gpo_expedientes" posX="2" posY="1" text="Expedientes con movimientos de Ajuste a Informar a Cartera Entidad Recaudadora 475">
+        <Table gridHeight="11" gridWidth="106" name="Table1" posX="1" posY="2" totalRows="10">
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="6" justify="right" name="tlbl_num" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="No." widget="FFLabel"/>
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="13" name="tlbl_expediente" posX="6" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Expediente" widget="FFLabel"/>
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="12" justify="center" name="tlbl_invadido" posX="19" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Invadido" widget="FFLabel"/>
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" justify="center" name="tlbl_asociado" posX="31" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Asociado" widget="FFLabel"/>
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="12" justify="center" name="tlbl_nss_ajuste" posX="43" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="NSS Ajuste" widget="FFLabel"/>
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="16" justify="right" name="tlbl_monto" posX="55" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Monto" widget="FFLabel"/>
+          <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="27" name="tlbl_estado" posX="71" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="Estado" widget="FFLabel"/>
+        </Table>
+        <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" color="blue" columnCount="" fieldId="8" gridHeight="1" gridWidth="5" justify="center" name="flbl_total_registros" posX="1" posY="14" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <Label color="blue" gridHeight="1" gridWidth="10" name="lbl_total_registros" posX="7" posY="14" text="Total Registros"/>
+        <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" color="blue" columnCount="" fieldId="9" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="16" justify="right" name="flbl_monto_total" posX="68" posY="14" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <Label color="blue" gridHeight="1" gridWidth="10" name="lbl_monto_total" posX="85" posY="14" text="Monto Total"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA2ADkAMQA5ADkANgBjADMALQBhAGIAYgBiAC0ANABiAGUAOAAtADgAMAA0ADEALQA5AGEANAA2AGEAMQBkADEAYQBmADYAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGIAYQAzAGUAMwAwAGYALQA3AGQAZAAxAC0ANABhAGEANwAtADgANABhAGYALQBkADcAMwA4ADMAMgBmAGIAZQAzADUAZQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGEAOABmAGIAYwA1ADQALQBjADQAOABmAC0ANABjAGEANgAtADgAMgBiADAALQAwADEAOQBkAGQANABhADkAYQA3AGQAMwB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADgAZQAwADAAZgA3ADkALQBkADIAMAA5AC0ANAAyADUANwAtADkANAA1ADMALQA0AGQANgBhAGYANgBmADMAYQBhADkAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGUAMgA5ADIAMQAyADYALQBhAGIAYwBhAC0ANAA3ADYANgAtADkAOABkAGUALQA0ADIANAA0ADQAZgBhADUAYwBlADQAMwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADIAMABmADgANAA4AGUALQBiADkANAA2AC0ANAA1ADYAZgAtAGEAMAAyAGYALQAwADQANwBhAGUAZAA3ADYAOAA4AGIAZgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGYANwBjADkANQAxADcALQAzADIAOABkAC0ANAA4ADMAYQAtADkAOABlADgALQBkAGYAOAA3AGUAMwBkAGUANAA5ADUAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADkAYgAzADYAZAA4ADYALQBkAGUAYQAyAC0ANAAzADMAMwAtADgANwAyADQALQAwAGIAZQAxADUAMwBiADYAMQA5ADEAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGYANwAxAGQAMQBlADIALQA1ADQAZAAwAC0ANAA1ADkAOQAtADkANwAzADQALQA5ADMANQA4ADAAOABhADAANgA0AGQAMwB9AAAAAAAAAAAAAAAAAAAAAD9ok3S8an76AQAAAEwAewBkADQAYgBlADkAMgBiADQALQAzADIAOQA2AC0ANABiAGUANAAtAGIAOABkADAALQA2AGYANQBjAGEANwAxAGMANQAxAGQAZgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADQANgBjADkANAA0AGIALQA3ADkAZgAxAC0ANAA4AGQAZAAtADkAMQBiADIALQBhADgAZQAxAGEAYwA4AGYAMQAyADEAZAB9wGkAAAAAAADAEAAAAAAAAD9QYk3S8an8AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

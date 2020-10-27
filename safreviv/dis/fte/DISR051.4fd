@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{226fd448-1474-4354-8867-0f7563364594}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="gr_encabezado" order="" uid="{51fb52d0-1596-4bb6-81d4-4ac3abd59317}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_folio_carga_ap_sub" sqlTabName="" table_alias_name="" uid="{89031df2-c877-486e-95e2-3210dc2f631e}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_fecha_trans" sqlTabName="" table_alias_name="" uid="{8666770a-1b79-426e-bfef-e9e1fcd1aa60}"/>
+    <RecordField colName="" fieldIdRef="7" name="tot_registros" sqlTabName="" table_alias_name="" uid="{cbfa1583-a127-4bdb-b12c-fb8ac1720061}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_detalle" order="" uid="{4b805b61-8768-4a60-865c-8a3d1fcb6dd1}" where="">
+    <RecordField colName="" fieldIdRef="10" name="det_aivs" sqlTabName="" table_alias_name="" uid="{29ac3fac-2f0f-47cd-ac7b-84dce1070fc9}"/>
+    <RecordField colName="" fieldIdRef="3" name="det_aportacion" sqlTabName="" table_alias_name="" uid="{549df491-efe7-4941-82f2-fb32f618eca5}"/>
+    <RecordField colName="" fieldIdRef="4" name="det_amortizacion" sqlTabName="" table_alias_name="" uid="{d03a35de-aa10-4c81-8772-5892140db326}"/>
+    <RecordField colName="" fieldIdRef="8" name="det_folio" sqlTabName="" table_alias_name="" uid="{30f9d058-981b-43c7-8d7d-13a7c92e540e}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_sumario" order="" uid="{3f2e4de2-d4b9-42c1-9281-167120d240aa}" where="">
+    <RecordField colName="" fieldIdRef="11" name="sum_aivs" sqlTabName="" table_alias_name="" uid="{f611f83b-1665-40a7-88b8-7d144c9b0ad0}"/>
+    <RecordField colName="" fieldIdRef="5" name="sum_aportacion" sqlTabName="" table_alias_name="" uid="{37ed2cb8-0f95-48f4-8756-67f946f82d19}"/>
+    <RecordField colName="" fieldIdRef="6" name="sum_amortizacion" sqlTabName="" table_alias_name="" uid="{db81163f-ed42-4d25-9160-b417dcf0dd76}"/>
+    <RecordField colName="" fieldIdRef="9" name="sum_folio" sqlTabName="" table_alias_name="" uid="{adccbbd4-dbe2-4a46-a15f-c332d66cf92f}"/>
+  </Record>
+  <Form gridHeight="22" gridWidth="131" name="Form" text="Form">
+    <HBox gridHeight="20" gridWidth="126" name="HBox1" posX="2" posY="1">
+      <Grid gridHeight="20" gridWidth="122" name="Grid1" posX="2" posY="0">
+        <Group gridHeight="3" gridWidth="119" name="Group1" posX="1" posY="1" text="Reverso Archivo Aportaciones Subsecuentes">
+          <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Folio"/>
+          <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="12" name="f_folio_carga_ap_sub" posX="14" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="14" name="Label2" posX="57" posY="1" text="Fecha Transferencia"/>
+          <DateEdit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="17" name="f_fecha_trans" posX="73" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        </Group>
+        <Group gridHeight="9" gridWidth="59" name="gr_detalle" posX="1" posY="5" text="Detalle de cifras globales">
+          <Table gridHeight="7" gridWidth="57" name="scr_detalle" posX="1" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="14" name="det_aivs" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="AIVS" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" name="det_aportacion" posX="14" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Aportación" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="15" hidden="true" name="det_amortizacion" posX="29" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Amortización" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" hidden="true" name="det_folio" posX="44" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Folio" widget="Edit"/>
+          </Table>
+        </Group>
+        <Group gridHeight="9" gridWidth="59" name="gr_sumario" posX="62" posY="5" text="Sumario  de cifras globales">
+          <Table gridHeight="7" gridWidth="57" name="scr_sumario" posX="1" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="14" name="sum_aivs" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="AIVS" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" name="sum_aportacion" posX="14" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Aportación" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="15" hidden="true" name="sum_amortizacion" posX="29" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Amortización" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="8" hidden="true" name="sum_folio" posX="44" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Folio" widget="Edit"/>
+          </Table>
+        </Group>
+        <Group gridHeight="3" gridWidth="29" name="gr_total" posX="1" posY="15" text="">
+          <Label gridHeight="1" gridWidth="10" name="Label3" posX="1" posY="1" text="Total Registros"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="16" name="tot_registros" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit6" widget="Edit"/>
+        </Group>
+      </Grid>
+    </HBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0AGIAOAAwADUAYgA2ADEALQA4ADcANgA4AC0ANABhADYAMAAtADgANgA1AGMALQA4AGEAMwBkADEAZgBjAGIANgBkAGQAMQB9wFUAAAAAAADAR4AAAAAAAD+vO2RaHKwPAQAAAEwAewBkAGIAOAAxADEANgAzAGYALQBlAGQANAAyAC0ANABkADIANQAtADkAMQA2ADAALQBiADQAMQA3AGQAYwBmADAAZABkADcANgB9QBQAAAAAAABAUgAAAAAAAD+lgQYk3S8fAQAAAEwAewBkADAAMwBhADMANQBkAGUALQBhAGEAMQAwAC0ANABjADgAMQAtADgANwA3ADIALQA1ADgAOQAyADEANAAwAGQAYgAzADIANgB9QBQAAAAAAABAUgAAAAAAAD+j987ZFocvAQAAAEwAewBjAGIAZgBhADEANQA4ADMALQBhADEAMgA3AC0ANABiAGQAYgAtAGIAMQAyAGMALQBmAGIAOABhAGMAMQA3ADIAMAAwADYAMQB9QBQAAAAAAABAUgAAAAAAAD+ok3S8an7/AQAAAEwAewA1ADQAOQBkAGYANAA5ADEALQBlAGYAZQA3AC0ANAA5ADQAMQAtADgAMgBmADIALQBmAGIAMwAyAGYANgAxADgAZQBjAGEANQB9QBQAAAAAAABASIAAAAAAAD+jdLxqfvnfAQAAAEwAewBmADYAMQAxAGYAOAAzAGIALQAxADYANgA1AC0ANAAwAGEANwAtADgAOABiADgALQA3AGQAMQA0ADQAYwA5AGIAMABhAGQAMAB9QBQAAAAAAABAOgAAAAAAAD+wIMSbpeNXAQAAAEwAewA4ADkAMAAzADEAZABmADIALQBjADgANwA3AC0ANAA4ADYAZQAtADkANQBlADIALQAzADIAMQAwAGQAYwAyAGYANgAzADEAZQB9QBQAAAAAAABAOgAAAAAAAD+rItDlYEGPAQAAAEwAewAzAGYAMgBlADQAZABlADIALQBkADQAYgA5AC0ANAAyAGMAMQAtADkAMgA4ADEALQAxADYANwAxADIAMABkADIANAAwAGEAYQB9QG5gAAAAAADAOQAAAAAAAD+mhysCDEm/AQAAAEwAewAyADkAYQBjADMAZgBhAGMALQAyAGYAMABmAC0ANAA3AGMAZAAtAGEAYwA3AGIALQA4ADQAZABjAGUAMQAwADcAMABmAGMAOQB9QBQAAAAAAABAOgAAAAAAAD+vvnbItDlfAQAAAEwAewAzADcAZQBkADIAYwBiADgALQAwAGYAOQA1AC0ANAA4AGYANAAtADgANwA1ADYALQA2ADcAZgA5ADQANgBmADgAMgBkADEAOQB9QBQAAAAAAABASIAAAAAAAD+k/fO2RaHPAQAAAEwAewA4ADYANgA2ADcANwAwAGEALQAxAGIANwA5AC0ANAAyADYAZQAtAGIAZgBlAGYALQBlADkAZQAxAGYAYwBkADEAYQBhADYAMAB9QBQAAAAAAABASIAAAAAAAD+qHKwIMSbvAQAAAEwAewBhAGQAYwBjAGIAYgBkADQALQBkAGIAZQAyAC0ANABhADQANgAtAGEAMQA1AGYALQBjADMAMwAyAGQANgA2AGMAZgA5ADIAZgB9QBQAAAAAAABAV8AAAAAAAD+sKPXCj1wvAQAAAEwAewAzADAAZgA5AGQAMAA1ADgALQA5ADgAMQBiAC0ANAAzAGMANwAtADgAZAA3AGQALQAxADMAYQA3AGMAOQAyAGUANQA0ADAAZQB9QBQAAAAAAABAV8AAAAAAAD+rpeNT987fAQAAAEwAewA1ADEAZgBiADUAMgBkADAALQAxADUAOQA2AC0ANABiAGIANgAtADgAMQBkADQALQA0AGEAYwAzAGEAYgBkADUAOQAzADEANwB9QFWAAAAAAADAZUAAAAAAAD+pFocrAgxPAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

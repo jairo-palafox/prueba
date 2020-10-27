@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{3015ca58-a301-4d9a-9609-52bdc85848e4}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="archfuente" order="" uid="{b5d2bb3d-b3c8-40e5-b8c5-7a7c75a8802d}" where="">
+    <RecordField colName="" fieldIdRef="1" name="nombreArchivoFuente" sqlTabName="" table_alias_name="" uid="{e740f162-ddc3-472c-8f8e-60b4e37c91f2}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="archdestino" order="" uid="{386bef2e-d46f-458e-8dc1-39a0f458f0de}" where="">
+    <RecordField colName="" fieldIdRef="2" name="nombreArchivoDestino" sqlTabName="" table_alias_name="" uid="{5edf1d81-a125-4de2-ac97-f2df586833c7}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_integrados" order="" uid="{a02c6749-0ff7-4556-a360-62793f2f3850}" where="">
+    <RecordField colName="" fieldIdRef="4" name="col_folio" sqlTabName="" table_alias_name="" uid="{e35adba5-3a6c-4249-99c6-efb25642b91d}"/>
+    <RecordField colName="" fieldIdRef="5" name="col_archivo" sqlTabName="" table_alias_name="" uid="{5feb2ac4-e44c-4409-bc29-51c008ab82a2}"/>
+    <RecordField colName="" fieldIdRef="6" name="col_f_actualiza" sqlTabName="" table_alias_name="" uid="{021091f9-d6fb-481d-b75a-78407f2cca17}"/>
+    <RecordField colName="" fieldIdRef="7" name="col_total_solicitudes" sqlTabName="" table_alias_name="" uid="{a34d8ec1-0b67-4668-b3a2-943b3bd14c69}"/>
+  </Record>
+  <Form gridHeight="19" gridWidth="95" name="Form" text="Form">
+    <Grid gridHeight="17" gridWidth="91" name="Grid1" posX="2" posY="1">
+      <Table gridHeight="6" gridWidth="43" name="Table4" posX="1" posY="1" totalRows="5">
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="38" name="nombreArchivoFuente" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Archivo Pendientes de Validar" widget="Edit"/>
+      </Table>
+      <Table gridHeight="6" gridWidth="44" name="Table1" posX="45" posY="1" totalRows="5">
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="39" name="nombreArchivoDestino" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Archivos a Validar" widget="Edit"/>
+      </Table>
+      <Group gridChildrenInParent="false" gridHeight="8" gridWidth="88" name="Group1" posX="1" posY="8" sizePolicy="fixed" text="Información preliminar">
+        <Table gridHeight="6" gridWidth="85" name="Table3" posX="2" posY="1" totalRows="5" wantFixedPageSize="false">
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="8" hidden="true" name="col_folio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Folio" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="42" justify="center" name="col_archivo" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Archivo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" justify="center" name="col_f_actualiza" posX="50" posY="0" rowCount="" sizePolicy="fixed" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha de &#10;Carga" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="11" justify="center" name="col_total_solicitudes" posX="61" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total &#10;Solicitudes" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBlADcANAAwAGYAMQA2ADIALQBkAGQAYwAzAC0ANAA3ADIAYwAtADgAZgA4AGUALQA2ADAAYgA0AGUAMwA3AGMAOQAxAGYAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGYAZQBiADIAYQBjADQALQBlADQANABjAC0ANAA0ADAAOQAtAGIAYwAyADkALQA1ADEAYwAwADAAOABhAGIAOAAyAGEAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADAAMgBjADYANwA0ADkALQAwAGYAZgA3AC0ANAA1ADUANgAtAGEAMwA2ADAALQA2ADIANwA5ADMAZgAyAGYAMwA4ADUAMAB9wINAAAAAAABARYAAAAAAAD+MrAgxJul8AQAAAEwAewBiADUAZAAyAGIAYgAzAGQALQBiADMAYwA4AC0ANAAwAGUANQAtAGIAOABjADUALQA3AGEANwBjADcANQBhADgAOAAwADIAZAB9wHuAAAAAAABARQAAAAAAAD+QYk3S8an+AQAAAEwAewA1AGUAZABmADEAZAA4ADEALQBhADEAMgA1AC0ANABkAGUAMgAtAGEAYwA5ADcALQBmADIAZABmADUAOAA2ADgAMwAzAGMANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADMANQBhAGQAYgBhADUALQAzAGEANgBjAC0ANAAyADQAOQAtADkAOQBjADYALQBlAGYAYgAyADUANgA0ADIAYgA5ADEAZAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADIAMQAwADkAMQBmADkALQBkADYAZgBiAC0ANAA4ADEAZAAtAGIANwA1AGEALQA3ADgANAAwADcAZgAyAGMAYwBhADEANwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADgANgBiAGUAZgAyAGUALQBkADQANgBmAC0ANAA1ADgAZQAtADgAZABjADEALQAzADkAYQAwAGYANAA1ADgAZgAwAGQAZQB9wHuQAAAAAABAY6AAAAAAAD+SbpeNT98+AQAAAEwAewBhADMANABkADgAZQBjADEALQAwAGIANgA3AC0ANAA2ADYAOAAtAGIAMwBhADIALQA5ADQAMwBiADMAYgBkADEANABjADYAOQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

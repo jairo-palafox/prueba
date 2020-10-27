@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="AGRS11.rdd" RWFglReportName="resultados"/>
+    <report:Conflicts>
+        <report:Conflict nodeName="MiniPage3_1" message="Node was in trigger &quot;If&quot;, but trigger was removed during schema update"/>
+    </report:Conflicts>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="PageRoot" width="min" length="max" alignment="near" layoutDirection="topToBottom" swapX="false" transformTransparently="false" hidePageHeaderOnLastPage="false" hidePageFooterOnLastPage="false" splitOversizedItems="false" borderStyle="none">
+                    <LAYOUTNODE name="First Page Header" width="521" length="88.25" alignment="far" port="firstPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="ContenedorImagen1" width="61.25" length="74.75" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" width="97.3012" length="62.25" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                        <MINIPAGE name="ContenedorUsuario1" width="15.75" length="521" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <WORDBOX name="Usuario" y="2" color="#ffffff" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="Usuario:"/>
+                            <WORDBOX name="TitutoReporte" y="max*0.2812" width="min" anchorX="0.5" color="#ffffff" fontSize="12" fontBold="false" floatingBehavior="enclosed" text="BITÁCORA OPERACIONES MICROFLUJO "/>
+                            <WORDBOX name="Fecha" y="417.944" width="min" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario Value" class="grwStringValue" x="2.41561" y="44.8872" anchorX="0" anchorY="0" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                            <rtl:input-variable name="v_f_ejecuta" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_f_ejecuta Value" class="grwStringValue" x="1.02901" y="455.043" anchorX="0" anchorY="0" color="#ffffff" fontSize="10" floatingBehavior="enclosed" text="{{v_f_ejecuta}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Tramites_exitosos" width="max" length="min">
+                        <LAYOUTNODE name="LayoutNode32" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox179" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Trámites exitosos"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode33" width="3.5" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage38" width="24.4557" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="c_descripcion5" x="6.77" y="0.6743" width="min" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Descripciòn"/>
+                            <WORDBOX name="c_registros5" x="6.77" y="117.444" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Registros"/>
+                            <WORDBOX name="c_porcentaje5" x="8.2204" y="194.45" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="%"/>
+                            <WORDBOX name="c_deudor5" x="8.2204" y="245.595" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Con deudor"/>
+                            <WORDBOX name="c_sindeudor5" x="8.2204" y="337.823" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Sin deudor"/>
+                            <WORDBOX name="c_d_origen5" x="8.2204" y="426.905" alignment="baseline" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Deudor"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage3_1_1" width="16.8337" length="max" alignment="near" layoutDirection="leftToRight">
+                            <rtl:input-variable name="r_tmt_ex.desc_credito" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDBOX name="r_tmt_ex.desc_credito Value" class="grwStringValue" width="109.375" fontSize="8" floatingBehavior="enclosed" text="{{r_tmt_ex.desc_credito}}"/>
+                            <rtl:input-variable name="r_tmt_ex.total" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tmt_ex.total Value" class="grwNumericValue" y="116.49" width="60.125" length="9.81289" anchorX="1" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_ex.total}}"/>
+                            <rtl:input-variable name="r_tmt_ex.porcentaje" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDBOX name="r_tmt_ex.porcentaje Value" class="grwStringValue" y="186.309" width="42.5" fontSize="8" floatingBehavior="enclosed" text="{{r_tmt_ex.porcentaje}}"/>
+                            <rtl:input-variable name="r_tmt_ex.t_deudores" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tmt_ex.t_deudores Value" class="grwNumericValue" y="245.595" width="77.125" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_ex.t_deudores}}"/>
+                            <rtl:input-variable name="r_tmt_ex.t_no_deudor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tmt_ex.t_no_deudor Value" class="grwNumericValue" y="337.823" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_ex.t_no_deudor}}"/>
+                            <rtl:input-variable name="r_tmt_ex.sdo_deudor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tmt_ex.sdo_deudor Value" class="grwNumericValue" y="426.905" width="79.875" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,###,##&amp;.&amp;&amp;" value="{{r_tmt_ex.sdo_deudor}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage11_1" width="17.7221" length="max" alignment="far" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox187" width="75.19" length="9.76529" color="#ce050f" fontSize="8" fontBold="true" fontItalic="false" underline="true" floatingBehavior="enclosed" text="Total: "/>
+                            <rtl:input-variable name="r_tmt_ex.total_reg" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDBOX name="r_tmt_ex.total_reg Value" class="grwStringValue" y="116.49" width="60.7702" fontSize="8" floatingBehavior="enclosed" text="{{r_tmt_ex.total_reg}}" trimText="left"/>
+                            <rtl:input-variable name="r_tmt_ex.porcentaje" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDBOX name="r_tmt_ex.porcentaje Value1" class="grwStringValue" y="186.309" width="42.5" fontSize="8" floatingBehavior="enclosed" text="{{r_tmt_ex.porcentaje}}"/>
+                            <rtl:input-variable name="r_tmt_ex.t_deudores" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tmt_ex.t_deudores Value1" class="grwNumericValue" y="245.595" width="77.125" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_ex.t_deudores}}"/>
+                            <rtl:input-variable name="r_tmt_ex.t_no_deudor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tmt_ex.t_no_deudor Value1" class="grwNumericValue" y="337.823" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_ex.t_no_deudor}}"/>
+                            <rtl:input-variable name="r_tmt_ex.sdo_deudor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="r_tmt_ex.sdo_deudor Value1" class="grwNumericValue" y="426.905" width="79.875" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,###,##&amp;.&amp;&amp;" value="{{r_tmt_ex.sdo_deudor}}"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="Originaciones_Exitosas" width="max" length="min">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox34" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Originaciones exitosas"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode1" width="3.5" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="MiniPage1" width="24.4557" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="c_descripcion1" x="6.77" y="0.6743" width="min" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Descripciòn"/>
+                                <WORDBOX name="c_registros1" x="6.77" y="117.444" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Registros"/>
+                                <WORDBOX name="c_porcentaje1" x="8.2204" y="194.45" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="%"/>
+                                <WORDBOX name="c_deudor1" x="8.2204" y="245.595" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Con deudor"/>
+                                <WORDBOX name="c_sindeudor1" x="8.2204" y="337.823" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Sin deudor"/>
+                                <WORDBOX name="c_d_origen1" x="8.2204" y="426.905" alignment="baseline" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Deudor"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <rtl:match name="If" nameConstraint="If" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="IfThen" nameConstraint="IfThen" minOccurs="0" maxOccurs="1"/>
+                        </rtl:match>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage3_1" width="16.8337" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_orig_ex.desc_credito" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_orig_ex.desc_credito Value" class="grwStringValue" width="109.002" fontSize="8" floatingBehavior="enclosed" text="{{arr_orig_ex.desc_credito}}"/>
+                                    <rtl:input-variable name="arr_orig_ex.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_orig_ex.total Value" class="grwNumericValue" y="116.49" width="60.1213" anchorX="1" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_ex.total}}"/>
+                                    <rtl:input-variable name="arr_orig_ex.porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_orig_ex.porcentaje Value" class="grwStringValue" y="186.309" width="42.9376" fontSize="8" floatingBehavior="enclosed" textAlignment="left" text="{{arr_orig_ex.porcentaje}}"/>
+                                    <rtl:input-variable name="arr_orig_ex.t_deudores" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_orig_ex.t_deudores Value" class="grwNumericValue" y="245.595" width="75.3483" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_ex.t_deudores}}"/>
+                                    <rtl:input-variable name="arr_orig_ex.t_no_deudor" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_orig_ex.t_no_deudor Value" class="grwNumericValue" y="337.823" width="74.2877" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_ex.t_no_deudor}}"/>
+                                    <rtl:input-variable name="arr_orig_ex.sdo_deudor" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_orig_ex.sdo_deudor Value" class="grwNumericValue" y="426.905" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,###,##&amp;.&amp;&amp;" value="{{arr_orig_ex.sdo_deudor}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="MiniPage11" width="18.2524" length="max" alignment="far" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox" width="75.19" length="9.76529" color="#ce050f" fontSize="8" fontBold="true" fontItalic="false" underline="true" floatingBehavior="enclosed" text="Total: "/>
+                            <rtl:input-variable name="arr_orig_ex.total_reg" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="arr_orig_ex.total_reg Value" class="grwStringValue" y="116.49" width="60.1754" fontSize="8" floatingBehavior="enclosed" textAlignment="left" text="{{arr_orig_ex.total_reg}}" trimText="left"/>
+                            <rtl:input-variable name="arr_orig_ex.total_prc" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="arr_orig_ex.total_prc Value" class="grwStringValue" y="186.309" width="43.8318" fontSize="8" floatingBehavior="enclosed" textAlignment="left" text="{{arr_orig_ex.total_prc}}"/>
+                            <rtl:input-variable name="arr_orig_ex.total_deudor" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_orig_ex.total_deudor Value" class="grwNumericValue" y="245.595" width="75.454" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_ex.total_deudor}}"/>
+                            <rtl:input-variable name="arr_orig_ex.total_nd" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_orig_ex.total_nd Value" class="grwNumericValue" y="337.823" width="74.2426" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_ex.total_nd}}"/>
+                            <rtl:input-variable name="arr_orig_ex.total_sdo_deudor" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_orig_ex.total_sdo_deudor Value" class="grwNumericValue" y="426.905" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="##,###,###,###,##&amp;.&amp;&amp;" value="{{arr_orig_ex.total_sdo_deudor}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Tramites_No_exitosos" width="max" length="min">
+                            <LAYOUTNODE name="LayoutNode36" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox200" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Trámites no exitosos"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode37" width="3.5" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="MiniPage41" width="24.4557" length="max" layoutDirection="leftToRight">
+                                <WORDBOX name="c_descripcion6" x="6.77" y="0.6743" width="min" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Descripciòn"/>
+                                <WORDBOX name="c_registros6" x="6.77" y="117.444" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Registros"/>
+                                <WORDBOX name="c_porcentaje6" x="8.2204" y="194.45" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="%"/>
+                                <WORDBOX name="c_deudor6" x="8.2204" y="245.595" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Con deudor"/>
+                                <WORDBOX name="c_sindeudor6" x="8.2204" y="337.823" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Sin deudor"/>
+                                <WORDBOX name="c_d_origen6" x="8.2204" y="426.905" alignment="baseline" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Deudor"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage3_1_2" width="16.8337" length="max" alignment="near" layoutDirection="leftToRight">
+                                <rtl:input-variable name="r_tmt_no_ex.desc_credito" type="FGLString" expectedLocation="expectedAhead"/>
+                                <WORDBOX name="r_tmt_no_ex.desc_credito Value" class="grwStringValue" y="0.6743" width="109.471" fontSize="8" floatingBehavior="enclosed" text="{{r_tmt_no_ex.desc_credito}}"/>
+                                <rtl:input-variable name="r_tmt_no_ex.total" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                <DECIMALFORMATBOX name="r_tmt_no_ex.total Value" class="grwNumericValue" y="116.49" width="60.8682" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_no_ex.total}}"/>
+                                <rtl:input-variable name="r_tmt_no_ex.porcentaje" type="FGLString" expectedLocation="expectedAhead"/>
+                                <WORDBOX name="r_tmt_no_ex.porcentaje Value" class="grwStringValue" y="186.309" width="45.1213" fontSize="8" floatingBehavior="enclosed" text="{{r_tmt_no_ex.porcentaje}}"/>
+                                <rtl:input-variable name="r_tmt_no_ex.t_deudores" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                <DECIMALFORMATBOX name="r_tmt_no_ex.t_deudores Value" class="grwNumericValue" y="245.595" width="76.7975" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_no_ex.t_deudores}}"/>
+                                <rtl:input-variable name="r_tmt_no_ex.t_no_deudor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                <DECIMALFORMATBOX name="r_tmt_no_ex.t_no_deudor Value" class="grwNumericValue" y="337.823" width="75.7431" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_no_ex.t_no_deudor}}"/>
+                                <rtl:input-variable name="r_tmt_no_ex.sdo_deudor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                <DECIMALFORMATBOX name="r_tmt_no_ex.sdo_deudor Value" class="grwNumericValue" y="426.905" width="77.6893" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,###,##&amp;.&amp;&amp;" value="{{r_tmt_no_ex.sdo_deudor}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage11_2" width="19.8434" length="max" alignment="far" layoutDirection="leftToRight">
+                                <WORDBOX name="WordBox201" width="75.19" length="9.76529" color="#ce050f" fontSize="8" fontBold="true" fontItalic="false" underline="true" floatingBehavior="enclosed" text="Total: "/>
+                                <rtl:input-variable name="r_tmt_no_ex.total_reg" type="FGLString" expectedLocation="expectedAhead"/>
+                                <WORDBOX name="r_tmt_no_ex.total_reg Value" class="grwStringValue" y="116.49" width="61.6214" length="9.34594" fontSize="8" floatingBehavior="enclosed" textAlignment="left" text="{{r_tmt_no_ex.total_reg}}" trimText="left"/>
+                                <rtl:input-variable name="r_tmt_no_ex.porcentaje" type="FGLString" expectedLocation="expectedAhead"/>
+                                <WORDBOX name="r_tmt_no_ex.porcentaje Value1" class="grwStringValue" y="186.309" width="45.1213" fontSize="8" floatingBehavior="enclosed" text="{{r_tmt_no_ex.porcentaje}}"/>
+                                <rtl:input-variable name="r_tmt_no_ex.t_deudores" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                <DECIMALFORMATBOX name="r_tmt_no_ex.t_deudores Value1" class="grwNumericValue" y="245.595" width="76.7975" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_no_ex.t_deudores}}"/>
+                                <rtl:input-variable name="r_tmt_no_ex.t_no_deudor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                <DECIMALFORMATBOX name="r_tmt_no_ex.t_no_deudor Value1" class="grwNumericValue" y="337.823" width="75.7431" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_tmt_no_ex.t_no_deudor}}"/>
+                                <rtl:input-variable name="r_tmt_no_ex.sdo_deudor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                <DECIMALFORMATBOX name="r_tmt_no_ex.sdo_deudor Value1" class="grwNumericValue" y="426.905" width="77.6893" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,###,##&amp;.&amp;&amp;" value="{{r_tmt_no_ex.sdo_deudor}}"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <MINIPAGE name="Originaciones_No_Exitosas" width="max" length="min">
+                            <LAYOUTNODE name="LayoutNode28" width="18.2426" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox170" alignment="far" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Originaciones no exitosas"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode29" width="3.5" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="MiniPage34" width="26.7074" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="c_descripcion4" x="8.6265" y="0.6743" width="min" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Descripciòn"/>
+                                <WORDBOX name="c_registros4" x="8.6265" y="118.252" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Registros"/>
+                                <WORDBOX name="c_porcentaje4" x="8.6265" y="194.45" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="%"/>
+                                <WORDBOX name="c_deudor4" x="8.6265" y="245.595" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Con deudor"/>
+                                <WORDBOX name="c_sindeudor4" x="8.6265" y="337.823" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Sin deudor"/>
+                                <WORDBOX name="c_d_origen4" x="9.1054" y="426.905" alignment="baseline" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Deudor"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <rtl:match name="If" nameConstraint="If" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="IfThen" nameConstraint="IfThen" minOccurs="0" maxOccurs="1"/>
+                        </rtl:match>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage35" width="16.5133" length="519.5" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_orig_no_ex.desc_credito" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_orig_no_ex.desc_credito Value" class="grwStringValue" y="0.6743" width="108.784" fontSize="8" floatingBehavior="enclosed" text="{{arr_orig_no_ex.desc_credito}}"/>
+                                    <rtl:input-variable name="arr_orig_no_ex.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_orig_no_ex.total Value" class="grwNumericValue" y="117.444" width="59.743" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_no_ex.total}}"/>
+                                    <rtl:input-variable name="arr_orig_no_ex.porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_orig_no_ex.porcentaje Value" class="grwStringValue" y="186.309" width="48.1347" fontSize="8" floatingBehavior="enclosed" text="{{arr_orig_no_ex.porcentaje}}"/>
+                                    <rtl:input-variable name="arr_orig_no_ex.t_deudores" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_orig_no_ex.t_deudores Value" class="grwNumericValue" y="245.595" width="75.3243" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_no_ex.t_deudores}}"/>
+                                    <rtl:input-variable name="arr_orig_no_ex.t_no_deudor" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_orig_no_ex.t_no_deudor Value" class="grwNumericValue" y="337.823" width="76.2162" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_no_ex.t_no_deudor}}"/>
+                                    <rtl:input-variable name="arr_orig_no_ex.sdo_deudor" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_orig_no_ex.sdo_deudor Value" class="grwNumericValue" y="426.905" width="78.8919" anchorX="1" fontSize="8" floatingBehavior="enclosed" format="###,###,###,##&amp;.&amp;&amp;" value="{{arr_orig_no_ex.sdo_deudor}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="MiniPage36" width="18.0153" length="521" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox171" width="75.19" length="9.76529" color="#ce050f" fontSize="8" fontBold="true" fontItalic="false" underline="true" floatingBehavior="enclosed" text="Total: "/>
+                            <rtl:input-variable name="arr_orig_no_ex.total_reg" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="arr_orig_no_ex.total_reg Value" class="grwStringValue" y="117.444" width="60.4119" fontSize="8" floatingBehavior="enclosed" text="{{arr_orig_no_ex.total_reg}}" trimText="left"/>
+                            <rtl:input-variable name="arr_orig_no_ex.total_prc" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="arr_orig_no_ex.total_prc Value" class="grwStringValue" y="186.309" width="49.0131" fontSize="8" floatingBehavior="enclosed" text="{{arr_orig_no_ex.total_prc}}"/>
+                            <rtl:input-variable name="arr_orig_no_ex.total_deudor" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_orig_no_ex.total_deudor Value" class="grwNumericValue" y="245.595" width="75.5541" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_no_ex.total_deudor}}"/>
+                            <rtl:input-variable name="arr_orig_no_ex.total_nd" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_orig_no_ex.total_nd Value" class="grwNumericValue" y="337.823" width="75.3243" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_orig_no_ex.total_nd}}"/>
+                            <rtl:input-variable name="arr_orig_no_ex.total_sdo_deudor" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_orig_no_ex.total_sdo_deudor Value" class="grwNumericValue" y="426.905" width="78.8919" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="##,###,###,###,##&amp;.&amp;&amp;" value="{{arr_orig_no_ex.total_sdo_deudor}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Tramites_no_exitosos_rch" width="max" length="46.25">
+                            <LAYOUTNODE name="LayoutNode38" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox203" width="min" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Trámites no exitosos (causal de rechazo)"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode1_1" width="3.5" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="MiniPage1_1" width="24.4557" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="c_descripcion7" x="6.77" y="0.6743" width="min" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Descripciòn"/>
+                                <WORDBOX name="c_registros7" x="6.77" y="117.444" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Registros"/>
+                                <WORDBOX name="c_porcentaje7" x="8.2204" y="194.45" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="%"/>
+                                <WORDBOX name="c_deudor7" x="8.2204" y="245.595" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Con deudor"/>
+                                <WORDBOX name="c_sindeudor7" x="8.2204" y="337.823" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Sin deudor"/>
+                                <WORDBOX name="c_d_origen7" x="8.2204" y="426.905" alignment="baseline" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Deudor"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage3_1_3" width="18.9173" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_rch_tmt.rch_concatena" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="arr_rch_tmt.rch_concatena Value" class="grwStringValue" y="0" width="112.75" fontSize="7" floatingBehavior="enclosed" text="{{arr_rch_tmt.rch_concatena}}"/>
+                                    <rtl:input-variable name="arr_rch_tmt.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_rch_tmt.total Value" class="grwNumericValue" y="116.49" width="60.1213" length="10.3657" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_tmt.total}}"/>
+                                    <rtl:input-variable name="arr_rch_tmt.porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_rch_tmt.porcentaje Value" class="grwStringValue" y="186.309" width="49.3015" fontSize="8" floatingBehavior="enclosed" text="{{arr_rch_tmt.porcentaje}}"/>
+                                    <rtl:input-variable name="arr_rch_tmt.t_deudores" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_rch_tmt.t_deudores Value" class="grwNumericValue" y="245.595" width="75.6621" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_tmt.t_deudores}}"/>
+                                    <rtl:input-variable name="arr_rch_tmt.sdo_deudor" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_rch_tmt.sdo_deudor Value" class="grwNumericValue" y="426.905" width="79.2298" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,###,##&amp;.&amp;&amp;" value="{{arr_rch_tmt.sdo_deudor}}"/>
+                                    <rtl:input-variable name="arr_rch_tmt.t_no_deudor" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_rch_tmt.t_no_deudor Value" class="grwNumericValue" y="337.823" width="77.6307" length="10.0819" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_tmt.t_no_deudor}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="MiniPage36_1" width="21.5829" length="521" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox215" width="75.19" length="9.76529" color="#ce050f" fontSize="8" fontBold="true" fontItalic="false" underline="true" floatingBehavior="enclosed" text="Total: "/>
+                            <rtl:input-variable name="arr_rch_tmt.total_reg" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="arr_rch_tmt.total_reg Value" class="grwStringValue" y="116.49" width="60.2114" fontSize="8" floatingBehavior="enclosed" text="{{arr_rch_tmt.total_reg}}" trimText="left"/>
+                            <rtl:input-variable name="arr_rch_tmt.total_prc" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="arr_rch_tmt.total_prc Value" class="grwStringValue" y="186.309" width="50.1958" fontSize="8" floatingBehavior="enclosed" text="{{arr_rch_tmt.total_prc}}"/>
+                            <rtl:input-variable name="arr_rch_tmt.total_deudor" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_rch_tmt.total_deudor Value" class="grwNumericValue" y="245.595" width="75.8919" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_tmt.total_deudor}}"/>
+                            <rtl:input-variable name="arr_rch_tmt.total_sdo_deudor" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_rch_tmt.total_sdo_deudor Value" class="grwNumericValue" y="426.905" width="78.7838" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="##,###,###,###,##&amp;.&amp;&amp;" value="{{arr_rch_tmt.total_sdo_deudor}}"/>
+                            <rtl:input-variable name="arr_rch_tmt.total_nd" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_rch_tmt.total_nd Value" class="grwNumericValue" y="337.823" width="76.9374" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_tmt.total_nd}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Originaciones_no_exitosas_rch1" width="max" length="49.25">
+                            <LAYOUTNODE name="LayoutNode41" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox224" width="min" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Originaciones no exitosas (causal de rechazo)"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode1_2" width="3.5" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="MiniPage1_2" width="24.4557" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="c_descripcion8" x="6.77" y="0.6743" width="min" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Descripciòn"/>
+                                <WORDBOX name="c_registros8" x="6.77" y="117.444" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Registros"/>
+                                <WORDBOX name="c_porcentaje8" x="8.2204" y="194.45" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="%"/>
+                                <WORDBOX name="c_deudor8" x="8.2204" y="245.595" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Con deudor"/>
+                                <WORDBOX name="c_sindeudor8" x="8.2204" y="337.823" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Sin deudor"/>
+                                <WORDBOX name="c_d_origen8" x="8.2204" y="426.905" alignment="baseline" color="#ce050f" fontSize="10" floatingBehavior="enclosed" text="Deudor"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage3_1_4" width="16.8337" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_rch_orig.rch_concatena" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="arr_rch_orig.rch_concatena Value" class="grwStringValue" y="0.6743" width="112.081" fontSize="7" floatingBehavior="enclosed" text="{{arr_rch_orig.rch_concatena}}"/>
+                                    <rtl:input-variable name="arr_rch_orig.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_rch_orig.total Value" class="grwNumericValue" y="116.49" width="60.6621" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_orig.total}}"/>
+                                    <rtl:input-variable name="arr_rch_orig.t_deudores" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_rch_orig.t_deudores Value" class="grwNumericValue" y="245.595" width="76.3515" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_orig.t_deudores}}"/>
+                                    <rtl:input-variable name="arr_rch_orig.sdo_deudor" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_rch_orig.sdo_deudor Value" class="grwNumericValue" y="426.905" width="79.1578" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,###,##&amp;.&amp;&amp;" value="{{arr_rch_orig.sdo_deudor}}"/>
+                                    <rtl:input-variable name="arr_rch_orig.porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_rch_orig.porcentaje Value" class="grwStringValue" y="186.309" width="49.0589" fontSize="8" floatingBehavior="enclosed" text="{{arr_rch_orig.porcentaje}}"/>
+                                    <rtl:input-variable name="arr_rch_orig.t_no_deudor" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_rch_orig.t_no_deudor Value" class="grwNumericValue" y="337.823" width="75.2426" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_orig.t_no_deudor}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="MiniPage36_2" width="18.0153" length="521" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox225" width="75.19" length="9.76529" color="#ce050f" fontSize="8" fontBold="true" fontItalic="false" underline="true" floatingBehavior="enclosed" text="Total: "/>
+                            <rtl:input-variable name="arr_rch_orig.total_reg" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="arr_rch_orig.total_reg Value" class="grwStringValue" y="116.49" width="61.4998" fontSize="8" floatingBehavior="enclosed" text="{{arr_rch_orig.total_reg}}" trimText="left"/>
+                            <rtl:input-variable name="arr_rch_orig.total_deudor" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_rch_orig.total_deudor Value" class="grwNumericValue" y="245.595" width="76.9593" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_orig.total_deudor}}"/>
+                            <rtl:input-variable name="arr_rch_orig.total_sdo_deudor" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_rch_orig.total_sdo_deudor Value" class="grwNumericValue" y="426.905" width="79.2342" anchorX="1" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="##,###,###,###,##&amp;.&amp;&amp;" value="{{arr_rch_orig.total_sdo_deudor}}"/>
+                            <rtl:input-variable name="arr_rch_orig.total_prc" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="arr_rch_orig.total_prc Value" class="grwStringValue" y="186.309" width="49.9532" fontSize="8" floatingBehavior="enclosed" text="{{arr_rch_orig.total_prc}}"/>
+                            <rtl:input-variable name="arr_rch_orig.total_nd" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="arr_rch_orig.total_nd Value" class="grwNumericValue" y="337.823" width="75.0607" anchorX="1" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_rch_orig.total_nd}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

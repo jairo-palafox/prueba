@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.actualizaClabe.org.infonavit.mx/" name="WSActualizaClabeService" targetNamespace="http://ws.actualizaClabe.org.infonavit.mx/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://ws.actualizaClabe.org.infonavit.mx/" schemaLocation="WSActualizaClabeService_schema1.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="actualizaClabe">
+    <part element="tns:actualizaClabe" name="parameters"/>
+  </message>
+  <message name="actualizaClabeResponse">
+    <part element="tns:actualizaClabeResponse" name="parameters"/>
+  </message>
+  <message name="ProcesarExcepcion">
+    <part element="tns:ProcesarExcepcion" name="fault"/>
+  </message>
+  <portType name="WSActualizaClabeDelegate">
+    <operation name="actualizaClabe">
+      <input message="tns:actualizaClabe"/>
+      <output message="tns:actualizaClabeResponse"/>
+      <fault message="tns:ProcesarExcepcion" name="ProcesarExcepcion"/>
+    </operation>
+  </portType>
+  <binding name="WSActualizaClabePortBinding" type="tns:WSActualizaClabeDelegate">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="actualizaClabe">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="ProcesarExcepcion">
+        <soap:fault name="ProcesarExcepcion" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="WSActualizaClabeService">
+    <port binding="tns:WSActualizaClabePortBinding" name="WSActualizaClabePort">
+         <!-- QA -->
+      <soap:address location="http://10.90.8.123:9080/actualizaClabeBancaria/WSActualizaClabeService"/>
+    <!--Producción -->
+      <!--soap:address location="http://10.90.1.200:9082/actualizaClabeBancaria/WSActualizaClabeService"/-->
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{1afbe688-8163-4f90-8bce-6b0141506ff8}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{73b3d469-11f4-4956-beca-dd5769fdedf7}" where="">
+    <RecordField colName="" fieldIdRef="1" name="fecha_captura" sqlTabName="" table_alias_name="" uid="{7503f5c4-e34e-48bc-8ce3-b4b56fc3cf57}"/>
+    <RecordField colName="" fieldIdRef="2" name="fecha_devolucion" sqlTabName="" table_alias_name="" uid="{dccc67e9-b6d6-4d1c-9a0d-902526c67c04}"/>
+    <RecordField colName="" fieldIdRef="7" name="dte_fecha" sqlTabName="" table_alias_name="" uid="{9708f77f-9c71-431a-85ee-c59e8addb86c}"/>
+    <RecordField colName="" fieldIdRef="8" name="txt_importe" sqlTabName="" table_alias_name="" uid="{53a26e03-8021-491e-8120-371cba2bf1ea}"/>
+    <RecordField colName="" fieldIdRef="9" name="cmb_afore" sqlTabName="" table_alias_name="" uid="{3fc27fc5-aa70-4322-8fc6-8dae98c6fdf2}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_saldos_capturados" order="" uid="{c288797f-444c-4a9a-a95b-9638ae21cfe9}" where="">
+    <RecordField colName="" fieldIdRef="3" name="col_afore_cod" sqlTabName="" table_alias_name="" uid="{6af77927-1f34-4b49-abef-2b3084a6f8da}"/>
+    <RecordField colName="" fieldIdRef="4" name="col_afore_desc" sqlTabName="" table_alias_name="" uid="{5d84b638-13f9-42f7-813b-c50b2bc9972a}"/>
+    <RecordField colName="" fieldIdRef="5" name="col_importe" sqlTabName="" table_alias_name="" uid="{f9e5372f-7065-4b75-b776-9dc411117261}"/>
+    <RecordField colName="" fieldIdRef="6" name="col_fecha_devolucion" sqlTabName="" table_alias_name="" uid="{ff5df589-c043-41b1-ab3c-e5e34b739a60}"/>
+  </Record>
+  <Form gridHeight="24" gridWidth="98" name="Form" text="Form">
+    <Grid gridHeight="19" gridWidth="96" name="Grid1" posX="1" posY="0">
+      <Group gridHeight="3" gridWidth="88" name="grp_Criterio" posX="2" posY="0" text="Datos de Consulta">
+        <Label gridHeight="1" gridWidth="15" name="lbl_fecha1" posX="1" posY="1" text="Fecha Captura"/>
+        <DateEdit colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="fecha_captura" posX="17" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_fecha2" posX="33" posY="1" text="Fecha Devolución"/>
+        <DateEdit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="fecha_devolucion" posX="47" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="5" gridWidth="88" name="grp_saldos_afore" posX="2" posY="3" text="Montos depositados por AFORE">
+        <Label gridHeight="1" gridWidth="13" name="lbl_afore" posX="1" posY="1" text="AFORE"/>
+        <ComboBox colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="34" items="" name="cmb_afore" notNull="true" posX="16" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_importe" posX="1" posY="2" text="Importe"/>
+        <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="14" name="txt_importe" posX="16" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="lbl_fecha" posX="1" posY="3" text="Fecha Devolución"/>
+        <DateEdit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="dte_fecha" posX="16" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="10" gridWidth="88" name="grp_montos_capturados" posX="2" posY="8" text="Montos capturados">
+        <Table gridHeight="7" gridWidth="84" name="tbl_saldos_capturados" posX="1" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="11" name="col_afore_cod" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="33" name="col_afore_desc" posX="11" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="AFORE" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="$###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="col_importe" posX="44" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Importe" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" name="col_fecha_devolucion" posX="64" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Fecha&#10;Devolución" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA3ADMAYgAzAGQANAA2ADkALQAxADEAZgA0AC0ANAA5ADUANgAtAGIAZQBjAGEALQBkAGQANQA3ADYAOQBmAGQAZQBkAGYANwB9wCYAAAAAAADAZEAAAAAAAD9gYk3S8an8AQAAAEwAewA1AGQAOAA0AGIANgAzADgALQAxADMAZgA5AC0ANAAyAGYANwAtADgAMQAzAGIALQBjADUAMABiADIAYgBjADkAOQA3ADIAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGYANQBkAGYANQA4ADkALQBjADAANAAzAC0ANAAxAGIAMQAtAGEAYgAzAGMALQBlADUAZQAzADQAYgA3ADMAOQBhADYAMAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADUAMAAzAGYANQBjADQALQBlADMANABlAC0ANAA4AGIAYwAtADgAYwBlADMALQBiADQAYgA1ADYAZgBjADMAYwBmADUANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGYAYwAyADcAZgBjADUALQBhAGEANwAwAC0ANAAzADIAMgAtADgAZgBjADYALQA4AGQAYQBlADkAOABjADYAZgBkAGYAMgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGMAYwBjADYANwBlADkALQBiADYAZAA2AC0ANABkADEAYwAtADkAYQAwAGQALQA5ADAAMgA1ADIANgBjADYANwBjADAANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcAMAA4AGYANwA3AGYALQA5AGMANwAxAC0ANAAzADEAYQAtADgANQBlAGUALQBjADUAOQBlADgAYQBkAGQAYgA4ADYAYwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGEAZgA3ADcAOQAyADcALQAxAGYAMwA0AC0ANABiADQAOQAtAGEAYgBlAGYALQAyAGIAMwAwADgANABhADYAZgA4AGQAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADkAZQA1ADMANwAyAGYALQA3ADAANgA1AC0ANABiADcANQAtAGIANwA3ADYALQA5AGQAYwA0ADEAMQAxADEANwAyADYAMQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADMAYQAyADYAZQAwADMALQA4ADAAMgAxAC0ANAA5ADEAZQAtADgAMQAyADAALQAzADcAMQBjAGIAYQAyAGIAZgAxAGUAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADIAOAA4ADcAOQA3AGYALQA0ADQANABjAC0ANABhADkAYQAtAGEAOQA1AGIALQA5ADYAMwA4AGEAZQAyADEAYwBmAGUAOQB9QGlgAAAAAADAMQAAAAAAAD98rAgxJul5AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

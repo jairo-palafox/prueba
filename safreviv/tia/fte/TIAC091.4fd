@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{dd93ab82-5b6b-430f-adb2-1b60b0e66a1a}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{230c40f7-8d73-434d-9c65-1dc128ea8fdd}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_mes_inicio" sqlTabName="" table_alias_name="" uid="{16502b20-9edc-45c1-a8d5-5e620fd125b3}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_mes_fin" sqlTabName="" table_alias_name="" uid="{c34343b2-3112-4677-a347-19ca0730f39a}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_ano_inicio" sqlTabName="" table_alias_name="" uid="{24bb5fa3-bd0f-4ad9-a1e3-67ec095d9da8}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_ano_fin" sqlTabName="" table_alias_name="" uid="{73cae065-2def-47e5-bcb1-4b58c9855481}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_result_operacion" sqlTabName="" table_alias_name="" uid="{6cd73db1-7ee4-4c22-ac76-074c1bc2433f}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="104" name="Form" text="Form">
+    <Group gridHeight="14" gridWidth="89" name="Group1" posX="6" posY="1" text="Consulta dinámica de Traspasos Infonavit Afore">
+      <Grid gridHeight="12" gridWidth="87" name="Grid1" posX="1" posY="1">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Periodo inicial"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="21" items="" name="v_mes_inicio" notNull="false" posX="14" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <ComboBox colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="10" items="" name="v_ano_inicio" posX="37" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox3" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="4" name="Label2" posX="1" posY="2" text=""/>
+        <Label gridHeight="1" gridWidth="10" name="Label4" posX="1" posY="3" text="Periodo final"/>
+        <ComboBox colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="21" items="" name="v_mes_fin" notNull="false" posX="14" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="ComboBox2" widget="ComboBox"/>
+        <ComboBox colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="10" items="" name="v_ano_fin" posX="37" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="ComboBox4" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="10" name="Label3" posX="1" posY="4" text=""/>
+        <Label gridHeight="1" gridWidth="10" name="Label5" posX="1" posY="5" text="Registros"/>
+        <RadioGroup colName="" columnCount="" fieldId="5" gridHeight="3" gridWidth="33" items="Todos, Aceptados, Rechazados" name="v_result_operacion" notNull="true" posX="14" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="RadioGroup1" widget="RadioGroup">
+          <Item lstrtext="false" name="00" text="Todos"/>
+          <Item lstrtext="false" name="01" text="Aceptados"/>
+          <Item lstrtext="false" name="02" text="Rechazados"/>
+        </RadioGroup>
+      </Grid>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyADQAYgBiADUAZgBhADMALQBiAGQAMABmAC0ANABhAGQAOQAtAGEAMQBlADMALQA2ADcAZQBjADAAOQA1AGQAOQBkAGEAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADMAYwBhAGUAMAA2ADUALQAyAGQAZQBmAC0ANAA3AGUANQAtAGIAYwBiADEALQA0AGIANQA4AGMAOQA4ADUANQA0ADgAMQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjADMANAAzADQAMwBiADIALQAzADEAMQAyAC0ANAA2ADcANwAtAGEAMwA0ADcALQAxADkAYwBhADAANwAzADAAZgAzADkAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADMAMABjADQAMABmADcALQA4AGQANwAzAC0ANAAzADQAZAAtADkAYwA2ADUALQAxAGQAYwAxADIAOABlAGEAOABmAGQAZAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGMAZAA3ADMAZABiADEALQA3AGUAZQA0AC0ANABjADIAMgAtAGEAYwA3ADYALQAwADcANABjADEAYgBjADIANAAzADMAZgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADYANQAwADIAYgAyADAALQA5AGUAZABjAC0ANAA1AGMAMQAtAGEAOABkADUALQA1AGUANgAyADAAZgBkADEAMgA1AGIAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

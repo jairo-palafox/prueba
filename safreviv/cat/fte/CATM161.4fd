@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{d2901154-0231-4cf9-8a90-9d0bc29d1a77}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="rec1" order="" uid="{eb7e8823-508c-486d-91e1-17ccb25ca92f}" where="">
+    <RecordField colName="" fieldIdRef="3" name="edit1" sqlTabName="" table_alias_name="" uid="{57d4ac54-369e-4baa-b788-b3da5e1370d0}"/>
+    <RecordField colName="" fieldIdRef="7" name="edit4" sqlTabName="" table_alias_name="" uid="{e93fc43d-21aa-4931-bad2-afa7feff0cb2}"/>
+    <RecordField colName="" fieldIdRef="1" name="edit5" sqlTabName="" table_alias_name="" uid="{6c85a23c-c7a8-4327-bf79-bb36be2791da}"/>
+    <RecordField colName="" fieldIdRef="4" name="edit2" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{368520a1-ed00-4557-a62c-627a4a78152a}"/>
+    <RecordField colName="" fieldIdRef="5" name="edit3" sqlTabName="" table_alias_name="" uid="{50fba911-14cd-4dae-b079-dd9a16bdfc38}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{4a013652-c592-4761-b42c-cf45d0166df8}" where="">
+    <RecordField colName="" fieldIdRef="6" name="v_entidad" sqlTabName="" table_alias_name="" uid="{79622630-a6b2-4b39-9534-2305c8453eaf}"/>
+    <RecordField colName="" fieldIdRef="2" name="lbl_ruta_reporte" sqlTabName="" table_alias_name="" uid="{386ce8d9-d7f3-4690-a0d5-36ef482e3cfc}"/>
+  </Record>
+  <Form gridHeight="36" gridWidth="93" name="Form" text="Precios de Fondo">
+    <Grid gridHeight="30" gridWidth="91" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="8" gridWidth="89" name="Group1" posX="1" posY="1" text="Catálogo Causales SACI">
+        <Label gridHeight="1" gridWidth="17" name="Label3" posX="1" posY="1" text="Catálogo causales rechazo"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="15" items="Rechazos PROCESAR, Devoluciones AFORE, Rechazos SACI" name="v_entidad" notNull="false" posX="22" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="ComboBox1" widget="ComboBox">
+          <Item lstrtext="false" name="PRC" text="Rechazos PROCESAR"/>
+          <Item lstrtext="false" name="AFO" text="Devoluciones AFORE"/>
+          <Item lstrtext="false" name="INF" text="Rechazos SACI"/>
+        </ComboBox>
+      </Group>
+      <Group gridHeight="12" gridWidth="89" name="Group2" posX="1" posY="9" text="Listado">
+        <Table gridHeight="10" gridWidth="86" name="Table1" posX="1" posY="1" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="8" name="edit1" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Causal" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="13" name="edit4" posX="8" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Descripción" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="8" name="edit5" posX="21" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Entidad" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="dd-mm-yyyy" gridHeight="1" gridWidth="16" hidden="true" name="edit2" posX="29" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Fecha Carga" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="" gridHeight="1" gridWidth="16" hidden="true" justify="left" name="edit3" posX="45" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Usuario" unsizable="true" widget="Edit"/>
+        </Table>
+      </Group>
+      <FFLabel aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="5" gridWidth="40" name="lbl_ruta_reporte" posX="48" posY="25" rowCount="" sqlTabName="" stepX="" stepY="" style="LabelUrl" table_alias_name="" title="fflabel1" widget="FFLabel"/>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzADYAOAA1ADIAMABhADEALQBlAGQAMAAwAC0ANAA1ADUANwAtAGEANgAyAGMALQA2ADIANwBhADQAYQA3ADgAMQA1ADIAYQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADAAZgBiAGEAOQAxADEALQAxADQAYwBkAC0ANABkAGEAZQAtAGIAMAA3ADkALQBkAGQAOQBhADEANgBiAGQAZgBjADMAOAB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGMAOAA1AGEAMgAzAGMALQBjADcAYQA4AC0ANAAzADIANwAtAGIAZgA3ADkALQBiAGIAMwA2AGIAZQAyADcAOQAxAGQAYQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADgANgBjAGUAOABkADkALQBkADcAZgAzAC0ANAA2ADkAMAAtAGEAMABkADUALQAzADYAZQBmADQAOAAyAGUAMwBjAGYAYwB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADkANgAyADIANgAzADAALQBhADYAYgAyAC0ANABiADMAOQAtADkANQAzADQALQAyADMAMAA1AGMAOAA0ADUAMwBlAGEAZgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGIANwBlADgAOAAyADMALQA1ADAAOABjAC0ANAA4ADYAZAAtADkAMQBlADEALQAxADcAYwBjAGIAMgA1AGMAYQA5ADIAZgB9wHhQAAAAAADANwAAAAAAAD9gYk3S8an8AQAAAEwAewA0AGEAMAAxADMANgA1ADIALQBjADUAOQAyAC0ANAA3ADYAMQAtAGIANAAyAGMALQBjAGYANAA1AGQAMAAxADYANgBkAGYAOAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADcAZAA0AGEAYwA1ADQALQAzADYAOQBlAC0ANABiAGEAYQAtAGIANwA4ADgALQBiADMAZABhADUAZQAxADMANwAwAGQAMAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADkAMwBmAGMANAAzAGQALQAyADEAYQBhAC0ANAA5ADMAMQAtAGIAYQBkADIALQBhAGYAYQA3AGYAZQBmAGYAMABjAGIAMgB9QCQAAAAAAABAToAAAAAAAD9QYk3S8an8AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

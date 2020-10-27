@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://services.infonavit.org.mx/sap/consultaacreedor" xmlns:bons0="http://services.infonavit.org.mx/sap/consultaacreedor" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="DetalleAcreedor.xsd"/>
+    <xsd:complexType name="Acreedor">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="retorno" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="acreedor" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="grupoCuenta" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="detalle" type="bons0:DetalleAcreedor"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

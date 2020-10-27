@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{36369981-f223-48d7-9d3d-8342205b6474}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_a" order="" uid="{4df111d0-f882-4533-ac91-9632dc11f846}" where="">
+    <RecordField colName="" fieldIdRef="1" name="folio" sqlTabName="" table_alias_name="" uid="{6ab2e228-2cbf-4e82-8b2a-e0f4b5c10513}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_conciliacion" sqlTabName="" table_alias_name="" uid="{f6328b65-c396-4d22-9c86-75872f43c861}"/>
+    <RecordField colName="" fieldIdRef="7" name="sum_pesos" sqlTabName="" table_alias_name="" uid="{6c442610-c708-49f4-8f39-f58f9bd71353}"/>
+    <RecordField colName="" fieldIdRef="8" name="sum_acciones" sqlTabName="" table_alias_name="" uid="{6d02626c-1c50-4346-929d-46d6db9c8726}"/>
+    <RecordField colName="" fieldIdRef="9" name="sum_registros" sqlTabName="" table_alias_name="" uid="{440e104c-12d4-4fc2-9d4b-0b45f0d20b17}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="lista_archivo" order="" uid="{cebf323c-059d-4a29-9ed0-5395b293a7bd}" where="">
+    <RecordField colName="" fieldIdRef="10" name="subcuenta" sqlTabName="" table_alias_name="" uid="{2fdbdc91-6999-40ec-a4b2-26d4fa3f4f5c}"/>
+    <RecordField colName="" fieldIdRef="3" name="subcuenta_desc" sqlTabName="" table_alias_name="" uid="{2eba6048-9330-45c9-9fdd-503eba521364}"/>
+    <RecordField colName="" fieldIdRef="4" name="pesos" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{728f4ae0-da1a-4eeb-bd05-c8c57a52f24a}"/>
+    <RecordField colName="" fieldIdRef="5" name="acciones" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{8acc1141-da70-4680-864c-358aff29f796}"/>
+    <RecordField colName="" fieldIdRef="6" name="registros" sqlTabName="" table_alias_name="" uid="{7b9b79f7-4594-4ccf-9859-79695135d030}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="103" name="Form" text="Form">
+    <Grid gridHeight="16" gridWidth="101" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="79" name="Group1" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="folio" posX="13" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label2" posX="54" posY="1" text="Fecha Corte"/>
+        <DateEdit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="10" name="f_conciliacion" posX="65" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="10" gridWidth="98" name="Group2" posX="1" posY="5" text="Saldos BDNSVIV - Plus">
+        <Table gridHeight="6" gridWidth="95" name="Table1" posX="1" posY="1" totalRows="4">
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="20" name="subcuenta_desc" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" format="-#,###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="25" name="pesos" posX="20" posY="0" precisionDecimal="22" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Pesos" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="-#,###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="25" name="acciones" posX="45" posY="0" precisionDecimal="22" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="5" table_alias_name="" title="AIVS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="17" name="registros" posX="70" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total&#10;Registros" widget="Edit"/>
+          <Phantom colName="" fieldId="10" name="subcuenta" sqlTabName="" table_alias_name="" widget="Phantom"/>
+        </Table>
+        <Label gridHeight="1" gridWidth="10" name="Label3" posX="9" posY="8" text="Sumatoria"/>
+        <Edit colName="" columnCount="" fieldId="7" format="-#,###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="25" name="sum_pesos" posX="21" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit6" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="8" format="-#,###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="25" name="sum_acciones" posX="47" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit7" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="9" format="-#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="17" name="sum_registros" posX="73" posY="8" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit8" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0ADQAMABlADEAMAA0AGMALQAxADIAZAA0AC0ANABmAGMAMgAtADkAZAA0AGIALQAwAGIANAA1AGYAMABkADIAMABiADEANwB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGYAZABiAGQAYwA5ADEALQA2ADkAOQA5AC0ANAAwAGUAYwAtAGEANABiADIALQAyADYAZAA0AGYAYQAzAGYANABmADUAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGMANAA0ADIANgAxADAALQBjADcAMAA4AC0ANAA5AGYANAAtADgAZgAzADkALQBmADUAOABmADkAYgBkADcAMQAzADUAMwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGEAYwBjADEAMQA0ADEALQBkAGEANwAwAC0ANAA2ADgAMAAtADgANgA0AGMALQAzADUAOABhAGYAZgAyADkAZgA3ADkANgB9QBQAAAAAAABAV8AAAAAAAD+GhysCDEm8AQAAAEwAewAyAGUAYgBhADYAMAA0ADgALQA5ADMAMwAwAC0ANAA1AGMAOQAtADkAZgBkAGQALQA1ADAAMwBlAGIAYQA1ADIAMQAzADYANAB9QBQAAAAAAABASIAAAAAAAD+EeuFHrhR8AQAAAEwAewA0AGQAZgAxADEAMQBkADAALQBmADgAOAAyAC0ANAA1ADMAMwAtAGEAYwA5ADEALQA5ADYAMwAyAGQAYwAxADEAZgA4ADQANgB9AAAAAAAAAAAAAAAAAAAAAD90euFHrhR7AQAAAEwAewA3AGIAOQBiADcAOQBmADcALQA0ADUAOQA0AC0ANABjAGMAZgAtADkAOAA1ADkALQA3ADkANgA5ADUAMQAzADUAZAAwADMAMAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGEAYgAyAGUAMgAyADgALQAyAGMAYgBmAC0ANABlADgAMgAtADgAYgAyAGEALQBlADAAZgA0AGIANQBjADEAMAA1ADEAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2AGQAMAAyADYAMgA2AGMALQAxAGMANQAwAC0ANAAzADQANgAtADkAMgA5AGQALQA0ADYAZAA2AGQAYgA5AGMAOAA3ADIANgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADIAOABmADQAYQBlADAALQBkAGEAMQBhAC0ANABlAGUAYgAtAGIAZAAwADUALQBjADgAYwA1ADcAYQA1ADIAZgAyADQAYQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADYAMwAyADgAYgA2ADUALQBjADMAOQA2AC0ANABkADIAMgAtADkAYwA4ADYALQA3ADUAOAA3ADIAZgA0ADMAYwA4ADYAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGUAYgBmADMAMgAzAGMALQAwADUAOQBkAC0ANABhADIAOQAtADkAZQBkADAALQA1ADMAOQA1AGIAMgA5ADMAYQA3AGIAZAB9wHNAAAAAAAA/8AAAAAAAAD+CbpeNT988AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

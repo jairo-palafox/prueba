@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{7a93ef78-8e0e-41cb-b879-13017afd4d16}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_solicitud_mandato" order="" uid="{0659d983-ed7f-4a39-97df-1277af802e1b}" where="">
+    <RecordField colName="" fieldIdRef="1" name="tlbl_total_solicitudes" sqlTabName="" table_alias_name="" uid="{dad1b522-6302-4971-9405-225b53dade0e}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_det_sol_mandatos" order="" uid="{973ee16c-53f2-4dd2-b221-afef0dac1339}" where="">
+    <RecordField colName="" fieldIdRef="2" name="tlbl_mandato" sqlTabName="" table_alias_name="" uid="{f1f7fec1-b331-43db-9c70-0ba27c99c5eb}"/>
+    <RecordField colName="" fieldIdRef="3" name="tlbl_fecha_ingreso" sqlTabName="" table_alias_name="" uid="{2cfba415-c646-4032-8727-05aedbb710ab}"/>
+    <RecordField colName="" fieldIdRef="4" name="tlbl_total" sqlTabName="" table_alias_name="" uid="{9cb9957d-f10e-439b-bb40-05f46d2949a1}"/>
+  </Record>
+  <Form gridHeight="50" gridWidth="120" name="frm_rechazados_canales" text="Form">
+    <Grid gridHeight="24" gridWidth="83" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="8" gridWidth="77" name="grp_total_solicitudes" posX="3" posY="1" text="Generar Archivo para Validación Sustentabilidad Origen Canales">
+        <Label gridHeight="2" gridWidth="14" name="Label1" posX="1" posY="3" text=""/>
+        <Table gridHeight="2" gridWidth="40" name="tbl_solicitud_mandato" posX="18" posY="3" totalRows="1">
+          <FFLabel colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="36" justify="center" name="tlbl_total_solicitudes" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Total de Solicitudes" widget="FFLabel"/>
+        </Table>
+        <Label gridHeight="2" gridWidth="14" name="Label2" posX="60" posY="3" text=""/>
+      </Group>
+      <Group gridHeight="12" gridWidth="77" name="grp_det_sol_mandatos" posX="3" posY="10" text="Detalle de Carga de Solicitudes de Mandatos Canales">
+        <Table gridHeight="8" gridWidth="71" name="tbl_det_sol_mandato" posX="3" posY="2" totalRows="7">
+          <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="40" name="tlbl_mandato" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Mandato" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" name="tlbl_fecha_ingreso" posX="40" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Fecha Ingreso" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" name="tlbl_total" posX="55" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Total" widget="FFLabel"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyAGMAZgBiAGEANAAxADUALQBjADYANAA2AC0ANAAwADMAMgAtADgANwAyADcALQAwADUAYQBlAGQAYgBiADcAMQAwAGEAYgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGMAYgA5ADkANQA3AGQALQBmADEAMABlAC0ANAAzADkAYgAtAGIAYgA0ADAALQAwADUAZgA0ADYAZAAyADkANAA5AGEAMQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcAMwBlAGUAMQA2AGMALQA1ADMAZgAyAC0ANABkAGQAMgAtAGIAMgAyADEALQBhAGYAZQBmADAAZABhAGMAMQAzADMAOQB9QBwAAAAAAABAYeAAAAAAAD90euFHrhR7AQAAAEwAewBmADEAZgA3AGYAZQBjADEALQBiADMAMwAxAC0ANAAzAGQAYgAtADkAYwA3ADAALQAwAGIAYQAyADcAYwA5ADkAYwA1AGUAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGEAZAAxAGIANQAyADIALQA2ADMAMAAyAC0ANAA5ADcAMQAtADkANAAwADUALQAyADIANQBiADUAMwBkAGEAZABlADAAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADYANQA5AGQAOQA4ADMALQBlAGQANwBmAC0ANABhADMAOQAtADkANwBkAGYALQAxADIANwA3AGEAZgA4ADAAMgBlADEAYgB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

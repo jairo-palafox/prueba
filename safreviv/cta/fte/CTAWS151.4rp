@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="0.038256cm" RWTopMargin="0.049555cm" RWRightMargin="0.000000cm" RWBottomMargin="0.00cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/CTAWS15.rdd" RWFglReportName="movimientos"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Pagina 1" width="max" length="max" alignment="center" hidePageHeaderOnLastPage="false" splitOversizedItems="true" borderWidth="0">
+                    <LAYOUTNODE name="LayoutNode1" width="max" length="min" port="firstPageHeader" floatingBehavior="free" clip="false" borderWidth="0">
+                        <IMAGEBOX name="ImageBox" width="max" length="400" alignment="near" widthAdjustment="expandToParent" lengthAdjustment="expandToParent" fontSize="10" floatingBehavior="free" url="../../img/resumen_de_movimientos.bmp" intendedResolution="96" borderWidth="0" borderStyle="groove" borderColor="#000000">
+                            <rtl:input-variable name="v_ffin" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_ffin Value" class="grwStringValue" x="415.607" y="258.812" width="60" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_ffin}}"/>
+                            <rtl:input-variable name="p_trabajador.nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_trabajador.nss Value" class="grwStringValue" x="60" y="253.74" width="100" anchorX="6.03961e-16" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_trabajador.nss}}"/>
+                            <rtl:input-variable name="p_trabajador.rfc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_trabajador.rfc Value" class="grwStringValue" x="60" y="284.231" width="100" anchorX="6.03961e-16" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_trabajador.rfc}}"/>
+                            <rtl:input-variable name="p_trabajador.nombre" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_trabajador.nombre Value" class="grwStringValue" x="60" y="238.317" width="290" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_trabajador.nombre}}"/>
+                            <rtl:input-variable name="p_trabajador.curp" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_trabajador.curp Value" class="grwStringValue" x="60" y="268.653" width="100" anchorX="6.03961e-16" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{p_trabajador.curp}}"/>
+                            <PAGENOBOX name="PageNoBox" x="max*0.8246" y="106.828" anchorX="6.02058e-14" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="" textExpression="&quot;Hoja &quot;+format(getPhysicalPageNumber(),ARABIC)+&quot; de &quot;+format(getTotalNumberOfPhysicalPages(),ARABIC)" pageNoFormat="arabic"/>
+                            <WORDBOX name="WordBox" x="17.5024" y="210.69" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Datos personales"/>
+                            <WORDBOX name="WordBox1" x="24.2524" y="377.954" anchorX="6.17688e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Fecha de"/>
+                            <WORDBOX name="WordBox2" x="22.7524" y="390.954" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="aplicación"/>
+                            <WORDBOX name="WordBox3" x="424.501" y="213.69" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha de emisión"/>
+                            <WORDBOX name="WordBox4" x="17.5024" y="341.436" anchorX="7.26691e-16" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Movimientos registrados en tu subcuenta de vivienda a partir del 2° bimestre de 1992."/>
+                            <WORDBOX name="WordBox5" x="102.161" y="377.954" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Clave del"/>
+                            <WORDBOX name="WordBox6" x="96.0007" y="390.954" anchorX="5.38763e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="movimiento"/>
+                            <WORDBOX name="WordBox7" x="15.2524" y="253.74" anchorX="2.98662e-15" anchorY="1" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="NSS:"/>
+                            <WORDBOX name="WordBox7_1" x="15.3587" y="238.317" anchorX="2.98662e-15" anchorY="1" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Nombre:"/>
+                            <WORDBOX name="WordBox7_2" x="15.2524" y="268.653" anchorX="2.98662e-15" anchorY="1" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="CURP:"/>
+                            <WORDBOX name="WordBox7_2_1" x="15.3587" y="284.231" anchorX="2.98662e-15" anchorY="1" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="RFC:"/>
+                            <WORDBOX name="WordBox6_1" x="210.802" y="384.715" anchorX="5.38763e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Concepto"/>
+                            <WORDBOX name="WordBox5_1" x="330.583" y="377.954" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Tipo de"/>
+                            <WORDBOX name="WordBox6_2" x="323.159" y="390.954" anchorX="5.38763e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="movimiento"/>
+                            <WORDBOX name="WordBox6_1_1" x="425.302" y="384.715" anchorX="5.38763e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Cargos"/>
+                            <WORDBOX name="WordBox6_1_1_1" x="524.302" y="384.715" anchorX="5.38763e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Abonos"/>
+                        </IMAGEBOX>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode" width="max" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <IMAGEBOX name="ImageBox3" width="max" length="170" alignment="near" floatingBehavior="enclosed" url="../../img/resumen_de_movimientos_2.bmp" intendedResolution="96">
+                            <PAGENOBOX name="PageNoBox1" x="max*0.822" y="104.576" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textExpression="&quot;Hoja &quot;+format(getPhysicalPageNumber(),ARABIC)+&quot; de &quot;+format(getTotalNumberOfPhysicalPages(),ARABIC)"/>
+                            <WORDBOX name="WordBox8" x="27.3196" y="104.576" anchorX="0" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="NSS:"/>
+                            <rtl:input-variable name="p_trabajador.nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_trabajador.nss Value1" class="grwStringValue" x="53.25" y="104.576" anchorX="5.92119e-15" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_trabajador.nss}}"/>
+                            <WORDBOX name="WordBox18" x="24.2524" y="150" anchorX="2.58841e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Fecha de"/>
+                            <WORDBOX name="WordBox19" x="22.7524" y="163" anchorX="6.87935e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="aplicación"/>
+                            <WORDBOX name="WordBox20" x="102.161" y="150" anchorX="4.66928e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Clave del"/>
+                            <WORDBOX name="WordBox21" x="96.0007" y="163" anchorX="4.66928e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="movimiento"/>
+                            <WORDBOX name="WordBox22" x="210.802" y="155" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Concepto"/>
+                            <WORDBOX name="WordBox23" x="330.583" y="150" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Tipo de"/>
+                            <WORDBOX name="WordBox24" x="323.159" y="163" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="movimiento"/>
+                            <WORDBOX name="WordBox25" x="426.857" y="155" anchorX="6.49639e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Cargos"/>
+                            <WORDBOX name="WordBox26" x="524.302" y="155" anchorX="8.12049e-16" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" fontBold="true" floatingBehavior="enclosed" text="Abonos"/>
+                        </IMAGEBOX>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode4" width="max" length="80" port="anyPageFooter" floatingBehavior="free" clip="false" borderWidth="0">
+                        <IMAGEBOX name="ImageBox2" width="max" length="max" alignment="near" transformTransparently="false" floatingBehavior="enclosed" url="../../img/disclaimer_det_mov.bmp" intendedResolution="96" borderWidth="0">
+                            <WORDBOX name="WordBox12" x="90" y="41.943" anchorX="3.49447e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="www.infonavit.org.mx"/>
+                            <WORDBOX name="WordBox13" x="85.661" y="57.693" anchorX="4.66928e-15" anchorY="1" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Infonatel 01 800 008 3900"/>
+                            <WORDWRAPBOX name="WordWrapBox" x="297.096" y="62.807" width="275" anchorX="0" anchorY="1" fontName="Arial" fontSize="9.5" floatingBehavior="enclosed" text="Esta información se transmite y entrega sin prejuzgar  la evidencia de su contenido; no crea derechos ni obligaciones diversas a las comprendidas en las disposiciones y ordenamientos legales en vigor." textAlignment="justified"/>
+                        </IMAGEBOX>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage" width="max" length="min" hidePageFooterOnLastPage="false" splitOversizedItems="true">
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <LAYOUTNODE name="LayoutNode7" width="min" length="min" floatingBehavior="enclosed" borderWidth="0">
+                                <LAYOUTNODE name="LayoutNode6" x="9" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="free" borderWidth="0" borderStyle="none" borderTopStyle="none">
+                                    <rtl:input-variable name="p_movimientos.fLiquidacion" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="p_movimientos.fLiquidacion Value" class="grwStringValue" width="82" length="20" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="center" text="{{p_movimientos.fLiquidacion}}" borderWidth="0.3" borderStyle="none" borderColor="#bebebe"/>
+                                    <rtl:input-variable name="p_movimientos.movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_movimientos.movimiento Value" class="grwStringValue" width="75" length="20" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_movimientos.movimiento}}" trimText="compress" textAlignment="center" borderWidth="0.3" borderStyle="none" borderColor="#bebebe"/>
+                                    <rtl:input-variable name="p_movimientos.movimiento_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_movimientos.movimiento_desc Value" class="grwStringValue" width="145" length="20" alignment="baseline" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_movimientos.movimiento_desc}}" trimText="compress" borderWidth="0.3" borderStyle="none" borderColor="#bebebe"/>
+                                    <rtl:input-variable name="p_movimientos.subcuenta" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_movimientos.subcuenta Value" class="grwStringValue" width="83" length="20" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_movimientos.subcuenta}}" trimText="compress" textAlignment="center" borderWidth="0.3" borderStyle="none" borderColor="#bebebe"/>
+                                    <rtl:input-variable name="p_movimientos.cargo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_movimientos.cargo Value" class="grwNumericValue" width="97" length="20" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{p_movimientos.cargo}}" borderWidth="0.3" borderStyle="none" borderColor="#bebebe"/>
+                                    <rtl:input-variable name="p_movimientos.abono" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_movimientos.abono Value" class="grwNumericValue" width="90" length="20" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{p_movimientos.abono}}" borderWidth="0.3" borderStyle="none" borderColor="#bebebe"/>
+                                </LAYOUTNODE>
+                                <IMAGEBOX name="ImageBox4" floatingBehavior="enclosed" url="../../img/separador.bmp" intendedResolution="96"/>
+                            </LAYOUTNODE>
+                        </rtl:match>
+                        <IMAGEBOX name="ImageBox5" width="max" length="148.5" alignment="near" floatingBehavior="enclosed" url="../../img/aviso_det_mov.bmp" intendedResolution="96">
+                            <WORDBOX name="WordBox27" x="max/2" y="24.0789" anchorX="0.5" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10.5" floatingBehavior="enclosed" text="Aviso importante"/>
+                            <WORDBOX name="WordBox10" x="20" y="46.4113" width="min" anchorX="4.06024e-15" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="1. Salvo que expresamente se determine otra moneda, los montos contenidos en este documento están denominados en"/>
+                            <WORDBOX name="WordBox11" x="31" y="55.3389" anchorX="0" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="moneda nacional."/>
+                            <WORDBOX name="WordBox9" x="20" y="66.8432" anchorX="1.87786e-15" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="2. Los importes de los movimientos corresponden a su fecha de aplicación, por lo que no consideran los rendimientos que te "/>
+                            <WORDBOX name="WordBox28" x="31" y="76.199" anchorX="0" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="proporciona el Infonavit. Para consultar el saldo de tu Subcuenta de Vivienda ingresa a Mi Cuenta Infonavit en la sección "/>
+                            <WORDBOX name="WordBox29" x="31" y="85.124" anchorX="4.01372e-15" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="Mi Ahorro&gt;Cuánto ahorro tengo."/>
+                            <WORDBOX name="WordBox30" x="20" y="96.899" anchorX="4.01372e-15" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="3. Para conocer el detalle de las aportaciones aplicadas a tu crédito, ingresa a Mi Cuenta Infonavit y consulta tu Estado de"/>
+                            <WORDBOX name="WordBox31" x="31" y="106.14" anchorX="4.01372e-15" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="Cuenta Histórico en la sección Mi crédito&gt; Saldos y  movimientos&gt; Movimientos y estados de  cuenta."/>
+                            <WORDBOX name="WordBox32" x="20" y="117.75" anchorX="0" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="4. Los movimientos con clave 30 corresponden a pagos aplicados al crédito de manera temporal dado que aún no se recibe el pago"/>
+                            <WORDBOX name="WordBox33" x="31" y="126.757" anchorX="0" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="del empleador. En el caso de los movimientos con clave 70, el pago no fue recibido por el empleador por lo que se cancela el"/>
+                            <WORDBOX name="WordBox34" x="31" y="136.5" anchorX="4.01372e-15" anchorY="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="pago enviado previamente para la amortización del crédito."/>
+                        </IMAGEBOX>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

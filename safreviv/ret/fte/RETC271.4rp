@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RETC271.rdd" RWFglReportName="reporte_con_grw"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="baseline">
+                    <LAYOUTNODE name="Logotipo_institucional" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Encabezado" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <rtl:input-variable name="p_origen_datos" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="WordBox" x="7.5" y="329.509" width="177.394" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="{{&quot;Reporte de &quot;+p_origen_datos}}" localizeText="false"/>
+                        <WORDBOX name="WordBox1" x="7.5" y="659.153" width="108.371" anchorX="0.5" anchorY="0.437131" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="{{Date.today().format(&quot;dd-mm-yyyy&quot;)}}"/>
+                        <rtl:input-variable name="p_r_encabezado.p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="WordBox2" width="131.461" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Usuario: &quot;+p_r_encabezado.p_usuario_cod}}"/>
+                        <rtl:input-variable name="p_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="WordBox2_1" width="131.461" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{p_nombre_usuario}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="separador2" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="Folio_Fecha" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <rtl:input-variable name="p_r_encabezado.p_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <WORDBOX name="WordBox3" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{&quot;Folio de restitución: &quot;+p_r_encabezado.p_folio}}"/>
+                        <rtl:input-variable name="p_origen_datos" type="FGLString" expectedLocation="expectedHere"/>
+                        <rtl:input-variable name="p_r_encabezado.p_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="WordBox4" x="7.5" y="719.305" width="208.236" anchorX="0.5" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{&quot;Fecha de &quot;+p_origen_datos+&quot;: &quot;+Date.parseString(p_r_encabezado.p_fecha,&quot;mm/dd/yyyy&quot;).format(&quot;dd-mm-yyyy&quot;)}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="Separador3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="Separador4" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="Page Header" width="max" length="min">
+                        <MINIPAGE name="Table Header" width="18.6378" length="718.292" layoutDirection="leftToRight">
+                            <WORDBOX name="Spacer" alignment="baseline" baselineType="leftleft" port="itemSeparator" text=" "/>
+                            <WORDBOX name="r_datos.folio_liquida Caption" width="67.1568" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Folio Liquida" localizeText="true"/>
+                            <WORDBOX name="r_datos.subcuenta Caption" y="86.4365" width="54.2359" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Subcuenta" localizeText="true"/>
+                            <WORDBOX name="r_datos.fondo_inversion Caption" y="150.404" width="92.0221" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Fondo Inversion" localizeText="true"/>
+                            <WORDBOX name="r_datos.monto_acciones Caption" y="248.302" width="85.9997" alignment="baseline" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Monto Acciones" localizeText="true"/>
+                            <WORDBOX name="r_datos.pesos_liquidacion Caption" y="367.688" width="76.9526" alignment="baseline" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Pesos Liquidacion" localizeText="true"/>
+                            <WORDBOX name="r_datos.pesos_restitucion Caption" y="483.947" width="79.7978" alignment="baseline" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Pesos Restitucion" localizeText="true"/>
+                            <WORDBOX name="r_datos.rendimiento Caption" y="588.742" width="93.3484" alignment="baseline" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Rendimiento" localizeText="true"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Separator" width="1" length="max" bgColor="#000000" layoutDirection="leftToRight"/>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="Table Row" width="min" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="Spacer_1" alignment="baseline" baselineType="leftleft" port="itemSeparator" text=" "/>
+                            <rtl:input-variable name="r_datos.folio_liquida" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_datos.folio_liquida Value" y="1.6434" width="82.2809" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="---,---,--&amp;" value="{{r_datos.folio_liquida}}"/>
+                            <rtl:input-variable name="r_datos.subcuenta" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_datos.subcuenta Value" y="151.561" width="70.4272" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="-----#" value="{{r_datos.subcuenta}}"/>
+                            <rtl:input-variable name="r_datos.fondo_inversion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_datos.fondo_inversion Value" y="86.4365" width="52.3597" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="-----#" value="{{r_datos.fondo_inversion}}"/>
+                            <rtl:input-variable name="r_datos.monto_acciones" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_datos.monto_acciones Value" y="476.694" width="86.5394" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_datos.monto_acciones}}"/>
+                            <rtl:input-variable name="r_datos.pesos_restitucion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_datos.pesos_restitucion Value" y="236.936" width="98.3375" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{r_datos.pesos_restitucion}}"/>
+                            <rtl:input-variable name="r_datos.pesos_liquidacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_datos.pesos_liquidacion Value" y="367.688" width="77.2472" alignment="baseline" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{r_datos.pesos_liquidacion}}"/>
+                            <rtl:input-variable name="r_datos.rendimiento" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="r_datos.rendimiento Value" y="588.742" width="95.5394" alignment="baseline" fontName="Courier" fontSize="9" fontBold="false" floatingBehavior="free" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{r_datos.rendimiento}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight">
+                        <rtl:input-variable name="v_tot_monto_acciones" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_monto_acciones Value" y="236.936" width="98.3375" anchorX="1" alignment="far" fontName="Courier" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_monto_acciones}}"/>
+                        <rtl:input-variable name="v_tot_pesos_liquidacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_pesos_liquidacion Value" y="367.688" width="77.2472" anchorX="1" alignment="baseline" fontName="Courier" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_pesos_liquidacion}}"/>
+                        <rtl:input-variable name="v_tot_pesos_restitucion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_pesos_restitucion Value" y="476.694" width="86.5394" anchorX="1" fontName="Courier" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_pesos_restitucion}}"/>
+                        <rtl:input-variable name="v_tot_rendimiento" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_rendimiento Value" y="588.742" width="95.5394" alignment="baseline" fontName="Courier" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_tot_rendimiento}}"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

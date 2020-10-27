@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{ce6c8501-a9fe-413d-9b27-d37adad49f66}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{2639082b-4c4a-46cf-9393-563192051370}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_id_afi_fondo72" sqlTabName="" table_alias_name="" uid="{9e26c804-cf10-421d-83dd-1f29c856286a}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_nss_original" sqlTabName="" table_alias_name="" uid="{5e4466de-e1d6-4438-9b86-2141fbc0b4e2}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_rfc_original" sqlTabName="" table_alias_name="" uid="{a10c7a56-6c60-41d0-9677-0fd2fbc99622}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_nombre_original" sqlTabName="" table_alias_name="" uid="{4e15d39e-17a4-4566-affb-b59b275bef86}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_nss_modificado" sqlTabName="" table_alias_name="" uid="{471a70db-e3aa-4cdd-9ab7-8f3cca8de759}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_rfc_modificado" sqlTabName="" table_alias_name="" uid="{c7d1d100-5c24-4905-8a34-927b3803acb0}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_nombre_modificado" sqlTabName="" table_alias_name="" uid="{f63118e8-c9bc-4f82-a52e-5bdd2c1b20ff}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_apellido_paterno" sqlTabName="" table_alias_name="" uid="{4f81e714-486c-4f15-af06-61c88fd366fe}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_apellido_materno" sqlTabName="" table_alias_name="" uid="{47518985-4c13-4cb2-8ac3-947b6c936647}"/>
+    <RecordField colName="" fieldIdRef="10" name="v_nombres" sqlTabName="" table_alias_name="" uid="{0625393b-a5b8-4b29-b8a2-b684c35979fe}"/>
+  </Record>
+  <Form gridHeight="55" gridWidth="173" name="Form" text="Form">
+    <VBox gridHeight="28" gridWidth="79" name="VBox1" posX="3" posY="1">
+      <Group gridHeight="11" gridWidth="79" name="grporiginales" posX="0" posY="1" text="Datos originales">
+        <Grid gridHeight="9" gridWidth="76" name="Grid1" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="10" hidden="true" name="lblidafi" posX="1" posY="0" text="Id Afi F72"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="14" hidden="true" name="v_id_afi_fondo72" posX="13" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label2" posX="1" posY="1" text="NSS"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="14" name="v_nss_original" posX="13" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="2" text=""/>
+          <Label gridHeight="1" gridWidth="10" name="Label3" posX="1" posY="3" text="RFC"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="27" name="v_rfc_original" posX="13" posY="3" rowCount="" scroll="true" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit3" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label8" posX="1" posY="4" text=""/>
+          <Label gridHeight="1" gridWidth="10" name="Label4" posX="1" posY="5" text="Nombre"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="43" name="v_nombre_original" posX="13" posY="5" rowCount="" scroll="true" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit4" widget="Edit"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="15" gridWidth="79" name="grpmodificados" posX="0" posY="12" text="Datos modificados">
+        <Grid gridHeight="13" gridWidth="77" name="Grid2" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="10" name="Label5" posX="1" posY="2" text="NSS"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" name="v_nss_modificado" posX="13" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit5" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label9" posX="1" posY="3" text=""/>
+          <Label gridHeight="1" gridWidth="10" name="Label6" posX="1" posY="4" text="RFC"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="26" name="v_rfc_modificado" posX="13" posY="4" rowCount="" scroll="true" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit6" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label10" posX="1" posY="5" text=""/>
+          <Label gridHeight="1" gridWidth="10" hidden="true" name="Label7" posX="1" posY="6" text="Nombre completo"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="44" hidden="true" name="v_nombre_modificado" posX="13" posY="6" rowCount="" scroll="true" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit7" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label11" posX="1" posY="8" text="Apellido Paterno"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="44" name="v_apellido_paterno" posX="13" posY="8" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label12" posX="1" posY="9" text="Apellido Materno"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="44" name="v_apellido_materno" posX="13" posY="9" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit2" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="10" name="Label13" posX="1" posY="10" text="Nombres"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="44" name="v_nombres" posX="13" posY="10" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Edit3" widget="Edit"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhADEAMABjADcAYQA1ADYALQA2AGMANgAwAC0ANAAxAGQAMAAtADkANgA3ADcALQAwAGYAZAAyAGYAYgBjADkAOQA2ADIAMgB9QBQAAAUAAABAUgAABIAAAAAAAAAAAAAAAQAAAEwAewA5AGUAMgA2AGMAOAAwADQALQBjAGYAMQAwAC0ANAAyADEAZAAtADgAMwBkAGQALQAxAGYAMgA5AGMAOAA1ADYAMgA4ADYAYQB9QBQAAAUAAABAOgAABoAAAAAAAAAAAAAAAQAAAEwAewBmADYAMwAxADEAOABlADgALQBjADkAYgBjAC0ANABmADgAMgAtAGEANQAyAGUALQA1AGIAZABkADIAYwAxAGIAMgAwAGYAZgB9QBQAAAUAAABAZIAABSAAAAAAAAAAAAAAAQAAAEwAewA1AGUANAA0ADYANgBkAGUALQBlADEAZAA2AC0ANAA0ADMAOAAtADkAYgA4ADYALQAyADEANAAxAGYAYgBjADAAYgA0AGUAMgB9QBQAAAUAAABASIAABiAAAAAAAAAAAAAAAQAAAEwAewAwADYAMgA1ADMAOQAzAGIALQBhADUAYgA4AC0ANABiADIAOQAtAGIAOABhADIALQBiADYAOAA0AGMAMwA1ADkANwA5AGYAZQB9QBQAAAUAAABAbSAAB0gAAAAAAAAAAAAAAQAAAEwAewAyADYAMwA5ADAAOAAyAGIALQA0AGMANABhAC0ANAA2AGMAZgAtADkAMwA5ADMALQA1ADYAMwAxADkAMgAwADUAMQAzADcAMAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGUAMQA1AGQAMwA5AGUALQAxADcAYQA0AC0ANAA1ADYANgAtAGEAZgBmAGIALQBiADUAOQBiADIANwA1AGIAZQBmADgANgB9QBQAAAUAAABAV8AABfAAAAAAAAAAAAAAAQAAAEwAewBjADcAZAAxAGQAMQAwADAALQA1AGMAMgA0AC0ANAA5ADAANQAtADgAYQAzADQALQA5ADIANwBiADMAOAAwADMAYQBjAGIAMAB9QBQAAAUAAABAYaAABGgAAAAAAAAAAAAAAQAAAEwAewA0ADcANQAxADgAOQA4ADUALQA0AGMAMQAzAC0ANABjAGIAMgAtADgAYQBjADMALQA5ADQANwBiADYAYwA5ADMANgA2ADQANwB9QBQAAAUAAABAakAABpAAAAAAAAAAAAAAAQAAAEwAewA0ADcAMQBhADcAMABkAGIALQBlADMAYQBhAC0ANABjAGQAZAAtADkAYQBiADcALQA4AGYAMwBjAGMAYQA4AGQAZQA3ADUAOQB9QBQAAAUAAABAXYAAB2AAAAAAAAAAAAAAAQAAAEwAewA0AGYAOAAxAGUANwAxADQALQA0ADgANgBjAC0ANABmADEANQAtAGEAZgAwADYALQA2ADEAYwA4ADgAZgBkADMANgA2AGYAZQB9QBQAAAUAAABAZ2AABdgAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

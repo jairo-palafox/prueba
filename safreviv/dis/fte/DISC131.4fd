@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{412e719f-44e3-4e9a-88ab-a2a77b17e453}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="gr_cons_dif_apo_sub" order="" uid="{a44120fd-8f10-416c-9afc-2c7c0286d03e}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_folio_ap_subs" sqlTabName="" table_alias_name="" uid="{5f8e3b78-8d8b-42d4-9232-d10d6774b239}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_detalle" order="" uid="{a206ff6a-e704-47f7-83f4-6f0568c810ad}" where="">
+    <RecordField colName="" fieldIdRef="17" name="tbt_folio" sqlTabName="" table_alias_name="" uid="{24afaf6b-5fdb-40c1-a069-011c634b1452}"/>
+    <RecordField colName="" fieldIdRef="19" name="tbt_tot_registros" sqlTabName="" table_alias_name="" uid="{eaad9f7e-251d-4fd1-8443-48700be1a9ff}"/>
+    <RecordField colName="" fieldIdRef="20" name="tbt_total_apo" sqlTabName="" table_alias_name="" uid="{aabb8cde-012e-42ab-b73d-c61a105e6be4}"/>
+    <RecordField colName="" fieldIdRef="21" name="t_total_aivs" sqlTabName="" table_alias_name="" uid="{b9ec4e53-735a-4424-8e19-d0c42dc10870}"/>
+  </Record>
+  <Form gridHeight="15" gridWidth="151" name="DISC061" text="Form">
+    <Grid gridHeight="13" gridWidth="148" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="143" name="gr_cons_dif_apo_sub" posX="1" posY="1" text="Consulta Cifras de Aportaciones Subsecuentes Especiales">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="f_folio_ap_subs" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="7" gridWidth="143" name="gr_detalle_folio" posX="1" posY="5" text="Detalle del Folio">
+        <Table gridHeight="4" gridWidth="132" name="Table2" posX="3" posY="2" totalRows="2">
+          <Edit colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="15" justify="center" name="tbt_folio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Folio" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="19" gridHeight="1" gridWidth="14" justify="right" name="tbt_tot_registros" posX="15" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Total &#10;Registros" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="20" format="###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="25" name="tbt_total_apo" posX="29" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Total &#10;Aportaciones" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="21" format="###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="31" justify="right" name="t_total_aivs" posX="54" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Total&#10;AIVS" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhADQANAAxADIAMABmAGQALQA4AGYAMQAwAC0ANAAxADYAYwAtADkAYQBmAGMALQAyAGMANwBjADAAMgA4ADYAZAAwADMAZQB9wHiwAAAAAABATQAAAAAAAD+2hysCDEm/AQAAAEwAewA1AGYAOABlADMAYgA3ADgALQA4AGQAOABiAC0ANAAyAGQANAAtADkAMgAzADIALQBkADEAMABkADYANwA3ADQAYgAyADMAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADkAZQBjADQAZQA1ADMALQA3ADMANQBhAC0ANAA0ADIANAAtADgAZQAxADkALQBkADAAYwA0ADIAZABjADEAMAA4ADcAMAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGEAYQBkADkAZgA3AGUALQAyADUAMQBkAC0ANABmAGQAMQAtADgANAA0ADMALQA0ADgANwAwADAAYgBlADEAYQA5AGYAZgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADQAYQBmAGEAZgA2AGIALQA1AGYAZABiAC0ANAAwAGMAMQAtAGEAMAA2ADkALQAwADEAMQBjADYAMwA0AGIAMQA0ADUAMgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADIAMAA2AGYAZgA2AGEALQBlADcAMAA0AC0ANAA3AGYANwAtADgAMwBmADQALQA2AGYAMAA1ADYAOABjADgAMQAwAGEAZAB9wDMAAAAAAABAU4AAAAAAAD+3ztkWhysHAQAAAEwAewBhAGEAYgBiADgAYwBkAGUALQAwADEAMgBlAC0ANAAyAGEAYgAtAGIANwAzAGQALQBjADYAMQBhADEAMAA1AGUANgBiAGUANAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

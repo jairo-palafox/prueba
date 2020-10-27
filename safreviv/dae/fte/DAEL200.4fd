@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{1319c680-1ca6-41f5-8dbc-ec6dd62abc36}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{b123d8a2-4342-4599-b691-0a4a0b563003}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cmb_folio" sqlTabName="" table_alias_name="" uid="{68fda4bf-f9f5-4cf0-9c14-c0293102cf7c}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_i_tot_aceptados" sqlTabName="" table_alias_name="" uid="{cc95dd39-a5f1-45e1-bf17-b0310f4465f3}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_i_tot_rechazados" sqlTabName="" table_alias_name="" uid="{0605f3a4-9d60-4005-a8aa-b27e123df6e1}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_i_tot_registros" sqlTabName="" table_alias_name="" uid="{35f23257-d14a-46f0-a7e2-57ba946f6af9}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb_folios_disponibles" order="" uid="{487f14dc-ff0e-4aff-b0f7-bfd1a7ed511e}" where=""/>
+  <Form gridHeight="24" gridWidth="78" name="Form" text="Form">
+    <VBox gridHeight="23" gridWidth="75" name="VBox1" posX="1" posY="0">
+      <Group gridHeight="7" gridWidth="75" name="Group1" posX="0" posY="1" text="Generar archivo">
+        <Grid gridHeight="5" gridWidth="47" name="Grid1" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="lbl_folio" posX="2" posY="2" text="Folio Lote :"/>
+          <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="27" items="" name="cmb_folio" posX="18" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="ComboBox"/>
+        </Grid>
+      </Group>
+      <Group gridHeight="14" gridWidth="75" name="grupo_resumen" posX="0" posY="8" text="Resumen de archivo a Generar">
+        <Grid gridHeight="10" gridWidth="72" name="Grid2" posX="2" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="Label3" posX="1" posY="1" text="Total de Aceptados:"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" justify="right" name="v_i_tot_aceptados" posX="16" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label4" posX="32" posY="1" text=""/>
+          <Label gridHeight="1" gridWidth="14" name="Label10" posX="1" posY="3" text="Total de Rechazados:"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="15" justify="right" name="v_i_tot_rechazados" posX="16" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label11" posX="32" posY="3" text=""/>
+          <HLine gridWidth="72" name="HLine1" posX="0" posY="5"/>
+          <Label gridHeight="1" gridWidth="14" name="Label5" posX="1" posY="6" text="Total de Registros:"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" justify="right" name="v_i_tot_registros" posX="16" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="25" name="Label15" posX="32" posY="6" text=""/>
+          <Button gridHeight="1" gridWidth="11" name="Generar" posX="43" posY="8" tabIndex="2" text="Generar"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0ADgANwBmADEANABkAGMALQBmAGYAMABlAC0ANABhAGYAZgAtAGIAMABmADcALQBiAGYAZAAxAGEANwBlAGQANQAxADEAZQB9wHBgAAAAAABAAAAAAAAAAD9ok3S8an76AQAAAEwAewAwADYAMAA1AGYAMwBhADQALQA5AGQANgAwAC0ANAAwADAANQAtAGEAOABhAGEALQBiADIANwBlADEAMgAzAGQAZgA2AGUAMQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADgAZgBkAGEANABiAGYALQBmADkAZgA1AC0ANABjAGYAMAAtADkAYwAxADQALQBjADAAMgA5ADMAMQAwADIAYwBmADcAYwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADUAZgAyADMAMgA1ADcALQBkADEANABhAC0ANAA2AGYAMAAtAGEANwBlADIALQA1ADcAYgBhADkANAA2AGYANgBhAGYAOQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGMAOQA1AGQAZAAzADkALQBhADUAZgAxAC0ANAA1AGUAMQAtAGIAZgAxADcALQBiADAAMwAxADAAZgA0ADQANgA1AGYAMwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADEAMgAzAGQAOABhADIALQA0ADMANAAyAC0ANAA1ADkAOQAtAGIANgA5ADEALQAwAGEANABhADAAYgA1ADYAMwAwADAAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

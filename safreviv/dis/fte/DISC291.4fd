@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{6dba013c-161c-460a-bd6f-564cad2d37bb}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="rc_criterio" order="" uid="{58aa6631-8d6b-4d8b-b65a-b5d6b2daf59d}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_folio" sqlTabName="" table_alias_name="" uid="{12936e5e-265e-456c-980f-e37bb0b80933}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record1" order="" uid="{434c8a02-cb8c-4b76-8a47-f4b143e3e371}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{59c01ce7-8e5a-4f44-a525-4664104906b0}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="r_totales" order="" uid="{7cdb353c-0bfe-4f56-bb10-670fe10e5702}" where="">
+    <RecordField colName="" fieldIdRef="2" name="no_concilidos" sqlTabName="" table_alias_name="" uid="{de395018-e6a1-4a64-8101-6bc69e03f4bb}"/>
+    <RecordField colName="" fieldIdRef="3" name="monto_aivs_no" sqlTabName="" table_alias_name="" uid="{b71dc208-5120-471c-8872-d533b8e475d1}"/>
+    <RecordField colName="" fieldIdRef="4" name="monto_apo_no" sqlTabName="" table_alias_name="" uid="{62b00fc1-e574-46b6-bee8-ad9fbf528f1e}"/>
+    <RecordField colName="" fieldIdRef="5" name="conciliados" sqlTabName="" table_alias_name="" uid="{b68b304c-3cdc-4658-be06-581fa4428e66}"/>
+    <RecordField colName="" fieldIdRef="6" name="monto_aivs" sqlTabName="" table_alias_name="" uid="{f7facd88-64c3-49d2-b249-05cc9d17347c}"/>
+    <RecordField colName="" fieldIdRef="7" name="monto_apo" sqlTabName="" table_alias_name="" uid="{56e10be8-131a-4dcd-95c2-33beb89e1797}"/>
+    <RecordField colName="" fieldIdRef="8" name="porcentaje" sqlTabName="" table_alias_name="" uid="{97199b85-825c-47d2-90fd-6b0d411e480a}"/>
+    <RecordField colName="" fieldIdRef="9" name="tot_reg" sqlTabName="" table_alias_name="" uid="{9d715c4c-64cd-4a38-8cfb-73dbb6435f50}"/>
+  </Record>
+  <Form gridHeight="15" gridWidth="154" name="form" text="Form">
+    <Grid gridHeight="13" gridWidth="153" name="grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="135" name="gr_criterio" posX="1" posY="1" text="Criterio de búsqueda">
+        <Label gridHeight="1" gridWidth="4" name="label1" posX="1" posY="1" text="Folio"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" name="v_folio" posX="6" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="152" name="gr_resultado" posX="1" posY="4" text="Resultado de la búsqueda">
+        <Table aggregateText="" gridHeight="6" gridWidth="150" name="table1" posX="1" posY="1" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" format="###,###,###,##&amp;" gridHeight="1" gridWidth="15" justify="left" name="no_concilidos" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="No &#10;Conciliados" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="##,###,###,###,##&amp;.##" gridHeight="1" gridWidth="22" justify="left" name="monto_aivs_no" posX="15" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Monto &#10;AIVS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="##,###,###,###,##&amp;.##" gridHeight="1" gridWidth="22" justify="left" name="monto_apo_no" posX="37" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Monto &#10;Aportación" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="###,###,###,##&amp;" gridHeight="1" gridWidth="15" justify="left" name="conciliados" posX="59" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Conciliados" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" format="##,###,###,###,##&amp;.##" gridHeight="1" gridWidth="22" justify="left" name="monto_aivs" posX="74" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Monto &#10;AIVS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="##,###,###,###,##&amp;.##" gridHeight="1" gridWidth="22" justify="left" name="monto_apo" posX="96" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Monto &#10;Aportación" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" format="%##&amp;.&amp;&amp;" gridHeight="1" gridWidth="8" justify="left" name="porcentaje" posX="118" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Porcentaje" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" format="###,###,###,##&amp;" gridHeight="1" gridWidth="15" justify="left" name="tot_reg" posX="126" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Total &#10;Registros" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBkAGUAMwA5ADUAMAAxADgALQBlADYAYQAxAC0ANABhADYANAAtADgAMQAwADEALQA2AGIAYwA2ADkAZQAwADMAZgA0AGIAYgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGQANwAxADUAYwA0AGMALQA2ADQAYwBkAC0ANABhADMAOAAtADgAYwBmAGIALQA3ADMAZABiAGIANgA0ADMANQBmADUAMAB9QCQAAAAAAABAaOAAAAAAAD90euFHrhR7AQAAAEwAewA1ADYAZQAxADAAYgBlADgALQAxADMAMQBhAC0ANABkAGMAZAAtADkANQBjADIALQAzADMAYgBlAGIAOAA5AGUAMQA3ADkANwB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGMAZABiADMANQAzAGMALQAwAGIAZgBlAC0ANABmADUANgAtAGIAYgAxADAALQA2ADcAMABmAGUAMQAwAGUANQA3ADAAMgB9QHkgAAAAAABAJgAAAAAAAD9wYk3S8an8AQAAAEwAewA1ADkAYwAwADEAYwBlADcALQA4AGUANQBhAC0ANABmADQANAAtAGEANQAyADUALQA0ADYANgA0ADEAMAA0ADkAMAA2AGIAMAB9QGegAAAAAABAMgAAAAAAAD9gYk3S8an8AQAAAEwAewBiADcAMQBkAGMAMgAwADgALQA1ADEAMgAwAC0ANAA3ADEAYwAtADgAOAA3ADIALQBkADUAMwAzAGIAOABlADQANwA1AGQAMQB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADIAOQAzADYAZQA1AGUALQAyADYANQBlAC0ANAA1ADYAYwAtADkAOAAwAGYALQBlADMANwBiAGIAMABiADgAMAA5ADMAMwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADcAZgBhAGMAZAA4ADgALQA2ADQAYwAzAC0ANAA5AGQAMgAtAGIAMgA0ADkALQAwADUAYwBjADkAZAAxADcAMwA0ADcAYwB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADgAYQBhADYANgAzADEALQA4AGQANgBiAC0ANABkADgAYgAtAGIANgA1AGEALQBiADUAZAA2AGIAMgBkAGEAZgA1ADkAZAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADIAYgAwADAAZgBjADEALQBlADUANwA0AC0ANAA2AGIANgAtAGIAZQBlADgALQBhAGQAOQBmAGIAZgA1ADIAOABmADEAZQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcAMQA5ADkAYgA4ADUALQA4ADIANQBjAC0ANAA3AGQAMgAtADkAMABmAGQALQA2AGIAMABkADQAMQAxAGUANAA4ADAAYQB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADYAOABiADMAMAA0AGMALQAzAGMAZABjAC0ANAA2ADUAOAAtAGIAZQAwADYALQA1ADgAMQBmAGEANAA0ADIAOABlADYANgB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADMANABjADgAYQAwADIALQBjAGIAOABjAC0ANABiADcANgAtADgAYQA0ADcALQBmADQAYgAxADQAMwBlADMAZQAzADcAMQB9wDEAAAAAAABAYOAAAAAAAD9ok3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

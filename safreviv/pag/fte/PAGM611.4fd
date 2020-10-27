@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{a5dd5ec5-a139-433f-ae56-fefe63194782}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{4a6e3a8e-ff62-4c49-9589-94633a926de3}" where="">
+    <RecordField colName="" fieldIdRef="1" name="nss_actual" sqlTabName="" table_alias_name="" uid="{3b95d7f5-c71e-46f8-8499-c9eb03b22949}"/>
+    <RecordField colName="" fieldIdRef="7" name="folio" sqlTabName="" table_alias_name="" uid="{78002054-1321-46bf-8ece-f8a41facc902}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_detalle_nss" order="" uid="{eea2b9d1-b48c-40fe-9e57-35c0e8f3217a}" where="">
+    <RecordField colName="" fieldIdRef="2" name="nss_recuperado" sqlTabName="" table_alias_name="" uid="{25586b7a-a193-4e67-817b-77f6c7e24e65}"/>
+    <RecordField colName="" fieldIdRef="3" name="fecha_pago" sqlTabName="" table_alias_name="" uid="{243581da-70af-4c93-bb84-a70389d8dad6}"/>
+    <RecordField colName="" fieldIdRef="4" name="imp_ap_vol" sqlTabName="" table_alias_name="" uid="{db82bea2-391d-4829-8726-590bc3bc83da}"/>
+    <RecordField colName="" fieldIdRef="5" name="nom_trabajador" sqlTabName="" table_alias_name="" uid="{3aa524b0-016d-4a2d-a5a9-89d4708bde5a}"/>
+    <RecordField colName="" fieldIdRef="6" name="folio_det" sqlTabName="" table_alias_name="" uid="{f7355fa8-5247-445e-8c78-ed20bff03744}"/>
+  </Record>
+  <Form gridHeight="23" gridWidth="130" name="Form" text="Form">
+    <Grid gridHeight="22" gridWidth="122" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="6" gridWidth="87" name="gpo_nss_actual" posX="2" posY="1" text="NSS actual">
+        <Label gridHeight="1" gridWidth="10" name="lbl_nss_actual" posX="2" posY="2" text="NSS Actual"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="19" name="nss_actual" posX="13" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_folio" posX="2" posY="4" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="14" name="folio" posX="13" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="13" gridWidth="113" name="gpo_detalle" posX="1" posY="8" text="Detalle">
+        <Table gridHeight="11" gridWidth="107" name="tbl_detalle" posX="2" posY="1" totalRows="10">
+          <FFLabel colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="16" justify="center" name="nss_recuperado" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="NSS Actual" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="10" justify="center" name="fecha_pago" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Fecha pago" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="4" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="15" name="imp_ap_vol" posX="26" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Importe Ap. &#10;Voluntaria" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="44" name="nom_trabajador" posX="41" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Nombre trabajador" widget="FFLabel"/>
+          <FFLabel colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="9" name="folio_det" posX="85" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Folio" widget="FFLabel"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzAGEAYQA1ADIANABiADAALQAwADEANgBkAC0ANABhADIAZAAtAGEANQBhADkALQA4ADkAZAA0ADcAMAA4AGIAZABlADUAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAyADUANQA4ADYAYgA3AGEALQBhADEAOQAzAC0ANABlADYANwAtADgAMQA3AGIALQA3ADcAZgA2AGMANwBlADIANABlADYANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGIAOQA1AGQANwBmADUALQBjADcAMQBlAC0ANAA2AGYAOAAtADgANAA5ADkALQBjADkAZQBiADAAMwBiADIAMgA5ADQAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADQAMwA1ADgAMQBkAGEALQA3ADAAYQBmAC0ANABjADkAMwAtAGIAYgA4ADQALQBhADcAMAAzADgAOQBkADgAZABhAGQANgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGEANgBlADMAYQA4AGUALQBmAGYANgAyAC0ANABjADQAOQAtADkANQA4ADkALQA5ADQANgAzADMAYQA5ADIANgBkAGUAMwB9QCQAAAAAAABAQwAAAAAAAD9gYk3S8an8AQAAAEwAewA3ADgAMAAwADIAMAA1ADQALQAxADMAMgAxAC0ANAA2AGIAZgAtADgAZQBjAGUALQBmADgAYQA0ADEAZgBhAGMAYwA5ADAAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGUAYQAyAGIAOQBkADEALQBiADQAOABjAC0ANAAwAGYAZQAtADkAZQA1ADcALQAzADUAYwAwAGUAOABmADMAMgAxADcAYQB9wGsAAAAAAABAJAAAAAAAAD9wYk3S8an8AQAAAEwAewBmADcAMwA1ADUAZgBhADgALQA1ADIANAA3AC0ANAA0ADUAZQAtADgAYwA3ADgALQBlAGQAMgAwAGIAZgBmADAAMwA3ADQANAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGIAOAAyAGIAZQBhADIALQAzADkAMQBkAC0ANAA4ADIAOQAtADgANwAyADYALQA1ADkAMABiAGMAMwBiAGMAOAAzAGQAYQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

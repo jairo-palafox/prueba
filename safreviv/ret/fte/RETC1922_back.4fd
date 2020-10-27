@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{f48a9159-4f73-4dfe-88c3-eebfc1a68b01}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="d_folio" order="" uid="{1cc43b93-7838-4da0-ab3e-510337d964c6}" where="">
+    <RecordField colName="" fieldIdRef="5" name="folio_d" sqlTabName="" table_alias_name="" uid="{84ede6b4-6f43-4fa6-8337-8ab07e902c95}"/>
+    <RecordField colName="" fieldIdRef="1" name="rfc_d" sqlTabName="" table_alias_name="" uid="{3cb72bbf-05fb-4f10-bcb1-3d2b9c3b3204}"/>
+    <RecordField colName="" fieldIdRef="2" name="tanto_normal_d" sqlTabName="" table_alias_name="" uid="{2a57665b-6a00-46d0-ba28-b52540960f0f}"/>
+    <RecordField colName="" fieldIdRef="3" name="tanto_adicional_d" sqlTabName="" table_alias_name="" uid="{4a412d71-c2e4-40b9-8be8-e575b950c5a6}"/>
+    <RecordField colName="" fieldIdRef="4" name="traspaso_d" sqlTabName="" table_alias_name="" uid="{eaa1f98c-8d68-4f8a-8f00-480f7a9c51c6}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{ff25fb1c-c2ad-46fa-b050-1613d68a4313}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="t_folio" order="" uid="{e81135bb-284e-44eb-afd5-bab1fc44e014}" where="">
+    <RecordField colName="" fieldIdRef="6" name="folio_t" sqlTabName="" table_alias_name="" uid="{6905a257-05d2-4736-9fc9-b1f425a12d2c}"/>
+    <RecordField colName="" fieldIdRef="7" name="num_registros_t" sqlTabName="" table_alias_name="" uid="{171ba19c-9323-4608-84d8-0b0ccf11f0cc}"/>
+    <RecordField colName="" fieldIdRef="8" name="tanto_normal_t" sqlTabName="" table_alias_name="" uid="{1e063c1f-bcca-4bc5-b0cf-911f4b2d39ce}"/>
+    <RecordField colName="" fieldIdRef="9" name="tanto_adicional_t" sqlTabName="" table_alias_name="" uid="{97424aa7-c6bb-4780-8d5d-d0eb871c9a76}"/>
+    <RecordField colName="" fieldIdRef="10" name="tipo_t" sqlTabName="" table_alias_name="" uid="{715b32a0-82a0-488e-b33f-fa556327f2af}"/>
+  </Record>
+  <Form gridHeight="71" gridWidth="434" name="Form" text="Form">
+    <VBox gridHeight="30" gridWidth="127" name="VBox1" posX="0" posY="0">
+      <Group gridHeight="28" gridWidth="127" name="Group2" posX="0" posY="1" text="Folio">
+        <Grid gridHeight="20" gridWidth="109" name="Grid2" posX="3" posY="1">
+          <Table gridHeight="5" gridWidth="105" name="Table2" posX="2" posY="1" totalRows="2">
+            <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="folio_t" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Folio" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="15" name="num_registros_t" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Registros" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="19" name="tanto_normal_t" posX="23" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Tanto Normal" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="19" name="tanto_adicional_t" posX="42" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Tanto Adicional" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="19" name="tipo_t" posX="61" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Tipo" widget="Edit"/>
+          </Table>
+          <Table gridHeight="12" gridWidth="105" name="Table1" posX="2" posY="7" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="8" name="folio_d" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Folio" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" name="rfc_d" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="RFC" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="19" name="tanto_normal_d" posX="23" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Tanto Normal" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="19" name="tanto_adicional_d" posX="42" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Total Adicional" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="19" name="traspaso_d" posX="61" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Traspaso" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmAGYAMgA1AGYAYgAxAGMALQBjADIAYQBkAC0ANAA2AGYAYQAtAGIAMAA1ADAALQAxADYAMQAzAGQANgA4AGEANAAzADEAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGEANQA3ADYANgA1AGIALQA2AGEAMAAwAC0ANAA2AGQAMAAtAGIAYQAyADgALQBiADUAMgA1ADQAMAA5ADYAMABmADAAZgB9QBQAAAAAAABAUQAAAAAAAD+AYk3S8an8AQAAAEwAewA3ADEANQBiADMAMgBhADAALQA4ADIAYQAwAC0ANAA4ADgAZQAtAGIAMwAzAGYALQBmAGEANQA1ADYAMwAyADcAZgAyAGEAZgB9QBQAAAAAAABAXAAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGEANAAxADIAZAA3ADEALQBjADIAZQA0AC0ANAAwAGIAOQAtADgAYgBlADgALQBlADUANwA1AGIAOQA1ADAAYwA1AGEANgB9QBQAAAAAAABAVoAAAAAAAD94k3S8an76AQAAAEwAewAxADcAMQBiAGEAMQA5AGMALQA5ADMAMgAzAC0ANAA2ADAAOAAtADgANABkADgALQAwAGIAMABjAGMAZgAxADEAZgAwAGMAYwB9QBQAAAAAAABARwAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcANAAyADQAYQBhADcALQBjADYAYgBiAC0ANAA3ADgAMAAtADgAZAA1AGQALQBkADAAZQBiADgANwAxAGMAOQBhADcANgB9QBQAAAAAAABAVoAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGMAYwA0ADMAYgA5ADMALQA3ADgAMwA4AC0ANABkAGEAMAAtAGEAYgAzAGUALQA1ADEAMAAzADMANwBkADkANgA0AGMANgB9wHgAAAAAAABALgAAAAAAAD+UeuFHrhR+AQAAAEwAewAzAGMAYgA3ADIAYgBiAGYALQAwADUAZgBiAC0ANABmADEAMAAtAGIAYwBiADEALQAzAGQAMgBiADkAYwAzAGIAMwAyADAANAB9QBQAAAAAAABARwAAAAAAAD+Ik3S8an78AQAAAEwAewBlAGEAYQAxAGYAOQA4AGMALQA4AGQANgA4AC0ANABmADgAYQAtADgAZgAwADAALQA0ADgAMABmADcAYQA5AGMANQAxAGMANgB9QBQAAAAAAABAXAAAAAAAAD+EeuFHrhR8AQAAAEwAewBlADgAMQAxADMANQBiAGIALQAyADgANABlAC0ANAA0AGUAYgAtAGEAZgBkADUALQBiAGEAYgAxAGYAYwA0ADQAZQAwADEANAB9wFkAAAAAAABAXIAAAAAAAD+TdLxqfvneAQAAAEwAewAxAGUAMAA2ADMAYwAxAGYALQBiAGMAYwBhAC0ANABiAGMANQAtAGIAMABjAGYALQA5ADEAMQBmADQAYgAyAGQAMwA5AGMAZQB9QBQAAAAAAABAUQAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADQAZQBkAGUANgBiADQALQA2AGYANAAzAC0ANABmAGEANgAtADgAMwAzADcALQA4AGEAYgAwADcAZQA5ADAAMgBjADkANQB9QBQAAAAAAABAOAAAAAAAAD+SbpeNT98+AQAAAEwAewA2ADkAMAA1AGEAMgA1ADcALQAwADUAZAAyAC0ANAA3ADMANgAtADkAZgBjADkALQBiADEAZgA0ADIANQBhADEAMgBkADIAYwB9QBQAAAAAAABAOAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

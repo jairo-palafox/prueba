@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{3e826d02-21ab-475a-84e4-8917dc95d840}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{f0c5ebb5-9fa5-4ebe-95da-24b1789d38cb}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_user_id" sqlTabName="" table_alias_name="" uid="{7bbd72f7-ec3d-4b1f-b13e-65af5309f852}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_password" sqlTabName="" table_alias_name="" uid="{de5090fd-1482-4cd4-af1b-18f92bd97814}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_grupo" sqlTabName="" table_alias_name="" uid="{f4b86011-3b37-4789-bf8d-bcd943b08c47}"/>
+    <RecordField colName="" fieldIdRef="4" length="1000" name="v_archivo_cer" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{74d1fc15-4bb7-4b64-a35e-a4cfcb596867}"/>
+    <RecordField colName="" fieldIdRef="5" length="1000" name="v_archivo_key" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{23102650-7a12-4d95-bc0e-c26e36051959}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_password_key" sqlTabName="" table_alias_name="" uid="{b9a5b6dd-e049-4013-9c44-1584aafc763d}"/>
+  </Record>
+  <Form gridHeight="34" gridWidth="132" name="form" text="Form">
+    <VBox gridHeight="24" gridWidth="122" name="vbox1" posX="3" posY="3">
+      <Group gridHeight="10" gridWidth="122" name="group1" posX="0" posY="1" text="Control de acceso">
+        <Grid gridHeight="8" gridWidth="96" name="grid1" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="9" name="label9" posX="1" posY="1" text="Usuario:"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="15" name="v_user_id" posX="11" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="9" name="label10" posX="1" posY="2" text="Password:"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="15" invisible="true" name="v_password" posX="11" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="edit2" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="9" name="label11" posX="1" posY="3" text="Grupo:"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" name="v_grupo" noEntry="true" posX="11" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="edit3" widget="Edit"/>
+          <Button gridHeight="1" gridWidth="13" name="boton_aceptar" posX="1" posY="5" tabIndex="7" text="Aceptar"/>
+          <Button gridHeight="1" gridWidth="13" name="boton_cancelar" posX="17" posY="5" tabIndex="8" text="Cancelar"/>
+        </Grid>
+      </Group>
+      <Group gridChildrenInParent="true" gridHeight="12" gridWidth="122" name="group2" posX="0" posY="11" text="Login">
+        <Grid gridHeight="10" gridWidth="120" name="grid2" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="50" name="label12" posX="1" posY="1" text="Para continuar, ingresa los archivos de tu firma electrónica avanzada"/>
+          <Label gridHeight="1" gridWidth="21" name="label13" posX="1" posY="3" text="Certificado (.cer)*"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="95" length="1000" name="v_archivo_cer" posX="23" posY="3" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" style="FileUpload" tabIndex="4" table_alias_name="" title="edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="21" name="label14" posX="1" posY="4" text="Clave privada (.key)*"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="95" length="1000" name="v_archivo_key" posX="23" posY="4" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" style="FileUpload" tabIndex="5" table_alias_name="" title="edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="21" name="label15" posX="1" posY="6" text="Contraseña de llave privada*"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="20" invisible="true" name="v_password_key" posX="23" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit1" widget="Edit"/>
+          <Button gridHeight="1" gridWidth="13" name="boton_aceptar_key" posX="9" posY="8" tabIndex="9" text="Aceptar"/>
+          <Button gridHeight="1" gridWidth="13" name="boton_cancelar_key" posX="23" posY="8" tabIndex="10" text="Cancelar"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBkAGUANQAwADkAMABmAGQALQAxADQAOAAyAC0ANABjAGQANAAtAGEAZgAxAGIALQAxADgAZgA5ADIAYgBkADkANwA4ADEANAB9QCAAAAgAAAFASszM2jMzNQAAAAAAAAAAAQAAAEwAewAyADMAMQAwADIANgA1ADAALQA3AGEAMQAyAC0ANABkADkANQAtAGIAYwAwAGUALQBjADIANgBlADMANgAwADUAMQA5ADUAOQB9QCAAAAgAAAFAXQAADoAAAgAAAAAAAAAAAQAAAEwAewA3ADQAZAAxAGYAYwAxADUALQA0AGIAYgA3AC0ANABiADYANAAtAGEAMwA1AGUALQBhADQAYwBmAGMAYgA1ADkANgA4ADYANwB9QCAAAAgAAAFAV8zM2LMzNQAAAAAAAAAAAQAAAEwAewA3AGIAYgBkADcAMgBmADcALQBlAGMAMwBkAC0ANABiADEAZgAtAGIAMQAzAGUALQA2ADUAYQBmADUAMwAwADkAZgA4ADUAMgB9QCAAAAgAAAFAQGZmbpmZmwAAAAAAAAAAAQAAAEwAewBmADQAYgA4ADYAMAAxADEALQAzAGIAMwA3AC0ANAA3ADgAOQAtAGIAZgA4AGQALQBiAGMAZAA5ADQAMwBiADAAOABjADQANwB9QCAAAAgAAAFAUpmZouZmaAAAAAAAAAAAAQAAAEwAewBiADkAYQA1AGIANgBkAGQALQBlADAANAA5AC0ANAAwADEAMwAtADkAYwA0ADQALQAxADUAOAA0AGEAYQBmAGMANwA2ADMAZAB9QCAAAAgAAAFAYRmZoiZmZwAAAAAAAAAAAQAAAEwAewBmADAAYwA1AGUAYgBiADUALQA5AGYAYQA1AC0ANABlAGIAZQAtADkANQBkAGEALQAyADQAYgAxADcAOAA5AGQAMwA4AGMAYgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

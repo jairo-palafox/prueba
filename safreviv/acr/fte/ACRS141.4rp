@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACRS14.rdd" RWFglReportName="rpt_acr_solicicitud_devolucion"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" alignment="near" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="120"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" x="7.5" y="329.509" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="SOLICITUD DE DEVOLUCIÓN DE SALDOS EXCEDENTES ACR" localizeText="false"/>
+                            <WORDBOX name="WordBox2" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha Value" x="-0.097" y="675.122" width="67.0562" anchorX="1.11657e-14" anchorY="0.482386" alignment="far" color="#ffffff" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                            <rtl:input-variable name="g_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario_cod Value" x="-0.097" y="94.2171" width="88.5619" anchorX="0.0537963" anchorY="0.5" color="#ffffff" floatingBehavior="enclosed" text="{{g_usuario_cod}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode5" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox3" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Folio:"/>
+                            <WORDBOX name="WordBox4" x="8.4412" y="542.902" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha Presentación:"/>
+                            <rtl:input-variable name="p_f_presentacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_f_presentacion Value" x="-0.0155" y="672.863" anchorX="0.0537963" anchorY="0.45036" color="#ffffff" floatingBehavior="enclosed" text="{{p_f_presentacion}}"/>
+                            <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio Value" x="5.133" y="59.4254" width="52.1462" anchorX="0.347365" anchorY="0.470953" alignment="baseline" color="#ffffff" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_folio}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage3" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode6" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox6" x="7.3179" y="349.919" anchorX="0.576199" anchorY="0.38025" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="AIVS 97"/>
+                            <WORDBOX name="WordBox5" x="1.5514" y="233.262" anchorX="0.121195" anchorY="0.507907" alignment="near" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="TOTAL REGISTROS"/>
+                            <WORDBOX name="WordBox9" x="7.3179" y="462.858" anchorX="0.5" anchorY="0.440316" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="SALDO 97"/>
+                            <WORDBOX name="WordBox10" x="6.0011" y="558.61" anchorX="0.5" anchorY="0.28688" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="AIVS 92"/>
+                            <WORDBOX name="WordBox11" x="6.0011" y="652.477" anchorX="0.5" anchorY="0.221639" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="SALDO 92"/>
+                            <WORDBOX name="WordBox5_1" x="1.5514" y="45.3518" anchorX="0.121195" anchorY="0.507907" alignment="near" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="ARCHIVO"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage4" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode9" width="21.0281" length="719.487" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_total_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_total_registros Value" x="0.774" y="277.896" width="87.7978" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_total_registros}}"/>
+                                <rtl:input-variable name="p_suma_aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_suma_aivs97 Value" x="0.774" y="360.022" anchorX="0.0552845" anchorY="0.521504" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_suma_aivs97}}"/>
+                                <rtl:input-variable name="p_suma_saldo97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_suma_saldo97 Value" x="8.0846" y="462.858" anchorX="0.5" anchorY="0.5" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_suma_saldo97}}"/>
+                                <rtl:input-variable name="p_suma_aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_suma_aivs92 Value" x="8.0846" y="566.548" anchorX="0.5" anchorY="0.469235" alignment="baseline" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_suma_aivs92}}"/>
+                                <rtl:input-variable name="p_suma_saldo92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_suma_saldo92 Value" x="3.4675" y="672.863" anchorX="0.161624" anchorY="0.51051" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_suma_saldo92}}"/>
+                                <rtl:input-variable name="g_nom_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="g_nom_archivo Value" width="width(&quot;M&quot;)*20" floatingBehavior="enclosed" text="{{g_nom_archivo}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <MINIPAGE name="MiniPage5" width="58.3934" length="max" alignment="near" layoutDirection="leftToRight">
+                        <WORDBOX name="p_cnt_envio Caption" x="21.8628" y="84.3245" width="102.022" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="TOTAL ENVÍO      :" localizeText="true"/>
+                        <WORDBOX name="p_cnt_reenvio Caption" x="38.447" y="84.3245" width="102.022" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="TOTAL REENVÍO  :" localizeText="true"/>
+                        <rtl:input-variable name="p_cnt_envio" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_cnt_envio Value" x="26.5676" y="273.74" width="99.5" anchorX="0.5" anchorY="0.812439" floatingBehavior="enclosed" textAlignment="right" format="-----&amp;" value="{{p_cnt_envio}}"/>
+                        <rtl:input-variable name="p_cnt_reenvio" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_cnt_reenvio Value" x="39.9041" y="293.298" width="102.25" length="16.5373" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-----&amp;" value="{{p_cnt_reenvio}}"/>
+                        <rtl:input-variable name="p_reenvio_aivs97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_reenvio_aivs97 Value" x="38.447" y="393.305" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_reenvio_aivs97}}"/>
+                        <rtl:input-variable name="p_envio_saldo97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_envio_saldo97 Value" x="21.8628" y="499.372" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_envio_saldo97}}"/>
+                        <rtl:input-variable name="p_reenvio_saldo92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_reenvio_saldo92 Value" x="38.447" y="703.313" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_reenvio_saldo92}}"/>
+                        <rtl:input-variable name="p_reenvio_saldo97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_reenvio_saldo97 Value" x="38.447" y="499.372" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_reenvio_saldo97}}"/>
+                        <rtl:input-variable name="p_envio_saldo92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_envio_saldo92 Value" x="21.1077" y="703.313" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_envio_saldo92}}"/>
+                        <rtl:input-variable name="p_reenvio_aivs92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_reenvio_aivs92 Value" x="38.447" y="602.915" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_reenvio_aivs92}}"/>
+                        <rtl:input-variable name="p_envio_aivs97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_envio_aivs97 Value" x="21.1261" y="393.305" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_envio_aivs97}}"/>
+                        <rtl:input-variable name="p_envio_aivs92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <DECIMALFORMATBOX name="p_envio_aivs92 Value" x="21.8628" y="602.915" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_envio_aivs92}}"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode7" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

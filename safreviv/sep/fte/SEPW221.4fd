@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{4db53240-ce3a-4a26-a56a-d944c38a653a}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{2d5c1899-05cb-4ab4-8864-e936af99d547}" where="">
+    <RecordField colName="" fieldIdRef="1" name="edi_caso_adai" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{18ae2a64-89c7-4e85-8cf1-c3fd181d7f04}"/>
+    <RecordField colName="" fieldIdRef="2" name="edi_id_expediente" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{525a4780-17f5-48cb-8423-773c2833cfea}"/>
+    <RecordField colName="" fieldIdRef="9" name="flbl_diag" sqlTabName="" table_alias_name="" uid="{745b1064-3a8a-4089-98a1-1bb577906512}"/>
+    <RecordField colName="" fieldIdRef="3" name="flbl_caso_expediente" sqlTabName="" table_alias_name="" uid="{7372a4eb-35b5-421e-ad08-3c4396f613ae}"/>
+    <RecordField colName="" fieldIdRef="4" name="flbl_tipo_flujo_expediente" sqlTabName="" table_alias_name="" uid="{ecfb83f5-9a00-4173-ab41-a49ec2e3f7c2}"/>
+    <RecordField colName="" fieldIdRef="5" name="flbl_fecha_captura_expediente" sqlTabName="" table_alias_name="" uid="{46e55d9d-3592-4c9f-9a2d-5cd6d525e330}"/>
+    <RecordField colName="" fieldIdRef="6" name="flbl_origen_expediente" sqlTabName="" table_alias_name="" uid="{3cc76cec-46f7-4b11-b03c-4c44b0ff20c5}"/>
+    <RecordField colName="" fieldIdRef="7" name="flbl_acreditado_expediente" sqlTabName="" table_alias_name="" uid="{9018dbd3-b342-4c08-8794-ee4a528675d5}"/>
+    <RecordField colName="" fieldIdRef="8" name="flbl_trabajador_expediente" sqlTabName="" table_alias_name="" uid="{de1f8d71-3e13-4b82-8c60-c27b9e42f27c}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_documento" order="" uid="{1dc6ce03-c7f8-4ea9-8336-33dd2b1b9c1e}" where=""/>
+  <Form gridHeight="31" gridWidth="110" name="frm_carga_dictamen" text="Form">
+    <Grid gridHeight="30" gridWidth="107" name="grd_carga_dictamen" posX="0" posY="0">
+      <Group gridHeight="7" gridWidth="103" name="gpo_captura" posX="2" posY="1" text="Captura">
+        <Label gridHeight="1" gridWidth="11" name="lbl_caso_adai" posX="2" posY="2" text="No Caso Adai"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="19" name="edi_caso_adai" posX="14" posY="2" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="11" name="lbl_id_expediente" posX="2" posY="4" text="Id. Expediente"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="19" name="edi_id_expediente" posX="14" posY="4" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+      </Group>
+      <Group gridHeight="7" gridWidth="103" name="gpo_expediente" posX="2" posY="9" text="Datos Expediente">
+        <Label gridHeight="1" gridWidth="7" justify="right" name="Label1" posX="1" posY="2" text="Diag ADAI"/>
+        <Label gridHeight="1" gridWidth="8" justify="right" name="lbl_caso_expediente" posX="10" posY="2" text="# Caso ADAI"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_tipo_flujo_expediente" posX="20" posY="2" text="Tipo Flujo"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_decha_captura_expediente" posX="31" posY="2" text="Fecha Captura"/>
+        <Label gridHeight="1" gridWidth="15" name="lbl_origen_expediente" posX="42" posY="2" text="Origen Expediente"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_acreditado_expediente" posX="79" posY="2" text="Invadido"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_trabajador" posX="91" posY="2" text="Asociado"/>
+        <HLine gridWidth="101" name="HLine1" posX="1" posY="3"/>
+        <FFLabel colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="7" justify="right" name="flbl_diag" posX="1" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Edit1" widget="FFLabel"/>
+        <FFLabel colName="" color="blue" columnCount="" fieldId="3" gridHeight="1" gridWidth="8" justify="right" name="flbl_caso_expediente" posX="10" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Edit3" widget="FFLabel"/>
+        <FFLabel colName="" color="black" columnCount="" fieldId="4" gridHeight="1" gridWidth="10" justify="left" name="flbl_tipo_flujo_expediente" posX="20" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Edit4" widget="FFLabel"/>
+        <FFLabel colName="" color="black" columnCount="" fieldId="5" gridHeight="1" gridWidth="10" justify="left" name="flbl_fecha_captura_expediente" posX="31" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="DateEdit1" widget="FFLabel"/>
+        <FFLabel colName="" color="black" columnCount="" fieldId="6" gridHeight="1" gridWidth="35" justify="left" name="flbl_origen_expediente" posX="42" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Edit5" widget="FFLabel"/>
+        <FFLabel colName="" color="black" columnCount="" fieldId="7" gridHeight="1" gridWidth="11" justify="left" name="flbl_acreditado_expediente" posX="79" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Edit6" widget="FFLabel"/>
+        <FFLabel colName="" color="black" columnCount="" fieldId="8" gridHeight="1" gridWidth="11" justify="left" name="flbl_trabajador_expediente" posX="91" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Edit3" widget="FFLabel"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA3ADMANwAyAGEANABlAGIALQAzADUAYgA1AC0ANAAyADEAZQAtAGEAZAAwADgALQAzAGMANAAzADkANgBmADYAMQAzAGEAZQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGQAYwA2AGMAZQAwADMALQBjADcAZgA4AC0ANABlAGEAOQAtADgAMwAzADYALQAzADMAZABkADIAYgAxAGIAOQBjADEAZQB9wHBAAAAAAAAAAAAAAAAAAD9ok3S8an76AQAAAEwAewA0ADYAZQA1ADUAZAA5AGQALQAzADUAOQAyAC0ANABjADkAZgAtADkAYQAyAGQALQA1AGMAZAA2AGQANQAyADUAZQAzADMAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADIANQBhADQANwA4ADAALQAxADcAZgA1AC0ANAA4AGMAYgAtADgANAAyADMALQA3ADcAMwBjADIAOAAzADMAYwBmAGUAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADAAMQA4AGQAYgBkADMALQBiADMANAAyAC0ANABjADAAOAAtADgANwA5ADQALQBlAGUANABhADUAMgA4ADYANwA1AGQANQB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewAxADgAYQBlADIAYQA2ADQALQA4ADkAYwA3AC0ANABlADgANQAtADgAYwBmADEALQBjADMAZgBkADEAOAAxAGQANwBmADAANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGMAYwA3ADYAYwBlAGMALQA0ADYAZgA3AC0ANABiADEAMQAtAGIAMAAzAGMALQA0AGMANAA0AGIAMABmAGYAMgAwAGMANQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGQANQBjADEAOAA5ADkALQAwADUAYwBiAC0ANABhAGIANAAtADgAOAA2ADQALQBlADkAMwA2AGEAZgA5ADkAZAA1ADQANwB9wFVAAAAAAAAAAAAAAAAAAD9gYk3S8an8AQAAAEwAewBkAGUAMQBmADgAZAA3ADEALQAzAGUAMQAzAC0ANABiADgAMgAtADgAYwA2ADAALQBjADIANwBiADkAZQA0ADIAZgAyADcAYwB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADQANQBiADEAMAA2ADQALQAzAGEAOABhAC0ANAAwADgAOQAtADkAOABhADEALQAxAGIAYgA1ADcANwA5ADAANgA1ADEAMgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGMAZgBiADgAMwBmADUALQA5AGEAMAAwAC0ANAAxADcAMwAtAGEAYgA0ADEALQBhADQAOQBlAGMAMgBlADMAZgA3AGMAMgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

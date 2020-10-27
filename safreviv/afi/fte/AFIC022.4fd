@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="Root" uid="{0bbac845-1d43-4558-9c9b-e44a8b95954b}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb2" order="" uid="{41ce3c95-6a12-4469-959a-44c9c5391c66}" where="">
+    <RecordField colName="" fieldIdRef="9" fieldType="NON_DATABASE" name="arr_nss" sqlTabName="" table_alias_name="" uid="{37e4f788-b6cd-48fa-87ef-f98d9bab35ef}"/>
+    <RecordField colName="" fieldIdRef="10" fieldType="NON_DATABASE" name="arr_rfc" sqlTabName="" table_alias_name="" uid="{58dd0faf-9ce6-4c1e-8e86-a61df89df18a}"/>
+    <RecordField colName="" fieldIdRef="15" fieldType="NON_DATABASE" name="arr_curp" sqlTabName="" table_alias_name="" uid="{18fbd6d6-4d2b-4510-bc59-2b3b7e732085}"/>
+    <RecordField colName="" fieldIdRef="11" fieldType="NON_DATABASE" name="arr_paterno" sqlTabName="" table_alias_name="" uid="{e29f3ba4-e411-46d5-bcb3-d534f364688c}"/>
+    <RecordField colName="" fieldIdRef="12" fieldType="NON_DATABASE" name="arr_materno" sqlTabName="" table_alias_name="" uid="{bd5c7a0f-3206-40c0-831b-c9cd62af04f9}"/>
+    <RecordField colName="" fieldIdRef="13" fieldType="NON_DATABASE" name="arr_nombre" sqlTabName="" table_alias_name="" uid="{7257d875-ac66-4b1d-a53b-3ff236fea892}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{e20fb5b4-d031-48a1-b00b-e6f1aa7a5c8f}" where="">
+    <RecordField colName="" fieldIdRef="1" fieldType="NON_DATABASE" name="nss" sqlTabName="" table_alias_name="" uid="{972418c2-2def-4a0e-87f8-d57a389f9aed}"/>
+    <RecordField colName="" fieldIdRef="5" fieldType="NON_DATABASE" name="rfc" sqlTabName="" table_alias_name="" uid="{cf58b010-16b7-4b7d-9f1c-d72b9f8daa38}"/>
+    <RecordField colName="" fieldIdRef="7" fieldType="NON_DATABASE" name="curp" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{d4007b9c-cfc9-4f1b-8acd-11517a70113d}"/>
+    <RecordField colName="" fieldIdRef="2" fieldType="NON_DATABASE" name="ap_paterno_af" sqlTabName="" table_alias_name="" uid="{b56fb15f-2336-4773-9911-c458cc4bd97f}"/>
+    <RecordField colName="" fieldIdRef="4" fieldType="NON_DATABASE" name="ap_materno_af" sqlTabName="" table_alias_name="" uid="{065debba-447b-40e5-b3bf-6f2a5124fb5f}"/>
+    <RecordField colName="" fieldIdRef="3" fieldType="NON_DATABASE" name="nombre_af" sqlTabName="" table_alias_name="" uid="{0e0ce4fd-dc6e-485a-a47c-f266ea28d857}"/>
+  </Record>
+  <Form gridHeight="40" gridWidth="144" name="Afiliados" text="Información Derechohabientes">
+    <VBox gridHeight="23" gridWidth="139" name="vb2" posX="2" posY="1">
+      <Grid gridHeight="10" gridWidth="139" lstrcomment="false" name="gr1" posX="0" posY="1">
+        <Group gridChildrenInParent="true" gridHeight="8" gridWidth="122" lstrcomment="false" lstrtext="false" name="gb10" posX="3" posY="1" text="Criterios de Búsqueda">
+          <Label colorCondition="black" gridHeight="1" gridWidth="14" lstrcomment="false" lstrtext="false" name="lb16" posX="3" posY="1" text="NSS"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="1" fieldType="NON_DATABASE" gridHeight="1" gridWidth="15" lstrcomment="false" name="nss" posX="20" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+          <Label colorCondition="black" gridHeight="1" gridWidth="14" lstrcomment="false" lstrtext="false" name="lb15" posX="3" posY="2" text="RFC"/>
+          <Edit case="upper" colName="" colorCondition="black" columnCount="" fieldId="5" fieldType="NON_DATABASE" gridHeight="1" gridWidth="15" lstrcomment="false" name="rfc" posX="20" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+          <Label colorCondition="black" gridHeight="1" gridWidth="14" lstrcomment="false" lstrtext="false" name="lb14" posX="3" posY="3" text="CURP"/>
+          <Edit case="upper" colName="" colorCondition="black" columnCount="" fieldId="7" fieldType="NON_DATABASE" gridHeight="1" gridWidth="15" lstrcomment="false" name="curp" posX="20" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+          <Label colorCondition="black" gridHeight="1" gridWidth="14" lstrcomment="false" lstrtext="false" name="lb11" posX="3" posY="4" text="Paterno"/>
+          <Edit case="upper" colName="" colorCondition="black" columnCount="" fieldId="2" fieldType="NON_DATABASE" gridHeight="1" gridWidth="42" lstrcomment="false" name="ap_paterno_af" posX="20" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+          <Label colorCondition="black" gridHeight="1" gridWidth="14" lstrcomment="false" lstrtext="false" name="lb12" posX="3" posY="5" text="Materno"/>
+          <Edit case="upper" colName="" colorCondition="black" columnCount="" fieldId="4" fieldType="NON_DATABASE" gridHeight="1" gridWidth="42" lstrcomment="false" name="ap_materno_af" posX="20" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+          <Label colorCondition="black" gridHeight="1" gridWidth="14" lstrcomment="false" lstrtext="false" name="lb10" posX="3" posY="6" text="Nombre"/>
+          <Edit case="upper" colName="" colorCondition="black" columnCount="" fieldId="3" fieldType="NON_DATABASE" gridHeight="1" gridWidth="42" lstrcomment="false" name="nombre_af" posX="20" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+        </Group>
+      </Grid>
+      <Group gridHeight="11" gridWidth="139" lstrcomment="false" lstrtext="false" name="gb9" posX="0" posY="11" text="Listado de Derechohabientes">
+        <Table gridHeight="8" gridWidth="118" name="tb2" posX="1" posY="2" totalRows="5">
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="9" fieldType="NON_DATABASE" gridHeight="1" gridWidth="13" lstrcomment="false" lstrtitle="false" name="arr_nss" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="10" fieldType="NON_DATABASE" gridHeight="1" gridWidth="18" lstrcomment="false" lstrtitle="false" name="arr_rfc" posX="13" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="RFC" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="15" fieldType="NON_DATABASE" gridHeight="1" gridWidth="17" lstrcomment="false" lstrtitle="false" name="arr_curp" posX="31" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="CURP" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="11" fieldType="NON_DATABASE" gridHeight="1" gridWidth="21" lstrcomment="false" lstrtitle="false" name="arr_paterno" posX="48" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Paterno" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="12" fieldType="NON_DATABASE" gridHeight="1" gridWidth="21" lstrcomment="false" lstrtitle="false" name="arr_materno" posX="69" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Materno" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="13" fieldType="NON_DATABASE" gridHeight="1" gridWidth="21" lstrcomment="false" lstrtitle="false" name="arr_nombre" posX="90" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Nombre" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADUANgBmAGIAMQA1AGYALQAyADMAMwA2AC0ANAA3ADcAMwAtADkAOQAxADEALQBjADQANQA4AGMAYwA0AGIAZAA5ADcAZgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAwADYANQBkAGUAYgBiAGEALQA0ADQANwBiAC0ANAAwAGUANQAtAGIAMwBiAGYALQA2AGYAMgBhADUAMQAyADQAZgBiADUAZgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADgAZgBiAGQANgBkADYALQA0AGQAMgBiAC0ANAA1ADEAMAAtAGIAYwA1ADkALQAyAGIAMwBiADcAZQA3ADMAMgAwADgANQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADEAYwBlADMAYwA5ADUALQA2AGEAMQAyAC0ANAA0ADYAOQAtADkANQA5AGEALQA0ADQAYwA5AGMANQAzADkAMQBjADYANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADgAZABkADAAZgBhAGYALQA5AGMAZQA2AC0ANABjADEAZQAtADgAZQA4ADYALQBhADYAMQBkAGYAOAA5AGQAZgAxADgAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADIANQA3AGQAOAA3ADUALQBhAGMANgA2AC0ANABiADEAZAAtAGEANQAzAGIALQAzAGYAZgAyADMANgBmAGUAYQA4ADkAMgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADIAOQBmADMAYgBhADQALQBlADQAMQAxAC0ANAA2AGQANQAtAGIAYwBiADMALQBkADUAMwA0AGYAMwA2ADQANgA4ADgAYwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGYANQA4AGIAMAAxADAALQAxADYAYgA3AC0ANABiADcAZAAtADkAZgAxAGMALQBkADcAMgBiADkAZgA4AGQAYQBhADMAOAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGUAMABjAGUANABmAGQALQBkAGMANgBlAC0ANAA4ADUAYQAtAGEANAA3AGMALQBmADIANgA2AGUAYQAyADgAZAA4ADUANwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADIAMABmAGIANQBiADQALQBkADAAMwAxAC0ANAA4AGEAMQAtAGIAMAAwAGIALQBlADYAZgAxAGEAYQA3AGEANQBjADgAZgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADcAZQA0AGYANwA4ADgALQBiADYAYwBkAC0ANAA4AGYAYQAtADgANwBlAGYALQBmADkAOABkADkAYgBhAGIAMwA1AGUAZgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADcAMgA0ADEAOABjADIALQAyAGQAZQBmAC0ANABhADAAZQAtADgANwBmADgALQBkADUANwBhADMAOAA5AGYAOQBhAGUAZAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQAMAAwADcAYgA5AGMALQBjAGYAYwA5AC0ANABmADEAYgAtADgAYQBjAGQALQAxADEANQAxADcAYQA3ADAAMQAxADMAZAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBiAGQANQBjADcAYQAwAGYALQAzADIAMAA2AC0ANAAwAGMAMAAtADgAMwAxAGIALQBjADkAYwBkADYAMgBhAGYAMAA0AGYAOQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

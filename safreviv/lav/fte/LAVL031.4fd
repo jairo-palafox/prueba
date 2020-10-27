@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{3015ca58-a301-4d9a-9609-52bdc85848e4}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="elige_periodo" order="" uid="{a3f6ebe6-ab47-4454-9846-ee66770304ff}" where="">
+    <RecordField colName="" fieldIdRef="1" name="periodos" sqlTabName="" table_alias_name="" uid="{49179623-d647-4c28-9e91-f39f4cbf2335}"/>
+    <RecordField colName="" fieldIdRef="7" name="ed_fecha" sqlTabName="" table_alias_name="" uid="{8c6cf82c-c190-4e4e-82b7-54a6630c7fe1}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{a57ce5be-e0d0-412e-b52e-f72a123ae466}" where="">
+    <RecordField colName="" defaultValue="" fieldIdRef="8" name="fecha_ini" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{8a1d48b7-d935-4465-99cb-f313e79f4eae}"/>
+    <RecordField colName="" defaultValue="" fieldIdRef="9" name="fecha_fin" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{1c5f99eb-363e-47fb-bc7d-0e35952219a4}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="71" name="Form" text="Form">
+    <Grid gridHeight="16" gridWidth="68" name="gr_detecta_montos" posX="2" posY="1">
+      <Group gridHeight="7" gridWidth="65" name="gr_elige_periodo" posX="1" posY="1" text="Seleccione el periódo a detectar">
+        <RadioGroup colName="" columnCount="" fieldId="1" gridHeight="5" gridWidth="16" items="Enero - Marzo, Abril - Junio, Julio - Septiembre, Octubre -  Diciembre, Otro" name="periodos" posX="4" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="RadioGroup1" widget="RadioGroup">
+          <Item lstrtext="false" name="1" text="Enero - Marzo"/>
+          <Item lstrtext="false" name="2" text="Abril - Junio"/>
+          <Item lstrtext="false" name="3" text="Julio - Septiembre"/>
+          <Item lstrtext="false" name="4" text="Octubre -  Diciembre"/>
+          <Item lstrtext="false" name="0" text="Otro"/>
+        </RadioGroup>
+        <Label gridHeight="1" gridWidth="8" name="lbl_fecha" posX="32" posY="1" text="Fecha"/>
+        <Edit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" justify="right" name="ed_fecha" noEntry="true" posX="41" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="5" gridWidth="65" name="gr_fechas" posX="1" posY="9" text="Seleccione las fechas">
+        <Label gridHeight="1" gridWidth="10" name="lbl_fecha_ini" posX="2" posY="1" text="Fecha Inicial"/>
+        <DateEdit colName="" columnCount="" defaultValue="" fieldId="8" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="fecha_ini" posX="13" posY="1" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_fecha_fin" posX="2" posY="3" text="Fecha Final"/>
+        <DateEdit colName="" columnCount="" defaultValue="" fieldId="9" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="fecha_fin" posX="13" posY="3" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="4" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxAGMANQBmADkAOQBlAGIALQAzADYAMwBlAC0ANAA3AGYAYgAtAGIAYwA3AGQALQAwAGUAMwA1ADkANQAyADIAMQA5AGEANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADkAMQA3ADkANgAyADMALQBkADYANAA3AC0ANABjADIAOAAtADkAZQA5ADEALQBmADMAOQBmADQAYwBiAGYAMgAzADMANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGEAMQBkADQAOABiADcALQBkADkAMwA1AC0ANAA0ADYANQAtADkAOQBjAGIALQBmADMAMQAzAGUANwA5AGYANABlAGEAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGMANgBjAGYAOAAyAGMALQBjADEAOQAwAC0ANABlADQAZQAtADgAMgBiADcALQA1ADQAYQA2ADYAMwAwAGMANwBmAGUAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADMAZgA2AGUAYgBlADYALQBhAGIANAA3AC0ANAA0ADUANAAtADkAOAA0ADYALQBlAGUANgA2ADcANwAwADMAMAA0AGYAZgB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewBhADUANwBjAGUANQBiAGUALQBlADAAZAAwAC0ANAAxADIAZQAtAGIANQAyAGUALQBmADcAMgBhADEAMgAzAGEAZQA0ADYANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

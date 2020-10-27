@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACLS06.rdd" RWFglReportName="rpt_consulta_lqinfo"/>
+    <report:Conflicts>
+        <report:Conflict nodeName="MiniPage5_1" message="Node was in trigger &quot;For&quot;, but trigger was removed during schema update"/>
+    </report:Conflicts>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="718.432" length="525.549" alignment="center">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min" alignment="near">
+                            <IMAGEBOX name="imgLogoInfonavit" width="70.75" length="45" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage6" width="min" length="714.5" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox15" x="2.5645" y="288.166" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Cifras rechazos DISCNOM"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage1" width="23" length="716" alignment="near" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox16" x="0.8347" y="5.2863" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                        <WORDBOX name="WordBox17" x="0.8347" y="286.445" width="min" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Archivo:"/>
+                        <WORDBOX name="WordBox18" x="0.8347" y="567.168" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                        <rtl:input-variable name="g_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="g_usuario_cod Value" class="grwStringValue" x="0.8347" y="54.5844" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="{{g_usuario_cod}}"/>
+                        <WORDBOX name="WordBox16_1" x="0.8347" y="163" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Folio:"/>
+                        <rtl:input-variable name="g_nom_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="g_nom_archivo Value" class="grwStringValue" x="0.8347" y="337.7" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="{{g_nom_archivo}}"/>
+                        <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_folio Value" class="grwNumericValue" y="195" width="70" anchorX="1" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="------&amp;" value="{{v_folio}}"/>
+                        <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_fecha Value" class="grwStringValue" x="0.8347" y="608.332" width="111" anchorX="0" anchorY="0" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage4" width="9.5" length="713.75" layoutDirection="leftToRight"/>
+                    <MINIPAGE name="MiniPage5" width="33.5" length="715.25" bgColor="#ce050f" layoutDirection="leftToRight">
+                        <WORDWRAPBOX name="Folio1" y="40.0416" width="min" length="21.7866" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Causal&#10;"/>
+                        <WORDWRAPBOX name="Registros1" y="263.518" width="42.2" length="31.0337" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Núm. Regs." textAlignment="center"/>
+                        <WORDWRAPBOX name="WordWrapBox4" x="7.7909" y="392.157" width="49.5" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="APO$&#10;">
+                            <WORDBOX name="WordBox14" x="245" y="1.4616" width="51.75" length="20.625" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="AMO$" borderColor="#ffffff"/>
+                        </WORDWRAPBOX>
+                        <WORDBOX name="WordBox13" x="9.2525" y="515.899" width="65.45" length="23.4194" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="AIVS" borderColor="#ffffff"/>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage5_1" width="26" length="715.25" alignment="near" color="#ffffff" fontName="Arial" fontSize="11" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode13" x="2.962" y="3.9991" width="24.5" length="218.75" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_causales_rechazo.causal_rechazo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_arr_causales_rechazo.causal_rechazo Value" class="grwStringValue" x="3.85861" y="8.12171" width="185.85" length="17.25" anchorX="0" anchorY="0" color="#000000" fontName="Arial" fontSize="11" fontBold="false" floatingBehavior="enclosed" text="{{v_arr_causales_rechazo.causal_rechazo}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode14" x="2.962" y="229.074" width="24.5" length="68.75" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_causales_rechazo.total_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_causales_rechazo.total_registros Value" class="grwNumericValue" x="3.8586" y="71.5832" width="84" anchorX="0" anchorY="1" color="#000000" fontName="Arial" fontSize="11" fontBold="false" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,--&amp;" value="{{v_arr_causales_rechazo.total_registros}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode15" x="2.962" y="303.205" width="24.5" length="88.25" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_causales_rechazo.imp_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_causales_rechazo.imp_ap_pat Value" class="grwNumericValue" x="3.85861" y="119.303" width="95" anchorX="0" anchorY="1" color="#000000" fontName="Arial" fontSize="11" fontBold="false" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_causales_rechazo.imp_ap_pat}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode16" x="2.962" y="395.159" width="24.5" length="98" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_causales_rechazo.aiv_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_causales_rechazo.aiv_ap_pat Value" class="grwNumericValue" x="3.8586" y="152.911" width="95" anchorX="0" anchorY="1" color="#000000" fontName="Arial" fontSize="11" fontBold="false" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_causales_rechazo.aiv_ap_pat}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode17" x="3.883" y="497.751" width="23.75" length="107.75" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_arr_causales_rechazo.imp_am_cre" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_causales_rechazo.imp_am_cre Value" class="grwNumericValue" x="2.93761" y="173.255" width="95" anchorX="0" anchorY="1" color="#000000" fontName="Arial" fontSize="11" fontBold="false" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_arr_causales_rechazo.imp_am_cre}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <MINIPAGE name="MiniPage3_1" width="23.75" length="714.5" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox20" x="3.1219" y="5.2863" width="min" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="Totales:"/>
+                        <LAYOUTNODE name="LayoutNode23" x="3.122" y="232.738" width="min" length="67.25" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="v_total_causales.total_registros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_causales.total_registros Value" class="grwNumericValue" x="2.36111" y="67" width="84" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_total_causales.total_registros}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode18_5" x="3.122" y="318.231" width="min" length="67.25" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="v_total_causales.imp_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_causales.imp_ap_pat Value" class="grwNumericValue" x="2.3611" y="104.277" width="95" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_total_causales.imp_ap_pat}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode18_6" x="3.122" y="407.435" width="min" length="75.5" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode18_7" x="3.1219" y="506.328" width="min" length="74" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="v_total_causales.imp_am_cre" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_causales.imp_am_cre Value" class="grwNumericValue" x="3.8986" y="163.882" width="95" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_causales.imp_am_cre}}"/>
+                        </LAYOUTNODE>
+                        <rtl:input-variable name="v_total_causales.aiv_ap_pat" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_causales.aiv_ap_pat Value" class="grwNumericValue" x="5.4831" y="547.784" width="95" anchorX="0" anchorY="1" color="#ffffff" fontName="Arial" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_total_causales.aiv_ap_pat}}"/>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:jaxws="http://java.sun.com/xml/ns/jaxws" xmlns:tns="http://www.procesar.com.mx/BusTramites/" xmlns:tns1="http://www.procesar.com.mx/BusTramites/NotificarTramite/" xmlns:tns2="http://www.procesar.com.mx/BusTramites/SumaDummy/" xmlns:tns3="http://www.procesar.com.mx/BusTramites/ReenvioTramite/" targetNamespace="http://www.procesar.com.mx/BusTramites/" name="busTramites">
+
+	<!-- Paquete raiz para WS -->
+	<jaxws:bindings>
+		<jaxws:package name="mx.com.procesar.bustramite.ws"/>
+	</jaxws:bindings>
+	
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.procesar.com.mx/BusTramites/NotificarTramite/" schemaLocation="../XSD/notificarTramite.xsd"/>
+		</xsd:schema>
+	
+		<xsd:schema>
+			<xsd:import namespace="http://www.procesar.com.mx/BusTramites/SumaDummy/" schemaLocation="../XSD/sumaDummy.xsd"/>
+		</xsd:schema>
+		
+		<xsd:schema>
+			<xsd:import namespace="http://www.procesar.com.mx/BusTramites/ReenvioTramite/" schemaLocation="../XSD/reenvioTramite.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="notificarTramiteRequest">
+		<wsdl:part element="tns1:notificarTramiteRequest" name="notificarTramiteRequest"/>
+	</wsdl:message>
+	<wsdl:message name="notificarTramiteResponse">
+		<wsdl:part element="tns1:notificarTramiteResponse" name="notificarTramiteResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="sumaDummyRequest">
+		<wsdl:part element="tns2:sumaDummyRequest" name="sumaDummyRequest"/>
+	</wsdl:message>
+	<wsdl:message name="sumaDummyResponse">
+		<wsdl:part element="tns2:sumaDummyResponse" name="sumaDummyResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="reenvioTramiteRequest">
+		<wsdl:part element="tns3:reenvioTramiteRequest" name="reenvioTramiteRequest"/>
+	</wsdl:message>
+	<wsdl:message name="reenvioTramiteResponse">
+		<wsdl:part element="tns3:reenvioTramiteResponse" name="reenvioTramiteResponse"/>
+	</wsdl:message>
+
+	<wsdl:portType name="busTramitesPortType">
+
+	<!-- Interface WS -->
+		<jaxws:bindings>
+			<jaxws:class name="BusTramiteWS"/>
+		</jaxws:bindings>
+
+		<wsdl:operation name="notificarTramite">
+			<wsdl:input message="tns:notificarTramiteRequest"/>
+			<wsdl:output message="tns:notificarTramiteResponse"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="sumaDummy">
+			<wsdl:input message="tns:sumaDummyRequest"/>
+			<wsdl:output message="tns:sumaDummyResponse"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="reenvioTramite">
+			<wsdl:input message="tns:reenvioTramiteRequest"/>
+			<wsdl:output message="tns:reenvioTramiteResponse"/>
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<wsdl:binding name="busTramitesSOAP" type="tns:busTramitesPortType">
+
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<wsdl:operation name="notificarTramite">
+			<soap:operation soapAction="http://www.procesar.com.mx/BusTramites/notificarTramite/"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="sumaDummy">
+			<soap:operation soapAction="http://www.procesar.com.mx/BusTramites/sumaDummy/"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="reenvioTramite">
+			<soap:operation soapAction="http://www.procesar.com.mx/BusTramites/reenvioTramite/"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>		
+
+	</wsdl:binding>
+
+	<wsdl:service name="BusTramites">
+
+		<wsdl:port binding="tns:busTramitesSOAP" name="busTramitesPort">
+			<soap:address location="http://localhost:7001/BusTramites/"/>
+		</wsdl:port>
+
+	</wsdl:service>
+
+</wsdl:definitions>

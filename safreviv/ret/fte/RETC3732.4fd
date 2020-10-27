@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{f48a9159-4f73-4dfe-88c3-eebfc1a68b01}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="r_det_indicador" order="" uid="{a7bfe8b2-c982-4ee7-a1be-21df0a819586}" where="">
+    <RecordField colName="" fieldIdRef="12" name="v_periodo" sqlTabName="" table_alias_name="" uid="{6695c2be-0cca-4374-bad6-c00ea9ff9d4b}"/>
+    <RecordField colName="" fieldIdRef="14" name="v_tot_casos" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{7a9d2e98-003b-4777-b872-00ca8c3f4fec}"/>
+    <RecordField colName="" fieldIdRef="1" name="v_dev_dif" sqlTabName="" table_alias_name="" uid="{9ce92f2b-7ad3-44c8-878e-42168dfc55a6}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_por_casos" sqlTabName="" table_alias_name="" uid="{9f427391-76d8-4128-9950-8c535e6649bc}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_monto" sqlTabName="" table_alias_name="" uid="{e8c81827-25a4-4157-8c5a-ad11ea0e691e}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_monto_dev" sqlTabName="" table_alias_name="" uid="{f1635952-2f71-4642-919e-8d8a46007a0f}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_por_monto" sqlTabName="" table_alias_name="" uid="{76470dc9-947b-4d05-817a-2c86a473f36b}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{b147f768-6b1f-401a-ba5c-abc0d1c66881}" where=""/>
+  <Form gridHeight="71" gridWidth="466" name="Form" text="Form">
+    <VBox gridHeight="34" gridWidth="317" name="VBox1" posX="2" posY="1">
+      <Group gridHeight="32" gridWidth="317" name="Group1" posX="0" posY="1" text="Detalle Consulta">
+        <Grid gridHeight="20" gridWidth="171" name="Grid1" posX="1" posY="1">
+          <Table gridHeight="16" gridWidth="164" name="Table1" posX="1" posY="3" totalRows="15">
+            <Edit colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="9" hidden="false" justify="right" name="v_periodo" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Periodo" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="14" format="---,---,--&amp;" gridHeight="1" gridWidth="20" hidden="false" name="v_tot_casos" posX="9" posY="0" precisionDecimal="9" rowCount="" scaleDecimal="0" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Total casos con&#10;Devolución" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="1" format="---,---,--&amp;" gridHeight="1" gridWidth="20" hidden="false" name="v_dev_dif" posX="29" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Casos devueltos&#10;con Diferencias" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="2" format="--&amp;.&amp;&amp;&amp;&amp;&amp;" gridHeight="1" gridWidth="20" name="v_por_casos" posX="49" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="% Casos devueltos&#10;con diferencias" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" format="---,---,---,--&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="v_monto" posX="69" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Monto total devuelto&#10;(pesos)" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" format="---,---,---,--&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" name="v_monto_dev" posX="89" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Monto de diferencias&#10;devuelto&#10;(pesos)" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" format="--&amp;.&amp;&amp;&amp;&amp;&amp;" gridHeight="1" gridWidth="20" name="v_por_monto" posX="109" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="% Monto de&#10;diferencias&#10;devuelto" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5AGMAZQA5ADIAZgAyAGIALQA3AGEAZAAzAC0ANAA0AGMAOAAtADgANwA4AGUALQA0ADIAMQA2ADgAZABmAGMANQA1AGEANgB9QBQAAAAAAABAUQAAAAAAAD+OuFHrhR68AQAAAEwAewBmADEANgAzADUAOQA1ADIALQAyAGYANwAxAC0ANAA2ADQAMgAtADkAMQA5AGUALQA4AGQAOABhADQANgAwADAANwBhADAAZgB9QBQAAAAAAABAYMAAAAAAAD94k3S8an76AQAAAEwAewBlADgAYwA4ADEAOAAyADcALQAyADUAYQA0AC0ANAAxADUANwAtADgAYwA1AGEALQBhAGQAMQAxAGUAYQAwAGUANgA5ADEAZQB9QBQAAAAAAABAXAAAAAAAAD9wYk3S8an8AQAAAEwAewBhADcAYgBmAGUAOABiADIALQBjADkAOAAyAC0ANABlAGUANwAtAGEAMQBiAGUALQAyADEAZABmADAAYQA4ADEAOQA1ADgANgB9wHKwAAAAAADAGAAAAAAAAD+keuFHrhR/AQAAAEwAewA3AGEAOQBkADIAZQA5ADgALQAwADAAMwBiAC0ANAA3ADcANwAtAGIAOAA3ADIALQAwADAAYwBhADgAYwAzAGYANABmAGUAYwB9QBQAAAAAAABARwAAAAAAAD+bpeNT987eAQAAAEwAewA2ADYAOQA1AGMAMgBiAGUALQAwAGMAYwBhAC0ANAAzADcANAAtAGIAYQBkADYALQBjADAAMABlAGEAOQBmAGYAOQBkADQAYgB9QBQAAAAAAABAOAAAAAAAAD+VgQYk3S8eAQAAAEwAewBiADEANAA3AGYANwA2ADgALQA2AGIAMQBmAC0ANAAwADEAYQAtAGIAYQA1AGMALQBhAGIAYwAwAGQAMQBjADYANgA4ADgAMQB9AAAAAAAAAAAAAAAAAAAAAD+ibpeNT98/AQAAAEwAewA5AGYANAAyADcAMwA5ADEALQA3ADYAZAA4AC0ANAAxADIAOAAtADkAOQA1ADAALQA4AGMANQAzADUAZQA2ADYANAA5AGIAYwB9QBQAAAAAAABAVoAAAAAAAD9ok3S8an76AQAAAEwAewA3ADYANAA3ADAAZABjADkALQA5ADQANwBiAC0ANABkADAANQAtADgAMQA3AGEALQAyAGMAOAA2AGEANAA3ADMAZgAzADYAYgB9QBQAAAAAAABAY4AAAAAAAD98rAgxJul5AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

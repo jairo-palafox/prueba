@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AGRS09.rdd" RWFglReportName="rpt_rechazos_ws_marca_desmarca"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="center">
+                    <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="19.5169" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" x="9.0056" y="295.624" width="373.292" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="EXTRACTOR DE RECHAZOS DE MARCA Y DESMARCA PROCESAR" localizeText="false"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode5" width="18.1783" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox4" x="6.741" y="489.659" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha :"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha Value" x="1.167" y="534.034" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                            <WORDBOX name="WordBox2_1" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario: "/>
+                            <rtl:input-variable name="m_v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="m_v_usuario Value" x="0.8533" y="55.9623" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="{{m_v_usuario}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage3" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode6" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="infornavit" width="min" length="min">
+                        <MINIPAGE name="titulos_inf" width="35.8316" length="720" layoutDirection="leftToRight">
+                            <WORDBOX name="Nombre del archivo" x="26.1968" y="111.312" width="196.778" length="19.2697" anchorX="0.5" anchorY="0.504171" alignment="far" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="TOTAL RECHAZOS"/>
+                            <WORDBOX name="Saldo deudor" x="26.1968" y="489.659" width="303.088" length="19.2697" anchorX="0.547294" anchorY="0.5" alignment="far" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="TOTAL RECHAZOS DEFINITIVOS"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="VALORES" width="min" length="720" fontName="Arial" fontSize="9" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_cnt_rech" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_cnt_rech Value" x="9.952" y="55.9623" width="96.8203" anchorX="0.5" anchorY="0.518112" fontSize="14" fontBold="false" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_cnt_rech}}"/>
+                            <rtl:input-variable name="p_cnt_rch_defini" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_cnt_rch_defini Value" x="9.0742" y="375.43" width="303.088" anchorX="0.5" anchorY="0.516202" fontSize="14" fontBold="false" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_cnt_rch_defini}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage4" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <MINIPAGE name="barraTotalesSubcuenta" width="min" length="min" layoutDirection="leftToRight"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode7" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

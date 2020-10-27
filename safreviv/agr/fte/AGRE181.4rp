@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="27.94cm" RWPageLength="28.00cm" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.266650cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AGRE18.rdd" RWFglReportName="genera_PDF"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="baseline">
+                    <LAYOUTNODE name="First Page header" width="min" length="189.25" alignment="near" port="firstPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" width="121.25" length="75.2875" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="18" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="9" y="309.296" width="391.5" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="RESUMEN  ACTUALIZACIÓN MARCA SOLICITUD SALDO PROCESAR" localizeText="false"/>
+                                <WORDBOX name="WordBox2" y="2" color="#ffffff" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="p_v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_v_usuario Value" class="grwStringValue" x="1.2759" y="58.0629" width="85.5303" color="#ffffff" floatingBehavior="enclosed" text="{{p_v_usuario}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2" width="min" length="min" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="18" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="fecha1" x="8.5" y="521.964" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Fecha presentación:  "/>
+                                <rtl:input-variable name="v_f_presentacion" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_presentacion Value" class="grwStringValue" x="8.5" y="624.676" width="89.7509" anchorX="0.5" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{v_f_presentacion}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="barraTotalesSubcuenta1_1" width="28.5" length="716.184" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="titTotalesSubcuenta2" x="7" y="225.055" width="254.129" length="14.25" color="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="RESUMEN"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="barra_global1_1" width="18.5855" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="Nombre_archivo" y="14.4907" width="118.642" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Nombre archivo"/>
+                            <WORDBOX name="operacion2" y="599.051" width="70.3241" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Operación"/>
+                            <WORDBOX name="f_inicio" y="205.943" width="118.642" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Fecha inicio"/>
+                            <WORDBOX name="f_fin" y="377.685" width="118.642" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Fecha fin"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="var_archivo" width="23.7945" length="718.126" layoutDirection="leftToRight">
+                            <WORDBOX name="Opera_desc" y="540.14" width="168.994" length="16.2584" alignment="baseline" color="#000000" fontBold="false" floatingBehavior="enclosed" textAlignment="left" text="Act. marca sol. sdo Procesar"/>
+                            <rtl:input-variable name="p_v_arch_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_v_arch_proceso Value" class="grwStringValue" y="14.4907" width="185.834" floatingBehavior="enclosed" text="{{p_v_arch_proceso}}" trimText="left"/>
+                            <rtl:input-variable name="v_f_ini_opera" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_f_ini_opera Value" class="grwStringValue" y="205.943" width="162.792" floatingBehavior="enclosed" text="{{v_f_ini_opera}}"/>
+                            <rtl:input-variable name="v_f_fin_opera" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_f_fin_opera Value" class="grwStringValue" y="377.685" width="155.898" floatingBehavior="enclosed" text="{{v_f_fin_opera}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="barra_total_global" width="17.5699" length="max" alignment="near" layoutDirection="leftToRight">
+                        <WORDBOX name="total_cargado" y="14.4907" width="98.0884" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Total cargado"/>
+                        <WORDBOX name="marca_prc" y="125.188" width="97.762" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Marca Procesar"/>
+                        <WORDBOX name="registros" y="241.851" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros"/>
+                        <WORDBOX name="porcentaje" y="624.602" width="69.545" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Porcentaje"/>
+                        <WORDBOX name="aivs92" y="352.06" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 92"/>
+                        <WORDBOX name="aivs97_1" y="494.613" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 97"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="vars_total_global" width="18.6871" length="718.126" layoutDirection="leftToRight">
+                        <WORDBOX name="total" y="14.4907" width="81.0937" length="17.9522" alignment="near" color="#000000" fontBold="false" floatingBehavior="enclosed" textAlignment="left" text="Total"/>
+                        <rtl:input-variable name="r_sspr.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="r_sspr.total Value" class="grwNumericValue" y="241.851" width="97.0167" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_sspr.total}}"/>
+                        <rtl:input-variable name="r_sspr.porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="r_sspr.porcentaje Value" class="grwStringValue" y="624.602" width="87.6673" floatingBehavior="enclosed" text="{{r_sspr.porcentaje}}" trimText="left"/>
+                        <rtl:input-variable name="r_sspr.aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="r_sspr.aivs92 Value" class="grwNumericValue" y="352.06" width="136" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_sspr.aivs92}}"/>
+                        <rtl:input-variable name="r_sspr.aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="r_sspr.aivs97 Value" class="grwNumericValue" y="494.613" width="125.5" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_sspr.aivs97}}"/>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="array_rec_glo" width="25.2357" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_sspr.marca_concatena" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_sspr.marca_concatena Value" class="grwStringValue" y="14.4907" width="105.437" floatingBehavior="enclosed" text="{{arr_sspr.marca_concatena}}" trimText="left"/>
+                                    <rtl:input-variable name="arr_sspr.marca_act" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr.marca_act Value" class="grwNumericValue" y="125.188" width="89.1148" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-----#" value="{{arr_sspr.marca_act}}"/>
+                                    <rtl:input-variable name="arr_sspr.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr.total Value" class="grwNumericValue" y="241.851" width="97.84" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_sspr.total}}"/>
+                                    <rtl:input-variable name="arr_sspr.porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_sspr.porcentaje Value" class="grwStringValue" y="624.676" width="88.3796" floatingBehavior="enclosed" text="{{arr_sspr.porcentaje}}" trimText="left"/>
+                                    <rtl:input-variable name="arr_sspr.aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr.aivs92 Value" class="grwNumericValue" y="352.06" width="136.5" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_sspr.aivs92}}"/>
+                                    <rtl:input-variable name="arr_sspr.aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr.aivs97 Value" class="grwNumericValue" y="494.613" width="124.5" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_sspr.aivs97}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="barra_total_rec_acep" width="17.5699" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="total_afectado1" y="14.4907" width="98.0884" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Aceptado"/>
+                            <WORDBOX name="marca_prc1" y="126.45" width="96.262" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Marca Procesar"/>
+                            <WORDBOX name="registros1" y="240.589" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros"/>
+                            <WORDBOX name="porcentaje1" y="624.602" width="63.545" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Porcentaje"/>
+                            <WORDBOX name="aivs92_2" y="352.06" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 92"/>
+                            <WORDBOX name="aivs97_2_1" y="494.613" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 97"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="vars_total_rec_acep" width="19.4371" length="718.126" layoutDirection="leftToRight">
+                            <WORDBOX name="total1" y="14.4907" width="81.0937" length="17.9522" alignment="near" color="#000000" fontBold="false" floatingBehavior="enclosed" textAlignment="left" text="Total"/>
+                            <rtl:input-variable name="r_sspr_aceptados.total" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_sspr_aceptados.total Value" class="grwNumericValue" y="241.851" width="98.0434" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_sspr_aceptados.total}}"/>
+                            <rtl:input-variable name="r_sspr_aceptados.porcentaje" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="r_sspr_aceptados.porcentaje Value" class="grwStringValue" y="624.676" width="86.6066" floatingBehavior="enclosed" text="{{r_sspr_aceptados.porcentaje}}" trimText="left"/>
+                            <rtl:input-variable name="r_sspr_aceptados.aivs92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_sspr_aceptados.aivs92 Value" class="grwNumericValue" y="352.06" width="137.25" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_sspr_aceptados.aivs92}}"/>
+                            <rtl:input-variable name="r_sspr_aceptados.aivs97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_sspr_aceptados.aivs97 Value" class="grwNumericValue" y="494.613" width="126.75" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_sspr_aceptados.aivs97}}"/>
+                        </MINIPAGE>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="array_rec_acep" width="25.2357" length="max" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_sspr_acep.marca_concatena" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_sspr_acep.marca_concatena Value" class="grwStringValue" y="14.4907" width="106.469" floatingBehavior="enclosed" text="{{arr_sspr_acep.marca_concatena}}" trimText="left"/>
+                                    <rtl:input-variable name="arr_sspr_acep.marca_act" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr_acep.marca_act Value" class="grwNumericValue" y="125.188" width="91.5371" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-----#" value="{{arr_sspr_acep.marca_act}}"/>
+                                    <rtl:input-variable name="arr_sspr_acep.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr_acep.total Value" class="grwNumericValue" y="241.851" width="98.0241" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_sspr_acep.total}}"/>
+                                    <rtl:input-variable name="arr_sspr_acep.porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_sspr_acep.porcentaje Value" class="grwStringValue" y="624.676" width="86.7886" floatingBehavior="enclosed" text="{{arr_sspr_acep.porcentaje}}" trimText="left"/>
+                                    <rtl:input-variable name="arr_sspr_acep.aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr_acep.aivs92 Value" class="grwNumericValue" y="352.06" width="138" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_sspr_acep.aivs92}}"/>
+                                    <rtl:input-variable name="arr_sspr_acep.aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr_acep.aivs97 Value" class="grwNumericValue" y="494.613" width="125.25" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_sspr_acep.aivs97}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="barra_total_rec_canc" width="17.5699" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="total_afectado2" y="14.4907" width="98.0884" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Rechazado"/>
+                            <WORDBOX name="marca_prc2" y="126.45" width="99.262" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Marca Procesar"/>
+                            <WORDBOX name="registros2" y="241.851" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros"/>
+                            <WORDBOX name="porcentaje2" y="624.602" width="69.545" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Porcentaje"/>
+                            <WORDBOX name="aivs92_3" y="352.06" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 92"/>
+                            <WORDBOX name="aivs97_3_1" y="494.613" width="72.9998" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 97"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="vars_total_rec_canc" width="20.1871" length="718.126" layoutDirection="leftToRight">
+                            <WORDBOX name="total2" y="14.4907" width="81.0937" length="17.9522" alignment="near" color="#000000" fontBold="false" floatingBehavior="enclosed" textAlignment="left" text="Total"/>
+                            <rtl:input-variable name="r_sspr_rechazados.total" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_sspr_rechazados.total Value" class="grwNumericValue" y="241.851" width="99.4331" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{r_sspr_rechazados.total}}"/>
+                            <rtl:input-variable name="r_sspr_rechazados.porcentaje" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="r_sspr_rechazados.porcentaje Value" class="grwStringValue" y="624.602" width="88.1976" floatingBehavior="enclosed" text="{{r_sspr_rechazados.porcentaje}}" trimText="left"/>
+                            <rtl:input-variable name="r_sspr_rechazados.aivs92" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_sspr_rechazados.aivs92 Value" class="grwNumericValue" y="352.06" width="136.5" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_sspr_rechazados.aivs92}}"/>
+                            <rtl:input-variable name="r_sspr_rechazados.aivs97" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="r_sspr_rechazados.aivs97 Value" class="grwNumericValue" y="494.613" width="126" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_sspr_rechazados.aivs97}}"/>
+                        </MINIPAGE>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="array_rec_canc" width="19.9857" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_sspr_rech.marca_concatena" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_sspr_rech.marca_concatena Value" class="grwStringValue" y="14.4907" width="102.685" floatingBehavior="enclosed" text="{{arr_sspr_rech.marca_concatena}}" trimText="left"/>
+                                    <rtl:input-variable name="arr_sspr_rech.marca_act" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr_rech.marca_act Value" class="grwNumericValue" y="125.188" width="91.9672" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-----#" value="{{arr_sspr_rech.marca_act}}"/>
+                                    <rtl:input-variable name="arr_sspr_rech.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr_rech.total Value" class="grwNumericValue" y="241.851" width="99.5154" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_sspr_rech.total}}"/>
+                                    <rtl:input-variable name="arr_sspr_rech.porcentaje" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="arr_sspr_rech.porcentaje Value" class="grwStringValue" y="624.676" width="87.3189" floatingBehavior="enclosed" text="{{arr_sspr_rech.porcentaje}}" trimText="left"/>
+                                    <rtl:input-variable name="arr_sspr_rech.aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr_rech.aivs92 Value" class="grwNumericValue" y="352.06" width="135.75" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_sspr_rech.aivs92}}"/>
+                                    <rtl:input-variable name="arr_sspr_rech.aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_sspr_rech.aivs97 Value" class="grwNumericValue" y="494.613" width="126" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_sspr_rech.aivs97}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="rechazos_recurrente" width="40.3133" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="proceso1" x="13.25" y="14.4907" width="156.021" length="17.6936" alignment="far" color="#ce050f" fontSize="13" fontBold="true" fontItalic="false" underline="false" strikethrough="false" floatingBehavior="enclosed" textAlignment="left" text="Detalle de rechazos"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="barra2" width="17.5699" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="reg_rch" y="158.657" width="66.5548" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Registros"/>
+                            <WORDBOX name="cve_rch" y="438.821" width="43.762" length="16.2584" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Clave "/>
+                            <WORDBOX name="desc_causal" y="493.113" width="119.137" length="17.3459" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Descripción causal"/>
+                            <WORDBOX name="aivs92_rch" y="238.339" width="58.699" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 92"/>
+                            <WORDBOX name="marca_conciliacion" y="14.4907" width="60.2485" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Marca C."/>
+                            <WORDBOX name="marca_conciliacion1" y="87.5773" width="66.784" length="17.6936" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Marca Prc"/>
+                            <WORDBOX name="aivs97_rch1" y="340.662" width="58.699" length="17.3459" alignment="baseline" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="AIVS 97"/>
+                        </MINIPAGE>
+                        <rtl:match name="For" nameConstraint="For" minOccurs="1" maxOccurs="1">
+                            <rtl:match name="ForItem" nameConstraint="ForItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="arr_rechazos_recurrente" width="19.2357" length="max" alignment="near" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="arr_det_rechazos.marca_origen" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_det_rechazos.marca_origen Value" class="grwNumericValue" y="14.4907" width="68.75" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-----#" value="{{arr_det_rechazos.marca_origen}}"/>
+                                    <rtl:input-variable name="arr_det_rechazos.marca_prc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_det_rechazos.marca_prc Value" class="grwNumericValue" y="87.5773" width="59" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-----#" value="{{arr_det_rechazos.marca_prc}}"/>
+                                    <rtl:input-variable name="arr_det_rechazos.total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_det_rechazos.total Value" class="grwNumericValue" y="158.657" width="72.75" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="###,###,##&amp;" value="{{arr_det_rechazos.total}}"/>
+                                    <rtl:input-variable name="arr_det_rechazos.aivs92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_det_rechazos.aivs92 Value" class="grwNumericValue" y="239.601" width="96.75" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_det_rechazos.aivs92}}"/>
+                                    <rtl:input-variable name="arr_det_rechazos.aivs97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_det_rechazos.aivs97 Value" class="grwNumericValue" y="340.662" width="94.5" anchorX="1" alignment="baseline" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_det_rechazos.aivs97}}"/>
+                                    <rtl:input-variable name="arr_det_rechazos.estado" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="arr_det_rechazos.estado Value" class="grwNumericValue" y="438.821" width="50.75" anchorX="1" floatingBehavior="enclosed" textAlignment="left" format="-----#" value="{{arr_det_rechazos.estado}}"/>
+                                    <rtl:input-variable name="arr_det_rechazos.desc_estado" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="arr_det_rechazos.desc_estado Value" class="grwStringValue" y="492.672" width="222" fontSize="11" floatingBehavior="enclosed" text="{{arr_det_rechazos.desc_estado}}" trimText="left"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AFIC08.rdd" RWFglReportName="rep_consulta"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="LayoutNode1_1" width="min" length="min" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="encabezadoGeneral" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                            <MINIPAGE name="Logotipo_institucional" width="min" length="max" layoutDirection="leftToRight">
+                                <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <IMAGEBOX name="ImageBox" width="74.364" length="40.146" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                                </LAYOUTNODE>
+                            </MINIPAGE>
+                            <LAYOUTNODE name="separador1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="encabezado_reporte" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                                <WORDBOX name="WordBox" width="max" alignment="far" color="#ffffff" fontName="Arial" fontSize="14" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Consulta Indicadores Notificaciones">
+                                    <MINIPAGE name="MiniPage5" width="min" length="min"/>
+                                </WORDBOX>
+                            </MINIPAGE>
+                            <LAYOUTNODE name="separador1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="encabezadoproceso" width="min" length="min" floatingBehavior="enclosed">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <MINIPAGE name="MiniPage" width="min" length="max/2" layoutDirection="leftToRight">
+                                    <WORDBOX name="WordBox1" width="90" fontBold="true" floatingBehavior="enclosed" text="Usuario"/>
+                                    <rtl:input-variable name="p_r_encabezado.p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_r_encabezado.p_usuario_cod Value" width="250" floatingBehavior="enclosed" text="{{p_r_encabezado.p_usuario_cod}}"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage1" width="min" length="max/2" layoutDirection="leftToRight">
+                                    <WORDBOX name="WordBox2" width="120" alignment="far" fontBold="true" floatingBehavior="enclosed" text="Fecha Generacion"/>
+                                    <rtl:input-variable name="p_r_encabezado.p_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="p_r_encabezado.p_fecha Value" width="100" floatingBehavior="enclosed" text="{{Date.parseString(p_r_encabezado.p_fecha,&quot;MM/DD/YYYY&quot;).format(&quot;DD-MM-YYYY&quot;)}}" paddingLeftWidth="5"/>
+                                </MINIPAGE>
+                            </LAYOUTNODE>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="CifrasArchivo" width="min" length="min" floatingBehavior="enclosed" paddingTopWidth="15">
+                            <LAYOUTNODE name="separador1_2" width="1.5" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="EncArchivo" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                                <WORDBOX name="WordBox4" width="max" alignment="far" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Rango de Búsqueda"/>
+                            </MINIPAGE>
+                            <LAYOUTNODE name="LayoutNode3" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <MINIPAGE name="MiniPage6" width="min" length="max/2" layoutDirection="leftToRight">
+                                    <WORDBOX name="WordBox5" width="120" floatingBehavior="enclosed" text="NSS"/>
+                                    <rtl:input-variable name="g_r_busqueda.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_r_busqueda.nss Value" width="250" floatingBehavior="enclosed" text="{{g_r_busqueda.nss}}"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage7" width="min" length="max/2" layoutDirection="leftToRight">
+                                    <WORDBOX name="WordBox6" width="120" floatingBehavior="enclosed" text="Indicador"/>
+                                    <rtl:input-variable name="g_r_busqueda.indicador" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_r_busqueda.indicador Value" width="250" floatingBehavior="enclosed" text="{{g_r_busqueda.indicador}}"/>
+                                </MINIPAGE>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode4" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <MINIPAGE name="MiniPage8" width="min" length="max/2" layoutDirection="leftToRight">
+                                    <WORDBOX name="WordBox7" width="120" floatingBehavior="enclosed" text="Fecha"/>
+                                    <rtl:input-variable name="g_r_busqueda.fecha" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_r_busqueda.fecha Value" width="250" floatingBehavior="enclosed" text="{{g_r_busqueda.fecha}}"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage9" width="min" length="max/2" layoutDirection="leftToRight">
+                                    <WORDBOX name="WordBox8" width="120" floatingBehavior="enclosed" text="Estado"/>
+                                    <rtl:input-variable name="g_r_busqueda.estado" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_r_busqueda.estado Value" width="250" floatingBehavior="enclosed" text="{{g_r_busqueda.estado}}"/>
+                                </MINIPAGE>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <MINIPAGE name="MiniPage10" width="min" length="max/2" layoutDirection="leftToRight">
+                                    <WORDBOX name="WordBox9" width="120" floatingBehavior="enclosed" text="Tipo Notificación"/>
+                                    <rtl:input-variable name="g_r_busqueda.tpo_notificacion" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_r_busqueda.tpo_notificacion Value" width="250" floatingBehavior="enclosed" text="{{g_r_busqueda.tpo_notificacion}}"/>
+                                </MINIPAGE>
+                                <MINIPAGE name="MiniPage11" width="min" length="max/2" layoutDirection="leftToRight">
+                                    <WORDBOX name="WordBox10" width="120" floatingBehavior="enclosed" text="Fuente"/>
+                                    <rtl:input-variable name="g_r_busqueda.fuente" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_r_busqueda.fuente Value" width="250" floatingBehavior="enclosed" text="{{g_r_busqueda.fuente}}"/>
+                                </MINIPAGE>
+                            </LAYOUTNODE>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <rtl:input-variable name="p_reporte.v_bloque" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                    <LAYOUTNODE name="LayoutNode6" rtl:condition="p_reporte.v_bloque==1" width="min" length="min" floatingBehavior="enclosed">
+                        <MINIPAGE name="EncArchivo1" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" paddingTopWidth="20">
+                            <WORDBOX name="WordBox11" width="max" alignment="far" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Cifras Globales"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage12" width="min" length="max" fontBold="true" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox13" width="300" floatingBehavior="enclosed" textAlignment="center" text="Tipo Notificación"/>
+                            <WORDBOX name="WordBox14" width="190" alignment="baseline" floatingBehavior="enclosed" text="Indicador"/>
+                            <WORDBOX name="WordBox15" floatingBehavior="enclosed" text="Total"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                                <rtl:input-variable name="p_reporte.v_bloque" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                <LAYOUTNODE name="LayoutNode7" rtl:condition="p_reporte.v_bloque==2" width="min" length="min" floatingBehavior="enclosed" paddingTopWidth="20">
+                                    <rtl:input-variable name="p_reporte.v_bloque" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                                    <MINIPAGE name="EncArchivo1_1" rtl:condition="p_reporte.v_bloque==2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                                        <rtl:input-variable name="p_reporte.desc_notificacion_det" type="FGLString" expectedLocation="expectedAhead"/>
+                                        <WORDBOX name="WordBox12" width="max" alignment="far" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Detalle &quot;+p_reporte.desc_notificacion_det}}"/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage13" width="min" length="max" layoutDirection="leftToRight">
+                                        <WORDBOX name="WordBox16" width="130" floatingBehavior="enclosed" text="NSS"/>
+                                        <WORDBOX name="WordBox17" width="170" alignment="baseline" floatingBehavior="enclosed" text="Notificación"/>
+                                        <WORDBOX name="WordBox18" width="120" floatingBehavior="enclosed" text="Indicador"/>
+                                        <WORDBOX name="WordBox19" width="70" floatingBehavior="enclosed" text="Fecha"/>
+                                        <WORDBOX name="WordBox20" width="150" floatingBehavior="enclosed" text="Fuente"/>
+                                        <WORDBOX name="WordBox21" alignment="baseline" floatingBehavior="enclosed" text="Estado"/>
+                                    </MINIPAGE>
+                                </LAYOUTNODE>
+                                <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                                            <rtl:input-variable name="p_reporte.v_bloque" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                            <MINIPAGE name="MiniPage14" rtl:condition="p_reporte.v_bloque==1" width="min" length="max" layoutDirection="leftToRight">
+                                                <rtl:input-variable name="p_reporte.tpo_notificacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                                <DECIMALFORMATBOX name="p_reporte.tpo_notificacion Value" width="15" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{p_reporte.tpo_notificacion}}"/>
+                                                <rtl:input-variable name="p_reporte.desc_notificacion" type="FGLString" expectedLocation="expectedHere"/>
+                                                <WORDWRAPBOX name="p_reporte.desc_notificacion Value" width="280" floatingBehavior="enclosed" text="{{p_reporte.desc_notificacion}}" paddingLeftWidth="10"/>
+                                                <rtl:input-variable name="p_reporte.desc_indicador" type="FGLString" expectedLocation="expectedHere"/>
+                                                <WORDWRAPBOX name="p_reporte.desc_indicador Value" width="width(&quot;M&quot;)*20" floatingBehavior="enclosed" text="{{p_reporte.desc_indicador}}"/>
+                                                <rtl:input-variable name="p_reporte.totales" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                                <DECIMALFORMATBOX name="p_reporte.totales Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{p_reporte.totales}}"/>
+                                            </MINIPAGE>
+                                            <rtl:input-variable name="p_reporte.v_bloque" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                            <MINIPAGE name="MiniPage15" rtl:condition="p_reporte.v_bloque==2" width="min" length="max" fontSize="8" layoutDirection="leftToRight">
+                                                <rtl:input-variable name="p_reporte.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                                <WORDBOX name="p_reporte.nss Value" width="100" floatingBehavior="enclosed" text="{{p_reporte.nss}}"/>
+                                                <rtl:input-variable name="p_reporte.desc_notificacion_det" type="FGLString" expectedLocation="expectedHere"/>
+                                                <WORDWRAPBOX name="p_reporte.desc_notificacion_det Value" width="200" floatingBehavior="enclosed" text="{{p_reporte.desc_notificacion_det}}"/>
+                                                <rtl:input-variable name="p_reporte.desc_indicador_det" type="FGLString" expectedLocation="expectedHere"/>
+                                                <WORDWRAPBOX name="p_reporte.desc_indicador_det Value" width="110" floatingBehavior="enclosed" text="{{p_reporte.desc_indicador_det}}"/>
+                                                <rtl:input-variable name="p_reporte.f_inicio" type="FGLString" expectedLocation="expectedHere"/>
+                                                <WORDBOX name="p_reporte.f_inicio Value" width="90" floatingBehavior="enclosed" text="{{p_reporte.f_inicio}}"/>
+                                                <rtl:input-variable name="p_reporte.desc_fuente" type="FGLString" expectedLocation="expectedHere"/>
+                                                <WORDWRAPBOX name="p_reporte.desc_fuente Value" width="135" alignment="baseline" floatingBehavior="enclosed" text="{{p_reporte.desc_fuente}}"/>
+                                                <rtl:input-variable name="p_reporte.desc_estado" type="FGLString" expectedLocation="expectedHere"/>
+                                                <WORDWRAPBOX name="p_reporte.desc_estado Value" width="100" floatingBehavior="enclosed" text="{{p_reporte.desc_estado}}"/>
+                                            </MINIPAGE>
+                                        </rtl:match>
+                                    </rtl:match>
+                                </rtl:match>
+                            </rtl:match>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

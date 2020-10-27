@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{a8b26e72-7ea8-45aa-91fd-303ada0732cb}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_consulta" order="" uid="{734e7b6d-a425-4882-8572-687a5b07e6f5}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_cmb_proceso" sqlTabName="" table_alias_name="" uid="{82c4102a-2fe1-4e18-a914-d11b8840f6c7}"/>
+    <RecordField colName="" fieldIdRef="3" name="f_transaccion" sqlTabName="" table_alias_name="" uid="{d3d82721-05ad-4b91-98ca-abf968b9e64d}"/>
+    <RecordField colName="" fieldIdRef="4" name="f_subcuenta" sqlTabName="" table_alias_name="" uid="{f31920f5-a91c-42af-bf95-8bb6b43bbf1d}"/>
+    <RecordField colName="" fieldIdRef="5" name="f_cta_contable" sqlTabName="" table_alias_name="" uid="{817150e9-9606-4cb7-aec8-4c3bae0777bb}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_naturaleza_cta" sqlTabName="" table_alias_name="" uid="{af547071-987d-46bb-9e1c-321ae5bd745a}"/>
+    <RecordField colName="" fieldIdRef="12" name="f_desc_cta_contable" sqlTabName="" table_alias_name="" uid="{3e5849ba-99c1-4aed-97af-b9a03c4ca09a}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_desc_transacciones" order="" uid="{6129aaff-8f92-4ae9-99c8-8f371f3e4330}" where="">
+    <RecordField colName="" fieldIdRef="2" name="clave" sqlTabName="" table_alias_name="" uid="{5b62514a-8afb-45c6-8ca0-f09c33aeb4fe}"/>
+    <RecordField colName="" fieldIdRef="13" name="descripcion" sqlTabName="" table_alias_name="" uid="{98201541-6fb3-4102-980e-575739483bd0}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_inf_cta_cont" order="" uid="{d827ffd4-a25f-46ac-82c8-33380147a0cf}" where="">
+    <RecordField colName="" fieldIdRef="7" name="cta_cont" sqlTabName="" table_alias_name="" uid="{eea5bd88-1e1f-4b50-b5da-f3f22f1d1c2a}"/>
+    <RecordField colName="" fieldIdRef="8" name="nat_cnta" sqlTabName="" table_alias_name="" uid="{8d9cab4e-abd8-4387-884a-59e778fb6471}"/>
+    <RecordField colName="" fieldIdRef="10" name="proceso" sqlTabName="" table_alias_name="" uid="{37836f5a-28bf-4197-a656-d57c9397e7fa}"/>
+    <RecordField colName="" fieldIdRef="11" name="subcta" sqlTabName="" table_alias_name="" uid="{05975f93-49e7-40f6-a084-4802146c9250}"/>
+    <RecordField colName="" fieldIdRef="14" name="det_transaccion" sqlTabName="" table_alias_name="" uid="{25cad4de-58d1-4715-8b12-70ed0d9912d6}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_inf_cta_cont_trans" order="" uid="{a3a11586-d06d-41e6-8b4c-7bc9cfca6bd9}" where="">
+    <RecordField colName="" fieldIdRef="9" name="transaccion" sqlTabName="" table_alias_name="" uid="{c5f7a4c9-f367-46bc-bffd-82975661fda5}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{51b1ba38-13c3-4c1a-96a6-5663ea05424d}" where="">
+    <RecordField colName="" fieldIdRef="15" name="v_cmb_proceso_cod" sqlTabName="" table_alias_name="" uid="{557040dc-d9a7-4412-8fdf-da648bab283e}"/>
+  </Record>
+  <Form gridHeight="47" gridWidth="168" name="" text="Form">
+    <Grid gridHeight="46" gridWidth="166" name="Grid1" posX="1" posY="0">
+      <Group gridHeight="14" gridWidth="163" name="gr_criterios_busq" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Proceso"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="72" items="" name="v_cmb_proceso" notNull="true" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Table doubleClick="ver" gridHeight="5" gridWidth="96" name="Table1" posX="2" posY="4" totalRows="4">
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="3" hidden="true" name="clave" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Clave&#10;Transacción" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="76" name="descripcion" posX="3" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Transacciones del Proceso" widget="Edit"/>
+        </Table>
+        <Label gridHeight="1" gridWidth="10" name="Label2" posX="1" posY="10" text="Transacción"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="86" name="f_transaccion" posX="12" posY="10" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="8" name="Label3" posX="1" posY="12" text="Subcuenta"/>
+        <ComboBox colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="29" items="" name="f_subcuenta" notNull="true" posX="12" posY="12" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox2" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="6" gridWidth="163" name="gr_inf_cta_cont" posX="1" posY="15" sizePolicy="initial" text="Información Cuenta Contable">
+        <Table doubleClick="" gridHeight="4" gridWidth="159" name="scr_inf_cta_cont" posX="1" posY="1" sizePolicy="initial" totalRows="3">
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="80" name="cta_cont" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Cuenta &#10;Contable" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="7" name="nat_cnta" posX="80" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Naturaleza&#10;Cuenta" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="37" name="proceso" posX="87" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Proceso" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="28" name="subcta" posX="124" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="1" hidden="true" name="det_transaccion" posX="152" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Transaccion" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="5" gridWidth="163" name="gr_inf_cta_cont1" posX="1" posY="22" text="">
+        <Table gridHeight="3" gridWidth="141" name="scr_inf_cta_cont_trans" posX="1" posY="1" totalRows="1">
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="139" name="transaccion" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Transacción" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="3" gridWidth="163" name="gr_proc_cod" posX="1" posY="27" text="Proceso">
+        <Label gridHeight="1" gridWidth="10" name="Label7" posX="1" posY="1" text="Proceso Cod"/>
+        <ComboBox colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="112" items="" name="v_cmb_proceso_cod" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="13" gridWidth="163" name="gr_asig_cta_cont" posX="1" posY="30" text="Asignación Cuenta Contable">
+        <Label gridHeight="1" gridWidth="13" name="Label4" posX="1" posY="1" text="Cuenta Contable"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="10" name="f_cta_contable" posX="15" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit3" widget="Edit"/>
+        <Edit case="upper" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="60" name="f_desc_cta_contable" posX="26" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit9" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="Label5" posX="1" posY="3" text="Naturaleza Cuenta"/>
+        <ComboBox case="upper" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="12" items="" name="f_naturaleza_cta" notNull="false" posX="15" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="ComboBox3" widget="ComboBox"/>
+        <Label gridHeight="7" gridWidth="10" name="Label6" posX="1" posY="5" text=""/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

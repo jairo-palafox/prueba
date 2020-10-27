@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{9fee7a28-e05b-44f0-bd32-33803bc636d0}">
+  <AGSettings>
+    <DynamicProperties version="2">
+      <DynamicProperty isDefaultInherited="false" isHidden="false" name="webcomponent.applet" readOnly="false" type=""/>
+      <DynamicProperty isDefaultInherited="false" isHidden="false" name="webcomponent.photo" readOnly="false" type=""/>
+      <DynamicProperty description="Ruta" initialValue="" isDefaultInherited="false" isHidden="false" label="ruta" name="webcomponent.visorimagenes.ruta" readOnly="false" type="STRINGLIST"/>
+    </DynamicProperties>
+    <NodeInfos version="1">
+      <NodeInfo mimeType="modFD/WebComponent" properties="webcomponent.applet;webcomponent.photo;webcomponent.visorimagenes.ruta"/>
+    </NodeInfos>
+  </AGSettings>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{f91c8fa7-33a1-4c94-973e-75ae4394f115}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_fecha" sqlTabName="" table_alias_name="" uid="{efaabf11-263e-4b63-8af8-9c869af2e810}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_nombre" sqlTabName="" table_alias_name="" uid="{1702beaf-0259-4782-a92b-6a1ce3a4cc92}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_fecha_ini" sqlTabName="" table_alias_name="" uid="{7b8c1138-0da5-440d-8634-b5582d4fc522}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_fecha_fin" sqlTabName="" table_alias_name="" uid="{507d32e9-e410-4071-9687-dfa7c04f9feb}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_descripcion" sqlTabName="" table_alias_name="" uid="{7fb001ee-bd80-4503-b12b-969a07bfe79b}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_campanas" order="" uid="{e880a01e-1af2-4d91-b472-1d185c764888}" where="">
+    <RecordField colName="" fieldIdRef="6" name="v_nombre_a" sqlTabName="" table_alias_name="" uid="{ffe6ccfb-019a-4a42-be81-9b7e45539a4e}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_fecha_ini_a" sqlTabName="" table_alias_name="" uid="{90c8fa10-9294-4a5d-aec1-37ccaaca52e0}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_fecha_fin_a" sqlTabName="" table_alias_name="" uid="{c1c908cf-794b-495a-9201-64231f06c31f}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_descripcion_a" sqlTabName="" table_alias_name="" uid="{f61ccd43-5118-418d-9240-e3d973f8a157}"/>
+    <RecordField colName="" fieldIdRef="10" name="v_fecha_alta_a" sqlTabName="" table_alias_name="" uid="{603c4451-05ba-4271-96a1-b843ef215b29}"/>
+    <RecordField colName="" fieldIdRef="11" name="v_usuario_alta" sqlTabName="" table_alias_name="" uid="{dc63a37f-498c-4cbc-b191-724bc3eedac3}"/>
+    <RecordField colName="" fieldIdRef="12" name="v_fecha_baja" sqlTabName="" table_alias_name="" uid="{c83ac893-75bc-4ec8-b5ab-cc8ef5a15ded}"/>
+    <RecordField colName="" fieldIdRef="13" name="v_usuario_baja" sqlTabName="" table_alias_name="" uid="{adb7b4ac-dbd8-496c-b20b-9350e229292e}"/>
+  </Record>
+  <Form gridHeight="34" gridWidth="201" name="form" text="Form">
+    <Grid gridHeight="29" gridWidth="198" name="grid1" posX="1" posY="1">
+      <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="16" name="v_fecha" noEntry="true" posX="59" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+      <Group gridHeight="11" gridWidth="73" name="group1" posX="2" posY="2" text="Campaña Vigente">
+        <Label gridHeight="1" gridWidth="10" name="label2" posX="2" posY="1" text="Nombre:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="57" name="v_nombre" posX="14" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="label3" posX="2" posY="2" text="Fecha inicio:"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="17" name="v_fecha_ini" posX="14" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="dateedit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="label4" posX="2" posY="3" text="Fecha fin:"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" format="dd-mm-yyyy" gridHeight="1" gridWidth="17" name="v_fecha_fin" posX="14" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="dateedit2" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="label5" posX="2" posY="4" text="Descripción:"/>
+        <TextEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="6" gridWidth="57" name="v_descripcion" posX="14" posY="4" rowCount="" sizePolicy="fixed" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="edit1" widget="TextEdit"/>
+      </Group>
+      <Group gridHeight="14" gridWidth="194" name="group2" posX="2" posY="14" text="Campañas anteriores">
+        <Table gridHeight="12" gridWidth="156" name="scr_campanas" posX="1" posY="1" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="v_nombre_a" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Nombre&#10;Campaña" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="8" name="v_fecha_ini_a" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Fecha&#10;Inicio" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" format="dd-mm-yyyy" gridHeight="1" gridWidth="8" name="v_fecha_fin_a" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Fecha&#10;Fin" widget="Edit"/>
+          <TextEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="81" name="v_descripcion_a" posX="24" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Descripción" widget="TextEdit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" format="dd-mm-yyyy" gridHeight="1" gridWidth="8" name="v_fecha_alta_a" posX="105" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Fecha&#10;Alta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="8" name="v_usuario_alta" posX="113" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Usuario&#10;Alta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" format="dd-mm-yyyy" gridHeight="1" gridWidth="8" name="v_fecha_baja" posX="121" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Fecha&#10;Baja" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="8" name="v_usuario_baja" posX="129" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Usuario&#10;Baja" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

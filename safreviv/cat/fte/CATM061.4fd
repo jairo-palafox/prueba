@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{272a31c5-efe0-4dc8-bbbd-359c8b047655}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_arbol" order="" uid="{aa959f47-d15b-4f00-aa12-a13bf9609345}" where="">
+    <RecordField colName="" fieldIdRef="1" name="name" sqlTabName="" table_alias_name="" uid="{b5ba6839-1d55-4720-91f8-f16c664ff436}"/>
+    <RecordField colName="" fieldIdRef="3" name="pid" sqlTabName="" table_alias_name="" uid="{b00b010d-dcd2-4307-87dc-51dcf145ba58}"/>
+    <RecordField colName="" fieldIdRef="4" name="id" sqlTabName="" table_alias_name="" uid="{2d063997-9bd5-4bc9-b0b3-893d5ef48e4d}"/>
+    <RecordField colName="" fieldIdRef="5" name="hasChildren" sqlTabName="" table_alias_name="" uid="{ec2237ec-7aee-40cf-a888-c9cd7bdbc6cd}"/>
+    <RecordField colName="" fieldIdRef="2" name="marca" sqlTabName="" table_alias_name="" uid="{3e6188d0-d5c0-4b46-a47d-8e6b5ebdfe85}"/>
+    <RecordField colName="" fieldIdRef="6" name="expandido" sqlTabName="" table_alias_name="" uid="{cfe0cbd5-bc64-498d-a5f1-19a8add2a152}"/>
+    <RecordField colName="" fieldIdRef="7" name="cod" sqlTabName="" table_alias_name="" uid="{80af3a15-f465-4196-b29e-f0c3a1f60f2d}"/>
+    <RecordField colName="" fieldIdRef="8" name="des" sqlTabName="" table_alias_name="" uid="{e020cbc6-57f5-48ab-b257-51fd5dbbbd9b}"/>
+  </Record>
+  <Form gridHeight="24" gridWidth="78" name="Form" text="Form">
+    <Tree expandedColumn="expandido" gridHeight="16" gridWidth="53" idColumn="id" isNodeColumn="hasChildren" name="sr_tree" parentIdColumn="pid" posX="2" posY="1" totalRows="15">
+      <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="36" name="name" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Afore" widget="Edit"/>
+      <Phantom colName="" fieldId="3" name="pid" sqlTabName="" table_alias_name="" widget="Phantom"/>
+      <Phantom colName="" fieldId="4" name="id" sqlTabName="" table_alias_name="" widget="Phantom"/>
+      <Phantom colName="" fieldId="5" name="hasChildren" sqlTabName="" table_alias_name="" widget="Phantom"/>
+      <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="8" justify="left" name="marca" posX="36" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Marca" widget="Edit"/>
+      <Phantom colName="" fieldId="6" name="expandido" sqlTabName="" table_alias_name="" widget="Phantom"/>
+      <Phantom colName="" fieldId="7" name="cod" sqlTabName="" table_alias_name="" widget="Phantom"/>
+      <Phantom colName="" fieldId="8" name="des" sqlTabName="" table_alias_name="" widget="Phantom"/>
+    </Tree>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjAGYAZQAwAGMAYgBkADUALQBiAGMANgA0AC0ANAA5ADgAZAAtAGEANQBmADEALQAxADkAYQA4AGEAZABkADIAYQAxADUAMgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADUAYgBhADYAOAAzADkALQAxAGQANQA1AC0ANAA3ADIAMAAtADkAMQBmADgALQBmADEANgBjADYANgA0AGYAZgA0ADMANgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADAAYQBmADMAYQAxADUALQBmADQANgA1AC0ANAAxADkANgAtAGIAMgA5AGUALQBmADAAYwAzAGEAMQBmADYAMABmADIAZAB9QBQAAAAAAABAZIAAAAAAAD9wYk3S8an8AQAAAEwAewBhAGEAOQA1ADkAZgA0ADcALQBkADEANQBiAC0ANABmADAAMAAtAGEAYQAxADIALQBhADEAMwBiAGYAOQA2ADAAOQAzADQANQB9AAAAAAAAAAAAAAAAAAAAAD90euFHrhR7AQAAAEwAewBlAGMAMgAyADMANwBlAGMALQA3AGEAZQBlAC0ANAAwAGMAZgAtAGEAOAA4ADgALQBjADkAYwBkADcAYgBkAGIAYwA2AGMAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGQAMAA2ADMAOQA5ADcALQA5AGIAZAA1AC0ANABiAGMAOQAtAGIAMABiADMALQA4ADkAMwBkADUAZQBmADQAOABlADQAZAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGUANgAxADgAOABkADAALQBkADUAYwAwAC0ANABiADQANgAtAGEANAA3AGQALQA4AGUANgBiADUAZQBiAGQAZgBlADgANQB9QBQAAAAAAABAXYAAAAAAAD9QYk3S8an8AQAAAEwAewBlADAAMgAwAGMAYgBjADYALQA1ADcAZgA1AC0ANAA4AGEAYgAtAGIAMgA1ADcALQA1ADEAZgBkADUAZABiAGIAYgBkADkAYgB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBiADAAMABiADAAMQAwAGQALQBkAGMAZAAyAC0ANAAzADAANwAtADgANwBkAGMALQA1ADEAZABjAGYAMQA0ADUAYgBhADUAOAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

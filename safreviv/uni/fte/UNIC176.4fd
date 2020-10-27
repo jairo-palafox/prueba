@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{6d9d4e85-a863-4a6a-84ab-1396d261e1b2}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_detalles" order="" uid="{c0c0a1b1-6a0c-4dd8-bcce-f68b4fbc6d75}" where="">
+    <RecordField colName="" fieldIdRef="3" name="pros_uni" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{3ab61e2f-7233-42c0-9804-9ec607a5e734}"/>
+    <RecordField colName="" fieldIdRef="4" name="tipo" sqlTabName="" table_alias_name="" uid="{37b8b9ff-9531-41f2-84be-2ecd07cd53a0}"/>
+    <RecordField colName="" fieldIdRef="5" name="mov_imss" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{1847c75a-eb59-46f0-896e-229a79cac4d2}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_movimiento" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{eb28d29d-2bb4-424c-ba13-70f888afb775}"/>
+    <RecordField colName="" fieldIdRef="7" name="op_21" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{17581809-4f35-4830-bf60-81a0f37bab12}"/>
+    <RecordField colName="" fieldIdRef="8" name="op21_confronta" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{a3c51e98-3c7d-487b-9f11-4b5fa3956f7b}"/>
+    <RecordField colName="" fieldIdRef="9" name="op_22" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{0682b7d1-d3f1-4f35-a790-0bddd8df65f9}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{8bc34348-3524-4cff-bb45-e8d805674554}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_nss" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{c6e5a08f-ab28-4413-a52c-e7a031eabf9e}"/>
+    <RecordField colName="" fieldIdRef="2" name="cmb_folio" sqlTabName="" table_alias_name="" uid="{3962f586-a117-46c7-82c0-dd3d3b9fa370}"/>
+    <RecordField colName="" fieldIdRef="10" name="cmb_folio_uni" sqlTabName="" table_alias_name="" uid="{11dbabf0-7e56-4d64-b150-5a82679e1216}"/>
+  </Record>
+  <Form gridHeight="26" gridWidth="137" name="form" text="Form">
+    <Grid gridHeight="24" gridWidth="135" name="grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="33" name="gr_nss" posX="2" posY="1" text="Consulta de prospectos por NSS">
+        <Label gridHeight="1" gridWidth="6" name="lbl_folio" posX="2" posY="1" text="NSS"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="22" name="v_nss" posX="9" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="3" gridWidth="47" name="gr_folio" posX="36" posY="1" text="Seleccione un folio">
+        <Label gridHeight="1" gridWidth="11" name="lbl_afi" posX="2" posY="1" text="Folio afiliación"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="32" items="" name="cmb_folio" posX="14" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="combobox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="3" gridWidth="47" name="gr_folio_uni" posX="84" posY="1" text="Seleccione un folio">
+        <Label gridHeight="1" gridWidth="11" name="lbl_uni" posX="2" posY="1" text="Folio unificación"/>
+        <ComboBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="32" items="" name="cmb_folio_uni" posX="14" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="combobox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="15" gridWidth="108" name="gr_detalles" posX="2" posY="5" text="Detalles">
+        <Table gridHeight="13" gridWidth="104" name="scr_detalles" posX="2" posY="1" totalRows="10">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="18" name="pros_uni" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" name="tipo" posX="18" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Tipo" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="10" name="mov_imss" posX="30" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Mov. IMSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" format="dd-mm-yyyy" gridHeight="1" gridWidth="16" name="f_movimiento" posX="40" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Fecha Movimiento IMSS" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" name="op_21" posX="56" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Op.21 Disp." widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" name="op21_confronta" posX="69" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Op.21 Confronta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" format="dd-mm-yyyy" gridHeight="1" gridWidth="14" name="op_22" posX="82" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Op.22 Conclusión" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxADcANQA4ADEAOAAwADkALQA0AGYAMwA1AC0ANAA4ADMAMAAtAGIAZgA2ADAALQA4ADEAYQAwAGYAMwA3AGIAYQBiADEAMgB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADkANgAyAGYANQA4ADYALQBhADEAMQA3AC0ANAA2AGMANwAtADgAMgBjADAALQBkAGQAMwBkADMAYgA5AGYAYQAzADcAMAB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADYAOAAyAGIANwBkADEALQBkADMAZgAxAC0ANABmADMANQAtAGEANwA5ADAALQAwAGIAZABkAGQAOABkAGYANgA1AGYAOQB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGEAYgA2ADEAZQAyAGYALQA3ADIAMwAzAC0ANAAyAGMAMAAtADkAOAAwADQALQA5AGUAYwA2ADAANwBhADUAZQA3ADMANAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADMAYwA1ADEAZQA5ADgALQAzAGMANwBkAC0ANAA4ADcAYgAtADkAZgAxADEALQA0AGIANQBmAGEAMwA5ADUANgBmADcAYgB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADEAZABiAGEAYgBmADAALQA3AGUANQA2AC0ANABkADYANAAtAGIAMQA1ADAALQA1AGEAOAAyADYANwA5AGUAMQAyADEANgB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADcAYgA4AGIAOQBmAGYALQA5ADUAMwAxAC0ANAAxAGYAMgAtADgANABiAGUALQAyAGUAYwBkADAANwBjAGQANQAzAGEAMAB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGIAMgA4AGQAMgA5AGQALQAyAGIAYgA0AC0ANAAyADQAYwAtAGIAYQAxADMALQA3ADAAZgA4ADgAOABhAGYAYgA3ADcANQB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADgANAA3AGMANwA1AGEALQBlAGIANQA5AC0ANAA2AGYAMAAtADgAOQA2AGUALQAyADIAOQBhADcAOQBjAGEAYwA0AGQAMgB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADYAZQA1AGEAMAA4AGYALQBhAGIAMgA4AC0ANAA0ADEAMwAtAGEANQAyAGMALQBlADcAYQAwADMAMQBlAGEAYgBmADkAZQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGIAYwAzADQAMwA0ADgALQAzADUAMgA0AC0ANABjAGYAZgAtAGIAYgA0ADUALQBlADgAZAA4ADAANQA2ADcANAA1ADUANAB9wD0AAAAAAABAbSAAAAAAAD9gYk3S8an8AQAAAEwAewBjADAAYwAwAGEAMQBiADEALQA2AGEAMABjAC0ANABkAGQAOAAtAGIAYwBjAGUALQBmADYAOABiADQAZgBiAGMANgBkADcANQB9wHWAAAAAAABAbMAAAAAAAD98rAgxJul5AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,658 @@
+--===============================================================
+-- VERSION: 1.0.0
+-- FECHA ULTIMA MODIFICACION:
+--===============================================================
+#########################################################################################
+#MODULO       => PAG                                                                    #
+#PROGRAMA     => PAGC80                                                                 #
+#OBJETIVO     => Consulta de pagos en TRM                                               #
+#Fecha inicio => 10 de Febrero 2014                                                     #
+#Autor        => GERARDO ALFONSO VEGA PAREDES
+#Modificacion =>                                                                        #
+#########################################################################################
+DATABASE safre_viv
+
+GLOBALS "PAGG01.4gl"
+
+GLOBALS "PAGW01.inc"
+
+GLOBALS 
+      
+   DEFINE p_usuario_cod       LIKE seg_usuario.usuario_cod, -- clave del usuario firmado
+          p_tipo_ejecucion    SMALLINT, -- forma como ejecutara el programa
+          p_s_titulo          STRING   -- titulo de la ventana 
+    
+END GLOBALS 
+
+{
+======================================================================
+Clave: 
+Nombre: main
+Fecha creacion: febrero 10, 2014
+Autor: Gerardo Vega, EFP
+Narrativa del proceso que realiza:
+Abre la ventana de captura de datos para realizar la consulta de pago TRM
+
+Registro de modificaciones:
+Autor           Fecha                   Descrip. cambio
+
+======================================================================
+}
+
+DEFINE v_parametros consultaPago                #Variable para los parametros que se enviaran al WS
+DEFINE v_respuesta  respuestaPagosHistoricos    #Variable para "cachar" la respuesta del WS 
+
+MAIN 
+
+   DEFINE
+       -- parametros de consulta
+       v_nss          LIKE afi_derechohabiente.nss, 
+       v_nrp          LIKE cta_his_pagos.nrp,
+       v_folio_sua    LIKE cta_his_pagos.folio_sua,
+       v_fecha_pago   LIKE cta_his_pagos.f_pago,
+       v_periodo_pago LIKE cta_his_pagos.periodo_pago,
+       v_bim_pago     LIKE cta_his_pagos.periodo_pago,
+       v_imp_ap_pat   LIKE cta_his_pagos.imp_ap_pat,
+       v_dato         CHAR(01),
+       v_origen       LIKE pag_extractor_preca.origen_cod,
+       v_folio        LIKE cta_his_pagos.folio,
+       v_pp_par       CHAR(06),
+       v_pp_non       CHAR(06),
+       v_bim_pago_par CHAR(06),
+       v_bim_pago_non CHAR(06), 
+       v_dato_par     CHAR(01),
+       v_dato_non     CHAR(01),
+       v_f_consulta   DATE    ,
+       v_detalle      CHAR(60),
+       
+       v_formulario        ui.Form -- para modificar el formulario
+
+   -- se obtienen los parametros de ejecucion
+   LET p_usuario_cod    = ARG_VAL(1)
+   LET p_tipo_ejecucion = ARG_VAL(2)
+   LET p_s_titulo       = ARG_VAL(3)
+
+   -- si se obtuvo el titulo, se pone como titulo de programa
+   IF ( p_s_titulo IS NOT NULL ) THEN
+      CALL ui.Interface.setText(p_s_titulo)
+   END IF
+
+   CLOSE WINDOW SCREEN
+   
+   -- se abre la ventana de consulta
+   OPEN WINDOW w_consulta WITH FORM "PAGC801"
+
+   -- se capturan los datos de la consulta
+   INPUT BY NAME
+      v_nss,
+      v_nrp,
+      v_folio_sua,
+      v_fecha_pago,
+      v_periodo_pago,
+      v_imp_ap_pat       
+   WITHOUT DEFAULTS
+   ATTRIBUTES ( UNBUFFERED )
+   
+      BEFORE INPUT
+         -- se obtiene control del formulario
+         LET v_formulario = DIALOG.getForm()
+         LET v_fecha_pago = TODAY
+                  
+      AFTER FIELD v_nss
+       -- se validan los datos capturados
+         IF v_nss IS NULL THEN
+            CALL fn_mensaje("Atención","EL NSS no puede ser nulo","stop")
+            NEXT FIELD v_nss
+         END IF
+         
+         IF ( v_nss IS NOT NULL AND LENGTH(v_nss CLIPPED) <> 11 ) THEN
+            CALL fn_mensaje("Atención","La longitud del NSS debe ser de 11 caracteres","stop")
+            NEXT FIELD v_nss
+         END IF        
+         CONTINUE INPUT         
+
+      AFTER FIELD v_nrp
+         IF v_nrp IS NULL THEN
+            CALL fn_mensaje("Atención","El NRP no puede ser nulo","stop")        
+            NEXT FIELD v_nrp
+         END IF   
+         
+      AFTER FIELD v_folio_sua
+         IF v_folio_sua IS NULL THEN
+            CALL fn_mensaje("Atención","El Folio SUA no puede ser nulo","stop") 
+            NEXT FIELD v_folio_sua       
+         END IF   
+
+      AFTER FIELD v_fecha_pago
+         IF v_fecha_pago IS NULL THEN
+            CALL fn_mensaje("Atención","La Fecha de pago no puede ser nulo","stop") 
+            NEXT FIELD v_fecha_pago       
+         END IF   
+          
+      AFTER FIELD v_periodo_pago
+         IF v_periodo_pago IS NULL THEN
+            CALL fn_mensaje("Atención","El Bimestre de pago no puede ser nulo","stop") 
+            NEXT FIELD v_periodo_pago       
+         END IF   
+         
+         IF v_periodo_pago[5,6] > 6 THEN   
+            CALL fn_mensaje("Atención","El Bimestre no puede ser mayor a 6","stop") 
+            NEXT FIELD v_periodo_pago                                                
+         END IF                            
+
+        NEXT FIELD v_nss
+
+      -- cancelar
+      ON ACTION cancel
+         EXIT INPUT
+         
+      ON ACTION accept
+         -- se validan los datos capturados
+         IF ( v_nss IS NOT NULL AND LENGTH(v_nss CLIPPED) <> 11 ) THEN
+            CALL fn_mensaje("Atención","La longitud del NSS debe ser de 11 caracteres","stop")
+            CONTINUE INPUT
+         END IF
+
+         IF v_nss IS NULL THEN
+            CALL fn_mensaje("Atención","EL NSS no puede ser nulo","stop")
+            NEXT FIELD v_nss
+         END IF
+         
+         IF v_nrp IS NULL THEN
+            CALL fn_mensaje("Atención","El NRP no puede ser nulo","stop")        
+            NEXT FIELD v_nrp
+         END IF   
+         
+         IF v_folio_sua IS NULL THEN
+            CALL fn_mensaje("Atención","El Folio SUA no puede ser nulo","stop") 
+            NEXT FIELD v_folio_sua       
+         END IF   
+
+         IF v_fecha_pago IS NULL THEN
+            CALL fn_mensaje("Atención","La Fecha de pago no puede ser nulo","stop") 
+            NEXT FIELD v_fecha_pago       
+         END IF   
+
+         IF v_periodo_pago IS NULL THEN
+            CALL fn_mensaje("Atención","El Periodo de pago no puede ser nulo","stop") 
+            NEXT FIELD v_periodo_pago       
+         END IF   
+
+         IF v_periodo_pago[5,6] > 6 THEN   
+            CALL fn_mensaje("Atención","El Bimestre no puede ser mayor a 6","stop") 
+            NEXT FIELD v_periodo_pago                                                
+         END IF               
+
+---==================================================================================
+
+         LET v_bim_pago     = 0
+         LET v_bim_pago_par = NULL
+         LET v_pp_par       = NULL
+         LET v_bim_pago_non = NULL
+         LET v_pp_non       = NULL
+
+         -- Cero significa que es solo Infonavit y no se convierte a bim_pago 
+         IF v_folio_sua <> 0 THEN  
+
+            CASE v_periodo_pago[5,6]
+               WHEN "06" 
+                  LET v_pp_par = v_periodo_pago[1,4],"12"
+                  LET v_pp_non = v_periodo_pago[1,4],"11"
+               WHEN "05" 
+                  LET v_pp_par = v_periodo_pago[1,4],"10"
+                  LET v_pp_non = v_periodo_pago[1,4],"09"
+               WHEN "04" 
+                  LET v_pp_par = v_periodo_pago[1,4],"08"
+                  LET v_pp_non = v_periodo_pago[1,4],"07"
+               WHEN "03" 
+                  LET v_pp_par = v_periodo_pago[1,4],"06"
+                  LET v_pp_non = v_periodo_pago[1,4],"05" 
+               WHEN "02" 
+                  LET v_pp_par = v_periodo_pago[1,4],"04"
+                  LET v_pp_non = v_periodo_pago[1,4],"03"     
+               WHEN "01" 
+                  LET v_pp_par = v_periodo_pago[1,4],"02"
+                  LET v_pp_non = v_periodo_pago[1,4],"01"
+            END CASE
+
+            LET v_bim_pago_par = v_pp_par
+            LET v_bim_pago_non = v_pp_non
+
+
+            -- BUSQUEDA BIMESTRE DE PAGO PAR ----
+            LET v_dato_par = NULL
+            SELECT "X" dato
+            INTO   v_dato_par
+            FROM   cta_his_pagos det, 
+                   cta_movimiento mov,
+                   afi_derechohabiente afi
+            WHERE  det.folio              = mov.folio_liquida
+            AND    det.id_referencia      = mov.id_referencia
+            AND    afi.nss                = v_nss
+            AND    det.id_derechohabiente = afi.id_derechohabiente
+            AND    det.folio_sua          = v_folio_sua
+            AND    det.f_pago             = v_fecha_pago
+            AND    det.nrp                = v_nrp
+            AND    det.periodo_pago       = v_bim_pago_par
+            AND    mov.subcuenta         IN (4,44)                  -- sub 4 viv97, 44 Viv SoloINF
+            AND    mov.movimiento        IN (1,61,221,41,51,81,451) -- mov 1=lq, 61 CcNss, 221 CcNom, 41 Acl, 51 SinCnss, 81 SoloINF, 451 ACL Ade 
+
+            IF v_dato_par = "X" THEN
+               LET v_bim_pago = v_bim_pago_par         -- PAGO SACI PP PAR
+            ELSE
+
+               -- BUSQUEDA BIMESTRE DE PAGO NON ----
+               LET v_dato_non = NULL
+               SELECT "X" dato
+               INTO   v_dato_non
+               FROM   cta_his_pagos det, 
+                      cta_movimiento mov,
+                      afi_derechohabiente afi
+               WHERE  det.folio              = mov.folio_liquida
+               AND    det.id_referencia      = mov.id_referencia
+               AND    afi.nss                = v_nss
+               AND    det.id_derechohabiente = afi.id_derechohabiente
+               AND    det.folio_sua          = v_folio_sua
+               AND    det.f_pago             = v_fecha_pago
+               AND    det.nrp                = v_nrp
+               AND    det.periodo_pago       = v_bim_pago_non
+               AND    mov.subcuenta         IN (4,44)                  -- sub 4 viv97, 44 Viv SoloINF
+               AND    mov.movimiento        IN (1,61,221,41,51,81,451) -- mov 1=lq, 61 CcNss, 221 CcNom, 41 Acl, 51 SinCnss, 81 SoloINF, 451 ACL Ade 
+
+               IF v_dato_non = "X" THEN
+                  LET v_bim_pago = v_bim_pago_non    -- PAGO SACI PP NON
+               ELSE
+                  LET v_bim_pago = v_periodo_pago    -- PAGO TRM PORQUE NO ENCONTRO EN SACI Y FOLIO_SUA = 0             
+               END IF               
+            
+            END IF
+          ELSE
+            LET v_bim_pago = v_periodo_pago          -- PAGO SOLO INFONAVIT POR FOLIO_SUA = 0
+         END IF
+
+         LET v_dato = NULL
+         LET v_f_consulta = NULL
+         
+         SELECT f_consulta
+         INTO   v_f_consulta
+         FROM   pag_extractor_preca
+         WHERE  nss          = v_nss
+         AND    nrp          = v_nrp
+         AND    folio_sua    = v_folio_sua
+         AND    f_pago       = v_fecha_pago
+         AND    periodo_pago = v_bim_pago
+         GROUP BY f_consulta
+
+         DISPLAY "f_consulta:", v_f_consulta
+         DISPLAY "bimestre:", v_bim_pago
+
+         IF v_f_consulta IS NOT NULL THEN 
+            IF v_f_consulta = TODAY THEN 
+
+               SELECT TRIM(id_codigo) ||' '||TRIM(id_descripcion)
+                 INTO v_detalle
+                 FROM pag_extractor_preca 
+                WHERE  nss          = v_nss
+                AND    nrp          = v_nrp
+                AND    folio_sua    = v_folio_sua
+                AND    f_pago       = v_fecha_pago
+                AND    periodo_pago = v_bim_pago
+                AND    f_consulta   = v_f_consulta
+                
+               CALL fn_mensaje("Atención","Este pago ya fue extraido el día de hoy.\nTRM: "||v_detalle,"stop")      
+               NEXT FIELD v_nss
+            ELSE
+               UPDATE pag_extractor_preca
+                  SET f_consulta = TODAY
+                WHERE nss          = v_nss
+                  AND nrp          = v_nrp
+                  AND folio_sua    = v_folio_sua
+                  AND f_pago       = v_fecha_pago
+                  AND periodo_pago = v_bim_pago
+            END IF
+         ELSE 
+
+---==================================================================================
+
+            -- BUSCA PAGO EN safre_viv cta_his_pagos
+            -- SI LO ENCUENTRA YA NO BUSCA EN TRM
+            LET v_dato = NULL
+            SELECT "X" dato
+            INTO   v_dato
+            FROM   cta_his_pagos det, 
+                   cta_movimiento mov,
+                   afi_derechohabiente afi
+            WHERE  det.folio              = mov.folio_liquida
+            AND    det.id_referencia      = mov.id_referencia
+            AND    afi.nss                = v_nss
+            AND    det.id_derechohabiente = afi.id_derechohabiente
+            AND    det.folio_sua          = v_folio_sua
+            AND    det.f_pago             = v_fecha_pago
+            AND    det.nrp                = v_nrp
+            AND    det.periodo_pago       = v_bim_pago
+            AND    mov.subcuenta         IN (4,44)                  -- sub 4 viv97, 44 Viv SoloINF
+            AND    mov.movimiento        IN (1,61,221,41,51,81,451) -- mov 1=lq, 61 CcNss, 221 CcNom, 41 Acl, 51 SinCnss, 81 SoloINF, 451 ACL Ade 
+   
+            LET v_origen = NULL
+            LET v_folio  = 0
+         
+            IF v_dato = "X" THEN
+   
+               LET v_origen = 1  -- ORIGEN SACI
+            
+               CALL fn_consulta_pago_saci(v_nss,v_folio_sua,v_fecha_pago,v_nrp,v_bim_pago,v_periodo_pago) RETURNING v_respuesta.*,v_folio
+            
+               DISPLAY "Fecha Entrada SACI =", v_respuesta.fechaEntradaTRM
+               DISPLAY "NSS                =", v_respuesta.NSS
+               DISPLAY "NRP                =", v_respuesta.NRP
+               DISPLAY "Folio SUA          =", v_respuesta.folioSUA
+               DISPLAY "Fecha de pago      =", v_respuesta.fechaPago
+               DISPLAY "Importe Pago       =", v_respuesta.importePago            
+            
+               CALL fn_ingresa_datos(v_origen,v_folio,v_folio_sua)
+            
+               CALL fn_mensaje("Atención","Registro exitoso en SACI","stop")
+               EXIT INPUT
+               
+            ELSE
+            
+               -- Se igualan las variables para ejecutar el WSDL 
+               LET v_parametros.NRP       = v_nrp
+               LET v_parametros.NSS       = v_nss
+               LET v_parametros.fechaPago = v_fecha_pago USING "dd.mm.yyyy"
+               LET v_parametros.folioSUA  = v_folio_sua
+               
+               #Se ejecuta la funcion que invoca al WS y se guarda la respuesta en la variable v_respuesta.*
+               #NOTA: Esta funcion se ejecuta por cada registro
+               CALL fn_consulta_pago_trm(v_parametros.*) RETURNING v_respuesta.*
+               
+               #En caso de que se presente algun problema con el WS la funcion regresara los campos:
+                  #  v_respuesta.ICodigo        = "-1"
+                  #  v_respuesta.IDescripcion   = "DESCRIPCION DEL ERROR"
+               
+               DISPLAY "Respuesta            = ", v_respuesta.ICodigo
+               DISPLAY "Descripcion          = ", v_respuesta.IDescripcion
+               
+               IF v_respuesta.ICodigo <> '-1' THEN  -- -1 significa que se conectó
+               #Consulta exitosa
+                  LET v_origen = 2      -- ORIGEN TRM
+                  LET v_folio  = v_respuesta.noDocCtaCorrienteContractual
+                  IF v_respuesta.ICodigo = '00' THEN
+                     DISPLAY "Fecha Entrada TRM =", v_respuesta.fechaEntradaTRM
+                     DISPLAY "NSS               =", v_respuesta.NSS
+                     DISPLAY "NRP               =", v_respuesta.NRP
+                     DISPLAY "Folio SUA         =", v_respuesta.folioSUA
+                     DISPLAY "Fecha de pago     =", v_respuesta.fechaPago
+                     DISPLAY "Importe Pago      =", v_respuesta.importePago
+                     CALL fn_ingresa_datos(v_origen,v_folio,0)
+                     CALL fn_mensaje("Atención","Registro exitoso en TRM ","stop") 
+                     EXIT INPUT
+                  ELSE
+   --                  CALL fn_mensaje("Atención","No exite registro en TRM o SACI con estos datos capturados","stop")
+                     CALL fn_mensaje("Atención","Mensaje enviado por TRM: "||v_respuesta.IDescripcion,"stop")
+                     CALL fn_ingresa_datos2(v_origen,v_folio,0,v_nss,v_nrp,v_folio_sua,v_fecha_pago,v_bim_pago)
+  END IF           
+               ELSE
+   
+                  IF v_respuesta.ICodigo IS NOT NULL THEN
+                     #Conexión no exitosa
+                     CALL fn_mensaje("Atención","Error de comunicación con servicio de TRM","stop")
+                     NEXT FIELD v_nss
+                  ELSE
+                     #Conexión no exitosa
+                     CALL fn_mensaje("Atención","Respuesta de TRM vacia, favor de validar con TRM","stop")
+                     NEXT FIELD v_nss 
+                  END IF
+   
+               END IF 
+            END IF
+         END IF
+   END INPUT
+
+  CLOSE WINDOW w_consulta
+END MAIN
+
+FUNCTION fn_consulta_pago_saci(v_nss,v_folio_sua,v_fecha_pago,v_nrp,v_bim_pago,v_periodo_pago)
+   
+   DEFINE v_nss          LIKE afi_derechohabiente.nss, 
+          v_nrp          LIKE cta_his_pagos.nrp,
+          v_folio_sua    LIKE cta_his_pagos.folio_sua,
+          v_fecha_pago   LIKE cta_his_pagos.f_pago,
+          v_periodo_pago LIKE cta_his_pagos.periodo_pago,
+          v_importe      LIKE cta_his_pagos.imp_ap_pat,
+          v_folio        LIKE cta_his_pagos.folio,
+          v_bim_pago     LIKE cta_his_pagos.periodo_pago
+
+   DEFINE v_mes   CHAR(02),
+          v_dia   CHAR(02),
+          v_ano   CHAR(04),
+          v_fecha DATE
+
+   SELECT imp_ap_pat,
+          folio
+   INTO   v_importe,
+          v_folio
+   FROM   cta_his_pagos det, 
+          cta_movimiento mov,   
+          afi_derechohabiente afi
+   WHERE  det.folio              = mov.folio_liquida
+   AND    det.id_referencia      = mov.id_referencia
+   AND    afi.nss                = v_nss                 
+   AND    det.id_derechohabiente = afi.id_derechohabiente
+   AND    det.folio_sua          = v_folio_sua           
+   AND    det.f_pago             = v_fecha_pago          
+   AND    det.nrp                = v_nrp 
+   AND    det.periodo_pago       = v_bim_pago   -- CONVERTIDO SOLO PARA BUSQUEDA
+   AND    mov.subcuenta         IN (4,44) 
+   AND    mov.movimiento        IN (1,61,221,41,51,81,451)
+
+   LET v_respuesta.nss = v_nss
+   LET v_respuesta.nrp = v_nrp             
+   LET v_respuesta.folioSUA = v_folio_sua
+
+   LET v_respuesta.periodoPago = v_periodo_pago  -- CAPTURADO
+   LET v_respuesta.importePago = v_importe
+   
+   LET v_mes = MONTH(v_fecha_pago) USING "&&"
+   LET v_dia = DAY(v_fecha_pago)   USING "&&"
+   LET v_ano = YEAR(v_fecha_pago)  USING "&&&&"
+   LET v_respuesta.fechaPago = v_ano CLIPPED,v_mes CLIPPED,v_dia CLIPPED
+   
+   LET v_fecha = TODAY
+   LET v_mes = MONTH(v_fecha) USING "&&"
+   LET v_dia = DAY(v_fecha)   USING "&&"
+   LET v_ano = YEAR(v_fecha)  USING "&&&&"
+
+   LET v_respuesta.fechaEntradaTRM = v_ano CLIPPED,v_mes CLIPPED,v_dia CLIPPED   
+   LET v_respuesta.fechaProceso    = v_ano CLIPPED,v_mes CLIPPED,v_dia CLIPPED
+
+   LET v_respuesta.ICodigo        = "00"
+   LET v_respuesta.IDescripcion   = "Exito"
+   LET v_respuesta.idConceptoPago = NULL
+   LET v_respuesta.noDocCtaCorrienteContractual = NULL
+
+   RETURN v_respuesta.*,v_folio
+
+END FUNCTION
+
+FUNCTION fn_ingresa_datos(v_origen,v_folio,v_sua)
+
+   DEFINE v_origen     LIKE pag_extractor_preca.origen_cod
+
+   DEFINE reg_preca RECORD LIKE pag_extractor_preca.*
+   
+   DEFINE v_f_pago CHAR(08)
+   DEFINE v_folio  LIKE cta_his_pagos.folio
+   DEFINE v_sua    LIKE cta_his_pagos.folio_sua
+
+   DEFINE v_mes CHAR(02),
+          v_dia CHAR(02),
+          v_ano CHAR(04)
+
+   LET reg_preca.origen_cod = v_origen
+   LET reg_preca.nss        = v_respuesta.nss
+   LET reg_preca.nrp        = v_respuesta.nrp              
+--   LET reg_preca.folio_sua  = v_respuesta.folioSUA
+   
+   LET v_f_pago = v_respuesta.fechaPago
+   LET v_mes = v_f_pago[5,6]
+   LET v_dia = v_f_pago[7,8]
+   LET v_ano = v_f_pago[1,4]
+   LET reg_preca.f_pago = mdy(v_mes,v_dia,v_ano) 
+
+   LET v_f_pago = v_respuesta.fechaEntradaTRM
+   LET v_mes = v_f_pago[5,6]
+   LET v_dia = v_f_pago[7,8]
+   LET v_ano = v_f_pago[1,4]
+   LET reg_preca.f_entrada = mdy(v_mes,v_dia,v_ano)
+
+   LET v_f_pago = v_respuesta.fechaProceso
+   LET v_mes = v_f_pago[5,6]
+   LET v_dia = v_f_pago[7,8]
+   LET v_ano = v_f_pago[1,4]
+   LET reg_preca.f_proceso = mdy(v_mes,v_dia,v_ano)
+  
+   LET reg_preca.id_codigo                        = v_respuesta.ICodigo     
+   LET reg_preca.id_descripcion                   = v_respuesta.IDescripcion   
+   LET reg_preca.id_concepto_pago                 = v_respuesta.idConceptoPago
+   LET reg_preca.imp_pago                         = v_respuesta.importePago         
+   LET reg_preca.no_doc_cta_corriente_contractual = v_respuesta.noDocCtaCorrienteContractual
+   LET reg_preca.periodo_pago                     = v_respuesta.periodoPago    
+   LET reg_preca.cod_estado                       = 1 -- 1=para generar archivo
+
+   LET reg_preca.folio = v_folio
+   LET reg_preca.f_consulta = TODAY
+
+   {
+   IF v_origen = 1 THEN  -- origen SACI
+      IF v_sua = 0 THEN  -- SUA = 0 --> SOLO INFONAVIT
+         LET reg_preca.folio_sua = v_folio
+      ELSE 
+         LET reg_preca.folio_sua  = v_respuesta.folioSUA   
+      END IF
+   ELSE
+      LET reg_preca.folio_sua  = v_respuesta.folioSUA      
+   END IF 
+   }
+
+   LET reg_preca.folio_sua  = v_respuesta.folioSUA 
+   
+   INSERT INTO pag_extractor_preca VALUES (reg_preca.*)
+      {(nss,              
+      nrp,              
+      folio_sua,        
+      f_pago,           
+      f_entrada,        
+      f_proceso,        
+      id_codigo,        
+      id_descripcion,   
+      id_concepto_pago, 
+      imp_pago,         
+      no_doc_cta_corriente_contractual,
+      periodo_pago,     
+      cod_estado,
+      origen_cod,
+      folio,
+      f_cunsulta)}
+
+END FUNCTION
+
+FUNCTION fn_ingresa_datos2(v_origen,v_folio,v_sua,v_nss,v_nrp,v_folio_sua,v_fecha_pago,v_bim_pago)
+
+   DEFINE v_origen     LIKE pag_extractor_preca.origen_cod
+
+   DEFINE reg_preca RECORD LIKE pag_extractor_preca.*
+   
+   DEFINE v_f_pago CHAR(08)
+   DEFINE v_folio  LIKE cta_his_pagos.folio
+   DEFINE v_sua    LIKE cta_his_pagos.folio_sua
+
+   DEFINE v_mes CHAR(02),
+          v_dia CHAR(02),
+          v_ano CHAR(04),
+          v_existe SMALLINT
+
+   DEFINE v_nss          LIKE afi_derechohabiente.nss, 
+          v_nrp          LIKE cta_his_pagos.nrp,
+          v_folio_sua    LIKE cta_his_pagos.folio_sua,
+          v_fecha_pago   LIKE cta_his_pagos.f_pago,
+          v_bim_pago     LIKE cta_his_pagos.periodo_pago
+
+   LET reg_preca.origen_cod = v_origen
+   LET reg_preca.nss        = v_respuesta.nss
+   LET reg_preca.nrp        = v_respuesta.nrp              
+--   LET reg_preca.folio_sua  = v_respuesta.folioSUA
+   
+
+   LET reg_preca.nss = v_nss
+   LET reg_preca.nrp = v_nrp
+   LET reg_preca.folio_sua = v_folio_sua
+   LET reg_preca.f_pago = v_fecha_pago
+   LET reg_preca.periodo_pago = v_bim_pago 
+   
+   LET v_f_pago = v_respuesta.fechaEntradaTRM
+   LET v_mes = v_f_pago[5,6]
+   LET v_dia = v_f_pago[7,8]
+   LET v_ano = v_f_pago[1,4]
+   LET reg_preca.f_entrada = mdy(v_mes,v_dia,v_ano)
+
+   LET v_f_pago = v_respuesta.fechaProceso
+   LET v_mes = v_f_pago[5,6]
+   LET v_dia = v_f_pago[7,8]
+   LET v_ano = v_f_pago[1,4]
+   LET reg_preca.f_proceso = mdy(v_mes,v_dia,v_ano)
+  
+   LET reg_preca.id_codigo                        = v_respuesta.ICodigo     
+   LET reg_preca.id_descripcion                   = v_respuesta.IDescripcion   
+   LET reg_preca.id_concepto_pago                 = v_respuesta.idConceptoPago
+   LET reg_preca.imp_pago                         = v_respuesta.importePago         
+   LET reg_preca.no_doc_cta_corriente_contractual = v_respuesta.noDocCtaCorrienteContractual
+ 
+   LET reg_preca.cod_estado                       = 2 -- 1=para generar archivo
+
+   LET reg_preca.folio = v_folio
+   LET reg_preca.f_consulta = TODAY
+
+   LET v_existe = 0 
+
+   SELECT COUNT(*) 
+     INTO v_existe
+     FROM pag_extractor_preca
+    WHERE nss          = reg_preca.nss
+      AND nrp          = reg_preca.nrp
+      AND folio_sua    = reg_preca.folio_sua
+      AND f_pago       = reg_preca.f_pago
+      AND periodo_pago = reg_preca.periodo_pago
+
+   IF v_existe = 0 OR 
+      v_existe IS NULL THEN 
+      INSERT INTO pag_extractor_preca VALUES (reg_preca.*)
+   ELSE
+      UPDATE pag_extractor_preca
+         SET estado = cod_estado,
+             f_consulta = TODAY
+       WHERE nss          = reg_preca.nss
+         AND nrp          = reg_preca.nrp
+         AND folio_sua    = reg_preca.folio_sua
+         AND f_pago       = reg_preca.f_pago
+         AND periodo_pago = reg_preca.periodo_pago
+   END IF
+   
+      {(nss,              
+      nrp,              
+      folio_sua,        
+      f_pago,           
+      f_entrada,        
+      f_proceso,        
+      id_codigo,        
+      id_descripcion,   
+      id_concepto_pago, 
+      imp_pago,         
+      no_doc_cta_corriente_contractual,
+      periodo_pago,     
+      cod_estado,
+      origen_cod,
+      folio,
+      f_cunsulta)}
+
+END FUNCTION

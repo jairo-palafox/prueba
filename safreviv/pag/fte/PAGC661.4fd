@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{e0578b1f-c5d1-41db-8c95-5e57e218ddaf}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{a4d8e366-c9a0-4a01-9a61-8886fc1c5885}" where="">
+    <RecordField colName="" fieldIdRef="1" name="folio" sqlTabName="" table_alias_name="" uid="{225de5e6-7ce3-4e7f-baf9-d3766e1621df}"/>
+    <RecordField colName="" fieldIdRef="6" name="combo_proceso" sqlTabName="" table_alias_name="" uid="{8f7ea638-9920-455e-aaa5-ca79d1412f11}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_cuentas_aperturadas" order="" uid="{49d0b770-069b-4a91-a73f-e7c927dca961}" where="">
+    <RecordField colName="" fieldIdRef="2" name="nss_actual" sqlTabName="" table_alias_name="" uid="{90c14f97-09d2-46df-bb80-f8958708107b}"/>
+    <RecordField colName="" fieldIdRef="3" name="fecha_apertura" sqlTabName="" table_alias_name="" uid="{5170053a-8f5d-4f69-85e1-35f526a4f517}"/>
+    <RecordField colName="" fieldIdRef="4" name="nombre_trabajador" sqlTabName="" table_alias_name="" uid="{2e077665-5063-4bfa-9e77-d2cd3186bc61}"/>
+    <RecordField colName="" fieldIdRef="5" name="Folio_registro" sqlTabName="" table_alias_name="" uid="{1826af96-9b7f-4a95-9202-a2a15e07f110}"/>
+  </Record>
+  <Form gridHeight="30" gridWidth="109" name="Form" text="Form">
+    <Grid gridHeight="29" gridWidth="108" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="7" gridWidth="100" name="gpo_folio" posX="2" posY="1" text="Consulta voluntaria">
+        <Label gridHeight="1" gridWidth="8" name="lbl_folio" posX="2" posY="2" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="28" name="folio" posX="12" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="8" name="lbl_proceso" posX="2" posY="4" text="Proceso"/>
+        <ComboBox colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="48" items="" name="combo_proceso" posX="12" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="14" gridWidth="100" name="gpo_cuentas_aperturadas" posX="2" posY="9" text="Cuentas aperturadas">
+        <Table gridHeight="11" gridWidth="96" name="Table1" posX="2" posY="2" totalRows="10">
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="17" justify="center" name="nss_actual" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="NSS actual" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="11" justify="center" name="fecha_apertura" posX="17" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Fecha apertura" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="43" name="nombre_trabajador" posX="28" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Nombre trabajador" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="12" justify="right" name="Folio_registro" posX="71" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Folio" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5ADAAYwAxADQAZgA5ADcALQAwADkAZAAyAC0ANAA2AGQAZgAtAGIAYgA4ADAALQBmADgAOQA1ADgANwAwADgAMQAwADcAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGUAMAA3ADcANgA2ADUALQA1ADAANgAzAC0ANABiAGYAYQAtADkAZQA3ADcALQBkADIAYwBkADMAMQA4ADYAYgBjADYAMQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGYANwBlAGEANgAzADgALQA5ADkAMgAwAC0ANAA1ADUAZQAtAGEAYQBhADUALQBjAGEANwA5AGQAMQA0ADEAMgBmADEAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADIANQBkAGUANQBlADYALQA3AGMAZQAzAC0ANABlADcAZgAtAGIAYQBmADkALQBkADMANwA2ADYAZQAxADYAMgAxAGQAZgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADEANwAwADAANQAzAGEALQA4AGYANQBkAC0ANABmADYAOQAtADgANQBlADEALQAzADUAZgA1ADIANgBhADQAZgA1ADEANwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADkAZAAwAGIANwA3ADAALQAwADYAOQBiAC0ANABhADkAMQAtAGEANwAzAGYALQBlADcAYwA5ADIANwBkAGMAYQA5ADYAMQB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewBhADQAZAA4AGUAMwA2ADYALQBjADkAYQAwAC0ANABhADAAMQAtADkAYQA2ADEALQA4ADgAOAA2AGYAYwAxAGMANQA4ADgANQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADgAMgA2AGEAZgA5ADYALQA5AGIANwBmAC0ANABhADkANQAtADkAMgAwADIALQBhADIAYQAxADUAZQAwADcAZgAxADEAMAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

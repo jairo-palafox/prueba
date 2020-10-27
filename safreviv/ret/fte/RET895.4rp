@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RET895.rdd" RWFglReportName="rpt_detalle_solicitado"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="523" length="min">
+                            <IMAGEBOX name="imgLogoInfonavit" width="70" length="45" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                            <PAGENOBOX name="PageNoBox" x="450" y="27.4174" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                            <WORDBOX name="WordBox1" x="420.825" y="27.4174" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Página"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="520.733" length="2.76656"/>
+                        <MINIPAGE name="tituloReporte" width="520.103" length="20">
+                            <WORDBOX name="WordBox" width="522.128" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte de Movimientos de Abono no aplicados"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="15" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lblFecha" width="86.6406" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha de proceso:"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha Value" width="67.4042" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Encabezado General" width="min" length="523.513" alignment="near" bgColor="#860309" layoutDirection="leftToRight">
+                            <WORDBOX name="lblNSS" width="90" alignment="near" color="#ffffff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="NSS"/>
+                            <MINIPAGE name="enSaldo" width="180" length="min" alignment="baseline">
+                                <WORDBOX name="lblSolicitado" alignment="center" color="#ffffff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="SALDO"/>
+                                <MINIPAGE name="MiniPage4" width="min" length="min" layoutDirection="leftToRight">
+                                    <WORDBOX name="lblAIVs97Saldo" width="80" color="#ffffff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="AIV's Viv 92"/>
+                                    <WORDBOX name="lblAVIs97Saldo" width="80" color="#ffffff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="AIV's Viv 97"/>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                            <MINIPAGE name="enImporteMovimiento" width="180" length="min">
+                                <WORDBOX name="lblImpMov" alignment="center" color="#ffffff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="IMPORTE DEL MOVIMIENTO"/>
+                                <MINIPAGE name="MiniPage5" width="min" length="min" layoutDirection="leftToRight">
+                                    <WORDBOX name="lblAVIs92Imp" width="80" color="#ffffff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="AIV's Viv 92"/>
+                                    <WORDBOX name="lblAVIs97Imp" width="80" color="#ffffff" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="AIV's Viv 97"/>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage6" width="13" length="523" alignment="near" scaleX="1" scaleY="1" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_nss Value" x="1.93" y="3.1085" width="70" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nss}}"/>
+                            <rtl:input-variable name="v_saldo_acciones_97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_saldo_acciones_97 Value" x="1.93" y="179" width="70" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_saldo_acciones_97}}"/>
+                            <rtl:input-variable name="v_saldo_acciones_92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_saldo_acciones_92 Value" x="1.93" y="93.442" width="70" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_saldo_acciones_92}}"/>
+                            <rtl:input-variable name="v_monto_acciones_92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_monto_acciones_92 Value" x="1.93" y="268" width="70" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_monto_acciones_92}}"/>
+                            <rtl:input-variable name="v_monto_acciones_97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_monto_acciones_97 Value" x="1.93" y="361.423" width="70" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_monto_acciones_97}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

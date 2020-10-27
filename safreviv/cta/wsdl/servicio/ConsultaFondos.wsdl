@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.infonavit.org.mx" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:intf="http://service.infonavit.org.mx" xmlns:impl="http://service.infonavit.org.mx">
+  <wsdl:types>
+    <schema targetNamespace="http://service.infonavit.org.mx" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <element name="consultaSaldoAnteriorResponse">
+    <complexType>
+     <sequence>
+      <element name="consultaSaldoAnteriorReturn" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultaSaldoAnterior">
+    <complexType>
+     <sequence>
+      <element name="xmlRequest" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  </wsdl:types>
+  <wsdl:message name="consultaSaldoAnteriorResponse">
+    <wsdl:part name="parameters" element="intf:consultaSaldoAnteriorResponse"/>
+  </wsdl:message>
+  <wsdl:message name="consultaSaldoAnteriorRequest">
+    <wsdl:part name="parameters" element="intf:consultaSaldoAnterior"/>
+  </wsdl:message>
+  <wsdl:portType name="ConsultaFondos">
+    <wsdl:operation name="consultaSaldoAnterior">
+      <wsdl:input name="consultaSaldoAnteriorRequest" message="intf:consultaSaldoAnteriorRequest"/>
+      <wsdl:output name="consultaSaldoAnteriorResponse" message="intf:consultaSaldoAnteriorResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultaFondosSoapBinding" type="intf:ConsultaFondos">
+    <wsaw:UsingAddressing wsdl:required="false" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"/>
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consultaSaldoAnterior">
+      <wsdlsoap:operation soapAction="consultaSaldoAnterior"/>
+      <wsdl:input name="consultaSaldoAnteriorRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaSaldoAnteriorResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultaFondosService">
+    <wsdl:port name="ConsultaFondos" binding="intf:ConsultaFondosSoapBinding">
+      <wsdlsoap:address location="http://10.90.0.52:80/FondoAhorroWeb/services/ConsultaFondos"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

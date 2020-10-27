@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{dfa12ae0-2855-4db6-bfef-4a68b8d668f5}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{99e42993-c2a0-479a-a1e4-feb4f8e86853}" where="">
+    <RecordField colName="" fieldIdRef="1" name="p_modulo_cod" sqlTabName="" table_alias_name="" uid="{d89a3893-3542-4bcf-a377-777d2f6fce9b}"/>
+    <RecordField colName="" fieldIdRef="2" name="f_modulo_desc" sqlTabName="" table_alias_name="" uid="{81a0e6c8-ea82-409d-be32-453a3206b746}"/>
+    <RecordField colName="" fieldIdRef="3" name="proceso_cod" sqlTabName="" table_alias_name="" uid="{f3cebca2-cdd1-40af-a145-11e2ad177eea}"/>
+    <RecordField colName="" fieldIdRef="4" name="proceso_desc" sqlTabName="" table_alias_name="" uid="{1ee6887d-9e18-4331-a625-fe529a82fe4d}"/>
+    <RecordField colName="" fieldIdRef="5" name="usuario" sqlTabName="" table_alias_name="" uid="{3d76bec6-212c-4397-b7d5-037039b5058a}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_actualiza" sqlTabName="" table_alias_name="" uid="{dfefa483-2180-4c2c-bd70-881236d8f7ab}"/>
+    <RecordField colName="" fieldIdRef="7" name="proceso_ext" sqlTabName="" table_alias_name="" uid="{e91c2868-185f-473a-aedc-b017cf6ffa4d}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="123" name="Form" text="Alta catálogo procesos">
+    <Grid gridHeight="20" gridWidth="94" name="Grid1" posX="2" posY="1">
+      <Group gridHeight="3" gridWidth="43" name="gr_modulo_cod" posX="4" posY="1" text="Proceso del Modulo">
+        <Label gridHeight="1" gridWidth="10" name="lbl_modulo_cod_info" posX="2" posY="1" text="Módulo"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="27" items="" name="p_modulo_cod" posX="13" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      </Group>
+      <Group gridHeight="3" gridWidth="43" name="gr_modulo_desc" posX="4" posY="5" text="Descripción del modulo">
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="30" name="f_modulo_desc" posX="1" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="10" gridWidth="86" name="grp_cat_proceso" posX="4" posY="9" text="Datos del proceso">
+        <Label gridHeight="1" gridWidth="10" name="lbl_proceso_cod_info" posX="2" posY="1" text="Proceso"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="7" name="proceso_cod" posX="13" posY="1" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="9" name="lbl_modulo_desc" posX="22" posY="1" text="Descripción"/>
+        <Edit case="upper" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="32" name="proceso_desc" posX="32" posY="1" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" name="lbl_espacio2" posX="2" posY="2" text=""/>
+        <HLine gridWidth="81" name="HLine1" posX="2" posY="3"/>
+        <Label gridHeight="1" gridWidth="13" justify="right" name="lbl_programa_cod" posX="2" posY="4" text="Proceso Ext."/>
+        <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="10" name="proceso_ext" posX="16" posY="4" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" justify="right" name="lbl_f_actualiza" posX="2" posY="5" text="Fecha actualización"/>
+        <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="10" name="f_actualiza" posX="16" posY="5" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" justify="right" name="lbl_usuario" posX="2" posY="6" text="Usuario"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="10" name="usuario" posX="16" posY="6" rowCount="" scroll="true" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit2" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA4ADEAYQAwAGUANgBjADgALQBlAGEAOAAyAC0ANAAwADkAZAAtAGIAZQAzADIALQA0ADUAMwBhADMAMgAwADYAYgA3ADQANgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkAGYAZQBmAGEANAA4ADMALQAyADEAOAAwAC0ANABjADIAYwAtAGIAZAA3ADAALQA4ADgAMQAyADMANgBkADgAZgA3AGEAYgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADMAYwBlAGIAYwBhADIALQBjAGQAZAAxAC0ANAAwAGEAZgAtAGEAMQA0ADUALQAxADEAZQAyAGEAZAAxADcANwBlAGUAYQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGQANwA2AGIAZQBjADYALQAyADEAMgBjAC0ANAAzADkANwAtAGIANwBkADUALQAwADMANwAwADMAOQBiADUAMAA1ADgAYQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADgAOQBhADMAOAA5ADMALQAzADUANAAyAC0ANABiAGMAZgAtAGEAMwA3ADcALQA3ADcANwBkADIAZgA2AGYAYwBlADkAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADkAZQA0ADIAOQA5ADMALQBjADIAYQAwAC0ANAA3ADkAYQAtAGEAMQBlADQALQBmAGUAYgA0AGYAOABlADgANgA4ADUAMwB9wIEIAAAAAABAOgAAAAAAAD90euFHrhR7AQAAAEwAewBlADkAMQBjADIAOAA2ADgALQAxADgANQBmAC0ANAA3ADMAYQAtAGEAZQBkAGMALQBiADAAMQA3AGMAZgA2AGYAZgBhADQAZAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGUAZQA2ADgAOAA3AGQALQA5AGUAMQA4AC0ANAAzADMAMQAtAGEANgAyADUALQBmAGUANQAyADkAYQA4ADIAZgBlADQAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

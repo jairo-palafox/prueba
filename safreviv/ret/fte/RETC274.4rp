@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.035863cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RETC274.rdd" RWFglReportName="rpt_cifras_control"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Report" width="728.432" length="546.645" alignment="near" layoutDirection="topToBottom">
+                    <LAYOUTNODE name="encabezado" width="min" length="min" alignment="near" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="separador1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Logotipo_institucional" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="encabezado_reporte" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox" width="719.103" alignment="far" color="#ffffff" fontName="Arial" fontSize="14" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte de Consulta de Marcas de Trámite Judicial"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separador1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="folio_fecha" width="15.7843" length="max" layoutDirection="leftToRight">
+                            <WORDBOX name="titUsuario" width="74.124" alignment="baseline" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="Usuario:"/>
+                            <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_usuario Value" floatingBehavior="enclosed" text="{{p_usuario}}"/>
+                            <WORDBOX name="espacio2" width="425.51" length="11.8176" alignment="near" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="titFecha" width="43.0337" fontName="Arial" fontSize="11" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha Value" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage10" width="3.137" length="max" bgColor="#ce050f" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="MiniPage11" width="5.546" length="max" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="cuadro_nss" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="lbl_nss" width="71.7935" alignment="baseline" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="NSS:"/>
+                            <rtl:input-variable name="v_nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_nss Value" width="85.9755" fontSize="9" floatingBehavior="enclosed" text="{{v_nss}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage12" width="3.73925" length="max" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="Cuadro_fechas" width="min" length="min" layoutDirection="leftToRight">
+                            <MINIPAGE name="tipos_marca_v" width="min" length="min">
+                                <WORDBOX name="lbl_periodo_marca" alignment="baseline" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Periodo de Marca"/>
+                                <WORDBOX name="lbl_periodo_desmarca" alignment="baseline" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Periodo de Desmarca"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="sep_marca_v" width="min" length="min">
+                                <WORDBOX name="sep2" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="                 "/>
+                                <WORDBOX name="sep6" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="            "/>
+                            </MINIPAGE>
+                            <MINIPAGE name="lbl_f_ini_v" width="min" length="min">
+                                <WORDBOX name="f_ini_marca" width="102.575" length="13.9775" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Fecha inicial marca:           "/>
+                                <WORDBOX name="f_ini_desmarca" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Fecha inicial desmarca:"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="sep_marca_2_v" width="min" length="min">
+                                <WORDBOX name="sep3" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="          "/>
+                                <WORDBOX name="sep7" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="     "/>
+                            </MINIPAGE>
+                            <MINIPAGE name="f_ini_v" width="min" length="min">
+                                <rtl:input-variable name="v_f_ini" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_ini Value" width="96.3957" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{v_f_ini}}"/>
+                                <rtl:input-variable name="v_f_ini_des" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_ini_des Value" width="98.3057" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{v_f_ini_des}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="sep_marca_3_v" width="min" length="min">
+                                <WORDBOX name="sep4" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="          "/>
+                                <WORDBOX name="sep8" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="          "/>
+                            </MINIPAGE>
+                            <MINIPAGE name="lbl_f_fin_v" width="min" length="min">
+                                <WORDBOX name="f_final" fontSize="9" floatingBehavior="enclosed" text="Fecha final marca:"/>
+                                <WORDBOX name="f_fin_desmarca" fontSize="9" floatingBehavior="enclosed" text="Fecha final desmarca:"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="sep_marca_4_v" width="min" length="min">
+                                <WORDBOX name="sep5" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="          "/>
+                                <WORDBOX name="sep9" fontSize="9" floatingBehavior="enclosed" text="     "/>
+                            </MINIPAGE>
+                            <MINIPAGE name="f_fin_v" width="min" length="min">
+                                <rtl:input-variable name="v_f_fin" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_fin Value" width="96" fontSize="9" floatingBehavior="enclosed" text="{{v_f_fin}}"/>
+                                <rtl:input-variable name="v_f_fin_des" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_f_fin_des Value" width="96" fontSize="9" floatingBehavior="enclosed" text="{{v_f_fin_des}}"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage13" width="3.73925" length="max" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="Marcas" width="min" length="min" alignment="near" layoutDirection="leftToRight">
+                            <MINIPAGE name="MarcasV1" width="min" length="min">
+                                <MINIPAGE name="Marcas1" width="min" length="min" layoutDirection="leftToRight">
+                                    <MINIPAGE name="MiniPage" width="min" length="min">
+                                        <WORDBOX name="tpo_marca" alignment="baseline" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Tipo de Marca:"/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage1" width="min" length="min">
+                                        <WORDBOX name="lbl_activa" alignment="baseline" floatingBehavior="enclosed" text="     "/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage2" width="min" length="min">
+                                        <WORDBOX name="activa" alignment="far" fontSize="9" floatingBehavior="enclosed" text="Activa"/>
+                                        <WORDBOX name="lbl_hist" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Histórica"/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage3" width="min" length="min">
+                                        <WORDBOX name="sep10" width="18.7525" floatingBehavior="enclosed" text="                      "/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage4" width="min" length="min" alignment="near" marginWidth="0">
+                                        <rtl:input-variable name="v_chk_activa" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_chk_activa Value" anchorX="1" alignment="near" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_chk_activa}}"/>
+                                        <rtl:input-variable name="v_chk_historica" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_chk_historica Value" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_chk_historica}}"/>
+                                    </MINIPAGE>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                            <MINIPAGE name="MarcasSep" width="min" length="min">
+                                <WORDBOX name="sep17" width="17.414" floatingBehavior="enclosed" text="  "/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MarcasV2" width="min" length="min">
+                                <MINIPAGE name="CveMarca1" width="min" length="min" alignment="near" layoutDirection="leftToRight">
+                                    <MINIPAGE name="MiniPage5" width="min" length="min">
+                                        <WORDBOX name="desc_marcas" alignment="baseline" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Marca"/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage6" width="min" length="min">
+                                        <WORDBOX name="sep11" floatingBehavior="enclosed" text="     "/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage7" width="min" length="min" alignment="near">
+                                        <WORDBOX name="lbl_591" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="591 Trámite Judicial en Proceso"/>
+                                        <WORDBOX name="lbl_593" fontSize="9" floatingBehavior="enclosed" text="593 Cargo Jurídico por Instrucción Judicial"/>
+                                        <WORDBOX name="lbl_594" fontSize="9" floatingBehavior="enclosed" text="594 Pagado por Cargo Jurídico"/>
+                                        <WORDBOX name="lbl_595" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="595 Pagado por Laudo Anteriormente"/>
+                                        <WORDBOX name="lbl_596" fontSize="9" floatingBehavior="enclosed" text="596 Pagado por Amparo Tramitado Anteriormente"/>
+                                        <WORDBOX name="lbl_597" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="597 Ya Existe una Disposición por Tramite Judicial "/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage8" width="min" length="min">
+                                        <WORDBOX name="sep12" floatingBehavior="enclosed" text="          "/>
+                                    </MINIPAGE>
+                                    <MINIPAGE name="MiniPage9" width="min" length="min">
+                                        <rtl:input-variable name="v_chk_591" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_chk_591 Value" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_chk_591}}"/>
+                                        <rtl:input-variable name="v_chk_593" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_chk_593 Value" class="grwNumericValue" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_chk_593}}"/>
+                                        <rtl:input-variable name="v_chk_594" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_chk_594 Value" class="grwNumericValue" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_chk_594}}"/>
+                                        <rtl:input-variable name="v_chk_595" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_chk_595 Value" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_chk_595}}"/>
+                                        <rtl:input-variable name="v_chk_596" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_chk_596 Value" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_chk_596}}"/>
+                                        <rtl:input-variable name="v_chk_597" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                        <DECIMALFORMATBOX name="v_chk_597 Value" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_chk_597}}"/>
+                                    </MINIPAGE>
+                                </MINIPAGE>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage14" width="7.955" length="max" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="enc_columnas" width="min" length="min" layoutDirection="leftToRight">
+                            <MINIPAGE name="MiniPage30" width="48.6135" length="11.8833">
+                                <WORDBOX name="col_tpo_marca" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Tipo Marca"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage31" width="14.5798" length="9.76175"/>
+                            <MINIPAGE name="MiniPage32" width="min" length="min">
+                                <WORDBOX name="col_desc_marca" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Marca"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage33" width="98.293" length="9.56035"/>
+                            <MINIPAGE name="MiniPage34" width="min" length="min">
+                                <WORDBOX name="col_nss" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="NSS"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage35" width="59.7485" length="9.7618"/>
+                            <MINIPAGE name="MiniPage36" width="min" length="min">
+                                <WORDBOX name="col_nombre" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Nombre"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage37" width="95.281" length="8.44285"/>
+                            <MINIPAGE name="MiniPage38" width="min" length="min">
+                                <WORDBOX name="col_f_marca" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Fecha marca"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage39" width="24.818" length="10.9663"/>
+                            <MINIPAGE name="MiniPage40" width="min" length="min">
+                                <WORDBOX name="col_f_desmarca" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Fecha desmarca"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage41" width="17.591" length="7.27207"/>
+                            <MINIPAGE name="MiniPage42" width="min" length="min">
+                                <WORDBOX name="col_referencia" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Referencia"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage43" width="27.227" length="9.76175" alignment="near"/>
+                            <MINIPAGE name="MiniPage44" width="min" length="min">
+                                <WORDBOX name="col_usuario" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="Usuario"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="det_marcas_reporte" width="min" length="min" layoutDirection="leftToRight">
+                            <MINIPAGE name="MiniPage15" width="56.3528" length="8.41976">
+                                <rtl:input-variable name="v_arr_marcas_r.rep_tpo_marca" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_marcas_r.rep_tpo_marca Value" width="53.9438" length="8.59973" alignment="near" fontSize="9" floatingBehavior="enclosed" text="{{v_arr_marcas_r.rep_tpo_marca}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage16" width="7.35275" length="9.1595"/>
+                            <MINIPAGE name="MiniPage17" width="106.274" length="min" alignment="center">
+                                <rtl:input-variable name="v_arr_marcas_r.rep_marca" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_arr_marcas_r.rep_marca Value" width="104.467" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{v_arr_marcas_r.rep_marca}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage18" width="12.1708" length="5.9404" alignment="near"/>
+                            <MINIPAGE name="MiniPage19" width="min" length="min">
+                                <rtl:input-variable name="v_arr_marcas_r.rep_nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_marcas_r.rep_nss Value" fontSize="9" floatingBehavior="enclosed" text="{{v_arr_marcas_r.rep_nss}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage20" width="7.35275" length="8.55725"/>
+                            <MINIPAGE name="MiniPage21" width="124.342" length="9.76969">
+                                <rtl:input-variable name="v_arr_marcas_r.rep_nombre" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_arr_marcas_r.rep_nombre Value" width="120.126" length="9.43845" fontSize="9" floatingBehavior="enclosed" text="{{v_arr_marcas_r.rep_nombre}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage22" width="5.546" length="8.55725"/>
+                            <MINIPAGE name="MiniPage23" width="71.3978" length="min">
+                                <rtl:input-variable name="v_arr_marcas_r.rep_f_inicio" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_marcas_r.rep_f_inicio Value" fontSize="9" floatingBehavior="enclosed" text="{{v_arr_marcas_r.rep_f_inicio}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage24" width="min" length="min">
+                                <WORDBOX name="sep34" fontSize="9" floatingBehavior="enclosed" text="   "/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage25" width="63.5685" length="11.3218">
+                                <rtl:input-variable name="v_arr_marcas_r.rep_f_final" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_marcas_r.rep_f_final Value" width="62.9662" length="9.61984" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{v_arr_marcas_r.rep_f_final}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage26" width="10.6136" length="8.07629" alignment="near"/>
+                            <MINIPAGE name="MiniPage27" width="65.9723" length="23.7688">
+                                <rtl:input-variable name="v_arr_marcas_r.rep_referencia" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_arr_marcas_r.rep_referencia Value" width="max" length="17.0225" alignment="far" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-&amp;&amp;&amp;&amp;&amp;&amp;&amp;" value="{{v_arr_marcas_r.rep_referencia}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage28" width="min" length="min">
+                                <WORDBOX name="sep36" fontSize="9" floatingBehavior="enclosed" text="   "/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage29" width="min" length="28.7283" alignment="center">
+                                <rtl:input-variable name="v_arr_marcas_r.rep_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_arr_marcas_r.rep_usuario Value" width="66.9663" length="9.69248" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{v_arr_marcas_r.rep_usuario}}"/>
+                                <rtl:input-variable name="v_arr_marcas_r.rep_usuario_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_arr_marcas_r.rep_usuario_desc Value" width="96.6375" length="7.59298" fontSize="9" floatingBehavior="enclosed" text="{{v_arr_marcas_r.rep_usuario_desc}}"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage45" width="2" length="max" alignment="near" bgColor="#d9d9d9" layoutDirection="leftToRight"/>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AGRP33.rdd" RWFglReportName="rep_resultados"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <MINIPAGE name="MiniPage" width="95.2811" length="523.416" layoutDirection="leftToRight">
+                        <IMAGEBOX name="ImageBox" width="114.247" length="96.9324" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode" width="1.17969" length="523.632" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage2" width="25.2922" length="max" color="#ffffff" bgColor="#d30105" fontBold="true" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox1" x="4.1142" y="10.551" width="68.8091" length="17.7641" anchorX="3.67989e-14" anchorY="0.0856141" alignment="far" floatingBehavior="enclosed" text="USUARIO :"/>
+                        <WORDBOX name="WordBox2" x="4.1142" y="366.497" width="48.7753" length="16.2584" anchorX="0.0537963" anchorY="0.0841009" alignment="baseline" floatingBehavior="enclosed" text="FECHA :"/>
+                        <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_fecha_reporte Value" x="5.4169" y="444.082" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                        <rtl:input-variable name="v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_usuario Value" x="5.4169" y="87.6782" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_usuario}}"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1.17969" length="524.384" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="20.0225" length="max" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox" width="524.585" length="18.5169" color="#ffffff" bgColor="#d30105" fontSize="14" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Consulta Movimientos de Cuenta Individual"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode7" width="0.426875" length="522.879" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage8" width="78.7421" length="523.416" alignment="near" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox9" width="522.271" length="17.0112" color="#d30105" fontSize="13" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Nombre y ruta de archivos">
+                            <rtl:input-variable name="v_nom_arch" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nom_arch Value" x="4.0217" y="39.1378" width="511.665" length="14.0728" anchorX="2.77737e-17" anchorY="0.5" alignment="far" color="#000000" fontSize="11" fontBold="false" floatingBehavior="enclosed" text="{{v_nom_arch}}"/>
+                        </WORDBOX>
+                        <WORDBOX name="WordBox10" x="24.0894" y="87.6782" anchorX="0.5" anchorY="0.299748" color="#040000" fontBold="true" floatingBehavior="enclosed" text="Creditos"/>
+                        <WORDBOX name="WordBox11" x="56.845" y="87.6782" anchorX="0.5" anchorY="0.361036" alignment="far" color="#000000" fontBold="true" floatingBehavior="enclosed" text="Movimientos"/>
+                        <rtl:input-variable name="v_arch_mov" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_arch_mov Value" x="69.9415" y="3.9891" width="508.552" anchorX="0.5" anchorY="0" fontSize="11" floatingBehavior="enclosed" text="{{v_arch_mov}}"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode2" width="1.17972" length="524.384" bgColor="#ffffff" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage3" width="18.4945" length="max" alignment="near" color="#ffffff" bgColor="#d30105" fontBold="true" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox8" width="227.618" length="15.5056" floatingBehavior="enclosed" text="Total  NSS encontrados : ">
+                            <rtl:input-variable name="p_reporte.v_cuenta" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="p_reporte.v_cuenta Value" x="475.97" y="8.985" width="83.3988" length="16.2584" anchorX="0.800312" anchorY="0.5" alignment="baseline" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{p_reporte.v_cuenta}}"/>
+                        </WORDBOX>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode3" width="1.17969" length="523.632" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage4" width="13.8316" length="max" alignment="near" layoutDirection="leftToRight"/>
+                    </rtl:match>
+                    <LAYOUTNODE name="LayoutNode4" width="1.17969" length="522.126" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage7" width="18.5169" length="524.169" bgColor="#d30105" fontBold="false" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox6" width="212.113" length="16.2584" color="#ffffff" bgColor="#d30105" fontBold="true" floatingBehavior="enclosed" text="Total NSS no encontrados :"/>
+                        <rtl:input-variable name="v_cuenta_rechazos" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                        <DECIMALFORMATBOX name="v_cuenta_rechazos Value1" x="5.4337" y="460.899" width="67.9662" anchorX="0.28804" anchorY="0.545812" color="#ffffff" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="----------&amp;" value="{{v_cuenta_rechazos}}"/>
+                    </MINIPAGE>
+                    <rtl:match nameConstraint="OnLastRow" minOccurs="0" maxOccurs="1">
+                        <rtl:match nameConstraint="Foreach" minOccurs="1" maxOccurs="1">
+                            <LAYOUTNODE name="LayoutNode5" width="13.2247" length="523.632" bgColor="#ffffff" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <MINIPAGE name="MiniPage6" width="20.7397" length="521.91" layoutDirection="leftToRight">
+                                <WORDBOX name="WordBox7" width="523.877" length="20.7753" color="#ffffff" bgColor="#d30105" fontBold="true" floatingBehavior="enclosed" text="Detalle NSS no encontrados : "/>
+                            </MINIPAGE>
+                            <LAYOUTNODE name="LayoutNode6" width="1.17969" length="522.878" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <rtl:match nameConstraint="ForeachItem" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage5" width="min" length="max" layoutDirection="leftToRight">
+                                    <rtl:input-variable name="r_reporte_rechazos.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="r_reporte_rechazos.nss Value" x="8.8114" y="43.0794" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{r_reporte_rechazos.nss}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

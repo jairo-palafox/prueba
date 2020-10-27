@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services.safre.efp.com" xmlns:intf="http://services.safre.efp.com" xmlns:tns1="http://vo.safre.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.safre.efp.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.safre.efp.com">
+   <complexType name="ComprobanteRequest">
+    <sequence>
+     <element name="calle" nillable="false" type="xsd:string"/>
+     <element name="celular" nillable="false" type="xsd:string"/>
+     <element name="codigoPostal" nillable="false" type="xsd:string"/>
+     <element name="colonia" nillable="false" type="xsd:string"/>
+     <element name="correoelectrónico" nillable="false" type="xsd:string"/>
+     <element name="estado" nillable="false" type="xsd:string"/>
+     <element name="lada" nillable="false" type="xsd:string"/>
+     <element name="materno" nillable="false" type="xsd:string"/>
+     <element name="municipio" nillable="false" type="xsd:string"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+     <element name="nss" nillable="false" type="xsd:string"/>
+     <element name="numExterior" nillable="false" type="xsd:string"/>
+     <element name="numInterior" nillable="false" type="xsd:string"/>
+     <element name="paterno" nillable="false" type="xsd:string"/>
+     <element name="telefono" nillable="false" type="xsd:string"/>
+     <element name="tipoPersona" nillable="false" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ComprobanteResponse">
+    <sequence>
+     <element name="codRechazo" nillable="true" type="xsd:string"/>
+     <element name="ctaCLABE" nillable="true" type="xsd:string"/>
+     <element name="estatusPago" nillable="true" type="xsd:string"/>
+     <element name="fPago" nillable="true" type="xsd:string"/>
+     <element name="montoPago" nillable="true" type="xsd:string"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://services.safre.efp.com">
+   <import namespace="http://vo.safre.efp.com"/>
+   <element name="request" type="tns1:ComprobanteRequest"/>
+   <element name="comprobantePagoReturn" type="tns1:ComprobanteResponse"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="comprobantePagoResponse">
+
+      <wsdl:part element="impl:comprobantePagoReturn" name="comprobantePagoReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="comprobantePagoRequest">
+
+      <wsdl:part element="impl:request" name="request">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ComprobantePago">
+
+      <wsdl:operation name="comprobantePago" parameterOrder="request">
+
+         <wsdl:input message="impl:comprobantePagoRequest" name="comprobantePagoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:comprobantePagoResponse" name="comprobantePagoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ComprobantePagoSoapBinding" type="impl:ComprobantePago">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="comprobantePago">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="comprobantePagoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="comprobantePagoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ComprobantePagoService">
+
+      <wsdl:port binding="impl:ComprobantePagoSoapBinding" name="ComprobantePago">
+
+         <wsdlsoap:address location="http://localhost:8080/WSPagoMasivo/services/ComprobantePago"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

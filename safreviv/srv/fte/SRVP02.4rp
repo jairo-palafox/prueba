@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="0.0cm" RWTopMargin="0.0cm" RWRightMargin="0.0cm" RWBottomMargin="0.0cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/SRVP02.rdd" RWFglReportName="estado_cuenta"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Pagina 1" width="max" length="max">
+                    <LAYOUTNODE name="LayoutNode3" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <IMAGEBOX name="Portada" width="max" length="max" alignment="none" widthAdjustment="expandToParent" lengthAdjustment="expandToParent" fontSize="8" floatingBehavior="enclosed" url="../img/estado_cta1.jpg">
+                            <WORDBOX name="WordBox" x="493.349" y="150.714" width="13.8615" anchorX="0.5" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="al"/>
+                            <rtl:input-variable name="v_parametros.numero" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.numero Value" x="276.186" y="140.441" width="90" anchorX="0.5" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.numero}}"/>
+                            <rtl:input-variable name="v_parametros.nombre_completo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.nombre_completo Value" x="106.308" y="124.373" width="187.143" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.nombre_completo}}"/>
+                            <rtl:input-variable name="v_parametros.calle" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.calle Value" x="106.308" y="140.441" width="width(&quot;M&quot;)*20" anchorX="1.30266e-15" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.calle}}"/>
+                            <rtl:input-variable name="v_parametros.colonia" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.colonia Value" x="106.308" y="155.863" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.colonia}}"/>
+                            <rtl:input-variable name="v_parametros.municipio" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.municipio Value" x="276.186" y="155.863" width="90" length="11" anchorX="0.5" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.municipio}}"/>
+                            <rtl:input-variable name="v_parametros.estado" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.estado Value" x="106.308" y="173.017" width="width(&quot;M&quot;)*20" anchorX="1.30266e-15" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.estado}}"/>
+                            <rtl:input-variable name="v_parametros.codigo_postal" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_parametros.codigo_postal Value" x="276.186" y="173.017" width="90" length="11" anchorX="0.5" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.codigo_postal}}"/>
+                            <rtl:input-variable name="v_parametros.fecha_corte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.fecha_corte Value1" x="333.265" y="140.441" width="70" length="18" anchorX="1.86985e-16" anchorY="3.03249e-14" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.fecha_corte}}"/>
+                            <rtl:input-variable name="v_parametros.periodo_inicio" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.periodo_inicio Value1" x="413.414" y="140.441" width="70" length="18" anchorX="3.04518e-16" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.periodo_inicio}}" fidelity="false" textAlignment="center"/>
+                            <rtl:input-variable name="v_parametros.periodo_fin" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.periodo_fin Value1" x="496.708" y="140.441" width="70" length="18" anchorX="0" anchorY="1.34496e-14" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.periodo_fin}}" trimText="right" fidelity="false" textAlignment="center"/>
+                            <rtl:input-variable name="v_parametros.nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_parametros.nss Value" x="421.185" y="222.414" width="147.496" anchorX="0" anchorY="3.78364e-14" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.nss}}"/>
+                            <rtl:input-variable name="v_parametros.curp" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_parametros.curp Value" x="421.185" y="236.449" width="147.496" anchorX="0" anchorY="2.13163e-15" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.curp}}"/>
+                            <rtl:input-variable name="v_parametros.tipo_derechohabiente" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_parametros.tipo_derechohabiente Value" x="421.185" y="248.6" width="147.496" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.tipo_derechohabiente}}"/>
+                            <rtl:input-variable name="v_parametros.origen_afiliacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_parametros.origen_afiliacion Value" x="421.185" y="263.131" width="147.496" anchorX="9.34925e-17" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.origen_afiliacion}}"/>
+                            <rtl:input-variable name="v_parametros.indicador_credito" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.indicador_credito Value" x="421.185" y="278.123" width="147.496" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.indicador_credito}}"/>
+                            <rtl:input-variable name="v_parametros.anterior_72" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.anterior_72 Value" x="207.049" y="386.62" width="106.471" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.anterior_72}}"/>
+                            <rtl:input-variable name="v_parametros.cargo_72" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.cargo_72 Value" x="310.239" y="386.62" width="87.2433" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.cargo_72}}"/>
+                            <rtl:input-variable name="v_parametros.abono_72" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.abono_72 Value" x="400.661" y="386.62" width="84.0494" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.abono_72}}"/>
+                            <rtl:input-variable name="v_parametros.final_72" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.final_72 Value" x="511.176" y="386.62" width="122.844" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.final_72}}"/>
+                            <rtl:input-variable name="v_parametros.anterior_92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.anterior_92 Value" x="207.049" y="399.756" width="106.471" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.anterior_92}}"/>
+                            <rtl:input-variable name="v_parametros.cargo_92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.cargo_92 Value" x="310.239" y="399.756" width="87.2433" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.cargo_92}}"/>
+                            <rtl:input-variable name="v_parametros.final_92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.final_92 Value" x="511.176" y="399.756" width="122.844" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.final_92}}"/>
+                            <rtl:input-variable name="v_parametros.anterior_97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.anterior_97 Value" x="207.049" y="413.323" width="106.471" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.anterior_97}}"/>
+                            <rtl:input-variable name="v_parametros.abono_97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.abono_97 Value" x="400.661" y="413.323" width="84.0494" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.abono_97}}"/>
+                            <rtl:input-variable name="v_parametros.final_97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.final_97 Value" x="511.176" y="413.323" width="122.844" length="11.2229" anchorX="0.5" anchorY="1" alignment="far" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.final_97}}"/>
+                            <rtl:input-variable name="v_parametros.saldo_total" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.saldo_total Value" x="498.556" y="766.223" width="139.801" length="12.6857" anchorX="0.5" anchorY="1" alignment="baseline" fontName="Courier" fontSize="8" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.saldo_total}}"/>
+                            <rtl:input-variable name="v_parametros.cargo_97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.cargo_97 Value" x="310.239" y="413.323" width="87.2433" length="11.2229" anchorX="0.5" anchorY="1" alignment="baseline" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.cargo_97}}"/>
+                            <rtl:input-variable name="v_parametros.fecha_corte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_parametros.fecha_corte Value" x="498.556" y="732.264" width="121.247" anchorX="0.5" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{v_parametros.fecha_corte}}"/>
+                            <rtl:input-variable name="v_parametros.abono_92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.abono_92 Value" x="400.661" y="399.756" width="84.0494" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.abono_92}}"/>
+                            <rtl:input-variable name="v_parametros.anterior_92_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.anterior_92_infonavit Value" x="207.049" y="440.714" width="106.471" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.anterior_92_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.anterior_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.anterior_amortizacion Value" x="207.049" y="427.062" width="106.471" length="11.2229" anchorX="0.5" anchorY="1" alignment="baseline" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.anterior_amortizacion}}"/>
+                            <rtl:input-variable name="v_parametros.anterior_97_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.anterior_97_infonavit Value" x="207.049" y="454.387" width="106.471" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.anterior_97_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.anterior_amortizacion_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.anterior_amortizacion_infonavit Value" x="207.049" y="468.642" width="106.471" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.anterior_amortizacion_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.cargo_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.cargo_amortizacion Value" x="310.239" y="427.062" width="87.2433" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.cargo_amortizacion}}"/>
+                            <rtl:input-variable name="v_parametros.cargo_92_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.cargo_92_infonavit Value" x="310.239" y="440.714" width="87.2433" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.cargo_92_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.cargo_97_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.cargo_97_infonavit Value" x="310.239" y="454.387" width="87.2433" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.cargo_97_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.cargo_amortizacion_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.cargo_amortizacion_infonavit Value" x="310.239" y="468.642" width="87.2433" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.cargo_amortizacion_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.abono_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.abono_amortizacion Value" x="400.661" y="426.408" width="84.0494" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.abono_amortizacion}}"/>
+                            <rtl:input-variable name="v_parametros.abono_92_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.abono_92_infonavit Value" x="400.661" y="440.714" width="84.0494" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.abono_92_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.abono_97_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.abono_97_infonavit Value" x="400.661" y="454.387" width="84.0494" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.abono_97_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.abono_amortizacion_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.abono_amortizacion_infonavit Value" x="400.661" y="468.642" width="84.0494" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.abono_amortizacion_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.final_amortizacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.final_amortizacion Value" x="511.176" y="426.408" width="122.844" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.final_amortizacion}}"/>
+                            <rtl:input-variable name="v_parametros.final_92_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.final_92_infonavit Value" x="511.176" y="440.714" width="122.844" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.final_92_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.final_97_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.final_97_infonavit Value" x="511.176" y="454.387" width="122.844" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.final_97_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.final_amortizacion_infonavit" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.final_amortizacion_infonavit Value" x="511.176" y="468.642" width="122.844" length="11.2229" anchorX="0.5" anchorY="1" fontName="Courier" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_parametros.final_amortizacion_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.desc_72" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.desc_72 Value" x="85.9923" y="386.62" width="125.856" length="11.3203" anchorX="0.5" anchorY="1" fontName="Times New Roman" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.desc_72}}"/>
+                            <rtl:input-variable name="v_parametros.desc_92" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.desc_92 Value" x="85.9923" y="399.756" width="125.856" length="11.3203" anchorX="0.5" anchorY="1" fontName="Times New Roman" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.desc_92}}"/>
+                            <rtl:input-variable name="v_parametros.desc_97" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.desc_97 Value" x="85.9923" y="413.323" width="125.856" length="11.3203" anchorX="0.5" anchorY="1" fontName="Times New Roman" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.desc_97}}"/>
+                            <rtl:input-variable name="v_parametros.desc_amortizacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.desc_amortizacion Value" x="85.9923" y="427.062" width="125.856" length="11.3203" anchorX="0.5" anchorY="1" fontName="Times New Roman" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.desc_amortizacion}}"/>
+                            <rtl:input-variable name="v_parametros.desc_92_infonavit" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.desc_92_infonavit Value" x="85.9923" y="440.714" width="125.856" length="11.3203" anchorX="0.5" anchorY="1" fontName="Times New Roman" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.desc_92_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.desc_97_infonavit" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.desc_97_infonavit Value" x="85.9923" y="454.387" width="125.856" length="11.3203" anchorX="0.5" anchorY="1" fontName="Times New Roman" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.desc_97_infonavit}}"/>
+                            <rtl:input-variable name="v_parametros.desc_amortizacion_infonavit" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_parametros.desc_amortizacion_infonavit Value" x="85.9923" y="468.642" width="125.856" length="11.3203" anchorX="0.5" anchorY="1" fontName="Times New Roman" fontSize="8" floatingBehavior="enclosed" text="{{v_parametros.desc_amortizacion_infonavit}}"/>
+                            <PAGENOBOX name="PageNoBox" x="579.896" y="841.34" anchorX="0.5" anchorY="1" fontSize="7" floatingBehavior="enclosed"/>
+                            <rtl:input-variable name="v_parametros.hoja_detalle" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_parametros.hoja_detalle Value" anchorX="1" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_parametros.hoja_detalle}}"/>
+                        </IMAGEBOX>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+                <rtl:input-variable name="v_parametros.hoja_detalle" type="FGLNumeric" expectedLocation="expectedHere"/>
+                <MINIPAGE name="Pagina2" rtl:condition="v_parametros.hoja_detalle.toBoolean()" width="max" length="max" alignment="center" hidePageHeaderOnLastPage="false">
+                    <LAYOUTNODE name="LayoutNode" width="max" length="90.0108" port="anyPageHeader" floatingBehavior="enclosed">
+                        <IMAGEBOX name="ImageBox" width="max" widthAdjustment="expandToParent" floatingBehavior="enclosed" url="../img/encabezado_detalle.jpg"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode6" width="max" length="41.8251" alignment="near" port="anyPageFooter" floatingBehavior="enclosed">
+                        <IMAGEBOX name="ImageBox3" width="max" floatingBehavior="enclosed" url="../img/detalle_pie.jpg">
+                            <PAGENOBOX name="PageNoBox1" x="579.896" y="32.4892" anchorX="0.5" anchorY="1" fontSize="7" floatingBehavior="enclosed"/>
+                        </IMAGEBOX>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage2" width="min" length="min" floatingBehavior="enclosed">
+                        <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight" paddingTopWidth="10">
+                                <rtl:input-variable name="imagen_grupo" type="FGLString" expectedLocation="expectedHere"/>
+                                <IMAGEBOX name="ImageBox2" width="max" floatingBehavior="enclosed" url="{{imagen_grupo}}"/>
+                            </MINIPAGE>
+                            <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                                <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                                        <MINIPAGE name="MiniPage1" width="min" length="max" fontName="Arial" fontSize="7" fontBold="false" layoutDirection="leftToRight">
+                                            <rtl:input-variable name="p_detalle.fecha" type="FGLString" expectedLocation="expectedHere"/>
+                                            <WORDBOX name="p_detalle.fecha Value" width="84.6766" fontName="Courier" fontSize="7" fontBold="false" floatingBehavior="enclosed" textAlignment="center" text="{{p_detalle.fecha}}" trimText="right"/>
+                                            <rtl:input-variable name="p_detalle.tipo_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                            <WORDWRAPBOX name="p_detalle.tipo_movimiento Value" width="283.384" fontName="Courier" fontSize="7" floatingBehavior="enclosed" text="{{p_detalle.tipo_movimiento}}" trimText="right" textAlignment="left"/>
+                                            <rtl:input-variable name="p_detalle.nrp" type="FGLString" expectedLocation="expectedHere"/>
+                                            <WORDWRAPBOX name="p_detalle.nrp Value" width="132.143" fontName="Courier" fontSize="7" floatingBehavior="enclosed" text="{{p_detalle.nrp}}"/>
+                                            <rtl:input-variable name="p_detalle.monto_pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                            <DECIMALFORMATBOX name="p_detalle.monto_pesos Value" width="86.3954" anchorX="1" alignment="baseline" fontName="Courier" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_detalle.monto_pesos}}"/>
+                                        </MINIPAGE>
+                                    </rtl:match>
+                                </rtl:match>
+                            </rtl:match>
+                        </rtl:match>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

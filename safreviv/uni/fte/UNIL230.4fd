@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{e3cb3c50-b330-4f1a-a5d1-8c7d0d7f6b3e}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{bcfc1d49-7ceb-4e2e-a305-2832aa563891}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cmb_folio" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{d47eb4d2-feee-4b1d-a1f4-6079a051cbfb}"/>
+    <RecordField colName="" fieldIdRef="6" name="txt_tot_des_do" sqlTabName="" table_alias_name="" uid="{d502a9e3-2eed-4f5c-803a-3444555509d9}"/>
+    <RecordField colName="" fieldIdRef="5" name="txt_tot_des_dor" sqlTabName="" table_alias_name="" uid="{0d76c1a8-d261-40bc-82e7-66bdc7a623fe}"/>
+    <RecordField colName="" fieldIdRef="9" name="txt_tot_des_do1" sqlTabName="" table_alias_name="" uid="{0a515bae-e613-41b0-b5ab-1601472f29fd}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_unificados" order="" uid="{88c40dde-8418-4f39-834a-ee3ad4e4e3e7}" where="">
+    <RecordField colName="" fieldIdRef="16" name="col_r_originacion_u" sqlTabName="" table_alias_name="" uid="{ade1e2ff-3280-417f-8488-934ccd28a146}"/>
+    <RecordField colName="" fieldIdRef="17" name="col_r_originacion_des_u" sqlTabName="" table_alias_name="" uid="{e029f121-6973-4191-9057-51f7eba7cf16}"/>
+    <RecordField colName="" fieldIdRef="18" name="col_r_tpo_credito_u" sqlTabName="" table_alias_name="" uid="{d2f5d893-61f7-4f3c-9c23-5c9343a9eee6}"/>
+    <RecordField colName="" fieldIdRef="19" name="col_r_tpo_credito_des_u" sqlTabName="" table_alias_name="" uid="{af0d3da6-d2a4-4f43-88f9-69f71a78702a}"/>
+    <RecordField colName="" fieldIdRef="20" name="col_r_unificados" sqlTabName="" table_alias_name="" uid="{482dcabf-fa92-4935-a086-b6e4e0d73766}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_unificadores" order="" uid="{0b13f862-f962-4c3c-ad9b-c7c7e825b5d7}" where="">
+    <RecordField colName="" fieldIdRef="2" name="col_r_originacion" sqlTabName="" table_alias_name="" uid="{3af1c1d3-4c0b-4cd0-9695-e17e64501bf0}"/>
+    <RecordField colName="" fieldIdRef="3" name="col_r_originacion_des" sqlTabName="" table_alias_name="" uid="{6ae71c45-f6f0-40ce-b807-8a4fd77136e2}"/>
+    <RecordField colName="" fieldIdRef="4" name="col_r_tpo_credito" sqlTabName="" table_alias_name="" uid="{67507797-4b89-425e-82aa-b2dc313ddfae}"/>
+    <RecordField colName="" fieldIdRef="7" name="col_r_tpo_credito_des" sqlTabName="" table_alias_name="" uid="{5f863d91-f074-4c37-8d49-9d0a02792650}"/>
+    <RecordField colName="" fieldIdRef="8" name="col_r_unificadores" sqlTabName="" table_alias_name="" uid="{187aa9e3-ea3a-4d0e-8837-344358314916}"/>
+  </Record>
+  <Form gridHeight="42" gridWidth="105" name="Form" text="Liquidación de devolución por errores de operación">
+    <VBox gridHeight="41" gridWidth="104" name="VBox1" posX="0" posY="0">
+      <Group gridHeight="21" gridWidth="104" name="grup_filtro" posX="0" posY="1" text="Criterios de busqueda">
+        <Grid gridHeight="19" gridWidth="102" name="grid_unificados" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="lbl_folio" posX="2" posY="1" text="Folio:"/>
+          <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="27" items="" name="cmb_folio" posX="17" posY="1" precisionDecimal="9" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+          <Group gridHeight="9" gridWidth="99" name="grup_previa" posX="1" posY="3" text="Información Previa">
+            <Label gridHeight="1" gridWidth="80" justify="center" name="Label26" posX="1" posY="1" text="INDICADORES DE CREDITO"/>
+            <Table gridHeight="6" gridWidth="86" name="scr_unificados" posX="1" posY="2" totalRows="5">
+              <Edit colName="" columnCount="" fieldId="16" gridHeight="1" gridWidth="7" name="col_r_originacion_u" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Tipo&#10;Originacion" widget="Edit"/>
+              <Edit colName="" columnCount="" fieldId="17" gridHeight="1" gridWidth="29" name="col_r_originacion_des_u" posX="7" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Descripcion&#10;Tipo&#10;Originacion" widget="Edit"/>
+              <Edit colName="" columnCount="" fieldId="18" gridHeight="1" gridWidth="5" name="col_r_tpo_credito_u" posX="36" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Tipo&#10;Credito" widget="Edit"/>
+              <Edit colName="" columnCount="" fieldId="19" gridHeight="1" gridWidth="24" name="col_r_tpo_credito_des_u" posX="41" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Descripcion&#10;Tipo&#10;Credito" widget="Edit"/>
+              <Edit colName="" columnCount="" fieldId="20" gridHeight="1" gridWidth="13" justify="center" name="col_r_unificados" posX="65" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total&#10;Unificados" widget="Edit"/>
+            </Table>
+          </Group>
+          <Group gridHeight="5" gridWidth="100" name="gr_desmarca_unificados" posX="1" posY="13" text="Desmarca de Cuentas">
+            <Label gridHeight="1" gridWidth="18" justify="center" name="Label27" posX="16" posY="1" text="Unificadores"/>
+            <Label gridHeight="1" gridWidth="19" justify="center" name="Label28" posX="35" posY="1" text="Unificados"/>
+            <Label gridHeight="1" gridWidth="14" name="Label29" posX="1" posY="2" text="Total a desmarcar"/>
+            <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="18" name="txt_tot_des_dor" posX="16" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit1" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="19" name="txt_tot_des_do" posX="35" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Edit1" widget="Edit"/>
+            <Button gridHeight="1" gridWidth="19" name="actualizacion" posX="60" posY="2" tabIndex="7" text="Actualización"/>
+          </Group>
+        </Grid>
+      </Group>
+      <Grid gridHeight="18" gridWidth="104" name="grid_indicadores_unificadores" posX="0" posY="22">
+        <Group gridHeight="9" gridWidth="100" name="grup_actual" posX="1" posY="1" text="Información Posterior">
+          <Label gridHeight="1" gridWidth="80" justify="center" name="Label13" posX="1" posY="1" text="INDICADORES DE CREDITO"/>
+          <Table gridHeight="6" gridWidth="98" name="scr_unificadores" posX="1" posY="2" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="7" name="col_r_originacion" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Tipo&#10;Originacion" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="29" name="col_r_originacion_des" posX="7" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Descripcion&#10;Tipo&#10;Originacion" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="5" name="col_r_tpo_credito" posX="36" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Tipo&#10;Credito" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="24" name="col_r_tpo_credito_des" posX="41" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Descripcion&#10;Tipo&#10;Credito" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="13" justify="center" name="col_r_unificadores" posX="65" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Total&#10;Unificadores" widget="Edit"/>
+          </Table>
+        </Group>
+        <Group gridHeight="4" gridWidth="100" name="gr_desmarca_unificadores" posX="1" posY="11" text="Desmarca de Cuentas">
+          <Label gridHeight="1" gridWidth="19" justify="center" name="Label21" posX="16" posY="1" text="Unificados"/>
+          <Label gridHeight="1" gridWidth="14" name="Label23" posX="1" posY="2" text="Total a inhabilitar"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="19" justify="center" name="txt_tot_des_do1" posX="16" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="15" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="19" justify="center" name="Label1" posX="36" posY="2" text=""/>
+          <Button gridHeight="1" gridWidth="19" name="aplicar" posX="61" posY="2" tabIndex="16" text="Aplicar"/>
+        </Group>
+      </Grid>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiAGMAZgBjADEAZAA0ADkALQA3AGMAZQBiAC0ANABlADIAZQAtAGEAMwAwADUALQAyADgAMwAyAGEAYQA1ADYAMwA4ADkAMQB9QFDAAAAAAABAZQAAAAAAAD+CbpeNT988AQAAAEwAewBkADIAZgA1AGQAOAA5ADMALQA2ADEAZgA3AC0ANABmADMAYwAtADkAYwAyADMALQA1AGMAOQAzADQAMwBhADkAZQBlAGUANgB9QBQAAAAAAABAUgAAAAAAAD+TdLxqfvneAQAAAEwAewBkADQANwBlAGIANABkADIALQBmAGUAZQBlAC0ANABiADEAZAAtAGEAMQBmADQALQA2ADAANwA5AGEAMAA1ADEAYwBiAGYAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADUAMAAyAGEAOQBlADMALQAyAGUAZQBkAC0ANABmADUAYwAtADgAMAAzAGEALQAzADQANAA0ADUANQA1ADUAMAA5AGQAOQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGIAMQAzAGYAOAA2ADIALQBmADkANgAyAC0ANABjADMAYwAtAGEAZAA5AGIALQBjADcAYwA3AGUAOAAyADUAYgA1AGQANwB9QHUgAAAAAABARoAAAAAAAD+EeuFHrhR8AQAAAEwAewBlADAAMgA5AGYAMQAyADEALQA2ADkANwAzAC0ANAAxADkAMQAtADkAMAA1ADcALQA1ADEAZgA3AGUAYgBhADcAYwBmADEANgB9QBQAAAAAAABASIAAAAAAAD+RaHKwIMSeAQAAAEwAewBhAGYAMABkADMAZABhADYALQBkADIAYQA0AC0ANABmADQAMwAtADgAOABmADkALQA2ADkAZgA3ADEAYQA3ADgANwAwADIAYQB9QBQAAAAAAABAV8AAAAAAAD+VgQYk3S8eAQAAAEwAewA0ADgAMgBkAGMAYQBiAGYALQBmAGEAOQAyAC0ANAA5ADMANQAtAGEAMAA4ADYALQBiADYAZQA0AGUAMABkADcAMwA3ADYANgB9QBQAAAAAAABAXYAAAAAAAD+Yk3S8an7+AQAAAEwAewA2AGEAZQA3ADEAYwA0ADUALQBmADYAZgAwAC0ANAAwAGMAZQAtAGIAOAAwADcALQA4AGEANABmAGQANwA3ADEAMwA2AGUAMgB9QBQAAAAAAABASIAAAAAAAD+QYk3S8an+AQAAAEwAewAxADgANwBhAGEAOQBlADMALQBlAGEAMwBhAC0ANABkADAAZQAtADgAOAAzADcALQAzADQANAAzADUAOAAzADEANAA5ADEANgB9QBQAAAAAAABAXYAAAAAAAD+XjU/fO2ReAQAAAEwAewA2ADcANQAwADcANwA5ADcALQA0AGIAOAA5AC0ANAAyADUAZQAtADgAMgBhAGEALQBiADIAZABjADMAMQAzAGQAZABmAGEAZQB9QBQAAAAAAABAUgAAAAAAAD+SbpeNT98+AQAAAEwAewA4ADgAYwA0ADAAZABkAGUALQA4ADQAMQA4AC0ANABmADMAOQAtADgAMwA0AGEALQBlAGUAMwBhAGQANABlADQAZQAzAGUANwB9wGAgAAAAAABAY2AAAAAAAD+Ik3S8an78AQAAAEwAewAwAGEANQAxADUAYgBhAGUALQBlADYAMQAzAC0ANAAxAGIAMAAtAGIANQBhAGIALQAxADYAMAAxADQANwAyAGYAMgA5AGYAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGQAZQAxAGUAMgBmAGYALQAzADIAOAAwAC0ANAAxADcAZgAtADgANAA4ADgALQA5ADMANABjAGMAZAAyADgAYQAxADQANgB9QBQAAAAAAABAOgAAAAAAAD+MrAgxJul8AQAAAEwAewA1AGYAOAA2ADMAZAA5ADEALQBmADAANwA0AC0ANABjADMANwAtADgAZAA0ADkALQA5AGQAMABhADAAMgA3ADkAMgA2ADUAMAB9QBQAAAAAAABAV8AAAAAAAD+UeuFHrhR+AQAAAEwAewAwAGQANwA2AGMAMQBhADgALQBkADIANgAxAC0ANAAwAGIAYwAtADgAMgBlADcALQA2ADYAYgBkAGMANwBhADYAMgAzAGYAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGEAZgAxAGMAMQBkADMALQA0AGMAMABiAC0ANABjAGQAMAAtADkANgA5ADUALQBlADEANwBlADYANAA1ADAAMQBiAGYAMAB9QBQAAAAAAABAOgAAAAAAAD+Kn752yLQ8AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

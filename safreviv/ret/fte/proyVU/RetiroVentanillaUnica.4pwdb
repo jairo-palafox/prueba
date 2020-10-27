@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="CP1252" options="3" version="2.0">
+<File m="PruebaJava" n="PruebaJava.4gl" ts="20201001094934833">
+<Fct c="1" el="9" l="2" n="main()" t="F"/>
+</File>
+<File m="ret_disponibilidad_ley73" n="ret_disponibilidad_ley73.4gl" ts="20201014092522854">
+<Ref t="ret_disponibilidad_ley73.inc"/>
+<Fct c="10" el="606" l="406" n="fn_ret_saldos_disponibles_ley73Response_g()" t="F">
+<Call c="10" l="422" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="437" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="104" l="446" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="452" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="460" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="464" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="467" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="468" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="470" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="474" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="483" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="484" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="490" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="494" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="497" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="500" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="503" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="509" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="512" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="515" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="526" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="530" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="534" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="535" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="537" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="544" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="553" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="554" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="558" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="569" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="573" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="580" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="583" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="591" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="596" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="403" l="315" n="fn_ret_saldos_disponibles_ley73Request_g()" t="F">
+<Call c="10" l="325" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="346" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="365" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="375" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="376" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="381" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="382" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="386" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="399" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="312" l="38" n="fn_ret_saldos_disponibles_ley73_g()" t="F">
+<Call c="10" l="79" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="98" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="111" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="112" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="117" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="118" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="122" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="104" l="137" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="143" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="151" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="155" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="158" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="159" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="161" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="165" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="174" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="175" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="181" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="185" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="188" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="191" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="194" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="200" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="203" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="206" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="217" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="221" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="225" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="226" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="228" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="235" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="244" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="245" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="249" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="260" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="264" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="271" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="274" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="283" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="291" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="298" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="303" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_disponibilidad_ley73" n="ret_disponibilidad_ley73.inc" ts="20200929095453000"/>
+<File m="ret_disponibilidadFA" n="ret_disponibilidadFA.4gl" ts="20201014092404476">
+<Ref t="ret_disponibilidadFA.inc"/>
+<Fct c="10" el="632" l="432" n="fn_saldo_disponible_faResponse_g()" t="F">
+<Call c="10" l="448" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="463" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="98" l="472" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="478" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="486" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="490" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="493" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="494" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="496" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="500" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="509" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="510" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="516" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="520" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="523" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="526" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="529" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="535" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="538" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="541" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="552" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="556" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="560" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="561" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="563" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="570" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="579" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="580" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="584" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="595" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="599" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="606" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="609" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="617" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="622" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="429" l="340" n="fn_saldo_disponible_faRequest_g()" t="F">
+<Call c="10" l="350" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="372" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="391" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="401" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="402" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="407" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="408" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="412" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="425" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="56" l="36" n="fn_saldo_disponible_fa(p_nss STRING,p_rfc STRING,p_causal_ret_fa STRING,p_nrp STRING,p_f_inicio_pension STRING,p_medio_entrega STRING)" t="F">
+<Call c="20" l="53" n="fn_saldo_disponible_fa_g" t="F"/>
+</Fct>
+<Fct c="10" el="337" l="64" n="fn_saldo_disponible_fa_g()" t="F">
+<Call c="10" l="104" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="123" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="136" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="137" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="142" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="143" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="147" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="98" l="162" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="168" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="176" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="180" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="183" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="184" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="186" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="190" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="199" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="200" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="206" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="210" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="213" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="216" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="219" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="225" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="228" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="231" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="242" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="246" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="250" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="251" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="253" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="260" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="269" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="270" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="274" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="285" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="289" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="296" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="299" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="308" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="316" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="323" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="328" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_disponibilidadFA" n="ret_disponibilidadFA.inc" ts="20200929095453000"/>
+<File m="ret_disponibilidadSI" n="ret_disponibilidadSI.4gl" ts="20201014092618856">
+<Ref t="ret_disponibilidadSI.inc"/>
+<Fct c="10" el="627" l="427" n="fn_saldo_disponible_SIResponse_g()" t="F">
+<Call c="10" l="443" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="458" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="98" l="467" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="473" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="481" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="485" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="488" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="489" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="491" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="495" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="504" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="505" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="511" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="515" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="518" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="521" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="524" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="530" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="533" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="536" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="547" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="551" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="555" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="556" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="558" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="565" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="574" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="575" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="579" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="590" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="594" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="601" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="604" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="612" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="617" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="424" l="336" n="fn_saldo_disponible_SIRequest_g()" t="F">
+<Call c="10" l="346" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="367" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="386" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="396" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="397" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="402" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="403" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="407" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="420" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="52" l="36" n="fn_saldo_disponible_SI(p_nss STRING,p_causal_retiro STRING,p_nrp STRING,p_medio_entrega STRING)" t="F">
+<Call c="20" l="49" n="fn_saldo_disponible_SI_g" t="F"/>
+</Fct>
+<Fct c="10" el="333" l="60" n="fn_saldo_disponible_SI_g()" t="F">
+<Call c="10" l="100" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="119" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="132" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="133" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="138" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="139" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="143" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="98" l="158" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="164" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="172" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="176" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="179" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="180" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="182" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="186" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="195" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="196" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="202" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="206" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="209" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="212" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="215" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="221" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="224" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="227" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="238" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="242" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="246" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="247" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="249" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="256" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="265" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="266" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="270" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="281" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="285" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="292" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="295" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="304" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="312" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="319" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="324" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_disponibilidadSI" n="ret_disponibilidadSI.inc" ts="20201013002959016"/>
+<File m="RETWS41" n="RETWS41.4gl" ts="20201014115057747">
+<Ref t="ws_ret_disponibilidadFA.inc"/>
+<Ref t="ret_disponibilidad_ley73.inc"/>
+<Ref t="ret_disponibilidadSI.inc"/>
+<Fct c="10" el="394" l="385" n="exitHelp()" t="F"/>
+<Fct c="1" el="309" l="143" n="main()" t="F">
+<Call c="14" l="185" n="fn_crea_ws_disponibilidad_ventanilla_unica" t="F"/>
+<Call c="22" l="198" n="exitHelp" t="F"/>
+<Call c="10" l="209" n="fn_crea_ws_disponibilidad_ventanilla_unica" t="F"/>
+<Call c="10" l="307" n="fn_actualiza_control_vu" t="F"/>
+</Fct>
+<Fct c="10" el="791" l="726" n="fn_ejecutaWS_disponibilidadFA()" t="F">
+<Call c="10" l="740" n="fn_saldo_disponible_fa_g" p="ret_disponibilidadFA.4gl" t="F"/>
+<Call c="10" l="789" n="fn_actualiza_control_vu" t="F"/>
+</Fct>
+<Fct c="10" el="374" l="321" n="fn_crea_ws_disponibilidad_ventanilla_unica(p_generar_WSDL SMALLINT)" t="F"/>
+<Fct c="10" el="709" l="644" n="fn_graba_registro_control_vu()" t="F"/>
+<Fct c="10" el="632" l="602" n="fn_inicializa_campos_control_vu()" t="F"/>
+<Fct c="10" el="1027" l="995" n="fn_actualiza_control_vu()" t="F"/>
+<Fct c="10" el="589" l="516" n="fn_respuesta_ret_ventanilla_unica(p_codigo_error SMALLINT,p_estatus_fa SMALLINT,p_estatus_ley73 SMALLINT,p_estatus_si SMALLINT)" t="F"/>
+<Fct c="10" el="983" l="928" n="fn_ejecutaWS_disponibilidadSI()" t="F">
+<Call c="10" l="938" n="fn_saldo_disponible_si_g" p="ret_disponibilidadSI.4gl" t="F"/>
+<Call c="10" l="981" n="fn_actualiza_control_vu" t="F"/>
+</Fct>
+<Fct c="10" el="911" l="808" n="fn_ejecutaWS_disponibilidadLey73()" t="F">
+<Call c="10" l="832" n="fn_ret_saldos_disponibles_ley73_g" p="ret_disponibilidad_ley73.4gl" t="F"/>
+<Call c="10" l="908" n="fn_actualiza_control_vu" t="F"/>
+</Fct>
+<Fct c="10" el="498" l="406" n="fn_disponibilidad_ventanilla_unica()" t="F">
+<Call c="13" l="441" n="fn_respuesta_ret_ventanilla_unica" t="F"/>
+<Call c="13" l="448" n="fn_respuesta_ret_ventanilla_unica" t="F"/>
+<Call c="13" l="455" n="fn_respuesta_ret_ventanilla_unica" t="F"/>
+<Call c="13" l="462" n="fn_respuesta_ret_ventanilla_unica" t="F"/>
+<Call c="13" l="468" n="fn_inicializa_campos_control_vu" t="F"/>
+<Call c="13" l="471" n="fn_graba_registro_control_vu" t="F"/>
+<Call c="16" l="476" n="fn_ejecutaWS_disponibilidadFA" t="F"/>
+<Call c="16" l="479" n="fn_ejecutaWS_disponibilidadLey73" t="F"/>
+<Call c="16" l="482" n="fn_ejecutaWS_disponibilidadSI" t="F"/>
+<Call c="20" l="486" n="fn_respuesta_ret_ventanilla_unica" t="F"/>
+<Call c="20" l="489" n="fn_respuesta_ret_ventanilla_unica" t="F"/>
+<Call c="17" l="493" n="fn_respuesta_ret_ventanilla_unica" t="F"/>
+</Fct>
+</File>
+<File m="" n="ws_ret_disponibilidadFA.inc" ts=""/>
+<File m="RETWS42" n="RETWS42.4gl" ts="20201014121804427">
+<Ref t="ret_ws_marca_si.inc"/>
+<Ref t="../RETG01.4gl"/>
+<Ref t="ret_ws_marca_ley73.inc"/>
+<Ref t="ret_ws_marca_fa.inc"/>
+<Fct c="1" el="261" l="106" n="main()" t="F">
+<Call c="14" l="146" n="fn_crea_ws_marcaje_ventanilla_unica" t="F"/>
+<Call c="22" l="155" n="exitHelp" t="F"/>
+<Call c="10" l="164" n="fn_crea_ws_marcaje_ventanilla_unica" t="F"/>
+</Fct>
+<Fct c="10" el="758" l="725" n="fn_valida_parametros_entrada()" t="F"/>
+<Fct c="10" el="708" l="692" n="fn_obtiene_solicitud_vu(p_nss INTEGER,p_medio_entrega SMALLINT)" t="F"/>
+<Fct c="10" el="355" l="344" n="exitHelp()" t="F"/>
+<Fct c="10" el="326" l="273" n="fn_crea_ws_marcaje_ventanilla_unica(p_generar_WSDL SMALLINT)" t="F"/>
+<Fct c="10" el="909" l="897" n="fn_actualiza_control_vu_marcas(p_consecutivo INTEGER,p_marcaje_fa_correcto SMALLINT,p_marcaje_LEY73_correcto SMALLINT,p_marcaje_si_correcto SMALLINT)" t="F"/>
+<Fct c="10" el="675" l="379" n="fn_marca_cuenta_ventanilla_unica()" t="F">
+<Call c="32" l="413" n="fn_valida_parametros_entrada" t="F"/>
+<Call c="14" l="418" n="fn_obtiene_solicitud_vu" t="F"/>
+<Call c="18" l="427" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="22" l="434" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="26" l="453" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="30" l="464" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="34" l="475" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="34" l="479" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="30" l="493" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
+<Call c="38" l="507" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="34" l="510" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="42" l="528" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="38" l="533" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="38" l="549" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="34" l="559" n="fn_marcaje_SI" p="ret_ws_marca_si.4gl" t="F"/>
+<Call c="42" l="573" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="42" l="581" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
+<Call c="38" l="587" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="46" l="605" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="46" l="614" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
+<Call c="42" l="620" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="42" l="632" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="34" l="640" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="34" l="645" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="34" l="651" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="34" l="653" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="30" l="662" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="30" l="664" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="14" l="673" n="fn_genera_respuesta_ws" t="F"/>
+</Fct>
+<Fct c="10" el="880" l="828" n="fn_desc_error(p_codigo_error SMALLINT)" t="F"/>
+<Fct c="10" el="811" l="775" n="fn_genera_respuesta_ws(p_estatus_peticion SMALLINT,p_estatus_marca SMALLINT,p_desc_rechazo STRING)" t="F">
+<Call c="55" l="790" n="fn_desc_error" t="F"/>
+<Call c="51" l="807" n="fn_desc_error" t="F"/>
+</Fct>
+</File>
+<File m="ret_ws_marca_fa" n="ret_ws_marca_fa.4gl" ts="20201008143657865">
+<Ref t="ret_ws_marca_fa.inc"/>
+<Fct c="10" el="628" l="428" n="fn_marcaje_faResponse_g()" t="F">
+<Call c="10" l="444" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="459" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="74" l="468" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="474" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="482" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="486" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="489" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="490" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="492" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="496" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="505" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="506" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="512" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="516" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="519" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="522" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="525" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="531" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="534" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="537" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="548" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="552" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="556" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="557" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="559" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="566" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="575" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="576" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="580" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="591" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="595" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="602" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="605" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="613" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="618" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="425" l="338" n="fn_marcaje_faRequest_g()" t="F">
+<Call c="10" l="348" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="368" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="387" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="397" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="398" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="403" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="404" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="408" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="421" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="53" l="31" n="fn_marcaje_fa(p_nss STRING,p_rfc STRING,p_caso_crm STRING,p_cuenta_clabe STRING,p_ind_marca STRING,p_cod_rechazo STRING,p_medio_entrega STRING)" t="F">
+<Call c="20" l="50" n="fn_marcaje_fa_g" t="F"/>
+</Fct>
+<Fct c="10" el="335" l="61" n="fn_marcaje_fa_g()" t="F">
+<Call c="10" l="102" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="121" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="134" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="135" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="140" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="141" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="145" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="74" l="160" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="166" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="174" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="178" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="181" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="182" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="184" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="188" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="197" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="198" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="204" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="208" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="211" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="214" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="217" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="223" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="226" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="229" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="240" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="244" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="248" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="249" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="251" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="258" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="267" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="268" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="272" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="283" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="287" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="294" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="297" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="306" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="314" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="321" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="326" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_ws_marca_fa" n="ret_ws_marca_fa.inc" ts="20200402140218000"/>
+<File m="ret_ws_marca_ley73" n="ret_ws_marca_ley73.4gl" ts="20201008143933814">
+<Ref t="ret_ws_marca_ley73.inc"/>
+<Fct c="10" el="635" l="435" n="fn_marcaje_ley73Response_g()" t="F">
+<Call c="10" l="451" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="466" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="80" l="475" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="481" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="489" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="493" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="496" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="497" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="499" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="503" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="512" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="513" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="519" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="523" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="526" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="529" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="532" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="538" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="541" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="544" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="555" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="559" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="563" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="564" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="566" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="573" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="582" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="583" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="587" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="598" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="602" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="609" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="612" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="620" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="625" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="432" l="344" n="fn_marcaje_ley73Request_g()" t="F">
+<Call c="10" l="354" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="375" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="394" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="404" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="405" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="410" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="411" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="415" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="428" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="60" l="36" n="fn_marcaje_ley73(p_nss STRING,p_caso_adai STRING,p_cuenta_clabe STRING,p_ind_marca SMALLINT,p_cod_rechazo SMALLINT,p_grupo SMALLINT,p_medio_entrega SMALLINT,p_usuario STRING)" t="F">
+<Call c="20" l="57" n="fn_marcaje_ley73_g" t="F"/>
+</Fct>
+<Fct c="10" el="341" l="68" n="fn_marcaje_ley73_g()" t="F">
+<Call c="10" l="108" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="127" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="140" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="141" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="146" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="147" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="151" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="80" l="166" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="172" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="180" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="184" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="187" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="188" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="190" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="194" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="203" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="204" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="210" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="214" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="217" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="220" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="223" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="229" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="232" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="235" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="246" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="250" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="254" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="255" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="257" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="264" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="273" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="274" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="278" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="289" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="293" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="300" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="303" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="312" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="320" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="327" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="332" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_ws_marca_ley73" n="ret_ws_marca_ley73.inc" ts="20201008113343181"/>
+<File m="ret_ws_marca_si" n="ret_ws_marca_si.4gl" ts="20201009233138060">
+<Ref t="ret_ws_marca_si.inc"/>
+<Fct c="10" el="637" l="437" n="fn_marcaje_SIResponse_g()" t="F">
+<Call c="10" l="453" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="468" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="74" l="477" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="483" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="491" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="495" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="498" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="499" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="501" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="505" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="514" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="515" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="521" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="525" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="528" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="531" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="534" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="540" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="543" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="546" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="557" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="561" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="565" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="566" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="568" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="575" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="584" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="585" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="589" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="600" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="604" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="611" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="614" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="622" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="627" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="434" l="346" n="fn_marcaje_SIRequest_g()" t="F">
+<Call c="10" l="356" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="377" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="396" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="406" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="407" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="412" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="413" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="417" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="430" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="62" l="36" n="fn_marcaje_SI(p_nss STRING,p_rfc STRING,p_caso_crm STRING,p_cuenta_clabe STRING,p_ind_marca SMALLINT,p_cod_rechazo SMALLINT,p_grupo SMALLINT,p_medio_entrega SMALLINT,p_usuario STRING)" t="F">
+<Call c="20" l="59" n="fn_marcaje_SI_g" t="F"/>
+</Fct>
+<Fct c="10" el="343" l="70" n="fn_marcaje_SI_g()" t="F">
+<Call c="10" l="110" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="129" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="142" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="143" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="148" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="149" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="153" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="74" l="168" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="174" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="18" l="182" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="186" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="189" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="190" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="192" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="196" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="205" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="206" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="212" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="216" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="219" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
+<Call c="18" l="222" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
+<Call c="14" l="225" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
+<Call c="18" l="231" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
+<Call c="18" l="234" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="237" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="248" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="252" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="256" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
+<Call c="38" l="257" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="259" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="266" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="275" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="276" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="280" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="291" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="295" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="302" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="305" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="314" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="322" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="329" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="334" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_ws_marca_si" n="ret_ws_marca_si.inc" ts="20201009232832448"/>
+</WorkspaceDatabase>

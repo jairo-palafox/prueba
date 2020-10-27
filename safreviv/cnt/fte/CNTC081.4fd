@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{5555bb65-6706-4e97-906c-27694a66db5a}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{92cf4090-0e97-44ac-81e1-b1cbf88f7b94}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_cmb_tpo_crd" sqlTabName="" table_alias_name="" uid="{7b3cd6fd-d574-4eb3-b2e7-823d783333eb}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_fecha_ini" sqlTabName="" table_alias_name="" uid="{38df97ff-a4a5-42b7-bc2b-60df80cda3f2}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_fecha_fin" sqlTabName="" table_alias_name="" uid="{a1b2919c-bd1f-40c8-8538-c34b8a51488e}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_tipocred" order="" uid="{7267af7b-e275-4f40-ad2e-c33890d1d2dd}" where="">
+    <RecordField colName="" fieldIdRef="4" name="Edit1" sqlTabName="" table_alias_name="" uid="{7c7daece-3908-4294-bcb3-a5685297f097}"/>
+    <RecordField colName="" fieldIdRef="5" name="Edit17" sqlTabName="" table_alias_name="" uid="{188cd203-50b5-4566-a43f-461beee834ba}"/>
+    <RecordField colName="" fieldIdRef="6" name="Edit2" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{ee222c0b-8fcf-4a32-ad7b-a151fe471e6b}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record2" order="" uid="{49c79f06-14de-4ccf-a565-42703b70d618}" where=""/>
+  <Form gridHeight="24" gridWidth="128" name="Form" text="Form">
+    <Grid gridHeight="22" gridWidth="123" name="Grid1" posX="1" posY="1">
+      <Group gridHeight="3" gridWidth="120" name="gr_crit_busqueda" posX="1" posY="1" text="Criterios de Búsqueda">
+        <Label gridHeight="1" gridWidth="10" name="Label1" posX="1" posY="1" text="Tipo Crédito"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="51" items="" name="v_cmb_tpo_crd" posX="12" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+        <Label gridHeight="1" gridWidth="9" name="Label6" posX="76" posY="1" text="Fecha Inicial"/>
+        <DateEdit colName="" columnCount="" fieldId="2" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="v_fecha_ini" posX="86" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="8" name="Label7" posX="99" posY="1" text="Fecha Final"/>
+        <DateEdit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="10" name="v_fecha_fin" posX="108" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+      </Group>
+      <Group gridHeight="14" gridWidth="120" name="gr_montos" posX="1" posY="5" text="Montos por Tipo de Crédito">
+        <Table gridHeight="12" gridWidth="118" name="Table1" posX="1" posY="1" totalRows="10">
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="34" name="Edit1" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Tipo Crédito" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="47" name="Edit17" posX="34" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" format="-###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="30" name="Edit2" posX="81" posY="0" precisionDecimal="16" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Monto" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBlAGUAMgAyADIAYwAwAGIALQA4AGYAYwBmAC0ANABhADMAMgAtAGEAZAA3AGIALQBhADEANQAxAGYAZQA0ADcAMQBlADYAYgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADgAZABmADkANwBmAGYALQBhADQAYQA1AC0ANAAyAGIANwAtAGIAYwAyAGIALQA2ADAAZABmADgAMABjAGQAYQAzAGYAMgB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGIAMwBjAGQANgBmAGQALQBkADUANwA0AC0ANABlAGIAMwAtAGIAMgBlADcALQA4ADIAMwBkADcAOAAzADMAMwAzAGUAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADIANgA3AGEAZgA3AGIALQBlADIANwA1AC0ANABmADQAMAAtAGEAZAAyAGUALQBjADMAMwA4ADkAMABkADEAZAAyAGQAZAB9wGegAAAAAABAAAAAAAAAAD9wYk3S8an8AQAAAEwAewAxADgAOABjAGQAMgAwADMALQA1ADAAYgA1AC0ANAA1ADYANgAtAGEANAAzAGYALQA0ADYAMQBiAGUAZQBlADgAMwA0AGIAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADkAYwA3ADkAZgAwADYALQAxADQAZABlAC0ANABjAGMAZgAtAGEANQA2ADUALQA0ADIANwAwADMAYgA3ADAAZAA2ADEAOAB9wHoAAAAAAABAPwAAAAAAAD9QYk3S8an8AQAAAEwAewA3AGMANwBkAGEAZQBjAGUALQAzADkAMAA4AC0ANAAyADkANAAtAGIAYwBiADMALQBhADUANgA4ADUAMgA5ADcAZgAwADkANwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADEAYgAyADkAMQA5AGMALQBiAGQAMQBmAC0ANAAwAGMAOAAtADgANQAzADgALQBjADMANABiADgAYQA1ADEANAA4ADgAZQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADIAYwBmADQAMAA5ADAALQAwAGUAOQA3AC0ANAA0AGEAYwAtADgAMQBlADEALQBiADEAYwBiAGYAOAA4AGYANwBiADkANAB9AAAAAAAAAAAAAAAAAAAAAD9ok3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

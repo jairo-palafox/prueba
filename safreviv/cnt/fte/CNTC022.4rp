@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/CNTC02.rdd" RWFglReportName="rpt_val_proc_cnt"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="PageRoot" width="min" length="540.958" alignment="near">
+                    <LAYOUTNODE name="First Page Header" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="ContenedorImagen1" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                        <MINIPAGE name="Contenedor Usuario" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <MINIPAGE name="MiniPage1_1_1_1_1_1_1_1" width="min" length="max" layoutDirection="leftToRight">
+                                <LAYOUTNODE name="LayoutNode2" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <WORDBOX name="Usuario" x="7.5" y="23.7584" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario"/>
+                                    <WORDBOX name="TituloReporte" x="7.5" y="max*0.489" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="TOTALES POR CUENTA CONTABLE" localizeText="false"/>
+                                    <rtl:input-variable name="v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_usuario Value" x="7.5" y="121.187" anchorX="0.5" anchorY="0.5" alignment="far" color="#ffffff" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{v_usuario}}"/>
+                                    <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_fecha_reporte Value" x="7.5" y="616.642" width="206.24" anchorX="0.5" anchorY="0.5" alignment="far" color="#ffffff" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{&quot;Fecha del reporte: &quot;+v_fecha_reporte}}"/>
+                                </LAYOUTNODE>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1" width="min" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <MINIPAGE name="ContenedorSubTitulo1" width="min" length="max" layoutDirection="leftToRight">
+                                <WORDBOX name="Subtitulo" x="7.9548" y="353.67" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="CUENTAS CONTABLES AFECTADAS"/>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="ContenedorGris" width="1.2" length="max" bgColor="#d7050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="PiedePagina1" x="360.778" y="549.967" width="12.3764" length="min" anchorX="0.5" anchorY="4.55223e-14" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LineaRoja3" y="1.6622" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <WORDBOX name="TxtRecaudacionFiscal2" x="5.8708" y="43.9647" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                            <PAGENOBOX name="PageNoBox2" x="5.8708" y="669.514" width="80.9645" anchorX="0.5" anchorY="0.381173" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="First Page" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="ContenedorImagen2" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox1" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                        <MINIPAGE name="Contenedor Usuario2" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <MINIPAGE name="MiniPage1_1_1_1_1_1_1_2" width="min" length="max" layoutDirection="leftToRight">
+                                <LAYOUTNODE name="LayoutNode13" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <WORDBOX name="Usuario1" x="7.5" y="23.7584" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario"/>
+                                    <rtl:input-variable name="v_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_usuario Value1" x="7.5" y="121.187" anchorX="0.5" anchorY="0.5" alignment="far" color="#ffffff" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{v_usuario}}"/>
+                                    <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="v_fecha_reporte Value1" x="7.5" y="616.642" width="206.24" anchorX="0.5" anchorY="0.5" alignment="far" color="#ffffff" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{&quot;Fecha del reporte: &quot;+v_fecha_reporte}}"/>
+                                    <WORDBOX name="TituloReporte1" x="7.5" y="max*0.489" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="TOTALES POR CUENTA CONTABLE" localizeText="false"/>
+                                </LAYOUTNODE>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode21" width="min" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <MINIPAGE name="ContenedorSubTitulo2" width="min" length="max" layoutDirection="leftToRight">
+                                <WORDBOX name="Subtitulo1" x="7.9548" y="353.67" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="CUENTAS CONTABLES AFECTADAS"/>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="ContenedorGris1" width="1.2" length="max" bgColor="#d7050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Columnas1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="ColumnasOnEvery" width="14.4832" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="TxtPoceso1" width="57.5846" length="10.9408" anchorX="0.5" anchorY="0.5" alignment="center" color="#ce050f" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="PROCESOS"/>
+                                <rtl:input-variable name="v_rep_col1" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col1 Value2" x="0.7528" y="218.604" width="60.8934" length="11.1498" anchorX="0" anchorY="0.5" alignment="far" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col1}}"/>
+                                <rtl:input-variable name="v_rep_col2" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col2 Value2" x="0.7528" y="308.944" width="59.0215" anchorX="3.10055e-14" anchorY="0.5" alignment="baseline" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col2}}"/>
+                                <rtl:input-variable name="v_rep_col3" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col3 Value2" x="0.7528" y="415.848" width="58.7642" anchorX="0" anchorY="0.5" alignment="baseline" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col3}}"/>
+                                <rtl:input-variable name="v_rep_col4" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col4 Value2" x="0.7528" y="512.381" width="58.6916" length="10.804" anchorX="0" anchorY="0.5" alignment="baseline" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col4}}"/>
+                                <rtl:input-variable name="v_rep_col5" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col5 Value2" x="0.7528" y="609.729" width="60.8619" length="10.289" anchorX="0" anchorY="0.5" alignment="baseline" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col5}}"/>
+                                <WORDWRAPBOX name="TxtSuma2" x="0.7528" y="702.864" width="29.8931" length="12.0054" anchorX="0" anchorY="0.5" alignment="near" color="#ce050f" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="SUMA"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="PiedePagina" x="360.778" y="549.967" width="12.3764" length="min" anchorX="0.5" anchorY="4.55223e-14" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LineaRoja2" y="1.6622" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <WORDBOX name="TxtRecaudacionFiscal1" x="5.8708" y="43.9647" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                            <PAGENOBOX name="PageNoBox1" x="5.8708" y="669.514" width="80.9645" anchorX="0.5" anchorY="0.381173" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNodeR1" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Body" width="min" length="68.2398" alignment="near">
+                        <MINIPAGE name="Columnas" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="ColumnasOnEvery1" width="14.4832" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="TxtPoceso2" width="57.5846" length="10.9408" anchorX="0.5" anchorY="0.5" alignment="center" color="#ce050f" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="PROCESOS"/>
+                                <rtl:input-variable name="v_rep_col1" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col1 Value3" x="0.7528" y="218.604" width="60.8934" length="11.1498" anchorX="0" anchorY="0.5" alignment="far" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col1}}"/>
+                                <rtl:input-variable name="v_rep_col2" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col2 Value3" x="0.7528" y="308.944" width="59.0215" anchorX="3.10055e-14" anchorY="0.5" alignment="baseline" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col2}}"/>
+                                <rtl:input-variable name="v_rep_col3" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col3 Value3" x="0.7528" y="415.848" width="58.7642" anchorX="0" anchorY="0.5" alignment="baseline" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col3}}"/>
+                                <rtl:input-variable name="v_rep_col4" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col4 Value3" x="0.7528" y="512.381" width="58.6916" length="10.804" anchorX="0" anchorY="0.5" alignment="baseline" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col4}}"/>
+                                <rtl:input-variable name="v_rep_col5" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_rep_col5 Value3" x="0.7528" y="609.729" width="60.8619" length="10.289" anchorX="0" anchorY="0.5" alignment="baseline" color="#d8050f" fontSize="9" floatingBehavior="enclosed" text="{{v_rep_col5}}"/>
+                                <WORDWRAPBOX name="TxtSuma3" x="0.7528" y="702.864" width="30.6459" length="12.0054" anchorX="0" anchorY="0.5" alignment="near" color="#ce050f" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="SUMA"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="DetalleReporte" width="min" length="max" layoutDirection="leftToRight">
+                            <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                                <LAYOUTNODE name="LayoutNode9" width="24.143" length="719.781" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="v_rep_cta_importe.v_rep_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="v_rep_cta_importe.v_rep_proceso Value" width="178.9" length="14.7157" alignment="center" fontSize="8" floatingBehavior="enclosed" text="{{v_rep_cta_importe.v_rep_proceso}}"/>
+                                    <rtl:input-variable name="v_rep_cta_importe.v_rep_imp_cta1" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <rtl:input-variable name="v_rep_col1" type="FGLString" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="v_rep_cta_importe.v_rep_imp_cta1 Value" rtl:condition="v_rep_col1!=&quot; &quot;" x="4.901" y="249.038" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rep_cta_importe.v_rep_imp_cta1}}"/>
+                                    <rtl:input-variable name="v_rep_cta_importe.v_rep_imp_cta2" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <rtl:input-variable name="v_rep_col2" type="FGLString" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="v_rep_cta_importe.v_rep_imp_cta2 Value" rtl:condition="v_rep_col2!=&quot; &quot;" x="4.901" y="339.594" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rep_cta_importe.v_rep_imp_cta2}}"/>
+                                    <rtl:input-variable name="v_rep_cta_importe.v_rep_imp_cta3" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <rtl:input-variable name="v_rep_col3" type="FGLString" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="v_rep_cta_importe.v_rep_imp_cta3 Value" rtl:condition="v_rep_col3!=&quot; &quot;" x="4.3224" y="444.22" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rep_cta_importe.v_rep_imp_cta3}}"/>
+                                    <rtl:input-variable name="v_rep_cta_importe.v_rep_imp_cta4" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <rtl:input-variable name="v_rep_col4" type="FGLString" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="v_rep_cta_importe.v_rep_imp_cta4 Value" rtl:condition="v_rep_col4!=&quot; &quot;" x="4.901" y="544.05" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rep_cta_importe.v_rep_imp_cta4}}"/>
+                                    <rtl:input-variable name="v_rep_cta_importe.v_rep_imp_cta5" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <rtl:input-variable name="v_rep_col5" type="FGLString" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="v_rep_cta_importe.v_rep_imp_cta5 Value" rtl:condition="v_rep_col5!=&quot; &quot;" x="4.901" y="639.912" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rep_cta_importe.v_rep_imp_cta5}}"/>
+                                    <rtl:input-variable name="v_rep_cta_importe.v_rep_sum_proc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="v_rep_cta_importe.v_rep_sum_proc Value" x="4.901" y="718.239" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rep_cta_importe.v_rep_sum_proc}}"/>
+                                </LAYOUTNODE>
+                            </rtl:match>
+                        </MINIPAGE>
+                        <MINIPAGE name="Salodo" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LineaRoja1_1" y="0" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <LAYOUTNODE name="ContenedorSaldo" width="22.4156" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="TxtSaldo" width="86.3252" length="14.1347" anchorX="0.5" anchorY="0.5" alignment="far" color="#000000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="SALDO"/>
+                                <rtl:input-variable name="v_rsaldo_cta1" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <rtl:input-variable name="v_rep_col1" type="FGLString" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="v_rsaldo_cta1 Value" rtl:condition="v_rep_col1!=&quot; &quot;" x="4.9274" y="249.038" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rsaldo_cta1}}"/>
+                                <rtl:input-variable name="v_rsaldo_cta2" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <rtl:input-variable name="v_rep_col2" type="FGLString" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="v_rsaldo_cta2 Value" rtl:condition="v_rep_col2!=&quot; &quot;" x="4.9274" y="339.594" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rsaldo_cta2}}"/>
+                                <rtl:input-variable name="v_rsaldo_cta3" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <rtl:input-variable name="v_rep_col3" type="FGLString" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="v_rsaldo_cta3 Value" rtl:condition="v_rep_col3!=&quot; &quot;" x="4.9274" y="444.22" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rsaldo_cta3}}"/>
+                                <rtl:input-variable name="v_rsaldo_cta4" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <rtl:input-variable name="v_rep_col4" type="FGLString" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="v_rsaldo_cta4 Value" rtl:condition="v_rep_col4!=&quot; &quot;" x="4.9274" y="544.05" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rsaldo_cta4}}"/>
+                                <rtl:input-variable name="v_rsaldo_cta5" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <rtl:input-variable name="v_rep_col5" type="FGLString" expectedLocation="expectedBefore"/>
+                                <DECIMALFORMATBOX name="v_rsaldo_cta5 Value" rtl:condition="v_rep_col5!=&quot; &quot;" x="4.9274" y="639.912" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rsaldo_cta5}}"/>
+                                <rtl:input-variable name="v_rsaldo_suma" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_rsaldo_suma Value" x="4.9274" y="718.239" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_rsaldo_suma}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

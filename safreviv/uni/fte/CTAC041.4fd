@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{5ead06fa-f099-4a99-9c37-682a3c71e959}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="datos" order="" uid="{b0b4ff04-4691-4317-a4fb-b09db434f5f8}" where="">
+    <RecordField colName="" fieldIdRef="1" fieldType="NON_DATABASE" name="nss" sqlTabName="" table_alias_name="" uid="{2d3e54c6-498e-473a-a9cb-18fca55e0816}"/>
+    <RecordField colName="" fieldIdRef="2" fieldType="NON_DATABASE" name="nombre" sqlTabName="" table_alias_name="" uid="{86d27ea6-800d-49e0-8bae-f554cb161e10}"/>
+    <RecordField colName="" fieldIdRef="3" fieldType="NON_DATABASE" name="rfc" sqlTabName="" table_alias_name="" uid="{a597553c-c5ae-4164-88f6-335391f2b634}"/>
+    <RecordField colName="" fieldIdRef="5" name="saldo" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{0d6840ab-ee50-4c12-b1fa-239c80fd65a4}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="lista_fondo" order="" uid="{12738c6e-05fd-48e8-a886-9a2a8d041fcc}" where="">
+    <RecordField colName="" fieldIdRef="6" name="id_afi_fondo72" sqlTabName="" table_alias_name="" uid="{3c4b291e-1cfc-4472-b514-03301ecdaea8}"/>
+    <RecordField colName="" fieldIdRef="18" fieldType="NON_DATABASE" name="f_liquida" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{04ded613-6af5-491f-a423-f66fbe6acefc}"/>
+    <RecordField colName="" fieldIdRef="19" fieldType="NON_DATABASE" name="folio_liquida" sqlTabName="" table_alias_name="" uid="{401a6da3-c502-4b79-bd42-c42bf7e0f05b}"/>
+    <RecordField colName="" fieldIdRef="20" fieldType="NON_DATABASE" name="movimiento" sqlTabName="" table_alias_name="" uid="{06c668fe-dabd-47db-bd62-c29017bfa0b9}"/>
+    <RecordField colName="" fieldIdRef="7" name="origen" sqlTabName="" table_alias_name="" uid="{7cce2cc5-b925-464c-82cf-6b1a404d584d}"/>
+    <RecordField colName="" fieldIdRef="21" fieldType="NON_DATABASE" name="monto_pesos" sqlTabName="" table_alias_name="" uid="{99bb5682-b9a4-45c0-8607-b75c01fd51f7}"/>
+  </Record>
+  <Form gridHeight="22" gridWidth="130" name="Form" text="Form">
+    <VBox gridHeight="21" gridWidth="127" name="VBox1" posX="1" posY="0">
+      <Grid gridHeight="7" gridWidth="127" name="Grid1" posX="0" posY="1">
+        <Group gridHeight="5" gridWidth="72" name="Group1" posX="2" posY="1" text="Datos Generales">
+          <Label colorCondition="black" gridHeight="1" gridWidth="5" lstrcomment="false" lstrtext="false" name="lb11" posX="2" posY="1" text="NSS"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="1" fieldType="NON_DATABASE" gridHeight="1" gridWidth="18" lstrcomment="false" name="nss" posX="8" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+          <Label colorCondition="black" gridHeight="1" gridWidth="5" lstrcomment="false" lstrtext="false" name="lb12" posX="32" posY="1" text="RFC"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="3" fieldType="NON_DATABASE" gridHeight="1" gridWidth="18" lstrcomment="false" name="rfc" posX="38" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="2" fieldType="NON_DATABASE" gridHeight="1" gridWidth="48" lstrcomment="false" name="nombre" noEntry="true" posX="8" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" widget="Edit"/>
+        </Group>
+        <Group gridHeight="5" gridWidth="38" name="Group5" posX="85" posY="1" text="Resumen Fondo 72">
+          <Label gridHeight="1" gridWidth="12" name="Label1" posX="1" posY="1" text="Saldo al día de hoy"/>
+          <Edit colName="" columnCount="" fieldId="5" format="-#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="23" name="saldo" posX="14" posY="1" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" style="negrita" tabIndex="4" table_alias_name="" title="formonly.Edit1" widget="Edit"/>
+        </Group>
+      </Grid>
+      <Group gridHeight="12" gridWidth="127" name="Group3" posX="0" posY="8" text="Movimientos de Fondo 72">
+        <Table fontPitch="variable" gridHeight="10" gridWidth="121" lstrcomment="true" name="scr_2" posX="2" posY="1" totalRows="9">
+          <Phantom colName="" fieldId="6" name="id_afi_fondo72" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="18" fieldType="NON_DATABASE" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" justify="left" lstrcomment="false" lstrtitle="true" name="f_liquida" noEntry="false" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha&#10;Liquidacíon" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" comment="" fieldId="19" fieldType="NON_DATABASE" gridHeight="1" gridWidth="15" justify="left" lstrcomment="false" lstrtitle="true" name="folio_liquida" noEntry="true" posX="15" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Folio&#10;Liquidación" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="20" fieldType="NON_DATABASE" gridHeight="1" gridWidth="43" lstrcomment="false" lstrtitle="true" name="movimiento" noEntry="true" posX="30" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Movimiento" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="22" lstrcomment="false" name="origen" posX="73" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Origen" widget="Edit"/>
+          <Edit colName="" colorCondition="black" columnCount="" fieldId="21" fieldType="NON_DATABASE" format="-#,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="20" justify="right" lstrcomment="false" lstrtitle="true" name="monto_pesos" noEntry="true" posX="95" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Monto en Pesos" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADAAYgA0AGYAZgAwADQALQA0ADYAOQAxAC0ANAAzADEANwAtAGEANABmAGIALQBiADAAOQBkAGIANAAzADQAZgA1AGYAOAB9AAAAAAAAAAAAAAAAAAAAAD+XjU/fO2ReAQAAAEwAewA0ADAAMQBhADYAZABhADMALQBjADUAMAAyAC0ANABiADcAOQAtAGIAZAA0ADIALQBjADQAMgBiAGYANwBlADAAZgAwADUAYgB9QBQAAAAAAABAUgAAAAAAAD+Kn752yLQ8AQAAAEwAewA3AGMAYwBlADIAYwBjADUALQBiADkAMgA1AC0ANAA2ADQAYwAtADgAMgBjAGYALQA2AGIAMQBhADQAMAA0AGQANQA4ADQAZAB9QBQAAAAAAABAXYAAAAAAAD+SbpeNT98+AQAAAEwAewAyAGQAMwBlADUANABjADYALQA0ADkAOABlAC0ANAA3ADMAYQAtAGEAOQBjAGIALQAxADgAZgBjAGEANQA1AGUAMAA4ADEANgB9QBQAAAAAAABAOgAAAAAAAD+Yk3S8an7+AQAAAEwAewAxADIANwAzADgAYwA2AGUALQAwADUAZgBkAC0ANAA4AGUAOAAtAGEAOAA4ADYALQA5AGEAMgBhADgAZAAwADQAMQBmAGMAYwB9QHPwAAAAAADAIAAAAAAAAD+fvnbItDleAQAAAEwAewA5ADkAYgBiADUANgA4ADIALQBiADkAYQA0AC0ANAA1AGMAMAAtADgANgAwADcALQBiADcANQBjADAAMQBmAGQANQAxAGYANwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGQANgA4ADQAMABhAGIALQBlAGUANQAwAC0ANABjADEAMgAtAGIAMQBmAGEALQAyADMAOQBjADgAMABmAGQANgA1AGEANAB9QBQAAAAAAABAV8AAAAAAAD+crAgxJul+AQAAAEwAewA4ADYAZAAyADcAZQBhADYALQA4ADAAMABkAC0ANAA5AGUAMAAtADgAYgBhAGUALQBmADUANQA0AGMAYgAxADYAMQBlADEAMAB9QBQAAAAAAABASIAAAAAAAD+ZmZmZmZmeAQAAAEwAewAwADYAYwA2ADYAOABmAGUALQBkAGEAYgBkAC0ANAA3AGQAYgAtAGIAZAA2ADIALQBjADIAOQAwADEANwBiAGYAYQAwAGIAOQB9QBQAAAAAAABAV8AAAAAAAD+RaHKwIMSeAQAAAEwAewAzAGMANABiADIAOQAxAGUALQAxAGMAZgBjAC0ANAA0ADcAMgAtAGIANQAxADQALQAwADMAMwAwADEAZQBjAGQAYQBlAGEAOAB9QBQAAAAAAABAOgAAAAAAAD+euFHrhR6+AQAAAEwAewAwADQAZABlAGQANgAxADMALQA2AGEAZgA1AC0ANAA5ADEAZgAtAGEANAAyADMALQBmADYANgBmAGIAZQA2AGEAYwBlAGYAYwB9QBQAAAAAAABASIAAAAAAAD+OuFHrhR68AQAAAEwAewBhADUAOQA3ADUANQAzAGMALQBjADUAYQBlAC0ANAAxADYANAAtADgAOABmADYALQAzADMANQAzADkAMQBmADIAYgA2ADMANAB9QBQAAAAAAABAUgAAAAAAAD+an752yLQ+AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

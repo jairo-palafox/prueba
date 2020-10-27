@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{487dfd1d-de4f-4e37-9130-f6d850601b85}">
+  <AGSettings>
+    <DynamicProperties version="2">
+    </DynamicProperties>
+    <NodeInfos version="1">
+    </NodeInfos>
+  </AGSettings>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="lista_pendientes" order="" uid="{ab786913-bf1e-4edc-8fed-165e8ff5e201}" where="">
+    <RecordField colName="" fieldIdRef="1" name="Edit1" sqlTabName="" table_alias_name="" uid="{f0ca38bf-f0b7-424a-8e1b-3d595c7b049a}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="lista_listos" order="" uid="{42778d28-b2a1-4525-8ac6-933a6481c1f7}" where="">
+    <RecordField colName="" fieldIdRef="2" name="Edit3" sqlTabName="" table_alias_name="" uid="{32703173-bbd5-4083-8bd4-4625ad329569}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record3" order="" uid="{340f238d-64d4-4172-9122-ee0535df79f7}" where="">
+    <RecordField colName="" fieldIdRef="3" name="Edit2" sqlTabName="" table_alias_name="" uid="{38432a50-e367-45ce-af78-1018862c2bad}"/>
+    <RecordField colName="" fieldIdRef="4" name="Edit5" sqlTabName="" table_alias_name="" uid="{094e70a9-ff54-42ab-8be8-b69a3b49cefd}"/>
+    <RecordField colName="" fieldIdRef="5" name="Edit4" sqlTabName="" table_alias_name="" uid="{a45f832f-b439-4a06-9eb7-8ec6811b2c78}"/>
+    <RecordField colName="" fieldIdRef="6" name="Edit6" sqlTabName="" table_alias_name="" uid="{33ce7765-19b0-4775-bbf7-7c0cd2100c9d}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="210" name="Form" text="Form">
+    <VBox gridHeight="21" gridWidth="196" name="VBox1" posX="4" posY="1">
+      <HBox gridHeight="9" gridWidth="196" name="HBox1" posX="0" posY="1">
+        <Group gridHeight="9" gridWidth="95" name="Group1" posX="2" posY="0" text="Pendiente a integrar">
+          <Table gridHeight="6" gridWidth="73" name="lista_pendientes" posX="2" posY="1" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="63" name="Edit1" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Archivo" widget="Edit"/>
+          </Table>
+        </Group>
+        <Group gridHeight="9" gridWidth="97" name="Group2" posX="97" posY="0" text="Archivo a integrar">
+          <Table gridHeight="6" gridWidth="62" name="lista_listos" posX="7" posY="1" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="53" name="Edit3" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Archivo" widget="Edit"/>
+          </Table>
+        </Group>
+      </HBox>
+      <Group gridHeight="10" gridWidth="196" name="Group3" posX="0" posY="10" text="Información Preliminar ">
+        <Table gridHeight="8" gridWidth="153" name="Table3" posX="6" posY="1" totalRows="5">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="21" justify="center" name="Edit2" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Archivo" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="23" justify="center" name="Edit5" posX="21" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Total de acciones" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="22" justify="center" name="Edit4" posX="44" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Total de pesos" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="44" justify="center" name="Edit6" posX="66" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total de registros" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0ADIANwA3ADgAZAAyADgALQBiADIAYQAxAC0ANAA1ADIANQAtADgAYQBjADYALQA5ADMAMwBhADYANAA4ADEAYwAxAGYANwB9QEiAAAAAAABAPwAAAAAAAD+CbpeNT988AQAAAEwAewAzADgANAAzADIAYQA1ADAALQBlADMANgA3AC0ANAA1AGMAZQAtAGEAZgA3ADgALQAxADAAMQA4ADgANgAyAGMAMgBiAGEAZAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADMAYwBlADcANwA2ADUALQAxADkAYgAwAC0ANAA3ADcANQAtAGIAYgBmADcALQA3AGMAMABjAGQAMgAxADAAMABjADkAZAB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAzADQAMABmADIAMwA4AGQALQA2ADQAZAA0AC0ANAAxADcAMgAtADkAMQAyADIALQBlAGUAMAA1ADMANQBkAGYANwA5AGYANwB9wFhAAAAAAABAY2AAAAAAAD+EeuFHrhR8AQAAAEwAewAzADIANwAwADMAMQA3ADMALQBiAGIAZAA1AC0ANAAwADgAMwAtADgAYgBkADQALQA0ADYAMgA1AGEAZAAzADIAOQA1ADYAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADAAYwBhADMAOABiAGYALQBmADAAYgA3AC0ANAAyADQAYQAtADgAZQAxAGIALQAzAGQANQA5ADUAYwA3AGIAMAA0ADkAYQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGIANwA4ADYAOQAxADMALQBiAGYAMQBlAC0ANABlAGQAYwAtADgAZgBlAGQALQAxADYANQBlADgAZgBmADUAZQAyADAAMQB9wG3gAAAAAABAPgAAAAAAAD+AYk3S8an8AQAAAEwAewAwADkANABlADcAMABhADkALQBmAGYANQA0AC0ANAAyAGEAYgAtADgAYgBlADgALQBiADYAOQBhADMAYgA0ADkAYwBlAGYAZAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADQANQBmADgAMwAyAGYALQBiADQAMwA5AC0ANABhADAANgAtADkAZQBiADcALQA4AGUAYwA2ADgAMQAxAGIAMgBjADcAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

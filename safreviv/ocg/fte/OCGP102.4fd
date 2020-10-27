@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{473a2041-8e6b-4410-9d8a-67241e426298}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{68567df8-5627-42b2-92d9-6685c10a157e}" where="">
+    <RecordField colName="" fieldIdRef="7" name="v_ent_financiera" sqlTabName="" table_alias_name="" uid="{72eed23b-26e6-46a8-b506-911f690a0669}"/>
+    <RecordField colName="" fieldIdRef="8" name="e_tpo_credito" sqlTabName="" table_alias_name="" uid="{66e5f350-cf63-45ef-a34e-8440fb900359}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_edo_credito" sqlTabName="" table_alias_name="" uid="{c3474ebc-7b91-4f36-ba5c-30deff58bfdf}"/>
+    <RecordField colName="" fieldIdRef="10" name="e_num_ctr_interno" sqlTabName="" table_alias_name="" uid="{0e8aafe1-eb07-43ed-94a5-cd0384b45433}"/>
+    <RecordField colName="" fieldIdRef="11" name="e_nvo_num_ctr_int" sqlTabName="" table_alias_name="" uid="{d5f2cedc-2e0f-4253-b049-85e3a2e6cec6}"/>
+    <RecordField colName="" fieldIdRef="1" name="e_nss" sqlTabName="" table_alias_name="" uid="{760eb771-6632-4645-8e2e-5e72ef8a0545}"/>
+    <RecordField colName="" fieldIdRef="2" name="e_rfc" sqlTabName="" table_alias_name="" uid="{616d1c67-93b3-4631-9784-80d8c77d85f8}"/>
+    <RecordField colName="" fieldIdRef="3" name="e_curp" sqlTabName="" table_alias_name="" uid="{170e170d-1058-436e-b439-03b8eab404f6}"/>
+    <RecordField colName="" fieldIdRef="12" name="v_situacion_desc" sqlTabName="" table_alias_name="" uid="{9de070cf-d9e6-4826-805a-997af81e88db}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_nombre_dh" sqlTabName="" table_alias_name="" uid="{8b2d9af8-0880-4b9d-b011-a195c9707389}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="120" name="form" text="Form">
+    <Grid gridHeight="16" gridWidth="114" name="grid1" posX="3" posY="1">
+      <Group gridHeight="5" gridWidth="110" name="group1" posX="1" posY="1" text="Datos generales ">
+        <Label gridHeight="1" gridWidth="6" name="label1" posX="1" posY="2" text="NSS "/>
+        <Label color="white" gridHeight="1" gridWidth="20" name="label5" posX="8" posY="2" text=""/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="20" name="e_nss" posX="29" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="6" name="label2" posX="52" posY="2" text="RFC"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="20" name="e_rfc" posX="59" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="6" name="label3" posX="82" posY="2" text="CURP "/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="20" name="e_curp" posX="89" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit3" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="6" justify="left" name="label6" posX="1" posY="3" text="Nombre "/>
+        <Label color="white" gridHeight="1" gridWidth="20" name="label12" posX="8" posY="3"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="80" name="v_nombre_dh" posX="29" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="edit7" widget="Edit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="110" name="group2" posX="1" posY="7" text="Datos del crédito">
+        <Label gridHeight="1" gridWidth="13" name="label7" posX="1" posY="2" text="Entidad financiera"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="67" name="v_ent_financiera" posX="15" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit7" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="label8" posX="1" posY="3" text="Tipo de crédito"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="25" name="e_tpo_credito" posX="15" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="edit8" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="5" name="label9" posX="41" posY="3" text="Estado"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="35" name="v_edo_credito" posX="47" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="edit9" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="13" name="label4" posX="1" posY="4" text="Situaciòn"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="45" name="v_situacion_desc" posX="15" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="21" name="label10" posX="1" posY="5" text="Número control interno actual"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="22" name="e_num_ctr_interno" posX="23" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="edit10" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="21" name="label11" posX="1" posY="6" text="Nuevo número control interno"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="22" name="e_nvo_num_ctr_int" posX="23" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="edit11" widget="Edit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjADMANAA3ADQAZQBiAGMALQA3AGIAOQAxAC0ANABmADMANgAtAGIAYQA1AGMALQAzADAAZABlAGYAZgA1ADgAYgBmAGQAZgB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADcAMABlADEANwAwAGQALQAxADAANQA4AC0ANAAzADYAZQAtAGIANAAzADkALQAwADMAYgA4AGUAYQBiADQAMAA0AGYANgB9QCQAAAAAAABAaOAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGQAZQAwADcAMABjAGYALQBkADkAZQA2AC0ANAA4ADIANgAtADgAMAA1AGEALQA5ADkANwBhAGYAOAAxAGUAOAA4AGQAYgB9QCQAAAAAAABAa8AAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGIAMgBkADkAYQBmADgALQAwADgAOAAwAC0ANABiADkAZAAtAGIAMAAxADEALQBhADEAOQA1AGMAOQA3ADAANwAzADgAOQB9QCQAAAAAAABAbqAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADIAZQBlAGQAMgAzAGIALQAyADYAZQA2AC0ANAA2AGEAOAAtAGIANQAwADYALQA5ADEAMQBmADYAOQAwAGEAMAA2ADYAOQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADYAZQA1AGYAMwA1ADAALQBjAGYANgAzAC0ANAA1AGUAZgAtAGEAMwA0AGUALQA4ADQANAAwAGYAYgA5ADAAMAAzADUAOQB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADgANQA2ADcAZABmADgALQA1ADYAMgA3AC0ANAAyAGIAMgAtADkAMgBkADkALQA2ADYAOAA1AGMAMQAwAGEAMQA1ADcAZQB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADUAZgAyAGMAZQBkAGMALQAyAGUAMABmAC0ANAAyADUAMwAtAGIAMAA0ADkALQA4ADUAZQAzAGEAMgBlADYAYwBlAGMANgB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADEANgBkADEAYwA2ADcALQA5ADMAYgAzAC0ANAA2ADMAMQAtADkANwA4ADQALQA4ADAAZAA4AGMANwA3AGQAOAA1AGYAOAB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADYAMABlAGIANwA3ADEALQA2ADYAMwAyAC0ANAA2ADQANQAtADgAZQAyAGUALQA1AGUANwAyAGUAZgA4AGEAMAA1ADQANQB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGUAOABhAGEAZgBlADEALQBlAGIAMAA3AC0ANAAzAGUAZAAtADkANABhADUALQBjAGQAMAAzADgANABiADQANQA0ADMAMwB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

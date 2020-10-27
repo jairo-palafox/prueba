@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{3015ca58-a301-4d9a-9609-52bdc85848e4}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="elige_periodo" order="" uid="{a3f6ebe6-ab47-4454-9846-ee66770304ff}" where="">
+    <RecordField colName="" fieldIdRef="1" name="periodo_1" sqlTabName="" table_alias_name="" uid="{49179623-d647-4c28-9e91-f39f4cbf2335}"/>
+    <RecordField colName="" fieldIdRef="2" name="periodo_2" sqlTabName="" table_alias_name="" uid="{50bbb617-76be-4929-90c6-ba338cb0523a}"/>
+    <RecordField colName="" fieldIdRef="3" name="periodo_3" sqlTabName="" table_alias_name="" uid="{6745edf0-3ef4-4006-a73c-d5d72ef325a1}"/>
+    <RecordField colName="" fieldIdRef="4" name="periodo_4" sqlTabName="" table_alias_name="" uid="{67a73f68-2880-4704-a3e8-e7d668ff373e}"/>
+    <RecordField colName="" fieldIdRef="5" name="otro" sqlTabName="" table_alias_name="" uid="{7c613498-1173-4835-9e7b-35c5fc860f5f}"/>
+    <RecordField colName="" fieldIdRef="6" name="ed_valor_dolar" sqlTabName="" table_alias_name="" uid="{22fffb4c-00bf-4960-832b-26c5b51ec4ae}"/>
+    <RecordField colName="" fieldIdRef="7" name="ed_fecha" sqlTabName="" table_alias_name="" uid="{8c6cf82c-c190-4e4e-82b7-54a6630c7fe1}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{a57ce5be-e0d0-412e-b52e-f72a123ae466}" where="">
+    <RecordField colName="" fieldIdRef="8" name="DateEdit1" sqlTabName="" table_alias_name="" uid="{8a1d48b7-d935-4465-99cb-f313e79f4eae}"/>
+    <RecordField colName="" fieldIdRef="9" name="DateEdit2" sqlTabName="" table_alias_name="" uid="{1c5f99eb-363e-47fb-bc7d-0e35952219a4}"/>
+  </Record>
+  <Form gridHeight="18" gridWidth="71" name="Form" text="Form">
+    <Grid gridHeight="16" gridWidth="68" name="gr_detecta_montos" posX="2" posY="1">
+      <Group gridHeight="7" gridWidth="65" name="Group1" posX="1" posY="1" text="Seleccione el periódo a detectar">
+        <RadioGroup colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="16" items="Enero - Marzo" name="periodo_1" posX="7" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="RadioGroup1" widget="RadioGroup">
+          <Item lstrtext="false" name="periodo_1" text="Enero - Marzo"/>
+        </RadioGroup>
+        <Label gridHeight="1" gridWidth="8" name="Label2" posX="32" posY="1" text="Fecha"/>
+        <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="14" name="ed_fecha" noEntry="true" posX="41" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Edit1" widget="Edit"/>
+        <RadioGroup colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="16" items="Abril - Junio" name="periodo_2" posX="7" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="RadioGroup2" widget="RadioGroup">
+          <Item lstrtext="false" name="periodo_2" text="Abril - Junio"/>
+        </RadioGroup>
+        <Label gridHeight="1" gridWidth="8" name="Label1" posX="32" posY="2" text="Valor dólar"/>
+        <Edit case="upper" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="14" name="ed_valor_dolar" noEntry="true" notNull="true" posX="41" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Edit1" widget="Edit"/>
+        <RadioGroup colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="16" items="Julio - Septiembre" name="periodo_3" posX="7" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="RadioGroup3" widget="RadioGroup">
+          <Item lstrtext="false" name="periodo_3" text="Julio - Septiembre"/>
+        </RadioGroup>
+        <RadioGroup colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="16" items="Octubre -  Diciembre" name="periodo_4" posX="7" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="RadioGroup4" widget="RadioGroup">
+          <Item lstrtext="false" name="periodo4" text="Octubre -  Diciembre"/>
+        </RadioGroup>
+        <RadioGroup colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="15" items="Otro" name="otro" posX="7" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="RadioGroup5" widget="RadioGroup">
+          <Item lstrtext="false" name="otro" text="Otro"/>
+        </RadioGroup>
+      </Group>
+      <Group gridHeight="6" gridWidth="65" name="Group2" posX="1" posY="9" text="Seleccione las fechas">
+        <Label gridHeight="1" gridWidth="10" name="Label3" posX="2" posY="1" text="Fecha Inicial"/>
+        <DateEdit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="14" name="DateEdit1" posX="13" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="10" name="Label4" posX="2" posY="3" text="Fecha Final"/>
+        <DateEdit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="14" name="DateEdit2" posX="13" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAyADIAZgBmAGYAYgA0AGMALQAwADAAYgBmAC0ANAA5ADYAMAAtADgAMwAyAGIALQAyADYAYwA1AGIANQAxAGUAYwA0AGEAZQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGMANQBmADkAOQBlAGIALQAzADYAMwBlAC0ANAA3AGYAYgAtAGIAYwA3AGQALQAwAGUAMwA1ADkANQAyADIAMQA5AGEANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADkAMQA3ADkANgAyADMALQBkADYANAA3AC0ANABjADIAOAAtADkAZQA5ADEALQBmADMAOQBmADQAYwBiAGYAMgAzADMANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGEAMQBkADQAOABiADcALQBkADkAMwA1AC0ANAA0ADYANQAtADkAOQBjAGIALQBmADMAMQAzAGUANwA5AGYANABlAGEAZQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA4AGMANgBjAGYAOAAyAGMALQBjADEAOQAwAC0ANABlADQAZQAtADgAMgBiADcALQA1ADQAYQA2ADYAMwAwAGMANwBmAGUAMQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADcANAA1AGUAZABmADAALQAzAGUAZgA0AC0ANAAwADAANgAtAGEANwAzAGMALQBkADUAZAA3ADIAZQBmADMAMgA1AGEAMQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADMAZgA2AGUAYgBlADYALQBhAGIANAA3AC0ANAA0ADUANAAtADkAOAA0ADYALQBlAGUANgA2ADcANwAwADMAMAA0AGYAZgB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewA1ADAAYgBiAGIANgAxADcALQA3ADYAYgBlAC0ANAA5ADIAOQAtADkAMABjADYALQBiAGEAMwAzADgAYwBiADAANQAyADMAYQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGMANgAxADMANAA5ADgALQAxADEANwAzAC0ANAA4ADMANQAtADkAZQA3AGIALQAzADUAYwA1AGYAYwA4ADYAMABmADUAZgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADUANwBjAGUANQBiAGUALQBlADAAZAAwAC0ANAAxADIAZQAtAGIANQAyAGUALQBmADcAMgBhADEAMgAzAGEAZQA0ADYANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADcAYQA3ADMAZgA2ADgALQAyADgAOAAwAC0ANAA3ADAANAAtAGEAMwBlADgALQBlADcAZAA2ADYAOABmAGYAMwA3ADMAZQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

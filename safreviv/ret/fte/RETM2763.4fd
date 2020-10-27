@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{5207c431-4608-4446-9352-9a0943f8975f}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{03fb4f04-81d2-4328-bc7e-44084a271689}" where="">
+    <RecordField colName="" fieldIdRef="1" name="aport_rfc" sqlTabName="" table_alias_name="" uid="{3fc6cdda-4875-4982-9f4e-64295093f04c}"/>
+    <RecordField colName="" fieldIdRef="2" name="aport_nombre" sqlTabName="" table_alias_name="" uid="{58d71c59-b0fd-4e87-b40b-9cf204c1ff52}"/>
+    <RecordField colName="" fieldIdRef="5" name="aport_nss" sqlTabName="" table_alias_name="" uid="{f5eaf687-609b-42bc-a7f4-e24923ebaa6a}"/>
+    <RecordField colName="" fieldIdRef="3" length="2" name="aport_anio" sqlTabName="" table_alias_name="" uid="{c16bd0ec-ea60-4cdf-a525-bf405533ad12}"/>
+    <RecordField colName="" fieldIdRef="4" length="9" name="aport_expediente" sqlTabName="" table_alias_name="" uid="{f896b797-2aef-4f06-a7b3-8ddac7b55d85}"/>
+    <RecordField colName="" fieldIdRef="6" length="7" name="aport_importe" precisionDecimal="6" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{92180725-94a0-407b-861f-6eaed5f7f1b5}"/>
+    <RecordField colName="" fieldIdRef="7" name="aport_bimestre" sqlTabName="" table_alias_name="" uid="{98007ca6-d153-4b2f-8dce-8ad835c97117}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tab_aportacion" order="" uid="{21d39cf2-90ec-4d93-8d60-40ec12787574}" where="">
+    <RecordField colName="" fieldIdRef="8" name="c_anio" sqlTabName="" table_alias_name="" uid="{f4fcdc97-9186-49fa-89f0-d6f02ee0eaf0}"/>
+    <RecordField colName="" fieldIdRef="9" name="c_expediente" sqlTabName="" table_alias_name="" uid="{65b86a21-6ada-4b80-a717-e99370f1323c}"/>
+    <RecordField colName="" fieldIdRef="10" name="c_importe" sqlTabName="" table_alias_name="" uid="{de985a24-0bb3-4b2c-b1b6-cb81c0c0bccc}"/>
+    <RecordField colName="" fieldIdRef="11" name="c_bimestre" sqlTabName="" table_alias_name="" uid="{e80f2cb5-a81c-4c74-bb98-43594e88d8ff}"/>
+    <RecordField colName="" fieldIdRef="12" name="c_estado" sqlTabName="" table_alias_name="" uid="{2aad38ca-674e-4f62-a2bc-3f452014dbda}"/>
+  </Record>
+  <Form gridHeight="20" gridWidth="80" minHeight="10" minWidth="10" name="form" style="dialog" text="Códigos de Rechazo">
+    <Grid gridHeight="19" gridWidth="79" name="grid1" posX="1" posY="0">
+      <Group gridHeight="17" gridWidth="75" name="group1" posX="2" posY="1" text="Alta">
+        <Label gridHeight="1" gridWidth="12" name="lbl_alta_rfc" posX="2" posY="1" text="RFC"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="19" name="aport_rfc" posX="15" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="12" name="lbl_alta_nss" posX="2" posY="2" text="NSS"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="19" name="aport_nss" posX="15" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="12" name="lbl_alta_nombre" posX="2" posY="3" text="Nombre"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="59" name="aport_nombre" posX="15" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="10" justify="center" name="lbl_aport_anio" posX="2" posY="5" text="Año"/>
+        <Label gridHeight="1" gridWidth="12" justify="center" name="lbl_aport_expediente" posX="14" posY="5" text="Expediente"/>
+        <Label gridHeight="1" gridWidth="14" justify="center" name="lbl_aport_importe" posX="28" posY="5" text="Importe"/>
+        <Label gridHeight="1" gridWidth="11" justify="center" name="lbl_aport_bimestre" posX="43" posY="5" text="Bimestre"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="10" justify="center" length="2" name="aport_anio" posX="2" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="edit1" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="12" justify="center" length="9" name="aport_expediente" posX="14" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="edit1" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="none" colName="" columnCount="" fieldId="6" format="###&amp;.&amp;&amp;" gridHeight="1" gridWidth="14" justify="center" length="7" name="aport_importe" posX="28" posY="6" precisionDecimal="6" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="6" table_alias_name="" title="edit1" verify="false" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="11" justify="center" name="aport_bimestre" posX="43" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="edit1" widget="Edit"/>
+        <Button gridHeight="1" gridWidth="15" name="bton_registrar" posX="56" posY="6" tabIndex="8" text="Registrar Aportación"/>
+        <Table gridHeight="6" gridWidth="69" name="tab_aportacion" posX="3" posY="8" totalRows="5" unmovableColumns="true">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" name="c_anio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Año" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="8" name="c_expediente" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Expediente" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="8" name="c_importe" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Importe" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="8" name="c_bimestre" posX="24" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Bimestre" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="20" hidden="true" invisible="true" name="c_estado" posX="32" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Estado Aportación" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA1ADgAZAA3ADEAYwA1ADkALQBiADAAZgBkAC0ANABlADgANwAtAGIANAAwAGIALQA5AGMAZgAyADAANABjADEAZgBmADUAMgB9QCQAAAUAAABAToAAB6AAAAAAAAAAAAAAAQAAAEwAewBmADUAZQBhAGYANgA4ADcALQA2ADAAOQBiAC0ANAAyAGIAYwAtAGEANwBmADQALQBlADIANAA5ADIAMwBlAGIAYQBhADYAYQB9QCQAAAUAAABAVQAABUAAAAAAAAAAAAAAAQAAAEwAewBmADgAOQA2AGIANwA5ADcALQAyAGEAZQBmAC0ANABmADAANgAtAGEANwBiADMALQA4AGQAZABhAGMANwBiADUANQBkADgANQB9QCQAAAUAAABAYEAABBAAAAAAAAAAAAAAAQAAAEwAewBjADEANgBiAGQAMABlAGMALQBlAGEANgAwAC0ANABjAGQAZgAtAGEANQAyADUALQBiAGYANAAwADUANQAzADMAYQBkADEAMgB9QCQAAAUAAABAWsAABrAAAAAAAAAAAAAAAQAAAEwAewAyADEAZAAzADkAYwBmADIALQA5ADAAZQBjAC0ANABkADkAMwAtADgAZAA2ADAALQA0ADAAZQBjADEAMgA3ADgANwA1ADcANAB9wHgwAAYMAABAIAAABAAAAD90euFHrhR7AQAAAEwAewBkAGUAOQA4ADUAYQAyADQALQAwAGIAYgAzAC0ANABiADIAYwAtAGIAMQBiADYALQBjAGIAOAAxAGMAMABjADAAYgBjAGMAYwB9QCQAAAUAAABAVQAABUAAAAAAAAAAAAAAAQAAAEwAewBlADgAMABmADIAYwBiADUALQBhADgAMQBjAC0ANABjADcANAAtAGIAYgA5ADgALQA0ADMANQA5ADQAZQA4ADgAZAA4AGYAZgB9QCQAAAUAAABAWsAABrAAAAAAAAAAAAAAAQAAAEwAewAyAGEAYQBkADMAOABjAGEALQA2ADcANABlAC0ANABmADYAMgAtAGEAMgBiAGMALQAzAGYANAA1ADIAMAAxADQAZABiAGQAYQB9QCQAAAUAAABAYEAABBAAAAAAAAAAAAAAAQAAAEwAewA5ADIAMQA4ADAANwAyADUALQA5ADQAYQAwAC0ANAAwADcAYgAtADgANgAxAGYALQA2AGUAYQBlAGQANQBmADcAZgAxAGIANQB9QCQAAAUAAABAYyAABMgAAAAAAAAAAAAAAQAAAEwAewAwADMAZgBiADQAZgAwADQALQA4ADEAZAAyAC0ANAAzADIAOAAtAGIAYwA3AGUALQA0ADQAMAA4ADQAYQAyADcAMQA2ADgAOQB9AAAAAAAAAAAAAAAAAAAAAD9wYk3S8an8AQAAAEwAewA5ADgAMAAwADcAYwBhADYALQBkADEANQAzAC0ANABiADIAZgAtADgAZABjAGUALQA4AGEAZAA4ADMANQBjADkANwAxADEANwB9QCQAAAUAAABAZgAABYAAAAAAAAAAAAAAAQAAAEwAewA2ADUAYgA4ADYAYQAyADEALQA2AGEAZABhAC0ANABiADgAMAAtAGEANwAxADcALQBlADkAOQAzADcAMABmADEAMwAyADMAYwB9QCQAAAUAAABAToAAB6AAAAAAAAAAAAAAAQAAAEwAewBmADQAZgBjAGQAYwA5ADcALQA5ADEAOAA2AC0ANAA5AGYAYQAtADgAOQBmADAALQBkADYAZgAwADIAZQBlADAAZQBhAGYAMAB9QCQAAAUAAABAQwAABMAAAAAAAAAAAAAAAQAAAEwAewAzAGYAYwA2AGMAZABkAGEALQA0ADgANwA1AC0ANAA5ADgAMgAtADkAZgA0AGUALQA2ADQAMgA5ADUAMAA5ADMAZgAwADQAYwB9QCQAAAUAAABAQwAABMAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

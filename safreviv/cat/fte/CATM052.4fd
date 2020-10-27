@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{07dafe8e-b0b9-4a97-bbff-721b4764ccf0}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_proceso" order="" uid="{b25ce103-7303-4208-a5c6-1ca100b81db0}" where="">
+    <RecordField colName="" fieldIdRef="1" name="proceso_cod_m" sqlTabName="" table_alias_name="" uid="{318d648d-ac34-4e27-90d8-af7ec6a5424b}"/>
+    <RecordField colName="" fieldIdRef="2" name="modulo_cod" sqlTabName="" table_alias_name="" uid="{ae536c01-932d-40f8-ada2-59bf85ef1e19}"/>
+    <RecordField colName="" fieldIdRef="3" name="proceso_desc" sqlTabName="" table_alias_name="" uid="{9b1b3969-17f9-4142-aec7-faa3a28a673a}"/>
+    <RecordField colName="" fieldIdRef="4" name="proceso_ext" sqlTabName="" table_alias_name="" uid="{22ac69d2-a2c6-44bf-bb62-7d4e07a6175c}"/>
+    <RecordField colName="" fieldIdRef="5" name="f_actualiza_m" sqlTabName="" table_alias_name="" uid="{5323036c-f43f-44c0-8dec-eb92371c37a1}"/>
+    <RecordField colName="" fieldIdRef="6" name="usuario_m" sqlTabName="" table_alias_name="" uid="{fff1ce23-f50f-4696-9e9f-7668b5abbea7}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_reverso" order="" uid="{bd154203-b86c-4b39-b8d9-50edfcb6492d}" where="">
+    <RecordField colName="" fieldIdRef="7" name="proceso_cod" sqlTabName="" table_alias_name="" uid="{039c4849-982c-4b41-88da-6a09ae28d784}"/>
+    <RecordField colName="" fieldIdRef="8" name="tabla_id" sqlTabName="" table_alias_name="" uid="{c9579380-e76d-40ee-b986-a7c745b3a777}"/>
+    <RecordField colName="" fieldIdRef="9" name="nombre_tabla" sqlTabName="" table_alias_name="" uid="{7f981547-e506-4aac-9182-7c015ce2cf98}"/>
+    <RecordField colName="" fieldIdRef="10" name="f_actualiza" sqlTabName="" table_alias_name="" uid="{7048361e-b385-464d-b1d6-e607a2385a25}"/>
+    <RecordField colName="" fieldIdRef="11" name="usuario" sqlTabName="" table_alias_name="" uid="{ff807e54-25fe-497d-9340-2272311b499f}"/>
+  </Record>
+  <Form gridHeight="27" gridWidth="100" name="Form" text="Form">
+    <VBox gridHeight="19" gridWidth="82" name="VBox1" posX="2" posY="1">
+      <Group gridHeight="9" gridWidth="82" name="Group1" posX="0" posY="1" text="Proceso">
+        <Table gridHeight="7" gridWidth="80" name="Table1" posX="1" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="8" name="proceso_cod_m" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Proceso" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="modulo_cod" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Módulo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="33" name="proceso_desc" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Descripción" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="proceso_ext" posX="49" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Ext" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="f_actualiza_m" posX="57" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha actualización" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="usuario_m" posX="65" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Usuario" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="8" gridWidth="82" name="Group2" posX="0" posY="10" text="Reverso">
+        <Table gridHeight="6" gridWidth="57" name="Table2" posX="1" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="8" name="proceso_cod" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Proceso" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" name="tabla_id" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Clave tabla" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="18" name="nombre_tabla" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Nombre tabla" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="f_actualiza" posX="34" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Fecha actualización" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="8" hidden="true" invisible="true" name="usuario" posX="42" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Usuario" widget="Edit"/>
+        </Table>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiAGQAMQA1ADQAMgAwADMALQBiADgANgBjAC0ANABiADMAOQAtAGIAOABkADkALQA1ADAAZQBkAGYAYwBiADYANAA5ADIAZAB9AAAAAAAAAAAAAAAAAAAAAD9ok3S8an76AQAAAEwAewBiADIANQBjAGUAMQAwADMALQA3ADMAMAAzAC0ANAAyADAAOAAtAGEANQBjADYALQAxAGMAYQAxADAAMABiADgAMQBkAGIAMAB9wGwAAAAAAADASwAAAAAAAD9gYk3S8an8AQAAAEwAewAzADEAOABkADYANAA4AGQALQBhAGMAMwA0AC0ANABlADIANwAtADkAMABkADgALQBhAGYANwBlAGMANgBhADUANAAyADQAYgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADkANQA3ADkAMwA4ADAALQBlADcANgBkAC0ANAAwAGUAZQAtAGIAOQA4ADYALQBhADcAYwA3ADQANQBiADMAYQA3ADcANwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADIAYQBjADYAOQBkADIALQBhADIAYwA2AC0ANAA0AGIAZgAtAGIAYgA2ADIALQA3AGQANABlADAANwBhADYAMQA3ADUAYwB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGYAOAAwADcAZQA1ADQALQAyADUAZgBlAC0ANAA5ADcAZAAtADkAMwA0ADAALQAyADIANwAyADMAMQAxAGIANAA5ADkAZgB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGUANQAzADYAYwAwADEALQA5ADMAMgBkAC0ANAAwAGYAOAAtAGEAZABhADIALQA1ADkAYgBmADgANQBlAGYAMQBlADEAOQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADMAMgAzADAAMwA2AGMALQBmADQAMwBmAC0ANAA0AGMAMAAtADgAZABlAGMALQBlAGIAOQAyADMANwAxAGMAMwA3AGEAMQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewBmAGYAZgAxAGMAZQAyADMALQBmADUAMABmAC0ANAA2ADkANgAtADkAZQA5AGYALQA3ADYANgA4AGIANQBhAGIAYgBlAGEANwB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGIAMQBiADMAOQA2ADkALQAxADcAZgA5AC0ANAAxADQAMgAtAGEAZQBjADcALQBmAGEAYQAzAGEAMgA4AGEANgA3ADMAYQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGYAOQA4ADEANQA0ADcALQBlADUAMAA2AC0ANABhAGEAYwAtADkAMQA4ADIALQA3AGMAMAAxADUAYwBlADIAYwBmADkAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADAANAA4ADMANgAxAGUALQBiADMAOAA1AC0ANAA2ADQAZAAtAGIAMQBkADYALQBlADYAMAA3AGEAMgAzADgANQBhADIANQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewAwADMAOQBjADQAOAA0ADkALQA5ADgAMgBjAC0ANABiADQAMQAtADgAOABkAGEALQA2AGEAMAA5AGEAZQAyADgAZAA3ADgANAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="SEPE11.rdd" RWFglReportName="rpt_solicitudes_marca_op27"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="Page Header" width="max" length="min" port="anyPageHeader">
+                        <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight">
+                            <PAGENOBOX name="PageNoBox" x="2.9702" y="482.98" width="76.2587" length="10" anchorX="0.5" anchorY="0.5" fontSize="9" fontItalic="true" floatingBehavior="enclosed" textExpression="&quot;Pág. &quot;+format(getPhysicalPageNumber(),ARABIC)+&quot; de &quot;+format(getTotalNumberOfPhysicalPages(),ARABIC)"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Table Header" class="grwTableHeader" width="83.25" length="521.575" layoutDirection="leftToRight">
+                            <WORDBOX name="Spacer" alignment="baseline" baselineType="leftleft" port="itemSeparator" text=" "/>
+                            <IMAGEBOX name="ImageBox" x="7.063" y="8.2033" width="105.75" length="69.75" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="infonavit_logo.jpg" intendedResolution="96"/>
+                            <WORDBOX name="WordBox" x="17.6463" y="153.048" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="REPORTE SOLICITUD DE MARCA NOTIFICACION DE"/>
+                            <WORDBOX name="WordBox1" x="34.4393" y="180.198" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="POSIBLES CUENTAS A SEPARAR (OP 27)"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Separator" width="1" length="max" bgColor="#000000" layoutDirection="leftToRight"/>
+                    </LAYOUTNODE>
+                    <rtl:match name="Group gpo" nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="Table Row" class="grwTableRow" width="123" length="521.575" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox2" x="12.4868" y="259.07" anchorX="0" anchorY="0" fontSize="10" fontBold="true" underline="true" floatingBehavior="enclosed" text=" FECHA:                                                             "/>
+                            <rtl:input-variable name="v_det_operacion.f_reporte" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDBOX name="v_det_operacion.f_reporte Value" x="12.4868" y="411.719" width="84.6607" length="10" anchorX="0" anchorY="0" alignment="near" fontSize="8" floatingBehavior="enclosed" textAlignment="left" text="{{v_det_operacion.f_reporte}}"/>
+                            <WORDBOX name="WordBox3" x="26.7391" y="259.07" width="173" length="12.4311" anchorX="0" anchorY="0" fontSize="10" fontBold="true" underline="true" floatingBehavior="enclosed" text="ARCHIVO:                                                          "/>
+                            <rtl:input-variable name="v_det_operacion.nombre_archivo" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDWRAPBOX name="v_det_operacion.nombre_archivo Value" x="26.7391" y="411.719" width="84.8058" length="8" anchorX="0" anchorY="0" alignment="baseline" fontSize="5" floatingBehavior="enclosed" text="{{v_det_operacion.nombre_archivo}}" textAlignment="left"/>
+                            <WORDBOX name="WordBox4" x="40.8438" y="259.07" anchorX="0" anchorY="0" fontSize="10" fontBold="true" underline="true" floatingBehavior="enclosed" text="FOLIO:                                                              "/>
+                            <WORDBOX name="WordBox5" x="59.6378" y="259.07" anchorX="0" anchorY="0" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="TOTAL CUENTAS ARCHIVO:"/>
+                            <WORDBOX name="WordBox6" x="72.5251" y="259.07" width="max" anchorX="0" anchorY="0" fontSize="10" fontBold="true" underline="true" floatingBehavior="enclosed" text="TOTAL CUENTAS MARCADAS:                           "/>
+                            <WORDBOX name="WordBox7" x="92.205" y="259.07" anchorX="0" anchorY="0" fontSize="10" fontBold="true" underline="false" floatingBehavior="enclosed" text="TOTAL CUENTAS MARCA RECHAZADA:"/>
+                            <WORDBOX name="WordBox8" x="105.883" y="259.07" anchorX="0" anchorY="0" fontSize="10" fontBold="true" underline="true" floatingBehavior="enclosed" text="TOTAL CUENTAS CON CRÉDITO:                         "/>
+                            <rtl:input-variable name="v_det_operacion.tot_rechazadas" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="v_det_operacion.tot_rechazadas Value" x="92.205" y="448.765" width="85.0002" length="10.1116" anchorX="1.26486e-14" anchorY="1.77051e-15" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="----------&amp;" value="{{v_det_operacion.tot_rechazadas}}"/>
+                            <rtl:input-variable name="v_det_operacion.tot_infonavit" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="v_det_operacion.tot_infonavit Value" x="105.883" y="411.719" width="84.6647" length="9.48604" anchorX="0" anchorY="0" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="----------&amp;" value="{{v_det_operacion.tot_infonavit}}"/>
+                            <rtl:input-variable name="v_det_operacion.folio" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="v_det_operacion.folio Value" x="40.8438" y="411.719" width="84.3559" length="10" anchorX="2.55795e-14" anchorY="0" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="-,---,---,--&amp;" value="{{v_det_operacion.folio}}"/>
+                            <rtl:input-variable name="v_det_operacion.tot_integrado" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="v_det_operacion.tot_integrado Value" x="59.6378" y="411.719" width="84.6256" length="10" anchorX="0" anchorY="0" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="----------&amp;" value="{{v_det_operacion.tot_integrado}}"/>
+                            <rtl:input-variable name="v_det_operacion.tot_marcadas" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <DECIMALFORMATBOX name="v_det_operacion.tot_marcadas Value" x="72.5251" y="411.719" width="84.8616" length="8.92455" anchorX="0" anchorY="6.20389e-16" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="left" format="----------#" value="{{v_det_operacion.tot_marcadas}}"/>
+                        </MINIPAGE>
+                        <rtl:input-variable name="v_det_operacion.tot_rechazadas" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <MINIPAGE name="MiniPage1" rtl:condition="v_det_operacion.tot_rechazadas&gt;0" width="521" length="79.25" alignment="near">
+                            <WORDBOX name="WordBox9" x="13.6337" y="8.983" width="493.75" length="13.6372" anchorX="0" anchorY="0" color="#ffffff" bgColor="#980000" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="RECHAZOS DE MARCA POR CONVIVENCIA DE MARCA"/>
+                            <WORDBOX name="WordBox10" x="14.3837" y="24.4308" width="105" anchorX="0" anchorY="0" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="NSS" borderWidth="0.7" borderStyle="solid" marginWidth="0.5"/>
+                            <WORDBOX name="WordBox11" x="119.223" y="24.4308" width="190.5" anchorX="0" anchorY="0" fontSize="10" fontBold="true" floatingBehavior="enclosed" text=" Código Rechazo" borderWidth="0.7" borderStyle="solid"/>
+                            <WORDBOX name="WordBox11_1" x="311.447" y="24.3238" width="195" length="12.0463" anchorX="0" anchorY="0" fontSize="10" fontBold="true" floatingBehavior="enclosed" text=" Descripción" borderWidth="0.7" borderStyle="solid"/>
+                        </MINIPAGE>
+                        <rtl:input-variable name="v_det_operacion.tot_infonavit" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <MINIPAGE name="MiniPage2" rtl:condition="v_det_operacion.tot_infonavit&gt;0" width="520.25" length="77.75" alignment="near">
+                            <WORDBOX name="WordBox10_1" x="14.3837" y="23.6808" width="171.75" anchorX="0" anchorY="0" fontSize="10" fontBold="true" floatingBehavior="enclosed" text=" NSS" borderWidth="0.7" borderStyle="solid" marginWidth="0.5"/>
+                            <WORDBOX name="WordBox9_1" x="13.6337" y="8.983" width="493.75" length="13.6372" anchorX="0" anchorY="0" color="#ffffff" bgColor="#980000" fontSize="11" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NSS CON INDICADOR DE CRÉDITO INFONAVIT"/>
+                            <WORDBOX name="WordBox10_1_1" x="349.628" y="23.6808" width="156.75" anchorX="0" anchorY="0" fontSize="10" fontBold="true" floatingBehavior="enclosed" text=" NSS" borderWidth="0.7" borderStyle="solid" marginWidth="0.5"/>
+                            <WORDBOX name="WordBox10_1_1_1" x="187.627" y="23.6808" width="160.5" anchorX="0" anchorY="0" fontSize="10" fontBold="true" floatingBehavior="enclosed" text=" NSS" borderWidth="0.7" borderStyle="solid" marginWidth="0.5"/>
+                        </MINIPAGE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="v_det_operacion.tot_rechazadas" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <LAYOUTNODE name="LayoutNode" rtl:condition="v_det_operacion.tot_rechazadas&gt;0" x="13.6337" y="252.91" width="11.0587" length="493.25" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_detalle_rechazos.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_detalle_rechazos.nss Value" width="105" length="10" anchorX="2.27374e-14" anchorY="0" alignment="near" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{v_detalle_rechazos.nss}}"/>
+                                <rtl:input-variable name="v_detalle_rechazos.rch_cod" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_detalle_rechazos.rch_cod Value" width="192" length="10" anchorX="1" anchorY="0" alignment="baseline" fontSize="8" floatingBehavior="enclosed" textAlignment="center" format="-----#" value="{{v_detalle_rechazos.rch_cod}}"/>
+                                <rtl:input-variable name="v_detalle_rechazos.rch_desc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_detalle_rechazos.rch_desc Value" width="195.75" length="10" anchorX="1" fontSize="8" floatingBehavior="enclosed" text="{{v_detalle_rechazos.rch_desc}}"/>
+                            </LAYOUTNODE>
+                            <rtl:input-variable name="v_det_operacion.tot_infonavit" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <LAYOUTNODE name="LayoutNode1" rtl:condition="v_det_operacion.tot_infonavit&gt;0" x="14.3837" y="330.574" width="min" length="492.5" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="v_detalle_rechazos.nss1" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_detalle_rechazos.nss1 Value" width="172.051" length="10" anchorX="0" anchorY="1.21668e-17" alignment="center" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{v_detalle_rechazos.nss1}}"/>
+                                <rtl:input-variable name="v_detalle_rechazos.nss2" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_detalle_rechazos.nss2 Value" width="161.073" length="10" anchorX="0.5" anchorY="0.161156" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{v_detalle_rechazos.nss2}}"/>
+                                <rtl:input-variable name="v_detalle_rechazos.nss3" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_detalle_rechazos.nss3 Value" width="158.067" length="9.72604" anchorX="3.26011e-14" anchorY="0" alignment="center" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{v_detalle_rechazos.nss3}}"/>
+                            </LAYOUTNODE>
+                        </rtl:match>
+                        <rtl:input-variable name="v_tot_gpo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <LAYOUTNODE name="LayoutNode8_1" rtl:condition="v_tot_gpo&gt;1" width="18.0811" length="252.168" anchorX="1.47435e-14" anchorY="0" alignment="baseline" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <MINIPAGE name="LayoutNode6_2" width="min" length="192.394" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox13" x="2.7729" y="1.7961" anchorX="0.234875" anchorY="5.23558e-15" alignment="baseline" fontBold="true" floatingBehavior="enclosed" text="TOTAL"/>
+                                <rtl:input-variable name="v_tot_gpo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_tot_gpo Value1" x="-0.7192" y="45.6721" anchorX="0" anchorY="4.87835e-15" alignment="far" fontSize="11" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_tot_gpo}}"/>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

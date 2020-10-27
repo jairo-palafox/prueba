@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{a0726e60-8594-4ce1-acb5-a6f91d17c834}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{778b56ac-54c6-40d6-b811-edeb7b34bdc8}" where="">
+    <RecordField colName="" defaultValue="1" fieldIdRef="1" name="rdgpo_tpo_consulta" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{cc6c3d73-a038-48c5-a09c-c5eb5463a0ba}"/>
+    <RecordField colName="" fieldIdRef="2" name="nss" sqlTabName="" table_alias_name="" uid="{e148f889-88ca-4327-a3a7-f440c465e52c}"/>
+    <RecordField colName="" fieldIdRef="5" name="folio" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{8ff8e545-460f-49b1-8d16-925442a607a6}"/>
+    <RecordField colName="" defaultValue="" fieldIdRef="3" name="periodo_inicio" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{403570f0-4214-4e8a-9ff9-3b3d4cfe0e01}"/>
+    <RecordField colName="" defaultValue="" fieldIdRef="6" name="periodo_fin" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{1e58d3bc-ce63-4832-9b32-e81c742fcf6b}"/>
+    <RecordField colName="" defaultValue="0" fieldIdRef="4" name="deudor" sqlTabName="" sqlType="BOOLEAN" table_alias_name="" uid="{0b3ce0cc-f505-4bbd-9009-9d0fbcf91e61}"/>
+    <RecordField colName="" defaultValue="0" fieldIdRef="7" name="compensacion" sqlTabName="" sqlType="BOOLEAN" table_alias_name="" uid="{5ecfdcfe-6ef5-49b6-91f8-1877034e5230}"/>
+    <RecordField colName="" fieldIdRef="11" name="restitucion_solicitada" sqlTabName="" table_alias_name="" uid="{27cf98eb-2dc2-403e-b3bb-0b50ed516cbd}"/>
+    <RecordField colName="" fieldIdRef="12" name="deudor_compensado" sqlTabName="" table_alias_name="" uid="{e82f6894-96af-4ef3-ba07-de836434adc9}"/>
+    <RecordField colName="" fieldIdRef="13" name="total_activo" sqlTabName="" table_alias_name="" uid="{cc11fe3c-237e-41d9-8ec2-95f9e39b3f83}"/>
+    <RecordField colName="" fieldIdRef="15" name="reporte" sqlTabName="" table_alias_name="" uid="{c634e67f-1441-4a8e-be89-53f139a4b26b}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_deudores" order="" uid="{2846e5f8-b7f1-4e97-a207-528cc802f3f6}" where="">
+    <RecordField colName="" fieldIdRef="14" name="id_derechohabiente" sqlTabName="" table_alias_name="" uid="{048b3c22-1c52-4ed1-b830-9566414b8ef6}"/>
+    <RecordField colName="" fieldIdRef="8" name="nss_deudor" sqlTabName="" table_alias_name="" uid="{170d9a0f-3aff-40b4-8b34-285b2fb69294}"/>
+    <RecordField colName="" fieldIdRef="9" name="Edit2" sqlTabName="" table_alias_name="" uid="{948d1f35-4b5f-4443-82d5-ad146a8b0729}"/>
+    <RecordField colName="" fieldIdRef="10" name="Edit3" sqlTabName="" table_alias_name="" uid="{ec3cfbc1-e618-439a-bf04-0d8c139113a0}"/>
+  </Record>
+  <Form gridHeight="39" gridWidth="94" name="Form" text="Form">
+    <Grid gridHeight="37" gridWidth="84" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="4" gridWidth="47" name="gpo_tpo_consulta" posX="2" posY="1" text="Tipo Consulta">
+        <RadioGroup colName="" columnCount="" defaultValue="1" fieldId="1" gridHeight="2" gridWidth="20" include="1|2" items="Detallada, Global" name="rdgpo_tpo_consulta" notNull="true" posX="3" posY="1" required="true" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="1" table_alias_name="" title="RadioGroup1" widget="RadioGroup">
+          <Item lstrtext="false" name="1" text="Detallada"/>
+          <Item lstrtext="false" name="2" text="Global"/>
+        </RadioGroup>
+      </Group>
+      <Group gridHeight="9" gridWidth="66" name="gpo_capturar" posX="2" posY="6" text="Capturar">
+        <Label gridHeight="1" gridWidth="11" name="lbl_nss" posX="2" posY="1" text="NSS"/>
+        <Edit colName="" columnCount="" fieldId="2" format="&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;" gridHeight="1" gridWidth="14" name="nss" posX="14" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="11" name="Label1" posX="2" posY="3" text="Periodo Inicio"/>
+        <DateEdit colName="" columnCount="" defaultValue="" fieldId="3" gridHeight="1" gridWidth="11" name="periodo_inicio" posX="14" posY="3" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="4" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <CheckBox colName="" columnCount="" defaultValue="0" fieldId="4" gridHeight="1" gridWidth="12" include="0|1" name="deudor" notNull="true" posX="29" posY="3" rowCount="" sqlTabName="" sqlType="BOOLEAN" stepX="" stepY="" tabIndex="6" table_alias_name="" text="Deudor" title="CheckBox1" widget="CheckBox"/>
+        <Label gridHeight="1" gridWidth="11" name="Label2" posX="2" posY="5" text="Periodo Fin"/>
+        <DateEdit colName="" columnCount="" defaultValue="" fieldId="6" gridHeight="1" gridWidth="11" name="periodo_fin" posX="14" posY="5" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="5" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <CheckBox colName="" columnCount="" defaultValue="0" fieldId="7" gridHeight="1" gridWidth="11" include="0|1" name="compensacion" notNull="true" posX="29" posY="5" rowCount="" sqlTabName="" sqlType="BOOLEAN" stepX="" stepY="" tabIndex="7" table_alias_name="" text="Compensación" title="CheckBox2" widget="CheckBox"/>
+        <Label gridHeight="1" gridWidth="11" name="Label3" posX="2" posY="7" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="14" name="folio" posX="14" posY="7" precisionDecimal="9" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Table gridHeight="11" gridWidth="77" name="tbl_deudores" posX="2" posY="16" totalRows="10">
+        <FFLabel colName="" columnCount="" fieldId="14" gridHeight="1" gridWidth="3" hidden="true" name="id_derechohabiente" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="id_derechohabiente" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="15" name="nss_deudor" posX="3" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="NSS" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="35" name="Edit2" posX="18" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Nombre" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="14" name="Edit3" posX="53" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Deudor" widget="FFLabel"/>
+      </Table>
+      <Group gridHeight="4" gridWidth="76" name="gpo_cifras" posX="2" posY="28" text="Cifras Globales Deudor">
+        <Label gridHeight="1" gridWidth="23" name="Label4" posX="2" posY="1" text="Restitución Solicitada"/>
+        <Label gridHeight="1" gridWidth="23" name="Label5" posX="27" posY="1" text="Deudor Compensado"/>
+        <Label gridHeight="1" gridWidth="23" name="Label6" posX="52" posY="1" text="Total Deudor Activo"/>
+        <FFLabel colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="23" name="restitucion_solicitada" posX="2" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="12" gridHeight="1" gridWidth="23" name="deudor_compensado" posX="27" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+        <FFLabel colName="" columnCount="" fieldId="13" gridHeight="1" gridWidth="23" name="total_activo" posX="52" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+      </Group>
+      <Group gridHeight="3" gridWidth="32" name="gpo_reporte" posX="2" posY="33" text="Reporte">
+        <Label gridHeight="1" gridWidth="8" name="lbl_reporte" posX="2" posY="1" text="Reporte:"/>
+        <FFLabel colName="" columnCount="" fieldId="15" gridHeight="1" gridWidth="16" name="reporte" posX="11" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" style="LabelUrl" table_alias_name="" title="FFLabel1" widget="FFLabel"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[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]]>
+  </DiagramLayout>
+</ManagedForm>

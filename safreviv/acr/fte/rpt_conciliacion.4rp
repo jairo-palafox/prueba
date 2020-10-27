@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/DISC01.rdd" RWFglReportName="rp_avance_pago"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="center">
+                    <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" alignment="far" floatingBehavior="enclosed" url="logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="22.1356" length="720.24" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" x="7.5" y="298.617" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="CONCILIACIÓN DE RECHAZO DE SALDOS" localizeText="false"/>
+                            <WORDWRAPBOX name="WordWrapBox2" x="7.5" y="628.422" width="91.4939" length="14.6587" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="Hoy"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode3" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDWRAPBOX name="WordWrapBox3" x="1.2" y="544.298" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="Insert your text here"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox16" y="0" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Instituto:" borderColor="#ffffff">
+                                <WORDWRAPBOX name="WordWrapBox" x="66.0763" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontBold="false" floatingBehavior="enclosed" text="v_codigo_afore"/>
+                            </WORDBOX>
+                            <WORDWRAPBOX name="WordWrapBox1" x="0" y="232.887" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_razon_social"/>
+                            <WORDWRAPBOX name="WordWrapBox4" x="0" y="628.422" width="71.9209" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_usuario"/>
+                            <LAYOUTNODE name="LayoutNode5_1" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox17" y="0" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Instituto:" borderColor="#ffffff">
+                                    <WORDWRAPBOX name="WordWrapBox5" x="66.0763" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontBold="false" floatingBehavior="enclosed" text="v_codigo_afore"/>
+                                </WORDBOX>
+                                <WORDWRAPBOX name="WordWrapBox6" x="0" y="232.887" width="width(&quot;M&quot;)*20" length="20.7753" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_razon_social"/>
+                                <WORDWRAPBOX name="WordWrapBox7" x="0" y="628.422" width="71.9209" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_usuario"/>
+                            </LAYOUTNODE>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode2_1" width="22.8884" length="720.24" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox18" x="6.4461" y="1.7262" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Folio:"/>
+                        <WORDWRAPBOX name="WordWrapBox8" x="7.3191" y="53.5694" width="84.7184" length="13.8683" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_folio"/>
+                        <WORDBOX name="WordBox19" x="7.3191" y="180.97" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="Fecha Liquidación"/>
+                        <WORDWRAPBOX name="WordWrapBox9" x="7.3191" y="298.617" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="v_fecha_liquida"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage3" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode6" width="20.5225" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox9" x="10.7921" y="318.281" width="714.849" length="18.7651" anchorX="0.5" anchorY="0.440316" color="#ce050f" fontName="Arial" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="TOTALES POR SUBCUENTA"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode7" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode7_1" y="max" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode6_1" width="min" length="max" alignment="far" layoutDirection="leftToRight" floatingBehavior="enclosed" borderColor="#ce050f">
+                        <WORDBOX name="WordBox20" x="8.643" y="149.712" anchorX="0.576199" anchorY="0.38025" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Fondo"/>
+                        <WORDBOX name="WordBox21" x="7" y="298.617" anchorX="0.5" anchorY="0.440316" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Subcuenta"/>
+                        <WORDBOX name="WordBox22" x="7" y="438.028" anchorX="0.5" anchorY="0.28688" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Acciones"/>
+                        <WORDBOX name="WordBox23" x="7" y="599.198" anchorX="0.5" anchorY="0.221639" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Pesos"/>
+                        <WORDBOX name="WordBox24" x="-0.0426" y="24.668" width="31.2809" anchorX="2.46321e-14" anchorY="0.5" alignment="near" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Item"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode8_1" y="max" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox15" alignment="far" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage4" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode9" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <DECIMALFORMATBOX name="arr_ava_pago.tot_registros Value" x="4.6005" y="28.7979" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,--&amp;.&amp;&amp;" value="{{v_item}}"/>
+                                <DECIMALFORMATBOX name="arr_ava_pago.tot_aportacion Value" x="4.6005" y="165.738" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_fondo}}"/>
+                                <DECIMALFORMATBOX name="arr_ava_pago.tot_amortizacion Value" x="2.054" y="326.885" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_subcuenta}}"/>
+                                <DECIMALFORMATBOX name="arr_ava_pago.tot_rechazados Value" x="4.6005" y="450.63" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_aivs}}"/>
+                                <WORDWRAPBOX name="arr_ava_pago.estado Value" x="2.05398" y="583.108" width="137.315" length="19.7866" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_pesos}}"/>
+                                <LAYOUTNODE name="LayoutNode9_1" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <DECIMALFORMATBOX name="arr_ava_pago.tot_registros Value1" x="4.6005" y="28.7979" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,--&amp;.&amp;&amp;" value="{{v_item}}"/>
+                                    <DECIMALFORMATBOX name="arr_ava_pago.tot_aportacion Value1" x="4.6005" y="165.738" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_fondo}}"/>
+                                    <DECIMALFORMATBOX name="arr_ava_pago.tot_amortizacion Value1" x="2.054" y="326.885" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_subcuenta}}"/>
+                                    <DECIMALFORMATBOX name="arr_ava_pago.tot_rechazados Value1" x="4.6005" y="450.63" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{v_aivs}}"/>
+                                    <WORDWRAPBOX name="arr_ava_pago.estado Value2" x="2.05398" y="583.108" width="137.315" length="19.7866" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_pesos}}"/>
+                                </LAYOUTNODE>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <LAYOUTNODE name="LayoutNode9_1_1" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox25" x="8.0424" y="257.939" anchorX="0" anchorY="0" color="#ce050f" floatingBehavior="enclosed" text="TOTAL LIQUIDADO POR SUBCUENTAS"/>
+                        <LAYOUTNODE name="LayoutNode9_1_1_1" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox26" x="8.0424" y="257.939" anchorX="0" anchorY="0" color="#ce050f" floatingBehavior="enclosed" text="TOTAL LIQUIDADO POR SUBCUENTAS"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode9_1_1_1_1" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox21_1_1" x="6.5641" y="318.281" anchorX="0" anchorY="0.5" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="ACCIONES"/>
+                        <WORDBOX name="WordBox21_1_2" x="11.1474" y="556.228" anchorX="0.156081" anchorY="0.838617" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="PESOS"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode9_1_1_1_1_1" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <DECIMALFORMATBOX name="arr_ava_pago.tot_aportacion Value1_1" x="4.6005" y="165.738" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_movimiento}}"/>
+                        <DECIMALFORMATBOX name="v_acc_rcv Value" y="298.617" anchorX="1" color="#112d81" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_acc_rcv}}"/>
+                        <DECIMALFORMATBOX name="v_sdo_rcv Value" y="508.96" anchorX="1" color="#112d81" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sdo_rcv}}"/>
+                    </LAYOUTNODE>
+                    <WORDBOX name="WordBox21_1" x="149.712" y="234.189" anchorX="0.5" anchorY="0.440316" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="MOVIMIENTO"/>
+                    <LAYOUTNODE name="LayoutNode9_1_1_1_1_2" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <DECIMALFORMATBOX name="arr_ava_pago.tot_aportacion Value1_1_1" x="4.6005" y="165.738" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_movimiento}}"/>
+                        <DECIMALFORMATBOX name="v_acc_viv Value" y="298.617" anchorX="1" color="#112d81" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_acc_viv}}"/>
+                        <DECIMALFORMATBOX name="v_sdo_viv Value" y="508.96" anchorX="1" color="#112d81" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sdo_viv}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode9_1_1_1_1_3" width="24.3349" length="719.495" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <DECIMALFORMATBOX name="arr_ava_pago.tot_aportacion Value1_1_2" x="4.6005" y="165.738" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_movimiento}}"/>
+                        <DECIMALFORMATBOX name="v_acc_vol Value" y="298.617" anchorX="1" color="#112d81" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_acc_vol}}"/>
+                        <DECIMALFORMATBOX name="v_sdo_vol Value" y="507.168" anchorX="1" color="#112d81" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_sdo_vol}}"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

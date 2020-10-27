@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{7cdbacc5-89d3-4f27-9f20-8f67e16bcc2b}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{53ffd01d-7489-40b8-ac80-265bdc9a7323}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cmb_estado" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{4a96ece3-634b-418c-ac94-9b7ece4bf8b1}"/>
+    <RecordField colName="" fieldIdRef="2" name="cmb_procesar" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{85c79036-e53b-4715-a059-d87ed1340057}"/>
+    <RecordField colName="" fieldIdRef="3" name="cmb_diagnostico" sqlTabName="" table_alias_name="" uid="{d440cdd3-4fd6-4c13-9fc8-3fba69880d78}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="80" name="Form" text="Form">
+    <Grid gridHeight="19" gridWidth="73" name="Grid1" posX="3" posY="1">
+      <Group gridHeight="14" gridWidth="67" name="Group1" posX="3" posY="1" text="Consulta histórica">
+        <Label gridHeight="1" gridWidth="16" name="Label11" posX="9" posY="2" text="Estado INFONAVIT"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="27" items="10-RECIBIDA, 20-MARCADA, 130-PRELIQUIDADA, 140-LIQUIDADA, 150-MARCA INFONAVIT RECHAZADA, 160-SOLICITUD DESMARCA RECIBIDA, 170-DESMARCA, 900-MIGRADA" name="cmb_estado" posX="27" posY="2" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox">
+          <Item lstrtext="false" name="10" text="10-RECIBIDA"/>
+          <Item lstrtext="false" name="20" text="20-MARCADA"/>
+          <Item lstrtext="false" name="130" text="130-PRELIQUIDADA"/>
+          <Item lstrtext="false" name="140" text="140-LIQUIDADA"/>
+          <Item lstrtext="false" name="150" text="150-MARCA INFONAVIT RECHAZADA"/>
+          <Item lstrtext="false" name="160" text="160-SOLICITUD DESMARCA RECIBIDA"/>
+          <Item lstrtext="false" name="170" text="170-DESMARCA"/>
+          <Item lstrtext="false" name="900" text="900-MIGRADA"/>
+        </ComboBox>
+        <Label gridHeight="1" gridWidth="16" name="Label12" posX="9" posY="4" text="Estado PROCESAR"/>
+        <ComboBox colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="27" items="5-NO ENVIADA, 10-RECIBIDA, 30-MARCA PROCESAR SOLICITADA, 40-MARCA PROCESAR RECHAZADA, 50-MARCA PROCESAR POR ENVIAR, 60-MARCA PROCESAR, 70-POR REENVIAR, 80-SALDO SOLICITADO , 90 -SALDO  RECHAZADO, 100-DEVUELTA, 110-NO ATENDIDA, 120-SALDO TRANSFERIDO, 180-DESMARCA PROCESAR SOLICITADA, 190-DESMARCA PROCESAR RECHAZADA, 200-DESMARCA PROCESAR POR REENVIAR, 210-DESMARCADA PROCESAR" name="cmb_procesar" posX="27" posY="4" rowCount="" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="2" table_alias_name="" title="ComboBox2" widget="ComboBox">
+          <Item lstrtext="false" name="5" text="5-NO ENVIADA"/>
+          <Item lstrtext="false" name="10" text="10-RECIBIDA"/>
+          <Item lstrtext="false" name="30" text="30-MARCA PROCESAR SOLICITADA"/>
+          <Item lstrtext="false" name="40" text="40-MARCA PROCESAR RECHAZADA"/>
+          <Item lstrtext="false" name="50" text="50-MARCA PROCESAR POR ENVIAR"/>
+          <Item lstrtext="false" name="60" text="60-MARCA PROCESAR"/>
+          <Item lstrtext="false" name="70" text="70-POR REENVIAR"/>
+          <Item lstrtext="false" name="80" text="80-SALDO SOLICITADO "/>
+          <Item lstrtext="false" name="90" text="90 -SALDO  RECHAZADO"/>
+          <Item lstrtext="false" name="100" text="100-DEVUELTA"/>
+          <Item lstrtext="false" name="110" text="110-NO ATENDIDA"/>
+          <Item lstrtext="false" name="120" text="120-SALDO TRANSFERIDO"/>
+          <Item lstrtext="false" name="180" text="180-DESMARCA PROCESAR SOLICITADA"/>
+          <Item lstrtext="false" name="190" text="190-DESMARCA PROCESAR RECHAZADA"/>
+          <Item lstrtext="false" name="200" text="200-DESMARCA PROCESAR POR REENVIAR"/>
+          <Item lstrtext="false" name="210" text="210-DESMARCADA PROCESAR"/>
+        </ComboBox>
+        <Label gridHeight="1" gridWidth="16" name="Label1" posX="9" posY="6" text="Diagnóstico"/>
+        <ComboBox colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="27" items="" name="cmb_diagnostico" posX="27" posY="6" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="ComboBox1" widget="ComboBox"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0AGEAOQA2AGUAYwBlADMALQA2ADMANABiAC0ANAAxADgAYwAtAGEAYwA5ADQALQA5AGIANwBlAGMAZQA0AGIAZgA4AGIAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADMAZgBmAGQAMAAxAGQALQA3ADQAOAA5AC0ANAAwAGIAOAAtAGEAYwA4ADAALQAyADYANQBiAGQAYwA5AGEANwAzADIAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADUAYwA3ADkAMAAzADYALQBlADUAMwBiAC0ANAA3ADEANQAtAGEAMAA1ADkALQBkADgANwBlAGQAMQAzADQAMAAwADUANwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQANAAwAGMAZABkADMALQA0AGYAZAA2AC0ANABjADEAMwAtADkAZgBjADgALQAzAGYAYgBhADYAOQA4ADgAMABkADcAOAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

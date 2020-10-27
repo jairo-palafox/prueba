@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RETC373.rdd" RWFglReportName="rpt_detalle_ind_devol"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min" alignment="near">
+                            <IMAGEBOX name="imgLogoInfonavit" width="70" length="45" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="120"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Indicador SC  Riesgos (Diferencias AIVs - Devolución SSV)"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="18.4943" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lblUsuario" width="36.0337" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Usuario:"/>
+                            <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario_cod Value" width="80" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                            <WORDBOX name="espacioUsuarioNombre" width="22.2584" length="16.2359" color="#000000" floatingBehavior="enclosed" text=""/>
+                            <rtl:input-variable name="v_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_usuario Value" width="320" color="#000000" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nombre_usuario}}"/>
+                            <WORDBOX name="espacioUsuarioNombre1" width="88.5058" length="16.2359" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="lblFecha" width="49" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha:"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha Value" width="67.4042" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="numPagina" width="min" length="max" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="700" alignment="near" layoutDirection="leftToRight"/>
+                        <PAGENOBOX name="PageNoBox" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Encabezado General" width="min" length="max" alignment="near" bgColor="#860309" layoutDirection="leftToRight">
+                        <MINIPAGE name="MiniPageEncCANINT" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lblPeriodo" width="51.3303" length="5.13303" alignment="near" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="Periodo"/>
+                            <WORDBOX name="lbl_tot_dev" width="101.318" length="14.8293" alignment="far" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Total casos con Devolución" localizeText="true"/>
+                            <WORDBOX name="lbl_tot_dev_dif" width="117.856" length="12.4203" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Casos devueltos con Diferencias"/>
+                            <WORDBOX name="lbl_por_tot_dev" width="119.987" length="13.0225" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="% Casos devueltos con diferencias"/>
+                            <WORDBOX name="lbl_monto_dev" width="106.135" length="10.6135" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Monto total devuelto (pesos)"/>
+                            <WORDBOX name="lbl_monto_dev_dif" width="109.749" length="13.6248" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Monto de diferencias (pesos)"/>
+                            <WORDBOX name="lbl_por_monto_dev" width="109.749" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="% Monto de diferencias devuelto"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="registrosTabulados" width="min" length="max" layoutDirection="leftToRight">
+                            <MINIPAGE name="MiniPageCANINT" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_r_despliegue.v_perdiodo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_r_despliegue.v_perdiodo Value" width="51" alignment="baseline" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" text="{{v_r_despliegue.v_perdiodo}}" trimText="both"/>
+                                <rtl:input-variable name="v_r_despliegue.v_tot_dev" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_tot_dev Value" width="101" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_r_despliegue.v_tot_dev}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_tot_dev_dif" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_tot_dev_dif Value" width="117" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_r_despliegue.v_tot_dev_dif}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_porcent_tot_dev_dif" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_porcent_tot_dev_dif Value" width="119" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="--&amp;.&amp;&amp;&amp;&amp;&amp;" value="{{v_r_despliegue.v_porcent_tot_dev_dif}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_monto_dev" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_monto_dev Value" width="106" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.v_monto_dev}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_monto_dev_dif" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_monto_dev_dif Value" width="109" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.v_monto_dev_dif}}"/>
+                                <rtl:input-variable name="v_r_despliegue.v_porcent_monto_dev_dif" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.v_porcent_monto_dev_dif Value" width="109" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="--&amp;.&amp;&amp;&amp;&amp;&amp;" value="{{v_r_despliegue.v_porcent_monto_dev_dif}}"/>
+                            </MINIPAGE>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <LAYOUTNODE name="LayoutNode2" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode1" width="min" length="min" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" bgColor="#860309" layoutDirection="leftToRight">
+                            <WORDBOX name="lblPeriodo1" width="51.3303" length="5.13303" alignment="near" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" text="Total"/>
+                            <WORDBOX name="lbl_tot_dev1" width="101.318" length="14.8293" alignment="far" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Total casos con Devolución" localizeText="true"/>
+                            <WORDBOX name="lbl_tot_dev_dif1" width="117.856" length="12.4203" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Casos devueltos con Diferencias"/>
+                            <WORDBOX name="lbl_por_tot_dev1" width="119.987" length="13.0225" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="% Casos devueltos con diferencias"/>
+                            <WORDBOX name="lbl_monto_dev1" width="106.135" length="10.6135" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Monto total devuelto (pesos)"/>
+                            <WORDBOX name="lbl_monto_dev_dif1" width="109.749" length="13.6248" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="Monto de diferencias (pesos)"/>
+                            <WORDBOX name="lbl_por_monto_dev1" width="109.749" color="#ffffff" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="center" text="% Monto de diferencias devuelto"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_texto_total" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_texto_total Value" width="51" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" text="{{v_texto_total}}" trimText="both"/>
+                            <rtl:input-variable name="v_tot_dev" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tot_dev Value" width="101" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_tot_dev}}"/>
+                            <rtl:input-variable name="v_tot_dev_dif" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_tot_dev_dif Value" width="117" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_tot_dev_dif}}"/>
+                            <rtl:input-variable name="v_porcent_tot_dev_dif" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_porcent_tot_dev_dif Value" width="119" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="--&amp;.&amp;&amp;&amp;&amp;&amp;" value="{{v_porcent_tot_dev_dif}}"/>
+                            <rtl:input-variable name="v_monto_dev" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_monto_dev Value" width="106" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_monto_dev}}"/>
+                            <rtl:input-variable name="v_monto_dev_dif" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_monto_dev_dif Value" width="109" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_monto_dev_dif}}"/>
+                            <rtl:input-variable name="v_porcent_monto_dev_dif" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_porcent_monto_dev_dif Value" width="109" anchorX="1" fontName="Arial" fontSize="7" floatingBehavior="enclosed" textAlignment="right" format="--&amp;.&amp;&amp;&amp;&amp;&amp;" value="{{v_porcent_monto_dev_dif}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

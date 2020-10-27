@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="legallength" RWPageLength="legalwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RETF473.rdd" RWFglReportName="rpt_modulo"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <MINIPAGE name="MiniPage11" alignment="near" layoutDirection="leftToRight">
+                        <IMAGEBOX name="ImageBox" x="5.9362" y="1.9177" width="42.7303" length="34.8101" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        <MINIPAGE name="MiniPage12" x="6.7233" y="44.0826" width="33.0262" length="890.225" anchorX="6.03961e-15" anchorY="1.57757e-16" alignment="baseline" bgColor="#c50000" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox" x="6.9702" y="max*0.4917" width="min" anchorX="7.31441e-16" anchorY="0.452401" color="#ffffff" fontSize="14" fontBold="true" floatingBehavior="enclosed" text="Reporte Ley 73 Contingente"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha Value" x="9.2982" y="778.572" anchorX="0" anchorY="0" color="#ffffff" fontSize="14" fontBold="false" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                            <WORDWRAPBOX name="WordWrapBox" x="23.8718" y="769.077" width="39" length="16.6725" anchorX="1" anchorY="1" alignment="far" color="#ffffff" fontSize="14" floatingBehavior="enclosed" text="Fecha:"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage13" width="min" length="min" layoutDirection="leftToRight">
+                        <WORDWRAPBOX name="WordWrapBox1" width="min" anchorX="0" anchorY="0" alignment="near" fontSize="14" floatingBehavior="enclosed" text="Usuario:"/>
+                        <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="g_usuario Value" width="81.5731" length="18.5169" anchorX="0" anchorY="0" alignment="near" fontSize="14" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage14" width="min" length="min" bgColor="#c50000" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox11" width="85" alignment="baseline" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Id Solicitud"/>
+                        <WORDBOX name="WordBox12" width="70" alignment="baseline" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NSS"/>
+                        <WORDBOX name="WordBox13" width="80" alignment="center" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Fecha Solicitud"/>
+                        <WORDBOX name="WordBox14" width="95" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Aivs Viv97"/>
+                        <WORDBOX name="WordBox15" width="95" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Aivs Viv92"/>
+                        <WORDBOX name="WordBox21" width="95" alignment="near" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Tesofe"/>
+                        <WORDBOX name="WordBox16" width="90" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Pesos Viv97"/>
+                        <WORDBOX name="WordBox17" width="90" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Pesos Viv92"/>
+                        <WORDBOX name="WordBox18" width="110" alignment="near" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Edo. Solicitud"/>
+                        <WORDBOX name="WordBox19" width="100" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Cod. Rechazo"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage15" width="11.9923" length="937.201" layoutDirection="leftToRight">
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="p_contingley73.id_solicitud" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_contingley73.id_solicitud Value1" width="70" alignment="baseline" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{p_contingley73.id_solicitud}}"/>
+                            <WORDBOX name="WordBox20" width="5" length="12.1707" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text=""/>
+                            <rtl:input-variable name="p_contingley73.nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_contingley73.nss Value1" width="70" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{p_contingley73.nss}}"/>
+                            <WORDBOX name="WordBox20_1" width="5" length="12.1707" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text=""/>
+                            <rtl:input-variable name="p_contingley73.f_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_contingley73.f_solicitud Value1" width="80" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{p_contingley73.f_solicitud}}"/>
+                            <WORDBOX name="WordBox20_2" width="5" length="12.1707" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text=""/>
+                            <rtl:input-variable name="p_contingley73.aivs_viv97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_contingley73.aivs_viv97 Value1" width="90" alignment="baseline" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_contingley73.aivs_viv97}}"/>
+                            <WORDBOX name="WordBox20_3" width="5" length="12.1707" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text=""/>
+                            <rtl:input-variable name="p_contingley73.aivs_viv92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_contingley73.aivs_viv92 Value1" width="90" alignment="baseline" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_contingley73.aivs_viv92}}"/>
+                            <rtl:input-variable name="p_contingley73.importe_tesofe" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_contingley73.importe_tesofe Value" class="grwNumericValue" width="85" anchorX="1" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{p_contingley73.importe_tesofe}}"/>
+                            <WORDBOX name="WordBox20_4" width="5" length="12.1707" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text=""/>
+                            <rtl:input-variable name="p_contingley73.importe_viv97" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_contingley73.importe_viv97 Value1" width="90" alignment="baseline" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{p_contingley73.importe_viv97}}"/>
+                            <WORDBOX name="WordBox20_5" width="5" length="12.1707" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text=""/>
+                            <rtl:input-variable name="p_contingley73.importe_viv92" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_contingley73.importe_viv92 Value1" width="90" alignment="center" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{p_contingley73.importe_viv92}}"/>
+                            <WORDBOX name="WordBox20_6" width="5" length="12.1707" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text=""/>
+                            <rtl:input-variable name="p_contingley73.estado_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_contingley73.estado_solicitud Value1" width="100" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{p_contingley73.estado_solicitud}}"/>
+                            <WORDBOX name="WordBox20_7" width="5" length="12.1707" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text=""/>
+                            <rtl:input-variable name="p_contingley73.cod_rechazo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_contingley73.cod_rechazo Value1" width="100" alignment="baseline" fontSize="9" floatingBehavior="enclosed" text="{{p_contingley73.cod_rechazo}}"/>
+                        </rtl:match>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

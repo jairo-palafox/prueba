@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><?FJSWSDLUpdate http://localhost:8080/WSAclaratorio/services/ConsultaAclaratorioService?wsdl?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://consultaAclaratorio.safre.efp.com" xmlns:intf="http://consultaAclaratorio.safre.efp.com" xmlns:tns1="http://vo.consultaAclaratorio.safre.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://consultaAclaratorio.safre.efp.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.consultaAclaratorio.safre.efp.com">
+   <import namespace="http://consultaAclaratorio.safre.efp.com"/>
+   <complexType name="ConsultaAclaratorioRequest">
+    <sequence>
+     <element name="nss" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="MovimientoAclaratorio">
+    <sequence>
+     <element name="amortizacion" nillable="true" type="xsd:decimal"/>
+     <element name="aportacion" nillable="true" type="xsd:decimal"/>
+     <element name="bimestrePago" nillable="true" type="xsd:string"/>
+     <element name="fechaPago" nillable="true" type="xsd:dateTime"/>
+     <element name="folioLQ" nillable="true" type="xsd:string"/>
+     <element name="folioSua" nillable="true" type="xsd:string"/>
+     <element name="indLiquidacion" nillable="true" type="xsd:string"/>
+     <element name="nrp" nillable="true" type="xsd:string"/>
+     <element name="nss" nillable="true" type="xsd:string"/>
+     <element name="tipoAclaracion" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ConsultaAclaratorioResponse">
+    <sequence>
+     <element name="codigoRespuesta" nillable="true" type="xsd:string"/>
+     <element name="movimientos" nillable="true" type="impl:ArrayOf_tns1_MovimientoAclaratorio"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://consultaAclaratorio.safre.efp.com">
+   <import namespace="http://vo.consultaAclaratorio.safre.efp.com"/>
+   <element name="consultaAclaratorioRequest" type="tns1:ConsultaAclaratorioRequest"/>
+   <complexType name="ArrayOf_tns1_MovimientoAclaratorio">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:MovimientoAclaratorio"/>
+    </sequence>
+   </complexType>
+   <element name="consultarAclaratorioReturn" type="tns1:ConsultaAclaratorioResponse"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="consultarAclaratorioRequest">
+
+      <wsdl:part element="impl:consultaAclaratorioRequest" name="consultaAclaratorioRequest">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarAclaratorioResponse">
+
+      <wsdl:part element="impl:consultarAclaratorioReturn" name="consultarAclaratorioReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ConsultaAclaratorioService">
+
+      <wsdl:operation name="consultarAclaratorio" parameterOrder="consultaAclaratorioRequest">
+
+         <wsdl:input message="impl:consultarAclaratorioRequest" name="consultarAclaratorioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultarAclaratorioResponse" name="consultarAclaratorioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ConsultaAclaratorioServiceSoapBinding" type="impl:ConsultaAclaratorioService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="consultarAclaratorio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultarAclaratorioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultarAclaratorioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ConsultaAclaratorioServiceService">
+
+      <wsdl:port binding="impl:ConsultaAclaratorioServiceSoapBinding" name="ConsultaAclaratorioService">
+
+         <wsdlsoap:address location="http://localhost:8080/WSAclaratorio/services/ConsultaAclaratorioService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{55105721-96f9-4e07-abc2-84ffdd847ec3}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="archfuente" order="" uid="{f6869338-305e-4511-8006-488404506177}" where="">
+    <RecordField colName="" fieldIdRef="1" name="nombreArchivoFuente" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{66d75e31-11e5-48e2-9cc1-ac3b1a77c110}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="archdestino" order="" uid="{620fad51-5deb-416b-83d0-63e45b01bab6}" where="">
+    <RecordField colName="" fieldIdRef="2" name="nombreArchivoDestino" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{96024a53-c042-4a43-9a25-e38507437f63}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_integrados" order="" uid="{bd538d78-57f2-47f1-809e-a7bb45182a56}" where="">
+    <RecordField colName="" fieldIdRef="3" name="col_folio" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{bc53418b-3e1c-4ce7-9c7c-2c1231f41058}"/>
+    <RecordField colName="" fieldIdRef="4" name="col_archivo" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{96affe80-1eda-44d9-89c0-bf1be9177635}"/>
+    <RecordField colName="" fieldIdRef="5" name="col_f_actualiza" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{28787266-55de-4321-9a2d-86e9e0a83625}"/>
+    <RecordField colName="" fieldIdRef="6" name="col_total_solicitudes" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{7d724fe2-bd35-41e8-a085-96a3a97b8272}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="123" name="form" text="Form">
+    <Grid gridHeight="17" gridWidth="118" name="Grid1" posX="2" posY="1">
+      <Table gridHeight="6" gridWidth="43" name="archfuente" posX="1" posY="1" totalRows="5">
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="38" name="nombreArchivoFuente" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Archivo Pendientes de Integrar" widget="Edit"/>
+      </Table>
+      <Table gridHeight="6" gridWidth="44" name="archdestino" posX="45" posY="1" totalRows="5">
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="39" name="nombreArchivoDestino" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Archivos a Integrar" widget="Edit"/>
+      </Table>
+      <Group gridChildrenInParent="false" gridHeight="8" gridWidth="114" name="Group1" posX="1" posY="8" text="Información preliminar">
+        <Table gridHeight="6" gridWidth="109" name="tbl_integrados" posX="2" posY="1" totalRows="5" wantFixedPageSize="false">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="8" hidden="true" name="col_folio" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Folio" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="42" justify="center" name="col_archivo" posX="8" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Archivo" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="dd-mm-yyyy" gridHeight="1" gridWidth="11" justify="center" name="col_f_actualiza" posX="50" posY="0" rowCount="" sizePolicy="fixed" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha de &#10;Carga" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="11" justify="center" name="col_total_solicitudes" posX="61" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total &#10;Solicitudes" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiAGMANQAzADQAMQA4AGIALQAzAGUAMQBjAC0ANABjAGUANwAtADkAYwA3AGMALQAyAGMAMQAyADMAMQBmADQAMQAwADUAOAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADgANwA4ADcAMgA2ADYALQA1ADUAZABlAC0ANAAzADIAMQAtADkAYQAyAGQALQA4ADYAZQA5AGUAMABhADgAMwA2ADIANQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADYAOAA2ADkAMwAzADgALQAzADAANQBlAC0ANAA1ADEAMQAtADgAMAAwADYALQA0ADgAOAA0ADAANAA1ADAANgAxADcANwB9wDAAAAAAAABAS4AAAAAAAD+AYk3S8an8AQAAAEwAewA5ADYAMAAyADQAYQA1ADMALQBjADAANAAyAC0ANABhADQAMwAtADkAYQAyADUALQBlADMAOAA1ADAANwA0ADMANwBmADYAMwB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA3AGQANwAyADQAZgBlADIALQBiAGQAMwA1AC0ANAAxAGUAOAAtAGEAMAA4ADUALQA5ADYAYQAzAGEAOQA3AGIAOAAyADcAMgB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADIAMABmAGEAZAA1ADEALQA1AGQAZQBiAC0ANAAxADYAYgAtADgAMwBkADAALQA2ADMAZQA0ADUAYgAwADEAYgBhAGIANgB9wGpAAAAAAABAUcAAAAAAAD+GhysCDEm8AQAAAEwAewBiAGQANQAzADgAZAA3ADgALQA1ADcAZgAyAC0ANAA3AGYAMQAtADgAMAA5AGUALQBhADcAYgBiADQANQAxADgAMgBhADUANgB9wIBYAAAAAABAWkAAAAAAAD+Ik3S8an78AQAAAEwAewA5ADYAYQBmAGYAZQA4ADAALQAxAGUAZABhAC0ANAA0AGQAOQAtADgAOQBjADAALQBiAGYAMQBiAGUAOQAxADcANwA2ADMANQB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADYAZAA3ADUAZQAzADEALQAxADEAZQA1AC0ANAA4AGUAMgAtADkAYwBjADEALQBhAGMAMwBiADEAYQA3ADcAYwAxADEAMAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

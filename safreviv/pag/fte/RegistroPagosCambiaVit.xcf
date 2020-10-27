@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Configuration file for Application Server -->
+<CONFIGURATION
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.4js.com/ns/gas/2.50/cfas.xsd">
+  <APPLICATION_SERVER>
+    <!--The resource list contains the resources that can be used throughout the definition of the applications and components.-->
+    <RESOURCE_LIST>
+      <PLATFORM_INDEPENDENT>
+        <RESOURCE Id="res.fglgui" Source="INTERNAL">1</RESOURCE>
+
+        <!-- Directories  -->
+
+        <!-- Recursos SAFRE  MODIFICAR SERVICIOS WEB-->
+        <RESOURCE Id="res.path.safredir" Source="INTERNAL">/safreviv</RESOURCE>
+        <RESOURCE Id="res.server" Source="INTERNAL">127.0.0.1</RESOURCE>
+        <RESOURCE Id="res.path.rutamodulo" Source="INTERNAL">$(res.path.safredir)/pag/bin</RESOURCE>
+        <RESOURCE Id="res.app.ejecuta" Source="INTERNAL">PAGWS02.42r</RESOURCE>
+        <RESOURCE Id="res.path.safrelog" Source="INTERNAL">/safreviv_log</RESOURCE>
+        <!-- TCP port-related resources of the connector interface -->
+        <RESOURCE Id="res.ic.base.port" Source="INTERNAL">9151</RESOURCE>
+        <RESOURCE Id="res.ic.port.offset" Source="INTERNAL">0</RESOURCE>
+        <!-- RUTA DE ARCHIVOS CONFIGURACION ESTABLECER EL NOMBRE DEL XCF NO EXCEDER 25 CARACTERES-->
+        <RESOURCE Id="res.app.nombrexcf" Source="INTERNAL">RegPagCambiavit</RESOURCE>
+        <!-- Recursos SAFRE  -->
+
+        <RESOURCE Id="res.path.fgldir.services" Source="INTERNAL">$(res.fgldir)/web_utilities/services</RESOURCE>
+        <RESOURCE Id="res.path.app" Source="INTERNAL">$(res.appdata.path)/app</RESOURCE>
+        <RESOURCE Id="res.path.services" Source="INTERNAL">$(res.appdata.path)/services</RESOURCE>
+        <RESOURCE Id="res.path.tmp" Source="INTERNAL">$(res.appdata.path)/tmp</RESOURCE>
+        <RESOURCE Id="res.deployment.root" Source="INTERNAL">$(res.appdata.path)/deployment</RESOURCE>
+
+        <!-- Default resource extension filters -->
+        <RESOURCE Id="res.image.extensions" Source="INTERNAL">.png;.gif;.jpeg;.jpg;.swf;.bmp;.ico;.PNG;.GIF;.JPEG;.JPG;.SWF;.BMP;.ICO;.TIA;.retfc;.pdf;.tiff;.tif;.TIFF;.TIF</RESOURCE>
+        <RESOURCE Id="res.sound.extensions" Source="INTERNAL">.ogg;.mp3;.mp4;.wav</RESOURCE>
+        <RESOURCE Id="res.web.extensions" Source="INTERNAL">$(res.image.extensions);$(res.sound.extensions);.js;.css;.woff;.html;.TIA;.FORT;.SMA;.ANA;.SMA;.INCCCNSS;.INCSCNSS;.ret;<!--.soloInfonavit;.Disposicion;.Rch_Disposicion;.Rech_Transferencia;.Transferencia;Tipo_n;.Rech_TipoN;-->.retfc;.acr;.lqt;.cct;.amt;.f72;.cnt</RESOURCE>
+        <RESOURCE Id="res.web.components.extensions" Source="INTERNAL">$(res.web.extensions);.xml;.json;.html;.xhtml;.swf;.TIA;.FORT;.SMA;.ANA;.SMA;.INCCCNSS;.INCSCNSS;.ret;.tiff;.tif;.TIFF;.TIF</RESOURCE>
+
+        <!-- VARIABLES A MODIFICAR EFP -->
+        <RESOURCE Id="res.path.pic" Source="INTERNAL">$(res.path.as)/pic:$(res.path.safredir)/img</RESOURCE>
+        <RESOURCE Id="res.path.docroot" Source="INTERNAL">$(res.path.safredir)/web</RESOURCE>
+        <RESOURCE Id="res.path.tpl" Source="INTERNAL">$(res.path.safredir)/etc</RESOURCE>
+        <RESOURCE Id="res.path.tpl.common" Source="INTERNAL">$(res.path.safredir)/common</RESOURCE>
+
+
+        <!-- Default log resources -->
+        <RESOURCE Id="res.log.output.path" Source="INTERNAL">$(res.appdata.path)/log</RESOURCE>
+        <RESOURCE Id="res.log.output.type" Source="INTERNAL">DAILYFILE</RESOURCE>
+        <RESOURCE Id="res.log.format" Source="INTERNAL">time event-type event-params</RESOURCE>
+        <RESOURCE Id="res.log.categories_filter" Source="INTERNAL">ALL</RESOURCE>
+        <RESOURCE Id="res.log.raw_data.maxlength" Source="INTERNAL">-1</RESOURCE>
+
+      </PLATFORM_INDEPENDENT>
+      <WNT></WNT>
+      <UNX>
+        <RESOURCE Id="res.dispatcher.socket.family" Source="INTERNAL">UNIX</RESOURCE>
+        <RESOURCE Id="res.dispatcher.socket.path" Source="INTERNAL">$(res.appdata.path)/socket</RESOURCE>
+        <RESOURCE Id="res.dvm.wa" Source="INTERNAL">"$(res.fgldir)/bin/fglrun"</RESOURCE>
+        <RESOURCE Id="res.fgldir" Source="INTERNAL">/opt/fourjs/2.50.23/fgl</RESOURCE>
+        <RESOURCE Id="res.gredir" Source="INTERNAL">/opt/fourjs/2.50.23/gre</RESOURCE>
+        <RESOURCE Id="res.path" Source="INTERNAL">$(res.path.as)/bin:$(res.gredir)/bin:$(res.fgldir)/bin:/usr/bin:/bin:$(res.path.informixdir)/bin:$(res.path.javahome)/bin</RESOURCE>
+        <RESOURCE Id="res.fglldpath" Source="INTERNAL">$(res.path.as)/lib:$(res.gredir)/lib:$(res.fgldir)/lib:$(res.path.informixdir)/lib:$(res.path.informixdir)/lib/esql:$(res.path.informixdir)/lib/tools:$(res.path.safredir)/glo/bin</RESOURCE>
+        <RESOURCE Id="res.path.as" Source="INTERNAL">/opt/fourjs/2.50.23/gas</RESOURCE>
+        <RESOURCE Id="res.path.separator" Source="INTERNAL">:</RESOURCE>
+        <RESOURCE Id="res.gwsproxy" Source="INTERNAL">"$(res.path.as)/bin/gwsproxy"</RESOURCE>
+        <RESOURCE Id="res.appdata.path" Source="INTERNAL">$(res.path.safrelog)/$(res.app.nombrexcf)</RESOURCE>
+
+        <RESOURCE Id="res.path.informixdir" Source="INTERNAL">/opt/IBM/informix</RESOURCE>
+        <RESOURCE Id="res.path.javahome" Source="INTERNAL">/usr/java/jre1.7.0_11</RESOURCE>
+        <RESOURCE Id="res.path.classpath" Source="INTERNAL">$(res.fgldir)/lib/fgl.jar:$(res.path.safredir)/seg/bin/LDAPSafre.jar</RESOURCE>
+        <RESOURCE Id="res.ldlibrarypath" Source="INTERNAL">$(res.fgldir)/lib:$(res.fgldir)/bin:$(res.fgldir)/dbdrivers:$(res.gredir)/lib:$(res.path.as)/lib:$(res.path.informixdir)/lib:$(res.path.informixdir)/lib/esql:$(res.path.informixdir)/lib/tools:$(res.path.javahome)/lib/amd64/server/</RESOURCE>
+      </UNX>
+    </RESOURCE_LIST>
+    <!--The component list contains new items, known as component, that will be used later by applications. Components can be seen - in some ways - as macro definition. -->
+    <COMPONENT_LIST>
+      <SERVICE_APPLICATION_EXECUTION_COMPONENT Id="cpn.ws.execution.local">
+      
+        <ENVIRONMENT_VARIABLE Id="FGLDIR">$(res.fgldir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="PATH">$(res.path)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLLDPATH">$(res.fglldpath)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLWSDEBUG">0</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLSQLDEBUG">0</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="LD_LIBRARY_PATH">$(res.ldlibrarypath)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="JAVA_HOME">$(res.path.javahome)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="CLASSPATH">$(res.path.classpath)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLPROFILE">$(res.path.safredir)/etc/fglprofile</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="LANG">es_MX</ENVIRONMENT_VARIABLE>
+        <DVM>$(res.dvm.wa)</DVM>
+        <POOL>
+          <START>1</START>
+          <MIN_AVAILABLE>1</MIN_AVAILABLE>
+          <MAX_AVAILABLE>3</MAX_AVAILABLE>
+        </POOL>
+      </SERVICE_APPLICATION_EXECUTION_COMPONENT>
+
+      <!--Timeout component for WA applications -->
+      <SERVICE_APPLICATION_TIMEOUT_COMPONENT Id="cpn.ws.timeout">
+        <DVM_AVAILABLE>60</DVM_AVAILABLE>
+        <KEEP_ALIVE>7200</KEEP_ALIVE>
+      </SERVICE_APPLICATION_TIMEOUT_COMPONENT>
+    </COMPONENT_LIST>
+
+    <INTERFACE_TO_CONNECTOR>
+      <TCP_BASE_PORT>$(res.ic.base.port)</TCP_BASE_PORT>
+      <TCP_PORT_OFFSET>$(res.ic.port.offset)</TCP_PORT_OFFSET>
+      <LIMIT_REQUEST_SIZE>0</LIMIT_REQUEST_SIZE>
+      <DOCUMENT_ROOT>$(res.path.docroot)</DOCUMENT_ROOT>
+      <TEMPORARY_DIRECTORY>$(res.path.tmp)</TEMPORARY_DIRECTORY>
+      <SESSION_DIRECTORY>$(res.appdata.path)/session</SESSION_DIRECTORY>
+      <SOCKET_FAMILY>$(res.dispatcher.socket.family)</SOCKET_FAMILY>
+      <SOCKET_PATH>$(res.dispatcher.socket.path)</SOCKET_PATH>
+    </INTERFACE_TO_CONNECTOR>
+
+    <INTERFACE_TO_DVM>
+      <ADDRESS>$(res.server)</ADDRESS>
+    </INTERFACE_TO_DVM>
+
+    <LOG>
+      <OUTPUT Type="$(res.log.output.type)">$(res.log.output.path)</OUTPUT>
+      <FORMAT Type="TEXT">$(res.log.format)</FORMAT>
+      <CATEGORIES_FILTER>$(res.log.categories_filter)</CATEGORIES_FILTER>
+      <RAW_DATA MaxLength="$(res.log.raw_data.maxlength)" />
+    </LOG>
+
+    <MONITOR>
+    </MONITOR>
+
+    <FILE_TRANSFER>
+      <TIMEOUT>600</TIMEOUT>
+    </FILE_TRANSFER>
+
+    <AUTHENTICATION Type="KERBEROS">
+      <REALM></REALM>
+      <SERVICE_NAME>gassvc</SERVICE_NAME>
+      <KEYTAB>$(res.path.as)/etc/gwc.keytab</KEYTAB>
+    </AUTHENTICATION>
+
+    <SERVICE_LIST>
+      <APPLICATION Id="ws.default" Abstract="TRUE">
+        <PROXY>$(res.gwsproxy)</PROXY>
+        <EXECUTION Using="cpn.ws.execution.local"/>
+        <TIMEOUT Using="cpn.ws.timeout"/>
+      </APPLICATION>
+
+      <!-- WS server registra pago garantia prendaria -->
+      <APPLICATION Id="RegistroPagosCambiavitService" Parent="ws.default">
+        <!--EXECUTION Using="cpn.ws.execution.local"-->
+        <EXECUTION>
+        	<PATH>$(res.path.rutamodulo)</PATH>
+        	<MODULE>$(res.app.ejecuta)</MODULE>
+        </EXECUTION>
+      </APPLICATION>
+      
+    </SERVICE_LIST>
+  </APPLICATION_SERVER>
+</CONFIGURATION>

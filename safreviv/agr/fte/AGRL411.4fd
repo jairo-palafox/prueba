@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{bf94da0d-3cd6-408a-9006-30ae6df66c60}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{b47a786b-7d0e-4338-95f4-f59dd3d109b3}" where="">
+    <RecordField colName="" fieldIdRef="1" name="cbx_modulo_cod" sqlTabName="" table_alias_name="" uid="{2d4acb44-d6c0-4165-9030-c0d0d7f37b55}"/>
+    <RecordField colName="" fieldIdRef="4" name="cbx_tpo_concil" sqlTabName="" table_alias_name="" uid="{06aabbdc-7d7d-4471-bad7-139a70356741}"/>
+    <RecordField colName="" fieldIdRef="2" name="dte_f_concilia" sqlTabName="" table_alias_name="" uid="{428c0906-02f2-48e4-8836-b2edb64b3eb6}"/>
+  </Record>
+  <Form gridHeight="14" gridWidth="85" name="Form" text="Form">
+    <Grid gridHeight="10" gridWidth="80" name="Grid1" posX="3" posY="1">
+      <Group gridHeight="8" gridWidth="65" name="gentrada" posX="5" posY="1" text="Registros a conciliar">
+        <Label gridHeight="1" gridWidth="14" name="Label1" posX="2" posY="1" text="Módulo:"/>
+        <ComboBox colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="32" items="Transferencia de Acreditados, Anualidades Garantizadas" name="cbx_modulo_cod" notNull="true" posX="19" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="ComboBox1" widget="ComboBox">
+          <Item lstrtext="false" name="1" text="Transferencia de Acreditados"/>
+          <Item lstrtext="false" name="4" text="Anualidades Garantizadas"/>
+        </ComboBox>
+        <Label gridHeight="1" gridWidth="14" name="Label2" posX="2" posY="3" text="Tipo conciliación:"/>
+        <ComboBox colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="32" items="Sin marca, Rechazados, Aceptados con diferencias" name="cbx_tpo_concil" notNull="true" posX="19" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="ComboBox2" widget="ComboBox">
+          <Item lstrtext="false" name="1" text="Sin marca"/>
+          <Item lstrtext="false" name="2" text="Rechazados"/>
+          <Item lstrtext="false" name="3" text="Aceptados con diferencias"/>
+        </ComboBox>
+        <Label gridHeight="1" gridWidth="14" name="Label3" posX="2" posY="5" text="Fecha conciliación:"/>
+        <DateEdit colName="" columnCount="" fieldId="2" fontPitch="variable" format="dd-mm-yyyy" gridHeight="1" gridWidth="17" name="dte_f_concilia" noEntry="true" posX="19" posY="5" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADQANwBhADcAOAA2AGIALQA3AGQAMABlAC0ANAAzADMAOAAtADkANQBmADQALQBmADUAOQBkAGQAMwBkADEAMAA5AGIAMwB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGQANABhAGMAYgA0ADQALQBkADYAYwAwAC0ANAAxADYANQAtADkAMAAzADAALQBjADAAZAAwAGQANwBmADMANwBiADUANQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAwADYAYQBhAGIAYgBkAGMALQA3AGQANwBkAC0ANAA0ADcAMQAtAGIAYQBkADcALQAxADMAOQBhADcAMAAzADUANgA3ADQAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADIAOABjADAAOQAwADYALQAwADIAZgAyAC0ANAA4AGUANAAtADgAOAAzADYALQBiADIAZQBkAGIANgA0AGIAMwBlAGIANgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

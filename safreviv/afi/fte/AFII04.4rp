@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AFIC04.rdd" RWFglReportName="rpt_derechohabientes"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <MINIPAGE name="MiniPage1" width="min" length="min">
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="logo_infonavit" alignment="far" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="linea_roja1" width="min" length="720.981" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="titulo_reporte" width="720.189" length="16.93" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte de afiliación"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="separacion_lineas_rojas" width="2.68531" length="719.363" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="linea_roja2" width="min" length="720.981" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox" width="584.902" length="12.5" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="fecha" length="12.5" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha: "/>
+                            <WORDBOX name="WordBox1" length="12.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{Date.today().format(&quot;dd-mm-yyyy&quot;)}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="separacion_titulo_tabulado" width="14.6285" length="720.981" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <LAYOUTNODE name="linea_folio" width="min" length="720.116" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="lbl_folio" width="65.9103" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" text="Folio"/>
+                            <rtl:input-variable name="p_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_folio Value" width="{max(width(&quot;{&quot;P Folio&quot;.translate()}&quot;),width(&quot;-000,000,000.00&quot;))}" anchorX="1" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{p_folio}}"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="titulos_columnas" width="25.3715" length="720.981" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="tit_nss" width="65.1687" length="23.5" alignment="baseline" color="#ffffff" bgColor="#ce0000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="NSS" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderBottomColor="#000000"/>
+                            <WORDBOX name="tit_curp" width="100.776" length="23.5" alignment="baseline" color="#ffffff" bgColor="#ce0000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="CURP" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderBottomColor="#000000"/>
+                            <WORDBOX name="tit_rfc" width="70.1912" length="23.5" alignment="baseline" color="#ffffff" bgColor="#ce0000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="RFC" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderBottomColor="#000000"/>
+                            <WORDBOX name="tit_nombre_imss" width="170.393" length="23.5" color="#ffffff" bgColor="#ce0000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="Nombre IMSS" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderBottomColor="#000000"/>
+                            <WORDBOX name="tit_nombre_af" width="90.2026" length="23.5" alignment="baseline" color="#ffffff" bgColor="#ce0000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="Nombre" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderBottomColor="#000000"/>
+                            <WORDBOX name="tit_ap_paterno_af" width="90.2921" length="23.5" color="#ffffff" bgColor="#ce0000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="Apellido Paterno" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderBottomColor="#000000"/>
+                            <WORDBOX name="tit_ap_materno_af" width="100.573" length="23.5" color="#ffffff" bgColor="#ce0000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="Apellido Materno" borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderBottomColor="#000000"/>
+                            <WORDWRAPBOX name="tit_tipo_trabajador1" width="33.1909" length="23.5" color="#ffffff" bgColor="#ce0000" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="Tipo Trab." borderWidth="0" borderBottomWidth="1" borderStyle="solid" borderBottomColor="#000000"/>
+                        </LAYOUTNODE>
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <LAYOUTNODE name="LayoutNode1" width="min" length="720.116" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="r_derechohabiente.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_derechohabiente.nss Value1" width="64.2135" length="10" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{r_derechohabiente.nss}}" borderWidth="0" borderRightWidth="1" borderStyle="none" borderRightStyle="dotted" borderRightColor="#9f9f9f"/>
+                                <rtl:input-variable name="r_derechohabiente.curp" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_derechohabiente.curp Value1" width="100.348" length="10" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{r_derechohabiente.curp}}" borderWidth="0" borderRightWidth="1" borderStyle="none" borderRightStyle="dotted" borderRightColor="#9f9f9f"/>
+                                <rtl:input-variable name="r_derechohabiente.rfc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_derechohabiente.rfc Value1" width="69.7418" length="10" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{r_derechohabiente.rfc}}" borderWidth="0" borderRightWidth="1" borderStyle="none" borderRightStyle="dotted" borderRightColor="#9f9f9f"/>
+                                <rtl:input-variable name="r_derechohabiente.nombre_imss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_derechohabiente.nombre_imss Value" width="167.854" length="10" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{r_derechohabiente.nombre_imss}}" borderWidth="0" borderRightWidth="1" borderStyle="none" borderRightStyle="dotted" borderRightColor="#9f9f9f"/>
+                                <rtl:input-variable name="r_derechohabiente.nombre_af" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_derechohabiente.nombre_af Value" width="88.8087" length="10" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{r_derechohabiente.nombre_af}}" borderWidth="0" borderRightWidth="1" borderStyle="none" borderRightStyle="dotted" borderRightColor="#9f9f9f"/>
+                                <rtl:input-variable name="r_derechohabiente.ap_paterno_af" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_derechohabiente.ap_paterno_af Value" width="90.3144" length="10" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{r_derechohabiente.ap_paterno_af}}" borderWidth="0" borderRightWidth="1" borderStyle="none" borderRightStyle="dotted" borderRightColor="#9f9f9f"/>
+                                <rtl:input-variable name="r_derechohabiente.ap_materno_af" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_derechohabiente.ap_materno_af Value" width="100.101" length="10" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{r_derechohabiente.ap_materno_af}}" borderWidth="0" borderRightWidth="1" borderStyle="none" borderRightStyle="dotted" borderRightColor="#9f9f9f"/>
+                                <rtl:input-variable name="r_derechohabiente.tipo_trabajador" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="r_derechohabiente.tipo_trabajador Value1" width="33.5953" length="10" alignment="baseline" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{r_derechohabiente.tipo_trabajador}}" textAlignment="center" borderWidth="0" borderRightWidth="1" borderStyle="none" borderRightStyle="dotted" borderRightColor="#9f9f9f"/>
+                            </LAYOUTNODE>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

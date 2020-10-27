@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:this="http://services.infonavit.org.mx/Binding2" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:Port_0="http://services.infonavit.org.mx" targetNamespace="http://services.infonavit.org.mx/Binding2" name="Acreedor_CrearAcreedorHttp_Service">
+<wsdl:import namespace="http://services.infonavit.org.mx" location="CrearAcreedor.wsdl">
+</wsdl:import>
+<wsdl:binding name="Acreedor_CrearAcreedorHttpBinding" type="Port_0:CrearAcreedor">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="crear">
+<soap:operation soapAction=""/>
+<wsdl:input name="crearRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="crearResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="errorInvokeSap">
+<soap:fault name="errorInvokeSap" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Acreedor_CrearAcreedorHttpService">
+<wsdl:port name="Acreedor_CrearAcreedorHttpPort" binding="this:Acreedor_CrearAcreedorHttpBinding">
+<soap:address location="http://10.90.0.118:80/CrearAcreedorMediationSapWeb/sca/Acreedor"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

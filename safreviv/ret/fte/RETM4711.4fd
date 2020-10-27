@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{2b406678-2dfc-45db-a0ea-01591bdda345}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_avisos" order="" uid="{a1f6cc9b-28a6-4f56-ac49-6605ada8663c}" where="">
+    <RecordField colName="" fieldIdRef="1" name="c_id_aviso" sqlTabName="" table_alias_name="" uid="{43514df0-4a6a-465a-a29e-7e85baac5e27}"/>
+    <RecordField colName="" fieldIdRef="2" name="c_f_vig_inicio" sqlTabName="" table_alias_name="" uid="{6a930995-4c8b-460f-b062-d33e6fbb83e1}"/>
+    <RecordField colName="" fieldIdRef="3" name="c_f_vig_final" sqlTabName="" table_alias_name="" uid="{e415675b-2a76-4f7b-8325-dedc500dbf21}"/>
+    <RecordField colName="" fieldIdRef="7" name="c_estado_aviso" sqlTabName="" table_alias_name="" uid="{3698ff69-becf-4db7-b543-206a6010f930}"/>
+    <RecordField colName="" fieldIdRef="8" name="txed_aviso" sqlTabName="" table_alias_name="" uid="{02684231-2594-47fe-9cbe-5203c14ceba7}"/>
+    <RecordField colName="" fieldIdRef="5" name="c_usuario" sqlTabName="" table_alias_name="" uid="{926150b9-27aa-4603-b38e-7e11df11a8df}"/>
+    <RecordField colName="" fieldIdRef="6" name="c_f_alta" sqlTabName="" table_alias_name="" uid="{98da3d41-6891-4a30-aea4-770a716057dd}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="229" name="form" text="Form">
+    <VBox gridHeight="25" gridWidth="228" name="vbox1" posX="1" posY="0">
+      <Grid gridHeight="23" gridWidth="228" name="grd_avisos" posX="0" posY="1">
+        <Group gridHeight="22" gridWidth="160" name="grp_avisos" posX="1" posY="0" text="Avisos registrados">
+          <Table gridHeight="10" gridWidth="155" name="tbl_avisos" posX="2" posY="4" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="1" hidden="true" invisible="true" name="c_id_aviso" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Id Aviso" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" format="dd/mm/yyyy" gridHeight="1" gridWidth="16" name="c_f_vig_inicio" posX="1" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Fecha de Vigencia&#10;Inicial" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="dd/mm/yyyy" gridHeight="1" gridWidth="16" name="c_f_vig_final" posX="17" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Fecha de Vigencia&#10;Final" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="8" name="c_estado_aviso" posX="33" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Estado Aviso" widget="Edit"/>
+            <TextEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="2" gridWidth="57" name="txed_aviso" posX="41" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Aviso" widget="TextEdit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="20" name="c_usuario" posX="98" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Usuario" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" format="dd/mm/yyyy" gridHeight="1" gridWidth="16" name="c_f_alta" posX="118" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha Alta" widget="Edit"/>
+          </Table>
+        </Group>
+      </Grid>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5ADgAZABhADMAZAA0ADEALQA2ADgAOQAxAC0ANABhADMAMAAtAGEAZQBhADQALQA3ADcAMABhADcAMQA2ADAANQA3AGQAZAB9QCAAAAQAAABAYOZmaqAAAAAAAAAAAAAAAQAAAEwAewBlADQAMQA1ADYANwA1AGIALQAyAGEANwA2AC0ANABmADcAYgAtADgAMwAyADUALQBkAGUAZABjADUAMAAwAGQAYgBmADIAMQB9QCAAAAQAAABAUDMzN0AAAAAAAAAAAAAAAQAAAEwAewAwADIANgA4ADQAMgAzADEALQAyADUAOQA0AC0ANAA3AGYAZQAtADkAYwBiAGUALQA1ADIAMAAzAGMAMQA0AGMAZQBiAGEANwB9QCAAAAQAAABAWQAABkAAAAAAAAAAAAAAAQAAAEwAewBhADEAZgA2AGMAYwA5AGIALQAyADgAYQA2AC0ANABmADUANgAtAGEAYwA0ADkALQA2ADYAMAA1AGEAZABhADgANgA2ADMAYwB9AAAAAAAAAAAAAAAAAAAAAD9gYk3S8an8AQAAAEwAewAzADYAOQA4AGYAZgA2ADkALQBiAGUAYwBmAC0ANABkAGIANwAtAGIANQA0ADMALQAyADAANgBhADYAMAAxADAAZgA5ADMAMAB9QCAAAAQAAABAVJmZnsAAAAAAAAAAAAAAAQAAAEwAewA5ADIANgAxADUAMABiADkALQAyADcAYQBhAC0ANAA2ADAAMwAtAGIAMwA4AGUALQA3AGUAMQAxAGQAZgAxADEAYQA4AGQAZgB9QCAAAAQAAABAXWZmbcAAAAAAAAAAAAAAAQAAAEwAewA0ADMANQAxADQAZABmADAALQA0AGEANgBhAC0ANAA2ADUAYQAtAGEAMgA5AGUALQA3AGUAOAA1AGIAYQBhAGMANQBlADIANwB9QCAAAAQAAABAPZmZoQAAAAAAAAAAAAAAAQAAAEwAewA2AGEAOQAzADAAOQA5ADUALQA0AGMAOABiAC0ANAA2ADAAZgAtAGIAMAA2ADIALQBkADMAMwBlADYAZgBiAGIAOAAzAGUAMQB9QCAAAAQAAABAR5mZn4AAAD9ok3S8an76AQ==]]>
+  </DiagramLayout>
+</ManagedForm>

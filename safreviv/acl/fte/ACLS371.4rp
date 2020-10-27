@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/ACLS37.rdd" RWFglReportName="rpt_acl_pend"/>
+    <report:Conflicts>
+        <report:Conflict nodeName="MiniPage" message="Node was in trigger &quot;Group v_tipo_arreglo [0; unbounded]&quot;, but trigger was removed during schema update"/>
+        <report:Conflict nodeName="cuentas_aperturadas" message="Node was in trigger &quot;OnEveryRow [0; unbounded]&quot;, but trigger was removed during schema update"/>
+    </report:Conflicts>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min" alignment="near">
+                            <IMAGEBOX name="imgLogoInfonavit" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375" alignment="near"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Extracción de pagos pendientes en aclaratorio y pendientes de confirmar"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="datosReporte" width="22.2443" length="719.32" alignment="near" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox4" x="4.2759" y="0" width="49.25" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                        <WORDBOX name="WordBox5" x="4.2759" y="408.877" anchorX="0" anchorY="0" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Fecha de generación del extractor:"/>
+                        <rtl:input-variable name="v_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_nombre_usuario Value" class="grwStringValue" x="4.2759" y="60.9405" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" bgColor="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_nombre_usuario}}"/>
+                        <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_fecha Value" class="grwStringValue" x="4.27586" y="632.977" width="87.75" anchorX="0" anchorY="0" bgColor="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                    </MINIPAGE>
+                    <MINIPAGE name="MiniPage" width="20" length="556.217" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="encabezadoGeneral3_1" width="20.3323" length="721.448" alignment="baseline" bgColor="#ce050f" layoutDirection="leftToRight" port="anyPageHeader">
+                            <WORDBOX name="WordBox10_2" x="4.0484" y="287.118" width="87.75" length="16.372" anchorX="0" anchorY="0" color="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Total AIVS"/>
+                            <WORDBOX name="WordBox10_2_1" x="4.0484" y="485.925" width="147.25" length="16.4585" anchorX="0" anchorY="0" color="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Total Amortización"/>
+                            <WORDBOX name="WordBox10_2_2" x="4.0484" y="104.698" width="68.25" length="16.372" anchorX="0" anchorY="0" color="#ffffff" fontName="Arimo" fontBold="true" floatingBehavior="enclosed" text="Registros"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <MINIPAGE name="cuentas_aperturadas" width="17.7881" length="720.078" alignment="near" layoutDirection="leftToRight" borderWidth="2" borderBottomColor="#ffffff">
+                        <rtl:input-variable name="reg_pend.reg" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                        <WORDBOX name="WordBox6" rtl:condition="reg_pend.reg&gt;0" x="0.34595" y="1.6489" width="39.5" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="Pagos:"/>
+                        <rtl:input-variable name="reg_pend.reg" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                        <DECIMALFORMATBOX name="reg_pend.reg Value" rtl:condition="reg_pend.reg.toString().length()&gt;0" class="grwNumericValue" x="0.346" y="160.501" width="75.25" anchorX="0" anchorY="1" bgColor="#ffffff" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---" value="{{reg_pend.reg}}"/>
+                        <rtl:input-variable name="reg_pend.sum_aivs" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                        <DECIMALFORMATBOX name="reg_pend.sum_aivs Value" class="grwNumericValue" x="0.346" y="361.846" width="77.75" anchorX="0" anchorY="1" bgColor="#ffffff" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{reg_pend.sum_aivs}}"/>
+                        <rtl:input-variable name="reg_pend.sum_amor" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                        <DECIMALFORMATBOX name="reg_pend.sum_amor Value" class="grwNumericValue" x="0.346" y="601.318" width="74.75" anchorX="0" anchorY="1" bgColor="#ffffff" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{reg_pend.sum_amor}}"/>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage2" width="min" length="255.5" alignment="near" layoutDirection="leftToRight">
+                            <rtl:input-variable name="reg_pend.reg_ctas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <rtl:input-variable name="reg_pend.titulo_pdf" type="FGLString" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="reg_pend.reg_ctas Value1_1" rtl:condition="reg_pend.titulo_pdf==&quot;Patrones&quot;" class="grwNumericValue" x="2.0105" y="160.043" anchorX="0" anchorY="1" bgColor="#ffffff" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---" value="{{reg_pend.reg_ctas}}"/>
+                            <rtl:input-variable name="reg_pend.titulo_pdf" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="reg_pend.titulo_pdf Value1_1" rtl:condition="reg_pend.titulo_pdf==&quot;Patrones&quot;" class="grwStringValue" x="3.5099" y="0" anchorX="0" anchorY="0" bgColor="#ffffff" fontBold="true" floatingBehavior="enclosed" text="{{reg_pend.titulo_pdf+&quot;:&quot;}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage1" width="min" length="258.5" alignment="near" layoutDirection="leftToRight">
+                            <rtl:input-variable name="reg_pend.reg_ctas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <rtl:input-variable name="reg_pend.titulo_pdf" type="FGLString" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="reg_pend.reg_ctas Value" rtl:condition="reg_pend.titulo_pdf==&quot;Trabajadores&quot;" class="grwNumericValue" x="2.0105" y="160.043" anchorX="0" anchorY="1" bgColor="#ffffff" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---" value="{{reg_pend.reg_ctas}}"/>
+                            <rtl:input-variable name="reg_pend.titulo_pdf" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="reg_pend.titulo_pdf Value" rtl:condition="reg_pend.titulo_pdf==&quot;Trabajadores&quot;" class="grwStringValue" x="3.5099" y="0" anchorX="0" anchorY="0" bgColor="#ffffff" fontBold="true" floatingBehavior="enclosed" text="{{reg_pend.titulo_pdf+&quot;:&quot;}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

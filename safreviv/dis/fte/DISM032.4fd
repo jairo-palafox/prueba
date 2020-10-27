@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{aa8b5ea1-8c12-4dd2-a740-ec61d33b3758}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="detalle" order="" uid="{d4b0ba1a-5ab4-45a2-8bf2-d61520534365}" where="">
+    <RecordField colName="" fieldIdRef="8" name="phantom_tpo_credito" sqlTabName="" table_alias_name="" uid="{0b1fac7a-4990-4602-9f24-596a206f5901}"/>
+    <RecordField colName="" fieldIdRef="1" name="edit1" sqlTabName="" table_alias_name="" uid="{5a7f0a4f-9550-46ce-b5bc-f7dea4e9d4db}"/>
+    <RecordField colName="" fieldIdRef="9" name="phantom_cve_ent" sqlTabName="" table_alias_name="" uid="{c58595eb-27b9-4d2a-85fe-454f0d4ece8a}"/>
+    <RecordField colName="" fieldIdRef="2" name="edit2" sqlTabName="" table_alias_name="" uid="{1fbf3aa2-ac4f-4878-b775-a4a6a306d12c}"/>
+    <RecordField colName="" fieldIdRef="3" name="edit3" sqlTabName="" table_alias_name="" uid="{ce662b63-827f-4f21-99cc-710e3b046f10}"/>
+    <RecordField colName="" fieldIdRef="4" name="edit4" sqlTabName="" table_alias_name="" uid="{1c3ccf9d-bb47-4206-9d34-81979e746382}"/>
+    <RecordField colName="" fieldIdRef="5" name="edit5" sqlTabName="" table_alias_name="" uid="{ebba215e-1389-40d3-a579-4d994c941933}"/>
+    <RecordField colName="" fieldIdRef="6" name="edit6" sqlTabName="" table_alias_name="" uid="{cbc7387e-64db-4bd3-a949-d66f0b8af8f2}"/>
+    <RecordField colName="" fieldIdRef="10" name="phantom_cve_bloqueo" sqlTabName="" table_alias_name="" uid="{9a6d9690-0124-4e2d-8ed7-a9559eb8f450}"/>
+    <RecordField colName="" fieldIdRef="7" name="edit7" sqlTabName="" table_alias_name="" uid="{1374e9f1-c123-42e8-8c5e-e14a18d904f2}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="206" name="form" text="Detalle Entidades Financieras">
+    <Grid gridHeight="22" gridWidth="196" name="grid1" posX="3" posY="2">
+      <Group gridHeight="16" gridWidth="189" name="group1" posX="2" posY="3" text="Detalle">
+        <Table gridHeight="13" gridWidth="183" name="table1" posX="2" posY="2" totalRows="5">
+          <Phantom colName="" fieldId="8" name="phantom_tpo_credito" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Edit aggregate="false" aggregateColName="" aggregateName="total" aggregateTableAliasName="" aggregateTableName="" aggregateType="count" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="30" justify="left" left="false" name="edit1" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title=" TIPO CREDITO" widget="Edit"/>
+          <Phantom colName="" fieldId="9" name="phantom_cve_ent" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Edit aggregate="true" aggregateColName="" aggregateName="aggregate1" aggregateTableAliasName="" aggregateTableName="" aggregateText="TOTALES : " aggregateType="count" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="70" name="edit2" posX="30" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="ENTIDAD FINANCIERA" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="15" justify="left" name="edit3" posX="100" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="BANCO&#10;INTERLOCUTOR" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="18" name="edit4" posX="115" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="CLABE" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="12" name="edit5" posX="133" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="RFC ENTIDAD &#10;FINANCIERA" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="10" name="edit6" posX="145" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="CUENTA&#10;CONTABLE" widget="Edit"/>
+          <Phantom colName="" fieldId="10" name="phantom_cve_bloqueo" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="20" name="edit7" posX="155" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="CLAVE&#10;BLOQUEO" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA5AGEANgBkADkANgA5ADAALQAwADEAMgA0AC0ANABlADIAZAAtADgAZQBkADcALQBhADkANQA1ADkAZQBiADgAZgA0ADUAMAB9QCQAAAAAAABAa8AAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGIAYgBhADIAMQA1AGUALQAxADMAOAA5AC0ANAAwAGQAMwAtAGEANQA3ADkALQA0AGQAOQA5ADQAYwA5ADQAMQA5ADMAMwB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQAYgAwAGIAYQAxAGEALQA1AGEAYgA0AC0ANAA1AGEAMgAtADgAYgBmADIALQBkADYAMQA1ADIAMAA1ADMANAAzADYANQB9wHFAAAAAAABARYAAAAAAAD9ok3S8an76AQAAAEwAewAxAGYAYgBmADMAYQBhADIALQBhAGMANABmAC0ANAA4ADcAOAAtAGIANwA3ADUALQBhADQAYQA2AGEAMwAwADYAZAAxADIAYwB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewBjADUAOAA1ADkANQBlAGIALQAyADcAYgA5AC0ANABkADIAYQAtADgANQBmAGUALQA0ADUANABmADAAZAA0AGUAYwBlADgAYQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGIAMQBmAGEAYwA3AGEALQA0ADkAOQAwAC0ANAA2ADAAMgAtADkAZgAyADQALQA1ADkANgBhADIAMAA2AGYANQA5ADAAMQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADMANwA0AGUAOQBmADEALQBjADEAMgAzAC0ANAAyAGUAOAAtADgAYwA1AGUALQBlADEANABhADEAOABkADkAMAA0AGYAMgB9QCQAAAAAAABAbqAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGEANwBmADAAYQA0AGYALQA5ADUANQAwAC0ANAA2AGMAZQAtAGIANQBiAGMALQBmADcAZABlAGEANABlADkAZAA0AGQAYgB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGUANgA2ADIAYgA2ADMALQA4ADIANwBmAC0ANABmADIAMQAtADkAOQBjAGMALQA3ADEAMABlADMAYgAwADQANgBmADEAMAB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewBjAGIAYwA3ADMAOAA3AGUALQA2ADQAZABiAC0ANABiAGQAMwAtAGEAOQA0ADkALQBkADYANgBmADAAYgA4AGEAZgA4AGYAMgB9QCQAAAAAAABAaOAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGMAMwBjAGMAZgA5AGQALQBiAGIANAA3AC0ANAAyADAANgAtADkAZAAzADQALQA4ADEAOQA3ADkAZQA3ADQANgAzADgAMgB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

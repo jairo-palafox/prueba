@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{8a08d970-6bcb-4f64-bb35-3904fd92d3df}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_mandatos" order="" uid="{0698fcbc-b908-486f-bfdc-82cb2c971f87}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_descripcion_mdt" sqlTabName="" table_alias_name="" uid="{d487f861-48ab-4ddc-906b-88a7223d8d68}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_padre" sqlTabName="" table_alias_name="" uid="{1637fac7-6c2b-4a7d-ac70-f35955c616b8}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_identificador" sqlTabName="" table_alias_name="" uid="{8972f548-0897-49fb-96a2-ec85a9a93102}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_expandido" sqlTabName="" table_alias_name="" uid="{2bbbccfa-c3d1-461c-b09a-ada37657be56}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_municipio" sqlTabName="" table_alias_name="" uid="{b8fa8dd8-fd6f-472e-95e8-5c5d0d7209e7}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_recurrencia" sqlTabName="" table_alias_name="" uid="{4ffe7e2e-9af8-4178-bb8e-83cd69f2127a}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_complemento_recurrencia" sqlTabName="" table_alias_name="" uid="{1640f6ca-43d5-4bcd-941c-256b9c646bca}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_ejecuta_cod" sqlTabName="" table_alias_name="" uid="{e5e48724-a728-4cce-91ac-e1e90e85dc95}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_descripcion" sqlTabName="" table_alias_name="" uid="{8eaa05ff-042a-474f-81ad-993ada94c3a5}"/>
+    <RecordField colName="" fieldIdRef="10" name="ent_federativa" sqlTabName="" table_alias_name="" uid="{b1975985-85cf-4a6c-9dc7-216b0f221cac}"/>
+  </Record>
+  <Form gridHeight="22" gridWidth="150" name="Form" text="Form">
+    <Grid gridHeight="21" gridWidth="148" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="19" gridWidth="145" name="Group1" posX="1" posY="1" text="Catálogo de Mandatos">
+        <Tree expandedColumn="v_expandido" fontPitch="fixed" gridHeight="16" gridWidth="142" idColumn="v_identificador" imageCollapsed="folder" imageExpanded="open" imageLeaf="stop2" name="arbol_mandato" parentIdColumn="v_padre" posX="1" posY="1" style="textonegro barragris" totalRows="15" wantFixedPageSize="false">
+          <FFLabel colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="77" name="v_descripcion_mdt" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="" widget="FFLabel"/>
+          <Phantom colName="" fieldId="2" name="v_padre" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="3" name="v_identificador" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <Phantom colName="" fieldId="5" name="v_expandido" sqlTabName="" table_alias_name="" widget="Phantom"/>
+          <FFLabel colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="32" name="v_municipio" posX="77" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" table_alias_name="" title="Municipio" widget="FFLabel"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="2" hidden="true" name="v_recurrencia" posX="109" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="v_recurrencia" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="2" hidden="true" name="v_complemento_recurrencia" posX="111" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="v_complemento_recurrencia" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="2" hidden="true" name="v_ejecuta_cod" posX="113" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="v_ejecuta_cod" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="2" hidden="true" name="v_descripcion" posX="115" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="v_descripcion" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="2" hidden="true" name="ent_federativa" posX="117" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="ent_federativa" widget="Edit"/>
+        </Tree>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA0AGYAZgBlADcAZQAyAGUALQA5AGEAZgA4AC0ANAAxADcAOAAtAGIAYgA4AGUALQA4ADMAYwBkADYAOQBmADIAMQAyADcAYQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADgAZgBhADgAZABkADgALQBmAGQANgBmAC0ANAA3ADIAZQAtADkANQBlADgALQA1AGMANQBkADAAZAA3ADIAMAA5AGUANwB9QBQAAAAAAABAXYAAAAAAAD+bpeNT987eAQAAAEwAewBlADUAZQA0ADgANwAyADQALQBhADcAMgA4AC0ANABjAGMAZQAtADkAMQBhAGMALQBlADEAZQA5ADAAZQA4ADUAZABjADkANQB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBkADQAOAA3AGYAOAA2ADEALQA0ADgAYQBiAC0ANABkAGQAYwAtADkAMAA2AGIALQA4ADgAYQA3ADIAMgAzAGQAOABkADYAOAB9QBQAAAAAAABAOgAAAAAAAD+VgQYk3S8eAQAAAEwAewAwADYAOQA4AGYAYwBiAGMALQBiADkAMAA4AC0ANAA4ADYAZgAtAGIAZgBkAGMALQA4ADIAYwBiADIAYwA5ADcAMQBmADgANwB9wFwAAAAAAAAAAAAAAAAAAD+an752yLQ+AQAAAEwAewAxADYANAAwAGYANgBjAGEALQA0ADMAZAA1AC0ANABiAGMAZAAtADkANAAxAGMALQAyADUANgBiADkAYwA2ADQANgBiAGMAYQB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADkANwAyAGYANQA0ADgALQAwADgAOQA3AC0ANAA5AGYAYgAtADkANgBhADIALQBlAGMAOAA1AGEAOQBhADkAMwAxADAAMgB9QBQAAAAAAABAUgAAAAAAAD+Yk3S8an7+AQAAAEwAewAyAGIAYgBiAGMAYwBmAGEALQBjADMAZAAxAC0ANAA2ADEAYwAtAGIAMAA5AGEALQBhAGQAYQAzADcANgA1ADcAYgBlADUANgB9QBQAAAAAAABAV8AAAAAAAD+ZmZmZmZmeAQAAAEwAewA4AGUAYQBhADAANQBmAGYALQAwADQAMgBhAC0ANAA3ADQAZgAtADgAMQBhAGQALQA5ADkAMwBhAGQAYQA5ADQAYwAzAGEANQB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADEAOQA3ADUAOQA4ADUALQA4ADUAYwBmAC0ANABhADYAYwAtADkAZABjADcALQAyADEANgBiADAAZgAyADIAMQBjAGEAYwB9QBQAAAAAAABAbSAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADYAMwA3AGYAYQBjADcALQA2AGMAMgBiAC0ANABhADcAZAAtAGEAYwA3ADAALQBmADMANQA5ADUANQBjADYAMQA2AGIAOAB9QBQAAAAAAABASIAAAAAAAD+XjU/fO2ReAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

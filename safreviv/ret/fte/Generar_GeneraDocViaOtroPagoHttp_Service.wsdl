@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Generar_GeneraDocViaOtroPagoHttp_Service" targetNamespace="http://services.infonavit.org.mx/Binding" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:Port_0="http://services.infonavit.org.mx" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://services.infonavit.org.mx/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <import location="GeneraDocViaOtroPago.wsdl" namespace="http://services.infonavit.org.mx">
+    </import>
+  <binding name="Generar_GeneraDocViaOtroPagoHttpBinding" type="Port_0:GeneraDocViaOtroPago">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="generar">
+      <soap:operation soapAction=""/>
+      <input name="generarRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="generarResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Generar_GeneraDocViaOtroPagoHttpService">
+    <port binding="this:Generar_GeneraDocViaOtroPagoHttpBinding" name="Generar_GeneraDocViaOtroPagoHttpPort">
+      <soap:address location="http://10.90.0.118:80/GeneraDocViaOtroPagoMediationWeb/sca/Generar"/>
+    </port>
+  </service>
+</definitions>

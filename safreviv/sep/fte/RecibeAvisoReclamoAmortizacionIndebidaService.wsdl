@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><?FJSWSDLUpdate http://172.16.16.39:8080/SeparaCuentas/services/RecibeAvisoReclamoAmortizacionIndebida?WSDL?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://separacion.safre.efp.com" xmlns:intf="http://separacion.safre.efp.com" xmlns:tns1="http://vo.separacion.safre.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://separacion.safre.efp.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://separacion.safre.efp.com">
+   <import namespace="http://vo.separacion.safre.efp.com"/>
+   <element name="recibeReclamoAmortizacionIndebida">
+    <complexType>
+     <sequence>
+      <element name="reclamoAmortizacionIndebidaRequest" type="tns1:ReclamoAmortizacionIndebidaRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recibeReclamoAmortizacionIndebidaResponse">
+    <complexType>
+     <sequence>
+      <element name="recibeReclamoAmortizacionIndebidaReturn" type="tns1:ReclamoAmortizacionIndebidaResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.separacion.safre.efp.com">
+   <complexType name="ReclamoAmortizacionIndebidaRequest">
+    <sequence>
+     <element name="impAmortizacionIndebida" nillable="true" type="xsd:decimal"/>
+     <element name="nssAsociado" nillable="true" type="xsd:string"/>
+     <element name="numeroCaso" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ReclamoAmortizacionIndebidaResponse">
+    <sequence>
+     <element name="diagRechazo" nillable="true" type="xsd:string"/>
+     <element name="impAmortizacionIndebida" nillable="true" type="xsd:decimal"/>
+     <element name="nssAsociado" nillable="true" type="xsd:string"/>
+     <element name="numeroCaso" nillable="true" type="xsd:string"/>
+     <element name="resultOperacion" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="recibeReclamoAmortizacionIndebidaRequest">
+
+      <wsdl:part element="impl:recibeReclamoAmortizacionIndebida" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="recibeReclamoAmortizacionIndebidaResponse">
+
+      <wsdl:part element="impl:recibeReclamoAmortizacionIndebidaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="RecibeAvisoReclamoAmortizacionIndebida">
+
+      <wsdl:operation name="recibeReclamoAmortizacionIndebida">
+
+         <wsdl:input message="impl:recibeReclamoAmortizacionIndebidaRequest" name="recibeReclamoAmortizacionIndebidaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:recibeReclamoAmortizacionIndebidaResponse" name="recibeReclamoAmortizacionIndebidaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="RecibeAvisoReclamoAmortizacionIndebidaSoapBinding" type="impl:RecibeAvisoReclamoAmortizacionIndebida">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="recibeReclamoAmortizacionIndebida">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="recibeReclamoAmortizacionIndebidaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="recibeReclamoAmortizacionIndebidaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="RecibeAvisoReclamoAmortizacionIndebidaService">
+
+      <wsdl:port binding="impl:RecibeAvisoReclamoAmortizacionIndebidaSoapBinding" name="RecibeAvisoReclamoAmortizacionIndebida">
+
+         <wsdlsoap:address location="http://172.16.16.39:8080/SeparaCuentas/services/RecibeAvisoReclamoAmortizacionIndebida"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

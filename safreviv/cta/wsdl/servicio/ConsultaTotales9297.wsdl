@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:intf="http://service.infonavit.org.mx" xmlns:impl="http://service.infonavit.org.mx" targetNamespace="http://service.infonavit.org.mx">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://service.infonavit.org.mx">
+   <element name="consultaTotal9297Response">
+    <complexType>
+     <sequence>
+      <element name="consultaTotal9297Return" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultaTotal9297">
+    <complexType>
+     <sequence>
+      <element name="xmlRequest" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  </wsdl:types>
+  <wsdl:message name="consultaTotal9297Request">
+    <wsdl:part name="parameters" element="intf:consultaTotal9297"/>
+  </wsdl:message>
+  <wsdl:message name="consultaTotal9297Response">
+    <wsdl:part name="parameters" element="intf:consultaTotal9297Response"/>
+  </wsdl:message>
+  <wsdl:portType name="ConsultaTotales9297">
+    <wsdl:operation name="consultaTotal9297">
+      <wsdl:input name="consultaTotal9297Request" message="intf:consultaTotal9297Request"/>
+      <wsdl:output name="consultaTotal9297Response" message="intf:consultaTotal9297Response"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultaTotales9297SoapBinding" type="intf:ConsultaTotales9297">
+    <wsaw:UsingAddressing xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:required="false"/>
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consultaTotal9297">
+      <wsdlsoap:operation soapAction="consultaTotal9297"/>
+      <wsdl:input name="consultaTotal9297Request">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaTotal9297Response">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultaTotales9297Service">
+    <wsdl:port name="ConsultaTotales9297" binding="intf:ConsultaTotales9297SoapBinding">
+      <wsdlsoap:address location="http://10.90.0.52:80/FondoTotalesWeb/services/ConsultaTotales9297"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

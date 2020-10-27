@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{5badefc5-8579-445d-8d6b-9b6a85679bec}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{34041167-4c63-4d01-8271-0d1c894bc0d2}" where="">
+    <RecordField colName="" fieldIdRef="1" name="nom_archivo" sqlTabName="" table_alias_name="" uid="{9c4220e7-75be-4e10-89f0-df4126d43cc6}"/>
+    <RecordField colName="" fieldIdRef="2" name="lote" sqlTabName="" table_alias_name="" uid="{0c29fef6-a3c6-4fbc-bc2d-51b76408efdc}"/>
+    <RecordField colName="" fieldIdRef="10" name="folio_archivo" sqlTabName="" table_alias_name="" uid="{5c47b71d-bcb9-4ea4-9dcd-1f072f9625ac}"/>
+    <RecordField colName="" fieldIdRef="3" name="f_lote" sqlTabName="" table_alias_name="" uid="{1b02c437-7fd5-49f6-95e8-33dd1aa108da}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tabla_reverso" order="" uid="{adea4e11-f91c-4eda-b10b-9b3d9294f9a8}" where="">
+    <RecordField colName="" fieldIdRef="4" name="tbl_nom_archivo" sqlTabName="" table_alias_name="" uid="{31acfab2-8adf-4f25-89e8-e06baaf7ca43}"/>
+    <RecordField colName="" fieldIdRef="5" name="tbl_f_lote" sqlTabName="" table_alias_name="" uid="{67c764ac-527d-4830-98af-3837f69e9ed1}"/>
+    <RecordField colName="" fieldIdRef="6" name="tbl_lote" sqlTabName="" table_alias_name="" uid="{18ad49b8-8a49-4942-ad89-99858fef1a6b}"/>
+    <RecordField colName="" fieldIdRef="7" name="tbl_f_proceso" sqlTabName="" table_alias_name="" uid="{73c018f2-4f74-454c-805b-5c2b8e441fea}"/>
+    <RecordField colName="" fieldIdRef="8" name="tbl_tot_registros" sqlTabName="" table_alias_name="" uid="{9b3dfdce-accb-4132-bddf-d609b2fc7b44}"/>
+    <RecordField colName="" fieldIdRef="9" name="tbl_folio" sqlTabName="" table_alias_name="" uid="{20087bc9-64fc-443f-9416-cb9cbb10b126}"/>
+    <RecordField colName="" fieldIdRef="11" name="Edit1" sqlTabName="" table_alias_name="" uid="{ab0ae926-b773-4217-8464-1d1c62d2dae6}"/>
+  </Record>
+  <Form gridHeight="21" gridWidth="98" name="Form" text="Form">
+    <Grid gridHeight="18" gridWidth="93" name="Grid1" posX="3" posY="1">
+      <Group gridHeight="6" gridWidth="72" name="grevent" posX="1" posY="1" text="Reverso">
+        <Label gridHeight="1" gridWidth="18" name="Label1" posX="2" posY="1" text="Nombre del archivo"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="31" name="nom_archivo" posX="21" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="18" name="Label2" posX="2" posY="2" text="Lote"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="14" name="lote" posX="21" posY="2" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit2" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="18" name="Label3" posX="2" posY="3" text="Fecha Lote / Presentación"/>
+        <DateEdit colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="20" name="f_lote" posX="21" posY="3" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="18" name="Label4" posX="2" posY="4" text="Folio"/>
+        <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="14" name="folio_archivo" posX="21" posY="4" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="8" gridWidth="90" name="Group1" posX="1" posY="8" text="Archivo a reversar">
+        <Table gridHeight="6" gridWidth="87" name="Table1" posX="2" posY="1" totalRows="5">
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="16" name="tbl_nom_archivo" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Archivo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="5" format="DD-MM-YYYY" gridHeight="1" gridWidth="11" name="tbl_f_lote" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Fecha Lote" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="10" name="tbl_lote" posX="27" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Lote" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" format="DD-MM-YYYY" gridHeight="1" gridWidth="11" name="tbl_f_proceso" posX="37" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Fecha proceso" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="13" name="tbl_tot_registros" posX="48" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Total Registros" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="10" hidden="true" name="tbl_folio" posX="61" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Id_ctr_archivo" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="8" name="Edit1" posX="71" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Folio" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzADQAMAA0ADEAMQA2ADcALQA0AGMANgAzAC0ANABkADAAMQAtADgAMgA3ADEALQAwAGQAMQBjADgAOQA0AGIAYwAwAGQAMgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADEAYQBjAGYAYQBiADIALQA4AGEAZABmAC0ANABmADIANQAtADgAOQBlADgALQBlADAANgBiAGEAYQBmADcAYwBhADQAMwB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGIAMABhAGUAOQAyADYALQBiADcANwAzAC0ANAAyADEANwAtADgANAA2ADQALQAxAGQAMQBjADYAMgBkADIAZABhAGUANgB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGMANAAyADIAMABlADcALQA3ADUAYgBlAC0ANABlADEAMAAtADgAOQBmADAALQBkAGYANAAxADIANgBkADQAMwBjAGMANgB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewA3ADMAYwAwADEAOABmADIALQA0AGYANwA0AC0ANAA1ADQAYwAtADgAMAA1AGIALQA1AGMAMgBiADgAZQA0ADQAMQBmAGUAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADcAYwA3ADYANABhAGMALQA1ADIANwBkAC0ANAA4ADMAMAAtADkAOABhAGYALQAzADgAMwA3AGYANgA5AGUAOQBlAGQAMQB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGIAMwBkAGYAZABjAGUALQBhAGMAYwBiAC0ANAAxADMAMgAtAGIAZABkAGYALQBkADYAMAA5AGIAMgBmAGMANwBiADQANAB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADAAMAA4ADcAYgBjADkALQA2ADQAZgBjAC0ANAA0ADMAZgAtADkANAAxADYALQBjAGIAOQBjAGIAYgAxADAAYgAxADIANgB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGMANAA3AGIANwAxAGQALQBiAGMAYgA5AC0ANABlAGEANAAtADkAZABjAGQALQAxAGYAMAA3ADIAZgA5ADYAMgA1AGEAYwB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADgAYQBkADQAOQBiADgALQA4AGEANAA5AC0ANAA5ADQAMgAtAGEAZAA4ADkALQA5ADkAOAA1ADgAZgBlAGYAMQBhADYAYgB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGQAZQBhADQAZQAxADEALQBmADkAMQBjAC0ANABlAGQAYQAtAGIAMQAwAGIALQA5AGIAMwBkADkAMgA5ADQAZgA5AGEAOAB9AAAAAAAAAAAAAAAAAAAAAD9QYk3S8an8AQAAAEwAewAwAGMAMgA5AGYAZQBmADYALQBhADMAYwA2AC0ANABmAGIAYwAtAGIAYwAyAGQALQA1ADEAYgA3ADYANAAwADgAZQBmAGQAYwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGIAMAAyAGMANAAzADcALQA3AGYAZAA1AC0ANAA5AGYANgAtADkANQBlADgALQAzADMAZABkADEAYQBhADEAMAA4AGQAYQB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

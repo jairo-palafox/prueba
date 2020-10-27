@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{41b445c5-3f9b-491f-8d6a-240e5348690f}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{418b4714-bfcb-4a95-a919-04b0549ee666}" where="">
+    <RecordField colName="" fieldIdRef="1" name="ed_nss" sqlTabName="" table_alias_name="" uid="{0f15f66a-d6be-4b40-a351-ed4a09da5d71}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_registros" order="" uid="{10cbcce1-7e95-423f-b2aa-5fc41ab9c98d}" where="">
+    <RecordField colName="" fieldIdRef="2" name="f_pago" sqlTabName="" table_alias_name="" uid="{2519f116-2349-4df2-a624-003ef67ee519}"/>
+    <RecordField colName="" fieldIdRef="3" name="imp_gar_gem" sqlTabName="" table_alias_name="" uid="{a3581803-ac96-460e-b3e8-56f55d775c54}"/>
+    <RecordField colName="" fieldIdRef="10" name="aiv_gem" sqlTabName="" table_alias_name="" uid="{ee6db1a7-94d6-431d-9084-8389473714f5}"/>
+    <RecordField colName="" fieldIdRef="4" name="cve_entidad" sqlTabName="" table_alias_name="" uid="{1006c1b1-7b49-47c2-90b8-a65c889353bf}"/>
+    <RecordField colName="" fieldIdRef="11" name="cve_municipio" sqlTabName="" table_alias_name="" uid="{12d53037-ac7f-4ef3-9901-77c20bfc2591}"/>
+    <RecordField colName="" fieldIdRef="9" name="f_liquida" sqlTabName="" table_alias_name="" uid="{d1c38712-a23d-495f-b1bb-d38747a0b07e}"/>
+    <RecordField colName="" fieldIdRef="6" name="nss" sqlTabName="" table_alias_name="" uid="{37c03b07-df21-4497-b420-47c86f9588f0}"/>
+    <RecordField colName="" fieldIdRef="7" name="nom_trabajador" sqlTabName="" table_alias_name="" uid="{88afecaf-f1f4-4f7d-8992-038668e30ac6}"/>
+    <RecordField colName="" fieldIdRef="8" name="folio" sqlTabName="" table_alias_name="" uid="{23525793-0645-41b4-a781-00f381dbdbe6}"/>
+  </Record>
+  <Form gridHeight="25" gridWidth="230" name="Form" text="Form">
+    <Grid gridHeight="23" gridWidth="221" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="4" gridWidth="121" name="grp_informacion_recibida" posX="1" posY="1" text="Consulta de Detalle de Pago">
+        <Label gridHeight="1" gridWidth="14" justify="left" name="lbl_id_derechohab" posX="3" posY="1" text="NSS"/>
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="16" name="ed_nss" posX="19" posY="1" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="16" gridWidth="211" name="Group2" posX="1" posY="6" text="Registros Detalle de Pago">
+        <Table gridHeight="13" gridWidth="206" name="tbl_datos_tabulados" posX="2" posY="2" totalRows="12">
+          <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="12" justify="center" name="f_pago" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Fecha&#10;Pago" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="3" format="###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="imp_gar_gem" posX="12" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Importe&#10;Garantías" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="10" format="###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="aiv_gem" posX="34" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Aivs" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="25" justify="center" name="cve_entidad" posX="56" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Entidad" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="11" gridHeight="1" gridWidth="25" name="cve_municipio" posX="81" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Municipio" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="10" justify="center" name="f_liquida" posX="106" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Fecha &#10;liquida" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="17" justify="center" name="nss" posX="116" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="NSS" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="40" name="nom_trabajador" posX="133" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Nombre&#10;Trabajador" widget="Edit"/>
+          <Edit colName="" columnCount="" fieldId="8" format="#########" gridHeight="1" gridWidth="9" name="folio" posX="173" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Folio" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA4ADgAYQBmAGUAYwBhAGYALQBmADEAZgA0AC0ANABmADcAZAAtADgAOQA5ADIALQAwADMAOAA2ADYAOABlADMAMABhAGMANgB9QBQAAAAAAABAZ2AAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGUANgBkAGIAMQBhADcALQA5ADQAZAA2AC0ANAAzADEAZAAtADkAMAA4ADQALQA4ADMAOAA5ADQANwAzADcAMQA0AGYANQB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADMANQAyADUANwA5ADMALQAwADYANAA1AC0ANAAxAGIANAAtAGEANwA4ADEALQAwADAAZgAzADgAMQBkAGIAZABiAGUANgB9QBQAAAAAAABAakAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADMANQA4ADEAOAAwADMALQBhAGMAOQA2AC0ANAA2ADAAZQAtAGIAMwBlADgALQA1ADYAZgA1ADUAZAA3ADcANQBjADUANAB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAzADcAYwAwADMAYgAwADcALQBkAGYAMgAxAC0ANAA0ADkANwAtAGIANAAyADAALQA0ADcAYwA4ADYAZgA5ADUAOAA4AGYAMAB9QBQAAAAAAABAZIAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADEAOABiADQANwAxADQALQBiAGYAYwBiAC0ANABhADkANQAtAGEAOQAxADkALQAwADQAYgAwADUANAA5AGUAZQA2ADYANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADEAYwAzADgANwAxADIALQBhADIAMwBkAC0ANAA5ADUAZgAtAGIAMQBiAGIALQBkADMAOAA3ADQANwBhADAAYgAwADcAZQB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewAwAGYAMQA1AGYANgA2AGEALQBkADYAYgBlAC0ANABiADQAMAAtAGEAMwA1ADEALQBlAGQANABhADAAOQBkAGEANQBkADcAMQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADIAZAA1ADMAMAAzADcALQBhAGMANwBmAC0ANABlAGYAMwAtADkAOQAwADEALQA3ADcAYwAyADAAYgBmAGMAMgA1ADkAMQB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADUAMQA5AGYAMQAxADYALQAyADMANAA5AC0ANABkAGYAMgAtAGEANgAyADQALQAwADAAMwBlAGYANgA3AGUAZQA1ADEAOQB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADAAYwBiAGMAYwBlADEALQA3AGUAOQA1AC0ANAAyADMAZgAtAGIAMgBhAGEALQA1AGYAYwA0ADEAYQBiADkAYwA5ADgAZAB9wGUAAAAAAABAEAAAAAAAAD9ok3S8an76AQAAAEwAewAxADAAMAA2AGMAMQBiADEALQA3AGIANAA5AC0ANAA3AGMAMgAtADkAMABiADgALQBhADYANQBjADgAOAA5ADMANQAzAGIAZgB9QBQAAAAAAABAV8AAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

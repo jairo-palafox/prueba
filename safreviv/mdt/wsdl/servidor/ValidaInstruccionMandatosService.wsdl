@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://mandatos.safre.efp.com" xmlns:intf="http://mandatos.safre.efp.com" xmlns:tns1="http://vo.mandatos.safre.efp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mandatos.safre.efp.com">
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://mandatos.safre.efp.com">
+			<import namespace="http://vo.mandatos.safre.efp.com"/>
+			<element name="valida_instruccion_mdt_can">
+				<complexType>
+					<sequence>
+						<element name="validaInstruccionRequest" type="tns1:ValidaInstruccionRequest"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="valida_instruccion_mdt_canResponse">
+				<complexType>
+					<sequence>
+						<element name="valida_instruccion_mdt_canReturn" type="tns1:ValidaInstruccionResponse"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://vo.mandatos.safre.efp.com">
+			<complexType name="ValidaInstruccionRequest">
+				<sequence>
+					<element name="id_origen" nillable="true" type="xsd:int"/>
+					<element name="nss" nillable="false" type="xsd:string"/>
+					<element name="id_credito" nillable="true" type="xsd:decimal"/>
+					<element name="id_mandato" nillable="false" type="xsd:string"/>
+					<element name="tpo_descuento" nillable="true" type="xsd:int"/>
+					<element name="valor_descuento" nillable="true" type="xsd:decimal"/>
+					<element name="f_canales" nillable="true" type="xsd:date"/>
+					<element name="f_inicio_mandato" nillable="true" type="xsd:date"/>
+					<element name="f_culmina_mandato" nillable="true" type="xsd:date"/>
+					<element name="referencia" nillable="false" type="xsd:string"/>
+					<element name="id_canales" nillable="false" type="xsd:int"/>
+					<element name="tipo_operacion" nillable="true" type="xsd:string"/>
+				</sequence>
+			</complexType>
+			<complexType name="ValidaInstruccionResponse">
+				<sequence>
+					<element name="id_origen" nillable="true" type="xsd:int"/>
+					<element name="nss" nillable="false" type="xsd:string"/>
+					<element name="id_credito" nillable="true" type="xsd:decimal"/>
+					<element name="id_mandato" nillable="false" type="xsd:string"/>
+					<element name="tpo_descuento" nillable="true" type="xsd:int"/>
+					<element name="valor_descuento" nillable="true" type="xsd:decimal"/>
+					<element name="f_canales" nillable="true" type="xsd:date"/>
+					<element name="f_inicio_mandato" nillable="true" type="xsd:date"/>
+					<element name="f_culmina_mandato" nillable="true" type="xsd:date"/>
+					<element name="referencia" nillable="false" type="xsd:string"/>
+					<element name="id_canales" nillable="false" type="xsd:int"/>
+					<element name="tipo_operacion" nillable="true" type="xsd:string"/>
+					<element name="resultado_operacion" nillable="true" type="xsd:string"/>
+					<element name="diagnostico" nillable="true" type="xsd:string"/>
+				</sequence>
+			</complexType>
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="valida_instruccion_mdt_canResponse">
+		<wsdl:part name="parameters" element="impl:valida_instruccion_mdt_canResponse">
+
+      </wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="valida_instruccion_mdt_canRequest">
+		<wsdl:part name="parameters" element="impl:valida_instruccion_mdt_can">
+
+      </wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="ValidaInstruccionMandatosService">
+		<wsdl:operation name="valida_instruccion_mdt_can">
+			<wsdl:input name="valida_instruccion_mdt_canRequest" message="impl:valida_instruccion_mdt_canRequest">
+
+       </wsdl:input>
+			<wsdl:output name="valida_instruccion_mdt_canResponse" message="impl:valida_instruccion_mdt_canResponse">
+
+       </wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ValidaInstruccionMandatosServiceSoapBinding" type="impl:ValidaInstruccionMandatosService">
+		<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="valida_instruccion_mdt_can">
+			<wsdlsoap:operation/>
+			<wsdl:input>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ValidaInstruccionMandatosServiceService">
+		<wsdl:port name="ValidaInstruccionMandatosService" binding="impl:ValidaInstruccionMandatosServiceSoapBinding">
+			<wsdlsoap:address location="http://localhost:8080/Pruebas/services/ValidaInstruccionMandatosService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

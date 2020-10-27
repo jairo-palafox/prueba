@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{07c0f6c0-3983-474e-be16-adbdec9e8fe9}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_pendientes" order="" uid="{3eec5e72-b43f-4a7c-9145-6562686b6e0e}" where="">
+    <RecordField colName="" fieldIdRef="1" name="arch_pendientes" sqlTabName="" table_alias_name="" uid="{f6c9772b-86fc-493e-8806-1b094593fad8}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_integrar" order="" uid="{6c6aa929-cff4-4f79-a187-d68294a43158}" where="">
+    <RecordField colName="" fieldIdRef="2" name="arch_integrar" sqlTabName="" table_alias_name="" uid="{35d89319-1730-4e26-97db-cae1ce7284eb}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tbl_integrados" order="" uid="{3ae17005-427c-405e-b090-28fc45ebc112}" where="">
+    <RecordField colName="" fieldIdRef="3" name="folio" sqlTabName="" table_alias_name="" uid="{479ae196-25f7-47c1-ab79-2e5828b8f40d}"/>
+    <RecordField colName="" fieldIdRef="4" name="nom_archivo" sqlTabName="" table_alias_name="" uid="{1c134ae7-93ef-468c-ac7c-25ffda1253f6}"/>
+    <RecordField colName="" fieldIdRef="6" name="f_presenta" sqlTabName="" table_alias_name="" uid="{e46e0e6f-7536-483e-bd80-641528402b41}"/>
+    <RecordField colName="" fieldIdRef="9" name="tot_aivs" sqlTabName="" table_alias_name="" uid="{c0b81689-bbd9-4b5d-84d7-61c8b527517b}"/>
+    <RecordField colName="" fieldIdRef="5" name="tot_apo" sqlTabName="" table_alias_name="" uid="{aad35d61-b6dd-4483-bcc6-4f892b88ada7}"/>
+    <RecordField colName="" fieldIdRef="7" name="tot_amo" sqlTabName="" table_alias_name="" uid="{632ba92a-914b-4e55-b0d8-e31cce0b8ed0}"/>
+    <RecordField colName="" fieldIdRef="8" name="tot_reg" sqlTabName="" table_alias_name="" uid="{a9d4687a-6dcd-45da-add7-b4c875f674fb}"/>
+  </Record>
+  <Form gridHeight="50" gridWidth="180" name="frm_integra_acreditados" text="Integrar">
+    <VBox gridHeight="26" gridWidth="137" name="VBox1" posX="4" posY="9">
+      <Group gridHeight="13" gridWidth="137" name="Group1" posX="0" posY="1" text="Arrastrar archivos a integrar">
+        <Grid gridHeight="9" gridWidth="132" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="48" name="arch_pend" posX="8" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="36" name="arch_pendientes" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Archivos Pendientes de Integrar" widget="Edit"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="52" name="arch_int" posX="62" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="40" name="arch_integrar" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Archivos a Integrar" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="11" gridWidth="137" name="Group2" posX="0" posY="14" text="Información Preliminar">
+        <Grid gridHeight="8" gridWidth="133" name="Grid3" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="130" name="Table1" posX="2" posY="1" totalRows="5">
+            <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="7" name="folio" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Folio" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="21" name="nom_archivo" posX="7" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Archivo" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="16" name="f_presenta" posX="28" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha Presentación" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="9" format="###,###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="24" name="tot_aivs" posX="44" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Total AIVS" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="5" format="###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="22" name="tot_apo" posX="68" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Total&#10;Aportaciones" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="7" format="###,###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="21" name="tot_amo" posX="90" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Total&#10;Amortizaciones" widget="Edit"/>
+            <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="11" name="tot_reg" posX="111" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Total Registros" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA2ADMAMgBiAGEAOQAyAGEALQA5ADEANABiAC0ANABlADUANQAtAGIAMABkADgALQBlADMAMQBjAGMAZQAwAGIAOABlAGQAMAB9QBQAAAAAAABAYaAAAAAAAAAAAAAAAAAAAQAAAEwAewBmADYAYwA5ADcANwAyAGIALQA4ADYAZgBjAC0ANAA5ADMAZQAtADgAOAAwADYALQAxAGIAMAA5ADQANQA5ADMAZgBhAGQAOAB9QBQAAAAAAABAOgAAAAAAAAAAAAAAAAAAAQAAAEwAewAzAGEAZQAxADcAMAAwADUALQA0ADIANwBjAC0ANAAwADUAZQAtAGIAMAA5ADAALQAyADgAZgBjADQANQBlAGIAYwAxADEAMgB9wHdgAAAAAADAVEAAAAAAAD+crAgxJul+AQAAAEwAewBhADkAZAA0ADYAOAA3AGEALQA2AGQAYwBkAC0ANAA1AGQAYQAtAGEAZABkADcALQBiADQAYwA4ADcANQBmADYANwA0AGYAYgB9QBQAAAAAAABAZIAAAAAAAD+TdLxqfvneAQAAAEwAewAzADUAZAA4ADkAMwAxADkALQAxADcAMwAwAC0ANABlADIANgAtADkANwBkAGIALQBjAGEAZQAxAGMAZQA3ADIAOAA0AGUAYgB9QBQAAAAAAABAOgAAAAAAAD+ZmZmZmZmeAQAAAEwAewAxAGMAMQAzADQAYQBlADcALQA5ADMAZQBmAC0ANAA2ADgAYwAtAGEAYwA3AGMALQAyADUAZgBmAGQAYQAxADIANQAzAGYANgB9QBQAAAAAAABASIAAAAAAAD+VgQYk3S8eAQAAAEwAewAzAGUAZQBjADUAZQA3ADIALQBiADQAMwBmAC0ANABhADcAYwAtADkAMQA0ADUALQA2ADUANgAyADYAOAA2AGIANgBlADAAZQB9wFvAAAAAAADAW8AAAAAAAD+AYk3S8an8AQAAAEwAewBlADQANgBlADAAZQA2AGYALQA3ADUAMwA2AC0ANAA4ADMAZQAtAGIAZAA4ADAALQA2ADQAMQA1ADIAOAA0ADAAMgBiADQAMQB9QBQAAAAAAABAUgAAAAAAAD+XjU/fO2ReAQAAAEwAewBhAGEAZAAzADUAZAA2ADEALQBiADYAZABkAC0ANAA0ADgAMwAtAGIAYwBjADYALQA0AGYAOAA5ADIAYgA4ADgAYQBkAGEANwB9QBQAAAAAAABAXYAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADcAOQBhAGUAMQA5ADYALQAyADUAZgA3AC0ANAA3AGMAMQAtAGEAYgA3ADkALQAyAGUANQA4ADIAOABiADgAZgA0ADAAZAB9QBQAAAAAAABAOgAAAAAAAD+UeuFHrhR+AQAAAEwAewBjADAAYgA4ADEANgA4ADkALQBiAGIAZAA5AC0ANABiADUAZAAtADgANABkADcALQA2ADEAYwA4AGIANQAyADcANQAxADcAYgB9QBQAAAAAAABAV8AAAAAAAD+euFHrhR6+AQAAAEwAewA2AGMANgBhAGEAOQAyADkALQBjAGYAZgA0AC0ANABmADcAOQAtAGEAMQA4ADcALQBkADYAOAAyADkANABhADQAMwAxADUAOAB9wGJAAAAAAABASoAAAAAAAD+bpeNT987eAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

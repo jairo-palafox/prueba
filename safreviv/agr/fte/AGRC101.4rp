@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AGRC10.rdd" RWFglReportName="rpt_situacion"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Raiz" width="max" length="max">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" alignment="near" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="center" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="721.554" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" alignment="far" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="6.6951" width="718.193" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="REPORTE DE CONSULTA DE MARCAS A PROCESAR VIA WS" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="baseline" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox4" x="6.624" y="577.928" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                                <WORDBOX name="WordBox2_1" alignment="baseline" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="g_usuario Value" x="0.7652" y="62.2637" anchorX="0" anchorY="0" color="#ffffff" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                                <rtl:input-variable name="v_d_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_d_fecha Value" x="0.7652" y="615.827" anchorX="0" anchorY="0" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="{{v_d_fecha}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage8" width="33.1672" length="719.835" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="titAIVS1_2_1_1_1" x="25.3002" y="195.593" width="87.0246" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="DESCRIPCIÓN"/>
+                            <WORDWRAPBOX name="titAIVS1_2_1_1_1_2" x="25.3002" y="502.701" width="123.159" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="FECHA"/>
+                            <WORDBOX name="titAIVS1_2_1_1_1_1_1_1" x="25.3002" y="638.216" width="135.957" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="TOTAL REGISTROS"/>
+                            <WORDBOX name="titSituacion" x="16.9417" y="11.4581" anchorX="0" anchorY="0" color="#ce050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="SITUACION"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="Encabezado" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutEncabezado" width="25.5263" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="r_det_reporte.v_c_desc_situacion" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="r_det_reporte.v_c_desc_situacion Value" x="1.7393" y="237.645" width="83.3369" length="13.7947" anchorX="0" anchorY="1" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="{{r_det_reporte.v_c_desc_situacion}}"/>
+                                <rtl:input-variable name="r_det_reporte.v_d_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="r_det_reporte.v_d_fecha Value" x="1.7397" y="431.2" anchorX="0" anchorY="0" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="{{r_det_reporte.v_d_fecha}}"/>
+                                <rtl:input-variable name="r_det_reporte.v_c_tot_marcas" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="r_det_reporte.v_c_tot_marcas Value" x="1.7397" y="666.173" anchorX="0" anchorY="1" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-----#" value="{{r_det_reporte.v_c_tot_marcas}}"/>
+                                <rtl:input-variable name="r_det_reporte.v_s_situacion" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="r_det_reporte.v_s_situacion Value" x="1.7397" y="11.4581" anchorX="0" anchorY="0" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="{{r_det_reporte.v_s_situacion}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage10" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="WordBox6" x="1.7688" y="608.3" anchorX="0" anchorY="0" color="#d8050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="TOTAL"/>
+                            <WORDBOX name="WordBox5" x="1.7688" y="354.375" anchorX="0" anchorY="0" color="#d8050f" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="SOLICITUD"/>
+                        </MINIPAGE>
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="Detalle" width="23.7974" length="max" layoutDirection="leftToRight">
+                                <LAYOUTNODE name="LayoutDetalle" x="20.0333" y="0" width="min" length="max" anchorX="1" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="r_det_reporte.v_c_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="r_det_reporte.v_c_solicitud Value" x="3.2186" y="354.375" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" text="{{r_det_reporte.v_c_solicitud}}"/>
+                                </LAYOUTNODE>
+                                <rtl:input-variable name="r_det_reporte.v_i_total_sol" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="r_det_reporte.v_i_total_sol Value" x="8.0336" y="597.627" anchorX="0" anchorY="0" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{r_det_reporte.v_i_total_sol}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                        <MINIPAGE name="LineaRoja" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutLinea" width="2" length="max" alignment="near" bgColor="#d8050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

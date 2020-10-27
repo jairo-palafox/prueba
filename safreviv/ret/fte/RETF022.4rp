@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="legallength" RWPageLength="legalwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/RETF02.rdd" RWFglReportName="rpt_modulo_fondo_ahorro"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="MiniPage" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="LayoutNode17" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="logos" x="97.9394" y="0" width="41.7282" length="200.032" anchorX="0.5" anchorY="0.0109314" alignment="center" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" x="5.9362" y="1.9177" width="42.7303" length="34.8101" anchorX="0" anchorY="0" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="72"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="titulos" x="-0.9729" y="44.9288" width="30.2475" length="926.924" anchorX="0" anchorY="0" alignment="near" color="#ffffff" bgColor="#d90000" fontName="Arial" fontSize="15" fontBold="true" fontItalic="false" layoutDirection="leftToRight" swapX="false" baselineType="leftleft" floatingBehavior="enclosed" roundedCorners="false">
+                            <WORDBOX name="WordBox" x="6.9702" y="max*0.4917" width="min" anchorX="7.31441e-16" anchorY="0.452401" floatingBehavior="enclosed" text="Reporte Fondo de Ahorro"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_fecha Value" x="32.1539" y="810.162" anchorX="0" anchorY="0" color="#000000" fontName="SimHei" fontSize="13" fontBold="false" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </LAYOUTNODE>
+                        <WORDWRAPBOX name="WordWrapBox" x="764.472" y="75.5771" width="min" length="15.468" anchorX="0" anchorY="0" alignment="baseline" fontSize="14" floatingBehavior="enclosed" text="Fecha:"/>
+                        <WORDWRAPBOX name="WordWrapBox1" x="9.3506" y="75.0995" width="min" anchorX="0" anchorY="0" fontSize="14" floatingBehavior="enclosed" text="Usuario:"/>
+                        <rtl:input-variable name="g_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="g_usuario Value" x="76.832" y="74.7658" width="81.5731" length="18.5169" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{g_usuario}}"/>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage7" width="min" length="min" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage6" width="31.6664" length="925.247" alignment="near" bgColor="#af0000" fontItalic="false" layoutDirection="leftToRight">
+                            <WORDBOX name="lbl_folio" x="7.7667" y="2.7291" width="51.5685" length="" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Folio"/>
+                            <WORDBOX name="lbl_solicitud" x="7.7667" y="55.7722" width="62.4091" length="20.803" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Id Solicitud"/>
+                            <WORDBOX name="lbl_derechohabiente" x="7.7667" y="120.332" width="101.555" length="20.803" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Id Derechohabiente"/>
+                            <WORDBOX name="lbl_nss" x="7.7667" y="228.314" width="59.0338" length="13.1458" anchorX="0" anchorY="0" alignment="far" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NSS"/>
+                            <WORDBOX name="lbl_f_solicitud" x="7.7667" y="302.144" width="67.4653" length="15.0233" anchorX="0" anchorY="0" alignment="far" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Fecha Solicitud"/>
+                            <WORDBOX name="lbl_referencia_bancaria" x="7.7667" y="384.976" width="103.601" length="15.0233" anchorX="0" anchorY="0" alignment="far" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Referencia Bancaria"/>
+                            <WORDBOX name="lbl_importe_viv_72" x="7.7667" y="485.384" width="84.9312" length="15.0233" anchorX="0" anchorY="0" alignment="far" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Importe Viv 72"/>
+                            <WORDBOX name="lbl_id_datamart" x="7.7667" y="573.766" width="69.2727" length="15.0233" anchorX="0" anchorY="0" alignment="far" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Id Datamart"/>
+                            <WORDBOX name="lbl_edo_sol" x="7.7667" y="652.112" width="80.7155" length="15.0233" anchorX="0" anchorY="0" alignment="far" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Estado Solicitud"/>
+                            <WORDBOX name="lbl_cod_rechazo" x="7.7667" y="741.085" width="80.7155" length="15.0233" anchorX="0" anchorY="0" alignment="far" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Código Rechazo"/>
+                            <WORDBOX name="lbl_causal_retiro" x="7.7667" y="830.293" width="80.7155" length="15.0233" anchorX="0" anchorY="0" alignment="far" color="#ffffff" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Causal de Retiro"/>
+                        </MINIPAGE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage5" width="34.2639" length="919.228" alignment="near" layoutDirection="leftToRight" hidePageHeaderOnLastPage="false">
+                                <rtl:input-variable name="p_fondo_ahorro.folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_fondo_ahorro.folio Value" width="60" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="---,---,--&amp;" value="{{p_fondo_ahorro.folio}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.id_solicitud" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_fondo_ahorro.id_solicitud Value" width="64.2157" anchorX="1" alignment="baseline" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="---,---,--&amp;" value="{{p_fondo_ahorro.id_solicitud}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.id_derechohabiente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_fondo_ahorro.id_derechohabiente Value" width="100" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="left" format="---,---,--&amp;" value="{{p_fondo_ahorro.id_derechohabiente}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_fondo_ahorro.nss Value" width="70" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="left" text="{{p_fondo_ahorro.nss}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.f_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_fondo_ahorro.f_solicitud Value" width="96.09" alignment="near" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_fondo_ahorro.f_solicitud}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.cve_referencia" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_fondo_ahorro.cve_referencia Value" width="96.6248" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_fondo_ahorro.cve_referencia}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.importe_viv72" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_fondo_ahorro.importe_viv72 Value" width="87.227" anchorX="1" fontName="Arial" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="--,---,---,---,--&amp;.&amp;&amp;" value="{{p_fondo_ahorro.importe_viv72}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.id_datamart" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_fondo_ahorro.id_datamart Value" width="80" length="13.1595" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_fondo_ahorro.id_datamart}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.estado_solicitud" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_fondo_ahorro.estado_solicitud Value" width="90" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_fondo_ahorro.estado_solicitud}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.cod_rechazo" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_fondo_ahorro.cod_rechazo Value" width="80" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_fondo_ahorro.cod_rechazo}}"/>
+                                <rtl:input-variable name="p_fondo_ahorro.id_causal" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_fondo_ahorro.id_causal Value" width="90" length="12.5573" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_fondo_ahorro.id_causal}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

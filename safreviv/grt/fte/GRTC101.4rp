@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/GRTC01.rdd" RWFglReportName="reporte_cons_derechohabiente"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="MiniPage15" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="First Page header" width="min" length="min" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="center" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="721.554" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" alignment="far" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="6.6951" width="718.193" anchorX="0.5" anchorY="0.33232" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="CONSULTA HISTÓRICA POR DERECHOHABIENTE GRT" localizeText="false"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="baseline" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox4" x="6.624" y="577.928" anchorX="0.5" anchorY="0.200613" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                                <WORDBOX name="WordBox2_1" alignment="baseline" color="#ffffff" fontName="Arial" fontBold="true" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_usuario_cod Value" x="0.3217" y="51.995" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{p_usuario_cod}}"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value" x="0.3217" y="618.16" anchorX="0" anchorY="0" color="#ffffff" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage4" width="17.2987" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="titAIVS1_1" x="8.9328" y="31.414" width="53.9011" length="11.6739" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NSS:"/>
+                            <WORDBOX name="titAIVS2_1" x="5.5653" y="161.965" width="57.6651" length="10.7383" anchorX="0.287803" anchorY="0.5" alignment="center" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="CURP:"/>
+                            <WORDBOX name="titAIVS3_1" x="8.9328" y="337.138" width="56.1594" anchorX="0.5" anchorY="0.508681" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="RFC:"/>
+                            <WORDBOX name="titAIVS4_1" x="8.9328" y="515.834" width="126.171" anchorX="0.5" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="ID DERECHOHABIENTE:"/>
+                            <rtl:input-variable name="p_nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_nss Value" x="8.9328" y="85.5945" width="55.7978" anchorX="0.5" anchorY="0.5" alignment="baseline" fontSize="10" floatingBehavior="enclosed" text="{{p_nss}}"/>
+                            <rtl:input-variable name="p_curp" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_curp Value" x="8.9328" y="233.532" width="80.5619" anchorX="0.5" anchorY="0.5" fontSize="10" floatingBehavior="enclosed" text="{{p_curp}}"/>
+                            <rtl:input-variable name="p_rfc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_rfc Value" x="8.9328" y="400.068" width="82.8766" anchorX="0.5" anchorY="0.5" fontSize="10" floatingBehavior="enclosed" text="{{p_rfc}}"/>
+                            <rtl:input-variable name="p_id_derechohabiente" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="p_id_derechohabiente Value" x="13.8246" y="609.69" width="53.4277" anchorX="0.908376" anchorY="0.5" fontSize="10" floatingBehavior="enclosed" textAlignment="left" format="----------#" value="{{p_id_derechohabiente}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage6" width="17.2986" length="720.448" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="titAIVS1_1_1" x="8.1798" y="60.7652" width="120.901" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="APELLIDO PATERNO:"/>
+                            <WORDBOX name="titAIVS1_1_1_1" x="8.1798" y="315.676" width="134.452" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="APELLIDO MATERNO:"/>
+                            <WORDBOX name="titAIVS1_1_1_1_1" x="8.1798" y="515.834" width="70.4629" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NOMBRE:"/>
+                            <rtl:input-variable name="p_ap_paterno" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_ap_paterno Value" x="9.1" y="181.959" width="131.393" length="13.4735" anchorX="0.5" anchorY="0.491359" alignment="near" fontSize="10" floatingBehavior="enclosed" text="{{p_ap_paterno}}"/>
+                            <rtl:input-variable name="p_ap_materno" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_ap_materno Value" x="8.1798" y="426.634" width="107.303" anchorX="0.427249" anchorY="0.473705" fontSize="10" floatingBehavior="enclosed" text="{{p_ap_materno}}"/>
+                            <rtl:input-variable name="p_nombre" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_nombre Value" x="8.1798" y="618.16" width="150.214" anchorX="0.5" anchorY="0.5" fontSize="10" floatingBehavior="enclosed" text="{{p_nombre}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="MiniPage7" width="18.0514" length="721.077" layoutDirection="leftToRight">
+                            <WORDBOX name="titAIVS1_2_1" x="9.2653" y="51.995" width="106.597" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="TIPO DE CRÉDITO:"/>
+                            <WORDBOX name="titAIVS1_1_2_1" x="9.2653" y="342.256" width="134.452" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="NÚMERO DE CRÉDITO:"/>
+                            <WORDBOX name="titAIVS1_1_1_2_1" x="9.2653" y="574.151" width="158.542" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="FECHA DE OTORGAMIENTO:"/>
+                            <rtl:input-variable name="p_des_tpo_credito" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_des_tpo_credito Value" x="2.8062" y="158.874" width="106.921" anchorX="2.84217e-14" anchorY="0.5" fontSize="10" floatingBehavior="enclosed" text="{{p_des_tpo_credito}}"/>
+                            <rtl:input-variable name="p_f_otorga" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_f_otorga Value" x="8.1726" y="680.812" anchorX="0.5" anchorY="0.5" fontSize="10" floatingBehavior="enclosed" text="{{p_f_otorga}}"/>
+                            <rtl:input-variable name="p_num_credito" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_num_credito Value1" x="8.1726" y="449.952" width="65.7419" anchorX="0.5" anchorY="0.51448" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{(p_num_credito).format(&quot;----------#&quot;)}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <rtl:match name="Group p_tpo_enc" nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <rtl:input-variable name="p_tpo_enc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <LAYOUTNODE name="LayoutHis" rtl:condition="p_tpo_enc==1" width="min" length="min" alignment="baseline" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage20" width="36.5844" length="min" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_v_desc_detalle" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_v_desc_detalle Value" width="718.587" length="17.0113" alignment="far" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="{{v_v_desc_detalle}}" textAlignment="center"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage22" width="14.9516" length="712.787" layoutDirection="leftToRight">
+                                <WORDBOX name="titAIVS1_2_1_1" x="7.4371" y="41.8905" width="76.4852" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="FECHA"/>
+                                <WORDBOX name="titAIVS1_2_1_1_1" x="7.4371" y="161.965" width="87.0246" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="ESTADO INFONAVIT"/>
+                                <WORDWRAPBOX name="titAIVS1_2_1_1_1_2" x="7.4371" y="369.237" width="123.159" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="ESTADO PROCESAR"/>
+                                <WORDBOX name="titAIVS1_2_1_1_1_1_1" x="8.8389" y="608.673" width="135.957" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="DIAGNÓSTICO"/>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                        <rtl:input-variable name="p_tpo_enc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <LAYOUTNODE name="LayoutDeu" rtl:condition="p_tpo_enc==2" width="min" length="min" floatingBehavior="enclosed">
+                            <MINIPAGE name="MiniPage19" width="30.5619" length="718.61" alignment="near" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_v_desc_detalle" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_v_desc_detalle Value1" width="702.779" alignment="far" color="#ce050f" fontBold="true" floatingBehavior="enclosed" text="{{v_v_desc_detalle}}" textAlignment="center"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage18" width="19.3028" length="717.856" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="titAIVS1_2_1_2_1" x="13.9481" y="65.1133" width="113.373" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="MOVIMIENTO"/>
+                                <WORDBOX name="titAIVS1_2_1_1_2_1" x="12.8613" y="362.319" width="113.373" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="FECHA"/>
+                                <WORDBOX name="titAIVS1_2_1_1_1_2_1" x="11.9774" y="505.696" width="131.44" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="AIVS"/>
+                                <WORDBOX name="titAIVS1_2_1_1_1_1_1_1" x="12.8613" y="642.896" width="135.957" anchorX="0.553772" anchorY="0.5" alignment="far" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="PESOS"/>
+                            </MINIPAGE>
+                        </LAYOUTNODE>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="p_tpo_enc" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <MINIPAGE name="MiniPageHis" rtl:condition="p_tpo_enc==1" width="min" length="719.218" alignment="baseline" layoutDirection="leftToRight">
+                                <rtl:input-variable name="p_rec_his_transferencia.f_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_his_transferencia.f_proceso Value1" x="0.806" y="41.8905" anchorX="0" anchorY="0.5" alignment="center" fontSize="10" floatingBehavior="enclosed" text="{{p_rec_his_transferencia.f_proceso}}"/>
+                                <rtl:input-variable name="p_rec_his_transferencia.des_estado" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_his_transferencia.des_estado Value" x="8.0641" y="200.654" width="167.147" anchorX="0.5" anchorY="0.5" alignment="baseline" fontSize="10" floatingBehavior="enclosed" text="{{p_rec_his_transferencia.des_estado}}"/>
+                                <rtl:input-variable name="p_rec_his_transferencia.des_edo_procesar" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_his_transferencia.des_edo_procesar Value" x="8.0641" y="352.296" width="67.0222" anchorX="0.5" anchorY="0.5" alignment="far" fontSize="10" floatingBehavior="enclosed" text="{{p_rec_his_transferencia.des_edo_procesar}}"/>
+                                <rtl:input-variable name="p_rec_his_transferencia.diagnostico" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_his_transferencia.diagnostico Value" x="7.1311" y="626.197" width="109.21" anchorX="0.5" anchorY="0.5" fontSize="10" floatingBehavior="enclosed" text="{{p_rec_his_transferencia.diagnostico}}"/>
+                            </MINIPAGE>
+                            <rtl:input-variable name="p_tpo_enc" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                            <MINIPAGE name="MiniPagedeu" rtl:condition="p_tpo_enc==2" width="min" length="715.841" alignment="near" layoutDirection="leftToRight">
+                                <rtl:input-variable name="p_rec_deudor.des_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="p_rec_deudor.des_movimiento Value" x="4.0811" y="133.624" width="255.791" anchorX="0.20726" anchorY="0.5" alignment="center" fontSize="10" floatingBehavior="enclosed" text="{{p_rec_deudor.des_movimiento}}"/>
+                                <rtl:input-variable name="p_rec_deudor.f_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_rec_deudor.f_movimiento Value" x="9.2045" y="360.948" anchorX="0.5" anchorY="0.5" alignment="center" fontSize="10" floatingBehavior="enclosed" text="{{p_rec_deudor.f_movimiento}}"/>
+                                <rtl:input-variable name="p_rec_deudor.monto_aivs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_deudor.monto_aivs Value" x="12.2003" y="505.696" width="48.0097" anchorX="0.686759" anchorY="0.5" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_rec_deudor.monto_aivs}}"/>
+                                <rtl:input-variable name="p_rec_deudor.monto_pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="p_rec_deudor.monto_pesos Value" x="9.2045" y="642.896" width="56.067" anchorX="0.592987" anchorY="0.477772" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_rec_deudor.monto_pesos}}"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

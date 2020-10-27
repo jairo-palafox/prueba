@@ -1,0 +1,93 @@
+--
+-- FOURJS_START_COPYRIGHT(U,2000)
+-- Property of Four Js*
+-- (c) Copyright Four Js 2000, 2011. All Rights Reserved.
+-- * Trademark of Four Js Development Tools Europe Ltd
+--   in the United States and elsewhere
+-- 
+-- Four Js and its suppliers do not warrant or guarantee that these samples
+-- are accurate and suitable for your purposes. Their inclusion is purely 
+-- for information purposes only.
+-- FOURJS_END_COPYRIGHT
+--
+
+SCHEMA FORMONLY
+ACTION DEFAULTS
+   ACTION plus ( ACCELERATOR=F1 )
+END
+
+LAYOUT
+  GROUP (TEXT="Marca Ley 73 cliente DEMO")
+    VBOX
+      HBOX   
+        VBOX
+          GRID
+          {
+                                    NSS:   [op1               ]
+                    Grupo de trabajador:   [op2               ]
+
+                                    NSS:   [v_g_nss           ]
+                        Nombre afiliado:   [v_nombre_af       ]
+                       Paterno afiliado:   [v_paterno_af      ]
+                       Materno afiliado:   [v_materno_af      ]
+                          Importe viv97:   [v_importeviv97    ]
+                          Importe viv92:   [v_importeviv92    ]
+                      Código de retorno:   [v_cod_ret         ]
+           Mensaje de código de retorno:   [v_mensaje_cod_ret ]
+                     RFC del trabajador:   [v_rfc_af          ]
+                    CURP del trabajador:   [v_curp_af         ]
+               Estatús marca en sistema:   [v_marca_jur       ]
+          }
+          END
+        END -- vbox
+        VBOX
+          GRID
+          {
+           [bt1 ]
+          }
+          END
+        END -- vbox
+      END -- hbox
+      HBOX
+        GRID
+        {
+          [msg                  ]
+        }
+        END -- group
+      END --hbox
+      HBOX
+        GRID
+        {
+          [msg1                  ]
+        }
+        END -- group
+      END --hbox
+    END --vbox
+  END -- group
+END  -- layout
+
+
+ATTRIBUTES
+EDIT op1=formonly.op1;
+COMBOBOX op2= formonly.op2 , ITEMS=((0101,"Grupo 1"),(0102,"Grupo 2"),(0103,"Grupo 3"),(0104,"Grupo 4")), NOT NULL ;
+
+EDIT v_g_nss           =formonly.v_g_nss          ;
+EDIT v_nombre_af       =formonly.v_nombre_af      ;
+EDIT v_paterno_af      =formonly.v_paterno_af     ;
+EDIT v_materno_af      =formonly.v_materno_af     ;
+EDIT v_importeviv97    =formonly.v_importeviv97   ;
+EDIT v_importeviv92    =formonly.v_importeviv92   ;
+EDIT v_cod_ret         =formonly.v_cod_ret        ;
+EDIT v_mensaje_cod_ret =formonly.v_mensaje_cod_ret;
+EDIT v_rfc_af          =formonly.v_rfc_af         ;
+EDIT v_curp_af         =formonly.v_curp_af        ;
+--EDIT v_nombre_nrp      =formonly.v_nombre_nrp     ;
+--EDIT v_rfc_pat         =formonly.v_rfc_pat        ;
+EDIT v_marca_jur       =formonly.v_marca_jur      ;
+
+BUTTON bt1 : plus, TEXT="Enviar",COMMENT="Se ocupa servicio";
+TEXTEDIT msg=formonly.msg, NOENTRY, STRETCH=BOTH,SCROLLBARS=NONE,TITLE="Error description";
+TEXTEDIT msg1=formonly.msg1, NOENTRY, STRETCH=BOTH,SCROLLBARS=NONE,TITLE="Error description";
+END
+
+

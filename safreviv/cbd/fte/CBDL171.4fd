@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{a8814a48-e3de-4a28-a99b-fddcc6afa2ed}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{1d1dab67-89d6-44cd-9fa4-99ce669d590a}" where="">
+    <RecordField colName="" fieldIdRef="1" name="f_corte" sqlTabName="" table_alias_name="" uid="{ea47dbf5-d9bc-43d8-af7d-4c6a3c26fe9a}"/>
+    <RecordField colName="" fieldIdRef="2" name="nombre_archivo" sqlTabName="" table_alias_name="" uid="{4a575520-bc42-4aa8-bfab-b2b12d378a5c}"/>
+    <RecordField colName="" fieldIdRef="3" name="f_operacion" sqlTabName="" table_alias_name="" uid="{2966451d-a61a-4164-ad46-dad02989987d}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="saldo_bdnsviv" order="" uid="{5c37a30d-834c-44c5-82f0-7b6cfbed79bd}" where="">
+    <RecordField colName="" fieldIdRef="4" name="subcuenta" sqlTabName="" table_alias_name="" uid="{35ba4826-8789-41e7-863b-c9e84057e3d5}"/>
+    <RecordField colName="" fieldIdRef="5" name="acciones" sqlTabName="" table_alias_name="" uid="{c6220fcb-9242-49a3-9ac0-c961b04c5c80}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="saldo_safre" order="" uid="{273bb475-7fb1-4187-b295-8d0f8adb544e}" where="">
+    <RecordField colName="" fieldIdRef="6" name="subcuenta1" sqlTabName="" table_alias_name="" uid="{161af4eb-4298-41a4-91d8-dad6ae4f610e}"/>
+    <RecordField colName="" fieldIdRef="7" name="acciones1" sqlTabName="" table_alias_name="" uid="{ff5a1625-d550-4706-85fa-13078fadd1a6}"/>
+  </Record>
+  <Form gridHeight="23" gridWidth="179" name="Form" text="Form">
+    <Grid gridHeight="21" gridWidth="175" name="Grid1" posX="2" posY="1">
+      <Group gridHeight="5" gridWidth="167" name="Group1" posX="1" posY="1" text="">
+        <Label gridHeight="1" gridWidth="12" name="Label1" posX="1" posY="1" text="Fecha corte"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="20" name="f_corte" posX="16" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="12" name="Label3" posX="1" posY="3" text="Fecha operación"/>
+        <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="20" name="f_operacion" posX="16" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit2" widget="DateEdit"/>
+        <Label gridHeight="1" gridWidth="11" name="Label2" posX="47" posY="3" text="Nombre archivo"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="60" name="nombre_archivo" posX="60" posY="3" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="6" gridWidth="167" name="Group2" posX="1" posY="7" text="Saldo BDNSVIV">
+        <Table gridHeight="4" gridWidth="93" name="saldo_bdnsviv" posX="1" posY="1" totalRows="2">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="40" name="subcuenta" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="-#,###,###,###,##&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" gridHeight="1" gridWidth="45" name="acciones" posX="40" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="AIVS" widget="Edit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="6" gridWidth="167" name="Group3" posX="1" posY="14" text="Saldo SAFRE sin adelantos">
+        <Table gridHeight="4" gridWidth="92" name="saldo_safre" posX="2" posY="1" totalRows="2">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="40" name="subcuenta1" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Subcuenta" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="-#,###,###,###,##&amp;.&amp;&amp;&amp;&amp;&amp;&amp;" gridHeight="1" gridWidth="45" name="acciones1" posX="40" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="7" table_alias_name="" title="AIVS" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAzADUAYgBhADQAOAAyADYALQA4ADcAOAA5AC0ANAAxAGUANwAtADgANgAzAGIALQBjADkAZQA4ADQAMAA1ADcAZQAzAGQANQB9QBQAAAAAAABAOgAAAAAAAD+EeuFHrhR8AQAAAEwAewBlAGEANAA3AGQAYgBmADUALQBkADkAYgBjAC0ANAAzAGQAOAAtAGEAZgA3AGQALQA0AGMANgBhADMAYwAyADYAZgBlADkAYQB9QBQAAAAAAABAOgAAAAAAAD+MrAgxJul8AQAAAEwAewA1AGMAMwA3AGEAMwAwAGQALQA4ADMANABjAC0ANAA0AGMANQAtADgAMgBmADAALQA3AGIANgBjAGYAYgBlAGQANwA5AGIAZAB9wGNAAAAAAABANAAAAAAAAD+SbpeNT98+AQAAAEwAewA0AGEANQA3ADUANQAyADAALQBiAGMANAAyAC0ANABhAGEAOAAtAGIAZgBhAGIALQBiADIAYgAxADIAZAAzADcAOABhADUAYwB9QBQAAAAAAABASIAAAAAAAAAAAAAAAAAAAQAAAEwAewAxAGQAMQBkAGEAYgA2ADcALQA4ADkAZAA2AC0ANAA0AGMAZAAtADkAZgBhADQALQA5ADkAYwBlADYANgA5AGQANQA5ADAAYQB9QC4AAAAAAABAMgAAAAAAAD+QYk3S8an+AQAAAEwAewAyADcAMwBiAGIANAA3ADUALQA3AGYAYgAxAC0ANAAxADgANwAtAGIAMgA5ADUALQA4AGQAMABmADgAYQBkAGIANQA0ADQAZQB9wHTgAAAAAABAOAAAAAAAAD+RaHKwIMSeAQAAAEwAewAxADYAMQBhAGYANABlAGIALQA0ADIAOQA4AC0ANAAxAGEANAAtADkAMQBkADgALQBkAGEAZAA2AGEAZQA0AGYANgAxADAAZQB9QBQAAAAAAABAOgAAAAAAAD+CbpeNT988AQAAAEwAewBmAGYANQBhADEANgAyADUALQBkADUANQAwAC0ANAA3ADAANgAtADgANQBmAGEALQAxADMAMAA3ADgAZgBhAGQAZAAxAGEANgB9QBQAAAAAAABASIAAAAAAAD+Ik3S8an78AQAAAEwAewBjADYAMgAyADAAZgBjAGIALQA5ADIANAAyAC0ANAA5AGEAMwAtADkAYQBjADAALQBjADkANgAxAGIAMAA0AGMANQBjADgAMAB9QBQAAAAAAABASIAAAAAAAD+Kn752yLQ8AQAAAEwAewAyADkANgA2ADQANQAxAGQALQBhADYAMQBhAC0ANAAxADYANAAtAGEAZAA0ADYALQBkAGEAZAAwADIAOQA4ADkAOQA4ADcAZAB9QBQAAAAAAABAUgAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

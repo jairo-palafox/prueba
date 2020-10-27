@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{7c6a041f-7d80-40ad-bd6a-a8a50fe9b563}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="v_arreglo" order="" uid="{a46d4cc1-b704-42b8-80da-a05993a14187}" where="">
+    <RecordField colName="" fieldIdRef="1" name="id_derechohabiente" precisionDecimal="9" scaleDecimal="0" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{62d5bdc8-93b4-427d-a089-2f45f0e91a36}"/>
+    <RecordField colName="" fieldIdRef="2" length="11" name="nss" sqlTabName="" table_alias_name="" uid="{dbac6cf1-1b7b-42b3-85d3-449ef8e0d15f}"/>
+    <RecordField colName="" fieldIdRef="3" length="13" name="rfc" sqlTabName="" table_alias_name="" uid="{ac4b28cd-e3ce-4c11-bffd-0bcb4b52d91e}"/>
+    <RecordField colName="" fieldIdRef="4" length="18" name="curp" sqlTabName="" table_alias_name="" uid="{93a35c01-f513-495c-8a5c-936ad1eb34e0}"/>
+    <RecordField colName="" fieldIdRef="5" length="40" name="paterno" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{268d88b0-b162-4f57-879c-d68c08c14f87}"/>
+    <RecordField colName="" fieldIdRef="6" length="40" name="materno" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{9bac5ffb-1a2c-48e4-8c63-43a734c4b0bb}"/>
+    <RecordField colName="" fieldIdRef="7" length="40" name="nombre" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{5bce663e-d849-4551-b3af-a25089901498}"/>
+    <RecordField colName="" fieldIdRef="8" length="50" name="nombre_imss" sqlTabName="" sqlType="VARCHAR" table_alias_name="" uid="{4487c6cc-5451-4c47-acfc-af7badd3893f}"/>
+    <RecordField colName="" fieldIdRef="9" name="f_nacimiento" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{4208d217-67b5-4891-b9dc-19a43bf28b76}"/>
+    <RecordField colName="" fieldIdRef="11" name="genero" sqlTabName="" table_alias_name="" uid="{5c21ee1b-bdbb-4551-9835-963788dcbf76}"/>
+    <RecordField colName="" fieldIdRef="10" name="ind_fallecido" sqlTabName="" table_alias_name="" uid="{e81dd99f-4baa-4cf6-b5da-b0093ca832f4}"/>
+  </Record>
+  <Form gridHeight="20" gridWidth="156" name="Form" text="Consulta de Saldo">
+    <Group gridHeight="18" gridWidth="152" name="Group1" posX="1" posY="1" text="Búsqueda">
+      <Table gridHeight="16" gridWidth="149" name="v_arreglo" posX="1" posY="1" totalRows="15">
+        <Phantom colName="" fieldId="1" name="id_derechohabiente" precisionDecimal="9" scaleDecimal="0" sqlTabName="" sqlType="DECIMAL" table_alias_name="" widget="Phantom"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="11" length="11" name="nss" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="NSS" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="13" length="13" name="rfc" posX="11" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="RFC" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="18" length="18" name="curp" posX="24" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="CURP" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="5" gridHeight="1" gridWidth="30" length="40" name="paterno" posX="42" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Apellido Paterno" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="30" length="40" name="materno" posX="72" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Apellido Materno" widget="Edit"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="7" gridHeight="1" gridWidth="30" length="40" name="nombre" posX="102" posY="0" rowCount="" sqlTabName="" sqlType="VARCHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Nombre" widget="Edit"/>
+        <Phantom colName="" fieldId="8" length="50" name="nombre_imss" sqlTabName="" sqlType="VARCHAR" table_alias_name="" widget="Phantom"/>
+        <Phantom colName="" fieldId="9" name="f_nacimiento" sqlTabName="" sqlType="DATE" table_alias_name="" widget="Phantom"/>
+        <Phantom colName="" fieldId="11" name="genero" sqlTabName="" table_alias_name="" widget="Phantom"/>
+        <Phantom colName="" fieldId="10" name="ind_fallecido" sqlTabName="" table_alias_name="" widget="Phantom"/>
+      </Table>
+    </Group>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBkAGIAYQBjADYAYwBmADEALQAxAGIANwBiAC0ANAAyAGIAMwAtADgANQBkADMALQA0ADQAOQBlAGYAOABlADAAZAAxADUAZgB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQAAAEwAewBhAGMANABiADIAOABjAGQALQBlADMAYwBlAC0ANABjADEAMQAtAGIAZgBmAGQALQAwAGIAYwBiADQAYgA1ADIAZAA5ADEAZQB9QCQAAAAAAABAVQAAAAAAAAAAAAAAAAAAAQAAAEwAewBhADQANgBkADQAYwBjADEALQBiADcAMAA0AC0ANAAyAGIAOAAtADgAMABkAGEALQBhADAANQA5ADkAMwBhADEANAAxADgANwB9wHtAAAAAAADASAAAAAAAAD9gYk3S8an8AQAAAEwAewA0ADQAOAA3AGMANgBjAGMALQA1ADQANQAxAC0ANABjADQANwAtAGEAYwBmAGMALQBhAGYANwBiAGEAZABkADMAOAA5ADMAZgB9QCQAAAAAAABAaOAAAAAAAAAAAAAAAAAAAQAAAEwAewA5AGIAYQBjADUAZgBmAGIALQAxAGEAMgBjAC0ANAA4AGUANAAtADgAYwA2ADMALQA0ADMAYQA3ADMANABjADQAYgAwAGIAYgB9QCQAAAAAAABAYyAAAAAAAAAAAAAAAAAAAQAAAEwAewA0ADIAMAA4AGQAMgAxADcALQA2ADcAYgA1AC0ANAA4ADkAMQAtAGIAOQBkAGMALQAxADkAYQA0ADMAYgBmADIAOABiADcANgB9QCQAAAAAAABAa8AAAAAAAAAAAAAAAAAAAQAAAEwAewA2ADIAZAA1AGIAZABjADgALQA5ADMAYgA0AC0ANAAyADcAZAAtAGEAMAA4ADkALQAyAGYANAA1AGYAMABlADkAMQBhADMANgB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA5ADMAYQAzADUAYwAwADEALQBmADUAMQAzAC0ANAA5ADUAYwAtADgAYQA1AGMALQA5ADMANgBhAGQAMQBlAGIAMwA0AGUAMAB9QCQAAAAAAABAWsAAAAAAAAAAAAAAAAAAAQAAAEwAewAyADYAOABkADgAOABiADAALQBiADEANgAyAC0ANABmADUANwAtADgANwA5AGMALQBkADYAOABjADAAOABjADEANABmADgANwB9QCQAAAAAAABAYEAAAAAAAAAAAAAAAAAAAQAAAEwAewBlADgAMQBkAGQAOQA5AGYALQA0AGIAYQBhAC0ANABjAGYANgAtAGIANQBkAGEALQBiADAAMAA5ADMAYwBhADgAMwAyAGYANAB9QCQAAAAAAABAcMAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGIAYwBlADYANgAzAGUALQBkADgANAA5AC0ANAA1ADUAMQAtAGIAMwBhAGYALQBhADIANQAwADgAOQA5ADAAMQA0ADkAOAB9QCQAAAAAAABAZgAAAAAAAAAAAAAAAAAAAQAAAEwAewA1AGMAMgAxAGUAZQAxAGIALQBiAGQAYgBiAC0ANAA1ADUAMQAtADkAOAAzADUALQA5ADYAMwA3ADgAOABkAGMAYgBmADcANgB9QCQAAAAAAABAbqAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

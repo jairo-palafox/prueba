@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="ManagedForm" uid="{93422d17-4e4a-46ad-93b4-fb615cd7af2c}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Undefined" order="" uid="{eb18ce72-ccb0-4b9b-a85a-4612f05ea0b6}" where="">
+    <RecordField colName="" fieldIdRef="3" name="v_nss" sqlTabName="" table_alias_name="" uid="{76a4fec0-99ca-49f2-8fae-648e9ecb407d}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_nrp" sqlTabName="" table_alias_name="" uid="{eda7a7b7-8be1-471a-bf46-cc4c9bf43053}"/>
+    <RecordField colName="" fieldIdRef="9" name="v_folio_sua" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{17777afb-4b24-4b02-82d9-886aa59132c0}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_periodo_pago" sqlTabName="" table_alias_name="" uid="{1ec0c4aa-233f-471b-b51c-100b5b06a26a}"/>
+    <RecordField colName="" fieldIdRef="10" name="v_imp_ap_pat" sqlTabName="" sqlType="DECIMAL" table_alias_name="" uid="{3d58940f-4796-467a-b380-69dce0aab296}"/>
+    <RecordField colName="" fieldIdRef="1" name="v_fecha_pago" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{54049827-8d89-405b-b08c-aba78bf9ac19}"/>
+  </Record>
+  <Form gridHeight="43" gridWidth="161" name="Form" text="Form">
+    <VBox gridHeight="23" gridWidth="67" name="VBox1" posX="2" posY="0">
+      <Group gridHeight="21" gridWidth="67" name="gbx_datos_generales" posX="0" posY="1" text="Datos generales de la consulta">
+        <Grid gridHeight="12" gridWidth="65" name="Grid2" posX="1" posY="1">
+          <Label gridHeight="1" gridWidth="14" name="Label3" posX="1" posY="1" text="NSS"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="18" name="v_nss" posX="17" posY="1" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="14" name="Label2" posX="1" posY="2" text="NRP"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="18" name="v_nrp" posX="17" posY="2" rowCount="" scroll="true" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="14" name="Label9" posX="1" posY="3" text="Folio SUA"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="18" name="v_folio_sua" posX="17" posY="3" precisionDecimal="6" rowCount="" scroll="true" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Edit2" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="14" name="Label11" posX="1" posY="4" text="Fecha de pago"/>
+          <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="18" name="v_fecha_pago" posX="17" posY="4" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="6" table_alias_name="" title="DateEdit1" widget="DateEdit"/>
+          <Label gridHeight="1" gridWidth="14" hidden="false" name="Label4" posX="1" posY="5" text="Bimestre de pago"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="18" hidden="false" name="v_periodo_pago" posX="17" posY="5" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Edit1" widget="Edit"/>
+          <Label gridHeight="1" gridWidth="14" hidden="true" name="Label10" posX="1" posY="6" text="Importe patronal"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" format="###,###,#&amp;&amp;.&amp;&amp;" gridHeight="1" gridWidth="18" hidden="true" name="v_imp_ap_pat" posX="17" posY="6" rowCount="" scaleDecimal="2" sqlTabName="" sqlType="DECIMAL" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Edit1" widget="Edit"/>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewAxAGUAYwAwAGMANABhAGEALQAyADMAMwBmAC0ANAA3ADEAYgAtAGIANQAxAGMALQAxADAAMABiADUAYgAwADYAYQAyADYAYQB9QBQAAAUAAABAW4AABuAAAAAAAAAAAAAAAQAAAEwAewA3ADYAYQA0AGYAZQBjADAALQA5ADkAYwBhAC0ANAA5AGYAMgAtADgAZgBhAGUALQA2ADQAOABlADkAZQBjAGIANAAwADcAZAB9QBQAAAUAAABAQAAABAAAAAAAAAAAAAAAAQAAAEwAewAzAGQANQA4ADkANAAwAGYALQA0ADcAOQA2AC0ANAA2ADcAYQAtAGIAMwA4ADAALQA2ADkAZABjAGUAMABhAGEAYgAyADkANgB9QBQAAAUAAABAYQAABEAAAAAAAAAAAAAAAQAAAEwAewBlAGIAMQA4AGMAZQA3ADIALQBjAGMAYgAwAC0ANABiADkAYgAtAGEAOAA1AGEALQA0ADYAMQAyAGYAMAA1AGUAYQAwAGIANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewAxADcANwA3ADcAYQBmAGIALQA0AGIAMgA0AC0ANABiADAAMgAtADgAMgBkADkALQA4ADgANgBhAGEANQA5ADEAMwAyAGMAMAB9QBQAAAUAAABAVQAABUAAAAAAAAAAAAAAAQAAAEwAewA1ADQAMAA0ADkAOAAyADcALQA4AGQAOAA5AC0ANAAwADUAYgAtAGIAMAA4AGMALQBhAGIAYQA3ADgAYgBmADkAYQBjADEAOQB9QBQAAAUAAABAZEAABRAAAAAAAAAAAAAAAQAAAEwAewBlAGQAYQA3AGEANwBiADcALQA4AGIAZQAxAC0ANAA3ADEAYQAtAGIAZgA0ADYALQBjAGMANABjADkAYgBmADQAMwAwADUAMwB9QBQAAAUAAABATQAAB0AAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

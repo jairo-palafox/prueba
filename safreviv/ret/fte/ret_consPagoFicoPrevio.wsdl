@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:p1="http://infonavit.org.mx/DSSV/sndHistoricoPagosSSV" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SI_ConsultaHistPagoSSV_SO" targetNamespace="http://infonavit.org.mx/DSSV/sndHistoricoPagosSSV">
+    <wsdl:documentation/>
+    <wsp:UsingPolicy wsdl:required="true"/>
+    <wsp:Policy wsu:Id="OP_SI_ConsultaHistPagoSSV_SO"/>
+    <wsdl:types>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://infonavit.org.mx/DSSV/sndHistoricoPagosSSV" targetNamespace="http://infonavit.org.mx/DSSV/sndHistoricoPagosSSV">
+        <xsd:element name="MT_ConsultaHistPagoSSV_res" type="DT_ConsultaHistPagoSSV_res"/>
+        <xsd:element name="MT_ConsultaHistPagoSSV_req" type="DT_ConsultaHistPagoSSV"/>
+        <xsd:complexType name="DT_ConsultaHistPagoSSV">
+          <xsd:annotation>
+            <xsd:appinfo source="http://sap.com/xi/VersionID">02f1350b111611e8be5b0000006a88db</xsd:appinfo>
+          </xsd:annotation>
+          <xsd:sequence>
+            <xsd:element name="EJERCICIO" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo source="http://sap.com/xi/TextID">3a7aef9611ab11e8cc5b00090ffe0001</xsd:appinfo>
+                <xsd:documentation>Ejercicio</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SOCIEDAD" type="xsd:string" minOccurs="0">
+              <xsd:annotation>
+                <xsd:appinfo source="http://sap.com/xi/TextID">3a7b1bb611ab11e8b73000090ffe0001</xsd:appinfo>
+                <xsd:documentation>Sociedad</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="I_NSS" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo source="http://sap.com/xi/TextID">3a7b1bb711ab11e8950e00090ffe0001</xsd:appinfo>
+                <xsd:documentation>Número de Seguridad Social</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="DT_ConsultaHistPagoSSV_res">
+          <xsd:annotation>
+            <xsd:appinfo source="http://sap.com/xi/VersionID">366c60be11ae11e885140000006a88dc</xsd:appinfo>
+          </xsd:annotation>
+          <xsd:sequence>
+            <xsd:element name="MessPago" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo source="http://sap.com/xi/TextID">31ef4fca11ae11e8ca1f00090ffe0001</xsd:appinfo>
+                <xsd:documentation>Consulta DocPago</xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="DOCU" type="xsd:string" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:appinfo source="http://sap.com/xi/TextID">31ef4fc311ae11e8a5ce00090ffe0001</xsd:appinfo>
+                      <xsd:documentation>Número de un documento contable</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="EJER" type="xsd:string" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:appinfo source="http://sap.com/xi/TextID">31ef4fc411ae11e89b3700090ffe0001</xsd:appinfo>
+                      <xsd:documentation>Ejercicio</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ESTATUS" type="xsd:string" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:appinfo source="http://sap.com/xi/TextID">31ef4fc511ae11e8b4cf00090ffe0001</xsd:appinfo>
+                      <xsd:documentation>Subrutina código return</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="MONTO" type="xsd:string" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:appinfo source="http://sap.com/xi/TextID">31ef4fc611ae11e88c1000090ffe0001</xsd:appinfo>
+                      <xsd:documentation>Importe en la moneda del documento</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="WT_WITHCD" type="xsd:string" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:appinfo source="http://sap.com/xi/TextID">31ef4fc711ae11e8ca5800090ffe0001</xsd:appinfo>
+                      <xsd:documentation>Indicador de retención</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="REFPAGO" type="xsd:string" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:appinfo source="http://sap.com/xi/TextID">31ef4fc811ae11e8be8a00090ffe0001</xsd:appinfo>
+                      <xsd:documentation>Número de documento de referencia</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="FECHPAGO" type="xsd:string" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:appinfo source="http://sap.com/xi/TextID">31ef4fc911ae11e8bdb700090ffe0001</xsd:appinfo>
+                      <xsd:documentation>Fecha de la compensación</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="MT_ConsultaHistPagoSSV_req">
+      <wsdl:documentation/>
+      <wsdl:part name="MT_ConsultaHistPagoSSV_req" element="p1:MT_ConsultaHistPagoSSV_req"/>
+    </wsdl:message>
+    <wsdl:message name="MT_ConsultaHistPagoSSV_res">
+      <wsdl:documentation/>
+      <wsdl:part name="MT_ConsultaHistPagoSSV_res" element="p1:MT_ConsultaHistPagoSSV_res"/>
+    </wsdl:message>
+    <wsdl:portType name="SI_ConsultaHistPagoSSV_SO">
+      <wsdl:documentation/>
+      <wsdl:operation name="SI_ConsultaHistPagoSSV_SO">
+        <wsdl:documentation/>
+        <wsp:Policy>
+          <wsp:PolicyReference URI="#OP_SI_ConsultaHistPagoSSV_SO"/>
+        </wsp:Policy>
+        <wsdl:input message="p1:MT_ConsultaHistPagoSSV_req"/>
+        <wsdl:output message="p1:MT_ConsultaHistPagoSSV_res"/>
+      </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SI_ConsultaHistPagoSSV_SOBinding" type="p1:SI_ConsultaHistPagoSSV_SO">
+      <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="SI_ConsultaHistPagoSSV_SO">
+        <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://sap.com/xi/WebService/soap1.1"/>
+        <wsdl:input>
+          <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+        </wsdl:input>
+        <wsdl:output>
+          <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+        </wsdl:output>
+      </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SI_ConsultaHistPagoSSV_SOService">
+      <wsdl:port name="HTTP_Port" binding="p1:SI_ConsultaHistPagoSSV_SOBinding">
+        <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://091402ai203.infonavit.net:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BC_SACI&amp;receiverParty=&amp;receiverService=&amp;interface=SI_ConsultaHistPagoSSV_SO&amp;interfaceNamespace=http%3A%2F%2Finfonavit.org.mx%2FDSSV%2FsndHistoricoPagosSSV"/>
+      </wsdl:port>
+    </wsdl:service>
+  </wsdl:definitions>

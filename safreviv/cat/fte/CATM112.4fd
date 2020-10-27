@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="ManagedForm" uid="{6f13b2d1-7238-4228-a60d-072709e47c5e}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_conceptos_busqueda" order="" uid="{f5880b0e-e989-4c91-893b-a1535276354e}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_incons_ini" sqlTabName="" table_alias_name="" uid="{bebbfa24-b308-4f67-b434-324b42953b72}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_descripcion" sqlTabName="" table_alias_name="" uid="{9d283480-7c2b-4daa-86ae-2f4a9f6ba45d}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_incons_fin" sqlTabName="" table_alias_name="" uid="{acc26337-759f-469a-994f-0caf30482470}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_incons_c" order="" uid="{7fef9119-0b5a-4abc-91d1-53da7aa6385f}" where="">
+    <RecordField colName="" defaultValue="0" fieldIdRef="7" name="seleccion" sqlTabName="" table_alias_name="" uid="{748417ec-b8bb-46c9-abf5-8e61f4e447eb}"/>
+    <RecordField colName="" fieldIdRef="3" name="inconsistencia" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{5015d362-e976-4ef3-b210-20ca5dc0c156}"/>
+    <RecordField colName="" fieldIdRef="4" name="descripcion" sqlTabName="" table_alias_name="" uid="{f02bd7db-c7e7-4d26-8073-6c122a2294d8}"/>
+  </Record>
+  <Form gridHeight="31" gridWidth="137" name="Form" text="Form">
+    <Grid gridHeight="25" gridWidth="128" name="Grid1" posX="0" posY="0">
+      <Group gridHeight="8" gridWidth="120" name="gpo_conceptos_busqueda" posX="1" posY="1" text="Conceptos de Búsqueda">
+        <Label gridHeight="1" gridWidth="12" name="lbl_inconsistencia" posX="2" posY="2" text="Inconsistencia"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" name="v_incons_ini" posX="15" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="DateEdit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="4" name="lbl_a" posX="32" posY="2" text="a"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" name="v_incons_fin" posX="38" posY="2" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="DateEdit1" widget="Edit"/>
+        <Label gridHeight="1" gridWidth="11" name="lbl_descripcion" posX="2" posY="4" text="Descripción"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" case="upper" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="91" name="v_descripcion" posX="15" posY="4" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Edit1" widget="Edit"/>
+      </Group>
+      <Group gridHeight="14" gridWidth="121" name="gpo_inconsistencias" posX="1" posY="10" text="Inconsistencias">
+        <Table gridHeight="11" gridWidth="114" name="Table1" posX="2" posY="2" totalRows="10">
+          <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" defaultValue="0" fieldId="7" gridHeight="1" gridWidth="6" include="0|1" justify="center" name="seleccion" notNull="true" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" text="" title="" widget="CheckBox"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="dd-mm-yyyy" gridHeight="1" gridWidth="13" justify="center" name="inconsistencia" noEntry="true" posX="6" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Inconsistencia" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="87" justify="left" name="descripcion" noEntry="true" posX="19" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Descripción" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewA3ADQAOAA0ADEANwBlAGMALQBiADgAYgBiAC0ANAA2AGMAOQAtAGEAYgBmADUALQA4AGUANgAxAGYANABlADQANAA3AGUAYgB9QBQAAA8AAANAOgAAE4AABQAAAAAAAAAAAQAAAEwAewA5AGQAMgA4ADMANAA4ADAALQA3AGMAMgBiAC0ANABkAGEAYQAtADgANgBhAGUALQAyAGYANABhADkAZgA2AGIAYQA0ADUAZAB9QCAAAAgAAAFAR5mZpWZmaAAAAAAAAAAAAQAAAEwAewBiAGUAYgBiAGYAYQAyADQALQBiADMAMAA4AC0ANABmADYANwAtAGIANAAzADQALQAzADIANABiADQAMgA5ADUAMwBiADcAMgB9QCAAAAgAAAFAPZmZqGZmaAAAAAAAAAAAAQAAAEwAewBhAGMAYwAyADYAMwAzADcALQA3ADUAOQBmAC0ANAA2ADkAYQAtADkAOQA0AGYALQAwAGMAYQBmADMAMAA0ADgAMgA0ADcAMAB9QCAAAAgAAAFAUDMzO0zMzgAAAAAAAAAAAQAAAEwAewA3AGYAZQBmADkAMQAxADkALQAwAGIANQBhAC0ANABhAGIAYwAtADkAMQBkADEALQA1ADMAZABhADcAYQBhADYAMwA4ADUAZgB9wGPAAA7QAANACAAAEgAABT+Ik3S8an78AQAAAEwAewA1ADAAMQA1AGQAMwA2ADIALQBlADkANwA2AC0ANABlAGYAMwAtAGIAMgAxADAALQAyADAAYwBhADUAZABjADAAYwAxADUANgB9QBQAAA8AAANASIAAEmAABQAAAAAAAAAAAQAAAEwAewBmADUAOAA4ADAAYgAwAGUALQBlADkAOAA5AC0ANABjADkAMQAtADgAOQAzAGIALQBhADEANQAzADUAMgA3ADYAMwA1ADQAZQB9wHdwABGUAAQAAAAAAAAAAD+CbpeNT988AQAAAEwAewBmADAAMgBiAGQANwBkAGIALQBjADcAZQA3AC0ANABkADIANgAtADgAMAA3ADMALQA2AGMAMQAyADIAYQAyADIAOQA0AGQAOAB9QBQAAA8AAANAUgAADYAAAwAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

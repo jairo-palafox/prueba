@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/CNTS01.rdd" RWFglReportName="rpt_genera_poliza"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="First Page Header" width="min" length="min" port="firstPageHeader" floatingBehavior="enclosed">
+                        <LAYOUTNODE name="Imagen" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                        <LAYOUTNODE name="LayoutNode1_1_1_1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Usuario" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox2" width="47.241" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value" x="7.5" y="647.973" width="141.937" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Fecha: &quot;+v_fecha_reporte}}"/>
+                                <WORDBOX name="WordBox32_1" x="7.5" y="max*0.489" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="GENERACIÓN PÓLIZA CONTABLE" localizeText="false"/>
+                                <rtl:input-variable name="p_usuario1" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_folio_cnt Value1_1_1" x="1.0174" y="44.2463" anchorX="2.95149e-14" anchorY="3.67522e-15" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="{{p_usuario1}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode3_1_1_1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Folio" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox3" x="7.0622" y="43.3128" width="78.7081" anchorX="0.5" anchorY="0.518741" alignment="center" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="Folio Contable:"/>
+                                <rtl:input-variable name="p_folio_cnt" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_folio_cnt Value" x="0.6593" y="78.6175" anchorX="2.95149e-14" anchorY="3.67522e-15" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="{{p_folio_cnt}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="PiedePagina1_1" x="360.778" y="549.967" width="12.3764" length="min" anchorX="0.5" anchorY="4.55223e-14" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LineaRoja3" y="1.6622" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <WORDBOX name="TxtRecaudacionFiscal2" x="5.8708" y="43.9647" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                            <PAGENOBOX name="PageNoBox2" x="5.8708" y="669.514" width="80.9645" anchorX="0.5" anchorY="0.381173" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Enc_info_pol1_1_1_1_1" width="718.058" length="61.405" alignment="near">
+                            <LAYOUTNODE name="encabezado3" x="4.4513" y="6.312" width="min" length="711.835" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox5_4" x="10.098" y="352.565" anchorX="0.5" anchorY="0.5" alignment="far" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Información Póliza Contable"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="encabezado1_3" x="4.4513" y="26.2287" width="31.9014" length="711.835" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDWRAPBOX name="WordWrapBox2_3" x="19.4611" y="25.3724" width="50.5394" length="32.2022" anchorX="0.5" anchorY="0.5" alignment="far" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha Liquidación" textAlignment="left"/>
+                                <WORDWRAPBOX name="WordBox39_4" x="15.697" y="125.363" width="41.809" length="22.7019" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Folio &#10;Contable"/>
+                                <WORDBOX name="WordBox45_3" x="19.4611" y="168.378" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Proceso"/>
+                                <WORDBOX name="WordBox44_3" x="19.4611" y="289.37" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Estado"/>
+                                <WORDBOX name="WordBox42_3" x="19.4611" y="376.69" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Cuenta"/>
+                                <WORDBOX name="WordBox41_3" x="19.4611" y="452.561" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Descripción"/>
+                                <WORDBOX name="WordBox40_3" x="19.4611" y="619.351" anchorX="0.5" anchorY="0.468539" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Cargo"/>
+                                <WORDBOX name="WordBox43_3" x="19.4611" y="675.796" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Abono"/>
+                                <WORDWRAPBOX name="WordBox39_3_3" x="15.697" y="74.1662" width="41.809" length="22.7019" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Folio &#10;Liquida"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="First Page" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="Imagen1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode12" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox1" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1_1_1_1_1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Usuario1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode13" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox32" x="7.5" y="max*0.489" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="GENERACIÓN PÓLIZA CONTABLE" localizeText="false"/>
+                                <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_fecha_reporte Value1" x="7.5" y="647.973" width="141.937" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Fecha: &quot;+v_fecha_reporte}}"/>
+                                <WORDBOX name="WordBox2_1" width="47.241" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="Usuario:"/>
+                                <rtl:input-variable name="p_usuario1" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_folio_cnt Value1_1" x="1.0174" y="44.2463" anchorX="2.95149e-14" anchorY="3.67522e-15" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="{{p_usuario1}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3_1_1_1_1_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="Folio1" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode14" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="p_folio_cnt" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="p_folio_cnt Value1" x="0.6593" y="78.6175" anchorX="2.95149e-14" anchorY="3.67522e-15" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="{{p_folio_cnt}}"/>
+                                <WORDBOX name="WordBox3_1" x="7.0622" y="43.3128" width="78.7081" anchorX="0.5" anchorY="0.518741" alignment="center" color="#ffffff" fontName="Arial" fontSize="10" fontBold="false" floatingBehavior="enclosed" text="Folio Contable:"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <MINIPAGE name="PiedePagina1_1_1" x="360.778" y="549.967" width="12.3764" length="min" anchorX="0.5" anchorY="4.55223e-14" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LineaRoja4" y="1.6622" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                            <WORDBOX name="TxtRecaudacionFiscal3" x="5.8708" y="43.9647" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                            <PAGENOBOX name="PageNoBox3" x="5.8708" y="669.514" width="80.9645" anchorX="0.5" anchorY="0.381173" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Enc_info_pol1_1_1_1_1_1" width="718.058" length="61.405" alignment="near">
+                            <LAYOUTNODE name="encabezado4" x="4.4513" y="6.312" width="min" length="711.835" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox5_5" x="10.098" y="352.565" anchorX="0.5" anchorY="0.5" alignment="far" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="Información Póliza Contable"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="encabezado1_4" x="4.4513" y="26.2287" width="31.9014" length="711.835" anchorX="0" anchorY="0" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDWRAPBOX name="WordWrapBox2_4" x="19.4611" y="25.3724" width="50.5394" length="32.2022" anchorX="0.5" anchorY="0.5" alignment="far" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha Liquidación" textAlignment="left"/>
+                                <WORDWRAPBOX name="WordBox39_5" x="15.697" y="125.363" width="41.809" length="22.7019" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Folio &#10;Contable"/>
+                                <WORDBOX name="WordBox45_4" x="19.4611" y="168.378" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Proceso"/>
+                                <WORDBOX name="WordBox44_4" x="19.4611" y="289.37" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Estado"/>
+                                <WORDBOX name="WordBox42_4" x="19.4611" y="376.69" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Cuenta"/>
+                                <WORDBOX name="WordBox41_4" x="19.4611" y="452.561" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Descripción"/>
+                                <WORDBOX name="WordBox40_4" x="19.4611" y="619.351" anchorX="0.5" anchorY="0.468539" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Cargo"/>
+                                <WORDBOX name="WordBox43_4" x="19.4611" y="675.796" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="Abono"/>
+                                <WORDWRAPBOX name="WordBox39_3_4" x="15.697" y="74.1662" width="41.809" length="22.7019" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Folio &#10;Liquida"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="Body" width="min" length="min">
+                        <MINIPAGE name="EveryRow" width="min" length="max" layoutDirection="leftToRight">
+                            <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                                <LAYOUTNODE name="OnEveryRow" width="37.5287" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_inf_poliza_contable.arr_po_fecha Value" x="-0.3312" y="0" width="51.1685" length="8.65875" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{arr_fn_reporte.arr_po_fecha}}"/>
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_folio" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_inf_poliza_contable.arr_po_folio Value" x="0" y="103.728" width="47.3931" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{arr_fn_reporte.arr_po_folio}}"/>
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_inf_poliza_contable.arr_po_proceso Value" x="-0.3312" y="154.274" width="117.415" length="32.6874" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{arr_fn_reporte.arr_po_proceso}}"/>
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_estado" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_inf_poliza_contable.arr_po_estado Value" x="-0.3312" y="273.068" width="75.9001" length="33.8316" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{arr_fn_reporte.arr_po_estado}}"/>
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_cuenta" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_inf_poliza_contable.arr_po_cuenta Value" x="0" y="359.19" width="89.0562" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{arr_fn_reporte.arr_po_cuenta}}"/>
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_descripcion" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="g_arr_inf_poliza_contable.arr_po_descripcion Value" x="0" y="424.589" width="134.076" length="29.4384" anchorX="0" anchorY="0" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{arr_fn_reporte.arr_po_descripcion}}"/>
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_cargo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_arr_inf_poliza_contable.arr_po_cargo Value" x="0" y="634.58" width="50.1572" length="8.02515" anchorX="0" anchorY="1" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_fn_reporte.arr_po_cargo}}"/>
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_abono" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="g_arr_inf_poliza_contable.arr_po_abono Value" x="0" y="710.967" width="56.9213" length="9.45202" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{arr_fn_reporte.arr_po_abono}}"/>
+                                    <rtl:input-variable name="arr_fn_reporte.arr_po_folio_liquida" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <WORDBOX name="g_arr_inf_poliza_contable.arr_po_folio_liquida Value1_1" x="0" y="101.834" width="47.8987" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="center" text="{{(arr_fn_reporte.arr_po_folio_liquida).format(&quot;&amp;&quot;)}}"/>
+                                </LAYOUTNODE>
+                            </rtl:match>
+                        </MINIPAGE>
+                        <MINIPAGE name="LineaRojaTotales" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode8_1_1_1_2_1" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="Totales" width="min" length="max" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode11" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox31" x="3.4799" y="528.276" anchorX="5.30539e-14" anchorY="1" color="#ce050f" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Total"/>
+                                <rtl:input-variable name="p_tot_cargo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_total_cargo Value" x="3.4799" y="630.129" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_tot_cargo}}"/>
+                                <rtl:input-variable name="p_tot_abono" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_total_abono Value" x="3.4799" y="706.516" anchorX="0" anchorY="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_tot_abono}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="23217" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/GRTP19.rdd" RWFglReportName="rpt_liquidacion_acr"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <MINIPAGE name="Logotipo_institucional" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="separador1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="encabezado_reporte" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox1" x="6.6497" y="684.002" width="57.9326" anchorX="0.5" anchorY="0.437131" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="{{Date.today().format(&quot;dd-mm-yyyy&quot;)}}"/>
+                            <rtl:input-variable name="p_r_encabezado.p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox2" x="6" y="21.7159" width="131.461" anchorX="0.5" anchorY="0.165189" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Usuario: &quot;+p_r_encabezado.p_usuario_cod}}"/>
+                            <rtl:input-variable name="v_titulo_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_titulo_reporte Value" x="4.8376" y="262.475" width="427.248" anchorX="0.340069" anchorY="0.295222" alignment="far" color="#ffffff" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="{{v_titulo_reporte}}" textAlignment="center"/>
+                            <WORDBOX name="WordBox" x="1.8919" y="632.384" anchorX="0.0537963" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Fecha:"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="separador2" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="folio_fecha" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode5" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="p_r_encabezado.p_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox3" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{&quot;Folio: &quot;+p_r_encabezado.p_folio}}"/>
+                            <rtl:input-variable name="v_origen_datos" type="FGLString" expectedLocation="expectedHere"/>
+                            <rtl:input-variable name="p_r_encabezado.p_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox4" x="7.5" y="719.305" width="208.236" anchorX="0.5" anchorY="1" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" text="{{&quot;Fecha de &quot;+v_origen_datos+&quot;: &quot;+Date.parseString(p_r_encabezado.p_fecha,&quot;mm/dd/yyyy&quot;).format(&quot;dd-mm-yyyy&quot;)}}"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode7" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <PAGENOBOX name="PageNoBox" y="max" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <rtl:match name="Group grupo_regimen" nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage" width="min" length="max" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_grupo_desc" type="FGLString" expectedLocation="expectedWayAhead"/>
+                            <WORDWRAPBOX name="v_grupo_desc Value" width="width(&quot;M&quot;)*20" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{v_grupo_desc}}"/>
+                        </MINIPAGE>
+                        <rtl:match name="Group subcuenta" nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="MiniPage1" width="min" length="max" layoutDirection="leftToRight" borderWidth="1" borderStyle="solid">
+                                <WORDBOX name="titAIVs" x="1.0134" y="440.108" width="53.1009" anchorX="0" anchorY="0.49462" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="AIVS"/>
+                                <rtl:input-variable name="v_tipo_registro" type="FGLString" expectedLocation="expectedWayAhead"/>
+                                <WORDWRAPBOX name="v_tipo_registro Value" x="3.841" y="45.3709" width="90.7412" anchorX="0.340069" anchorY="0.479164" alignment="center" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{v_tipo_registro}}"/>
+                                <WORDBOX name="titPesos" x="1.0134" y="581.833" width="48.8205" anchorX="0" anchorY="0.482421" alignment="near" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="Pesos"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage2" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_subcuenta_desc" type="FGLString" expectedLocation="expectedWayAhead"/>
+                                <WORDWRAPBOX name="v_subcuenta_desc Value" width="338.906" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{v_subcuenta_desc}}"/>
+                                <rtl:input-variable name="v_subtotal_cuenta_pesos" type="FGLNumeric" expectedLocation="expectedWayAhead"/>
+                                <DECIMALFORMATBOX name="v_subtotal_cuenta_pesos Value" x="6.2389" y="504.679" width="187.507" length="10.9393" anchorX="0.582737" anchorY="0.0364512" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_subtotal_cuenta_pesos}}"/>
+                                <rtl:input-variable name="v_subtotal_cuenta_aivs" type="FGLNumeric" expectedLocation="expectedWayAhead"/>
+                                <DECIMALFORMATBOX name="v_subtotal_cuenta_aivs Value" x="6" y="361.598" width="140.236" length="10.9393" anchorX="0.5" anchorY="0.0579914" alignment="baseline" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_subtotal_cuenta_aivs}}"/>
+                            </MINIPAGE>
+                            <MINIPAGE name="MiniPage3" width="4.71282" length="max" alignment="near" layoutDirection="leftToRight">
+                                <WORDBOX name="espacio" width="119.372" length="3.43813" floatingBehavior="enclosed" text=""/>
+                                <WORDBOX name="espacioLineaSperior" width="598.04" length="2.33463" floatingBehavior="enclosed" text="" borderTopWidth="1" borderTopStyle="solid"/>
+                            </MINIPAGE>
+                            <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                                <MINIPAGE name="MiniPage4" width="13.101" length="max" layoutDirection="leftToRight">
+                                    <WORDBOX name="espacioDatos" width="120.124" length="12.0784" alignment="far" floatingBehavior="enclosed" text=""/>
+                                    <rtl:input-variable name="p_r_datos.desc_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                                    <WORDWRAPBOX name="p_r_datos.desc_movimiento Value" x="6.1" y="69.6053" width="337.006" anchorX="0.5" anchorY="0.201634" fontName="Arial" fontSize="9" floatingBehavior="enclosed" text="{{p_r_datos.desc_movimiento}}"/>
+                                    <rtl:input-variable name="p_r_datos.pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_r_datos.pesos Value" x="6.1" y="518.823" width="188.686" length="10.9393" anchorX="0.5" anchorY="0.114046" alignment="near" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_r_datos.pesos}}"/>
+                                    <rtl:input-variable name="p_r_datos.aivs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                    <DECIMALFORMATBOX name="p_r_datos.aivs Value" x="1.3932" y="403.829" width="144.893" length="11.4697" anchorX="0.115974" anchorY="0.37467" alignment="near" fontName="Courier" fontSize="9" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{p_r_datos.aivs}}"/>
+                                </MINIPAGE>
+                            </rtl:match>
+                        </rtl:match>
+                        <MINIPAGE name="MiniPage5" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="espacioTotalSubcuenta1" width="276.71" length="19.2472" alignment="baseline" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="totalSubcuenta1" width="75.1178" length="17.2831" alignment="far" fontName="Arial" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="TOTAL"/>
+                            <rtl:input-variable name="v_total_aivs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_aivs Value" width="143.011" length="12.7204" anchorX="0.5" anchorY="0.5" fontName="Courier" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_aivs}}"/>
+                            <rtl:input-variable name="v_total_pesos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_total_pesos Value" x="10.0052" y="592.888" width="189.045" length="12.7203" anchorX="0.5" anchorY="0.5" fontName="Courier" fontSize="9" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,---,---,---,---,--&amp;.&amp;&amp;" value="{{v_total_pesos}}"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                    <MINIPAGE name="Seccion_cifras_ef" width="38.4711" length="max" alignment="near" layoutDirection="leftToRight">
+                        <WORDBOX name="titulo_cifras_ef" x="17.75" y="3" width="276.25" length="16.7211" alignment="center" color="#000000" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="left" text="Montos a pagar a las entidades financieras"/>
+                    </MINIPAGE>
+                    <TABLE name="Table" width="439.1" floatingBehavior="enclosed" rule="1" border="1">
+                        <COLDEFS name="Coldefs38">
+                            <COLDEF pWidth="0.607748"/>
+                            <COLDEF pWidth="1.18378"/>
+                            <COLDEF pWidth="1.20847"/>
+                        </COLDEFS>
+                        <THEAD type="any" name="Head38">
+                            <ROW name="Row76" width="16.8431">
+                                <COL name="Col228" bgColor="#ce050f">
+                                    <WORDBOX name="concepto" x="1.8431" y="41.3293" width="90.9695" length="15.182" anchorX="0" anchorY="0.482421" alignment="near" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Concepto"/>
+                                </COL>
+                                <COL name="Col229" bgColor="#ce050f">
+                                    <WORDBOX name="monto" x="8.9037" y="92.0554" width="160.995" length="16.2426" anchorX="0.5" anchorY="0.5" alignment="near" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Monto"/>
+                                </COL>
+                                <COL name="Col230" bgColor="#ce050f">
+                                    <WORDBOX name="total" x="1.8431" y="90.7311" width="165.218" length="16.2426" anchorX="0" anchorY="0.482421" alignment="near" color="#ffffff" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Total registros"/>
+                                </COL>
+                            </ROW>
+                        </THEAD>
+                        <TBODY name="Body38">
+                            <ROW name="Row77">
+                                <COL name="Col231">
+                                    <WORDBOX name="concepto_ap1" x="4.0931" y="43.6513" width="71.134" anchorX="0" anchorY="0.482421" alignment="near" fontSize="10" fontBold="false" floatingBehavior="enclosed" textAlignment="center" text="307"/>
+                                </COL>
+                                <COL name="Col232">
+                                    <rtl:input-variable name="r_pago_ap.monto_facturado" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ap.monto_facturado Value" class="grwTableNumericColumnValue" x="16.5" y="87.7957" width="159.794" length="14.25" anchorX="1" anchorY="0.5" alignment="far" fontName="Courier" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{r_pago_ap.monto_facturado}}"/>
+                                </COL>
+                                <COL name="Col233">
+                                    <rtl:input-variable name="r_pago_ap.total_facturado" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="p_pagr_ap.total_facturado Value" class="grwTableNumericColumnValue" x="16.5" y="14.0625" width="157.908" length="14.25" anchorX="1" anchorY="1.52546e-15" alignment="far" fontName="Courier" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_pago_ap.total_facturado}}"/>
+                                </COL>
+                            </ROW>
+                            <ROW name="Row78">
+                                <COL name="Col234">
+                                    <WORDBOX name="concepto_dev1" x="4.0931" y="43.6513" width="70.5034" anchorX="0" anchorY="0.482421" alignment="near" fontSize="10" fontBold="false" floatingBehavior="enclosed" textAlignment="center" text="308"/>
+                                </COL>
+                                <COL name="Col235">
+                                    <rtl:input-variable name="r_pago_ap.monto_devolucion" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ap.monto_devolucion Value" class="grwTableNumericColumnValue" x="16.5" y="87.7957" width="159.794" length="14.25" anchorX="1" anchorY="0.5" alignment="far" fontName="Courier" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{r_pago_ap.monto_devolucion}}"/>
+                                </COL>
+                                <COL name="Col236">
+                                    <rtl:input-variable name="r_pago_ap.total_devolucion" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ap.total_devolucion Value" class="grwTableNumericColumnValue" x="16.5" y="13.6206" width="158.878" length="14.25" anchorX="1" anchorY="0.00563863" fontName="Courier" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_pago_ap.total_devolucion}}"/>
+                                </COL>
+                            </ROW>
+                            <ROW name="Row79" width="17.4773">
+                                <COL name="Col237" transformTransparently="false" clip="false">
+                                    <WORDBOX name="concepto_ug1" x="4.0931" y="43.6513" width="71.134" anchorX="0" anchorY="0.482421" alignment="near" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Subtotal"/>
+                                </COL>
+                                <COL name="Col238">
+                                    <rtl:input-variable name="r_pago_ap.suma_monto" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ap.suma_monto Value" class="grwTableNumericColumnValue" x="16.5" y="87.9207" width="161.105" length="14.25" anchorX="1" anchorY="0.5" alignment="far" fontName="Courier" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_pago_ap.suma_monto}}"/>
+                                </COL>
+                                <COL name="Col239">
+                                    <rtl:input-variable name="r_pago_ap.suma_total" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ap.suma_total Value" class="grwTableNumericColumnValue" x="15.75" y="14.5198" width="157.347" length="13.5" anchorX="1" anchorY="2.52193e-15" fontName="Courier" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_pago_ap.suma_total}}"/>
+                                </COL>
+                            </ROW>
+                            <ROW name="Row80">
+                                <COL name="Col240">
+                                    <WORDBOX name="concepto_ug" x="4.0931" y="43.6513" width="71.134" anchorX="0" anchorY="0.482421" alignment="near" fontSize="10" fontBold="false" floatingBehavior="enclosed" textAlignment="center" text="407"/>
+                                </COL>
+                                <COL name="Col241">
+                                    <rtl:input-variable name="r_pago_ug.monto_facturado" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ug.monto_facturado Value" class="grwTableNumericColumnValue" x="16.5" y="87.4207" width="160.635" length="14.25" anchorX="1" anchorY="0.5" alignment="far" fontName="Courier" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{r_pago_ug.monto_facturado}}"/>
+                                </COL>
+                                <COL name="Col242">
+                                    <rtl:input-variable name="r_pago_ug.total_facturado" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ug.total_facturado Value" class="grwTableNumericColumnValue" x="15.75" y="14.9099" width="157.286" length="14.25" anchorX="1" anchorY="0.00546842" alignment="far" fontName="Courier" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_pago_ug.total_facturado}}"/>
+                                </COL>
+                            </ROW>
+                            <ROW name="Row81">
+                                <COL name="Col243">
+                                    <WORDBOX name="concepto_dev1_1" x="4.0931" y="43.6513" width="70.5034" anchorX="0" anchorY="0.482421" alignment="near" fontSize="10" fontBold="false" floatingBehavior="enclosed" textAlignment="center" text="408"/>
+                                </COL>
+                                <COL name="Col244">
+                                    <rtl:input-variable name="r_pago_ug.monto_devolucion" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ug.monto_devolucion Value" class="grwTableNumericColumnValue" x="15.75" y="87.7957" width="160.124" length="13.5" anchorX="1" anchorY="0.5" alignment="far" fontName="Courier" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{r_pago_ug.monto_devolucion}}"/>
+                                </COL>
+                                <COL name="Col245">
+                                    <rtl:input-variable name="r_pago_ug.total_devolucion" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ug.total_devolucion Value" class="grwTableNumericColumnValue" x="15.75" y="92.9493" width="158.347" length="13.5" anchorX="1" anchorY="0.5" fontName="Courier" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_pago_ug.total_devolucion}}"/>
+                                </COL>
+                            </ROW>
+                            <ROW name="Row82" width="16.8466">
+                                <COL name="Col246">
+                                    <WORDBOX name="concepto_ug1_1" x="4.0931" y="43.6513" width="71.134" anchorX="0" anchorY="0.482421" alignment="near" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Subtotal"/>
+                                </COL>
+                                <COL name="Col247">
+                                    <rtl:input-variable name="r_pago_ug.suma_monto" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ug.suma_monto Value" class="grwTableNumericColumnValue" x="15.75" y="87.5457" width="161.215" length="13.5" anchorX="1" anchorY="0.5" alignment="far" fontName="Courier" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_pago_ug.suma_monto}}"/>
+                                </COL>
+                                <COL name="Col248">
+                                    <rtl:input-variable name="r_pago_ug.suma_total" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_pago_ug.suma_total Value" class="grwTableNumericColumnValue" x="15" y="13.775" width="158.307" length="13.5" anchorX="1" anchorY="0" fontName="Courier" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_pago_ug.suma_total}}"/>
+                                </COL>
+                            </ROW>
+                            <ROW name="Row">
+                                <COL name="Col">
+                                    <WORDBOX name="concepto_ug1_1_1" x="4.0931" y="43.6513" width="71.134" anchorX="0" anchorY="0.482421" alignment="near" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Total"/>
+                                </COL>
+                                <COL name="Col249">
+                                    <rtl:input-variable name="r_total_global.monto_total" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_total_global.monto_total Value" class="grwTableNumericColumnValue" x="11.5834" y="6.0361" width="162.083" length="13.0607" anchorX="0.746571" anchorY="0" alignment="near" fontName="Courier" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="-,---,---,---,---,--&amp;.&amp;&amp;" value="{{r_total_global.monto_total}}"/>
+                                </COL>
+                                <COL name="Col250">
+                                    <rtl:input-variable name="r_total_global.total_registros" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                                    <DECIMALFORMATBOX name="r_total_global.total_registros Value" class="grwTableNumericColumnValue" x="2.7617" y="13.8493" width="158.943" length="12.5303" anchorX="0" anchorY="1.80625e-15" fontName="Courier" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" format="###,###,##&amp;" value="{{r_total_global.total_registros}}"/>
+                                </COL>
+                            </ROW>
+                        </TBODY>
+                    </TABLE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

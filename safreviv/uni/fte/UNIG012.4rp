@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/UNIG01.rdd" RWFglReportName="rp_consulta_unificador_INFONAVIT"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="720.993" length="540.318" alignment="center">
+                    <PAGENOBOX name="PageNoBox" y="529.978" width="8.76407" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="Logotipo_institucional" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="separador1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="encabezado_reporte" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <rtl:input-variable name="r_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox1" x="7.5" y="659.153" width="108.371" anchorX="0.5" anchorY="0.437131" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="{{r_fecha_reporte}}"/>
+                            <rtl:input-variable name="p_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="WordBox2" width="131.461" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="{{&quot;Usuario: &quot;+p_usuario_cod}}"/>
+                            <WORDBOX name="WordBox" width="94.6737" length="13.9775" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="WordBox2_2" width="131.461" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Reporte del Detalle de Unificador  Unificación de Cuentas INFONAVIT"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="separador2" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="folio_fecha" width="min" length="max" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode7_1" width="1.2" length="max" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <LAYOUTNODE name="LayoutNode7" width="1.2" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    </MINIPAGE>
+                    <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <LAYOUTNODE name="LayoutNode8" width="216.857" length="724.627" alignment="near" fontName="Arial" fontSize="10" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox3_1_1" x="10.4933" y="9.2732" width="69.4674" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio Proceso"/>
+                            <WORDBOX name="WordBox4_1_1" x="32.2969" y="9.2732" width="93.162" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio Liquidación"/>
+                            <WORDBOX name="WordBox5_1_1" x="54.2305" y="9.2732" width="23.3197" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="NSS"/>
+                            <WORDBOX name="WordBox6_1_1" x="75.601" y="9.2732" width="38.9737" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Nombre"/>
+                            <WORDBOX name="WordBox7_1_1" x="95.9856" y="9.2732" width="30.2789" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="CURP"/>
+                            <WORDBOX name="WordBox8_1_1" x="116.678" y="9.2732" width="23.4367" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="RFC"/>
+                            <WORDBOX name="WordBox9_1_1" x="138.439" y="9.2732" width="91.6955" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Nombre IMSS"/>
+                            <WORDBOX name="WordBox10_1_1" x="158.984" y="9.2732" width="94.039" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Sexo"/>
+                            <WORDBOX name="WordBox11_1_1" x="10.4933" y="390.887" width="84.6023" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Tipo Movimiento"/>
+                            <WORDBOX name="WordBox12_1_1" x="32.2969" y="391.788" width="64.8832" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Tipo Registro"/>
+                            <WORDBOX name="WordBox13_1_1" x="54.2305" y="391.788" width="96.8779" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Estatús convocatoria"/>
+                            <WORDBOX name="WordBox14_1_1" x="75.601" y="390.887" width="120.283" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha Notificación Op21"/>
+                            <WORDBOX name="WordBox15_1_1" x="95.986" y="391.788" width="87.8757" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha Unificación"/>
+                            <WORDBOX name="WordBox16_1_1" x="116.678" y="391.788" width="120.392" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha Notificación Op22"/>
+                            <WORDBOX name="WordBox17_1_1" x="138.439" y="391.788" width="63.4528" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Afore Origen"/>
+                            <WORDBOX name="WordBox18_1_1" x="158.984" y="391.788" width="81.1108" length="13" anchorX="0" anchorY="0" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Afore Receptora"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_folio_proceso" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_arr_datos_unificador_INFONAVIT.v_folio_proceso Value" x="10.4933" y="176.759" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{v_arr_datos_unificador_INFONAVIT.v_folio_proceso}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_folio_liquidacion" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_arr_datos_unificador_INFONAVIT.v_folio_liquidacion Value" x="32.2969" y="203.061" width="99.3372" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="right" format="---,---,--&amp;.&amp;&amp;" value="{{v_arr_datos_unificador_INFONAVIT.v_folio_liquidacion}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_nss_unificador" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_nss_unificador Value" x="53.5775" y="104.603" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_nss_unificador}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_curp" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_curp Value" x="95.986" y="104.603" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_curp}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_rfc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_rfc Value" x="116.678" y="104.603" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_rfc}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_nombre_imss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_arr_datos_unificador_INFONAVIT.v_nombre_imss Value" x="138.439" y="104.603" width="254.956" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_nombre_imss}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_sexo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_sexo Value" x="158.984" y="104.603" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_sexo}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_tipo_movimiento" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_arr_datos_unificador_INFONAVIT.v_tipo_movimiento Value" x="10.4933" y="523.265" width="195.45" length="12.7695" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_tipo_movimiento}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_tipo_registro" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_tipo_registro Value" x="32.297" y="523.265" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_tipo_registro}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_status_convoca" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_status_convoca Value" x="54.23" y="523.265" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_status_convoca}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_fecha_notificacion_op21" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_fecha_notificacion_op21 Value" x="75.601" y="523.265" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_fecha_notificacion_op21}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_fecha_unificacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_fecha_unificacion Value" x="95.986" y="523.265" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_fecha_unificacion}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_fecha_notificacion_op22" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_fecha_notificacion_op22 Value" x="116.678" y="523.265" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_fecha_notificacion_op22}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_afore_receptora" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_afore_receptora Value" x="158.984" y="523.265" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_afore_receptora}}"/>
+                            <rtl:input-variable name="v_arr_datos_unificador_INFONAVIT.v_afore_origen" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_arr_datos_unificador_INFONAVIT.v_afore_origen Value" x="138.439" y="523.265" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{v_arr_datos_unificador_INFONAVIT.v_afore_origen}}"/>
+                            <rtl:input-variable name="p_nombre_completo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_nombre_completo Value" x="75.601" y="104.603" width="255.589" anchorX="0" anchorY="0" floatingBehavior="enclosed" text="{{p_nombre_completo}}"/>
+                        </LAYOUTNODE>
+                    </rtl:match>
+                    <LAYOUTNODE name="separador2_1" width="1.2" length="max" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

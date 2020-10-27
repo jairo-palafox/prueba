@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm gstVersion="21e00" name="ManagedForm" uid="{13ca4276-cf97-479d-8258-8056d9185fb8}">
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb_liq_unificador" order="" uid="{9540d8bc-ad0f-4e37-a901-3cd3cbb7fe7a}" where="">
+    <RecordField colName="" fieldIdRef="1" name="unificador" sqlTabName="" table_alias_name="" uid="{f97bdae0-6dd1-4417-92c6-5d07ec0624ce}"/>
+    <RecordField colName="" fieldIdRef="2" name="origen" sqlTabName="" table_alias_name="" uid="{77b086af-73ac-49c1-a8a1-a24bb2e70c3d}"/>
+    <RecordField colName="" fieldIdRef="3" name="subcuenta" sqlTabName="" table_alias_name="" uid="{2659b503-902e-41bd-b1fa-a31e95159f5d}"/>
+    <RecordField colName="" fieldIdRef="4" name="siefore" sqlTabName="" table_alias_name="" uid="{219deb0d-17df-4e5f-ae35-2949157b0394}"/>
+    <RecordField colName="" fieldIdRef="5" name="monto_en_accion" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{16c61dc1-c8d1-4187-a424-a9f5072e5959}"/>
+    <RecordField colName="" fieldIdRef="6" name="monto_en_pesos" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{590c1d72-87ce-4931-818e-31e7350edda5}"/>
+    <RecordField colName="" fieldIdRef="7" name="fecha_liquidacion" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{833afb7d-b2b7-4b79-981b-9bf6ae5801af}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="Record1" order="" uid="{832781e4-8e01-4845-8265-565196431928}" where=""/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="tb_liq_unificado" order="" uid="{767cc1e4-0d1e-4716-aab2-08b701b1f0b2}" where="">
+    <RecordField colName="" fieldIdRef="8" name="unificado" sqlTabName="" table_alias_name="" uid="{59898409-1cff-4a34-b1fc-a74f3fe26767}"/>
+    <RecordField colName="" fieldIdRef="9" name="origen1" sqlTabName="" table_alias_name="" uid="{d77e8605-691a-4b23-9ca2-ebde4a302ec3}"/>
+    <RecordField colName="" fieldIdRef="10" name="subcuenta1" sqlTabName="" table_alias_name="" uid="{635638ab-6e70-4d1a-a3a3-9d3eceb1dc21}"/>
+    <RecordField colName="" fieldIdRef="11" name="siefore1" sqlTabName="" table_alias_name="" uid="{36508bb3-9a03-4714-a131-2184117e9617}"/>
+    <RecordField colName="" fieldIdRef="12" name="monto_en_accion1" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{4d609228-f700-4df8-a73a-c7bb6fb697b9}"/>
+    <RecordField colName="" fieldIdRef="13" name="monto_en_pesos1" sqlTabName="" sqlType="SMALLINT" table_alias_name="" uid="{04f8877e-bbd9-43ef-ba57-271e63cd66cd}"/>
+    <RecordField colName="" fieldIdRef="14" name="fecha_liquidacion1" sqlTabName="" sqlType="DATE" table_alias_name="" uid="{16871c18-b0c5-4218-99f0-90f867911dcf}"/>
+  </Record>
+  <Form gridHeight="21" gridWidth="130" name="Form" text="Form">
+    <Grid gridHeight="19" gridWidth="129" name="Grid1" posX="1" posY="1">
+      <Table gridHeight="8" gridWidth="126" name="Table1" posX="3" posY="1" totalRows="5">
+        <Edit colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="10" name="unificador" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Unificador" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="14" justify="center" name="origen" posX="10" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Origen" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="18" justify="left" name="subcuenta" posX="24" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Subcuenta" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="8" justify="center" name="siefore" posX="42" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Siefore" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="5" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="15" name="monto_en_accion" posX="50" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Monto &#10;en  acción" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="6" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="16" name="monto_en_pesos" posX="65" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Monto &#10;en  pesos" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="7" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" justify="center" name="fecha_liquidacion" posX="81" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Fecha &#10;Liquidación" widget="Edit"/>
+      </Table>
+      <Table gridHeight="8" gridWidth="126" name="Table2" posX="3" posY="10" totalRows="5">
+        <Edit colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="11" name="unificado" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Unificado" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="14" justify="center" name="origen1" posX="11" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Origen" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="17" justify="left" name="subcuenta1" posX="25" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Subcuenta" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="11" format="###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="8" justify="center" name="siefore1" posX="42" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Siefore" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="12" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="15" name="monto_en_accion1" posX="50" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="12" table_alias_name="" title="Monto &#10;en  acción" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="13" format="-###,###,##&amp;.&amp;&amp;" gridHeight="1" gridWidth="16" name="monto_en_pesos1" posX="65" posY="0" rowCount="" sqlTabName="" sqlType="SMALLINT" stepX="" stepY="" tabIndex="13" table_alias_name="" title="Monto &#10;en  pesos" widget="Edit"/>
+        <Edit colName="" columnCount="" fieldId="14" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" justify="center" name="fecha_liquidacion1" posX="81" posY="0" rowCount="" sqlTabName="" sqlType="DATE" stepX="" stepY="" tabIndex="14" table_alias_name="" title="Fecha &#10;Liquidación" widget="Edit"/>
+      </Table>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBmADkANwBiAGQAYQBlADAALQA2AGQAZAAxAC0ANAA0ADEANwAtADkAMgBjADYALQA1AGQAMAA3AGUAYwAwADYAMgA0AGMAZQB9QBQAAAAAAABAOgAAAAAAAD+rpeNT987fAQAAAEwAewA4ADMAMwBhAGYAYgA3AGQALQBiADIAYgA3AC0ANABiADcAOQAtADkAOAAxAGIALQA5AGIAZgA2AGEAZQA1ADgAMAAxAGEAZgB9QBQAAAAAAABAZIAAAAAAAD+WhysCDEm+AQAAAEwAewA5ADUANAAwAGQAOABiAGMALQBhAGQAMABmAC0ANABlADMANwAtAGEAOQAwADEALQAzAGMAZAAzAGMAYgBiADcAZgBlADcAYQB9wH+wAAAAAADAQ4AAAAAAAD+tLxqfvnbPAQAAAEwAewBkADcANwBlADgANgAwADUALQA2ADkAMQBhAC0ANABiADIAMwAtADkAYwBhADIALQBlAGIAZABlADQAYQAzADAAMgBlAGMAMwB9QBQAAAAAAABASIAAAAAAAD+keuFHrhR/AQAAAEwAewA1ADkAOAA5ADgANAAwADkALQAxAGMAZgBmAC0ANABhADMANAAtAGIAMQBmAGMALQBhADcANABmADMAZgBlADIANgA3ADYANwB9QBQAAAAAAABAOgAAAAAAAD+lgQYk3S8fAQAAAEwAewAxADYAYwA2ADEAZABjADEALQBjADgAZAAxAC0ANAAxADgANwAtAGEANAAyADQALQBhADkAZgA1ADAANwAyAGUANQA5ADUAOQB9QBQAAAAAAABAXYAAAAAAAD+QYk3S8an+AQAAAEwAewA2ADMANQA2ADMAOABhAGIALQA2AGUANwAwAC0ANABkADEAYQAtAGEAMwBhADMALQA5AGQAMwBlAGMAZQBiADEAZABjADIAMQB9QBQAAAAAAABAUgAAAAAAAD+njU/fO2RfAQAAAEwAewA4ADMAMgA3ADgAMQBlADQALQA4AGUAMAAxAC0ANAA4ADQANQAtADgAMgA2ADUALQA1ADYANQAxADkANgA0ADMAMQA5ADIAOAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGQANgAwADkAMgAyADgALQBmADcAMAAwAC0ANABkAGYAOAAtAGEANwAzAGEALQBjADcAYgBiADYAZgBiADYAOQA3AGIAOQB9QBQAAAAAAABAXYAAAAAAAD+pFocrAgxPAQAAAEwAewAwADQAZgA4ADgANwA3AGUALQBiAGIAZAA5AC0ANAAzAGUAZgAtAGIAYQA1ADcALQAyADcAMQBlADYAMwBjAGQANgA2AGMAZAB9QBQAAAAAAABAYaAAAAAAAD+qHKwIMSbvAQAAAEwAewA3ADcAYgAwADgANgBhAGYALQA3ADMAYQBjAC0ANAA5AGMAMQAtAGEAOABhADEALQBhADIANABiAGIAMgBlADcAMABjADMAZAB9QBQAAAAAAABASIAAAAAAAD94k3S8an76AQAAAEwAewAyADYANQA5AGIANQAwADMALQA5ADAAMgBlAC0ANAAxAGIAZAAtAGIAMQBmAGEALQBhADMAMQBlADkANQAxADUAOQBmADUAZAB9QBQAAAAAAABAUgAAAAAAAD+AYk3S8an8AQAAAEwAewA1ADkAMABjADEAZAA3ADIALQA4ADcAYwBlAC0ANAA5ADMAMQAtADgAMQA4AGUALQAzADEAZQA3ADMANQAwAGUAZABkAGEANQB9QBQAAAAAAABAYaAAAAAAAD+TdLxqfvneAQAAAEwAewAzADYANQAwADgAYgBiADMALQA5AGEAMAAzAC0ANAA3ADEANAAtAGEAMQAzADEALQAyADEAOAA0ADEAMQA3AGUAOQA2ADEANwB9QBQAAAAAAABAV8AAAAAAAD+oEGJN0vGvAQAAAEwAewAxADYAOAA3ADEAYwAxADgALQBiADAAYwA1AC0ANAAyADEAOAAtADkAOQBmADAALQA5ADAAZgA4ADYANwA5ADEAMQBkAGMAZgB9QBQAAAAAAABAZIAAAAAAAD+pmZmZmZmfAQAAAEwAewAyADEAOQBkAGUAYgAwAGQALQAxADcAZABmAC0ANABlADUAZgAtAGEAZQAzADUALQAyADkANAA5ADEANQA3AGIAMAAzADkANAB9QBQAAAAAAABAV8AAAAAAAD+CbpeNT988AQAAAEwAewA3ADYANwBjAGMAMQBlADQALQAwAGQAMQBlAC0ANAA3ADEANgAtAGEAYQBiADIALQAwADgAYgA3ADAAMQBiADEAZgAwAGIAMgB9wHAwAAAAAADAQAAAAAAAAD+uNT987ZFvAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2320f" name="managedform" uid="{5450a3e2-61ac-473b-8dda-bc8bd77cd17b}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record1" order="" uid="{a92e8eae-e370-44a2-86c4-31b89a9b5198}" where="">
+    <RecordField colName="" fieldIdRef="1" name="arch_pendientes" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{d991189c-a302-42a5-9e5f-488f7a4f222a}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record2" order="" uid="{879d3d20-e2ef-4f15-b13a-f535db09fef2}" where="">
+    <RecordField colName="" fieldIdRef="2" name="arch_integrar" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{b59b3a35-31b4-4f3e-8ead-104b25409068}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record3" order="" uid="{4b8fec12-b7dc-4c75-9b07-b6caeb611e38}" where="">
+    <RecordField colName="" fieldIdRef="3" name="nom_archivo" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{2c292bc6-356b-4e3c-b64c-267f27607ecd}"/>
+    <RecordField colName="" fieldIdRef="4" name="tot_reg" sqlTabName="" sqlType="CHAR" table_alias_name="" uid="{595f7751-451b-4a05-ba33-4ded691c70d1}"/>
+  </Record>
+  <Form gridHeight="27" gridWidth="122" name="form" text="Form">
+    <VBox gridHeight="26" gridWidth="120" name="VBox1" posX="2" posY="1">
+      <Group gridHeight="13" gridWidth="120" name="Group1" posX="0" posY="1" text="Arrastrar archivos a integrar">
+        <Grid gridHeight="9" gridWidth="117" name="Grid2" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="50" name="arch_pend" posX="2" posY="1" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="41" name="arch_pendientes" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Archivos Pendientes de Integrar" widget="Edit"/>
+          </Table>
+          <Table gridHeight="6" gridWidth="57" name="arch_int" posX="54" posY="1" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" gridHeight="1" gridWidth="49" name="arch_integrar" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Archivos a Integrar" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+      <Group gridHeight="11" gridWidth="120" name="Group2" posX="0" posY="14" text="Información Preliminar">
+        <Grid gridHeight="8" gridWidth="117" name="Grid3" posX="1" posY="1">
+          <Table gridHeight="6" gridWidth="48" name="Table1" posX="2" posY="1" totalRows="5">
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" gridHeight="1" gridWidth="21" name="nom_archivo" posX="0" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Archivo" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="24" name="tot_reg" posX="21" posY="0" rowCount="" sqlTabName="" sqlType="CHAR" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Registros a&#10;procesar" widget="Edit"/>
+          </Table>
+        </Grid>
+      </Group>
+    </VBox>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBhADkAMgBlADgAZQBhAGUALQBlADMANwAwAC0ANAA0AGEAMgAtADgANgBjADQALQAzADEAYgA4ADkAYQA5AGIANQAxADkAOAB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEwAewA4ADcAOQBkADMAZAAyADAALQBlADIAZQBmAC0ANABmADEANQAtAGIAMQAzAGEALQBmADUAMwA1AGQAYgAwADkAZgBlAGYAMgB9QCQAAAAAAABAJAAAAAAAAAAAAAAAAAAAAQAAAEwAewBkADkAOQAxADEAOAA5AGMALQBhADMAMAAyAC0ANAAyAGEANQAtADkAZQA1AGYALQA0ADgAOABmADcAYQA0AGYAMgAyADIAYQB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewBiADUAOQBiADMAYQAzADUALQAzADEAYgA0AC0ANABmADMAZQAtADgAZQBhAGQALQAxADAANABiADIANQA0ADAAOQAwADYAOAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewAyAGMAMgA5ADIAYgBjADYALQAzADUANgBiAC0ANABlADMAYwAtAGIANgA0AGMALQAyADYANwBmADIANwA2ADAANwBlAGMAZAB9QCQAAAAAAABAQwAAAAAAAAAAAAAAAAAAAQAAAEwAewA0AGIAOABmAGUAYwAxADIALQBiADcAZABjAC0ANABjADcANQAtADkAYgAwADcALQBiADYAYwBhAGUAYgA2ADEAMQBlADMAOAB9QDQAAAAAAABANAAAAAAAAAAAAAAAAAAAAQAAAEwAewA1ADkANQBmADcANwA1ADEALQA0ADUAMQBiAC0ANABhADAANQAtAGIAYQAzADMALQA0AGQAZQBkADYAOQAxAGMANwAwAGQAMQB9QCQAAAAAAABAToAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

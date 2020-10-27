@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ FOURJS_START_COPYRIGHT(D,2000)
+ Property of Four Js*
+ (c) Copyright Four Js 2000, 2015. All Rights Reserved.
+ * Trademark of Four Js Development Tools Europe Ltd
+   in the United States and elsewhere
+ 
+ This file can be modified by licensees according to the
+ product manual.
+ FOURJS_END_COPYRIGHT
+ -->
+<!-- Configuration file for Application Server -->
+<CONFIGURATION
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.4js.com/ns/gas/2.50/cfas.xsd">
+  <APPLICATION_SERVER>
+    <!--The resource list contains the resources that can be used throughout the definition of the applications and components.-->
+    <RESOURCE_LIST>
+      <PLATFORM_INDEPENDENT>
+        <RESOURCE Id="res.fglgui" Source="INTERNAL">1</RESOURCE>
+
+        <!-- Directories  -->
+        <RESOURCE Id="res.path.fgldir.demo" Source="INTERNAL">$(res.fgldir)/demo</RESOURCE>
+        <RESOURCE Id="res.path.fgldir.demo.services" Source="INTERNAL">$(res.fgldir)/demo/WebServices</RESOURCE>
+        <RESOURCE Id="res.path.fgldir.services" Source="INTERNAL">$(res.fgldir)/web_utilities/services</RESOURCE>
+        <RESOURCE Id="res.path.safredir.monitor" Source="INTERNAL">$(res.path.safredir)/prt/fte/monitor</RESOURCE>
+        <RESOURCE Id="res.path.services" Source="INTERNAL">$(res.appdata.path)/services</RESOURCE>
+        <RESOURCE Id="res.path.docroot" Source="INTERNAL">$(res.path.as)/web</RESOURCE>
+        <RESOURCE Id="res.path.tmp" Source="INTERNAL">$(res.appdata.path)/tmp</RESOURCE>
+        <RESOURCE Id="res.deployment.root" Source="INTERNAL">$(res.appdata.path)/deployment</RESOURCE>
+        <RESOURCE Id="res.path.safredir" Source="INTERNAL">/ds/safreviv</RESOURCE>
+
+        <RESOURCE Id="res.gwcproxy.param" Source="INTERNAL"></RESOURCE>
+        <RESOURCE Id="res.html5proxy.param" Source="INTERNAL"></RESOURCE>
+        <!-- 
+        <RESOURCE Id="res.path.pic" Source="INTERNAL">$(res.path.as)/pic</RESOURCE>
+        <RESOURCE Id="res.path.tpl" Source="INTERNAL">$(res.path.as)/tpl</RESOURCE>
+        <RESOURCE Id="res.path.app" Source="INTERNAL">$(res.appdata.path)/app</RESOURCE>
+        <RESOURCE Id="res.path.tpl.ajax" Source="INTERNAL">$(res.path.tpl)/SetAjax</RESOURCE>
+        <RESOURCE Id="res.path.tpl.basic" Source="INTERNAL">$(res.path.tpl)/SetBasic</RESOURCE>
+        <RESOURCE Id="res.path.tpl.sl" Source="INTERNAL">$(res.path.tpl)/SetSL</RESOURCE>
+        <RESOURCE Id="res.path.tpl.html5" Source="INTERNAL">$(res.path.tpl)/SetHtml5</RESOURCE>
+        <RESOURCE Id="res.path.tpl.iphone" Source="INTERNAL">$(res.path.tpl)/SetIphone</RESOURCE>
+        <RESOURCE Id="res.path.tpl.common" Source="INTERNAL">$(res.path.tpl)/common</RESOURCE>
+        <RESOURCE Id="res.theme.default.gdc.template" Source="INTERNAL">$(res.path.tpl)/fglgdcdefault.html</RESOURCE>
+        <RESOURCE Id="res.theme.default.gdc.shortcut.path" Source="INTERNAL">$(res.path.tpl)/shortcut</RESOURCE>
+        <RESOURCE Id="res.theme.default.sl.bootstrap" Source="INTERNAL">$(res.path.tpl)/fglsldefault.html</RESOURCE>
+        -->
+        <!-- Default resource extension filters -->
+        <RESOURCE Id="res.image.extensions" Source="INTERNAL">.png;.gif;.jpeg;.jpg;.swf;.bmp;.ico;.PNG;.GIF;.JPEG;.JPG;.SWF;.BMP;.ICO</RESOURCE>
+        <RESOURCE Id="res.sound.extensions" Source="INTERNAL">.ogg;.mp3;.mp4;.wav</RESOURCE>
+        <RESOURCE Id="res.web.extensions" Source="INTERNAL">$(res.image.extensions);$(res.sound.extensions);.js;.css;.woff;.html</RESOURCE>
+        <RESOURCE Id="res.web.components.extensions" Source="INTERNAL">$(res.web.extensions);.xml;.json;.html;.xhtml;.swf</RESOURCE>
+
+        <!-- TCP port-related resources of the connector interface -->
+        <RESOURCE Id="res.ic.base.port" Source="INTERNAL">6100</RESOURCE>
+        <RESOURCE Id="res.ic.port.offset" Source="INTERNAL">30</RESOURCE>
+
+        <!-- Default log resources -->
+        <RESOURCE Id="res.log.output.path" Source="INTERNAL">/ds/safreviv/vista.dir/log/servicio</RESOURCE>
+        <RESOURCE Id="res.log.output.type" Source="INTERNAL">DAILYFILE</RESOURCE>
+        <RESOURCE Id="res.log.format" Source="INTERNAL">time event-type event-params</RESOURCE>
+        <RESOURCE Id="res.log.categories_filter" Source="INTERNAL">GAS ACCESS PROCESS DEPRECATED ERROR WARNING</RESOURCE>
+        <RESOURCE Id="res.log.raw_data.maxlength" Source="INTERNAL">-1</RESOURCE>
+
+      </PLATFORM_INDEPENDENT>
+      <WNT>
+        <!-- Windows implementation can use TCP only. No support for Unix Domain sockets -->
+        <RESOURCE Id="res.dispatcher.socket.family" Source="INTERNAL">TCP</RESOURCE>
+        <RESOURCE Id="res.dispatcher.socket.path" Source="INTERNAL">C:\temp</RESOURCE>
+        <RESOURCE Id="res.dvm.wa" Source="INTERNAL">"$(res.fgldir)\bin\fglrun.exe"</RESOURCE>
+        <RESOURCE Id="res.fgldir" Source="INTERNAL">/opt/fourjs/2.50.23/fgl</RESOURCE>
+        <RESOURCE Id="res.gredir" Source="INTERNAL">/opt/fourjs/2.50.23/gre</RESOURCE>
+        <RESOURCE Id="res.path" Source="INTERNAL">;$(res.path.as)\bin;$(res.gredir)\bin;$(res.fgldir)\bin;$(res.fgldir)\lib</RESOURCE>
+        <RESOURCE Id="res.fglldpath" Source="INTERNAL">$(res.path.as)\lib;$(res.gredir)\lib;$(res.fgldir)\lib</RESOURCE>
+        <RESOURCE Id="res.path.as" Source="INTERNAL">/opt/fourjs/2.50.23/gas</RESOURCE>
+        <RESOURCE Id="res.ifxdir" Source="INTERNAL">/opt/IBM/informix</RESOURCE>
+        <RESOURCE Id="res.fgldir.gre" Source="INTERNAL">/opt/fourjs/2.32/gre</RESOURCE>
+        <RESOURCE Id="res.path.separator" Source="INTERNAL">;</RESOURCE>
+        <RESOURCE Id="res.gwsproxy" Source="INTERNAL">"$(res.path.as)\bin\gwsproxy.exe"</RESOURCE>
+        <RESOURCE Id="res.gdcproxy" Source="INTERNAL">"$(res.path.as)\bin\gdcproxy.exe"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy" Source="INTERNAL">"$(res.path.as)\bin\gwcproxy.exe"</RESOURCE>
+        <RESOURCE Id="res.html5proxy" Source="INTERNAL">"$(res.path.as)\bin\html5proxy.exe"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy.cmd" Source="INTERNAL">$(res.gwcproxy) $(res.gwcproxy.param)</RESOURCE>
+        <RESOURCE Id="res.html5proxy.cmd" Source="INTERNAL">$(res.html5proxy) $(res.html5proxy.param)</RESOURCE>
+        <RESOURCE Id="res.appdata.path" Source="INTERNAL">#!APPDATADIR!#\gas\2.50.40-145831</RESOURCE>
+      </WNT>
+      <UNX>
+        <!--
+             Using Unix Domain sockets by default for communication between the
+             dispatcher and proxies, default value configured is 'UNIX' then.
+             It can be changed to TCP by configuring the value 'TCP' instead.
+        -->
+        <RESOURCE Id="res.dispatcher.socket.family" Source="INTERNAL">UNIX</RESOURCE>
+        <RESOURCE Id="res.dispatcher.socket.path" Source="INTERNAL">/tmp</RESOURCE>
+        <RESOURCE Id="res.dvm.wa" Source="INTERNAL">"$(res.fgldir)/bin/fglrun"</RESOURCE>        
+        <RESOURCE Id="res.path" Source="INTERNAL">$(res.path.as)/bin:$(res.fgldir)/bin:/usr/bin:/bin:$(res.fgldir)/dbdrivers:$(res.fgldir.gre)/lib:$(res.path.as)/lib:$(res.ifxdir)/bin:$(res.ifxdir)/lib:$(res.ifxdir)/lib/esql$(res.ifxdir)/lib/tools</RESOURCE>
+        <RESOURCE Id="res.fglldpath" Source="INTERNAL">$(res.path.as)/lib:$(res.fgldir)/lib:$(res.fgldir.gre)/lib:$(res.path.as)/lib:$(res.ifxdir):$(res.ifxdir)/lib:$(res.ifxdir)/lib/esql:$(res.ifxdir)/lib/tools:$(res.path.safredir)/glo/bin</RESOURCE>
+        <RESOURCE Id="res.fgldir" Source="INTERNAL">/opt/fourjs/2.50.23/fgl</RESOURCE>
+        <RESOURCE Id="res.gredir" Source="INTERNAL">/opt/fourjs/2.50.23/gre</RESOURCE>
+        <RESOURCE Id="res.ifxdir" Source="INTERNAL">/opt/IBM/informix</RESOURCE>
+        <RESOURCE Id="res.fgldir.gre" Source="INTERNAL">/opt/fourjs/2.32/gre</RESOURCE>
+        <RESOURCE Id="res.path.as" Source="INTERNAL">/opt/fourjs/2.50.23/gas</RESOURCE>
+        <RESOURCE Id="res.path.separator" Source="INTERNAL">:</RESOURCE>
+        <RESOURCE Id="res.gwsproxy" Source="INTERNAL">"$(res.path.as)/bin/gwsproxy"</RESOURCE>
+        <RESOURCE Id="res.appdata.path" Source="INTERNAL">$(res.path.as)/appdata</RESOURCE>
+        <!--
+        <RESOURCE Id="res.gdcproxy" Source="INTERNAL">"$(res.path.as)/bin/gdcproxy"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy" Source="INTERNAL">"$(res.path.as)/bin/gwcproxy"</RESOURCE>        
+        <RESOURCE Id="res.html5proxy" Source="INTERNAL">"$(res.path.as)/bin/html5proxy"</RESOURCE>
+        <RESOURCE Id="res.gwcproxy.cmd" Source="INTERNAL">$(res.gwcproxy) $(res.gwcproxy.param)</RESOURCE>
+        <RESOURCE Id="res.html5proxy.cmd" Source="INTERNAL">$(res.html5proxy) $(res.html5proxy.param)</RESOURCE>
+        -->
+      </UNX>
+    </RESOURCE_LIST>
+    <!--The component list contains new items, known as component, that will be used later by applications. Components can be seen - in some ways - as macro definition. -->
+    <COMPONENT_LIST>
+
+      <SERVICE_APPLICATION_EXECUTION_COMPONENT Id="cpn.ws.execution.local">
+        <ENVIRONMENT_VARIABLE Id="FGLDIR">$(res.fgldir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="GREDIR">$(res.gredir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="PATH">$(res.path)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLLDPATH">$(res.fglldpath)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="CLASSPATH">/opt/fourjs/2.50.23/fgl/lib/fgl.jar</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="JAVA_HOME">/usr/java/jre1.6.0_31</ENVIRONMENT_VARIABLE>
+        <!--To enable Web Services debug, set FGLWSDEBUG to 1, 2 or 3. -->
+        <ENVIRONMENT_VARIABLE Id="FGLWSDEBUG">0</ENVIRONMENT_VARIABLE>
+        <DVM>$(res.dvm.wa)</DVM>
+        <POOL>
+          <START>1</START>
+          <MIN_AVAILABLE>0</MIN_AVAILABLE>
+          <MAX_AVAILABLE>50</MAX_AVAILABLE>
+        </POOL>
+      </SERVICE_APPLICATION_EXECUTION_COMPONENT>
+      <!--
+      <WEB_APPLICATION_EXECUTION_COMPONENT Id="cpn.wa.execution.local">
+        <ENVIRONMENT_VARIABLE Id="FGLDIR">$(res.fgldir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="GREDIR">$(res.gredir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLGUI">$(res.fglgui)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="PATH">$(res.path)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLLDPATH">$(res.fglldpath)</ENVIRONMENT_VARIABLE>
+        <DVM>$(res.dvm.wa)</DVM>
+        <WEB_COMPONENT>$(connector.uri)/components</WEB_COMPONENT>
+      </WEB_APPLICATION_EXECUTION_COMPONENT>
+
+      <WEB_APPLICATION_EXECUTION_COMPONENT Id="cpn.ja.execution.local">
+        <ENVIRONMENT_VARIABLE Id="FGLDIR">$(res.fgldir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="GREDIR">$(res.gredir)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLGUI">$(res.fglgui)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="PATH">$(res.path)</ENVIRONMENT_VARIABLE>
+        <ENVIRONMENT_VARIABLE Id="FGLLDPATH">$(res.fglldpath)</ENVIRONMENT_VARIABLE>
+        <DVM>$(res.dvm.wa)</DVM>
+      </WEB_APPLICATION_EXECUTION_COMPONENT>
+      -->
+      <!--Timeout component for WA applications -->
+      <!--
+      <WEB_APPLICATION_TIMEOUT_COMPONENT Id="cpn.wa.timeout">
+        <USER_AGENT>300</USER_AGENT>
+        <REQUEST_RESULT>60</REQUEST_RESULT>
+        <DVM_AVAILABLE>10</DVM_AVAILABLE>
+        <DVM_PINGTIMEOUT>300</DVM_PINGTIMEOUT>
+      </WEB_APPLICATION_TIMEOUT_COMPONENT>
+      -->
+      <!--Timeout component for GST debugging sessions -->
+      <!--
+      <WEB_APPLICATION_TIMEOUT_COMPONENT Id="cpn.wa.gst.debug.timeout">
+        <USER_AGENT>300</USER_AGENT>
+        <REQUEST_RESULT>60</REQUEST_RESULT>
+        <DVM_AVAILABLE>14400</DVM_AVAILABLE>
+        <DVM_PINGTIMEOUT>300</DVM_PINGTIMEOUT>
+      </WEB_APPLICATION_TIMEOUT_COMPONENT>
+      -->
+      <!--Timeout component for WS applications -->
+      <SERVICE_APPLICATION_TIMEOUT_COMPONENT Id="cpn.ws.timeout">
+        <DVM_AVAILABLE>10</DVM_AVAILABLE>
+        <KEEP_ALIVE>10</KEEP_ALIVE>
+      </SERVICE_APPLICATION_TIMEOUT_COMPONENT>
+
+      <WEB_APPLICATION_PICTURE_COMPONENT Id="cpn.picture">
+        <PATH Type="APPSERVER">$(res.path.pic)</PATH>
+      </WEB_APPLICATION_PICTURE_COMPONENT>
+
+      <WEB_APPLICATION_RENDERING_COMPONENT Id="cpn.rendering.wa">
+        <OUTPUT_DRIVER>JFE36</OUTPUT_DRIVER>
+      </WEB_APPLICATION_RENDERING_COMPONENT>
+      <!--
+      <WEB_APPLICATION_THEME_COMPONENT Id="cpn.theme.default.gdc">
+        <TEMPLATE Id="_default">$(res.theme.default.gdc.template)</TEMPLATE>
+        <SHORTCUT Id="_default">$(res.theme.default.gdc.shortcut.path)/gdc-http.gdc</SHORTCUT>
+      </WEB_APPLICATION_THEME_COMPONENT>
+
+      <WEB_APPLICATION_PICTURE_COMPONENT Id="cpn.gwc.ajax.html.picture">
+        <PATH Id="Resource" Type="WEBSERVER">$(connector.uri)/fjs</PATH>
+        <PATH Id="Image" Type="APPSERVER" ExtensionFilter="$(res.image.extensions)">$(res.path.pic);$(application.path)</PATH>
+        <PATH Id="SetAjax" Type="APPSERVER" ExtensionFilter="$(res.web.extensions)" DVMFallbackAllowed="FALSE">$(res.path.tpl.ajax);$(res.path.tpl.common)</PATH>
+        <PATH Id="WebComponents" Type="APPSERVER" ExtensionFilter="$(res.web.components.extensions)" DVMFallbackAllowed="FALSE">$(res.path.docroot)</PATH>
+      </WEB_APPLICATION_PICTURE_COMPONENT>
+
+      <WEB_APPLICATION_PICTURE_COMPONENT Id="cpn.gwc.ajax.picture">
+        <PATH Id="Resource" Type="WEBSERVER">$(connector.uri)/fjs</PATH>
+        <PATH Id="Image" Type="APPSERVER" ExtensionFilter="$(res.image.extensions);.svg;.SVG">$(res.path.pic);$(application.path)</PATH>
+        <PATH Id="SetAjax" Type="APPSERVER" ExtensionFilter="$(res.web.extensions)" DVMFallbackAllowed="FALSE">$(res.path.tpl.ajax);$(res.path.tpl.common)</PATH>
+        <PATH Id="WebComponents" Type="APPSERVER" ExtensionFilter="$(res.web.components.extensions)" DVMFallbackAllowed="FALSE">$(res.path.docroot)</PATH>
+      </WEB_APPLICATION_PICTURE_COMPONENT>
+
+      <WEB_APPLICATION_PICTURE_COMPONENT Id="cpn.gwc.basic.picture">
+        <PATH Id="Resource" Type="WEBSERVER">$(connector.uri)/fjs</PATH>
+        <PATH Id="Image" Type="APPSERVER" ExtensionFilter="$(res.image.extensions)">$(res.path.pic);$(application.path)</PATH>
+        <PATH Id="SetBasic" Type="APPSERVER" ExtensionFilter="$(res.web.extensions)" DVMFallbackAllowed="FALSE">$(res.path.tpl.basic);$(res.path.tpl.common)</PATH>
+        <PATH Id="WebComponents" Type="APPSERVER" ExtensionFilter="$(res.web.components.extensions)" DVMFallbackAllowed="FALSE">$(res.path.docroot)</PATH>
+      </WEB_APPLICATION_PICTURE_COMPONENT>
+
+      <WEB_APPLICATION_PICTURE_COMPONENT Id="cpn.gwc.sl.picture">
+        <PATH Id="Resource" Type="WEBSERVER">$(connector.uri)/fjs</PATH>
+        <PATH Id="Image" Type="APPSERVER" ExtensionFilter="$(res.image.extensions)">$(res.path.pic);$(application.path)</PATH>
+        <PATH Id="SetSL" Type="APPSERVER" DVMFallbackAllowed="FALSE">$(res.path.tpl.sl)/bin</PATH>
+        <PATH Id="WebComponents" Type="APPSERVER" ExtensionFilter="$(res.web.components.extensions)" DVMFallbackAllowed="FALSE">$(res.path.docroot)</PATH>
+      </WEB_APPLICATION_PICTURE_COMPONENT>
+
+      <WEB_APPLICATION_PICTURE_COMPONENT Id="cpn.gwc.html5.picture">
+        <PATH Id="Resource" Type="WEBSERVER">$(connector.uri)/fjs</PATH>
+        <PATH Id="Image" Type="APPSERVER" ExtensionFilter="$(res.image.extensions);.less;.svg">$(res.path.tpl.html5)/img;$(res.path.pic);$(application.path)</PATH>
+        <PATH Id="SetHtml5" Type="APPSERVER" ExtensionFilter="$(res.web.extensions);.less;.svg" DVMFallbackAllowed="FALSE">$(res.path.tpl.html5);$(res.path.tpl.common)</PATH>
+        <PATH Id="WebComponents" Type="APPSERVER" ExtensionFilter="$(res.web.components.extensions)" DVMFallbackAllowed="FALSE">$(res.path.docroot)</PATH>
+      </WEB_APPLICATION_PICTURE_COMPONENT>
+
+      <WEB_APPLICATION_PICTURE_COMPONENT Id="cpn.gwc.iphone.picture">
+        <PATH Id="Resource" Type="WEBSERVER">$(connector.uri)/fjs</PATH>
+        <PATH Id="Image" Type="APPSERVER" ExtensionFilter="$(res.image.extensions)">$(res.path.pic);$(application.path)</PATH>
+        <PATH Id="SetAjax" Type="APPSERVER" ExtensionFilter="$(res.web.extensions)" DVMFallbackAllowed="FALSE">$(res.path.tpl.ajax);$(res.path.tpl.common)</PATH>
+        <PATH Id="SetIphone" Type="APPSERVER" ExtensionFilter="$(res.web.extensions)" DVMFallbackAllowed="FALSE">$(res.path.tpl.iphone);$(res.path.tpl.common)</PATH>
+        <PATH Id="WebComponents" Type="APPSERVER" ExtensionFilter="$(res.web.components.extensions)" DVMFallbackAllowed="FALSE">$(res.path.docroot)</PATH>
+      </WEB_APPLICATION_PICTURE_COMPONENT>
+
+      <WEB_APPLICATION_RENDERING_COMPONENT Id="cpn.rendering.gwc2html">
+        <OUTPUT_DRIVER>GWC2</OUTPUT_DRIVER>
+        <XML_DECLARATION>TRUE</XML_DECLARATION>
+        <HTTP_REQUEST_ENCODING Source="REQUEST"/>
+        <HTTP_RESPONSE_ENCODING Source="REQUEST"/>
+        <MIME_TYPE>text/html</MIME_TYPE>
+        <DOC_TYPE>
+          <NAME>html</NAME>
+          <EXTERNAL_ID>-//W3C//DTD HTML 4.01//EN</EXTERNAL_ID>
+          <SYSTEM_ID>http://www.w3.org/TR/html4/strict.dtd</SYSTEM_ID>
+        </DOC_TYPE>
+      </WEB_APPLICATION_RENDERING_COMPONENT>
+
+      <WEB_APPLICATION_RENDERING_COMPONENT Id="cpn.rendering.gwc2xhtml">
+        <OUTPUT_DRIVER>GWC2</OUTPUT_DRIVER>
+        <XML_DECLARATION>TRUE</XML_DECLARATION>
+        <HTTP_REQUEST_ENCODING Source="REQUEST"/>
+        <HTTP_RESPONSE_ENCODING Source="REQUEST"/>
+        <MIME_TYPE>application/xhtml+xml</MIME_TYPE>
+      </WEB_APPLICATION_RENDERING_COMPONENT>
+
+      <WEB_APPLICATION_RENDERING_COMPONENT Id="cpn.rendering.gwc2sl">
+        <OUTPUT_DRIVER>GWC2</OUTPUT_DRIVER>
+        <XML_DECLARATION>TRUE</XML_DECLARATION>
+        <HTTP_REQUEST_ENCODING Source="REQUEST"/>
+        <HTTP_RESPONSE_ENCODING Source="REQUEST"/>
+        <MIME_TYPE>text/xml</MIME_TYPE>
+      </WEB_APPLICATION_RENDERING_COMPONENT>
+
+      <WEB_APPLICATION_RENDERING_COMPONENT Id="cpn.rendering.gwc2html5">
+        <OUTPUT_DRIVER>GWC2</OUTPUT_DRIVER>
+        <XML_DECLARATION>TRUE</XML_DECLARATION>
+        <HTTP_REQUEST_ENCODING Source="REQUEST"/>
+        <HTTP_RESPONSE_ENCODING Source="REQUEST"/>
+        <MIME_TYPE>text/html</MIME_TYPE>
+      </WEB_APPLICATION_RENDERING_COMPONENT>
+
+      <WEB_APPLICATION_THEME_COMPONENT Id="cpn.theme.ajax.gwc">
+        <TEMPLATE Id="_default">$(res.path.tpl.ajax)/main.xhtml</TEMPLATE>
+        <SNIPPET Id="Window">$(res.path.tpl.ajax)/Window.xhtml</SNIPPET>
+        <SNIPPET Id="Menu">$(res.path.tpl.ajax)/Menu.xhtml</SNIPPET>
+        <SNIPPET Id="MenuAction">$(res.path.tpl.ajax)/MenuAction.xhtml</SNIPPET>
+        <SNIPPET Id="Dialog">$(res.path.tpl.ajax)/Dialog.xhtml</SNIPPET>
+        <SNIPPET Id="Action">$(res.path.tpl.ajax)/Action.xhtml</SNIPPET>
+        <SNIPPET Id="LocalAction">$(res.path.tpl.ajax)/Action.xhtml</SNIPPET>
+        <SNIPPET Id="Form">$(res.path.tpl.ajax)/Form.xhtml</SNIPPET>
+        <SNIPPET Id="VBox">$(res.path.tpl.ajax)/VBox.xhtml</SNIPPET>
+        <SNIPPET Id="HBox">$(res.path.tpl.ajax)/HBox.xhtml</SNIPPET>
+        <SNIPPET Id="Group">$(res.path.tpl.ajax)/Group.xhtml</SNIPPET>
+        <SNIPPET Id="Table">$(res.path.tpl.ajax)/Table.xhtml</SNIPPET>
+        <SNIPPET Id="TreeItem">$(res.path.tpl.ajax)/TreeItem.xhtml</SNIPPET>
+        <SNIPPET Id="Grid">$(res.path.tpl.ajax)/Grid.xhtml</SNIPPET>
+        <SNIPPET Id="ScrollGrid">$(res.path.tpl.ajax)/ScrollGrid.xhtml</SNIPPET>
+        <SNIPPET Id="GridLayout">$(res.path.tpl.ajax)/GridLayout.xhtml</SNIPPET>
+        <SNIPPET Id="FormField">$(res.path.tpl.ajax)/FormField.xhtml</SNIPPET>
+        <SNIPPET Id="Folder">$(res.path.tpl.ajax)/Folder.xhtml</SNIPPET>
+        <SNIPPET Id="Edit">$(res.path.tpl.ajax)/Edit.xhtml</SNIPPET>
+        <SNIPPET Id="Edit" Style="FileUpload">$(res.path.tpl.ajax)/FileUpload.xhtml</SNIPPET>
+        <SNIPPET Id="DateEdit">$(res.path.tpl.ajax)/DateEdit.xhtml</SNIPPET>
+        <SNIPPET Id="ButtonEdit">$(res.path.tpl.ajax)/ButtonEdit.xhtml</SNIPPET>
+        <SNIPPET Id="TextEdit">$(res.path.tpl.ajax)/TextEdit.xhtml</SNIPPET>
+        <SNIPPET Id="Label">$(res.path.tpl.ajax)/Label.xhtml</SNIPPET>
+        <SNIPPET Id="ComboBox">$(res.path.tpl.ajax)/ComboBox.xhtml</SNIPPET>
+        <SNIPPET Id="Button">$(res.path.tpl.ajax)/Button.xhtml</SNIPPET>
+        <SNIPPET Id="CheckBox">$(res.path.tpl.ajax)/CheckBox.xhtml</SNIPPET>
+        <SNIPPET Id="RadioGroup">$(res.path.tpl.ajax)/RadioGroup.xhtml</SNIPPET>
+        <SNIPPET Id="Image">$(res.path.tpl.ajax)/Image.xhtml</SNIPPET>
+        <SNIPPET Id="StaticLabel">$(res.path.tpl.ajax)/StaticLabel.xhtml</SNIPPET>
+        <SNIPPET Id="StaticImage">$(res.path.tpl.ajax)/StaticImage.xhtml</SNIPPET>
+        <SNIPPET Id="Slider">$(res.path.tpl.ajax)/Slider.xhtml</SNIPPET>
+        <SNIPPET Id="SpinEdit">$(res.path.tpl.ajax)/SpinEdit.xhtml</SNIPPET>
+        <SNIPPET Id="TimeEdit">$(res.path.tpl.ajax)/TimeEdit.xhtml</SNIPPET>
+        <SNIPPET Id="ProgressBar">$(res.path.tpl.common)/ProgressBar.xhtml</SNIPPET>
+        <SNIPPET Id="HLine">$(res.path.tpl.ajax)/HLine.xhtml</SNIPPET>
+        <SNIPPET Id="HBoxTag">$(res.path.tpl.ajax)/HBoxTag.xhtml</SNIPPET>
+        <SNIPPET Id="Canvas">$(res.path.tpl.common)/Canvas.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasArc">$(res.path.tpl.common)/CanvasArc.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasCircle">$(res.path.tpl.common)/CanvasCircle.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasLine">$(res.path.tpl.common)/CanvasLine.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasOval">$(res.path.tpl.common)/CanvasOval.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasPolygon">$(res.path.tpl.common)/CanvasPolygon.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasRectangle">$(res.path.tpl.common)/CanvasRectangle.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasText">$(res.path.tpl.common)/CanvasText.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenu">$(res.path.tpl.ajax)/TopMenu.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuGroup">$(res.path.tpl.ajax)/TopMenuGroup.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuCommand">$(res.path.tpl.ajax)/TopMenuCommand.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuSeparator">$(res.path.tpl.ajax)/TopMenuSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBar">$(res.path.tpl.ajax)/ToolBar.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBarItem">$(res.path.tpl.ajax)/ToolBarItem.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBarSeparator">$(res.path.tpl.ajax)/ToolBarSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenu">$(res.path.tpl.ajax)/StartMenu.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuGroup">$(res.path.tpl.ajax)/StartMenuGroup.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuCommand">$(res.path.tpl.ajax)/StartMenuCommand.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuSeparator">$(res.path.tpl.ajax)/StartMenuSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="EndingPage">$(res.path.tpl.common)/EndingPage.xhtml</SNIPPET>
+        <SNIPPET Id="FileTransfer">$(res.path.tpl.common)/FileTransfer.xhtml</SNIPPET>
+        <SNIPPET Id="StyleList">$(res.path.tpl.common)/StyleList.xsl</SNIPPET>
+        <SNIPPET Style="picflow" Id="Table">$(res.path.tpl.ajax)/PictureFlow.xhtml</SNIPPET>
+        <SNIPPET Id="WebComponent">$(res.path.tpl.ajax)/InteractiveComponent.xhtml</SNIPPET>
+      </WEB_APPLICATION_THEME_COMPONENT>
+
+      <WEB_APPLICATION_THEME_COMPONENT Id="cpn.theme.basic.gwc">
+        <TEMPLATE Id="_default">$(res.path.tpl.basic)/main.xhtml</TEMPLATE>
+        <SNIPPET Id="Menu">$(res.path.tpl.basic)/Dialog.xhtml</SNIPPET>
+        <SNIPPET Id="MenuAction">$(res.path.tpl.basic)/Action.xhtml</SNIPPET>
+        <SNIPPET Id="Dialog">$(res.path.tpl.basic)/Dialog.xhtml</SNIPPET>
+        <SNIPPET Id="Action">$(res.path.tpl.basic)/Action.xhtml</SNIPPET>
+        <SNIPPET Id="Form">$(res.path.tpl.basic)/Form.xhtml</SNIPPET>
+        <SNIPPET Id="VBox">$(res.path.tpl.basic)/VBox.xhtml</SNIPPET>
+        <SNIPPET Id="HBox">$(res.path.tpl.basic)/HBox.xhtml</SNIPPET>
+        <SNIPPET Id="Group">$(res.path.tpl.basic)/Group.xhtml</SNIPPET>
+        <SNIPPET Id="Table">$(res.path.tpl.basic)/Table.xhtml</SNIPPET>
+        <SNIPPET Id="Grid">$(res.path.tpl.basic)/Grid.xhtml</SNIPPET>
+        <SNIPPET Id="ScrollGrid">$(res.path.tpl.basic)/ScrollGrid.xhtml</SNIPPET>
+        <SNIPPET Id="GridLayout">$(res.path.tpl.basic)/GridLayout.xhtml</SNIPPET>
+        <SNIPPET Id="Folder">$(res.path.tpl.basic)/Folder.xhtml</SNIPPET>
+        <SNIPPET Id="Edit">$(res.path.tpl.basic)/Edit.xhtml</SNIPPET>
+        <SNIPPET Id="Edit" Style="FileUpload">$(res.path.tpl.basic)/FileUpload.xhtml</SNIPPET>
+        <SNIPPET Id="DateEdit">$(res.path.tpl.basic)/DateEdit.xhtml</SNIPPET>
+        <SNIPPET Id="ButtonEdit">$(res.path.tpl.basic)/ButtonEdit.xhtml</SNIPPET>
+        <SNIPPET Id="TextEdit">$(res.path.tpl.basic)/TextEdit.xhtml</SNIPPET>
+        <SNIPPET Id="Label">$(res.path.tpl.basic)/Label.xhtml</SNIPPET>
+        <SNIPPET Id="ComboBox">$(res.path.tpl.basic)/ComboBox.xhtml</SNIPPET>
+        <SNIPPET Id="Button">$(res.path.tpl.basic)/Button.xhtml</SNIPPET>
+        <SNIPPET Id="CheckBox">$(res.path.tpl.basic)/CheckBox.xhtml</SNIPPET>
+        <SNIPPET Id="RadioGroup">$(res.path.tpl.basic)/RadioGroup.xhtml</SNIPPET>
+        <SNIPPET Id="Image">$(res.path.tpl.ajax)/Image.xhtml</SNIPPET>
+        <SNIPPET Id="StaticLabel">$(res.path.tpl.basic)/Label.xhtml</SNIPPET>
+        <SNIPPET Id="StaticImage">$(res.path.tpl.ajax)/StaticImage.xhtml</SNIPPET>
+        <SNIPPET Id="HLine">$(res.path.tpl.basic)/HLine.xhtml</SNIPPET>
+        <SNIPPET Id="HBoxTag">$(res.path.tpl.basic)/HBoxTag.xhtml</SNIPPET>
+        <SNIPPET Id="Canvas">$(res.path.tpl.common)/Canvas.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasArc">$(res.path.tpl.common)/CanvasArc.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasCircle">$(res.path.tpl.common)/CanvasCircle.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasLine">$(res.path.tpl.common)/CanvasLine.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasOval">$(res.path.tpl.common)/CanvasOval.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasPolygon">$(res.path.tpl.common)/CanvasPolygon.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasRectangle">$(res.path.tpl.common)/CanvasRectangle.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasText">$(res.path.tpl.common)/CanvasText.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenu">$(res.path.tpl.basic)/TopMenu.xhtml</SNIPPET>
+        <SNIPPET Id="ProgressBar">$(res.path.tpl.common)/ProgressBar.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuGroup">$(res.path.tpl.basic)/TopMenuGroup.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuCommand">$(res.path.tpl.basic)/Action.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuSeparator">$(res.path.tpl.basic)/TopMenuSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBar">$(res.path.tpl.basic)/ToolBar.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBarItem">$(res.path.tpl.basic)/ToolBarItem.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBarSeparator">$(res.path.tpl.basic)/ToolBarSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenu">$(res.path.tpl.basic)/TopMenu.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuGroup">$(res.path.tpl.basic)/TopMenuGroup.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuCommand">$(res.path.tpl.basic)/Action.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuSeparator">$(res.path.tpl.basic)/TopMenuSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="FormField">$(res.path.tpl.basic)/FormField.xhtml</SNIPPET>
+        <SNIPPET Id="TimeEdit">$(res.path.tpl.basic)/Edit.xhtml</SNIPPET>
+        <SNIPPET Id="Slider">$(res.path.tpl.basic)/Slider.xhtml</SNIPPET>
+        <SNIPPET Id="SpinEdit">$(res.path.tpl.basic)/Slider.xhtml</SNIPPET>
+        <SNIPPET Id="TreeItem">$(res.path.tpl.basic)/TreeItem.xhtml</SNIPPET>
+        <SNIPPET Id="Accelerators">$(res.path.tpl.basic)/Accelerators.xhtml</SNIPPET>
+        <SNIPPET Id="AlltimeButtons">$(res.path.tpl.common)/AlltimeButtons.xhtml</SNIPPET>
+        <SNIPPET Id="EndingPage">$(res.path.tpl.common)/EndingPage.xhtml</SNIPPET>
+        <SNIPPET Id="FileTransfer">$(res.path.tpl.common)/FileTransfer.xhtml</SNIPPET>
+        <SNIPPET Id="StyleList">$(res.path.tpl.common)/StyleList.xsl</SNIPPET>
+      </WEB_APPLICATION_THEME_COMPONENT>
+
+      <WEB_APPLICATION_THEME_COMPONENT Id="cpn.theme.sl.gwc">
+        <BOOTSTRAP Id="_default">$(res.theme.default.sl.bootstrap)</BOOTSTRAP>
+        <TEMPLATE Id="_default">$(res.path.tpl.sl)/main.xaml</TEMPLATE>
+        <SNIPPET Id="EndingPage">$(res.path.tpl.sl)/EndingPage.xaml</SNIPPET>
+        <SNIPPET Id="UserInterface">$(res.path.tpl.sl)/UserInterface.xaml</SNIPPET>
+        <SNIPPET Id="Window">$(res.path.tpl.sl)/Window.xaml</SNIPPET>
+        <SNIPPET Id="WindowContent">$(res.path.tpl.sl)/WindowContent.xaml</SNIPPET>
+        <SNIPPET Id="ModalWindow">$(res.path.tpl.sl)/ModalWindow.xaml</SNIPPET>
+        <SNIPPET Id="Menu">$(res.path.tpl.sl)/ActionPanel.xaml</SNIPPET>
+        <SNIPPET Id="MenuAction">$(res.path.tpl.sl)/Action.xaml</SNIPPET>
+        <SNIPPET Id="Dialog">$(res.path.tpl.sl)/ActionPanel.xaml</SNIPPET>
+        <SNIPPET Id="Action">$(res.path.tpl.sl)/Action.xaml</SNIPPET>
+        <SNIPPET Id="VBox">$(res.path.tpl.sl)/LayoutBox.xaml</SNIPPET>
+        <SNIPPET Id="HBox">$(res.path.tpl.sl)/LayoutBox.xaml</SNIPPET>
+        <SNIPPET Id="Group">$(res.path.tpl.sl)/Group.xaml</SNIPPET>
+        <SNIPPET Id="Table">$(res.path.tpl.sl)/Table.xaml</SNIPPET>
+        <SNIPPET Id="Grid">$(res.path.tpl.sl)/Grid.xaml</SNIPPET>
+        <SNIPPET Id="ScrollGrid">$(res.path.tpl.sl)/ScrollGrid.xaml</SNIPPET>
+        <SNIPPET Id="GridLayout">$(res.path.tpl.sl)/GridLayout.xaml</SNIPPET>
+        <SNIPPET Id="FormField">$(res.path.tpl.sl)/FormField.xaml</SNIPPET>
+        <SNIPPET Id="Folder">$(res.path.tpl.sl)/Folder.xaml</SNIPPET>
+        <SNIPPET Id="Edit">$(res.path.tpl.sl)/Edit.xaml</SNIPPET>
+        <SNIPPET Id="Edit" Style="FileUpload">$(res.path.tpl.sl)/FileUpload.xaml</SNIPPET>
+        <SNIPPET Id="EditContent">$(res.path.tpl.sl)/EditContent.xaml</SNIPPET>
+        <SNIPPET Id="DateEdit">$(res.path.tpl.sl)/DateEdit.xaml</SNIPPET>
+        <SNIPPET Id="ButtonEdit">$(res.path.tpl.sl)/ButtonEdit.xaml</SNIPPET>
+        <SNIPPET Id="TextEdit">$(res.path.tpl.sl)/TextEdit.xaml</SNIPPET>
+        <SNIPPET Id="Label">$(res.path.tpl.sl)/Label.xaml</SNIPPET>
+        <SNIPPET Id="StaticLabel">$(res.path.tpl.sl)/Label.xaml</SNIPPET>
+        <SNIPPET Id="ComboBox">$(res.path.tpl.sl)/ComboBox.xaml</SNIPPET>
+        <SNIPPET Id="Button">$(res.path.tpl.sl)/Button.xaml</SNIPPET>
+        <SNIPPET Id="CheckBox">$(res.path.tpl.sl)/CheckBox.xaml</SNIPPET>
+        <SNIPPET Id="RadioGroup">$(res.path.tpl.sl)/RadioGroup.xaml</SNIPPET>
+        <SNIPPET Id="Image">$(res.path.tpl.sl)/Image.xaml</SNIPPET>
+        <SNIPPET Id="StaticImage">$(res.path.tpl.sl)/Image.xaml</SNIPPET>
+        <SNIPPET Id="Slider">$(res.path.tpl.sl)/Slider.xaml</SNIPPET>
+        <SNIPPET Id="SpinEdit">$(res.path.tpl.sl)/SpinEdit.xaml</SNIPPET>
+        <SNIPPET Id="TimeEdit">$(res.path.tpl.sl)/TimeEdit.xaml</SNIPPET>
+        <SNIPPET Id="ProgressBar">$(res.path.tpl.sl)/ProgressBar.xaml</SNIPPET>
+        <SNIPPET Id="HLine">$(res.path.tpl.sl)/HLine.xaml</SNIPPET>
+        <SNIPPET Id="HBoxTag">$(res.path.tpl.sl)/HBoxTag.xaml</SNIPPET>
+        <SNIPPET Id="Canvas">$(res.path.tpl.sl)/Canvas.xaml</SNIPPET>
+        <SNIPPET Id="ToolMenu">$(res.path.tpl.sl)/ToolMenu.xaml</SNIPPET>
+        <SNIPPET Id="TopMenu">$(res.path.tpl.sl)/TopMenu.xaml</SNIPPET>
+        <SNIPPET Id="TopMenuGroup">$(res.path.tpl.sl)/TopMenuGroup.xaml</SNIPPET>
+        <SNIPPET Id="TopMenuCommand">$(res.path.tpl.sl)/TopMenuCommand.xaml</SNIPPET>
+        <SNIPPET Id="TopMenuSeparator">$(res.path.tpl.sl)/TopMenuSeparator.xaml</SNIPPET>
+        <SNIPPET Id="ToolBar">$(res.path.tpl.sl)/ToolBar.xaml</SNIPPET>
+        <SNIPPET Id="ToolBarItem">$(res.path.tpl.sl)/ToolBarItem.xaml</SNIPPET>
+        <SNIPPET Id="ToolBarSeparator">$(res.path.tpl.sl)/ToolBarSeparator.xaml</SNIPPET>
+        <SNIPPET Id="StartMenu">$(res.path.tpl.sl)/StartMenu.xaml</SNIPPET>
+        <SNIPPET Id="StartMenuGroup">$(res.path.tpl.sl)/StartMenuGroup.xaml</SNIPPET>
+        <SNIPPET Id="StartMenuCommand">$(res.path.tpl.sl)/StartMenuCommand.xaml</SNIPPET>
+        <SNIPPET Id="StartMenuSeparator">$(res.path.tpl.sl)/StartMenuSeparator.xaml</SNIPPET>
+      </WEB_APPLICATION_THEME_COMPONENT>
+
+      <WEB_APPLICATION_THEME_COMPONENT Id="cpn.theme.html5.gwc">
+        <BOOTSTRAP Id="_default">$(res.path.tpl.html5)/bootstrap.xhtml</BOOTSTRAP>
+        <TEMPLATE Id="_default">$(res.path.tpl.html5)/main.xhtml</TEMPLATE>
+        <SNIPPET Id="UIFrame">$(res.path.tpl.html5)/UIFrame.xhtml</SNIPPET>
+        <SNIPPET Id="Window">$(res.path.tpl.html5)/Window.xhtml</SNIPPET>
+        <SNIPPET Id="Menu">$(res.path.tpl.html5)/Menu.xhtml</SNIPPET>
+        <SNIPPET Id="MenuAction">$(res.path.tpl.html5)/MenuAction.xhtml</SNIPPET>
+        <SNIPPET Id="Dialog">$(res.path.tpl.html5)/Dialog.xhtml</SNIPPET>
+        <SNIPPET Id="Action">$(res.path.tpl.html5)/Action.xhtml</SNIPPET>
+        <SNIPPET Id="LocalAction">$(res.path.tpl.html5)/Action.xhtml</SNIPPET>
+        <SNIPPET Id="Form">$(res.path.tpl.html5)/Form.xhtml</SNIPPET>
+        <SNIPPET Id="VBox">$(res.path.tpl.html5)/VBox.xhtml</SNIPPET>
+        <SNIPPET Id="HBox">$(res.path.tpl.html5)/HBox.xhtml</SNIPPET>
+        <SNIPPET Id="Group">$(res.path.tpl.html5)/Group.xhtml</SNIPPET>
+        <SNIPPET Id="Table">$(res.path.tpl.html5)/Table.xhtml</SNIPPET>
+        <SNIPPET Id="TableImpl">$(res.path.tpl.html5)/TableImpl.xhtml</SNIPPET>
+        <SNIPPET Id="PictureFlow">$(res.path.tpl.html5)/PictureFlow.xhtml</SNIPPET>
+        <SNIPPET Id="TreeItem">$(res.path.tpl.html5)/TreeItem.xhtml</SNIPPET>
+        <SNIPPET Id="Grid">$(res.path.tpl.html5)/Grid.xhtml</SNIPPET>
+        <SNIPPET Id="ScrollGrid">$(res.path.tpl.html5)/ScrollGrid.xhtml</SNIPPET>
+        <SNIPPET Id="GridLayout">$(res.path.tpl.html5)/GridLayout.xhtml</SNIPPET>
+        <SNIPPET Id="GridLayoutSplitter">$(res.path.tpl.html5)/GridLayoutSplitter.xhtml</SNIPPET>
+        <SNIPPET Id="FormField">$(res.path.tpl.html5)/FormField.xhtml</SNIPPET>
+        <SNIPPET Id="Folder">$(res.path.tpl.html5)/Folder.xhtml</SNIPPET>
+        <SNIPPET Id="Edit">$(res.path.tpl.html5)/Edit.xhtml</SNIPPET>
+        <SNIPPET Id="Edit" Style="FileUpload">$(res.path.tpl.html5)/FileUpload.xhtml</SNIPPET>
+        <SNIPPET Id="DateEdit">$(res.path.tpl.html5)/DateEdit.xhtml</SNIPPET>
+        <SNIPPET Id="ButtonEdit">$(res.path.tpl.html5)/ButtonEdit.xhtml</SNIPPET>
+        <SNIPPET Id="ButtonEditAction">$(res.path.tpl.html5)/Button.xhtml</SNIPPET>
+        <SNIPPET Id="TextEdit">$(res.path.tpl.html5)/TextEdit.xhtml</SNIPPET>
+        <SNIPPET Id="Label">$(res.path.tpl.html5)/Label.xhtml</SNIPPET>
+        <SNIPPET Id="ComboBox">$(res.path.tpl.html5)/ComboBox.xhtml</SNIPPET>
+        <SNIPPET Id="Button">$(res.path.tpl.html5)/Button.xhtml</SNIPPET>
+        <SNIPPET Id="CheckBox">$(res.path.tpl.html5)/CheckBox.xhtml</SNIPPET>
+        <SNIPPET Id="RadioGroup">$(res.path.tpl.html5)/RadioGroup.xhtml</SNIPPET>
+        <SNIPPET Id="Image">$(res.path.tpl.html5)/Image.xhtml</SNIPPET>
+        <SNIPPET Id="StaticLabel">$(res.path.tpl.html5)/StaticLabel.xhtml</SNIPPET>
+        <SNIPPET Id="StaticImage">$(res.path.tpl.html5)/StaticImage.xhtml</SNIPPET>
+        <SNIPPET Id="Slider">$(res.path.tpl.html5)/Slider.xhtml</SNIPPET>
+        <SNIPPET Id="SpinEdit">$(res.path.tpl.html5)/SpinEdit.xhtml</SNIPPET>
+        <SNIPPET Id="TimeEdit">$(res.path.tpl.html5)/TimeEdit.xhtml</SNIPPET>
+        <SNIPPET Id="ProgressBar">$(res.path.tpl.html5)/ProgressBar.xhtml</SNIPPET>
+        <SNIPPET Id="HLine">$(res.path.tpl.html5)/HLine.xhtml</SNIPPET>
+        <SNIPPET Id="Canvas">$(res.path.tpl.html5)/Canvas.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasArc">$(res.path.tpl.html5)/CanvasArc.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasCircle">$(res.path.tpl.html5)/CanvasCircle.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasLine">$(res.path.tpl.html5)/CanvasLine.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasOval">$(res.path.tpl.html5)/CanvasOval.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasPolygon">$(res.path.tpl.html5)/CanvasPolygon.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasRectangle">$(res.path.tpl.html5)/CanvasRectangle.xhtml</SNIPPET>
+        <SNIPPET Id="CanvasText">$(res.path.tpl.html5)/CanvasText.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenu">$(res.path.tpl.html5)/TopMenu.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuGroup">$(res.path.tpl.html5)/TopMenuGroup.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuCommand">$(res.path.tpl.html5)/TopMenuCommand.xhtml</SNIPPET>
+        <SNIPPET Id="TopMenuSeparator">$(res.path.tpl.html5)/TopMenuSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBarHelper">$(res.path.tpl.html5)/ToolBarHelper.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBar">$(res.path.tpl.html5)/ToolBar.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBarItem">$(res.path.tpl.html5)/ToolBarItem.xhtml</SNIPPET>
+        <SNIPPET Id="ToolBarSeparator">$(res.path.tpl.html5)/ToolBarSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenu">$(res.path.tpl.html5)/StartMenu.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuGroup">$(res.path.tpl.html5)/StartMenuGroup.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuCommand">$(res.path.tpl.html5)/StartMenuCommand.xhtml</SNIPPET>
+        <SNIPPET Id="StartMenuSeparator">$(res.path.tpl.html5)/StartMenuSeparator.xhtml</SNIPPET>
+        <SNIPPET Id="EndingPage">$(res.path.tpl.html5)/EndingPage.xhtml</SNIPPET>
+        <SNIPPET Id="FileTransfer">$(res.path.tpl.html5)/FileTransfer.xhtml</SNIPPET>
+        <SNIPPET Id="StyleList">$(res.path.tpl.html5)/StyleList.xsl</SNIPPET>
+        <SNIPPET Id="WebComponent">$(res.path.tpl.html5)/WebComponent.xhtml</SNIPPET>
+        <SNIPPET Id="UIError">$(res.path.tpl.html5)/UIError.xhtml</SNIPPET>
+        <SNIPPET Id="QA">$(res.path.tpl.html5)/QA.xhtml</SNIPPET>
+        <SNIPPET Id="RipGraphic">$(res.path.tpl.html5)/RipGraphic.xhtml</SNIPPET>
+        <SNIPPET Id="Rectangle">$(res.path.tpl.html5)/Rectangle.xhtml</SNIPPET>
+        <SNIPPET Id="RipCHECK">$(res.path.tpl.html5)/RipCheck.xhtml</SNIPPET>
+        <SNIPPET Id="RipCOMBO">$(res.path.tpl.html5)/RipCombo.xhtml</SNIPPET>
+        <SNIPPET Id="RipFIELD_BMP">$(res.path.tpl.html5)/RipFieldBMP.xhtml</SNIPPET>
+        <SNIPPET Id="RipRADIO">$(res.path.tpl.html5)/RipRadio.xhtml</SNIPPET>
+        <SNIPPET Id="RipLABEL">$(res.path.tpl.html5)/RipLabel.xhtml</SNIPPET>
+        <SNIPPET Id="RipBUTTON">$(res.path.tpl.html5)/RipButton.xhtml</SNIPPET>
+        <SNIPPET Id="RipBMP">$(res.path.tpl.html5)/RipBMP.xhtml</SNIPPET>
+        <SNIPPET Id="Header">$(res.path.tpl.html5)/Header.xhtml</SNIPPET>
+        <SNIPPET Id="Footer">$(res.path.tpl.html5)/Footer.xhtml</SNIPPET>
+        <SNIPPET Id="ScrollArea">$(res.path.tpl.html5)/ScrollArea.xhtml</SNIPPET>
+      </WEB_APPLICATION_THEME_COMPONENT>
+
+    <WEB_APPLICATION_THEME_COMPONENT Id="cpn.theme.iphone.gwc">
+      <TEMPLATE Id="_default">$(res.path.tpl.iphone)/main.xhtml</TEMPLATE>
+      <SNIPPET Id="Form">$(res.path.tpl.iphone)/Form.xhtml</SNIPPET>
+      <SNIPPET Id="VBox">$(res.path.tpl.iphone)/VBox.xhtml</SNIPPET>
+      <SNIPPET Id="Group">$(res.path.tpl.iphone)/Group.xhtml</SNIPPET>
+      <SNIPPET Id="Table">$(res.path.tpl.iphone)/Table.xhtml</SNIPPET>
+      <SNIPPET Id="Grid">$(res.path.tpl.iphone)/Grid.xhtml</SNIPPET>
+      <SNIPPET Id="GridLayout">$(res.path.tpl.iphone)/GridLayout.xhtml</SNIPPET>
+      <SNIPPET Id="FormField">$(res.path.tpl.iphone)/FormField.xhtml</SNIPPET>
+      <SNIPPET Id="Folder">$(res.path.tpl.iphone)/Folder.xhtml</SNIPPET>
+
+      <SNIPPET Id="Edit">$(res.path.tpl.iphone)/Edit.xhtml</SNIPPET>
+      <SNIPPET Id="DateEdit">$(res.path.tpl.iphone)/DateEdit.xhtml</SNIPPET>
+      <SNIPPET Id="TextEdit">$(res.path.tpl.iphone)/TextEdit.xhtml</SNIPPET>
+      <SNIPPET Id="Label">$(res.path.tpl.iphone)/StaticLabel.xhtml</SNIPPET>
+      <SNIPPET Id="ComboBox">$(res.path.tpl.iphone)/ComboBox.xhtml</SNIPPET>
+      <SNIPPET Id="CheckBox">$(res.path.tpl.iphone)/CheckBox.xhtml</SNIPPET>
+      <SNIPPET Id="Image">$(res.path.tpl.iphone)/StaticImage.xhtml</SNIPPET>
+      <SNIPPET Id="StaticLabel">$(res.path.tpl.iphone)/StaticLabel.xhtml</SNIPPET>
+      <SNIPPET Id="StaticImage">$(res.path.tpl.iphone)/StaticImage.xhtml</SNIPPET>
+      <SNIPPET Id="TimeEdit">$(res.path.tpl.iphone)/TimeEdit.xhtml</SNIPPET>
+
+      <SNIPPET Id="Slider">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="SpinEdit">$(res.path.tpl.iphone)/SpinEdit.xhtml</SNIPPET>
+      <SNIPPET Id="RadioGroup">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="ProgressBar">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="ButtonEdit">$(res.path.tpl.iphone)/ButtonEdit.xhtml</SNIPPET>
+      <SNIPPET Id="Button">$(res.path.tpl.iphone)/Button.xhtml</SNIPPET>
+      <SNIPPET Id="HLine">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="Canvas">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="TreeItem">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="HBox">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="ScrollGrid">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="HBoxTag">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="TopMenu">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="ToolBar">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="StartMenu">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET Id="WebComponent">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET
+        Style="picflow"
+        Id="Table">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET
+        Style="InteractiveComponent"
+        Id="TextEdit">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+      <SNIPPET
+        Style="FileUpload"
+        Id="Edit">$(res.path.tpl.iphone)/Unsupported.xhtml</SNIPPET>
+
+      <SNIPPET Id="AlltimeButtons">$(res.path.tpl.common)/AlltimeButtons.xhtml</SNIPPET>
+      <SNIPPET Id="EndingPage">$(res.path.tpl.common)/EndingPage.xhtml</SNIPPET>
+      <SNIPPET Id="FileTransfer">$(res.path.tpl.common)/FileTransfer.xhtml</SNIPPET>
+      <SNIPPET Id="StyleList">$(res.path.tpl.common)/StyleList.xsl</SNIPPET>
+    </WEB_APPLICATION_THEME_COMPONENT>
+    -->
+    </COMPONENT_LIST>
+
+    <INTERFACE_TO_CONNECTOR>
+      <TCP_BASE_PORT>$(res.ic.base.port)</TCP_BASE_PORT>
+      <TCP_PORT_OFFSET>$(res.ic.port.offset)</TCP_PORT_OFFSET>
+      <LIMIT_REQUEST_SIZE>0</LIMIT_REQUEST_SIZE>
+      <DOCUMENT_ROOT>$(res.path.docroot)</DOCUMENT_ROOT>
+      <TEMPORARY_DIRECTORY>$(res.path.tmp)</TEMPORARY_DIRECTORY>
+      <SESSION_DIRECTORY>$(res.appdata.path)/session</SESSION_DIRECTORY>
+      <SOCKET_FAMILY>$(res.dispatcher.socket.family)</SOCKET_FAMILY>
+      <SOCKET_PATH>$(res.dispatcher.socket.path)</SOCKET_PATH>
+    </INTERFACE_TO_CONNECTOR>
+
+    <INTERFACE_TO_DVM>
+      <ADDRESS>127.0.0.1</ADDRESS>
+    </INTERFACE_TO_DVM>
+
+    <LOG>
+      <OUTPUT Type="$(res.log.output.type)">$(res.log.output.path)</OUTPUT>
+      <FORMAT Type="TEXT">$(res.log.format)</FORMAT>
+      <CATEGORIES_FILTER>$(res.log.categories_filter)</CATEGORIES_FILTER>
+      <RAW_DATA MaxLength="$(res.log.raw_data.maxlength)" />
+    </LOG>
+
+    <MONITOR>
+        <ALLOW_FROM>127.0.0.1</ALLOW_FROM>
+        <ALLOW_FROM>::1</ALLOW_FROM>
+        <!--
+          <ALLOW_FROM>192.168.</ALLOW_FROM>
+          <ALLOW_FROM>10.</ALLOW_FROM>
+          <ALLOW_FROM>193.111.222.123</ALLOW_FROM>
+        -->
+    </MONITOR>
+
+    <FILE_TRANSFER>
+      <TIMEOUT>600</TIMEOUT>
+    </FILE_TRANSFER>
+
+    <AUTHENTICATION Type="KERBEROS">
+      <REALM></REALM>
+      <SERVICE_NAME>gassvc</SERVICE_NAME>
+      <KEYTAB>$(res.path.as)/etc/gwc.keytab</KEYTAB>
+    </AUTHENTICATION>
+
+    <SERVICE_LIST>
+      <APPLICATION Id="ws.default" Abstract="TRUE">
+        <PROXY>$(res.gwsproxy)</PROXY>
+        <EXECUTION Using="cpn.ws.execution.local"/>
+        <TIMEOUT Using="cpn.ws.timeout"/>
+      </APPLICATION>
+
+      <!--This is the default service for GST debugging sessions -->
+      <APPLICATION Id="ws_prueba_monitor" Parent="ws.default" Abstract="TRUE">
+        <EXECUTION>
+          <PATH>$(res.path.safredir)/prt/bin</PATH>
+          <MODULE>servicio</MODULE>
+          <DELEGATE service="monitoreo/monitorREST">
+            <servicio_cod>1000</servicio_cod>
+          </DELEGATE>
+          <POOL>
+            <START>0</START>
+            <MIN_AVAILABLE>1</MIN_AVAILABLE>
+            <MAX_AVAILABLE>1</MAX_AVAILABLE>
+          </POOL>
+        </EXECUTION>
+      </APPLICATION>
+
+      <!-- <GROUP Id="_default">$(res.path.services)</GROUP> -->
+      <!-- <GROUP Id="demo">$(res.path.fgldir.demo.services)</GROUP>-->
+      <GROUP Id="monitoreo">$(res.path.safredir.monitor)</GROUP>
+    </SERVICE_LIST>
+
+  </APPLICATION_SERVER>
+</CONFIGURATION>

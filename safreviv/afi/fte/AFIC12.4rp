@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="a4length" RWPageLength="a4width" RWLeftMargin="0.2cm" RWTopMargin="0.2cm" RWRightMargin="0.2cm" RWBottomMargin="0.2cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/AFIC12.rdd" RWFglReportName="rep_resultados"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="LayoutNode" width="75.8373" length="833.187" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="75.7081" length="115.607" alignment="center" layoutDirection="leftToRight">
+                            <IMAGEBOX name="ImageBox" width="114.034" length="75.7781" alignment="baseline" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif" intendedResolution="96"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode1" width="25.3232" length="834.301" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox" width="834.21" length="24.1304" alignment="center" color="#fdfdfd" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Historial de Actualización de Datos de Identificación del trabajador"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode2" width="0.906959" length="834.301" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode3" width="26.3976" length="834.471" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox1" x="7.3637" y="0" width="82.9842" length="21.9464" anchorX="0.188703" anchorY="9.09753e-16" alignment="baseline" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="USUARIO :"/>
+                        <WORDBOX name="WordBox2" x="1.5646" y="546.61" width="158.726" length="21.4525" anchorX="0" anchorY="0.0384104" color="#ffffff" fontBold="true" floatingBehavior="enclosed" text="FECHA DE GENERACIÓN :"/>
+                        <rtl:input-variable name="p_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="p_usuario Value" x="3.27767" y="67.8975" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="{{p_usuario}}"/>
+                        <rtl:input-variable name="v_fecha_reporte" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_fecha_reporte Value" x="3.2777" y="697.162" width="80.7753" length="15.2818" anchorX="0" anchorY="0" fontBold="true" floatingBehavior="enclosed" text="{{v_fecha_reporte}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode5" width="835.512" length="0.836524" bgColor="#000000" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage3" width="58.7148" length="max" alignment="near" bgColor="#ffffff" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox9" width="827.751" length="19.3232" color="#d8050f" fontSize="13" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="SUMARIO"/>
+                        <WORDBOX name="WordBox10" x="31.3432" y="17.3248" anchorX="0.0760699" anchorY="0.0756608" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="TOTAL CAMBIOS RFC :"/>
+                        <WORDBOX name="WordBox11" x="31.3434" y="279.515" anchorX="0.0760699" anchorY="0.104318" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="TOTAL CAMBIOS CURP :"/>
+                        <WORDBOX name="WordBox12" x="31.3434" y="529.471" anchorX="0.0760699" anchorY="0.0342259" color="#ce050f" fontSize="11" fontBold="true" floatingBehavior="enclosed" text="TOTAL CAMBIOS NOMBRE :"/>
+                        <rtl:input-variable name="cta_curp" type="FGLNumeric" expectedLocation="expectedWayAhead"/>
+                        <DECIMALFORMATBOX name="cta_curp Value" x="29.0934" y="448.999" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="left" format="----------&amp;" value="{{cta_curp}}"/>
+                        <rtl:input-variable name="cta_rfc" type="FGLNumeric" expectedLocation="expectedWayAhead"/>
+                        <DECIMALFORMATBOX name="cta_rfc Value" x="29.0932" y="171.304" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="left" format="----------&amp;" value="{{cta_rfc}}"/>
+                        <rtl:input-variable name="cta_nombre" type="FGLNumeric" expectedLocation="expectedWayAhead"/>
+                        <DECIMALFORMATBOX name="cta_nombre Value" x="29.0932" y="726.259" width="min" anchorX="0" anchorY="1" floatingBehavior="enclosed" textAlignment="left" format="----------&amp;" value="{{cta_nombre}}"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode4" width="0.836527" length="834.448" bgColor="#000000" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage1" width="37.0097" length="max" layoutDirection="leftToRight">
+                        <WORDBOX name="WordBox3" x="9.6033" y="44.2706" width="42.0983" length="20.2667" anchorX="0" anchorY="0.352106" alignment="baseline" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="NSS"/>
+                        <WORDBOX name="WordBox4" x="6.9314" y="125.866" width="26.4525" anchorX="0" anchorY="0.0203563" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="RFC"/>
+                        <WORDBOX name="WordBox5" x="6.9314" y="230.284" anchorX="0" anchorY="0.0399595" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="CURP"/>
+                        <WORDBOX name="WordBox6" x="8.6914" y="367.499" anchorX="0" anchorY="0.0203563" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="NOMBRE"/>
+                        <WORDBOX name="WordBox7" x="6.9314" y="528.022" anchorX="0" anchorY="0.0399595" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="FECHA MODIFICACIÓN"/>
+                        <WORDBOX name="WordBox8" x="9.6033" y="697.162" width="min" anchorX="0" anchorY="0.0326301" color="#ce050f" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="DESCRIPCIÓN"/>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="MiniPage2" width="41.4754" length="max" alignment="near" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_reporte.rfc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_reporte.rfc Value" x="9.7814" y="103.897" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{p_reporte.rfc}}"/>
+                            <rtl:input-variable name="p_reporte.curp" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_reporte.curp Value" x="9.7814" y="205.536" width="75.162" length="11" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{p_reporte.curp}}"/>
+                            <rtl:input-variable name="p_reporte.ind_modifica_desc" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="p_reporte.ind_modifica_desc Value" x="9.7814" y="691.489" width="143.438" anchorX="0" anchorY="0.0282414" fontSize="9" floatingBehavior="enclosed" text="{{p_reporte.ind_modifica_desc}}" textAlignment="left"/>
+                            <rtl:input-variable name="p_reporte.nss" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="p_reporte.nss Value" x="9.7812" y="5.6787" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{p_reporte.nss}}"/>
+                            <rtl:input-variable name="v_msj" type="FGLString" expectedLocation="expectedBefore"/>
+                            <WORDWRAPBOX name="v_msj Value" x="30.7067" y="125.866" width="696.018" length="13.4439" anchorX="0.426043" anchorY="0.0550617" alignment="far" fontSize="12" floatingBehavior="enclosed" text="{{v_msj}}" textAlignment="center"/>
+                            <rtl:input-variable name="v_cad_nom" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_cad_nom Value" x="9.7812" y="300.964" width="199.899" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_cad_nom}}" textAlignment="center"/>
+                            <rtl:input-variable name="v_f_mod1" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_f_mod1 Value" x="9.7814" y="524.17" width="width(&quot;M&quot;)*20" anchorX="0" anchorY="0" fontSize="9" floatingBehavior="enclosed" text="{{v_f_mod1}}" textAlignment="left"/>
+                        </MINIPAGE>
+                    </rtl:match>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

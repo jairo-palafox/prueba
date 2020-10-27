@@ -1,0 +1,29 @@
+database safre_viv@vivop_tcp
+screen size 24 by 80
+{
+proceso_cod        [f000  ]
+modulo_cod         [a0 ]
+proceso_desc       [f001                                    ]
+proceso_ext        [f002      ]
+recurrencia        [f003  ]
+ejecuta_cod        [f004  ]
+descripcion        [f005      ]
+hora_prog          [f006 ]
+f_actualiza        [f007      ]
+usuario            [f008                ]
+}
+end
+tables
+cat_proceso
+attributes
+f000 = cat_proceso.proceso_cod;
+a0 = cat_proceso.modulo_cod;
+f001 = cat_proceso.proceso_desc;
+f002 = cat_proceso.proceso_ext;
+f003 = cat_proceso.recurrencia;
+f004 = cat_proceso.ejecuta_cod;
+f005 = cat_proceso.descripcion;
+f006 = cat_proceso.hora_prog;
+f007 = cat_proceso.f_actualiza;
+f008 = cat_proceso.usuario;
+end

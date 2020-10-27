@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2320f" version="5.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/DISE23.rdd" RWFglReportName="rp_apo_sub_glob"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="532.79" alignment="near">
+                    <LAYOUTNODE name="Encabezado" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="MiniPage" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode" width="min" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="logo_infonavit.gif" intendedResolution="96"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode1_1_1" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage1_1_1" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode2" width="min" length="max" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox" x="8.5668" y="max*0.5409" anchorX="0.571121" anchorY="0.49246" color="#ffffff" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" textAlignment="right" text="APORTACIONES SUBSECUENTES" localizeText="false"/>
+                                <WORDBOX name="WordBox2" x="8.5668" y="20.1589" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Usuario"/>
+                                <rtl:input-variable name="v_rusurio" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_rusurio Value" x="0.9644" y="43.9117" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_rusurio}}"/>
+                                <rtl:input-variable name="v_rfec_proc" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_rfec_proc Value" x="0.9644" y="643.447" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_rfec_proc}}"/>
+                            </LAYOUTNODE>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode3_1_1" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="MiniPage2_1_1" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                            <LAYOUTNODE name="LayoutNode5" width="min" length="max" alignment="far" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <WORDBOX name="WordBox3" x="7.7303" y="14.1702" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio"/>
+                                <WORDBOX name="WordBox4" x="7.7303" y="575.393" anchorX="0.5" anchorY="0.502873" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha Transferencia"/>
+                                <rtl:input-variable name="v_rsum_f_transf" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_rsum_f_transf Value" x="7.7303" y="681.608" width="75.5619" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_rsum_f_transf}}"/>
+                                <rtl:input-variable name="v_rfolio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <WORDBOX name="v_rfolio Value1" x="7.7303" y="69.464" width="50.5394" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" text="{{(v_rfolio).format(&quot;--------&amp;&quot;)}}"/>
+                                <rtl:input-variable name="l_arch_proceso" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="WordBox59_1" x="7.7303" y="389.985" width="190.439" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text="{{&quot;Archivo: &quot;+l_arch_proceso}}"/>
+                            </LAYOUTNODE>
+                            <LAYOUTNODE name="LayoutNode3_1_1_1" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="LayoutNode5_1" width="min" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox39" x="7.5" y="563.363" anchorX="0.5" anchorY="0.5" alignment="center" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Estado Archivo"/>
+                            <WORDBOX name="WordBox59" x="7.5" y="45.2625" anchorX="0.5" anchorY="0.5" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Estado Operación"/>
+                            <rtl:input-variable name="v_restado_operacion" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_restado_operacion Value" x="1.9952" y="92.2152" width="235.281" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_restado_operacion}}"/>
+                            <rtl:input-variable name="r_redo_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="r_redo_archivo Value" x="2.2608" y="601.479" width="117.09" anchorX="0" anchorY="0" color="#ffffff" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{r_redo_archivo}}"/>
+                        </LAYOUTNODE>
+                    </LAYOUTNODE>
+                    <MINIPAGE name="MiniPage3_1_1" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode6" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox5" x="7.5" y="max/2" anchorX="0.5" anchorY="0.336387" alignment="baseline" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="CIFRAS GLOBALES"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode7_1_1" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8_1_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <PAGENOBOX name="PageNoBox" y="550.053" alignment="center" fontName="Arial" fontSize="8" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="MiniPage4_1_1" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode9" width="min" length="max" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox7" x="6.5" y="38.6894" anchorX="0.5" anchorY="0.513158" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="DETALLE"/>
+                            <WORDBOX name="WordBox12" x="6.5" y="116.184" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="DETALLE"/>
+                            <WORDBOX name="WordBox12_1" x="6.5" y="202.21" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Total de"/>
+                            <WORDBOX name="WordBox12_1_1" x="6.5" y="299.259" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Total de Registros con"/>
+                            <WORDBOX name="WordBox12_1_2" x="6.5" y="413.293" anchorX="0.5" anchorY="0.461749" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Registros No"/>
+                            <WORDBOX name="WordBox12_1_2_1" x="6.7714" y="650.548" anchorX="0.557829" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio LQ"/>
+                            <WORDBOX name="WordBox60" x="6.5" y="531.07" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Registros Duplicados"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <WORDBOX name="WordBox15_1_1" y="550.053" color="#ce050f" fontName="Arial" fontSize="8" fontBold="true" floatingBehavior="enclosed" text="Recaudación Fiscal"/>
+                    <MINIPAGE name="MiniPage4_1_1_1" width="min" length="max" alignment="near" layoutDirection="leftToRight">
+                        <LAYOUTNODE name="LayoutNode10" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                            <WORDBOX name="WordBox13" x="6.5" y="38.6894" anchorX="0.5" anchorY="0.513158" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="AIVS"/>
+                            <WORDBOX name="WordBox15" x="6.5" y="116.929" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Aportación"/>
+                            <WORDBOX name="WordBox15_1" x="10.6094" y="202.21" length="17.5169" anchorX="0.542843" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Registros Leídos"/>
+                            <WORDBOX name="WordBox15_1_2" x="8.6594" y="305.052" width="107.618" length="17.5169" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text=" Aportación en Ceros"/>
+                            <WORDBOX name="WordBox15_1_2_1" x="8.6594" y="419.817" width="100.843" length="17.5169" anchorX="0.542843" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="encontrados en SACI"/>
+                            <WORDBOX name="WordBox61" x="6.5" y="531.07" anchorX="0.5" anchorY="0.488663" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="por cargo previo"/>
+                        </LAYOUTNODE>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="LayoutNode8_1_2_1_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode11_1" width="16.9887" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <rtl:input-variable name="v_rsum_det_apo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_rsum_det_apo Value" x="10.2362" y="38.6894" width="75" anchorX="0.5" anchorY="0.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,###,##&amp;.&amp;&amp;" value="{{v_rsum_det_apo}}"/>
+                        <rtl:input-variable name="v_rsum_apo" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_rsum_apo Value" x="10.2362" y="123.888" width="85.25" anchorX="0.5" anchorY="0.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="###,###,###,##&amp;.&amp;&amp;" value="{{v_rsum_apo}}"/>
+                        <rtl:input-variable name="v_tot_leidos" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_tot_leidos Value1" x="2.7071" y="249.359" width="65.4719" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text="{{(v_tot_leidos).format(&quot;---------&amp;&quot;)}}"/>
+                        <rtl:input-variable name="v_tot_ceros" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_tot_leidos Value1_1" x="2.7071" y="342.499" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text="{{v_tot_ceros.format(&quot;---------&amp;&quot;)}}"/>
+                        <rtl:input-variable name="v_tot_no_enc" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <WORDBOX name="v_tot_leidos Value1_1_1" x="2.7071" y="456.121" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text="{{v_tot_no_enc.format(&quot;---------&amp;&quot;)}}"/>
+                        <rtl:input-variable name="v_folio_lq" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_folio_lq Value" class="grwNumericValue" x="2.7071" y="678.257" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{v_folio_lq}}"/>
+                        <rtl:input-variable name="v_tot_dup_cargo_ap" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_tot_dup_cargo_ap Value" class="grwNumericValue" x="2.7071" y="575.393" width="min" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="--------&amp;" value="{{v_tot_dup_cargo_ap}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode8_1_2_1_1_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode6_1_1" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox34" x="7.0719" y="50.5321" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="TOTAL REGISTROS"/>
+                        <rtl:input-variable name="v_rsum_tot_reg" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_rsum_tot_reg Value" x="7.0719" y="176.703" anchorX="0.5" anchorY="0.5" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-------#" value="{{v_rsum_tot_reg}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode8_1_2_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode11_1_1" width="4.9437" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode7_1_1_2" width="1.2" length="max" alignment="near" bgColor="#dadada" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode8_1_1_2" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode6_1" width="16.0592" length="716.853" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox36" x="8.5668" y="max*0.5409" anchorX="0.571121" anchorY="0.5" alignment="baseline" color="#ce050f" fontName="Arial" floatingBehavior="enclosed" text="REGISTROS DUPLICADOS"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode9_1" width="min" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox37" x="11.7696" y="36.6491" anchorX="0.5" anchorY="0.513158" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="NSS"/>
+                        <WORDWRAPBOX name="WordWrapBox" x="14.028" y="238.926" width="42.5613" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Período&#10;Pago"/>
+                        <WORDWRAPBOX name="WordWrapBox1" x="14.028" y="534.752" width="62.1343" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Aportación&#10;Subsecuente&#10;AIVS"/>
+                        <WORDWRAPBOX name="WordWrapBox2" x="14.028" y="611.78" width="54.6063" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Aportación&#10;Histórica&#10;AIVS"/>
+                        <WORDWRAPBOX name="WordWrapBox3" x="14.028" y="687.299" width="54.6062" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Diferencia&#10;Aportación&#10;AIVS"/>
+                        <WORDWRAPBOX name="WordWrapBox7" x="14.028" y="302.589" width="34.2803" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Estado"/>
+                        <WORDWRAPBOX name="WordWrapBox10" x="14.028" y="161.346" width="35.0331" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Fecha&#10;Pago"/>
+                        <WORDWRAPBOX name="WordWrapBox11" x="14.028" y="105.76" width="31.084" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Folio&#10;Pago&#10;"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode8_1_2_1_1_2" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <LAYOUTNODE name="LayoutNode11" width="min" length="min" floatingBehavior="enclosed">
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <LAYOUTNODE name="LayoutNode10_1_1" width="26.0995" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                                <rtl:input-variable name="arr_apo_sub_glob.v_det_nss" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_apo_sub_glob.v_det_nss Value" x="1.6064" y="2.4511" width="74.7528" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{arr_apo_sub_glob.v_det_nss}}"/>
+                                <rtl:input-variable name="arr_apo_sub_glob.v_det_f_pago" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_apo_sub_glob.v_det_f_pago Value" x="1.6064" y="144.146" width="56.1684" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{arr_apo_sub_glob.v_det_f_pago}}"/>
+                                <rtl:input-variable name="arr_apo_sub_glob.v_det_periodo_pago" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_apo_sub_glob.v_det_perido_pago Value" x="2.5851" y="218.958" width="52.4381" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" text="{{arr_apo_sub_glob.v_det_periodo_pago}}"/>
+                                <rtl:input-variable name="arr_apo_sub_glob.v_folio_pago" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <WORDBOX name="arr_apo_sub_glob.v_folio_pago Value2" x="1.6064" y="135.943" width="51.4157" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="left" text="{{(arr_apo_sub_glob.v_folio_pago).format(&quot;--------&amp;&quot;)}}"/>
+                                <rtl:input-variable name="arr_apo_sub_glob.v_dif_pag_aiv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_apo_sub_glob.v_dif_pag_apo Value" x="2.5851" y="573.377" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{arr_apo_sub_glob.v_dif_pag_aiv}}"/>
+                                <rtl:input-variable name="arr_apo_sub_glob.v_dif_sub_aiv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_apo_sub_glob.v_dif_sub_apo Value" x="1.6064" y="648.225" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{arr_apo_sub_glob.v_dif_sub_aiv}}"/>
+                                <rtl:input-variable name="arr_apo_sub_glob.v_desc_estado" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="arr_apo_sub_glob.v_desc_estado Value" x="1.6064" y="285.517" width="214.956" length="20.5281" anchorX="0" anchorY="0" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{arr_apo_sub_glob.v_desc_estado}}"/>
+                                <rtl:input-variable name="arr_apo_sub_glob.v_sumdif_aiv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="arr_apo_sub_glob.v_sumdif_apo Value" x="2.4993" y="718.757" width="66.4606" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{arr_apo_sub_glob.v_sumdif_aiv}}"/>
+                            </LAYOUTNODE>
+                        </rtl:match>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode9_1_1_1" width="19.8234" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox25" x="11.0702" y="36.6491" anchorX="0.5" anchorY="0.513158" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="SUMATORIA"/>
+                        <LAYOUTNODE name="LayoutNode8_1_1_2_1" width="1.2" length="max" alignment="near" bgColor="#ce050f" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                        <rtl:input-variable name="v_sumrdif_pag_aiv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_sumrdif_pag_apo Value" x="5.8368" y="573.377" width="68.9775" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_sumrdif_pag_aiv}}"/>
+                        <rtl:input-variable name="v_sumrdif_sub_aiv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_sumrdif_sub_apo Value" x="5.8368" y="648.225" width="67.4719" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_sumrdif_sub_aiv}}"/>
+                        <rtl:input-variable name="v_sumrdif_aiv" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_sumrdif_apo Value" x="5.8368" y="718.757" width="66.4719" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_sumrdif_aiv}}"/>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode6_1_1_1" width="18.2346" length="max" alignment="near" layoutDirection="leftToRight" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox57" x="9.2235" y="95.7194" anchorX="0.5" anchorY="0.5" color="#ce050f" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="TOTAL REGISTROS DUPLICADOS"/>
+                        <rtl:input-variable name="v_tot_monto_dif" type="FGLNumeric" expectedLocation="expectedBefore"/>
+                        <WORDBOX name="v_tot_leidos Value1_1_1_1_1_1_1" x="3.7721" y="268.064" anchorX="0" anchorY="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="center" text="{{v_tot_monto_dif.format(&quot;---------#&quot;)}}"/>
+                    </LAYOUTNODE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>

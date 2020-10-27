@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" version="3.00">
+    <report:Settings RWPageWidth="letterlength" RWPageLength="letterwidth" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../fte/PAGC32.rdd" RWFglReportName="rpt_consulta_cc"/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match nameConstraint="Report">
+                <MINIPAGE name="Page Root" width="max" length="max" alignment="near">
+                    <LAYOUTNODE name="encabezadoReporte" width="min" length="min" port="anyPageHeader" floatingBehavior="enclosed">
+                        <MINIPAGE name="logoInfonavit" width="720.085" length="min">
+                            <IMAGEBOX name="imgLogoInfonavit" floatingBehavior="enclosed" url="../../img/logo_infonavit.gif"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="lineablanca1" width="720.981" length="2.01375"/>
+                        <MINIPAGE name="tituloReporte" width="719.19" length="20">
+                            <WORDBOX name="WordBox" width="720.151" length="16.6857" color="#ffffff" bgColor="#ce050f" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Reporte cifras control de Fortalecimiento al Crédito"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="datosReporte" width="18.4943" length="max" alignment="near" layoutDirection="leftToRight">
+                            <WORDBOX name="lbFolio" width="32.0338" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Folio"/>
+                            <rtl:input-variable name="v_folio" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <DECIMALFORMATBOX name="v_folio Value" width="43.82" anchorX="1" fontName="Arial" fontSize="8" floatingBehavior="enclosed" textAlignment="right" format="########&amp;" value="{{v_folio}}"/>
+                            <WORDBOX name="espacioDatosReporte" width="53.8779" length="10.9662" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text=""/>
+                            <WORDBOX name="lblUsuario" width="36.0337" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Usuario"/>
+                            <rtl:input-variable name="g_usuario_cod" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="g_usuario_cod Value" width="77.1907" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{g_usuario_cod}}"/>
+                            <WORDBOX name="espacioUsuarioNombre" width="15.4831" length="16.2359" floatingBehavior="enclosed" text=""/>
+                            <rtl:input-variable name="v_nombre_usuario" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_usuario Value" width="337.563" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nombre_usuario}}"/>
+                            <WORDBOX name="lblFecha" width="48.3147" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Fecha"/>
+                            <rtl:input-variable name="v_fecha" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_fecha Value" width="67.4042" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_fecha}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="seccionNombreArchivo" width="23.3988" length="566.374" layoutDirection="leftToRight">
+                            <WORDBOX name="lblArchivo" width="75" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="Nombre del archivo:"/>
+                            <rtl:input-variable name="v_nombre_archivo" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_archivo Value" width="400" fontName="Arial" fontSize="8" floatingBehavior="enclosed" text="{{v_nombre_archivo}}"/>
+                        </MINIPAGE>
+                    </LAYOUTNODE>
+                    <LAYOUTNODE name="LayoutNode2" width="min" length="min" layoutDirection="leftToRight" port="anyPageFooter" floatingBehavior="enclosed">
+                        <WORDBOX name="WordBox3" width="705.812" length="16.2359" alignment="baseline" floatingBehavior="enclosed" text=""/>
+                        <PAGENOBOX name="PageNoBox" width="14.5169" fontName="Arial" fontSize="7" floatingBehavior="enclosed"/>
+                    </LAYOUTNODE>
+                    <rtl:match nameConstraint="Group" minOccurs="0" maxOccurs="unbounded">
+                        <MINIPAGE name="espacioSeccion" width="7.20219" length="max" layoutDirection="leftToRight"/>
+                        <MINIPAGE name="encabezadoSeccionAceptadoRechazado" width="min" length="max" layoutDirection="leftToRight">
+                            <rtl:input-variable name="v_tipo_registro" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDBOX name="v_tipo_registro Value" width="719.43" length="18.5169" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="{{v_tipo_registro}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="encabezadoGeneral" width="15.7641" length="max" bgColor="#ce050f" layoutDirection="leftToRight">
+                            <WORDWRAPBOX name="titConceptoGral1" width="205" length="21.7866" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Concepto"/>
+                            <WORDWRAPBOX name="titNumRegs" width="100" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="Núm. Registros" textAlignment="center"/>
+                            <WORDWRAPBOX name="titMXN" width="150" length="14.2584" alignment="baseline" color="#ffffff" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" text="MXN" textAlignment="center" borderRightWidth="1" borderLeftWidth="1" borderRightStyle="solid" borderLeftStyle="solid" borderRightColor="#ffffff" borderLeftColor="#ffffff"/>
+                        </MINIPAGE>
+                        <rtl:match nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <MINIPAGE name="DatosTabulados" width="min" length="max" layoutDirection="leftToRight">
+                                <rtl:input-variable name="v_r_despliegue.concepto" type="FGLString" expectedLocation="expectedHere"/>
+                                <WORDWRAPBOX name="v_r_despliegue.concepto Value" width="205" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_r_despliegue.concepto}}"/>
+                                <rtl:input-variable name="v_r_despliegue.num_regs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.num_regs Value" width="{100}" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="----------#" value="{{v_r_despliegue.num_regs}}"/>
+                                <rtl:input-variable name="v_r_despliegue.mxn" type="FGLNumeric" expectedLocation="expectedHere"/>
+                                <DECIMALFORMATBOX name="v_r_despliegue.mxn Value" width="{150}" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_r_despliegue.mxn}}" borderRightWidth="1" borderLeftWidth="1" borderRightStyle="dotted" borderLeftStyle="dotted" borderRightColor="#000000" borderBottomColor="#000000"/>
+                            </MINIPAGE>
+                        </rtl:match>
+                    </rtl:match>
+                    <LAYOUTNODE name="espacioTotalizador" width="12.4719" length="456.631" layoutDirection="leftToRight" floatingBehavior="enclosed" borderBottomWidth="1" borderBottomStyle="solid" borderBottomColor="#000000"/>
+                    <MINIPAGE name="renglonTotalizador" width="min" length="max" layoutDirection="leftToRight">
+                        <WORDBOX name="lblTotal" width="205" fontName="Arial" fontSize="10" fontBold="true" floatingBehavior="enclosed" textAlignment="center" text="Total"/>
+                        <rtl:input-variable name="v_total_regs" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_regs Value" width="100" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="-----------&amp;" value="{{v_total_regs}}"/>
+                        <rtl:input-variable name="v_total_mxn" type="FGLNumeric" expectedLocation="expectedHere"/>
+                        <DECIMALFORMATBOX name="v_total_mxn Value" width="150" anchorX="1" fontName="Arial" fontSize="10" floatingBehavior="enclosed" textAlignment="right" format="---,---,---,--&amp;.&amp;&amp;" value="{{v_total_mxn}}"/>
+                    </MINIPAGE>
+                    <LAYOUTNODE name="espacioParaArchivoRechazos" width="41.0787" length="min" layoutDirection="leftToRight" floatingBehavior="enclosed"/>
+                    <MINIPAGE name="LineaArchivoRechazos" width="min" length="max" layoutDirection="leftToRight">
+                        <WORDBOX name="lblArchivoRechazos" width="106" alignment="baseline" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="Archivo de rechazos:"/>
+                        <rtl:input-variable name="v_nombre_archivo_rechazos" type="FGLString" expectedLocation="expectedHere"/>
+                        <WORDWRAPBOX name="v_nombre_archivo_rechazos Value" width="400" fontName="Arial" fontSize="10" floatingBehavior="enclosed" text="{{v_nombre_archivo_rechazos}}">
+                            <rtl:input-variable name="v_nombre_archivo_rechazos" type="FGLString" expectedLocation="expectedHere"/>
+                            <WORDWRAPBOX name="v_nombre_archivo_rechazos Value1" width="width(&quot;M&quot;)*20" floatingBehavior="enclosed" text="{{v_nombre_archivo_rechazos}}"/>
+                        </WORDWRAPBOX>
+                    </MINIPAGE>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>
