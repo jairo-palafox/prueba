@@ -16,7 +16,7 @@ IMPORT com
 GLOBALS
  DEFINE g_ParametrosEnvio   STRING
 END GLOBALS
-FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_array_eventos) 
+FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_array_eventos) 
  DEFINE v_sql               CHAR(1000)
  DEFINE v_sistemaId         CHAR(50)
  DEFINE v_identificadorId   CHAR(50)
@@ -54,7 +54,7 @@ DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
   -- se obtiene los datos para el identificador de servicio
   LET v_sql = "SELECT sistemaid, identificadorid, sesionid, url_link, pagina ",
               "\n FROM ws_ctr_maestra                                        ",
-              "\n WHERE id_ws_ctr_maestra = ?                                "
+              "\n WHERE id_ws_ctr_maestrakk = ?                                "
 
   PREPARE pre_obt_datos_servicio FROM v_sql
   EXECUTE pre_obt_datos_servicio USING p_sistamaId
@@ -73,7 +73,9 @@ DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
   DISPLAY "PAGINA:           >",v_pagina                                    
   -- para cada uno de los datos ingresados se envia a la bitacora
   -- se arma respuesta para cada uno de los datos del arreglo
-
+  DISPLAY "VALORES DEL ARREGLO 1: > ",p_array_eventos[1].*
+  DISPLAY "VALORES DEL ARREGLO 2: > ",p_array_eventos[1].*
+  
   -- se arma el detalle de eventos
   CALL fn_arma_eventos(p_array_eventos) RETURNING v_cadena_evento
    -- se arma respuesta
@@ -81,7 +83,7 @@ DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
                            v_evento_inicio                      ,
                            p_sistamaId                          ,
                            p_identificadorId                    , 
-                           p_sesionId                           , 
+                           p_sesionID                           , 
                            p_url_link                           , 
                            p_pagina                             ,
                            v_cadena_evento                      ,
