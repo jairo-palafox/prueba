@@ -53,7 +53,9 @@ DEFINE ws_ret_cons_acuses_in RECORD
        END RECORD
          
 DEFINE g_indice_retiro      SMALLINT -- indice del tipo de retiro consultado
-
+DEFINE g_identificador_servicio   SMALLINT
+DEFINE g_eventoID                 CHAR(100)
+DEFINE g_sesionID                 CHAR(100)
 -- =======================================================
 -- constantes para la evaluacion del resultado de la ejecucion del webservice
 CONSTANT  g_res_procesada                    SMALLINT = 0  ,
@@ -102,7 +104,10 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
     LET v_cadena   = CURRENT SECOND TO SECOND
     LET v_ruta_log = v_ruta_log || v_cadena || ".log"
   
-  
+
+   LET g_identificador_servicio   = 1
+   LET g_eventoID                 = 'ConsultaAcuses'
+   LET g_sesionID                 = v_ruta_log
     DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
 
     -- se inicia el log del programa
@@ -351,13 +356,14 @@ DEFINE arr_detalle RECORD
            sello              CHAR(64), -- Acuse Generado
            id_derechohabiente DECIMAL(10,0) -- id_derechohabiente
 END RECORD 
-
+ 
+ 
    -- se responde el servicio para pruebas
-   LET v_nss                = NULL
-   LET v_conRetiro          = NULL
-   LET v_f_solicitud        = NULL
-   LET v_id_derechohabiente = NULL
-   LET v_indice             = 1
+   LET v_nss                    = NULL
+   LET v_conRetiro              = NULL
+   LET v_f_solicitud            = NULL
+   LET v_id_derechohabiente     = NULL
+   LET v_indice                 = 1
    
    LET ws_ret_cons_acuses_out.nss            = ws_ret_cons_acuses_in.nss
    LET ws_ret_cons_acuses_out.curp           = ws_ret_cons_acuses_in.curp
@@ -384,6 +390,9 @@ END RECORD
    DISPLAY "Fecha de Trámite: ", v_f_solicitud
    DISPLAY "Grupo           : ", v_grupo
 
+   -- se registra bitácora
+   -- se guarda la consulta de datos en la bitacora
+   CALL fn_registra_bitacora()
    -- se obtiene la ruta ejecutable
    SELECT ruta_bin
    INTO   v_ruta_ejecutable
@@ -453,7 +462,7 @@ END RECORD
          LET ws_ret_cons_acuses_out.res_consulta[v_indice].pesosViv97      = arr_detalle.pesosViv97
          LET ws_ret_cons_acuses_out.res_consulta[v_indice].pesosTotal      = arr_detalle.pesosTotal
          LET v_indice = v_indice + 1
-
+        
       END FOREACH 
 
    END IF 
@@ -498,3 +507,44 @@ FUNCTION fn_busca_movtos(p_id_derechohabiente, p_conRetiro, p_subcuenta)
    
 RETURN v_monto
 END FUNCTION 
+################################################################################
+#- funcion para registrar los eventos en la bitacora                           #
+# Autor - Jairo Giovanny Palafox Sanchez                                       #
+# Empresa -Omnisys                                                             #
+# Fecha Creacion : 26-10-2020                                                  #
+################################################################################
+FUNCTION fn_registra_bitacora()
+ DEFINE v_resultado         SMALLINT
+ DEFINE v_array_eventos DYNAMIC ARRAY OF RECORD
+         eventoId        CHAR(100),
+         timestamp       CHAR(50)
+        END RECORD
+ DEFINE v_fecha_solicitud    DATE
+ 
+  LET v_fecha_solicitud    = TODAY
+
+   
+  -- se registra notificacion
+  -- titulo
+  LET v_array_eventos[1].eventoId  = g_eventoID
+  -- se asigna el valor de la fecha en formato timestamp
+  LET v_array_eventos[1].timestamp = fn_obt_formato_timestamp()
+  -- detalle
+  LET v_array_eventos[2].eventoId  = "NSS:",ws_ret_cons_acuses_in.nss CLIPPED, 
+                                     "CURP:",ws_ret_cons_acuses_in.curp CLIPPED ,
+                                     "ID_RET:",ws_ret_cons_acuses_in.conRetiro CLIPPED, 
+                                     "FTRAMITE:",ws_ret_cons_acuses_in.fTramite CLIPPED, 
+                                     "GRUPO:",ws_ret_cons_acuses_in.grupo CLIPPED 
+
+  LET v_array_eventos[2].timestamp = fn_obt_formato_timestamp()          
+ 
+  DISPLAY "eventoId 1",v_array_eventos[1].eventoId 
+  DISPLAY "timestamp 1",v_array_eventos[1].timestamp 
+  DISPLAY "eventoId 2",v_array_eventos[2].eventoId 
+  DISPLAY "timestamp 2",v_array_eventos[2].timestamp 
+  
+  DISPLAY "Sesion",g_sesionID                                     
+  -- se ejecuta funcion global para el registro de la bitacora por evento
+  CALL fn_registra_bitacora_ws(g_identificador_servicio,g_sesionID,v_array_eventos) RETURNING v_resultado
+  DISPLAY "Resultado registro Bitacora: >>", v_resultado  
+END FUNCTION
