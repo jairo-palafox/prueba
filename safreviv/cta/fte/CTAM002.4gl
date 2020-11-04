@@ -12,325 +12,304 @@ DATABASE safre_viv
 
 GLOBALS "CTAM002.inc"
 
-PRIVATE DEFINE p_usuario            VARCHAR(20)
-PRIVATE DEFINE p_tipo_proc          CHAR(1)
-PRIVATE DEFINE p_nombre_menu        VARCHAR(50)
-PRIVATE DEFINE p_movimiento         INTEGER
-
-PRIVATE DEFINE v_ciclo              SMALLINT
-
-PRIVATE DEFINE ventana              ui.Window
-PRIVATE DEFINE forma                ui.Form
-PRIVATE DEFINE ventana_list         ui.Window
-PRIVATE DEFINE forma_list           ui.Form
-
 MAIN
-   LET p_usuario     = ARG_VAL(1)
-   LET p_tipo_proc   = ARG_VAL(2)
-   LET p_nombre_menu = ARG_VAL(3)
-   LET p_movimiento  = ARG_VAL(4)
 
-   CLOSE WINDOW SCREEN
+    DEFINE p_usuario_cod        LIKE seg_usuario.usuario_cod -- clave del usuario firmado
+    DEFINE p_tipo_ejecucion     SMALLINT -- forma como ejecutara el programa
+    DEFINE p_s_titulo           STRING -- titulo de la ventana
 
-   LET p_nombre_menu = "Administracion de tipo de aclaraciones"
-   CALL ui.Interface.setText(p_nombre_menu)
+    OPTIONS INPUT WRAP
 
-   OPEN WINDOW CTAM0021 WITH FORM "CTAM0021"
-      LET ventana = ui.Window.forName("ctam0021")
-      LET forma = ventana.getForm()
+    CLOSE WINDOW SCREEN
 
-      LET v_ciclo = TRUE
-      
-      WHILE v_ciclo
-         IF p_movimiento IS NULL THEN
-            LET p_movimiento = 0
-            WHILE p_movimiento = 0
-               CALL fn_busca_movimiento() RETURNING p_movimiento
-            END WHILE
-         ELSE
-            LET v_ciclo = FALSE
-         END IF
+    LET p_usuario_cod    = ARG_VAL(1)
+    LET p_tipo_ejecucion = ARG_VAL(2)
+    LET p_s_titulo       = ARG_VAL(3)
 
-         IF p_movimiento > 0 THEN
-            CALL fn_actualiza_movimiento()
-         END IF
-         
-         LET p_movimiento = NULL
-      END WHILE
-     LET v_ciclo = TRUE
-   CLOSE WINDOW CTAM0021
-   
+    -- si se obtuvo el titulo, se pone como titulo de programa
+    IF ( p_s_titulo IS NOT NULL ) THEN
+        CALL ui.Interface.setText(p_s_titulo)
+    END IF
+
+    CALL fn_actualiza_aclaraciones(p_usuario_cod)
+
 END MAIN
 
-PRIVATE FUNCTION fn_busca_movimiento()
-   DEFINE v_movimiento           INTEGER
-   DEFINE v_tpo_movimiento       INTEGER
-   DEFINE v_modulo               CHAR(3)
-   DEFINE cb_tpo_movimiento      ui.ComboBox
-   DEFINE cb_modulo              ui.ComboBox
-   DEFINE v_query                STRING
-   DEFINE v_condicion            STRING
-   DEFINE v_clave                CHAR(3)
-   DEFINE v_desc                 VARCHAR(50)
-   DEFINE i                      INTEGER
 
-   DEFINE v_lista_movimientos DYNAMIC ARRAY OF movimiento
+PRIVATE FUNCTION fn_inicializa()
 
-   INITIALIZE v_lista_movimientos TO NULL
-   #Ocultamos las secciones que no tienen datos
-   CALL forma.setElementHidden("group2",1)
-   
+    DEFINE v_query      STRING
 
-   CONSTRUCT v_condicion ON mov.aclaracion_cod FROM v_movimiento
+    LET v_query =  "\n SELECT aclaracion_cod,                                     ",
+                   "\n        aclaracion_cod||' - '||TRIM(aclaracion_descripcion) ",
+                   "\n FROM   pag_tpo_aclaracion                                  ",
+                   "\n ORDER  BY aclaracion_cod                                   "
+    PREPARE prp_clave_aclara FROM v_query
+    DECLARE cur_clave_aclara CURSOR FOR prp_clave_aclara
 
-      BEFORE CONSTRUCT
-         CLEAR FORM
+    LET v_query = "\n SELECT pa.aclaracion_cod,                               ",
+                  "\n        pa.aclaracion_descripcion,                       ",
+                  "\n        CASE                                             ",
+                  "\n            WHEN (cat.aclaracion_cod IS NOT NULL) THEN 1 ",
+                  "\n            ELSE 0                                       ",
+                  "\n        END AS ind_visible                               ",
+                  "\n FROM   pag_tpo_aclaracion pa                            ",
+                  "\n        LEFT JOIN cat_muestra_acl cat                    ",
+                  "\n               ON cat.aclaracion_cod = pa.aclaracion_cod ",
+                  "\n WHERE  pa.aclaracion_cod = ?                            ",
+                  "\n ORDER BY pa.aclaracion_cod ASC                          "
+    PREPARE prp_datos_aclara FROM v_query
 
-      ON ACTION ACCEPT
-         LET v_movimiento = GET_FLDBUF(v_movimiento)
+    LET v_query = "\n SELECT COUNT(*)           ",
+                  "\n FROM   cat_muestra_acl    ",
+                  "\n WHERE  aclaracion_cod = ? "
+    PREPARE prp_muestra_acl FROM v_query
 
---         IF v_movimiento IS NULL THEN   
---            CALL fn_mensaje("Actualiza clave aclaración", "Debe de ingresar algún campo de búsqueda.", "about")
---            NEXT FIELD v_movimiento
---         END IF
-
-         LET v_ciclo  = FALSE
-         LET INT_FLAG = FALSE
-         ACCEPT CONSTRUCT
-
-      ON ACTION CANCEL
-         LET v_ciclo  = FALSE
-         LET INT_FLAG = TRUE
-         EXIT CONSTRUCT
-   END CONSTRUCT
-
-   IF NOT INT_FLAG THEN
-      LET v_query =  "SELECT ",
-                     "aclaracion_cod , ",
-                     "aclaracion_descripcion, ",
-                     "desc_ciudadana ",
-                     "FROM pag_tpo_aclaracion mov ",
-                     "WHERE ", v_condicion CLIPPED, " ",
-                     "ORDER BY aclaracion_cod ASC"
-DISPLAY "v_query ",v_query
-      PREPARE exe_busca_movimientos FROM v_query
-      DECLARE cur_busca_movimientos CURSOR FOR exe_busca_movimientos
-
-      LET i = 1
-      FOREACH cur_busca_movimientos INTO  v_lista_movimientos[i].*
-         LET i = i + 1
-         #IF i > MAX_REGISTROS THEN
-         #   CALL fn_mensaje("Actualiza movimiento",
-         #                   "Acotar más el criterio de búsqueda. \n"||
-         #                   "Se muestran sólo los primeros 200 registros",
-         #                   "about")
-         #   EXIT FOREACH
-         #END IF
-      END FOREACH
-
-      IF v_lista_movimientos[v_lista_movimientos.getLength()].movimiento IS NULL 
-      OR v_lista_movimientos[v_lista_movimientos.getLength()].movimiento <= 0 THEN
-         CALL v_lista_movimientos.deleteElement(v_lista_movimientos.getLength())
-      END IF
-
-      IF i > 1 THEN
-         IF i = 2 THEN
-            LET v_movimiento = v_lista_movimientos[1].movimiento
-         ELSE
-            OPEN WINDOW ctam0022 WITH FORM "CTAM0022" ATTRIBUTES (STYLE="dialog")
-               LET ventana_list = ui.Window.forName("ctam0022")
-               LET forma_list = ventana.getForm()
-
-               CALL ventana_list.setText(p_nombre_menu);
-               
-               DISPLAY ARRAY v_lista_movimientos TO lista_movimientos.*
-                  ON ACTION ACCEPT 
-                     LET INT_FLAG = FALSE
-                     LET v_movimiento = v_lista_movimientos[ARR_CURR()].movimiento
-                     EXIT DISPLAY
-
-                  ON ACTION CANCEL
-                     LET v_movimiento = 0
-                     EXIT DISPLAY
-               END DISPLAY
-            CLOSE WINDOW ctam0022
-         END IF
-      ELSE
-         CALL fn_mensaje("Actualiza aclaración",
-                         "No existe registros con el criterio de búsqueda. \n",
-                         "about")
-         LET v_movimiento = 0
-      END IF
-   ELSE
-      LET v_movimiento = -1
-   END IF
-   #CALL fn_mensaje("Actualiza movimiento",v_movimiento,"about")
-   RETURN v_movimiento
 END FUNCTION
 
-PRIVATE FUNCTION fn_actualiza_movimiento()
-   DEFINE v_query             STRING
-   DEFINE v_movimiento        INTEGER
-   DEFINE v_movimiento_desc   VARCHAR(40)
-   DEFINE v_tipo              INTEGER
-   DEFINE v_tipo_movimiento   VARCHAR(20)
-   DEFINE v_modulo            VARCHAR(60)
-   DEFINE v_ind_visible       INTEGER
-   DEFINE v_tmp_visible       INTEGER 
-   DEFINE v_desc_ciudadana    VARCHAR(60)
 
-   DEFINE v_desc_original     VARCHAR(60)
-   DEFINE v_visible_original  INTEGER
-   DEFINE v_cambio_desc       BOOLEAN
-   DEFINE v_cambio_vis        BOOLEAN
-   DEFINE v_respuesta         INTEGER
+PRIVATE FUNCTION fn_actualiza_aclaraciones(p_usuario_cod)
 
-   DEFINE v_cb_visible        ui.ComboBox
+    DEFINE p_usuario_cod        LIKE seg_usuario.usuario_cod
 
-  
+    DEFINE v_datos_aclara       t_datos_aclara
+    DEFINE v_resp_aclara        t_datos_aclara
 
-   LET v_query =  "SELECT ", 
-                     "mov.aclaracion_cod, ",
-                     "mov.aclaracion_descripcion, ",
-                     "mu.aclaracion_cod, ",
-                     "mov.desc_ciudadana ",
-                  "FROM pag_tpo_aclaracion mov ",
-                  "LEFT JOIN cat_muestra_acl mu ON mu.aclaracion_cod = mov.aclaracion_cod ",
-                  "WHERE mov.aclaracion_cod = ? "
-   PREPARE exe_consulta_movimiento FROM v_query
-   EXECUTE exe_consulta_movimiento USING  p_movimiento
-                                   INTO   v_movimiento,
-                                          v_movimiento_desc,
-                                          v_tmp_visible,
-                                          v_desc_ciudadana
+    DEFINE v_tpo_modifica       LIKE cat_his_aclaracion.tpo_modifica
 
-   IF v_tmp_visible IS NOT NULL AND v_tmp_visible > 0 THEN
-      LET v_ind_visible = 1
-   ELSE
-      LET v_ind_visible = 2
-   END IF
+    DEFINE v_cbx_cve_acl_busq   ui.ComboBox
+    DEFINE v_cbx_clave_acl      ui.ComboBox
+    DEFINE v_aclara_cod         LIKE pag_tpo_aclaracion.aclaracion_cod
+    DEFINE v_aclara_desc        LIKE pag_tpo_aclaracion.aclaracion_descripcion
+    DEFINE v_cbx_ind_visible    ui.ComboBox
 
-   LET v_desc_original = v_desc_ciudadana
-   LET v_visible_original = v_ind_visible
+    DEFINE v_confirma           SMALLINT
 
-   CALL forma.setElementHidden("group2",0)
-   CALL forma.setElementHidden("group1",1)
+    DEFINE v_ventana            ui.Window
+    DEFINE v_forma              ui.Form
 
-   INPUT v_ind_visible, v_desc_ciudadana FROM ind_visible, desc_ciudadana ATTRIBUTES (UNBUFFERED, WITHOUT DEFAULTS)
-      BEFORE INPUT
-         #Ocultamos las secciones que no tienen datos
-         CALL DIALOG.setActionHidden("accept", TRUE)
-         
-         LET v_cb_visible = ui.ComboBox.forName("formonly.ind_visible")
-         CALL v_cb_visible.clear()
-         CALL v_cb_visible.addItem(1,"SI")
-         CALL v_cb_visible.addItem(2,"NO")
+    CALL fn_inicializa()
 
-         DISPLAY v_movimiento TO movimiento
-         DISPLAY v_movimiento_desc TO desc_movimiento
-         DISPLAY v_ind_visible TO ind_visible
-         DISPLAY v_desc_ciudadana TO desc_ciudadana
 
-      ON ACTION actualizar
-         IF v_ind_visible <> v_visible_original THEN
-            LET v_cambio_vis = TRUE
-         ELSE
-            LET v_cambio_vis = FALSE
-         END IF
+    OPEN WINDOW w_actualiza_aclaraciones WITH FORM "CTAM0021"
 
-         IF v_desc_ciudadana <> v_desc_original 
-         OR (v_desc_ciudadana IS NOT NULL AND v_desc_original IS NULL) 
-         OR (v_desc_ciudadana IS NULL AND v_desc_original IS NOT NULL) THEN
-            LET v_cambio_desc = TRUE
-         ELSE
-            LET v_cambio_desc = FALSE
-         END IF
+        LET v_ventana = ui.Window.getCurrent()
+        LET v_forma   = v_ventana.getForm()
 
-         IF v_cambio_desc OR v_cambio_vis THEN
-            #Se aplican las actualizaciones
-            CALL fn_ventana_confirma("Atención",
-                    "¿Desea aplicar la actualizacion a la aclaración?",
-                     "quest") RETURNING v_respuesta
-            
-            IF v_respuesta = 1 THEN
-               CALL fn_aplica_actualizacion(v_cambio_vis, v_ind_visible, v_cambio_desc, v_desc_ciudadana, v_movimiento)
-               CALL fn_mensaje("Actualiza aclaración","La actualizacion se aplico correctamente en el sistema","about")
-               EXIT INPUT
-            END IF
-         ELSE
-            CALL fn_mensaje("Actualiza movimiento","Para continuar es necesario aplicar alguna actualizacion...","about")
-         END IF
-         
-      ON ACTION CANCEL
-         EXIT INPUT
+        LET v_cbx_cve_acl_busq = ui.ComboBox.forName("aclara_cod_busq")
+        LET v_cbx_clave_acl = ui.ComboBox.forName("aclaracion_cod")
+        LET v_cbx_ind_visible = ui.ComboBox.forName("ind_visible")
 
-   END INPUT
+        DIALOG ATTRIBUTES (UNBUFFERED)
+
+            INPUT v_aclara_cod FROM aclara_cod_busq
+            END INPUT
+
+            INPUT v_datos_aclara.* FROM datos_aclara.*
+
+                ON CHANGE aclaracion_descripcion
+
+                    IF (v_datos_aclara.aclaracion_descripcion IS NULL) OR (LENGTH(v_datos_aclara.aclaracion_descripcion CLIPPED) == 0) THEN
+                        CALL fn_mensaje("Atención","Debe ingresar la descripción de la aclaración.","info")
+                        NEXT FIELD aclaracion_descripcion
+                    END IF
+
+            END INPUT
+
+
+            ON ACTION consultar
+
+                CALL Dialog.setActionHidden("cancel",FALSE)
+                CALL Dialog.setActionHidden("actualizar",FALSE)
+                CALL Dialog.setActionHidden("consultar",TRUE)
+                CALL Dialog.setActionHidden("salir",TRUE)
+                CALL v_forma.setElementHidden("grp_datos_aclara",FALSE)
+                CALL v_forma.setElementHidden("grp_busqueda",TRUE)
+
+                EXECUTE prp_datos_aclara USING v_aclara_cod
+                                         INTO  v_datos_aclara.*
+
+                LET v_resp_aclara.* = v_datos_aclara.*
+
+            -- ON ACTION consultar
+
+
+            ON ACTION actualizar
+
+                CALL fn_valida_tpo_modifica(v_datos_aclara.*,v_resp_aclara.*)
+                     RETURNING v_tpo_modifica
+
+                IF (v_tpo_modifica > 0) THEN
+
+                    IF (v_datos_aclara.aclaracion_descripcion IS NULL) OR (LENGTH(v_datos_aclara.aclaracion_descripcion CLIPPED) == 0) THEN
+                        CALL fn_mensaje("Atención","Debe ingresar la descripción de la aclaración.","info")
+                        NEXT FIELD aclaracion_descripcion
+                    END IF
+
+                    CALL fn_ventana_confirma("Atención","¿Desea aplicar la actualizacion a la aclaración?","quest")
+                         RETURNING v_confirma
+
+                    IF (v_confirma) THEN
+
+                        CALL fn_guarda_actualizacion(v_datos_aclara.*,v_resp_aclara.*,v_tpo_modifica,p_usuario_cod)
+                        CALL fn_mensaje("Actualiza movimiento","La actualizacion se aplico correctamente en el sistema.","about")
+
+                        CALL Dialog.setActionHidden("cancel",TRUE)
+                        CALL Dialog.setActionHidden("actualizar",TRUE)
+                        CALL Dialog.setActionHidden("consultar",FALSE)
+                        CALL Dialog.setActionHidden("salir",FALSE)
+                        CALL v_forma.setElementHidden("grp_datos_aclara",TRUE)
+                        CALL v_forma.setElementHidden("grp_busqueda",FALSE)
+
+                    END IF
+
+                ELSE
+                    CALL fn_mensaje("Actualiza movimiento","Para continuar es necesario aplicar alguna actualizacion.","about")
+                END IF
+
+
+            -- ON ACTION actualizar
+
+
+            ON ACTION CANCEL
+
+                INITIALIZE v_datos_aclara.* TO NULL
+                CALL Dialog.setActionHidden("cancel",TRUE)
+                CALL Dialog.setActionHidden("actualizar",TRUE)
+                CALL Dialog.setActionHidden("consultar",FALSE)
+                CALL Dialog.setActionHidden("salir",FALSE)
+                CALL v_forma.setElementHidden("grp_datos_aclara",TRUE)
+                CALL v_forma.setElementHidden("grp_busqueda",FALSE)
+
+            -- ON ACTION CANCEL
+
+
+            ON ACTION CLOSE
+                EXIT DIALOG
+
+
+            ON ACTION salir
+                EXIT DIALOG
+
+
+            BEFORE DIALOG
+
+                CALL Dialog.setActionHidden("close",TRUE)
+                CALL Dialog.setActionHidden("cancel",TRUE)
+                CALL Dialog.setActionHidden("actualizar",TRUE)
+                CALL v_forma.setElementHidden("grp_datos_aclara",TRUE)
+
+                CALL v_cbx_cve_acl_busq.clear()
+                CALL v_cbx_clave_acl.clear()
+                CALL v_cbx_ind_visible.clear()
+
+                FOREACH cur_clave_aclara INTO v_aclara_cod,
+                                              v_aclara_desc
+                    CALL v_cbx_cve_acl_busq.addItem(v_aclara_cod,v_aclara_cod)
+                    CALL v_cbx_clave_acl.addItem(v_aclara_cod,v_aclara_cod)
+                END FOREACH
+
+                CALL v_cbx_ind_visible.addItem(0,"NO")
+                CALL v_cbx_ind_visible.addItem(1,"SI")
+
+                LET v_aclara_cod = NULL
+
+                SELECT MIN(aclaracion_cod)
+                INTO   v_aclara_cod
+                FROM   pag_tpo_aclaracion
+
+            -- BEFORE DIALOG
+
+        END DIALOG
+
+    CLOSE WINDOW w_actualiza_aclaraciones
+
 END FUNCTION
 
-PRIVATE FUNCTION fn_aplica_actualizacion(p_cambio_vis, p_ind_visible, p_cambio_desc, p_desc_ciudadana, p_mov)
-   DEFINE p_cambio_vis        BOOLEAN
-   DEFINE p_ind_visible       INTEGER
-   DEFINE p_cambio_desc       BOOLEAN
-   DEFINE p_desc_ciudadana    VARCHAR(60)
-   DEFINE p_mov               INTEGER
-   DEFINE v_tipo_modificacion INTEGER
-   DEFINE v_query             STRING
-   DEFINE v_f_proceso         DATE
 
-   DEFINE v_bitacora bitacora_mov
+PRIVATE FUNCTION fn_valida_tpo_modifica(p_datos_aclara,p_resp_aclara)
 
-   LET v_tipo_modificacion = 0
-   LET v_f_proceso = TODAY
+    DEFINE p_datos_aclara       t_datos_aclara
+    DEFINE p_resp_aclara        t_datos_aclara
 
-   IF p_cambio_desc THEN
-      LET v_tipo_modificacion = v_tipo_modificacion + 1
-   END IF
-   
-   IF p_cambio_vis THEN
-      LET v_tipo_modificacion = v_tipo_modificacion + 2
-   END IF
+    DEFINE r_tpo_modifica       LIKE cat_his_aclaracion.tpo_modifica
 
-   #Se llena la bitacora
-   LET v_query = "SELECT ",
-                     "mov.aclaracion_cod, ",
-                     "mov.aclaracion_descripcion, ",
-                     "mov.desc_ciudadana ",
-                  "FROM pag_tpo_aclaracion mov ",
-                  "WHERE mov.aclaracion_cod = ? "
-   PREPARE exe_consulta_mov FROM v_query
-   EXECUTE exe_consulta_mov USING   p_mov
-                           INTO     v_bitacora.movimiento,
-                                    v_bitacora.movimiento_desc,
-                                    v_bitacora.desc_ciudadana
-   IF v_bitacora.movimiento IS NOT NULL AND v_bitacora.movimiento > 0 THEN
-      LET v_bitacora.f_modifica = TODAY
-      LET v_bitacora.usuario = p_usuario
-      LET v_bitacora.tpo_modifica = v_tipo_modificacion
+    LET r_tpo_modifica = 0
 
-      LET v_query = "INSERT INTO cat_his_aclaracion(
-                                 id_cat_his_aclaracion,
-                                 aclaracion_cod,
-                                 aclaracion_descripcion,
-                                 desc_ciudadana,
-                                 f_modifica,
-                                 usuario,
-                                 tpo_modifica)
-                                 values (seq_cat_his_acl.nextval,?,?,?,?,?,?) "
-      PREPARE exe_inserta_bitacora FROM v_query
-      EXECUTE exe_inserta_bitacora USING v_bitacora.*
-   END IF
+    DISPLAY "Datos Anteriores - Descripcion: ",p_resp_aclara.aclaracion_descripcion," - Indicador",p_resp_aclara.ind_visible
+    DISPLAY "Datos Nuevos - Descripcion: ",p_datos_aclara.aclaracion_descripcion," - Indicador",p_datos_aclara.ind_visible
 
-   IF p_cambio_vis THEN
-      IF p_ind_visible = 1 THEN
-         #Se actualiza para mostrar el movimiento
-         INSERT INTO cat_muestra_acl (aclaracion_cod,f_actualiza,usuario) VALUES (p_mov,TODAY,p_usuario);
-      ELSE
-         #Se actualiza para ocultar el movimiento
-         DELETE FROM cat_muestra_acl WHERE aclaracion_cod = p_mov
-      END IF
-   END IF
-   
-   IF p_cambio_desc THEN
-      UPDATE pag_tpo_aclaracion SET desc_ciudadana = p_desc_ciudadana WHERE aclaracion_cod = p_mov
-   END IF
+    IF (p_datos_aclara.aclaracion_descripcion <> p_resp_aclara.aclaracion_descripcion) THEN
+        LET r_tpo_modifica = r_tpo_modifica + 1
+    END IF
+
+    IF (p_datos_aclara.ind_visible <> p_resp_aclara.ind_visible) THEN
+        LET r_tpo_modifica = r_tpo_modifica + 2
+    END IF
+
+    DISPLAY "r_tpo_modifica: ",r_tpo_modifica
+
+    RETURN r_tpo_modifica
+
+END FUNCTION
+
+
+PRIVATE FUNCTION fn_guarda_actualizacion(p_datos_aclara,p_resp_aclara,p_tpo_modifica,p_usuario_cod)
+
+    DEFINE p_datos_aclara       t_datos_aclara
+    DEFINE p_resp_aclara        t_datos_aclara
+    DEFINE p_tpo_modifica       LIKE cat_his_aclaracion.tpo_modifica
+    DEFINE p_usuario_cod        LIKE seg_usuario.usuario_cod
+
+    DEFINE v_contador           SMALLINT
+
+    -- Se guarda la bitacora
+    INSERT INTO cat_his_aclaracion(id_cat_his_aclaracion,
+                                   aclaracion_cod,
+                                   aclaracion_descripcion,
+                                   desc_ciudadana,
+                                   f_modifica,
+                                   usuario,
+                                   tpo_modifica)
+                            VALUES(seq_cat_his_acl.NEXTVAL, -- id_cat_his_aclaracion
+                                   p_resp_aclara.aclaracion_cod,
+                                   p_resp_aclara.aclaracion_descripcion,
+                                   NULL, -- desc_ciudadana
+                                   TODAY,
+                                   p_usuario_cod,
+                                   p_tpo_modifica)
+
+    -- Se actualiza el registro
+    UPDATE pag_tpo_aclaracion
+    SET    aclaracion_descripcion = p_datos_aclara.aclaracion_descripcion
+    WHERE  aclaracion_cod = p_resp_aclara.aclaracion_cod
+
+    EXECUTE prp_muestra_acl USING p_datos_aclara.aclaracion_cod
+                            INTO  v_contador
+
+    IF (p_datos_aclara.ind_visible == 1) THEN
+
+        IF (v_contador == 0) THEN -- Si se va a mostrar
+
+            INSERT INTO cat_muestra_acl(aclaracion_cod,
+                                        f_actualiza,
+                                        usuario)
+                                 VALUES(p_datos_aclara.aclaracion_cod,
+                                        TODAY,
+                                        p_usuario_cod)
+
+        END IF
+
+    ELSE
+
+        IF (v_contador == 1) THEN -- Si NO se va a mostrar
+
+            DELETE
+            FROM   cat_muestra_acl
+            WHERE  aclaracion_cod = p_datos_aclara.aclaracion_cod
+
+        END IF
+
+    END IF
+
 END FUNCTION

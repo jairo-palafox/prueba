@@ -87,9 +87,7 @@ MAIN
    LET p_nombre_menu        = ARG_VAL(3) -- Recibe el nombre del programa
    LET g_id_derechohabiente = ARG_VAL(4)
 
-   
-   
-   CALL STARTLOG(g_usuario CLIPPED ||".CTAC01.log")
+   #CALL STARTLOG(g_usuario CLIPPED ||".CTAC01.log")
 
    CLOSE WINDOW SCREEN
 
@@ -421,21 +419,7 @@ END FUNCTION
 
 FUNCTION muestra_saldos()
 
-   
-
    DEFINE arr_arbol DYNAMIC ARRAY OF RECORD
-       subcuenta_desc               CHAR(60),
-       siefore                      SMALLINT,
-       monto_pesos                  DECIMAL(16,6),
-       monto_acciones               DECIMAL(16,6),
-       subcuenta                    SMALLINT,
-       movimiento                   SMALLINT,
-       padre_id                     CHAR(40),
-       id                           CHAR(40),
-       nivel                        SMALLINT
-    END RECORD
-
-    DEFINE r_arbol RECORD
        subcuenta_desc               CHAR(60),
        siefore                      SMALLINT,
        monto_pesos                  DECIMAL(16,6),
@@ -463,12 +447,6 @@ FUNCTION muestra_saldos()
    DEFINE v_query                   STRING
    DEFINE v_grupo                   STRING
 
-   DEFINE lstring                   base.StringBuffer
-   DEFINE lperfil                   STRING
-   DEFINE SQL1                      STRING
-   DEFINE lCONAE                    INTEGER
-   DEFINE lCONSA                    INTEGER
-
    LET vsdo_fin = 0
    LET resp_visualiza = 0
 
@@ -482,8 +460,6 @@ FUNCTION muestra_saldos()
                         " cat_fondo_local cfl ",
                   " WHERE gvf.f_valuacion = ? ",
                     " AND cfl.fondo       = gvf.fondo "  
-
-
    PREPARE prp_precio FROM v_query
    DECLARE cur_precio CURSOR FOR prp_precio
 
@@ -495,44 +471,12 @@ FUNCTION muestra_saldos()
    FREE cur_precio
 
    CALL arr_precios.deleteElement(i)
-   
 
-PREPARE prp_arbol FROM "SELECT * FROM tmp_arbol_saldo ORDER BY id "
+   PREPARE prp_arbol FROM "SELECT * FROM tmp_arbol_saldo ORDER BY id "
    DECLARE cur_arbol CURSOR FOR prp_arbol
---mod jca perfil
-   LET lCONAE = 0
-   LET SQL1 = "\n SELECT COUNT(*)",
-              "\n   FROM seg_usuario_perfil s_usu_p",
-              "\n  INNER JOIN seg_perfil seg_per ON seg_per.perfil_cod = s_usu_p.perfil_cod",
-              "\n  WHERE TRIM(perfil_corta) = 'CONAE'",
-              "\n    AND s_usu_p.usuario_cod = '", g_usuario, "'"
-   PREPARE select_perfil_usuario FROM SQL1
-   EXECUTE select_perfil_usuario INTO lCONAE
-
-   LET lCONSA = 0
-   LET SQL1 = "\n SELECT COUNT(*)",
-              "\n   FROM seg_usuario_perfil s_usu_p",
-              "\n  INNER JOIN seg_perfil seg_per ON seg_per.perfil_cod = s_usu_p.perfil_cod",
-              "\n  WHERE TRIM(perfil_corta) = 'CONSA'",
-              "\n    AND s_usu_p.usuario_cod = '", g_usuario, "'"
-   PREPARE select_perfil_usuario2 FROM SQL1
-   EXECUTE select_perfil_usuario2 INTO lCONSA
     
-
    LET i = 1
-   FOREACH cur_arbol INTO r_arbol.*
-
-    IF r_arbol.subcuenta = "46" AND lCONAE = 0 THEN
-
-            IF lCONSA = 0 THEN
-            EXIT FOREACH
-            ELSE
-            CONTINUE FOREACH
-    END IF
- 
-    
-    END IF 
-    LET arr_arbol[i].* = r_arbol.*
+   FOREACH cur_arbol INTO arr_arbol[i].*
       --Para el caso del nivel 1 en el campo se subcuenta viene el grupo
       IF arr_arbol[i].nivel = 1 THEN
          LET v_grupo = arr_arbol[i].subcuenta
@@ -587,10 +531,9 @@ PREPARE prp_arbol FROM "SELECT * FROM tmp_arbol_saldo ORDER BY id "
 
       LET i = i + 1
    END FOREACH
-   
+
    CLOSE cur_arbol
    FREE cur_arbol
-
 
    #Se elimina la tabla temporal del arbol
    LET v_query = "DROP TABLE IF EXISTS tmp_arbol_saldo"
@@ -1077,8 +1020,6 @@ PRIVATE FUNCTION fn_buscar_historico(p_finicio, p_ffin)
 
    WHENEVER ERROR CONTINUE
       LET v_calcula_historico = "execute procedure sp_gen_his_mov(?)";
-
-      
       PREPARE exe_calcula_historico FROM v_calcula_historico
       EXECUTE exe_calcula_historico USING g_id_derechohabiente
 
@@ -1107,10 +1048,8 @@ PRIVATE FUNCTION fn_buscar_historico(p_finicio, p_ffin)
                                     "WHERE mov.f_liquida >= ? ",
                                     "AND mov.f_liquida <= ? ",
                                     "ORDER BY mov.f_liquida, mov.folio_liquida "
-        
          PREPARE exe_consulta_historico FROM v_consulta_historico
          DECLARE cur_consulta_historico CURSOR FOR exe_consulta_historico 
-         DISPLAY v_consulta_historico
 
          LET i = 1
          FOREACH cur_consulta_historico USING p_finicio, p_ffin INTO v_lista_historico[i].*

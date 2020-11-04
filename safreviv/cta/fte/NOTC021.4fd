@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="23217" name="managedform" uid="{9fee7a28-e05b-44f0-bd32-33803bc636d0}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="scr_anteriores" order="" uid="{cc89ade5-b5fb-4867-9c44-49839e85fbc6}" where="">
+    <RecordField colName="" fieldIdRef="1" name="v_nombre_a" sqlTabName="" table_alias_name="" uid="{55cc3c47-5e24-4ff0-a0fe-eb4c3d1e9173}"/>
+    <RecordField colName="" fieldIdRef="2" name="v_fecha_ini_a" sqlTabName="" table_alias_name="" uid="{991756d9-7bb8-4077-8930-7bf4e669bdf3}"/>
+    <RecordField colName="" fieldIdRef="3" name="v_fecha_fin_a" sqlTabName="" table_alias_name="" uid="{9fa3107e-6b6c-4574-9bb0-2ff2ecf438b4}"/>
+    <RecordField colName="" fieldIdRef="4" name="v_descripcion_a" sqlTabName="" table_alias_name="" uid="{1ff0a87b-4417-4dab-86cc-8fbf5baac5a7}"/>
+    <RecordField colName="" fieldIdRef="5" name="v_fecha_alta_a" sqlTabName="" table_alias_name="" uid="{f670177b-b2c4-42f8-bdeb-4bb3fada2900}"/>
+    <RecordField colName="" fieldIdRef="6" name="v_usuario_alta" sqlTabName="" table_alias_name="" uid="{363da537-d3ea-4236-81c8-fb07a4da63c7}"/>
+    <RecordField colName="" fieldIdRef="7" name="v_fecha_baja" sqlTabName="" table_alias_name="" uid="{735f699b-0a82-48f5-82d4-f1abdf920bae}"/>
+    <RecordField colName="" fieldIdRef="10" name="hora_baja" sqlTabName="" table_alias_name="" uid="{cd5b1a7a-4d53-48c1-a46e-cbbd2e3abc4f}"/>
+    <RecordField colName="" fieldIdRef="8" name="v_usuario_baja" sqlTabName="" table_alias_name="" uid="{6607dd29-02b8-44dd-8f6d-5a68155d0456}"/>
+    <RecordField colName="" fieldIdRef="9" name="tpo_modifica" sqlTabName="" table_alias_name="" uid="{c10724a0-d4f8-4cc9-9115-252ea523420e}"/>
+  </Record>
+  <Form gridHeight="29" gridWidth="199" name="form" text="Form">
+    <Grid gridHeight="27" gridWidth="196" name="grid1" posX="1" posY="1">
+      <Group gridHeight="25" gridWidth="193" name="group2" posX="1" posY="1" text="Campañas anteriores">
+        <Table gridHeight="23" gridWidth="191" name="scr_anteriores" posX="1" posY="1" rowHeight="2" totalRows="10">
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="1" gridHeight="1" gridWidth="8" name="v_nombre_a" posX="0" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="1" table_alias_name="" title="Nombre&#10;Campaña" widget="Edit"/>
+          <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="2" format="dd/mm/yyyy" gridHeight="1" gridWidth="8" name="v_fecha_ini_a" posX="8" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Fecha&#10;Inicio" widget="DateEdit"/>
+          <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="3" format="dd/mm/yyyy" gridHeight="1" gridWidth="8" name="v_fecha_fin_a" posX="16" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="3" table_alias_name="" title="Fecha&#10;Fin" widget="DateEdit"/>
+          <TextEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="4" gridHeight="1" gridWidth="81" name="v_descripcion_a" posX="24" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Descripción" widget="TextEdit"/>
+          <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="5" format="dd/mm/yyyy" gridHeight="1" gridWidth="8" name="v_fecha_alta_a" posX="105" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="5" table_alias_name="" title="Fecha&#10;Alta" widget="DateEdit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="6" gridHeight="1" gridWidth="8" name="v_usuario_alta" posX="113" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Usuario&#10;Alta" widget="Edit"/>
+          <DateEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="7" format="dd/mm/yyyy" gridHeight="1" gridWidth="8" name="v_fecha_baja" posX="121" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Fecha&#10;Baja" widget="DateEdit"/>
+          <TimeEdit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="10" gridHeight="1" gridWidth="8" name="hora_baja" posX="129" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Hora&#10;Baja" widget="TimeEdit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="8" gridHeight="1" gridWidth="8" name="v_usuario_baja" posX="137" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Usuario&#10;Baja" widget="Edit"/>
+          <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="" columnCount="" fieldId="9" gridHeight="1" gridWidth="35" name="tpo_modifica" posX="145" posY="0" rowCount="" sqlTabName="" stepX="" stepY="" tabIndex="9" table_alias_name="" title="Modificación" widget="Edit"/>
+        </Table>
+      </Group>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBjAGMAOAA5AGEAZABlADUALQBiADUAZgBiAC0ANAA4ADYANwAtADkAYwA0ADQALQA0ADkAOAAzADkAZQA4ADUAZgBiAGMANgB9QFPAABPAAAdAVcAAFcAACD94k3S8an76AQAAAEwAewAzADYAMwBkAGEANQAzADcALQBkADMAZQBhAC0ANAAyADMANgAtADgAMQBjADgALQBmAGIAMAA3AGEANABkAGEANgAzAGMANwB9QCAAAAQAAABAXWZmbcAAAAAAAAAAAAAAAQAAAEwAewA2ADYAMAA3AGQAZAAyADkALQAwADIAYgA4AC0ANAA0AGQAZAAtADgAZgA2AGQALQA1AGEANgA4ADEANQA1AGQAMAA0ADUANgB9QCAAAAQAAABAZUzM0iAAAAAAAAAAAAAAAQAAAEwAewBjAGQANQBiADEAYQA3AGEALQA0AGQANQAzAC0ANAA4AGMAMQAtAGEANAA2AGUALQBjAGIAYgBkADIAZQAzAGEAYgBjADQAZgB9QCAAAAQAAABAYxmZnmAAAAAAAAAAAAAAAQAAAEwAewA5ADkAMQA3ADUANgBkADkALQA3AGIAYgA4AC0ANAAwADcANwAtADgAOQAzADAALQA3AGIAZgA0AGUANgA2ADkAYgBkAGYAMwB9QCAAAAQAAABAR5mZn4AAAAAAAAAAAAAAAQAAAEwAewAxAGYAZgAwAGEAOAA3AGIALQA0ADQAMQA3AC0ANABkAGEAYgAtADgANgBjAGMALQA4AGYAYgBmADUAYgBhAGEAYwA1AGEANwB9QCAAAAQAAABAVJmZnsAAAAAAAAAAAAAAAQAAAEwAewBmADYANwAwADEANwA3AGIALQBiADIAYwA0AC0ANAAyAGYAOAAtAGIAZABlAGIALQA0AGIAYgAzAGYAYQBkAGEAMgA5ADAAMAB9QCAAAAQAAABAWQAABkAAAAAAAAAAAAAAAQAAAEwAewBjADEAMAA3ADIANABhADAALQBkADQAZgA4AC0ANABjAGMAOQAtADkAMQAxADUALQAyADUAMgBlAGEANQAyADMANAAyADAAZQB9QCAAAAQAAABAZ4AABeAAAAAAAAAAAAAAAQAAAEwAewA3ADMANQBmADYAOQA5AGIALQAwAGEAOAAyAC0ANAA4AGYANQAtADgAMgBkADQALQBmADEAYQBiAGQAZgA5ADIAMABiAGEAZQB9QCAAAAQAAABAYOZmaqAAAAAAAAAAAAAAAQAAAEwAewA1ADUAYwBjADMAYwA0ADcALQA1AGUAMgA0AC0ANABmAGYAMAAtAGEAMABmAGUALQBlAGIANABjADMAZAAxAGUAOQAxADcAMwB9QCAAAAQAAABAPZmZoQAAAAAAAAAAAAAAAQAAAEwAewA5AGYAYQAzADEAMAA3AGUALQA2AGIANgBjAC0ANAA1ADcANAAtADkAYgBiADAALQAyAGYAZgAyAGUAYwBmADQAMwA4AGIANAB9QCAAAAQAAABAUDMzN0AAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>
