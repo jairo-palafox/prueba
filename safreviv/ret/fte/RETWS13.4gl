@@ -1,6 +1,6 @@
 --===============================================================
 -- VERSION: 1.0.0
--- FECHA ULTIMA MODIFICACION:
+-- FECHA ULTIMA MODIFICACION: 27/10/2020
 --===============================================================
 ###############################################################################
 #PROYECTO          => SAFRE VIVIENDA                                          #
@@ -11,6 +11,11 @@
 #OBJETIVO          => WS CONSULTA DE PDF DE ACUSES DE SOLICITUDES TRAMITADAS  #
 #                     POR MI CUENTA INFONAVIT, DEVOLUCION AUTOMATICA DEL SSV  # 
 #FECHA INICIO      => Marzo 4, 2018                                           #
+-------------------------------------------------------------------------------
+#MODIFICACION 27/10/2020                                                      #
+#OBJETIVO          => SE AGREGA EL LLAMADO A LA FUNCIÓN QUE REGISTRA LOS      #
+#                     DATOS DE CADA INVOACIÓN A LOS WS QUE SEA REALIZADA      #
+#POR               => EMMANUEL REYES, OMNISYS                                 #
 ###############################################################################
 
 IMPORT FGL WSHelper
@@ -68,7 +73,7 @@ CONSTANT  g_res_procesada                    SMALLINT = 0  ,
          
 DEFINE serverURL STRING -- URL del servidor
 DEFINE v_pantalla    SMALLINT
-
+DEFINE g_sesion_id   CHAR(100)
 
 END GLOBALS
 
@@ -102,6 +107,8 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
   
   
     DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
+
+    LET g_sesion_id = v_ruta_log.trim()
 
     -- se inicia el log del programa
     CALL STARTLOG(v_ruta_log)
@@ -139,7 +146,12 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
     CALL ERRORLOG("Iniciando servidor de Consulta del PDF Acuse Ley 73 1.0 ...")
 
     -- se inicia el motor de WS
+    TRY
     CALL com.WebServiceEngine.Start()
+    CATCH -- en caso de error
+            DISPLAY("No se pudo iniciar el motor: " || STATUS)
+            EXIT PROGRAM
+    END TRY
     CALL ERRORLOG("Servidor en escucha")
 
     -- si se tiene pantalla
@@ -271,7 +283,9 @@ DEFINE v_urn                STRING -- URN
         LET op = com.WebOperation.CreateDOCStyle("fn_ret_consulta_pdf_acuse_ley73","fn_ret_consulta_pdf_acuse_ley73",ws_pdf_acuse_in,ws_pdf_acuse_out)
         --LET op = com.WebOperation.CreateDOCStyle("fn_retiro","fn_retiro",ret_retiro_fondo,ret_respuesta)
         --CALL v_webservice.publishOperation(op, "urn:http://10.90.8.199:7777/retiroSaldosDisponibles/fn_ret_saldos_disponibles")
+        DISPLAY "GENERA LA OPERACION"
         CALL v_webservice.publishOperation(op, "fn_ret_consulta_pdf_acuse_ley73")
+        DISPLAY "OPERACION GENERADA"
 
         -- si se hace generacion del WSDL
         IF ( p_generar_WSDL ) THEN
@@ -287,7 +301,8 @@ DEFINE v_urn                STRING -- URN
         ELSE
             -- =========================
             -- REgistro del servicio
-            CALL com.WebServiceEngine.RegisterService(v_webservice)  
+            CALL com.WebServiceEngine.RegisterService(v_webservice)
+            DISPLAY ("RegisterService OK "||STATUS)
             --display_status("Retiro Disponibilidad Ley 73 Service registrado")
             CALL ERRORLOG("Se registro el servicio consulta del PDF acuse para retiro Ley 73")
         END IF
@@ -371,7 +386,7 @@ END RECORD
    LET arr_detalle.estadoConsulta = gi_solicitud_aceptada
    LET arr_detalle.codRechazo     = 0
 
-   DISPLAY "Parámetros recibidos:"
+   DISPLAY "Parametros recibidos:"
    DISPLAY "NSS             : ", arr_detalle.nss
    DISPLAY "Consecutivo Ret : ", arr_detalle.conRetiro
 
@@ -390,7 +405,6 @@ END RECORD
 
    -- se inicia el log del programa
    CALL STARTLOG(v_ruta_log)
-
 
    --- Se validan los parámetros de entrada
    IF arr_detalle.nss IS NULL AND arr_detalle.conRetiro IS NULL THEN 
@@ -435,12 +449,12 @@ END RECORD
                                         arr_detalle.caso_crm
          CALL fn_busca_movtos(v_id_derechohabiente, arr_detalle.conRetiro, 8) RETURNING v_monto_paso
          LET  v_monto_tot_paso = v_monto_paso
-         DISPLAY "Viv 92 numérico :", v_monto_paso
+         DISPLAY "Viv 92 numerico :", v_monto_paso
          LET arr_detalle.pesosViv92 = v_monto_paso USING "$$,$$$,$$&.&&"
          DISPLAY "VIV 92 formateado :",arr_detalle.pesosViv92 
          CALL fn_busca_movtos(v_id_derechohabiente, arr_detalle.conRetiro, 4) RETURNING v_monto_paso
          LET v_monto_tot_paso = v_monto_tot_paso + v_monto_paso
-         DISPLAY "Viv 97 numérico :", v_monto_paso
+         DISPLAY "Viv 97 numerico :", v_monto_paso
          LET arr_detalle.pesosViv97 = v_monto_paso USING "$$,$$$,$$&.&&"
          DISPLAY "VIV 97 formateado :",arr_detalle.pesosViv97
          LET arr_detalle.pesosTotal = v_monto_tot_paso  USING "$$,$$$,$$&.&&"
@@ -476,8 +490,10 @@ END RECORD
          LET ws_pdf_acuse_out.sello          = arr_detalle.sello
          LET ws_pdf_acuse_out.tramite        = arr_detalle.tramite
       END IF 
-   END IF 
+   END IF
 
+   DISPLAY "Invoca a la bitacora"
+   CALL fn_invoca_registra_bitacora_ws()
 
 END FUNCTION
 
@@ -612,6 +628,51 @@ END RECORD
       END IF
    END IF
   
+END FUNCTION 
+
+################################################################################
+# fn_invoca_registra_bitacora_ws Se encarga de invocar a la función que recopila
+#                                datos e invoca a la bitácora de WS 
+# Requerimiento : Folio008-2020
+# Fecha creación: 27/10/2020
+# Autor         : Emmanuel Reyes, Omnisys
+# Modificación  : Se cambia el 3er parámetro, ya no se envía un array ahora se
+#               : manda una cadena de 51 posiciones, cambio hecho en el proceso
+#               : de pruebas
+# Fecha Modifica: 06/11/2020
+# Autor         : Emmanuel Reyes, Omnisys
+################################################################################
+FUNCTION fn_invoca_registra_bitacora_ws()
+
+   DEFINE v_resultado SMALLINT
+
+   DEFINE v_fecha     DATE
+
+   DEFINE v_id_ws_ctr_maestra SMALLINT --CHAR(50)
+
+   DEFINE v_identificador_id  CHAR(51)
+   
+   LET v_fecha = TODAY
+
+   --OBTIENE DATOS DEL CATALOGO
+   SELECT id_ws_ctr_maestra
+     INTO v_id_ws_ctr_maestra
+     FROM ws_ctr_maestra
+    WHERE id_ws_ctr_maestra = 2 -- EL ASIGNADO PARA EL WS ACTUAL 
+
+    LET v_identificador_id = ws_pdf_acuse_in.nss       CLIPPED ,
+                             ws_pdf_acuse_in.conRetiro CLIPPED
+    {DISPLAY "Parametros:"
+    DISPLAY "v_id_ws_ctr_maestra: ",v_id_ws_ctr_maestra
+    DISPLAY "g_sesion_id: ",g_sesion_id
+    DISPLAY "v_identificador_id ", v_identificador_id CLIPPED}
+
+    CALL fn_registra_bitacora_ws(v_id_ws_ctr_maestra CLIPPED,
+                                 g_sesion_id         CLIPPED,
+                                 v_identificador_id  CLIPPED)RETURNING v_resultado
+
+    DISPLAY "Acaba invocacion a la bitacora"
+
 END FUNCTION 
 
 REPORT pdf_acuse(pm_arr_detalle, p_fecha, p_aviso) 
