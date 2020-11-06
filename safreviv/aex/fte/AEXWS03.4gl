@@ -26,23 +26,61 @@ CONSTANT  v_estado_rechazada_saci      = 102  --RECHAZADA SACI CRM
 CONSTANT  v_estado_envio_aceptada      = 60
 CONSTANT  v_estado_envio_rechazada     = 100
 DEFINE    v_fecha_envio           CHAR(08)
+DEFINE g_pid                DECIMAL (9,0)                 -- ID del proceso
+DEFINE g_proceso_cod        LIKE cat_proceso.proceso_cod  -- código del proceso
+DEFINE g_opera_cod          LIKE cat_operacion.opera_cod  -- código de operacion
+DEFINE g_usuario            CHAR (20)
+DEFINE g_nom_archivo        STRING
+DEFINE g_folio              DECIMAL(10,0)
 END GLOBALS
 
 MAIN
- DEFINE v_fecha_char  CHAR(20)
+ DEFINE v_fecha_char  CHAR(20) 
+ DEFINE r_bandera     SMALLINT
  
-  LET v_fecha_char  = CURRENT HOUR TO SECOND
-  DISPLAY "v_fecha_char",v_fecha_char
-  LET v_fecha_envio = v_fecha_char
-  DISPLAY "v_fecha_envio",v_fecha_envio
-  -- ejecutar servicio web
-  DISPLAY "EJECUTA SERVICIO WEB :>>> "
-  DISPLAY "IndividualizacionPago :>> "
-  DISPLAY "EJECUTA NEGOCIO :>>"
+   -- argumentos del programa lanzador
+   LET g_usuario           = ARG_VAL (1)
+   LET g_pid               = ARG_VAL (2)     --forma como se ejecutara el programa
+   LET g_proceso_cod       = ARG_VAL (3)
+   LET g_opera_cod         = ARG_VAL (4)
+   LET g_folio             = ARG_VAL (5)
+   LET g_nom_archivo       = ARG_VAL (6)
+   DISPLAY "========================================================"
+   
+   DISPLAY "PARAMETROS DE ENTRADA: "
+   DISPLAY "USUARIO: ", g_usuario
+   DISPLAY "PID: ", g_pid
+   DISPLAY "PROCESO: ", g_proceso_cod
+   DISPLAY "OPERACION: ", g_opera_cod
+   DISPLAY "FOLIO: ", g_folio
+   DISPLAY "NOMBRE ARCHIVO : ", g_nom_archivo
+   DISPLAY "========================================================"
+   -- inicializa variables
+   LET r_bandera     = 0
+   LET v_fecha_char  = CURRENT HOUR TO SECOND
+   --DISPLAY "v_fecha_char",v_fecha_char
+   LET v_fecha_envio = v_fecha_char
+   --DISPLAY "v_fecha_envio",v_fecha_envio
+   -- ejecutar servicio web
+   DISPLAY "EJECUTA SERVICIO WEB :>>> "
+   DISPLAY "IndividualizacionPago :>> "
+   DISPLAY "EJECUTA NEGOCIO :>>"
 
-  CALL fn_obtieneDatos()
-  DISPLAY "FINALIZA COMUNICACIÓN CRM :>> "
+   CALL fn_obtieneDatos()
 
+   DISPLAY "========================================================"
+   
+   --Actualiza la operación
+   CALL fn_actualiza_opera_fin(g_pid, g_proceso_cod,g_opera_cod) RETURNING r_bandera
+
+   --Valida Operación Final
+   IF r_bandera <> 0 THEN
+      CALL fn_error_opera(g_pid, g_proceso_cod,g_opera_cod)
+      RETURNING r_bandera
+   ELSE  
+      DISPLAY "Fin de la operación: Se confirmo la Comunicacion con CRM."
+   END IF
+    
 END MAIN
 
 FUNCTION  fn_obtieneDatos()

@@ -1,112 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <WorkspaceDatabase fileContentsEncoding="CP1252" options="3" version="2.0">
-<File m="AEXWS03" n="AEXWS03.4gl" ts="20200826194301664">
-<Ref t="IndividualizacionPago.inc"/>
-<Fct c="1" el="37" l="13" n="main()" t="F">
-<Call c="11" l="26" n="fn_obtieneDatos" t="F"/>
-</Fct>
-<Fct c="11" el="176" l="39" n="fn_obtieneDatos()" t="F">
-<Call c="11" l="109" n="SI_IndividualizacionPago_SO_g" p="IndividualizacionPago.4gl" t="F"/>
-<Call c="14" l="132" n="SI_IndividualizacionPago_SOResponse_g" p="IndividualizacionPago.4gl" t="F"/>
-</Fct>
-</File>
-<File m="IndividualizacionPago" n="IndividualizacionPago.4gl" ts="20200826194016123">
-<Ref t="IndividualizacionPago.inc"/>
-<Fct c="10" el="642" l="442" n="SI_IndividualizacionPago_SOResponse_g()" t="F">
-<Call c="10" l="458" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="12" l="473" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="83" l="482" n="WSHelper_ExtractServerCookie" t="F"/>
-<Call c="12" l="488" n="WSHelper_SetResponseHeaders" t="F"/>
-<Call c="18" l="496" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
-<Call c="14" l="500" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="18" l="503" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
-<Call c="38" l="504" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
-<Call c="24" l="506" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="24" l="510" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="20" l="519" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="20" l="520" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="16" l="526" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="18" l="530" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
-<Call c="18" l="533" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
-<Call c="18" l="536" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
-<Call c="14" l="539" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
-<Call c="18" l="545" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
-<Call c="18" l="548" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
-<Call c="18" l="551" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
-<Call c="18" l="562" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
-<Call c="14" l="566" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="18" l="570" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
-<Call c="38" l="571" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
-<Call c="24" l="573" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="24" l="580" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="20" l="589" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="20" l="590" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="22" l="594" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="18" l="605" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
-<Call c="18" l="609" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
-<Call c="18" l="616" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
-<Call c="18" l="619" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
-<Call c="16" l="627" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="12" l="632" n="WSHelper_FillSOAP11WSError" t="F"/>
-</Fct>
-<Fct c="10" el="439" l="352" n="SI_IndividualizacionPago_SORequest_g()" t="F">
-<Call c="10" l="362" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="10" l="380" n="WSHelper_SetRequestHeaders" t="F"/>
-<Call c="10" l="400" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="12" l="410" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
-<Call c="12" l="411" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
-<Call c="12" l="416" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
-<Call c="12" l="417" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
-<Call c="12" l="422" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="10" l="435" n="WSHelper_FillSOAP11WSError" t="F"/>
-</Fct>
-<Fct c="10" el="60" l="36" n="SI_IndividualizacionPago_SO(p_nss STRING,p_noCaso STRING,p_lineadecaptura STRING,p_monto STRING,p_fechadepago STRING,p_foliofico STRING,p_cEstatus STRING,p_dcodigoestatus STRING)" t="F">
-<Call c="20" l="57" n="SI_IndividualizacionPago_SO_g" t="F"/>
-</Fct>
-<Fct c="10" el="349" l="68" n="SI_IndividualizacionPago_SO_g()" t="F">
-<Call c="10" l="104" n="WSHelper_SetRequestHeaders" t="F"/>
-<Call c="10" l="126" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="12" l="142" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
-<Call c="12" l="143" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
-<Call c="12" l="150" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
-<Call c="12" l="151" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
-<Call c="12" l="159" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="83" l="174" n="WSHelper_ExtractServerCookie" t="F"/>
-<Call c="12" l="180" n="WSHelper_SetResponseHeaders" t="F"/>
-<Call c="18" l="188" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
-<Call c="14" l="192" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="18" l="195" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
-<Call c="38" l="196" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
-<Call c="24" l="198" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="24" l="202" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="20" l="211" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="20" l="212" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="16" l="218" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="18" l="222" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
-<Call c="18" l="225" n="WSHelper_ReadStaxSOAP11StartFault" t="F"/>
-<Call c="18" l="228" n="WSHelper_ReadStaxSOAP11FaultUntilDetail" t="F"/>
-<Call c="14" l="231" n="WSHelper_CheckStaxSOAP11FaultDetail" t="F"/>
-<Call c="18" l="237" n="WSHelper_ReadStaxSOAP11EndFault" t="F"/>
-<Call c="18" l="240" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
-<Call c="18" l="243" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
-<Call c="18" l="254" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
-<Call c="14" l="258" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="18" l="262" n="WSHelper_CheckStaxSOAP11HeaderActor" t="F"/>
-<Call c="38" l="263" n="WSHelper_GetStaxSOAP11HeaderMustUnderstand" t="F"/>
-<Call c="24" l="265" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="24" l="272" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="20" l="281" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
-<Call c="20" l="282" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="22" l="286" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="18" l="297" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
-<Call c="18" l="301" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
-<Call c="18" l="308" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
-<Call c="18" l="311" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
-<Call c="18" l="320" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="18" l="328" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="16" l="335" n="WSHelper_FillSOAP11WSError" t="F"/>
-<Call c="12" l="340" n="WSHelper_FillSOAP11WSError" t="F"/>
+<File m="AEXL04" n="AEXL04.4gl" ts="20201105172049255">
+<Fct c="1" el="101" l="26" n="main()" t="F">
+<Call c="9" l="57" n="fn_valida_operacion" t="F"/>
+<Call c="12" l="61" n="fn_muestra_inc_operacion" t="F"/>
+<Call c="12" l="65" n="fn_genera_folio" t="F"/>
+<Call c="12" l="68" n="fn_genera_pid" t="F"/>
+<Call c="12" l="70" n="fn_inicializa_proceso" t="F"/>
+<Call c="12" l="79" n="fn_actualiza_opera_ini" t="F"/>
 </Fct>
 </File>
-<File m="IndividualizacionPago" n="IndividualizacionPago.inc" ts="20200825122631054"/>
+<File m="AEXWS03" n="AEXWS03.4gl" ts="20201105175005011">
+<Ref t="IndividualizacionPago.inc"/>
+<Fct c="1" el="84" l="37" n="main()" t="F">
+<Call c="9" l="69" n="fn_obtieneDatos" t="F"/>
+<Call c="9" l="74" n="fn_actualiza_opera_fin" t="F"/>
+<Call c="12" l="78" n="fn_error_opera" t="F"/>
+</Fct>
+<Fct c="11" el="207" l="86" n="fn_obtieneDatos()" t="F">
+<Call c="12" l="139" n="SI_IndividualizacionPago_SO_g" p="respaldo/IndividualizaPagos.4gl" t="F"/>
+</Fct>
+</File>
+<File m="IndividualizaPagos" n="respaldo/IndividualizaPagos.4gl" ts="20201105145733889">
+<Ref t="respaldo/IndividualizaPagos.inc"/>
+<Fct c="10" el="640" l="630" n="IndividualizaPagos_HandleResponseFault(operation STRING,doc xml.DomDocument,header xml.DomNode,body xml.DomNode)" t="F"/>
+<Fct c="10" el="575" l="399" n="SI_IndividualizacionPago_SOResponse_g()" t="F">
+<Call c="10" l="420" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="435" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="83" l="444" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="450" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="26" l="458" n="WSHelper_RetrieveSOAP11Envelope" t="F"/>
+<Call c="24" l="462" n="WSHelper_CheckSOAP11Header" t="F"/>
+<Call c="22" l="463" n="WSHelper_RetrieveSOAP11Body" t="F"/>
+<Call c="20" l="467" n="IndividualizaPagos_HandleResponseFault" t="F"/>
+<Call c="26" l="472" n="WSHelper_RetrieveSOAP11Header" t="F"/>
+<Call c="24" l="473" n="WSHelper_RetrieveSOAP11Body" t="F"/>
+<Call c="18" l="479" n="WSHelper_CheckSOAP11HeaderActor" t="F"/>
+<Call c="38" l="480" n="WSHelper_GetSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="482" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="486" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="496" n="WSHelper_CheckSOAP11Fault" t="F"/>
+<Call c="26" l="503" n="WSHelper_RetrieveSOAP11Envelope" t="F"/>
+<Call c="24" l="507" n="WSHelper_RetrieveSOAP11Header" t="F"/>
+<Call c="22" l="509" n="WSHelper_RetrieveSOAP11Body" t="F"/>
+<Call c="21" l="510" n="IndividualizaPagos_HandleResponse" t="F"/>
+<Call c="26" l="515" n="WSHelper_RetrieveSOAP11Header" t="F"/>
+<Call c="24" l="516" n="WSHelper_RetrieveSOAP11Body" t="F"/>
+<Call c="18" l="523" n="WSHelper_CheckSOAP11HeaderActor" t="F"/>
+<Call c="38" l="524" n="WSHelper_GetSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="526" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="533" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="543" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="549" n="WSHelper_RetrieveSOAP11Message" t="F"/>
+<Call c="16" l="560" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="565" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="628" l="604" n="IndividualizaPagos_HandleResponse(operation STRING,doc xml.DomDocument,header xml.DomNode,body xml.DomNode)" t="F"/>
+<Fct c="10" el="294" l="37" n="SI_IndividualizacionPago_SO_g()" t="F">
+<Call c="10" l="78" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="97" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="112" n="WSHelper_BuildSOAP11Envelope" t="F"/>
+<Call c="20" l="114" n="WSHelper_BuildSOAP11Header" t="F"/>
+<Call c="18" l="116" n="WSHelper_BuildSOAP11Body" t="F"/>
+<Call c="16" l="124" n="IndividualizaPagos_HandleRequest" t="F"/>
+<Call c="12" l="133" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="83" l="148" n="WSHelper_ExtractServerCookie" t="F"/>
+<Call c="12" l="154" n="WSHelper_SetResponseHeaders" t="F"/>
+<Call c="26" l="162" n="WSHelper_RetrieveSOAP11Envelope" t="F"/>
+<Call c="24" l="166" n="WSHelper_CheckSOAP11Header" t="F"/>
+<Call c="22" l="167" n="WSHelper_RetrieveSOAP11Body" t="F"/>
+<Call c="20" l="171" n="IndividualizaPagos_HandleResponseFault" t="F"/>
+<Call c="26" l="176" n="WSHelper_RetrieveSOAP11Header" t="F"/>
+<Call c="24" l="177" n="WSHelper_RetrieveSOAP11Body" t="F"/>
+<Call c="18" l="183" n="WSHelper_CheckSOAP11HeaderActor" t="F"/>
+<Call c="38" l="184" n="WSHelper_GetSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="186" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="190" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="200" n="WSHelper_CheckSOAP11Fault" t="F"/>
+<Call c="26" l="207" n="WSHelper_RetrieveSOAP11Envelope" t="F"/>
+<Call c="24" l="211" n="WSHelper_RetrieveSOAP11Header" t="F"/>
+<Call c="22" l="213" n="WSHelper_RetrieveSOAP11Body" t="F"/>
+<Call c="21" l="214" n="IndividualizaPagos_HandleResponse" t="F"/>
+<Call c="26" l="219" n="WSHelper_RetrieveSOAP11Header" t="F"/>
+<Call c="24" l="220" n="WSHelper_RetrieveSOAP11Body" t="F"/>
+<Call c="18" l="227" n="WSHelper_CheckSOAP11HeaderActor" t="F"/>
+<Call c="38" l="228" n="WSHelper_GetSOAP11HeaderMustUnderstand" t="F"/>
+<Call c="24" l="230" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="237" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="20" l="247" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="24" l="253" n="WSHelper_RetrieveSOAP11Message" t="F"/>
+<Call c="18" l="265" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="273" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="280" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="285" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="600" l="578" n="IndividualizaPagos_HandleRequest(operation STRING,doc xml.DomDocument,header xml.DomNode,body xml.DomNode)" t="F"/>
+<Fct c="10" el="398" l="298" n="SI_IndividualizacionPago_SORequest_g()" t="F">
+<Call c="10" l="312" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="329" n="WSHelper_SetRequestHeaders" t="F"/>
+<Call c="10" l="348" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="22" l="360" n="WSHelper_BuildSOAP11Envelope" t="F"/>
+<Call c="20" l="362" n="WSHelper_BuildSOAP11Header" t="F"/>
+<Call c="18" l="364" n="WSHelper_BuildSOAP11Body" t="F"/>
+<Call c="16" l="372" n="IndividualizaPagos_HandleRequest" t="F"/>
+<Call c="12" l="381" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="394" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="IndividualizaPagos" n="respaldo/IndividualizaPagos.inc" ts="20200819141816229"/>
 </WorkspaceDatabase>
