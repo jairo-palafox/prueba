@@ -16,11 +16,12 @@ IMPORT com
 GLOBALS
  DEFINE g_ParametrosEnvio   STRING
 END GLOBALS
-FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_array_eventos) 
+FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_identificadorID) 
  DEFINE v_sql               CHAR(1000)
- DEFINE p_sistamaId         CHAR(50)
+ DEFINE p_sistamaId         SMALLINT
  DEFINE p_sesionID          CHAR(100)
- DEFINE v_identificadorId   CHAR(50)
+ DEFINE v_sistemaID         CHAR(50)
+ DEFINE p_identificadorID   CHAR(51)
  DEFINE v_url_link          CHAR(100)
  DEFINE v_pagina            CHAR(100)
  DEFINE v_indice            SMALLINT
@@ -28,14 +29,11 @@ FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_array_eventos)
  DEFINE v_evento_inicio     CHAR(100)
  DEFINE v_evento_final      CHAR(100)
  DEFINE v_respuesta         STRING
-DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
-        eventoId        CHAR(100),
-        timestamp       CHAR(50)
-       END RECORD
+ DEFINE v_id_evento         CHAR(10)
+ DEFINE v_fecha_timestamp   CHAR(25)
  -- Definicion de variables retorno
  --parametro retorno funcion
  DEFINE v_resultado         SMALLINT
- DEFINE v_cadena_evento     CHAR(500)
  
   -- valor inicial a las variables del programa
   LET v_indice           = 0 
@@ -47,42 +45,43 @@ DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
   LET v_resultado        = 0
 
   -- se obtiene los datos para el identificador de servicio
-  LET v_sql = "SELECT  identificadorid, url_link, pagina ",
+  LET v_sql = "SELECT  sistemaID, url_link, pagina, id_evento ",
               "\n FROM ws_ctr_maestra                                        ",
               "\n WHERE id_ws_ctr_maestra = ?                                "
-
+                                   
   PREPARE pre_obt_datos_servicio FROM v_sql
   EXECUTE pre_obt_datos_servicio USING p_sistamaId
-                                 INTO v_identificadorId  ,
+                                 INTO v_sistemaID        ,
                                       v_url_link         ,
-                                      v_pagina           
+                                      v_pagina           ,
+                                      v_id_evento 
 
   DISPLAY "LO DATOS A REGISTRAR BITACORA:>> "
   DISPLAY "===================================================================="
-  DISPLAY "SISTEMA ID:       >",p_sistamaId
-  DISPLAY "IDENTIFICADOR ID: >",v_identificadorId
+  DISPLAY "SISTEMA ID:       >",v_sistemaID
+  DISPLAY "IDENTIFICADOR ID: >",p_identificadorID
   DISPLAY "SESION ID:        >",p_sesionID
   DISPLAY "URL LINK          >",v_url_link
   DISPLAY "PAGINA:           >",v_pagina                                    
   -- para cada uno de los datos ingresados se envia a la bitacora
   -- se arma respuesta para cada uno de los datos del arreglo
-  DISPLAY "VALORES DEL ARREGLO 1: > ",p_array_eventos[1].*
-  DISPLAY "VALORES DEL ARREGLO 2: > ",p_array_eventos[1].*
   
-  -- se arma el detalle de eventos
-  CALL fn_arma_eventos(p_array_eventos) RETURNING v_cadena_evento
+  
+  -- se obtiene la fecha con formato timestamp
+  LET v_fecha_timestamp = fn_obt_formato_timestamp()
    -- se arma respuesta
   LET g_ParametrosEnvio =  v_encabezado                         ,
                            v_evento_inicio                      ,
-                           "<sistemaId>",p_sistamaId CLIPPED,"<sistemaId/>", 
-                           "<identificadorId>",v_identificadorId CLIPPED,"<identificadorId/>", 
-                           "<sesionID>",p_sesionID CLIPPED,"<sesionID/>", 
-                           "<url_link>", v_url_link CLIPPED,"<url_link/>", 
-                           "<pagina>", v_pagina CLIPPED,"<pagina/>",
-                           "<eventos>",v_cadena_evento CLIPPED,"<eventos/>",
+                           "<sistemaId>",v_sistemaID CLIPPED,"</sistemaId>", 
+                           "<identificadorId>",p_identificadorID CLIPPED,"</identificadorId>", 
+                           "<sesionID>",p_sesionID CLIPPED,"</sesionID>", 
+                           "<url_link>", v_url_link CLIPPED,"</url_link>", 
+                           "<pagina>", v_pagina CLIPPED,"</pagina>",
+                           "<eventoId>",v_id_evento CLIPPED,"</eventoId>",
+                           "<timestamp>",v_fecha_timestamp CLIPPED, "</timestamp>",
                            v_evento_final
                            
-  
+  DISPLAY "Cadena formada XML: ",g_ParametrosEnvio 
   CALL fn_notifica_bitacora_ws() RETURNING v_respuesta
  
   RETURN v_resultado 
@@ -133,7 +132,7 @@ FUNCTION fn_notifica_bitacora_ws()
 
   RETURN v_respuesta
  
-END FUNCTION
+END FUNCTION{
 FUNCTION fn_arma_eventos(p_array_eventos)
  DEFINE v_indice    SMALLINT
  DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
@@ -152,7 +151,7 @@ FUNCTION fn_arma_eventos(p_array_eventos)
   END FOR
   DISPLAY "Respuesta Formada: ", v_cadena_evento
  RETURN v_cadena_evento
-END FUNCTION
+END FUNCTION}
 ###############################################################################
 #Objetivo          => Funcion que va obtener la fecha en formato timestamp    #
 #                     para la bitacora de servicios web                       #

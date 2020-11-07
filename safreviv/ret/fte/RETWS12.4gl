@@ -514,37 +514,17 @@ END FUNCTION
 # Fecha Creacion : 26-10-2020                                                  #
 ################################################################################
 FUNCTION fn_registra_bitacora()
- DEFINE v_resultado         SMALLINT
- DEFINE v_array_eventos DYNAMIC ARRAY OF RECORD
-         eventoId        CHAR(100),
-         timestamp       CHAR(50)
-        END RECORD
- DEFINE v_fecha_solicitud    DATE
- 
-  LET v_fecha_solicitud    = TODAY
+ DEFINE v_resultado           SMALLINT
+ DEFINE v_identificadorID     CHAR(51)
 
-   
-  -- se registra notificacion
-  -- titulo
-  LET v_array_eventos[1].eventoId  = g_eventoID
-  -- se asigna el valor de la fecha en formato timestamp
-  LET v_array_eventos[1].timestamp = fn_obt_formato_timestamp()
-  -- detalle
-  LET v_array_eventos[2].eventoId  = "NSS:",ws_ret_cons_acuses_in.nss CLIPPED, 
-                                     "CURP:",ws_ret_cons_acuses_in.curp CLIPPED ,
-                                     "ID_RET:",ws_ret_cons_acuses_in.conRetiro CLIPPED, 
-                                     "FTRAMITE:",ws_ret_cons_acuses_in.fTramite CLIPPED, 
-                                     "GRUPO:",ws_ret_cons_acuses_in.grupo CLIPPED 
+  -- se asigna identificador 
+  LET v_identificadorID  = ws_ret_cons_acuses_in.nss       CLIPPED ,
+                           ws_ret_cons_acuses_in.curp      CLIPPED ,
+                           ws_ret_cons_acuses_in.conRetiro CLIPPED , 
+                           ws_ret_cons_acuses_in.fTramite  CLIPPED , 
+                           ws_ret_cons_acuses_in.grupo     CLIPPED 
 
-  LET v_array_eventos[2].timestamp = fn_obt_formato_timestamp()          
- 
-  DISPLAY "eventoId 1",v_array_eventos[1].eventoId 
-  DISPLAY "timestamp 1",v_array_eventos[1].timestamp 
-  DISPLAY "eventoId 2",v_array_eventos[2].eventoId 
-  DISPLAY "timestamp 2",v_array_eventos[2].timestamp 
-  
-  DISPLAY "Sesion",g_sesionID                                     
   -- se ejecuta funcion global para el registro de la bitacora por evento
-  CALL fn_registra_bitacora_ws(g_identificador_servicio,g_sesionID,v_array_eventos) RETURNING v_resultado
+  CALL fn_registra_bitacora_ws(g_identificador_servicio,g_sesionID,v_identificadorID) RETURNING v_resultado
   DISPLAY "Resultado registro Bitacora: >>", v_resultado  
 END FUNCTION
