@@ -68,6 +68,10 @@ CONSTANT  g_res_procesada                    SMALLINT = 0  ,
           g_msg_conexion_con_cliente_perdida STRING = "Se perdió la conexión con el cliente" ,
           g_msg_servidor_interrumpido_ctrl_c STRING = "Se interrumpió el servidor con CTRL-C",
           g_msg_error_interno                STRING = "Ocurrió un error interno"
+
+DEFINE g_identificador_servicio              SMALLINT
+DEFINE g_eventoId                            CHAR(100)  
+DEFINE g_sesionId                            CHAR(100)                       
           
 END GLOBALS
 MAIN
@@ -94,7 +98,11 @@ DEFINE v_resultado        INTEGER, -- recibe el resultado de la ejecucion del se
   LET v_cadena   = CURRENT MINUTE TO MINUTE
   LET v_ruta_log = v_ruta_log || v_cadena
   LET v_cadena   = CURRENT SECOND TO SECOND
+  LET g_sesionId = v_ruta_log || v_cadena
   LET v_ruta_log = v_ruta_log || v_cadena || ".log"
+
+  LET g_identificador_servicio = 3
+  LET g_eventoId = 'marcaLey73'
   
     DISPLAY "Log del servicio: " || FGL_GETENV("RETWS08LOG")
     
@@ -396,7 +404,8 @@ DEFINE v_id_derechohabiente LIKE afi_derechohabiente.id_derechohabiente, --Ident
                                      v_id_derechohabiente, 
                                      ret_marcaje.ind_marca,
                                      ret_marcaje.grupo,
-                                     ret_marcaje.medio_entrega)      
+                                     ret_marcaje.medio_entrega)
+      CALL fn_bitacora()
                                             
    END IF   
 END FUNCTION
@@ -1749,6 +1758,30 @@ FUNCTION fn_crea_caso(p_nss, p_medio_entrega)
    END IF 
 
 RETURN v_regreso, v_caso_crm
+
+END FUNCTION
+
+FUNCTION fn_bitacora()
+DEFINE v_resultado         SMALLINT
+{DEFINE v_array_eventos     DYNAMIC ARRAY OF RECORD
+        eventoId           CHAR(100),
+        timestamp          CHAR(50)
+        END RECORD}
+DEFINE IdentificadorId            CHAR(50)
+
+
+
+  -- DETALLE
+  DISPLAY "ENTRA_BITACORA"
+  LET IdentificadorId =  ret_marcaje.nss CLIPPED, 
+                         ret_marcaje.caso_adai CLIPPED,
+                         ret_marcaje.cuenta_clabe CLIPPED,
+                         ret_marcaje.ind_marca CLIPPED,
+                         ret_marcaje.grupo CLIPPED,
+                         ret_marcaje.medio_entrega CLIPPED 
+
+
+  CALL fn_registra_bitacora_ws(g_identificador_servicio,g_sesionId CLIPPED,IdentificadorId) RETURNING v_resultado
 
 END FUNCTION
  
