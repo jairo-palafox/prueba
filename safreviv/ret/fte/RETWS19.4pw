@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project defaultApplication="18736" gstVersion="2321b" version="3.0">
+  <Settings/>
+  <LanguageList version="1.0"/>
+  <PlatformList version="1.0"/>
+  <Group label="Group_1" targetDirectory="$(ProjectDir)/../bin">
+    <Library id="1986" label="Databases">
+      <File filePath="safre_viv.4db"/>
+    </Library>
+    <Library id="25451442" label="ret_sello_digital">
+      <File filePath="ret_sello_digital.4gl"/>
+    </Library>
+    <Application compilerOptions="--build-rdd" dependencies="1986||25451442||148349106||14000||32670792" externalDependencies="GLOG01.42x||GLOG02.42x||GLOG04.42x||GLOG06.42x||libgre.42x||RETX33.42x||RETX30.42x||ret_sello_digital.42x" id="18736" label="RETWS19">
+      <File filePath="ret_actualiza_estado_crm.4gl"/>
+      <File filePath="ret_adjunta_docto_crm.4gl"/>
+      <File filePath="ret_busca_caso_crm.4gl"/>
+      <File filePath="ret_cancela_caso_crm.4gl"/>
+      <File filePath="ret_confirma_pago_ae.4gl"/>
+      <File filePath="ret_confirma_pago_crm.4gl"/>
+      <File filePath="ret_crea_caso_crm.4gl"/>
+      <File filePath="ret_saldo_preliminar.4gl"/>
+      <File filePath="ret_ws_cons_rel_laboral.4gl"/>
+      <File filePath="RETWS19.4gl"/>
+      <File filePath="RETWS19.4rp"/>
+    </Application>
+    <Library dependencies="1986" id="14000" label="RETX30">
+      <File filePath="RETX30.4gl"/>
+    </Library>
+    <Library id="32670792" label="RETX30_1">
+      <File filePath="RETX30_1.4gl"/>
+    </Library>
+    <Library id="148349106" label="RETX33">
+      <File filePath="RETX33.4gl"/>
+    </Library>
+  </Group>
+</Project>
