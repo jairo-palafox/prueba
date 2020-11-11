@@ -16,11 +16,12 @@ IMPORT com
 GLOBALS
  DEFINE g_ParametrosEnvio   STRING
 END GLOBALS
-FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_array_eventos) 
+FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_identificadorID) 
  DEFINE v_sql               CHAR(1000)
- DEFINE v_sistemaId         CHAR(50)
- DEFINE v_identificadorId   CHAR(50)
- DEFINE v_sesionId          CHAR(50)
+ DEFINE p_sistamaId         SMALLINT
+ DEFINE p_sesionID          CHAR(100)
+ DEFINE v_sistemaID         CHAR(50)
+ DEFINE p_identificadorID   CHAR(51)
  DEFINE v_url_link          CHAR(100)
  DEFINE v_pagina            CHAR(100)
  DEFINE v_indice            SMALLINT
@@ -28,19 +29,11 @@ FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_array_eventos)
  DEFINE v_evento_inicio     CHAR(100)
  DEFINE v_evento_final      CHAR(100)
  DEFINE v_respuesta         STRING
-DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
-        eventoId        CHAR(100),
-        timestamp       CHAR(50)
-       END RECORD
+ DEFINE v_id_evento         CHAR(10)
+ DEFINE v_fecha_timestamp   CHAR(25)
  -- Definicion de variables retorno
  --parametro retorno funcion
- DEFINE p_sistamaId         CHAR(50)
- DEFINE p_identificadorId   CHAR(50)
- DEFINE p_sesionId          CHAR(50)
- DEFINE p_url_link          CHAR(100)
- DEFINE p_pagina            CHAR(100)
  DEFINE v_resultado         SMALLINT
- DEFINE v_cadena_evento     CHAR(500)
  
   -- valor inicial a las variables del programa
   LET v_indice           = 0 
@@ -52,57 +45,50 @@ DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
   LET v_resultado        = 0
 
   -- se obtiene los datos para el identificador de servicio
-  LET v_sql = "SELECT sistemaid, identificadorid, sesionid, url_link, pagina ",
+  LET v_sql = "SELECT  sistemaID, url_link, pagina, id_evento ",
               "\n FROM ws_ctr_maestra                                        ",
-              "\n WHERE id_ws_ctr_maestrakk = ?                                "
-
+              "\n WHERE id_ws_ctr_maestra = ?                                "
+                                   
   PREPARE pre_obt_datos_servicio FROM v_sql
   EXECUTE pre_obt_datos_servicio USING p_sistamaId
-                                 INTO v_sistemaId        ,
-                                      v_identificadorId  ,
-                                      v_sesionId         ,
+                                 INTO v_sistemaID        ,
                                       v_url_link         ,
-                                      v_pagina           
+                                      v_pagina           ,
+                                      v_id_evento 
 
-  DISPLAY "LO DATOS A REGISTRAR :>> "
+  DISPLAY "LO DATOS A REGISTRAR BITACORA:>> "
   DISPLAY "===================================================================="
-  DISPLAY "SISTEMA ID:       >",v_sistemaId
-  DISPLAY "IDENTIFICADOR ID: >",v_identificadorId
-  DISPLAY "SESION ID:        >",v_sesionId
+  DISPLAY "SISTEMA ID:       >",v_sistemaID
+  DISPLAY "IDENTIFICADOR ID: >",p_identificadorID
+  DISPLAY "SESION ID:        >",p_sesionID
   DISPLAY "URL LINK          >",v_url_link
   DISPLAY "PAGINA:           >",v_pagina                                    
   -- para cada uno de los datos ingresados se envia a la bitacora
   -- se arma respuesta para cada uno de los datos del arreglo
-  DISPLAY "VALORES DEL ARREGLO 1: > ",p_array_eventos[1].*
-  DISPLAY "VALORES DEL ARREGLO 2: > ",p_array_eventos[1].*
   
-  -- se arma el detalle de eventos
-  CALL fn_arma_eventos(p_array_eventos) RETURNING v_cadena_evento
+  
+  -- se obtiene la fecha con formato timestamp
+  LET v_fecha_timestamp = fn_obt_formato_timestamp()
    -- se arma respuesta
   LET g_ParametrosEnvio =  v_encabezado                         ,
                            v_evento_inicio                      ,
-                           p_sistamaId                          ,
-                           p_identificadorId                    , 
-                           p_sesionID                           , 
-                           p_url_link                           , 
-                           p_pagina                             ,
-                           v_cadena_evento                      ,
+                           "<sistemaId>",v_sistemaID CLIPPED,"</sistemaId>", 
+                           "<identificadorId>",p_identificadorID CLIPPED,"</identificadorId>", 
+                           "<sesionID>",p_sesionID CLIPPED,"</sesionID>", 
+                           "<url_link>", v_url_link CLIPPED,"</url_link>", 
+                           "<pagina>", v_pagina CLIPPED,"</pagina>",
+                           "<eventoId>",v_id_evento CLIPPED,"</eventoId>",
+                           "<timestamp>",v_fecha_timestamp CLIPPED, "</timestamp>",
                            v_evento_final
                            
-  
+  DISPLAY "Cadena formada XML: ",g_ParametrosEnvio 
   CALL fn_notifica_bitacora_ws() RETURNING v_respuesta
  
   RETURN v_resultado 
 
 END FUNCTION 
-
 ###############################################################################
-#Proyecto          => SACI  INFONAVIT                                         #
-#Propietario       => Omnisys                                                 #
--------------------------------------------------------------------------------
-#Modulo            =>GLO                                                      #
-#Programa          =>GLOG06                                                   #
-#Objetivo          => Función que va notificar el registro a la bitacora para #
+#Objetivo          => FunciOn que va notificar el registro a la bitacora para #
 #                     el control de solicitudes Infonavit y la interaccion con#
 #                     otros sistemas internos / externos                      #
 #Fecha Inicio      => 26 Octubre de 2020                                      #
@@ -146,23 +132,43 @@ FUNCTION fn_notifica_bitacora_ws()
 
   RETURN v_respuesta
  
-END FUNCTION
+END FUNCTION{
 FUNCTION fn_arma_eventos(p_array_eventos)
  DEFINE v_indice    SMALLINT
  DEFINE p_array_eventos DYNAMIC ARRAY OF RECORD
          eventoId        CHAR(100),
          timestamp       CHAR(50)
         END RECORD
- DEFINE v_cadena_evento   CHAR(500)
+ DEFINE v_cadena_evento   CHAR(5000)
  
- LET v_cadena_evento = ""
- 
+  LET v_cadena_evento = ""
+
   FOR v_indice = 1 TO  p_array_eventos.getLength()
      -- se acumulan eventos
-     LET v_cadena_evento = v_cadena_evento , p_array_eventos[v_indice].eventoId   , 
-                                             p_array_eventos[v_indice].timestamp  
+     LET v_cadena_evento = v_cadena_evento CLIPPED ,"<eventoId>",p_array_eventos[v_indice].eventoId  CLIPPED, "</eventoId>" , 
+                                                    "<timestamp>",p_array_eventos[v_indice].timestamp CLIPPED,"</timestamp>"  
                        
   END FOR
   DISPLAY "Respuesta Formada: ", v_cadena_evento
  RETURN v_cadena_evento
-END FUNCTION
+END FUNCTION}
+###############################################################################
+#Objetivo          => Funcion que va obtener la fecha en formato timestamp    #
+#                     para la bitacora de servicios web                       #
+#Fecha Inicio      => 28 Octubre de 2020                                      #
+#Autor             => Jairo Giovanny Palafox Sanchez                          #
+###############################################################################
+FUNCTION fn_obt_formato_timestamp()
+ DEFINE v_sql          CHAR(100)
+ DEFINE r_f_timestamp  CHAR(25)
+
+  -- se asigna un valor inicial
+  LET r_f_timestamp = TODAY
+  -- se obtiene la fecha en formato timestamp
+  LET v_sql = "SELECT current timestamp  FROM systables",
+              "\nWHERE tabid = 1                       "
+  PREPARE pre_obt_fecha FROM v_sql
+  EXECUTE pre_obt_fecha INTO r_f_timestamp
+  DISPLAY "FECHA FORMADO TIMESTAMP: ",r_f_timestamp
+ RETURN r_f_timestamp
+END FUNCTION 

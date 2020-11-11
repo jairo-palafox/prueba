@@ -8,21 +8,11 @@
 -----------------------------------------------------------------------------------------
 
 GLOBALS
-   CONSTANT MAX_REGISTROS SMALLINT = 200
-   
-   TYPE movimiento RECORD
-      movimiento      SMALLINT,
-      movimiento_desc CHAR(150),
-      desc_ciudadana  VARCHAR(150)
-   END RECORD
 
-   TYPE bitacora_mov RECORD 
-      movimiento      SMALLINT,
-      movimiento_desc VARCHAR(150),
-      desc_ciudadana  VARCHAR(150),
-      f_modifica      DATE,
-      usuario         VARCHAR(20),
-      tpo_modifica    SMALLINT
-   END RECORD
+    TYPE t_datos_aclara RECORD
+        aclaracion_cod              LIKE pag_tpo_aclaracion.aclaracion_cod,
+        aclaracion_descripcion      LIKE pag_tpo_aclaracion.aclaracion_descripcion,
+        ind_visible                 SMALLINT
+    END RECORD
 
 END GLOBALS

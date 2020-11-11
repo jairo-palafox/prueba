@@ -29,6 +29,10 @@ END RECORD
 
 TYPE movimientos RECORD
    f_liquida         DATE,
+   periodo_pago      CHAR(6),
+   nrp               CHAR(11),
+   num_credito       DECIMAL(10,0),
+   folio             DECIMAL(10,0),
    movimiento        SMALLINT,
    movimiento_desc   VARCHAR(40),
    tipo              SMALLINT,
@@ -36,11 +40,8 @@ TYPE movimientos RECORD
    subcuenta         SMALLINT,
    subcuenta_desc    VARCHAR(40),
    monto_pesos       DECIMAL(12,2),
-   nrp               CHAR(11),
-   num_credito       DECIMAL(10,0),
-   periodo_pago      CHAR(6),
    id_referencia     DECIMAL(9,0),
-   nom_patron        VARCHAR(50)
+   nom_patron        VARCHAR(160)
   -- id_referencia     DECIMAL(9,0)
 END RECORD
 
@@ -70,13 +71,13 @@ TYPE t_aclaratorio  RECORD
         tpo_aclaracion  CHAR(2),
         aportacion      DECIMAL(12,2),    
         amortizacion    DECIMAL(12,2),
-        nom_patron      VARCHAR(50)
+        nom_patron      VARCHAR(160)
     END RECORD
 
 TYPE  t_aclaratorio_final  RECORD 
         year_bim        VARCHAR(7),
         nrp             VARCHAR(11),
-        nom_patron      VARCHAR(50),
+        nom_patron      VARCHAR(160),
         f_pago          DATE,  
         aportacion      DECIMAL(12,2),    
         amortizacion    DECIMAL(12,2)

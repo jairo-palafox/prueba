@@ -31,7 +31,10 @@ DATABASE safre_viv
    DEFINE a SMALLINT
    DEFINE bnd_dato SMALLINT
    DEFINE v_dato CHAR(1)
-   
+   -- Definicion de variables para registro bitacora
+   -- Folio008-2020 30-10-2020
+   DEFINE g_identificador_servicio  SMALLINT
+   DEFINE g_sesionID                CHAR(100)
 MAIN
     DEFINE servicio     INTEGER
     DEFINE respuesta    INTEGER
@@ -113,7 +116,34 @@ FUNCTION actdatmaestros()
    DEFINE bnd_nss             SMALLINT
    DEFINE bnd_infonavit       SMALLINT
    DEFINE v_valida            CHAR(2)
+   DEFINE v_ruta_ejecutable   LIKE seg_modulo.ruta_bin
+   DEFINE v_ruta_log          STRING
+   DEFINE v_cadena            STRING
+   -- se obtiene la ruta ejecutable
+   -- Jairo Palafox 
+   -- Folio008-2020 30-10-2020
+   SELECT ruta_bin
+   INTO   v_ruta_ejecutable
+   FROM   seg_modulo
+   WHERE  modulo_cod = "afi"
 
+   -- se define la ruta del log
+   LET v_ruta_log = v_ruta_ejecutable CLIPPED, "/AFIWS04."
+   LET v_cadena   = TODAY USING "yyyymmdd"
+   LET v_ruta_log = v_ruta_log || v_cadena
+   LET v_cadena   = CURRENT HOUR TO HOUR
+   LET v_ruta_log = v_ruta_log || v_cadena
+   LET v_cadena   = CURRENT MINUTE TO MINUTE
+   LET v_ruta_log = v_ruta_log || v_cadena
+   LET v_cadena   = CURRENT SECOND TO SECOND
+   LET v_ruta_log = v_ruta_log || v_cadena || ".log"
+   LET g_sesionID                 = v_ruta_log
+   DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
+
+   -- se inicia el log del programa
+   CALL STARTLOG(v_ruta_log)
+
+   
    LET v_nss = nss_in.nss
       IF LENGTH(v_nss) <> 11 THEN
          LET res_out.nss         = v_nss
@@ -158,11 +188,12 @@ FUNCTION actdatmaestros()
                END IF
 
                IF bnd_infonavit = 1 THEN
+                  
                   CASE
                      WHEN (nss_in.tpo_act = 1)
                         AND (nss_in.rfc IS NOT NULL)
                         CALL fn_rfc(nss_in.rfc,nss_in.nss)
-
+                        
                      WHEN (nss_in.tpo_act = 2)
                         AND (nss_in.curp IS NOT NULL)
                         CALL fn_curp(nss_in.curp,nss_in.nss)
@@ -170,12 +201,13 @@ FUNCTION actdatmaestros()
                      WHEN (nss_in.tpo_act = 3)
                         AND (nss_in.nombre IS NOT NULL) AND (nss_in.paterno IS NOT NULL) --THEN
                         CALL fn_nombre(nss_in.paterno,nss_in.materno,nss_in.nombre,nss_in.nss)
-
+                      
                      OTHERWISE
                         LET res_out.nss         =v_nss
                         LET res_out.clave       ="27"
                         LET res_out.descripcion ="Tipo de actualización no válido"
-               END CASE
+                  END CASE
+                 
                END IF
 
                IF bnd_infonavit = 2 THEN
@@ -207,6 +239,11 @@ FUNCTION actdatmaestros()
             LET res_out.descripcion ="NSS no existe"
          END IF
       END IF
+      -- se invoca guardado a bitacora
+      -- Cambio Jairo Palafox
+      -- Folio008-2020 30-10-2020
+      -- registro bitacora 
+      CALL fn_registra_bitacora()
 
 END FUNCTION
 
@@ -639,4 +676,53 @@ FUNCTION fn_valida_letra(v_dato)
          LET bnd_dato = 0
       END IF
    END IF
+END FUNCTION
+
+################################################################################
+#- funcion para registrar los eventos en la bitacora                           #
+# Autor - Jairo Giovanny Palafox Sanchez                                       #
+# Empresa -Omnisys                                                             #
+# Fecha Creacion : 30-10-2020                                                  #
+################################################################################
+            
+FUNCTION fn_registra_bitacora()
+ DEFINE v_resultado         SMALLINT
+ DEFINE v_eventoID          CHAR(51)
+ 
+  -- inicio de variables
+  SELECT id_ws_ctr_maestra
+   INTO g_identificador_servicio 
+   FROM ws_ctr_maestra
+   WHERE id_ws_ctr_maestra  =  5
+
+  DISPLAY "RESULTADO RESPUESTA: ", res_out.clave 
+  -- verificar si se realiza actualizacion de lo contrario se indica el motivo
+  IF  res_out.clave = "00" THEN
+     -- se realiza registro
+     CASE (nss_in.tpo_act)
+      WHEN 1
+         -- titulo
+         LET v_eventoID =  nss_in.rfc CLIPPED, 
+                           nss_in.nss CLIPPED
+      WHEN 2
+         -- titulo
+         LET v_eventoID = nss_in.curp CLIPPED, 
+                          nss_in.nss  CLIPPED
+     
+      WHEN 3
+         -- titulo
+         LET v_eventoID = nss_in.paterno CLIPPED,
+                          nss_in.materno CLIPPED,
+                          nss_in.nombre  CLIPPED,
+                          nss_in.nss     CLIPPED
+      OTHERWISE
+     END CASE
+  ELSE
+     -- titulo
+     LET v_eventoID = " NO ACTUALIZA DATOS "
+  END IF
+ 
+  -- se ejecuta funcion global para el registro de la bitacora por evento
+  CALL fn_registra_bitacora_ws(g_identificador_servicio,g_sesionID,v_eventoID) RETURNING v_resultado
+  DISPLAY "Resultado registro Bitacora: >>", v_resultado  
 END FUNCTION
