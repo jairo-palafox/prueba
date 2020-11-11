@@ -1,11 +1,11 @@
 ################################################################################
 #PROYECTO        => VENTANILLA UNICA                                           #
-#PROPIETARIO     => OMNISYS.                                                   #
+#PROPIETARIO     => OMNISYS                                                    #
 #------------------------------------------------------------------------------#
 #MODULO          => RET                                                        #
 #PROGRAMA        => RETWS42                                                    #
 #OBJETIVO        => WS PARA ORQUESTAR LLAMADOS A SERVICIOS PARA MARCAR CUENTAS #
-#                => DE FA, LEY73 Y SOLO INFONAVIT.                             #
+#                => DE FA, LEY73 Y SOLO INFONAVIT                              #
 #FECHA CREACION  => 27-AGOSTO-2020                                             #
 #VERSION         => 1.0.0                                                      #
 #MODIFICACION    =>                                                            #
