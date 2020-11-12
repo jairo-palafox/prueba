@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <WorkspaceDatabase fileContentsEncoding="CP1252" options="3" version="2.0">
+<File m="PruebaAcuse" n="PruebaAcuse.4gl" ts="20201110135804964">
+<Fct c="1" el="26" l="3" n="main()" t="F">
+<Call c="10" l="16" n="fn_genera_sello_cadena_original_solicitud_retiro_vu" p="RETXVU.4gl" t="F"/>
+<Call c="10" l="19" n="fn_genera_acuse_solicitud_retiro_vu" p="RETXVU.4gl" t="F"/>
+</Fct>
+</File>
 <File m="PruebaJava" n="PruebaJava.4gl" ts="20201001094934833">
 <Fct c="1" el="9" l="2" n="main()" t="F"/>
 </File>
@@ -341,56 +347,60 @@
 </Fct>
 </File>
 <File m="" n="ws_ret_disponibilidadFA.inc" ts=""/>
-<File m="RETWS42" n="RETWS42.4gl" ts="20201014121804427">
+<File m="RETWS42" n="RETWS42.4gl" ts="20201110172811172">
 <Ref t="ret_ws_marca_si.inc"/>
 <Ref t="../RETG01.4gl"/>
 <Ref t="ret_ws_marca_ley73.inc"/>
 <Ref t="ret_ws_marca_fa.inc"/>
+<Fct c="10" el="355" l="344" n="exitHelp()" t="F"/>
 <Fct c="1" el="261" l="106" n="main()" t="F">
 <Call c="14" l="146" n="fn_crea_ws_marcaje_ventanilla_unica" t="F"/>
 <Call c="22" l="155" n="exitHelp" t="F"/>
 <Call c="10" l="164" n="fn_crea_ws_marcaje_ventanilla_unica" t="F"/>
 </Fct>
-<Fct c="10" el="758" l="725" n="fn_valida_parametros_entrada()" t="F"/>
-<Fct c="10" el="708" l="692" n="fn_obtiene_solicitud_vu(p_nss INTEGER,p_medio_entrega SMALLINT)" t="F"/>
-<Fct c="10" el="355" l="344" n="exitHelp()" t="F"/>
 <Fct c="10" el="326" l="273" n="fn_crea_ws_marcaje_ventanilla_unica(p_generar_WSDL SMALLINT)" t="F"/>
-<Fct c="10" el="909" l="897" n="fn_actualiza_control_vu_marcas(p_consecutivo INTEGER,p_marcaje_fa_correcto SMALLINT,p_marcaje_LEY73_correcto SMALLINT,p_marcaje_si_correcto SMALLINT)" t="F"/>
-<Fct c="10" el="675" l="379" n="fn_marca_cuenta_ventanilla_unica()" t="F">
-<Call c="32" l="413" n="fn_valida_parametros_entrada" t="F"/>
-<Call c="14" l="418" n="fn_obtiene_solicitud_vu" t="F"/>
-<Call c="18" l="427" n="fn_genera_respuesta_ws" t="F"/>
-<Call c="22" l="434" n="fn_genera_respuesta_ws" t="F"/>
-<Call c="26" l="453" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
-<Call c="30" l="464" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="34" l="475" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="34" l="479" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="30" l="493" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
-<Call c="38" l="507" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
-<Call c="34" l="510" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="42" l="528" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
-<Call c="38" l="533" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="38" l="549" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="34" l="559" n="fn_marcaje_SI" p="ret_ws_marca_si.4gl" t="F"/>
-<Call c="42" l="573" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
-<Call c="42" l="581" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
-<Call c="38" l="587" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="46" l="605" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
-<Call c="46" l="614" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
-<Call c="42" l="620" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="42" l="632" n="fn_actualiza_control_vu_marcas" t="F"/>
-<Call c="34" l="640" n="fn_genera_respuesta_ws" t="F"/>
-<Call c="34" l="645" n="fn_genera_respuesta_ws" t="F"/>
-<Call c="34" l="651" n="fn_genera_respuesta_ws" t="F"/>
-<Call c="34" l="653" n="fn_genera_respuesta_ws" t="F"/>
-<Call c="30" l="662" n="fn_genera_respuesta_ws" t="F"/>
-<Call c="30" l="664" n="fn_genera_respuesta_ws" t="F"/>
-<Call c="14" l="673" n="fn_genera_respuesta_ws" t="F"/>
+<Fct c="10" el="896" l="844" n="fn_desc_error(p_codigo_error SMALLINT)" t="F"/>
+<Fct c="10" el="990" l="942" n="fn_actualiza_ids_solicitud_retiro(p_id_derechohabiente INTEGER,p_consecutivo INTEGER,p_marcaje_fa_correcto SMALLINT,p_marcaje_LEY73_correcto SMALLINT,p_marcaje_si_correcto SMALLINT)" t="F"/>
+<Fct c="10" el="827" l="791" n="fn_genera_respuesta_ws(p_estatus_peticion SMALLINT,p_estatus_marca SMALLINT,p_desc_rechazo STRING)" t="F">
+<Call c="55" l="806" n="fn_desc_error" t="F"/>
+<Call c="51" l="823" n="fn_desc_error" t="F"/>
 </Fct>
-<Fct c="10" el="880" l="828" n="fn_desc_error(p_codigo_error SMALLINT)" t="F"/>
-<Fct c="10" el="811" l="775" n="fn_genera_respuesta_ws(p_estatus_peticion SMALLINT,p_estatus_marca SMALLINT,p_desc_rechazo STRING)" t="F">
-<Call c="55" l="790" n="fn_desc_error" t="F"/>
-<Call c="51" l="807" n="fn_desc_error" t="F"/>
+<Fct c="10" el="774" l="741" n="fn_valida_parametros_entrada()" t="F"/>
+<Fct c="10" el="724" l="708" n="fn_obtiene_solicitud_vu(p_nss INTEGER,p_medio_entrega SMALLINT)" t="F"/>
+<Fct c="10" el="925" l="913" n="fn_actualiza_control_vu_marcas(p_consecutivo INTEGER,p_marcaje_fa_correcto SMALLINT,p_marcaje_LEY73_correcto SMALLINT,p_marcaje_si_correcto SMALLINT)" t="F"/>
+<Fct c="10" el="691" l="379" n="fn_marca_cuenta_ventanilla_unica()" t="F">
+<Call c="32" l="417" n="fn_valida_parametros_entrada" t="F"/>
+<Call c="14" l="422" n="fn_obtiene_solicitud_vu" t="F"/>
+<Call c="18" l="431" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="22" l="438" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="26" l="467" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="30" l="478" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="34" l="490" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="34" l="495" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="34" l="496" n="fn_actualiza_ids_solicitud_retiro" t="F"/>
+<Call c="30" l="505" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
+<Call c="38" l="519" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="34" l="522" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="42" l="540" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="38" l="545" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="38" l="562" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="38" l="563" n="fn_actualiza_ids_solicitud_retiro" t="F"/>
+<Call c="34" l="573" n="fn_marcaje_SI" p="ret_ws_marca_si.4gl" t="F"/>
+<Call c="42" l="587" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="42" l="595" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
+<Call c="38" l="601" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="46" l="619" n="fn_marcaje_fa" p="ret_ws_marca_fa.4gl" t="F"/>
+<Call c="46" l="628" n="fn_marcaje_ley73" p="ret_ws_marca_ley73.4gl" t="F"/>
+<Call c="42" l="634" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="42" l="647" n="fn_actualiza_control_vu_marcas" t="F"/>
+<Call c="42" l="648" n="fn_actualiza_ids_solicitud_retiro" t="F"/>
+<Call c="34" l="656" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="34" l="661" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="34" l="667" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="34" l="669" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="30" l="678" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="30" l="680" n="fn_genera_respuesta_ws" t="F"/>
+<Call c="14" l="689" n="fn_genera_respuesta_ws" t="F"/>
 </Fct>
 </File>
 <File m="ret_ws_marca_fa" n="ret_ws_marca_fa.4gl" ts="20201008143657865">
@@ -690,4 +700,20 @@
 </Fct>
 </File>
 <File m="ret_ws_marca_si" n="ret_ws_marca_si.inc" ts="20201009232832448"/>
+<File m="RETXVU" n="RETXVU.4gl" ts="20201110135758710">
+<Fct c="10" el="149" l="138" n="fn_genera_bytes_pdf(p_archivo_reporte STRING)" t="F"/>
+<Fct c="8" el="287" l="269" n="rpt_acuse_creacion_solicitud(p_nss INTEGER,p_curp INTEGER,p_nombre_imss INTEGER,p_fecha_hora_tramite STRING,p_caso_crm STRING,p_medio_solicitud STRING,p_pesos_viv92 INTEGER,p_pesos_viv97 INTEGER,p_pesos_fa INTEGER,p_pesos_total INTEGER,p_mensaje_integrado_infonavit STRING,p_sello_digital STRING)" t="R"/>
+<Fct c="10" el="122" l="59" n="fn_genera_acuse_solicitud_retiro_vu(p_nss INTEGER,p_fecha_hora_tramite STRING,p_caso_crm STRING,p_medio_solicitud STRING,p_pesos_viv92 INTEGER,p_pesos_viv97 INTEGER,p_pesos_fa INTEGER,p_pesos_total INTEGER,p_mensaje_integrado_infonavit STRING,p_sello_digital STRING)" t="F">
+<Call c="8" l="92" n="fgl_report_loadCurrentSettings" t="F"/>
+<Call c="13" l="94" n="fgl_report_selectDevice" t="F"/>
+<Call c="13" l="95" n="fgl_report_selectPreview" t="F"/>
+<Call c="13" l="96" n="fgl_report_setOutputFileName" t="F"/>
+<Call c="31" l="97" n="fgl_report_commitCurrentSettings" t="F"/>
+<Call c="21" l="100" n="rpt_acuse_creacion_solicitud" t="R"/>
+<Call c="25" l="102" n="rpt_acuse_creacion_solicitud" t="R"/>
+<Call c="22" l="104" n="rpt_acuse_creacion_solicitud" t="R"/>
+<Call c="13" l="108" n="fn_genera_bytes_pdf" t="F"/>
+</Fct>
+<Fct c="10" el="252" l="169" n="fn_genera_sello_cadena_original_solicitud_retiro_vu(p_nss INTEGER,p_medio_entrega INTEGER,p_caso_crm STRING,p_id_solicitud_fa INTEGER,p_id_solicitud_ley73 INTEGER,p_id_solicitud_si INTEGER,p_total_pesos INTEGER)" t="F"/>
+</File>
 </WorkspaceDatabase>

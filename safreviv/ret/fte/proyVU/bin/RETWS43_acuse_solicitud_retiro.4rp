@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="2321b" version="5.00">
+    <report:Settings RWPageWidth="letterwidth" RWPageLength="letterlength" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList RWDefaultFormat="PDF">
+            <report:Format-SVG/>
+            <report:Format-PDF RWPageRange="all"/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="../RETXVU.rdd" RWFglReportName="rpt_acuse_creacion_solicitud"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <MINIPAGE name="MiniPage" width="max" length="min">
+                        <MINIPAGE name="linea_titulos" width="min" length="min">
+                            <MINIPAGE name="recuadro_logo_infonavit" width="min" length="max" layoutDirection="leftToRight">
+                                <WORDBOX name="WordBox" width="404.049" floatingBehavior="enclosed" text=""/>
+                                <IMAGEBOX name="ImageBox" floatingBehavior="enclosed" url="logo_infonavit_acuse.PNG" intendedResolution="96"/>
+                            </MINIPAGE>
+                            <WORDWRAPBOX name="titulo_acuse" width="max" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="ACUSE DE RECIBO" textAlignment="center"/>
+                            <WORDWRAPBOX name="titulo_devolucion" width="max" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="DEVOLUCIÓN DE TUS AHORROS" textAlignment="center"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separadorTitulo" width="min" length="50" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="linea_nss" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="nss" width="60" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="NSS:"/>
+                            <rtl:input-variable name="p_nss" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDBOX name="p_nss Value" class="grwStringValue" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{p_nss}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="linea_curp" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="curp" width="60" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="CURP:"/>
+                            <rtl:input-variable name="p_curp" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDBOX name="p_curp Value" class="grwStringValue" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{p_curp}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="linea_nombre" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="nombre" width="60" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Nombre:"/>
+                            <rtl:input-variable name="p_nombre_imss" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDWRAPBOX name="p_nombre_imss Value" class="grwStringValue" width="width(&quot;M&quot;)*40" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{p_nombre_imss}}"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separadorDatos" width="min" length="20" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="linea_tramite" width="min" length="min" alignment="none" layoutDirection="leftToRight">
+                            <WORDBOX name="tramite" width="60" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Trámite: "/>
+                            <WORDBOX name="dev_tus_ahorros" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="Devolución de tus ahorros"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separadorTramite" width="min" length="20" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="linea_fecha_hora" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="fecha_hora" width="150" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Fecha y hora del trámite:"/>
+                            <rtl:input-variable name="p_fecha_hora_tramite" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDWRAPBOX name="p_fecha_hora_tramite Value" class="grwStringValue" width="width(&quot;M&quot;)*20" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{p_fecha_hora_tramite}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="linea_num_operacion" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="num_operacion" width="150" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Número de operación:"/>
+                            <rtl:input-variable name="p_caso_crm" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDWRAPBOX name="p_caso_crm Value" class="grwStringValue" width="width(&quot;M&quot;)*20" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{p_caso_crm}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="linea_medio_solicitud" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="medio_solicitud" width="150" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Medio de solicitud:"/>
+                            <rtl:input-variable name="p_medio_solicitud" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDWRAPBOX name="p_medio_solicitud Value" class="grwStringValue" width="width(&quot;M&quot;)*20" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{p_medio_solicitud}}"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separadorFechaHora" width="min" length="20" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="linea_recursos_saldo" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="recursos_saldo" fontName="Arial" fontSize="12" fontBold="false" floatingBehavior="enclosed" text="Recursos del saldo de la subcuenta de vivienda a devolver: "/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separadorRecursosSaldo" width="min" length="20" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="linea_viv92" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="viv92" width="120" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Vivienda 92:"/>
+                            <rtl:input-variable name="p_pesos_viv92" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="p_pesos_viv92 Value" class="grwNumericValue" width="100" anchorX="1" fontName="Consolas" fontSize="12" floatingBehavior="enclosed" textAlignment="right" format="$-,---,---,--&amp;.&amp;&amp;" value="{{p_pesos_viv92}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="linea_viv97" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="viv97" width="120" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Vivienda 97:"/>
+                            <rtl:input-variable name="p_pesos_viv97" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="p_pesos_viv97 Value" class="grwNumericValue" width="100" anchorX="1" fontName="Consolas" fontSize="12" floatingBehavior="enclosed" textAlignment="right" format="$-,---,---,--&amp;.&amp;&amp;" value="{{p_pesos_viv97}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="linea_fa" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="fa" width="120" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Fondo de ahorro:"/>
+                            <rtl:input-variable name="p_pesos_fa" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="p_pesos_fa Value" class="grwNumericValue" width="100" anchorX="1" fontName="Consolas" fontSize="12" floatingBehavior="enclosed" textAlignment="right" format="$-,---,---,--&amp;.&amp;&amp;" value="{{p_pesos_fa}}"/>
+                        </MINIPAGE>
+                        <MINIPAGE name="linea_total" width="min" length="min" layoutDirection="leftToRight">
+                            <WORDBOX name="total" width="120" fontName="Arial" fontSize="12" fontBold="true" floatingBehavior="enclosed" text="Total:"/>
+                            <rtl:input-variable name="p_pesos_total" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                            <DECIMALFORMATBOX name="p_pesos_total Value" class="grwNumericValue" width="100" anchorX="1" fontName="Consolas" fontSize="12" floatingBehavior="enclosed" textAlignment="right" format="$-,---,---,--&amp;.&amp;&amp;" value="{{p_pesos_total}}"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separdorMontos" width="min" length="20" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="linea_este_acuse" width="min" length="max" layoutDirection="leftToRight">
+                            <WORDWRAPBOX name="texto_este_acuse" width="max" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="Este acuse es emitido sin prejuzgar sobre la evidencia de su contenido y veracidad de los datos proporcionados, no creando derechos ni obligaciones diversas a las comprendidas en las disposiciones y ordenamientos legales en vigor. &#10;&#10;&#10;El depósito de los recursos se realizará en un término de hasta 10 días hábiles a partir de la fecha del trámite. &#10;"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separadorEsteAcuse" width="min" length="20" floatingBehavior="enclosed"/>
+                        <rtl:input-variable name="p_mensaje_integrado_infonavit" type="FGLString" expectedLocation="expectedAhead"/>
+                        <MINIPAGE name="linea_espacio_infonavit" rtl:condition="p_mensaje_integrado_infonavit!=&quot;&quot;" width="min" length="min" layoutDirection="leftToRight">
+                            <rtl:input-variable name="p_mensaje_integrado_infonavit" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDWRAPBOX name="p_mensaje_integrado_infonavit Value" class="grwStringValue" width="max" floatingBehavior="enclosed" text="{{p_mensaje_integrado_infonavit}}"/>
+                        </MINIPAGE>
+                        <LAYOUTNODE name="separadorEspacioInfonavit" width="min" length="20" floatingBehavior="enclosed"/>
+                        <MINIPAGE name="linea_sello" width="min" length="min">
+                            <WORDBOX name="texto_sello" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="Sello digital:"/>
+                            <rtl:input-variable name="p_sello_digital" type="FGLString" expectedLocation="expectedAhead"/>
+                            <WORDWRAPBOX name="p_sello_digital Value" class="grwStringValue" width="max" fontName="Arial" fontSize="12" floatingBehavior="enclosed" text="{{p_sello_digital}}"/>
+                        </MINIPAGE>
+                    </MINIPAGE>
+                    <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded"/>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>
