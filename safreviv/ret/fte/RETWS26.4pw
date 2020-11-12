@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project defaultApplication="4" gstVersion="2321b" version="3.0">
+  <Settings/>
+  <LanguageList version="1.0"/>
+  <PlatformList version="1.0"/>
+  <Group label="Application Generator">
+    <Library id="6" label="Databases">
+      <File filePath="../../schema/safre_viv.sch"/>
+    </Library>
+    <Library dependencies="6" externalDependencies="libgre.42x" id="5" label="ret_sello_digital">
+      <File filePath="ret_sello_digital.4gl"/>
+    </Library>
+    <Application compilerOptions="--build-rdd" dependencies="5||6" externalDependencies="GLOG06.42x" id="4" label="RETWS26">
+      <File filePath="RETWS26.4gl"/>
+      <File filePath="RETWS26.4rp"/>
+    </Application>
+  </Group>
+</Project>
