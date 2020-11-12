@@ -26,6 +26,11 @@ DATABASE safre_viv
 GLOBALS "RETG01.4gl"
 PRIVATE DEFINE v_ruta_pdf    STRING
 PRIVATE DEFINE v_archivo_pdf STRING 
+-- Definicion de variables para registro bitacora
+-- Folio008-2020 30-10-2020
+DEFINE g_identificador_servicio  SMALLINT
+DEFINE g_sesionID                CHAR(100)
+DEFINE g_eventoId                CHAR(50)
 GLOBALS
 -- registro de entrada para la consulta
 DEFINE ws_ret_generico_solicitud_in RECORD
@@ -120,7 +125,7 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
   LET v_cadena   = CURRENT SECOND TO SECOND
   LET v_ruta_log = v_ruta_log || v_cadena || ".log"
   
-  
+  LET g_sesionID = v_ruta_log
   DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
   
   -- se inicia el log del programa
@@ -574,6 +579,18 @@ DEFINE v_indice_retiro       SMALLINT,
          END IF
       END IF 
    END IF
+   
+   -- se invoca guardado a bitacora
+   -- Cambio Jairo Palafox
+   -- Folio008-2020 11-11-2020
+   -- registro bitacora 
+   -- se asigna el valor del identificador
+   LET g_eventoId = ws_ret_generico_solicitud_in.nss                 CLIPPED,  
+                          ws_ret_generico_solicitud_in.caso_adai      CLIPPED ,
+                          ws_ret_generico_solicitud_in.grupo          CLIPPED, 
+                          ws_ret_generico_solicitud_in.medio_entrega  CLIPPED
+         
+   CALL fn_registra_bitacora()
 END FUNCTION
 
 {
@@ -2094,4 +2111,31 @@ DEFINE v_codigo         INTEGER
 RETURN v_regreso
 
 END FUNCTION
+
+################################################################################
+#- funcion para registrar los eventos en la bitacora                           #
+# Autor - Jairo Giovanny Palafox Sanchez                                       #
+# Empresa -Omnisys                                                             #
+# Fecha Creacion : 11-11-2020                                                  #
+################################################################################
+            
+FUNCTION fn_registra_bitacora()
+ DEFINE v_resultado         SMALLINT
+ DEFINE v_creaSolDev        SMALLINT
+
+  
+  -- inicio de variables
+  LET v_creaSolDev = 8 --v_creaSolDev
+  -- se obtiene el valor de sevicio que le corresponde
+  SELECT id_ws_ctr_maestra
+   INTO g_identificador_servicio 
+   FROM ws_ctr_maestra
+   WHERE id_ws_ctr_maestra  = v_creaSolDev 
+
+ 
+  -- se ejecuta funcion global para el registro de la bitacora por evento
+  CALL fn_registra_bitacora_ws(g_identificador_servicio,g_sesionID,g_eventoID) RETURNING v_resultado
+  DISPLAY "Resultado registro Bitacora: >>", v_resultado  
+END FUNCTION
+
  

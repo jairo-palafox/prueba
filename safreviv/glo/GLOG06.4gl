@@ -21,7 +21,7 @@ FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_identificadorID)
  DEFINE p_sistamaId         SMALLINT
  DEFINE p_sesionID          CHAR(100)
  DEFINE v_sistemaID         CHAR(50)
- DEFINE p_identificadorID   CHAR(51)
+ DEFINE p_identificadorID   CHAR(50)
  DEFINE v_url_link          CHAR(100)
  DEFINE v_pagina            CHAR(100)
  DEFINE v_indice            SMALLINT
@@ -74,11 +74,13 @@ FUNCTION fn_registra_bitacora_ws(p_sistamaId,p_sesionID,p_identificadorID)
                            v_evento_inicio                      ,
                            "<sistemaId>",v_sistemaID CLIPPED,"</sistemaId>", 
                            "<identificadorId>",p_identificadorID CLIPPED,"</identificadorId>", 
-                           "<sesionID>",p_sesionID CLIPPED,"</sesionID>", 
+                           "<sesionId>",p_sesionID CLIPPED,"</sesionId>", 
                            "<url_link>", v_url_link CLIPPED,"</url_link>", 
                            "<pagina>", v_pagina CLIPPED,"</pagina>",
+                           "<eventos>",
                            "<eventoId>",v_id_evento CLIPPED,"</eventoId>",
-                           "<timestamp>",v_fecha_timestamp CLIPPED, "</timestamp>",
+                           "<timestamp>",v_fecha_timestamp CLIPPED,"</timestamp>",
+                           "</eventos>",
                            v_evento_final
                            
   DISPLAY "Cadena formada XML: ",g_ParametrosEnvio 
@@ -107,11 +109,13 @@ FUNCTION fn_notifica_bitacora_ws()
    --CALL ui.Interface.refresh()
    LET v_Respuesta = NULL
 
-   LET v_URL       = "http://091402aq135.infonavit.net:50100/RESTAdapter/getMessageEvent"
+   LET v_URL       = "http://091402aq137.infonavit.net:50100/RESTAdapter/getMessageEvent"
    LET v_RequestWS = com.HttpRequest.Create(v_URL)
         
    CALL v_RequestWS.setMethod("POST")
-   CALL v_RequestWS.setAuthentication("PIDDEVELOP","Inicio01","Basic","http://091402aq135.infonavit.net:50100/RESTAdapter/getMessageEvent")
+   --CALL v_RequestWS.setAuthentication("PIDDEVELOP","Inicio01","Basic","http://091402aq135.infonavit.net:50100/RESTAdapter/getMessageEvent")
+   CALL v_RequestWS.setAuthentication("serviciosweb75","piqa2018","Basic","http://091402aq135.infonavit.net:50100/RESTAdapter/getMessageEvent")
+
    CALL v_RequestWS.setHeader("Content-Type", "application/xml")
    
    -- se notifica para cada una de las cadenas solicitadas
