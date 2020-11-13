@@ -22,6 +22,28 @@ DEFINE g_pid         LIKE bat_ctr_proceso.pid,         # ID del proceso
        g_opera_cod   LIKE cat_operacion.opera_cod,     # codigo de operacion
        g_folio       LIKE ret_preliquida.folio_liquida # folio liquidacion
 
+       {
+======================================================================
+Clave: 
+Nombre: MAIN
+Fecha creacion: Octubre 15, 2013
+Autor: Codigo legado
+Narrativa del proceso que realiza:
+Funcion principal del programa lanzado que invoca el SP que realiza los
+calculos y ejecuta las reglas de negocio de preliquidacion de restitucion de
+retiro generico ley73 FICO, SIAFF y BANCO
+
+Registro de modificaciones:
+Autor           Fecha                   Descrip. cambio
+Ivan Vega     Noviembre 11, 2020     - PLAGC138. Anadir cifras control e invocacion de reporte
+                                       de cifras control al finalizar el proceso
+                                       Este programa preliquida los registros de restitucion de retiro
+                                       generico ley73 FICO, SIAFF y BANCO; restringe el conjunto de datos
+                                       a partir del codigo de proceso y este a su vez indica el estatus de rechazo
+                                       en el que busca los registros
+======================================================================
+}
+
 MAIN
 DEFINE p_pid              LIKE bat_ctr_operacion.pid,         # PID del proceso
        p_proceso_cod      LIKE bat_ctr_operacion.proceso_cod, # codigo del proceso
@@ -44,7 +66,13 @@ DEFINE p_pid              LIKE bat_ctr_operacion.pid,         # PID del proceso
        v_error_sql        INTEGER,
        v_isam_error       INTEGER,
        v_msg_error        CHAR(254),
-       v_estado_preliq_restitucion SMALLINT
+       v_estado_preliq_restitucion SMALLINT,
+       v_subcuenta        LIKE ret_preliquida.subcuenta,
+       v_subcuenta_desc   LIKE cat_subcuenta.subcuenta_desc,
+       v_movimiento       LIKE ret_preliquida.movimiento,
+       v_movimiento_desc  LIKE cat_movimiento.movimiento_desc,
+       v_sum_acciones     LIKE ret_preliquida.monto_acciones,
+       v_sum_pesos        LIKE ret_preliquida.monto_pesos
   
    # recupera parametros
    LET p_usuario_cod   = ARG_VAL(1)
@@ -55,16 +83,16 @@ DEFINE p_pid              LIKE bat_ctr_operacion.pid,         # PID del proceso
    LET p_archivo       = ARG_VAL(6)
   
   
-   -- selecciona el tipo de código de rechazo
+   -- selecciona el tipo de codigo de rechazo
    CASE p_proceso_cod
    	
-   	WHEN g_proceso_cod_restitucion_ret_generico_ley73 
-   		LET p_cod_rechazo = 65
+   	 WHEN g_proceso_cod_restitucion_ret_generico_ley73 
+   	 	LET p_cod_rechazo = 65
    		
-   	WHEN g_proceso_cod_restitucion_ret_generico_ley73fico
+   	 WHEN g_proceso_cod_restitucion_ret_generico_ley73fico
    		LET p_cod_rechazo = 64
 
-    WHEN g_proceso_restitucion_rechazo_siaff
+     WHEN g_proceso_restitucion_rechazo_siaff
         LET p_cod_rechazo = 66
    		
    END CASE
@@ -118,12 +146,34 @@ DEFINE p_pid              LIKE bat_ctr_operacion.pid,         # PID del proceso
                                               v_msg_error
 
    # si se termino correctamente  
-   IF( v_ind = 0)THEN
-      IF(v_error_sql = 0)THEN
+   IF (v_ind = 0) THEN
+      IF (v_error_sql = 0) THEN
+
+         -- 20201109 se agregan cifras de control e invocacion de reporte de cifras de control
+         SELECT programa_cod
+         INTO   p_programa_cod
+         FROM   cat_operacion
+         WHERE  proceso_cod = p_proceso_cod
+         AND    opera_cod   = p_opera_cod
+
+         -- se obtiene el folio que se genero durante la preliquidacion
+         SELECT folio
+         INTO   p_folio
+         FROM   bat_ctr_operacion
+         WHERE  pid = p_pid
+         AND    proceso_cod = p_proceso_cod
+         AND    opera_cod = p_opera_cod
+               
+         CALL fn_reporte_liquidacion(p_folio, "ret_preliquida", 
+                                     p_usuario_cod, p_pid, p_proceso_cod, 
+                                     p_opera_cod, p_programa_cod, 
+                                     FALSE)
+      
          CALL fn_actualiza_opera_fin(g_pid,
                                      g_proceso_cod,
                                      g_opera_cod)RETURNING v_estado_operacion
-         IF( v_estado_operacion  <> 0 )THEN
+                                     
+         IF ( v_estado_operacion  <> 0 ) THEN
             # Imprime el mensaje de inconsistencia en consola
             CALL fn_desplega_inc_operacion(v_estado_operacion)
             # trata de establecer erronea la operacion
@@ -137,7 +187,35 @@ DEFINE p_pid              LIKE bat_ctr_operacion.pid,         # PID del proceso
          ELSE
             DISPLAY "Preliquidacion realizada con exito"
             LET p_mensaje = p_mensaje || "Preliquidacion realizada con éxito\n.Ya se puede continuar con la Liquidación \n"
-            DISPLAY "Ya se puede Continuar con la Liquidación"
+
+            -- reporte en log de cifras preliquidadas
+            DISPLAY "= CIFRAS PRELIQUIDADAS ="
+
+            DECLARE cur_cifras_control CURSOR FOR
+            SELECT pre.subcuenta
+                   ,cs.subcuenta_desc
+                   ,pre.movimiento
+                   ,cm.movimiento_desc
+                   ,SUM(pre.monto_acciones)
+                   ,SUM(pre.monto_pesos)
+            FROM ret_preliquida pre
+            INNER JOIN cat_subcuenta cs ON pre.subcuenta = cs.subcuenta
+            INNER JOIN cat_movimiento cm ON pre.movimiento = cm.movimiento
+            WHERE folio_liquida = p_folio
+            GROUP BY pre.subcuenta, cs.subcuenta_desc, pre.movimiento, cm.movimiento_desc
+            ORDER BY pre.subcuenta
+  
+            FOREACH cur_cifras_control INTO v_subcuenta, v_subcuenta_desc, v_movimiento, v_movimiento_desc,
+                                            v_sum_acciones, v_sum_pesos
+               DISPLAY "SUBCUENTA           ", v_subcuenta, " ", v_subcuenta_desc
+               DISPLAY "MOVIMIENTO          ", v_movimiento, " ", v_movimiento_desc
+               DISPLAY "MONTO ACCIONES      ", v_sum_acciones
+               DISPLAY "MONTO PESOS         ", v_sum_pesos
+            END FOREACH
+
+            FREE cur_cifras_control
+            
+            DISPLAY "\n\nYa se puede Continuar con la Liquidación"
             DISPLAY "\n\n"         
          END IF
       ELSE
@@ -166,7 +244,6 @@ DEFINE p_pid              LIKE bat_ctr_operacion.pid,         # PID del proceso
       END IF
       LET p_mensaje = p_mensaje || "El proceso de Preliquidacion ha finalizado pero con errores de validación.\nNo se puede continuar con el proceso de Liquidación.\n"
    END IF
-      
 
    LET p_mensaje = p_mensaje,"Fecha Fin    : ", TODAY, "\n"
    CALL fn_correo_proceso(g_pid, 
