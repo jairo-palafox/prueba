@@ -365,7 +365,8 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
        v_cont_va                        INTEGER, 
        v_tit_ben                        SMALLINT,
        v_porcentaje_pago                SMALLINT,
-       v_id_sol_busca_montos            DECIMAL(9,0), 
+       v_id_sol_busca_montos            DECIMAL(9,0),
+       vc_id_sol_busca_montos           CHAR(10),
        
        v_r_despliegue        RECORD
          id_solicitud        LIKE ret_solicitud_generico.id_solicitud    ,
@@ -767,7 +768,9 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
                             AND c.consec_beneficiario = 1
          WHERE  a.id_solicitud = v_r_despliegue.id_solicitud
       ELSE 
-         LET v_id_sol_busca_montos =  (v_r_despliegue.id_solicitud) / 10 -- Se eliminan los decimales
+         LET vc_id_sol_busca_montos = v_r_despliegue.id_solicitud USING "&&&&&&&&&&"
+         LET v_id_sol_busca_montos = vc_id_sol_busca_montos[1,9]
+         --LET v_id_sol_busca_montos =  (v_r_despliegue.id_solicitud) / 10 -- Se eliminan los decimales
          SELECT NVL(b.cuenta_clabe,c.cuenta_clabe)
          INTO   v_arr_despliegue[v_indice].cuenta_clabe
          FROM   ret_solicitud_generico a
@@ -858,7 +861,11 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
          INTO   v_porcentaje_pago
          FROM   ret_beneficiario_generico  
          WHERE  (id_solicitud*10)+consec_beneficiario = v_arr_despliegue[v_indice].id_solicitud
-         LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud / 10 -- Elimina los decimales para los casos de beneficiarios
+         DISPLAY "los valores de solicitud :",v_arr_despliegue[v_indice].id_solicitud
+         LET vc_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud USING "&&&&&&&&&&"
+         LET v_id_sol_busca_montos = vc_id_sol_busca_montos[1,9]
+
+         --LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud / 10 -- Elimina los decimales para los casos de beneficiarios
       END IF
       DISPLAY "El id_solicitud con el que se realiza la búsqueda de montos es:", v_id_sol_busca_montos
       DISPLAY "el v_tit_ben:", v_tit_ben
