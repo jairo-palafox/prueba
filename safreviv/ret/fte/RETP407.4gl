@@ -199,7 +199,7 @@ FUNCTION fn_notificar_procesar()
     --- Se notifican titulares y ventanilla AFORE
 
 
-LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS NULL THEN 'AAAA010101AAA' ELSE ad.rfc end,CASE WHEN ad.curp = '' OR ad.curp IS NULL THEN 'AAAA010101AAAAAA01' ELSE ad.curp end,  "||
+LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' THEN 'AAAA010101AAA' ELSE ad.rfc end,CASE WHEN ad.curp = '' THEN 'AAAA010101AAAAAA01' ELSE ad.curp end,  "||
                 "       '0101',rsg.estado_solicitud, ad.id_derechohabiente      "||
                 "FROM   ret_solicitud_generico    rsg,                 "||
                 "       ret_ley73_generico        rlg,                 "||
@@ -216,9 +216,8 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
                 "  AND  rlg.gpo_ley73          = 1                     "||
                 -- Pasar de estado 72 a 73 y de 214 a 215, Se quitan los casos 214 Ventanilla Infonavit segun req SACI2018-188
                 "  AND  rsg.estado_solicitud   IN (72)                 "||
-                --"  AND  ad.nss = '96945802591'                         "||
                 "UNION ALL                                             "||
-                "SELECT rsg.id_solicitud,ad.nss,CASE WHEN rsad.rfc_s = '' OR rsad.rfc_s IS NULL THEN 'AAAA010101AAA' ELSE ad.rfc end ,CASE WHEN rsad.curp_s = '' OR rsad.curp_s IS NULL THEN 'AAAA010101AAAAAA01' ELSE rsad.curp_s end,        "||
+                "SELECT rsg.id_solicitud,ad.nss,CASE WHEN rsad.rfc_s = '' THEN 'AAAA010101AAA' ELSE ad.rfc end ,CASE WHEN rsad.curp_s = '' THEN 'AAAA010101AAAAAA01' ELSE rsad.curp_s end,        "||
                 "       '0201',rsg.estado_solicitud, ad.id_derechohabiente      "||
                 "FROM   ret_solicitud_generico    rsg,                 "||
                 "       ret_ley73_generico        rlg,                 "||
@@ -228,7 +227,6 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
                 "  AND  rsg.id_solicitud       = rsad.id_solicitud     "||
                 "  AND  rsg.id_derechohabiente = ad.id_derechohabiente "||
                 "  AND  rlg.gpo_ley73          = 1                     "||
-                --"  AND  ad.nss = '96945802591'                         "||
                 "  AND  rsg.estado_solicitud   IN (71,210)             "
 
 
@@ -390,13 +388,6 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         
         LET v_consec_beneficiario = 1;
 
-        IF v_solicitud_notificacion.rfcTrabajador IS NULL THEN
-           LET v_solicitud_notificacion.rfcTrabajador = 'AAAA010101AAA'
-        END IF
-        IF v_solicitud_notificacion.curpTrabajador IS NULL THEN
-           LET v_solicitud_notificacion.curpTrabajador = 'AAAA010101AAAAAA01'
-        END IF
-        
         -- pago spei
         INITIALIZE v_clabe TO NULL 
         EXECUTE prp_pago_spei INTO v_clabe USING v_solicitud_notificacion.id_solicitud, v_consec_beneficiario
@@ -704,16 +695,6 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         DISPLAY ""
         DISPLAY ""
         DISPLAY "Solicitud: ",v_solicitud_notificacion.id_solicitud
-
-       { IF v_solicitud_notificacion.rfcTrabajador IS NULL THEN
-           LET v_solicitud_notificacion.rfcTrabajador = 'AAAA010101AAA'
-        END IF
-        IF v_solicitud_notificacion.curpTrabajador IS NULL THEN
-           LET v_solicitud_notificacion.curpTrabajador = 'AAAA010101AAAAAA01'
-        END IF}
-
-
-        
         -- Se obtiene el consecutivo de un solo beneficiario que tenga estado de pagado
         INITIALIZE v_consec_beneficiario TO NULL
         EXECUTE prp_consec_beneficiario INTO v_consec_beneficiario USING v_solicitud_notificacion.id_solicitud
