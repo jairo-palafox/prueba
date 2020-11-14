@@ -518,7 +518,17 @@ DEFINE p_indice                 SMALLINT,
          -- Valida que no exista otra solicitud 
          IF ( NOT v_existe_solicitud ) THEN
             -- Crea Caso en CRM 
-            CALL fn_crea_caso(p_nss, p_medio_entrega) RETURNING v_resultado, v_caso_crm
+
+            DISPLAY "RETWS08_INVOCAR_PROCESAR: ", FGL_GETENV("RETWS08_INVOCAR_PROCESAR")
+            IF ( UPSHIFT(FGL_GETENV("RETWS08_INVOCAR_PROCESAR")) = "TRUE" ) THEN
+               -- se invoca la creacion del caso CRM
+               CALL fn_crea_caso(p_nss, p_medio_entrega) RETURNING v_resultado, v_caso_crm
+            ELSE
+               DISPLAY "No se invocan los servicios de AFORE-PROCESAR para pruebas, caso_crm es simulado, se usa el recibido en parametros de WS"
+               LET v_resultado = 0
+               LET v_caso_crm = ret_marcaje.caso_adai
+            END IF
+            
             IF v_resultado <> 0 THEN --- No se pudo crear el caso
                                  -- se indica que no se pudo marcar
 --               IF v_resultado = 1 THEN 
