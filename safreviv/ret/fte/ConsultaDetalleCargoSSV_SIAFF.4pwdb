@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="CP1252" options="3" version="2.0">
+<File m="RETC429" n="RETC429.4gl" ts="20200908193634628">
+<Ref t="RETG01.4gl"/>
+<Fct c="10" el="675" l="640" n="f_limpia_arreglo(p_arr_detalle RECORD)" t="F"/>
+<Fct c="8" el="638" l="408" n="rpt_detalle_saldos_insuf(p_indice DECIMAL(9,0),v_r_despliegue RECORD,p_usuario_cod INTEGER,p_agrupador_folio_fecha_Afore STRING)" t="R"/>
+<Fct c="1" el="44" l="21" n="main()" t="F">
+<Call c="9" l="42" n="fn_consulta_detalle" t="F"/>
+</Fct>
+<Fct c="10" el="824" l="678" n="fn_exporta_archivo(p_query STRING)" t="F">
+<Call c="9" l="760" n="fn_mensaje" t="F"/>
+<Call c="9" l="820" n="fn_mensaje" t="F"/>
+</Fct>
+<Fct c="10" el="393" l="54" n="fn_consulta_detalle(p_usuario_cod INTEGER)" t="F">
+<Call c="15" l="224" n="f_limpia_arreglo" t="F"/>
+<Call c="15" l="230" n="f_limpia_arreglo" t="F"/>
+<Call c="18" l="243" n="fn_mensaje" t="F"/>
+<Call c="21" l="248" n="fn_mensaje" t="F"/>
+<Call c="24" l="253" n="fn_mensaje" t="F"/>
+<Call c="24" l="370" n="fn_mensaje" t="F"/>
+<Call c="24" l="377" n="fn_exporta_archivo" t="F"/>
+<Call c="21" l="382" n="fn_mensaje" t="F"/>
+</Fct>
+</File>
+<File m="RETG01" n="RETG01.4gl" ts="20200729131626061"/>
+</WorkspaceDatabase>
