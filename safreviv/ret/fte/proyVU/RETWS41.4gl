@@ -922,7 +922,8 @@ Solo Infonavit con los datos proporcionados como parametros del servicio
 
 Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
-
+Ivan Vega    Noviembre 17, 2020      - No se estaba asignando el monto de aivs/pesos de solo infonavit
+                                       en la tabla de control ret_control_vu
 ======================================================================
 }
 FUNCTION fn_ejecutaWS_disponibilidadSI()
@@ -950,6 +951,12 @@ DEFINE estatus_si           SMALLINT
     -- ACTUALIZAR TABLA DE CONTROL
        LET gr_registro_control_vu.bn_disponibilidad_si = TRUE
        DISPLAY "SE CAMBIA LA BANDERA DE DISPONIBILIDAD SI A : ",gr_registro_control_vu.bn_disponibilidad_si
+
+       -- SI se reporta como parte de la respuesta de Ley73, se activa el retiro en caso de que
+       -- Ley73 haya marcado no disponibilidad
+       LET gr_salida_vu_ws.estado_solicitud_ley73 = 10
+       LET gr_salida_vu_ws.cod_rechazo_ley73      = 0
+       LET gr_salida_vu_ws.des_rechazo_ley73      = "Disponible"
     ELSE
        -- RECHAZO
        DISPLAY "LA BANDERA DE DISPONIBILIDAD SI SE QUEDA EN FALSE : ",gr_registro_control_vu.bn_disponibilidad_si
@@ -971,8 +978,8 @@ DEFINE estatus_si           SMALLINT
     -- se acumulan los montos de solo infonavit a vivienda 97
     LET gr_salida_vu_ws.saldo_aivs_viv97  = gr_salida_vu_ws.saldo_aivs_viv97 + fn_saldo_disponible_SIResponse.saldo_aivs
     LET gr_salida_vu_ws.saldo_pesos_viv97 = gr_salida_vu_ws.saldo_pesos_viv97 + fn_saldo_disponible_SIResponse.monto_pesos
-    LET gr_registro_control_vu.saldo_acciones_viv97 = gr_registro_control_vu.saldo_acciones_viv97 + fn_saldo_disponible_SIResponse.saldo_aivs
-    LET gr_registro_control_vu.saldo_pesos_viv97    = gr_registro_control_vu.saldo_pesos_viv97 + fn_saldo_disponible_SIResponse.monto_pesos
+    LET gr_registro_control_vu.saldo_acciones_si = fn_saldo_disponible_SIResponse.saldo_aivs
+    LET gr_registro_control_vu.saldo_pesos_si    = fn_saldo_disponible_SIResponse.monto_pesos
 
     -- se realizan los acumulados
     LET gr_registro_control_vu.saldo_total_pesos = gr_registro_control_vu.saldo_pesos_fa + gr_registro_control_vu.tanto_adicional_fa + gr_registro_control_vu.saldo_pesos_viv92 + gr_registro_control_vu.saldo_pesos_viv97 + gr_registro_control_vu.saldo_pesos_si

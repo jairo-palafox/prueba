@@ -374,6 +374,16 @@ Ivan Vega    octubre 14, 2020      cuando se desmarca ley73, el ws de marcaje de
                                    Se agrega una clausula para verificar si marcaje de ley73 esta devolviendo
                                    este valor y si es el caso, se envia la respuesta de errores de comunicacion
                                    en ley73
+Ivan Vega    Noviembre 17, 2020    Cuando haya un error de comunicacion o de ejecucion de marca segun el indicador y que no se trate de marca
+                                   no se debe actualizar el estatus de la tabla de control y se debe devolver el registro al estatus anterior, es decir
+                                   si es marca y falla, se desmarca lo ya marcado
+                                   si es desmarca y falla, se marca lo desmarcado
+                                   si es aprobacion y falla, se devuelve el estatus a pendiente de aprobacion
+                                   si es rechazo y falla, se devuelve el estatus a pendiente de aprobacion
+                                   
+                                   Hay unas solicitudes que nacen en estatus aprobadas, por lo que si cuando se recibe la senal de
+                                   aprobacion o rechazo, estas ya estan por encima del estatus 10, y el tipo de retiro estaba disponibles
+                                   esta ya no se intentara aprobador o rechazar
 ======================================================================
 }
 FUNCTION fn_marca_cuenta_ventanilla_unica()
@@ -395,6 +405,9 @@ DEFINE v_activar_marca_fa       SMALLINT
 DEFINE v_activar_marca_ley73    SMALLINT
 DEFINE v_activar_marca_si       SMALLINT
 DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
+DEFINE v_estatus_solicitud_fa     SMALLINT
+DEFINE v_estatus_solicitud_ley73  SMALLINT
+DEFINE v_estatus_solicitud_SI     SMALLINT
 
     DISPLAY "Ingresa a funcion principal que resuelve el servicio..." 
     LET gr_salida_ws.nss = gr_entrada_ws.nss
@@ -464,8 +477,32 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
                 IF ( lr_ret_control_vu.bn_disponibilidad_fa = TRUE ) THEN
                     DISPLAY "invocando marcaje FA"
                     
-                    CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
-                    RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                    -- si se pide marca/desmarca
+                    IF ( gr_entrada_ws.ind_marca = GI_INDICADOR_MARCA_MARCAR OR gr_entrada_ws.ind_marca = GI_INDICADOR_MARCA_DESMARCAR ) THEN
+                        CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                        RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                    ELSE
+                        -- 20201117 si la solicitud ya esta aprobada o rechazada, no se intenta operar
+                        SELECT estado_solicitud
+                        INTO v_estatus_solicitud_fa
+                        FROM ret_solicitud_generico
+                        WHERE id_solicitud = lr_ret_control_vu.id_solicitud_fa
+                        
+                        IF ( v_estatus_solicitud_fa IS NOT NULL AND v_estatus_solicitud_fa = 10 ) THEN
+                            CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                            RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                        ELSE
+                            -- la solicitud ya estaba aprobada
+                            DISPLAY "Se detecto solicitud FA ya aprobada/rechazada o procesada con antelacion"                            
+                            LET v_estatus_llamada_fa = 0
+                            LET lr_ret_marcaje_fa.est_marca   = GI_COD_RECHAZO_MARCA_EXITO
+                            LET lr_ret_marcaje_fa.cod_rechazo = 0
+                            LET lr_ret_marcaje_fa.des_rechazo = "Solicitud aprobada/rechazada con antelacion"
+                            LET lr_ret_marcaje_fa.saldo_pesos = lr_ret_control_vu.saldo_pesos_fa
+                            LET lr_ret_marcaje_fa.nss = lr_ret_control_vu.param_nss
+                            LET lr_ret_marcaje_fa.rfc = lr_ret_control_vu.param_rfc
+                        END IF
+                    END IF
 
                     DISPLAY "Estatus invocacion FA: ", v_estatus_llamada_fa
                     DISPLAY "Estatus marca FA: ", lr_ret_marcaje_fa.est_marca
@@ -475,25 +512,26 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
                     IF ( v_estatus_llamada_fa <> 0 ) THEN
                         LET lr_ret_marcaje_fa.est_marca = GI_ESTATUS_MARCA_ERROR
                         LET lr_ret_marcaje_fa.cod_rechazo = "Error en llamada a WS de Marcaje de Fondo de Ahorro"
-                        CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
+                        
+                        -- CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
                         LET v_continuar = FALSE
                     ELSE
-                        LET gr_salida_ws.id_retiro_fa   = NULL
-                        LET gr_salida_ws.saldo_pesos_fa = lr_ret_marcaje_fa.saldo_pesos
+                        LET gr_salida_ws.id_retiro_fa    = NULL
+                        LET gr_salida_ws.saldo_pesos_fa  = lr_ret_marcaje_fa.saldo_pesos
                         LET gr_salida_ws.tanto_adicional = lr_ret_control_vu.tanto_adicional_fa
-                        LET gr_salida_ws.estatus_marca  = lr_ret_marcaje_fa.est_marca
+                        LET gr_salida_ws.estatus_marca   = lr_ret_marcaje_fa.est_marca
 
-                        -- si no se pudo marcar
+                        -- si no se pudo ejecutar la operacion
                         IF ( lr_ret_marcaje_fa.cod_rechazo <> 0 ) THEN
                             LET v_continuar = FALSE
                             LET v_marcaje_fa_correcto = FALSE
-                            CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
+                            -- CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
                         ELSE
                             LET v_marcaje_fa_correcto = TRUE
                             LET v_activar_marca_fa = TRUE
                             -- se actualiza el estatus de marcado en la tabla de control
                             CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
-                            CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
+                            CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si, gr_entrada_ws.ind_marca)
                         END IF
                     END IF
                 END IF
@@ -502,11 +540,41 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
                     -- MARCA DE RETIRO LEY73
                     IF ( lr_ret_control_vu.bn_disponibilidad_ley73 = TRUE ) THEN
                         DISPLAY "Invocando marcaje Ley 73"
-                        CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
-                                              gr_entrada_ws.caso_crm, -- el parametro es el caso adai, es el mismo?
-                                              gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo, 
-                                              lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
-                                              gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+
+                        -- si se pide marca/desmarca
+                        IF ( gr_entrada_ws.ind_marca = GI_INDICADOR_MARCA_MARCAR OR gr_entrada_ws.ind_marca = GI_INDICADOR_MARCA_DESMARCAR ) THEN
+                            CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
+                                                  gr_entrada_ws.caso_crm, -- el parametro es el caso adai, es el mismo?
+                                                  gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo, 
+                                                  lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
+                                                  gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+                        ELSE
+                            -- 20201117 si la solicitud ya esta aprobada o rechazada, no se intenta operar
+                            SELECT estado_solicitud
+                            INTO v_estatus_solicitud_ley73
+                            FROM ret_solicitud_generico
+                            WHERE id_solicitud = lr_ret_control_vu.id_solicitud_ley73
+                            
+                            IF ( v_estatus_solicitud_ley73 IS NOT NULL AND v_estatus_solicitud_ley73 = 10 ) THEN
+                                CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
+                                                      gr_entrada_ws.caso_crm, -- el parametro es el caso adai, es el mismo?
+                                                      gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo, 
+                                                      lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
+                                                      gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+                            ELSE
+                                -- la solicitud ya estaba aprobada
+                                DISPLAY "Se detecto solicitud Ley73 ya aprobada/rechazada o procesada con antelacion"                            
+                                LET v_estatus_llamada_ley73 = 0
+                                LET lr_ret_marcaje_ley73.est_marca   = GI_COD_RECHAZO_MARCA_EXITO
+                                LET lr_ret_marcaje_ley73.cod_rechazo = 0
+                                LET lr_ret_marcaje_ley73.des_rechazo = "Solicitud aprobada/rechazada con antelacion"
+                                LET lr_ret_marcaje_ley73.saldo_aivs_viv92 = lr_ret_control_vu.saldo_acciones_viv92
+                                LET lr_ret_marcaje_ley73.saldo_aivs_viv97 = lr_ret_control_vu.saldo_acciones_viv97
+                                LET lr_ret_marcaje_ley73.saldo_pesos_viv92 = lr_ret_control_vu.saldo_pesos_viv92
+                                LET lr_ret_marcaje_ley73.saldo_pesos_viv97 = lr_ret_control_vu.saldo_pesos_viv97
+                                LET lr_ret_marcaje_ley73.nss = lr_ret_control_vu.param_nss
+                            END IF
+                        END IF
 
                         -- si hubo un error de comunicacion con el servicio
                         IF ( v_estatus_llamada_ley73 <> 0 ) THEN
@@ -516,10 +584,34 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
 
                             -- si hubo marcaje de fondo de ahorro, se desmarca
                             IF ( lr_ret_control_vu.bn_disponibilidad_fa = TRUE AND v_marcaje_fa_correcto ) THEN
-                                CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
-                                RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                DISPLAY "Se reversa el movimiento"
+                                -- se regresa el estatus anterior
+                                -- 20201117
+                                CASE gr_entrada_ws.ind_marca
+                                   WHEN GI_INDICADOR_MARCA_MARCAR
+                                       -- se desmarca fondo de ahorro
+                                       DISPLAY "Se desmcarca FA"
+                                       CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                                       RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                   
+                                   WHEN GI_INDICADOR_MARCA_DESMARCAR
+                                       DISPLAY "Se vuelve a marcar FA"
+                                       -- se vuelve a marcar
+                                       CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_MARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                                       RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                   
+                                   WHEN GI_INDICADOR_MARCA_APROBAR_SOLICITUD
+                                       DISPLAY "Se regresa FA a pendiente de aprobar"
+                                       -- no se pudo aprobar, se regresa el estatus a pendiente de aprobacion
+                                       CALL fn_reversar_aprobacion_rechazo(lr_ret_control_vu.id_solicitud_fa,0,0)
+                                   
+                                   WHEN GI_INDICADOR_MARCA_RECHAZAR_SOLICITUD
+                                       DISPLAY "Se regresa FA a pendiente de aprobar"
+                                       -- no se pudo rechazar, se regresa el estatus a pendiente de aprobar
+                                       CALL fn_reversar_aprobacion_rechazo(lr_ret_control_vu.id_solicitud_fa,0,0)
+                                END CASE
                             END IF
-                            CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
+                            -- CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
 
                         ELSE
                             -- si la marca no procedio
@@ -536,13 +628,33 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
 
                                 -- si hubo marcaje de fondo de ahorro, se desmarca
                                 IF ( lr_ret_control_vu.bn_disponibilidad_fa = TRUE AND v_marcaje_fa_correcto = TRUE ) THEN
-                                    DISPLAY "Marcaje ley73 no se dio y se debe desmarcar fondo de ahorro"
-                                    CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
-                                    RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
-
-                                    DISPLAY "Desmarcado de Fondo de Ahorro: ", lr_ret_marcaje_fa.cod_rechazo, " ", lr_ret_marcaje_fa.des_rechazo
+                                    -- se regresa el estatus anterior
+                                    -- 20201117
+                                    CASE gr_entrada_ws.ind_marca
+                                       WHEN GI_INDICADOR_MARCA_MARCAR
+                                           -- se desmarca fondo de ahorro
+                                           DISPLAY "Se desmcarca FA"
+                                           CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                                           RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                       
+                                       WHEN GI_INDICADOR_MARCA_DESMARCAR
+                                           DISPLAY "Se vuelve a marcar FA"
+                                           -- se vuelve a marcar
+                                           CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_MARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                                           RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                       
+                                       WHEN GI_INDICADOR_MARCA_APROBAR_SOLICITUD
+                                           DISPLAY "Se regresa FA a pendiente de aprobar"
+                                           -- no se pudo aprobar, se regresa el estatus a pendiente de aprobacion
+                                           CALL fn_reversar_aprobacion_rechazo(lr_ret_control_vu.id_solicitud_fa,0,0)
+                                       
+                                       WHEN GI_INDICADOR_MARCA_RECHAZAR_SOLICITUD
+                                           DISPLAY "Se regresa FA a pendiente de aprobar"
+                                           -- no se pudo rechazar, se regresa el estatus a pendiente de aprobar
+                                           CALL fn_reversar_aprobacion_rechazo(lr_ret_control_vu.id_solicitud_fa,0,0)
+                                    END CASE
                                 END IF
-                                CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
+                                
                             ELSE
                                 DISPLAY "Marcaje Ley73 correcto"
                                 DISPLAY "AIVS viv92: ", lr_ret_marcaje_ley73.saldo_aivs_viv92
@@ -560,7 +672,7 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
                                 LET gr_salida_ws.saldo_pesos_viv97 = lr_ret_marcaje_ley73.saldo_pesos_viv97
 
                                 CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
-                                CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
+                                CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si, gr_entrada_ws.ind_marca)
                             END IF
                         END IF
                     END IF
@@ -569,11 +681,38 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
                         -- MARCA DE RETIRO SOLO INFONAVIT
                         IF ( lr_ret_control_vu.bn_disponibilidad_si = TRUE ) THEN
                             DISPLAY "Invocando marcaje retiro solo infonavit"
-                            -- se invoca ws de marcaje de solo infonavit
-                            CALL fn_marcaje_SI(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, 
-                                               gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo,
-                                               lr_ret_control_vu.param_grupo_ley73, gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario)
-                            RETURNING v_estatus_llamada_SI, lr_ret_marcaje_si.*
+
+                            -- si se pide marca/desmarca
+                            IF ( gr_entrada_ws.ind_marca = GI_INDICADOR_MARCA_MARCAR OR gr_entrada_ws.ind_marca = GI_INDICADOR_MARCA_DESMARCAR ) THEN
+                                CALL fn_marcaje_SI(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, 
+                                                   gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo,
+                                                   lr_ret_control_vu.param_grupo_ley73, gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario)
+                                RETURNING v_estatus_llamada_SI, lr_ret_marcaje_si.*
+                            ELSE
+                                -- 20201117 si la solicitud ya esta aprobada o rechazada, no se intenta operar
+                                SELECT estado_solicitud
+                                INTO v_estatus_solicitud_si
+                                FROM ret_solicitud_generico
+                                WHERE id_solicitud = lr_ret_control_vu.id_solicitud_si
+                                
+                                IF ( v_estatus_solicitud_si IS NOT NULL AND v_estatus_solicitud_si = 10 ) THEN
+                                    CALL fn_marcaje_SI(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, 
+                                                       gr_entrada_ws.cuenta_clabe, gr_entrada_ws.ind_marca, gr_entrada_ws.cod_rechazo,
+                                                       lr_ret_control_vu.param_grupo_ley73, gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario)
+                                    RETURNING v_estatus_llamada_SI, lr_ret_marcaje_si.*
+                                ELSE
+                                    -- la solicitud ya estaba aprobada
+                                    DISPLAY "Se detecto solicitud SI ya aprobada/rechazada o procesada con antelacion"                            
+                                    LET v_estatus_llamada_SI = 0
+                                    LET lr_ret_marcaje_si.est_marca   = GI_COD_RECHAZO_MARCA_EXITO
+                                    LET lr_ret_marcaje_si.cod_rechazo = 0
+                                    LET lr_ret_marcaje_si.des_rechazo = "Solicitud aprobada/rechazada con antelacion"
+                                    LET lr_ret_marcaje_si.caso_crm = lr_ret_control_vu.caso_crm
+                                    LET lr_ret_marcaje_si.saldo_aivs = lr_ret_control_vu.saldo_acciones_si
+                                    LET lr_ret_marcaje_si.monto_pesos = lr_ret_control_vu.saldo_pesos_si
+                                    LET lr_ret_marcaje_si.nss = lr_ret_control_vu.param_nss
+                                END IF
+                            END IF
 
                             -- si hubo un error de comunicacion con el servicio
                             IF ( v_estatus_llamada_SI <> 0 ) THEN
@@ -584,21 +723,70 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
                             
                                 -- si hubo marcaje de fondo de ahorro, se desmarca
                                 IF ( lr_ret_control_vu.bn_disponibilidad_fa = TRUE AND v_marcaje_fa_correcto ) THEN
-                                    CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe,
-                                                       GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
-                                    RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                    -- se regresa el estatus anterior
+                                    -- 20201117
+                                    CASE gr_entrada_ws.ind_marca
+                                       WHEN GI_INDICADOR_MARCA_MARCAR
+                                           -- se desmarca fondo de ahorro
+                                           DISPLAY "Se desmcarca FA"
+                                           CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                                           RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                       
+                                       WHEN GI_INDICADOR_MARCA_DESMARCAR
+                                           DISPLAY "Se vuelve a marcar FA"
+                                           -- se vuelve a marcar
+                                           CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_MARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                                           RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                       
+                                       WHEN GI_INDICADOR_MARCA_APROBAR_SOLICITUD
+                                           DISPLAY "Se regresa FA a pendiente de aprobar"
+                                           -- no se pudo aprobar, se regresa el estatus a pendiente de aprobacion
+                                           CALL fn_reversar_aprobacion_rechazo(lr_ret_control_vu.id_solicitud_fa,0,0)
+                                       
+                                       WHEN GI_INDICADOR_MARCA_RECHAZAR_SOLICITUD
+                                           DISPLAY "Se regresa FA a pendiente de aprobar"
+                                           -- no se pudo rechazar, se regresa el estatus a pendiente de aprobar
+                                           CALL fn_reversar_aprobacion_rechazo(lr_ret_control_vu.id_solicitud_fa,0,0)                                       
+                                    END CASE
                                 END IF
                                 
                                 -- si hubo marcaje de retiro ley73, se desmarca
                                 IF ( lr_ret_control_vu.bn_disponibilidad_ley73 = TRUE AND v_marcaje_ley73_correcto ) THEN
-                                    DISPLAY "Desmarcando retiro ley73"
-                                    CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
-                                                          gr_entrada_ws.caso_crm, -- el parametro es el caso adai, es el mismo?
-                                                          gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, 
-                                                          lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
-                                                          gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+                                    -- se regresa el estatus anterior
+                                    -- 20201117
+                                    CASE gr_entrada_ws.ind_marca
+                                       WHEN GI_INDICADOR_MARCA_MARCAR
+                                           -- se desmarca fondo de ahorro
+                                           DISPLAY "Se desmcarca Ley73"
+                                           CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
+                                                              gr_entrada_ws.caso_crm, -- el parametro es el caso adai
+                                                              gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, 
+                                                              lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
+                                                              gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+                                       
+                                       WHEN GI_INDICADOR_MARCA_DESMARCAR
+                                           DISPLAY "Se vuelve a marcar Ley73"
+                                           -- se vuelve a marcar
+                                           CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
+                                                              gr_entrada_ws.caso_crm, -- el parametro es el caso adai
+                                                              gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_MARCAR, gr_entrada_ws.cod_rechazo, 
+                                                              lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
+                                                              gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+                                       
+                                       WHEN GI_INDICADOR_MARCA_APROBAR_SOLICITUD
+                                           DISPLAY "Se regresa Ley73 a pendiente de aprobar"
+                                           -- no se pudo aprobar, se regresa el estatus a pendiente de aprobacion
+                                           CALL fn_reversar_aprobacion_rechazo(0,lr_ret_control_vu.id_solicitud_ley73,0)
+                                       
+                                       WHEN GI_INDICADOR_MARCA_RECHAZAR_SOLICITUD
+                                           DISPLAY "Se regresa Ley73 a pendiente de aprobar"
+                                           -- no se pudo rechazar, se regresa el estatus a pendiente de aprobar
+                                           CALL fn_reversar_aprobacion_rechazo(0,lr_ret_control_vu.id_solicitud_ley73,0)                                       
+                                    END CASE
+
+                                    -- CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
                                 END IF
-                                CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
+                                
                                 
                                 -- se marca error y no se debe continuar
                                 LET v_marcaje_si_correcto = FALSE
@@ -614,24 +802,70 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
                                     LET v_marcaje_si_correcto = FALSE
                             
                                     -- si hubo marcaje de fondo de ahorro, se desmarca
-                                    IF ( lr_ret_control_vu.bn_disponibilidad_fa = TRUE AND v_marcaje_fa_correcto = TRUE ) THEN
-                                        DISPLAY "Marcaje ley73 no se dio y se debe desmarcar fondo de ahorro"
-                                        CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
-                                        RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
-                            
-                                        DISPLAY "Desmarcado de Fondo de Ahorro: ", lr_ret_marcaje_fa.cod_rechazo, " ", lr_ret_marcaje_fa.des_rechazo
+                                    IF ( lr_ret_control_vu.bn_disponibilidad_fa = TRUE AND v_marcaje_fa_correcto ) THEN
+                                        -- se regresa el estatus anterior
+                                        -- 20201117
+                                        CASE gr_entrada_ws.ind_marca
+                                           WHEN GI_INDICADOR_MARCA_MARCAR
+                                               -- se desmarca fondo de ahorro
+                                               DISPLAY "Se desmcarca FA"
+                                               CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                                               RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                           
+                                           WHEN GI_INDICADOR_MARCA_DESMARCAR
+                                               DISPLAY "Se vuelve a marcar FA"
+                                               -- se vuelve a marcar
+                                               CALL fn_marcaje_fa(gr_entrada_ws.nss, gr_entrada_ws.RFC, gr_entrada_ws.caso_crm, gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_MARCAR, gr_entrada_ws.cod_rechazo, gr_entrada_ws.medio_entrega)
+                                               RETURNING v_estatus_llamada_fa, lr_ret_marcaje_fa.*
+                                           
+                                           WHEN GI_INDICADOR_MARCA_APROBAR_SOLICITUD
+                                               DISPLAY "Se regresa FA a pendiente de aprobar"
+                                               -- no se pudo aprobar, se regresa el estatus a pendiente de aprobacion
+                                               CALL fn_reversar_aprobacion_rechazo(lr_ret_control_vu.id_solicitud_fa,0,0)
+                                           
+                                           WHEN GI_INDICADOR_MARCA_RECHAZAR_SOLICITUD
+                                               DISPLAY "Se regresa FA a pendiente de aprobar"
+                                               -- no se pudo rechazar, se regresa el estatus a pendiente de aprobar
+                                               CALL fn_reversar_aprobacion_rechazo(lr_ret_control_vu.id_solicitud_fa,0,0)
+                                        END CASE
                                     END IF
-                                
+                                    
                                     -- si hubo marcaje de retiro ley73, se desmarca
                                     IF ( lr_ret_control_vu.bn_disponibilidad_ley73 = TRUE AND v_marcaje_ley73_correcto ) THEN
-                                        DISPLAY "Desmarcando retiro ley73"
-                                        CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
-                                                              gr_entrada_ws.caso_crm, -- el parametro es el caso adai, es el mismo?
-                                                              gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, 
-                                                              lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
-                                                              gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+                                        -- se regresa el estatus anterior
+                                        -- 20201117
+                                        CASE gr_entrada_ws.ind_marca
+                                           WHEN GI_INDICADOR_MARCA_MARCAR
+                                               -- se desmarca fondo de ahorro
+                                               DISPLAY "Se desmcarca Ley73"
+                                               CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
+                                                                  gr_entrada_ws.caso_crm, -- el parametro es el caso adai
+                                                                  gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_DESMARCAR, gr_entrada_ws.cod_rechazo, 
+                                                                  lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
+                                                                  gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+                                           
+                                           WHEN GI_INDICADOR_MARCA_DESMARCAR
+                                               DISPLAY "Se vuelve a marcar Ley73"
+                                               -- se vuelve a marcar
+                                               CALL fn_marcaje_ley73(gr_entrada_ws.nss, 
+                                                                  gr_entrada_ws.caso_crm, -- el parametro es el caso adai
+                                                                  gr_entrada_ws.cuenta_clabe, GI_INDICADOR_MARCA_MARCAR, gr_entrada_ws.cod_rechazo, 
+                                                                  lr_ret_control_vu.param_grupo_ley73, -- no viene en el registro de entrada, se saca de control vu
+                                                                  gr_entrada_ws.medio_entrega, gr_entrada_ws.usuario) RETURNING v_estatus_llamada_ley73, lr_ret_marcaje_ley73.*
+                                           
+                                           WHEN GI_INDICADOR_MARCA_APROBAR_SOLICITUD
+                                               DISPLAY "Se regresa Ley73 a pendiente de aprobar"
+                                               -- no se pudo aprobar, se regresa el estatus a pendiente de aprobacion
+                                               CALL fn_reversar_aprobacion_rechazo(0,lr_ret_control_vu.id_solicitud_ley73,0)
+                                           
+                                           WHEN GI_INDICADOR_MARCA_RECHAZAR_SOLICITUD
+                                               DISPLAY "Se regresa Ley73 a pendiente de aprobar"
+                                               -- no se pudo rechazar, se regresa el estatus a pendiente de aprobar
+                                               CALL fn_reversar_aprobacion_rechazo(0,lr_ret_control_vu.id_solicitud_ley73,0)                                       
+                                        END CASE
+                                    
+                                        -- CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
                                     END IF
-                                    CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
                                 ELSE
                                     DISPLAY "Marcaje SoloInf Correcto"
                                     DISPLAY "AIVS SINF: ", lr_ret_marcaje_si.saldo_aivs
@@ -645,7 +879,7 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
                                     LET gr_salida_ws.saldo_pesos_viv97 = gr_salida_ws.saldo_pesos_viv97 + lr_ret_marcaje_si.monto_pesos
                             
                                     CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
-                                    CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
+                                    CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si, gr_entrada_ws.ind_marca)
                                 END IF
                             END IF 
                         END IF
@@ -689,6 +923,63 @@ DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
         CALL fn_genera_respuesta_ws(v_estatus_validacion, GI_ESTATUS_MARCA_ERROR, "")
     END IF   
 END FUNCTION
+
+{
+======================================================================
+Clave: 
+Nombre: fn_reversar_aprobacion_rechazo
+Fecha creacion: Noviembre 17, 2020
+Autor: Ivan Vega, Omnisys
+Narrativa del proceso que realiza:
+Funcion que regresa el estatus de una solicitud a 10 (creada) cuando
+la aprobacion o el rechazo no funcionaron por problemas de comunciacion o de
+marcaje en los servicios delegados
+
+Registro de modificaciones:
+Autor           Fecha                   Descrip. cambio
+
+======================================================================
+}
+FUNCTION fn_reversar_aprobacion_rechazo(p_id_solicitud_fa, p_id_solicitud_ley73, p_id_solicitud_si)
+DEFINE p_id_solicitud_fa    SMALLINT,
+       p_id_solicitud_ley73 SMALLINT,
+       p_id_solicitud_si    SMALLINT
+   
+   -- se verifica si se tiene que regresar FA
+   IF ( p_id_solicitud_fa <> 0 ) THEN
+      UPDATE ret_solicitud_generico
+      SET estado_solicitud = 10
+      WHERE id_solicitud = p_id_solicitud_fa
+      
+      UPDATE ret_fondo_ahorro_generico
+      SET estado_solicitud = 10
+      WHERE id_solicitud = p_id_solicitud_fa
+   END IF
+   
+   -- se verifica si se tiene que regresar Ley73
+   IF ( p_id_solicitud_ley73 <> 0 ) THEN
+      UPDATE ret_solicitud_generico
+      SET estado_solicitud = 10
+      WHERE id_solicitud = p_id_solicitud_ley73
+      
+      UPDATE ret_ley73_generico
+      SET estado_solicitud = 10
+      WHERE id_solicitud = p_id_solicitud_ley73
+   
+   END IF
+   
+   -- se verifica si se tiene que regresar SI
+   IF ( p_id_solicitud_si <> 0 ) THEN
+      UPDATE ret_solicitud_generico
+      SET estado_solicitud = 10
+      WHERE id_solicitud = p_id_solicitud_si
+      
+      -- ret_solo_infonavit no se cambia de estatus porque no requiere aprobacion,
+      -- nace ya aprobada en estatus 10
+   END IF
+
+END FUNCTION
+
 
 {
 ======================================================================
@@ -927,7 +1218,7 @@ END FUNCTION
 {
 ======================================================================
 Clave: 
-Nombre: fn_actualiza_ids_solicitud_retiro
+Nombre: 
 Fecha creacion: Octubre 29, 2020
 Autor: Ivan Vega, Omnisys
 Narrativa del proceso que realiza:
@@ -939,7 +1230,7 @@ Autor           Fecha                   Descrip. cambio
 
 ======================================================================
 }
-FUNCTION fn_actualiza_ids_solicitud_retiro(p_id_derechohabiente, p_consecutivo, p_marcaje_fa_correcto, p_marcaje_ley73_correcto, p_marcaje_si_correcto)
+FUNCTION fn_actualiza_ids_solicitud_retiro(p_id_derechohabiente, p_consecutivo, p_marcaje_fa_correcto, p_marcaje_ley73_correcto, p_marcaje_si_correcto, p_indicador_marca)
 DEFINE p_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
 DEFINE p_consecutivo            LIKE ret_control_vu.consecutivo
 DEFINE p_marcaje_fa_correcto    SMALLINT
@@ -948,7 +1239,12 @@ DEFINE p_marcaje_si_correcto    SMALLINT
 DEFINE v_id_solicitud_fa        LIKE ret_fondo_ahorro.id_solicitud
 DEFINE v_id_solicitud_ley73     LIKE ret_ley73_generico.id_solicitud
 DEFINE v_id_solicitud_si        LIKE ret_solo_infonavit.id_solicitud
+DEFINE p_indicador_marca        SMALLINT
 
+   -- no se reasigna el id de solicitud cuando se aprueba o rechaza
+   IF ( p_indicador_marca <> GI_INDICADOR_MARCA_MARCAR ) THEN
+      RETURN
+   END IF
 
     -- si la marca de fondo de ahorro fue correctamente
     IF ( p_marcaje_fa_correcto = TRUE ) THEN

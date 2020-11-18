@@ -140,7 +140,7 @@ DEFINE p_archivo_reporte STRING -- nombre del archivo
 DEFINE v_bytes_archivo BYTE
 
    -- se abre el archivo
-   LOCATE v_bytes_archivo IN FILE
+   LOCATE v_bytes_archivo IN MEMORY
 
    -- se obtienen los bytes
    CALL v_bytes_archivo.readFile(p_archivo_reporte)
