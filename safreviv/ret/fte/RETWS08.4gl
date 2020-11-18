@@ -12,6 +12,7 @@
 #FECHA INICIO      => 29-NOV-2017                                             #
 # Autor           Fecha      Modificación                                     #
 ###############################################################################
+
 IMPORT FGL WSHelper
 IMPORT com
 
@@ -26,8 +27,9 @@ GLOBALS
 DEFINE serverURL     STRING -- URL del servidor
 DEFINE v_pantalla    SMALLINT
 
+
 -- =======================================================
--- Record de recepcion de valores en las variables
+-- Record de recepción de valores en las variables
 DEFINE ret_marcaje RECORD 
          nss           CHAR(11),
          caso_adai     CHAR(10), -- caso adai
@@ -39,7 +41,7 @@ DEFINE ret_marcaje RECORD
          usuario       CHAR(20) -- Usuario que dío de alta el trámite
        END RECORD
 -- =======================================================
--- Record de envio de variables de respuesta
+-- Record de envío de variables de respuesta
 DEFINE ret_respuesta RECORD
          nss    CHAR(11),
          est_marca           SMALLINT,
@@ -68,10 +70,6 @@ CONSTANT  g_res_procesada                    SMALLINT = 0  ,
           g_msg_conexion_con_cliente_perdida STRING = "Se perdió la conexión con el cliente" ,
           g_msg_servidor_interrumpido_ctrl_c STRING = "Se interrumpió el servidor con CTRL-C",
           g_msg_error_interno                STRING = "Ocurrió un error interno"
-
-DEFINE g_identificador_servicio              SMALLINT
-DEFINE g_eventoId                            CHAR(100)  
-DEFINE g_sesionId                            CHAR(100)                       
           
 END GLOBALS
 MAIN
@@ -98,14 +96,8 @@ DEFINE v_resultado        INTEGER, -- recibe el resultado de la ejecucion del se
   LET v_cadena   = CURRENT MINUTE TO MINUTE
   LET v_ruta_log = v_ruta_log || v_cadena
   LET v_cadena   = CURRENT SECOND TO SECOND
-  LET g_sesionId = v_ruta_log || v_cadena
   LET v_ruta_log = v_ruta_log || v_cadena || ".log"
-
-  LET g_identificador_servicio = 3
-  LET g_eventoId = 'marcaLey73'
   
-    DISPLAY "Log del servicio: " || FGL_GETENV("RETWS08LOG")
-    
     -- se inicia el log del programa
     IF FGL_GETENV("RETWS08LOG") THEN
        CALL STARTLOG(FGL_GETENV("RETWS08LOG"))
@@ -114,6 +106,7 @@ DEFINE v_resultado        INTEGER, -- recibe el resultado de la ejecucion del se
        DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
        CALL STARTLOG(v_ruta_log)
     END IF 
+  
   
    #
   # Check arguments
@@ -277,6 +270,7 @@ DEFINE generaWSDL           SMALLINT,
     
     -- fn_retiro 
     LET op = com.WebOperation.CreateDOCStyle("fn_marcaje_ley73","fn_marcaje_ley73",ret_marcaje,ret_respuesta)
+    --LET op = com.WebOperation.CreateDOCStyle("fn_retiro","fn_retiro",ret_retiro_fondo,ret_respuesta)
     CALL serv.publishOperation(op, "fn_marcaje_ley73")
 
     -- si se hace generacion del WSDL
@@ -294,6 +288,7 @@ DEFINE generaWSDL           SMALLINT,
        -- =========================
        -- REgistro del servicio
        CALL com.WebServiceEngine.RegisterService(serv)  
+       --display_status("Retiro 72-92 Service registrado")
        CALL ERRORLOG("Se registro el servicio retiroMarcaLey73")
     END IF
     
@@ -320,7 +315,7 @@ END FUNCTION
 Clave: 
 Nombre: fn_marcaje_ley73
 Fecha creacion: Noviembre 29, 2017
-Autor: Ricardo Perez, EFP
+Autor: Ricardo Pérez, EFP
 Narrativa del proceso que realiza:
 Solicita que se marque la cuenta por tipo de retiro
 
@@ -398,14 +393,14 @@ DEFINE v_id_derechohabiente LIKE afi_derechohabiente.id_derechohabiente, --Ident
       LET v_id_derechohabiente = fn_obtiene_id_derechohabiente(ret_marcaje.nss)
       
       -- Obtiene la longitud del arreglo que llega
+      
       CALL fn_aplica_marca_modalidad(v_indice,
                                      ret_marcaje.nss,                                
                                      ret_marcaje.caso_adai,
                                      v_id_derechohabiente, 
                                      ret_marcaje.ind_marca,
                                      ret_marcaje.grupo,
-                                     ret_marcaje.medio_entrega)
-      CALL fn_bitacora()
+                                     ret_marcaje.medio_entrega)      
                                             
    END IF   
 END FUNCTION
@@ -423,8 +418,10 @@ Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
 Ivan Vega     25 oct 2013             - La senal de desmarca tambien debera desmarcar
                                         y cancelar una solicitud
-Ivan Vega     Octubre 23, 2020        - PLAG138 para desmarcar, se debe corroborar que el caso CRM que se recibe como parametro
-                                        coincida con el que se recibio para marcar
+Ivan Vega     Noviembre 10, 2020      - se parametriza la llamada a los servicios de PROCESAR
+                                        para poder habilitar/deshabilitar la llamada a los mismos
+                                        y simular una respuesta de estos servicios a partir de la tabla
+                                        ret_simula_procesar
 ======================================================================
 }
 FUNCTION fn_aplica_marca_modalidad(p_indice, p_nss, p_caso_adai, p_id_derechohabiente,p_marca, p_grupo, p_medio_entrega)
@@ -465,8 +462,10 @@ DEFINE p_indice                 SMALLINT,
        v_precio_primero_mes     DECIMAL(10,6), -- Precio del primer día natural del mes
        v_resultado              SMALLINT,      -- resultado del llamado a la funcion
        v_marca_credito          SMALLINT,
-       v_val_clabe              SMALLINT
-DEFINE v_caso_crm               CHAR(10)
+       v_val_clabe              SMALLINT,
+       v_nss_buscado            LIKE afi_derechohabiente.nss,
+       v_cve_afore              CHAR(3),
+       v_caso_crm               CHAR(10)
 
    -- si el id_derechohabiente viene nulo, no se encontro
    IF ( p_id_derechohabiente IS NULL ) THEN
@@ -489,6 +488,8 @@ DEFINE v_caso_crm               CHAR(10)
     LET v_saldo_aivs_total = 0
     LET v_caso_crm         = ""
 
+
+   
    --Retiro ley 73
    LET v_marca_entra = 803
    LET v_proceso_cod = g_proceso_cod_ret_ley73_ws
@@ -511,13 +512,23 @@ DEFINE v_caso_crm               CHAR(10)
       WHEN 1
          --Solicitud de marcaje
          --Consulta si existe  otra solicitud para el derechohabiente 
-         CALL fn_verifica_solicitud_generico(p_id_derechohabiente,3,1, p_caso_adai)
+         CALL fn_verifica_solicitud_generico(p_id_derechohabiente,3,1)
                RETURNING v_existe_solicitud, v_n_referencia
 
          -- Valida que no exista otra solicitud 
          IF ( NOT v_existe_solicitud ) THEN
             -- Crea Caso en CRM 
-            CALL fn_crea_caso(p_nss, p_medio_entrega) RETURNING v_resultado, v_caso_crm
+
+            DISPLAY "RETWS08_INVOCAR_PROCESAR: ", FGL_GETENV("RETWS08_INVOCAR_PROCESAR")
+            IF ( UPSHIFT(FGL_GETENV("RETWS08_INVOCAR_PROCESAR")) = "TRUE" ) THEN
+               -- se invoca la creacion del caso CRM
+               CALL fn_crea_caso(p_nss, p_medio_entrega) RETURNING v_resultado, v_caso_crm
+            ELSE
+               DISPLAY "No se invocan los servicios de AFORE-PROCESAR para pruebas, caso_crm es simulado, se usa el recibido en parametros de WS"
+               LET v_resultado = 0
+               LET v_caso_crm = ret_marcaje.caso_adai
+            END IF
+            
             IF v_resultado <> 0 THEN --- No se pudo crear el caso
                                  -- se indica que no se pudo marcar
 --               IF v_resultado = 1 THEN 
@@ -590,37 +601,60 @@ DEFINE v_caso_crm               CHAR(10)
                         -- Se comenta el llamado a procesar para las pruebas en QA
 --                        LET v_diagnostico = 101
 --                        LET v_estatus = 101
-                        
-                        CALL fn_consulta_saldo_vivienda_afore(p_nss, 44)
-                            RETURNING v_diagnostico, v_estatus, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_cod_rechazo
 
-                            
-                       
+                        -- Se comenta el llamado a procesar para las pruebas en QA
+                        DISPLAY "RETWS08_INVOCAR_PROCESAR: ", FGL_GETENV("RETWS08_INVOCAR_PROCESAR")
+                        IF ( UPSHIFT(FGL_GETENV("RETWS08_INVOCAR_PROCESAR")) = "TRUE" ) THEN
+                           CALL fn_consulta_saldo_vivienda_afore(p_nss, 44)  -- Desmarca en Procesar
+                                RETURNING v_diagnostico, v_estatus, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_cod_rechazo
+                        ELSE
+                           DISPLAY "No se invocan los servicios de AFORE-PROCESAR para fines de prueba"
+
+                           -- se consulta la tabla ret_simula_procesar
+                           SELECT nss, diagnostico, estatus, cod_rechazo, cve_afore
+                           INTO v_nss_buscado, v_diagnostico, v_estatus, v_cod_rechazo, v_cve_afore
+                           FROM ret_simula_procesar
+                           WHERE nss = p_nss
+
+                           -- si no se encuentro dato para el nss en turno se asume llamada correcta
+                           IF ( v_nss_buscado IS NULL ) THEN
+                              LET v_diagnostico = 101
+                              LET v_estatus     = 101
+                           END IF
+                        END IF
+
                         CALL fn_calcula_saldo_ley73(p_nss, 4 , TODAY) RETURNING v_resultado, v_aivs_viv97, v_pesos_viv97
                         CALL fn_calcula_saldo_ley73(p_nss, 8, TODAY) RETURNING v_resultado, v_aivs_viv92, v_pesos_viv92
                         CALL fn_calcula_saldo_ley73(p_nss, 47, TODAY) RETURNING v_resultado, v_saldo_paso, v_saldo_tesofe
+                        
                         LET v_saldo_total = (v_aivs_viv97 * v_precio_primero_mes) + v_saldo_tesofe + (v_aivs_viv92 * v_precio_primero_mes)
-
+                        
                         DISPLAY " Saldo .", v_saldo_total
                         --LET v_diagnostico = 127
                         IF (v_diagnostico = 127) OR (v_diagnostico = 101 AND (v_estatus = 101 OR v_estatus = 201 OR v_estatus = 442) AND v_saldo_total > 0) THEN
 --                        IF (v_diagnostico = 101 AND (v_estatus = 101 OR v_estatus = 201) AND v_saldo_total > 0) THEN 
                            CALL fn_guarda_consulta_ws_vent_afore(p_nss, 1, 1, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
                                                                  v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_n_referencia, p_caso_adai, 1) -- Se deberá reenviar la solicitud de marca 
+     
                            CALL fn_recupera_saldo_consulta(p_nss)
                                 RETURNING v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97
                         END IF 
+                        
                         IF (v_diagnostico = 101 AND (v_estatus <> 101 AND v_estatus <> 201 AND v_estatus <> 442))  THEN 
                            CALL fn_guarda_consulta_ws_vent_afore(p_nss, 1, 2, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
                                                                  v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_n_referencia, p_caso_adai, 1) -- La solicitud no se pudo marcar porque esta marcada en otro proceso
+                                                                 
                            LET v_estatus_marca = gi_estatus_marca_no_exitoso
                            LET v_cod_inconsistencia = v_cod_rechazo
+                           
                            CALL fn_actualiza_retiro_generico(p_id_derechohabiente, p_nss, 3, v_n_referencia,
                                                              v_folio, v_estatus_marca, v_cod_rechazo, 3)
                                 RETURNING v_res_actualizacion
+                                
                            CALL fn_ret_generico_desmarca_cuenta(p_id_derechohabiente, 803,
                                          v_n_referencia, 803,
                                          "safreviv", g_proceso_cod_ret_ley73_ws)
+                                         
                         END IF 
                         IF (v_diagnostico = 101 AND (v_estatus = 101 OR v_estatus = 201 OR v_estatus = 442) AND v_saldo_total <= 0) THEN 
                            CALL fn_guarda_consulta_ws_vent_afore(p_nss, 1, 2, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
@@ -697,11 +731,9 @@ DEFINE v_caso_crm               CHAR(10)
       --          DESMARCAR CUENTA
       -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       WHEN 2
-         -- Consulta si existe otra solicitud para el derechohabiente, que se pueda desmarcar
-         -- PLAG138 se verifica que el caso CRM que se recibe para desmarcar coincida con el que se utilizo para marcar la cuenta
-         CALL fn_verifica_solicitud_generico(p_id_derechohabiente,3,2, p_caso_adai)
+         -- Consulta si existe otra solicitud para el derechohabiente, que se pueda desmarcar 
+         CALL fn_verifica_solicitud_generico(p_id_derechohabiente,3,2)
               RETURNING v_existe_solicitud, v_n_referencia
-              
          --	Valida que no se haya solicitado una marcación antes de una desmarcación
          IF ( v_existe_solicitud ) THEN
             -- Asigna estatus de la marca
@@ -723,19 +755,31 @@ DEFINE v_caso_crm               CHAR(10)
                   IF ( UPSHIFT(FGL_GETENV("RETWS08_INVOCAR_PROCESAR")) = "TRUE" ) THEN
                      CALL fn_consulta_saldo_vivienda_afore(p_nss, 60)  -- Desmarca en Procesar
                           RETURNING v_diagnostico, v_estatus, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_cod_rechazo
-                     IF v_diagnostico = 127 THEN 
-                         CALL fn_guarda_consulta_ws_vent_afore(p_nss, 2, 4, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
-                                                               v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_n_referencia, p_caso_adai, 1) -- Se deberá reenviar la solicitud de marca 
-                         LET v_cod_inconsistencia = v_cod_rechazo
-                     ELSE 
-                         CALL fn_guarda_consulta_ws_vent_afore(p_nss, 2, 5, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
-                                                               v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_n_referencia, p_caso_adai, 1) -- Se deberá reenviar la solicitud de marca 
-                     END IF
                   ELSE
                      DISPLAY "No se invocan los servicios de AFORE-PROCESAR para fines de prueba"
-                  END IF
-               
 
+                     -- se consulta la tabla ret_simula_procesar
+                     SELECT nss, diagnostico, estatus, cod_rechazo, cve_afore
+                     INTO v_nss_buscado, v_diagnostico, v_estatus, v_cod_rechazo, v_cve_afore
+                     FROM ret_simula_procesar
+                     WHERE nss = p_nss
+
+                     -- si no se encuentro dato para el nss en turno se asume llamada correcta
+                     IF ( v_nss_buscado IS NULL ) THEN
+                        LET v_diagnostico = 101
+                        LET v_estatus     = 101
+                     END IF
+                  END IF
+
+                  IF v_diagnostico = 127 THEN 
+                      CALL fn_guarda_consulta_ws_vent_afore(p_nss, 2, 4, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
+                                                              v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_n_referencia, p_caso_adai, 1) -- Se deberá reenviar la solicitud de marca 
+                      LET v_cod_inconsistencia = v_cod_rechazo
+                  ELSE 
+                      CALL fn_guarda_consulta_ws_vent_afore(p_nss, 2, 5, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
+                                                            v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_n_referencia, p_caso_adai, 1) -- Se deberá reenviar la solicitud de marca 
+                  END IF
+                  
                END IF                
             ELSE
                --Existió un error en la integración de retiro genérico
@@ -746,9 +790,8 @@ DEFINE v_caso_crm               CHAR(10)
             END IF
          ELSE
             -- se verifica si hay una solicitud ya generada
-            CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 4, p_caso_adai)
+            CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 4)
                  RETURNING v_existe_solicitud, v_n_referencia
-            
             --	Valida que no se haya solicitado una marcación antes de una desmarcación
             IF ( v_existe_solicitud ) THEN
                -- rechazo de solicitud
@@ -765,11 +808,10 @@ DEFINE v_caso_crm               CHAR(10)
             ELSE
                -- se indica que no se pudo desmarcar
                LET v_estatus_marca = gi_estatus_marca_no_exitoso
-               --Se envia codigo de rechazo indicando que no existe solicitud de marcado previa para poder desmarcar
+               --Se envía código de rechazo indicando que no existe solicitud de marcado previa para poder desmarcar
                LET v_cod_inconsistencia = gi_error_marca_no_existe_solicitud
             END IF
          END IF  
-         
          LET ret_respuesta.saldo_aivs_viv92  = 0
          LET ret_respuesta.saldo_aivs_viv97  = 0
          LET ret_respuesta.saldo_pesos_viv92 = 0
@@ -780,7 +822,7 @@ DEFINE v_caso_crm               CHAR(10)
       -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       WHEN 3
          -- Consulta si existe otra solicitud para el derechohabiente, que se pueda desmarcar 
-         CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 3, p_caso_adai)
+         CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 3)
               RETURNING v_existe_solicitud, v_n_referencia
          
          --	Valida que no se haya solicitado una marcación antes de una desmarcación
@@ -910,7 +952,7 @@ DEFINE v_caso_crm               CHAR(10)
       -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       WHEN 4
          -- Consulta si existe otra solicitud para el derechohabiente, que se pueda desmarcar 
-         CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 4, p_caso_adai)
+         CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 4)
               RETURNING v_existe_solicitud, v_n_referencia
          
          --	Valida que no se haya solicitado una marcación antes de una desmarcación
@@ -931,8 +973,26 @@ DEFINE v_caso_crm               CHAR(10)
                LET v_cod_inconsistencia = 0
 
                IF p_grupo = 1 THEN
-                  CALL fn_consulta_saldo_vivienda_afore(p_nss, 60)  -- Desmarca en Procesar
-                       RETURNING v_diagnostico, v_estatus, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_cod_rechazo
+                  DISPLAY "RETWS08_INVOCAR_PROCESAR: ", FGL_GETENV("RETWS08_INVOCAR_PROCESAR")
+                  IF ( UPSHIFT(FGL_GETENV("RETWS08_INVOCAR_PROCESAR")) = "TRUE" ) THEN
+                     CALL fn_consulta_saldo_vivienda_afore(p_nss, 60)  -- Desmarca en Procesar
+                          RETURNING v_diagnostico, v_estatus, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_cod_rechazo
+                  ELSE
+                     DISPLAY "No se invocan los servicios de AFORE-PROCESAR para fines de prueba"
+
+                     -- se consulta la tabla ret_simula_procesar
+                     SELECT nss, diagnostico, estatus, cod_rechazo, cve_afore
+                     INTO v_nss_buscado, v_diagnostico, v_estatus, v_cod_rechazo, v_cve_afore
+                     FROM ret_simula_procesar
+                     WHERE nss = p_nss
+
+                     -- si no se encuentro dato para el nss en turno se asume llamada correcta
+                     IF ( v_nss_buscado IS NULL ) THEN
+                        LET v_diagnostico = 101
+                        LET v_estatus     = 101
+                     END IF
+                  END IF
+                       
                   IF v_diagnostico = 127 THEN 
                       CALL fn_guarda_consulta_ws_vent_afore(p_nss, 2, 4, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
                                                             v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_n_referencia, p_caso_adai, 1) -- Se deberá reenviar la solicitud de marca 
@@ -1243,17 +1303,18 @@ Ivan Vega     26 Nov 2013             - La discriminacion del registro se hace
                                         por grupo de ventanilla infonavit
 ======================================================================
 }
-FUNCTION fn_verifica_solicitud_generico(p_id_derechohabiente,p_modalidad_retiro,p_accion, p_caso_crm)
+FUNCTION fn_verifica_solicitud_generico(p_id_derechohabiente,p_modalidad_retiro,p_accion)
 DEFINE v_sql STRING,
        p_id_derechohabiente LIKE  afi_derechohabiente.id_derechohabiente,
        p_modalidad_retiro   SMALLINT,
        p_accion             SMALLINT,
        v_ban_existe         SMALLINT,
-       v_num_solicitud      DECIMAL(9,0),
-       p_caso_crm           LIKE ret_solicitud_generico.caso_adai
+       v_num_solicitud      DECIMAL(9,0)
+       
        
    -- Inicializa valores
    LET v_ban_existe= FALSE    
+ 
  
    -- Valida el tipo de acción
    CASE p_accion
@@ -1272,15 +1333,12 @@ DEFINE v_sql STRING,
    	
       WHEN 2
          -- Desmarcar
-         -- PLG138 para poder desmarcar, el caso crm recibido como parametro debe ser el mismo que se recibio al realizar el marcado
          LET v_sql = "\n SELECT id_solicitud ",
                      "\n FROM ret_solicitud_generico",
                      "\n WHERE id_derechohabiente = ", p_id_derechohabiente,
                      "\n AND modalidad_retiro     = ", p_modalidad_retiro,
 --                     "\n AND grupo_ventanilla     = ", gi_ventanilla_infonavit,
-                     "\n AND estado_solicitud     IN (8,10) ",
-                     "\n AND caso_adai = '", p_caso_crm, "'"
-                     
+                     "\n AND estado_solicitud     IN (8,10) "
        
       WHEN 3
          -- Aprobar solicitud
@@ -1758,30 +1816,6 @@ FUNCTION fn_crea_caso(p_nss, p_medio_entrega)
    END IF 
 
 RETURN v_regreso, v_caso_crm
-
-END FUNCTION
-
-FUNCTION fn_bitacora()
-DEFINE v_resultado         SMALLINT
-{DEFINE v_array_eventos     DYNAMIC ARRAY OF RECORD
-        eventoId           CHAR(100),
-        timestamp          CHAR(50)
-        END RECORD}
-DEFINE IdentificadorId            CHAR(50)
-
-
-
-  -- DETALLE
-  DISPLAY "ENTRA_BITACORA"
-  LET IdentificadorId =  ret_marcaje.nss CLIPPED, 
-                         ret_marcaje.caso_adai CLIPPED,
-                         ret_marcaje.cuenta_clabe CLIPPED,
-                         ret_marcaje.ind_marca CLIPPED,
-                         ret_marcaje.grupo CLIPPED,
-                         ret_marcaje.medio_entrega CLIPPED 
-
-
-  CALL fn_registra_bitacora_ws(g_identificador_servicio,g_sesionId CLIPPED,IdentificadorId) RETURNING v_resultado
 
 END FUNCTION
  

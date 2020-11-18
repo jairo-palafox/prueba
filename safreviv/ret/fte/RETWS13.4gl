@@ -650,7 +650,7 @@ FUNCTION fn_invoca_registra_bitacora_ws()
 
    DEFINE v_id_ws_ctr_maestra SMALLINT --CHAR(50)
 
-   DEFINE v_identificador_id  CHAR(51)
+   DEFINE v_identificador_id  CHAR(50)
    
    LET v_fecha = TODAY
 
@@ -660,8 +660,8 @@ FUNCTION fn_invoca_registra_bitacora_ws()
      FROM ws_ctr_maestra
     WHERE id_ws_ctr_maestra = 2 -- EL ASIGNADO PARA EL WS ACTUAL 
 
-    LET v_identificador_id = ws_pdf_acuse_in.nss       CLIPPED ,
-                             ws_pdf_acuse_in.conRetiro CLIPPED
+    LET v_identificador_id = "50"{ws_pdf_acuse_in.nss       CLIPPED ,
+                             ws_pdf_acuse_in.conRetiro CLIPPED}
     {DISPLAY "Parametros:"
     DISPLAY "v_id_ws_ctr_maestra: ",v_id_ws_ctr_maestra
     DISPLAY "g_sesion_id: ",g_sesion_id

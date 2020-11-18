@@ -391,6 +391,10 @@ DEFINE v_estatus_llamada_SI     SMALLINT
 DEFINE v_marcaje_fa_correcto    SMALLINT
 DEFINE v_marcaje_ley73_correcto SMALLINT
 DEFINE v_marcaje_si_correcto    SMALLINT
+DEFINE v_activar_marca_fa       SMALLINT
+DEFINE v_activar_marca_ley73    SMALLINT
+DEFINE v_activar_marca_si       SMALLINT
+DEFINE v_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
 
     DISPLAY "Ingresa a funcion principal que resuelve el servicio..." 
     LET gr_salida_ws.nss = gr_entrada_ws.nss
@@ -426,7 +430,7 @@ DEFINE v_marcaje_si_correcto    SMALLINT
             
             CALL fn_genera_respuesta_ws(GI_COD_RECHAZO_ERROR_GENERICO, GI_ESTATUS_MARCA_ERROR, "")
             
-        ELSE
+        ELSE       
             -- se verifica si se tiene disponibilidad de algun retiro
             IF ( lr_ret_control_vu.bn_disponibilidad_fa = FALSE AND lr_ret_control_vu.bn_disponibilidad_ley73 = FALSE AND lr_ret_control_vu.bn_disponibilidad_si = FALSE) THEN
                 -- no se tiene disponibilidad alguna, se rechaza
@@ -443,8 +447,18 @@ DEFINE v_marcaje_si_correcto    SMALLINT
                 LET v_marcaje_ley73_correcto = TRUE
                 LET v_marcaje_si_correcto    = TRUE
 
+                LET v_activar_marca_fa       = FALSE
+                LET v_activar_marca_ley73    = FALSE
+                LET v_activar_marca_si       = FALSE
+
                 -- se asume que el flujo completo se realizara
                 LET v_continuar = TRUE
+                
+                -- se obtiene el id_derechohabiente del nss
+                SELECT id_derechohabiente
+                INTO   v_id_derechohabiente
+                FROM   afi_derechohabiente
+                WHERE  nss = lr_ret_control_vu.param_nss
                 
                 -- MARCA DE RETIRO DE FONDO DE AHORRO
                 IF ( lr_ret_control_vu.bn_disponibilidad_fa = TRUE ) THEN
@@ -466,6 +480,7 @@ DEFINE v_marcaje_si_correcto    SMALLINT
                     ELSE
                         LET gr_salida_ws.id_retiro_fa   = NULL
                         LET gr_salida_ws.saldo_pesos_fa = lr_ret_marcaje_fa.saldo_pesos
+                        LET gr_salida_ws.tanto_adicional = lr_ret_control_vu.tanto_adicional_fa
                         LET gr_salida_ws.estatus_marca  = lr_ret_marcaje_fa.est_marca
 
                         -- si no se pudo marcar
@@ -475,16 +490,13 @@ DEFINE v_marcaje_si_correcto    SMALLINT
                             CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
                         ELSE
                             LET v_marcaje_fa_correcto = TRUE
+                            LET v_activar_marca_fa = TRUE
                             -- se actualiza el estatus de marcado en la tabla de control
-                            CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_marcaje_fa_correcto, v_marcaje_ley73_correcto, v_marcaje_si_correcto)
+                            CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
+                            CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
                         END IF
                     END IF
                 END IF
-
-                {
-LET v_continuar = TRUE
-LET v_marcaje_fa_correcto = TRUE
-}
                 
                 IF ( v_continuar ) THEN
                     -- MARCA DE RETIRO LEY73
@@ -539,6 +551,7 @@ LET v_marcaje_fa_correcto = TRUE
                                 DISPLAY "PESOS viv97: ", lr_ret_marcaje_ley73.saldo_pesos_viv97
                                 -- el marcado fue exitoso
                                 LET v_marcaje_ley73_correcto = TRUE
+                                LET v_activar_marca_ley73 = TRUE
 
                                 -- se toman los datos de la respuesta
                                 LET gr_salida_ws.saldo_aivs_viv92  = lr_ret_marcaje_ley73.saldo_aivs_viv92
@@ -546,7 +559,8 @@ LET v_marcaje_fa_correcto = TRUE
                                 LET gr_salida_ws.saldo_pesos_viv92 = lr_ret_marcaje_ley73.saldo_pesos_viv92
                                 LET gr_salida_ws.saldo_pesos_viv97 = lr_ret_marcaje_ley73.saldo_pesos_viv97
 
-                                CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_marcaje_fa_correcto, v_marcaje_ley73_correcto, v_marcaje_si_correcto)
+                                CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
+                                CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
                             END IF
                         END IF
                     END IF
@@ -624,12 +638,14 @@ LET v_marcaje_fa_correcto = TRUE
                                     DISPLAY "PESOS SINF: ", lr_ret_marcaje_si.monto_pesos
                                     -- el marcado fue exitoso
                                     LET v_marcaje_si_correcto = TRUE
+                                    LET v_activar_marca_si = TRUE
                             
                                     -- se toman los datos de la respuesta
                                     LET gr_salida_ws.saldo_aivs_viv97  = gr_salida_ws.saldo_aivs_viv97  + lr_ret_marcaje_si.saldo_aivs
                                     LET gr_salida_ws.saldo_pesos_viv97 = gr_salida_ws.saldo_pesos_viv97 + lr_ret_marcaje_si.monto_pesos
                             
-                                    CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_marcaje_fa_correcto, v_marcaje_ley73_correcto, v_marcaje_si_correcto)
+                                    CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
+                                    CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
                                 END IF
                             END IF 
                         END IF
@@ -904,6 +920,71 @@ DEFINE p_marcaje_si_correcto    SMALLINT
     st_marca_fa               = p_marcaje_fa_correcto
    ,st_marca_ley73            = p_marcaje_ley73_correcto
    ,st_marca_si               = p_marcaje_si_correcto
+   WHERE consecutivo          = p_consecutivo 
+                                                                                                      
+END FUNCTION
+
+{
+======================================================================
+Clave: 
+Nombre: fn_actualiza_ids_solicitud_retiro
+Fecha creacion: Octubre 29, 2020
+Autor: Ivan Vega, Omnisys
+Narrativa del proceso que realiza:
+Obtiene los identificadores de solicitud de los tipos de retiro que fueron marcados
+correctamente y se asignan en la tabla de control de ventanilla unica
+
+Registro de modificaciones:
+Autor           Fecha                   Descrip. cambio
+
+======================================================================
+}
+FUNCTION fn_actualiza_ids_solicitud_retiro(p_id_derechohabiente, p_consecutivo, p_marcaje_fa_correcto, p_marcaje_ley73_correcto, p_marcaje_si_correcto)
+DEFINE p_id_derechohabiente     LIKE afi_derechohabiente.id_derechohabiente
+DEFINE p_consecutivo            LIKE ret_control_vu.consecutivo
+DEFINE p_marcaje_fa_correcto    SMALLINT
+DEFINE p_marcaje_LEY73_correcto SMALLINT
+DEFINE p_marcaje_si_correcto    SMALLINT
+DEFINE v_id_solicitud_fa        LIKE ret_fondo_ahorro.id_solicitud
+DEFINE v_id_solicitud_ley73     LIKE ret_ley73_generico.id_solicitud
+DEFINE v_id_solicitud_si        LIKE ret_solo_infonavit.id_solicitud
+
+
+    -- si la marca de fondo de ahorro fue correctamente
+    IF ( p_marcaje_fa_correcto = TRUE ) THEN
+       SELECT id_solicitud
+       INTO v_id_solicitud_fa
+       FROM ret_solicitud_generico
+       WHERE id_derechohabiente = p_id_derechohabiente
+       AND estado_solicitud = 8
+       AND modalidad_retiro = 2 -- fondo de ahorro
+    END IF
+        
+    -- si la marca de retiro ley73 fue correctamente
+    IF ( p_marcaje_ley73_correcto = TRUE ) THEN
+       SELECT id_solicitud
+       INTO v_id_solicitud_ley73
+       FROM ret_solicitud_generico
+       WHERE id_derechohabiente = p_id_derechohabiente
+       AND estado_solicitud = 8
+       AND modalidad_retiro = 3 -- ley73
+    END IF
+    
+    -- si la marca de solo infonavit fue correcta
+    IF ( p_marcaje_si_correcto = TRUE ) THEN
+       SELECT id_solicitud
+       INTO v_id_solicitud_si
+       FROM ret_solicitud_generico
+       WHERE id_derechohabiente = p_id_derechohabiente
+       AND estado_solicitud = 8
+       AND modalidad_retiro = 1 -- solo infonavit
+    END IF
+
+    UPDATE ret_control_vu
+	SET
+    id_solicitud_fa               = v_id_solicitud_fa
+   ,id_solicitud_ley73            = v_id_solicitud_ley73
+   ,id_solicitud_si               = v_id_solicitud_si
    WHERE consecutivo          = p_consecutivo 
                                                                                                       
 END FUNCTION

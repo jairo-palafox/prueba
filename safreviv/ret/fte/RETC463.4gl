@@ -612,6 +612,7 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
        v_tit_ben                        SMALLINT,
        v_porcentaje_pago                SMALLINT,
        v_id_sol_busca_montos            DECIMAL(9,0),
+       vc_id_sol_busca_montos           CHAR(10),  
        
        v_r_despliegue        RECORD
          id_solicitud        LIKE ret_solicitud_generico.id_solicitud    ,
@@ -1034,10 +1035,10 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
                              ON a.id_solicitud = c.id_solicitud
                             AND c.consec_beneficiario = 1
          WHERE  a.id_solicitud = v_r_despliegue.id_solicitud
-      ELSE
-         
-         LET v_id_sol_busca_montos =  (v_r_despliegue.id_solicitud) / 10 -- Se eliminan los decimales
-         
+      ELSE 
+         LET vc_id_sol_busca_montos = v_r_despliegue.id_solicitud USING "&&&&&&&&&&"
+         LET v_id_sol_busca_montos = vc_id_sol_busca_montos[1,9]
+         --LET v_id_sol_busca_montos =  (v_r_despliegue.id_solicitud) / 10 -- Se eliminan los decimales
          SELECT NVL(b.cuenta_clabe,c.cuenta_clabe)
          INTO   v_arr_despliegue[v_indice].cuenta_clabe
          FROM   ret_solicitud_generico a
@@ -1047,7 +1048,7 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
                 LEFT OUTER JOIN ret_pago_siaf c
                              ON a.id_solicitud = c.id_solicitud
                             AND (c.id_solicitud*10)+c.consec_beneficiario = v_r_despliegue.id_solicitud
-         WHERE  a.id_solicitud =  v_id_sol_busca_montos 
+         WHERE  a.id_solicitud = v_id_sol_busca_montos 
       END IF 
       --datos que se musetran en la tabla
       LET v_arr_despliegue[v_indice].id_solicitud     = v_r_despliegue.id_solicitud
@@ -1124,39 +1125,16 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
          LET v_porcentaje_pago = 100
          LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud 
       ELSE ---- Busca el porcentaje para reflejar el monto correcto
-         -- regla aplicada para beneficiarios
-         -- se obtiene el porcentaje de acuerdo a los beneficiarios
-         IF v_arr_despliegue[v_indice].id_solicitud IS NOT NULL THEN
-            LET v_sql = "SELECT trunc(",v_arr_despliegue[v_indice].id_solicitud , " /10 )
-                        FROM systables
-                        WHERE tabid =1 "
-            DISPLAY " CONSULTA ",v_sql
-            PREPARE pre_obt_id FROM v_sql
-            EXECUTE pre_obt_id INTO v_id_sol_busca_montos
-         END IF                   
-         SELECT  porcentaje
-          INTO v_porcentaje_pago
-         FROM ret_beneficiario_generico
-          WHERE id_solicitud = v_id_sol_busca_montos
-           AND consec_beneficiario = v_indice
+         SELECT porcentaje
+         INTO   v_porcentaje_pago
+         FROM   ret_beneficiario_generico  
+         WHERE  (id_solicitud*10)+consec_beneficiario = v_arr_despliegue[v_indice].id_solicitud
+         DISPLAY "los valores de solicitud :",v_arr_despliegue[v_indice].id_solicitud
+         LET vc_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud USING "&&&&&&&&&&"
+         LET v_id_sol_busca_montos = vc_id_sol_busca_montos[1,9]
 
-         DISPLAY " v_indice:",v_indice
-         DISPLAY " v_porcentaje_pago:",v_porcentaje_pago
-         DISPLAY " v_arr_despliegue[v_indice].id_solicitud:",v_arr_despliegue[v_indice].id_solicitud
-         --LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud
-
-         DISPLAY "v_id_sol_busca_montos  FINAL:",v_id_sol_busca_montos
-            {
-            SELECT porcentaje
-            INTO   v_porcentaje_pago
-            FROM   ret_beneficiario_generico  
-            WHERE  (id_solicitud*10)+consec_beneficiario = v_arr_despliegue[v_indice].id_solicitud
-            DISPLAY "los valores de solicitud :",v_arr_despliegue[v_indice].id_solicitud
-            LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud / 10 -- Elimina los decimales para los casos de beneficiarios
-            DISPLAY "Sin decimales            :", v_id_sol_busca_montos
-            }
-
-         
+         --LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud / 10 -- Elimina los decimales para los casos de beneficiarios
+         DISPLAY "Sin decimales            :", v_id_sol_busca_montos
       END IF
       DISPLAY "El id_solicitud con el que se realiza la búsqueda de montos es:", v_id_sol_busca_montos
       DISPLAY "el v_tit_ben:", v_tit_ben
@@ -1199,34 +1177,17 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
          FROM ret_ley73_generico
          WHERE id_solicitud = v_id_sol_busca_montos
       END IF 
-
-      --DISPLAY "ANTES_> v_arr_despliegue[v_indice].tesofe *",v_arr_despliegue[v_indice].tesofe 
-     -- DISPLAY "ANTES_>v_arr_despliegue[v_indice].pesos_97 *",v_arr_despliegue[v_indice].pesos_97 
-     -- DISPLAY "ANTES_>v_arr_despliegue[v_indice].pesos_92 *",v_arr_despliegue[v_indice].pesos_92 
-     -- DISPLAY "ANTES_>v_arr_despliegue[v_indice].aivs_97 *",v_arr_despliegue[v_indice].aivs_97 
-     -- DISPLAY "ANTES_>v_arr_despliegue[v_indice].aivs_92 *",v_arr_despliegue[v_indice].aivs_92 
-      
       LET v_arr_despliegue[v_indice].tesofe = v_arr_despliegue[v_indice].tesofe * (v_porcentaje_pago / 100)
       LET v_arr_despliegue[v_indice].pesos_97 = v_arr_despliegue[v_indice].pesos_97 * (v_porcentaje_pago / 100)
       LET v_arr_despliegue[v_indice].pesos_92 = v_arr_despliegue[v_indice].pesos_92 * (v_porcentaje_pago / 100)
       LET v_arr_despliegue[v_indice].aivs_97 = v_arr_despliegue[v_indice].aivs_97 * (v_porcentaje_pago / 100)
       LET v_arr_despliegue[v_indice].aivs_92 = v_arr_despliegue[v_indice].aivs_92 * (v_porcentaje_pago / 100)
-
-     -- DISPLAY "v_porcentaje_pago",v_porcentaje_pago
       
-      --DISPLAY "DESPUES> v_arr_despliegue[v_indice].tesofe *",v_arr_despliegue[v_indice].tesofe 
-      --DISPLAY "DESPUES>v_arr_despliegue[v_indice].pesos_97 *",v_arr_despliegue[v_indice].pesos_97 
-     -- DISPLAY "DESPUES>v_arr_despliegue[v_indice].pesos_92 *",v_arr_despliegue[v_indice].pesos_92 
-     ---- DISPLAY "DESPUES>v_arr_despliegue[v_indice].aivs_97 *",v_arr_despliegue[v_indice].aivs_97 
-     -- DISPLAY "DESPUES>v_arr_despliegue[v_indice].aivs_92 *",v_arr_despliegue[v_indice].aivs_92 
       
       --- Se busca la fecha de liquidación y el grupo
       LET v_arr_despliegue[v_indice].total = v_arr_despliegue[v_indice].tesofe + 
                                              v_arr_despliegue[v_indice].pesos_92 +
                                              v_arr_despliegue[v_indice].pesos_97
-
-      --DISPLAY "TOTAL", v_arr_despliegue[v_indice].total
-      
       LET v_grupo = 0
       LET v_fecha_liquida = NULL
       SELECT f_actualiza 
@@ -1296,20 +1257,13 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
          LET v_arr_despliegue[v_indice].pesos_92_afore = 0
       END IF 
 
-      --DISPLAY "V_INDICE",v_indice
       LET v_num_registros          = v_num_registros          + 1
       LET v_total_aivs             = v_total_aivs             + v_arr_despliegue[v_indice].aivs_92 + v_arr_despliegue[v_indice].aivs_97 
       LET v_total_pesos            = v_total_pesos            + v_arr_despliegue[v_indice].pesos_92 + v_arr_despliegue[v_indice].pesos_97 
       LET v_total_monto            = v_total_monto            + 0
       LET v_total_tanto_adicional  = v_total_tanto_adicional  + 0
-
-      --DISPLAY "v_total_aivs",v_total_aivs
-      --DISPLAY "v_total_pesos",v_total_pesos
-      --DISPLAY "v_total_monto",v_total_monto
-      --DISPLAY "v_total_tanto_adicional",v_total_tanto_adicional
       
       LET v_indice = v_indice + 1
-       --DISPLAY "V_INDICE DESPUES",v_indice
    END FOREACH
 
    -- se abre la ventana de consulta detallada

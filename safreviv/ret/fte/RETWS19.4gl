@@ -1,6 +1,6 @@
 --===============================================================
 -- VERSION: 1.0.0
--- FECHA ULTIMA MODIFICACION:
+-- FECHA ULTIMA MODIFICACION:27/10/2020
 --===============================================================
 ###############################################################################
 #PROYECTO          => SAFRE VIVIENDA                                          #
@@ -13,6 +13,11 @@
 #                     EXCEDENTES A TRAVÉS DE LA FIEL                          #
 #FECHA INICIO      => 30-NOV-2017                                             #
 # Autor           Fecha      Modificación                                     #
+-------------------------------------------------------------------------------
+#MODIFICACION 27/10/2020                                                      #
+#OBJETIVO          => SE AGREGA EL LLAMADO A LA FUNCIÓN QUE REGISTRA LOS      #
+#                     DATOS DE CADA INVOACIÓN A LOS WS QUE SEA REALIZADA      #
+#POR               => EMMANUEL REYES, OMNISYS                                 #
 ###############################################################################
 
 IMPORT FGL WSHelper
@@ -86,6 +91,7 @@ CONSTANT g_cons_fa_termino_relacion_laboral SMALLINT = 1,
 		 
 DEFINE serverURL STRING -- URL del servidor
 DEFINE v_pantalla    SMALLINT
+DEFINE g_sesion_id   CHAR(100)
 
 END GLOBALS
 
@@ -119,6 +125,8 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
   
   
   DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
+
+  LET g_sesion_id = v_ruta_log.trim()
   
   -- se inicia el log del programa
   CALL STARTLOG(v_ruta_log)
@@ -555,6 +563,10 @@ DEFINE v_arr_beneficiario  DYNAMIC ARRAY OF RECORD
          END IF
       END IF 
    END IF
+
+   DISPLAY "Invoca a la bitacora"
+   CALL fn_invoca_registra_bitacora_ws()
+
 END FUNCTION
 {
 ======================================================================
@@ -1361,9 +1373,11 @@ DEFINE p_id_derechohabiente  LIKE afi_derechohabiente.id_derechohabiente,
          FROM   ret_solicitud_generico
          WHERE  id_solicitud = p_id_solicitud;
          LET ws_ret_generico_solicitud_in.casoCRM = v_caso_crm
-         LET p_estado_solicitud = 10
-
-         IF ws_ret_generico_solicitud_in.medioEntrega = 2 THEN 
+         IF ws_ret_generico_solicitud_in.medioEntrega = 1 THEN 
+            LET p_estado_solicitud = 10
+         ELSE 
+            LET p_estado_solicitud = 15 --- Estas solicitudes se dan de alta con estado "Autorizada"
+         
             CALL fn_genera_reporte(ws_ret_generico_solicitud_in.nss,v_rfc,
                                    v_ape_paterno, v_ape_materno, v_nombre, 
                                    v_fecha_hora,p_id_solicitud,p_pesos,v_cadena, 
@@ -1457,4 +1471,50 @@ DEFINE p_id_derechohabiente  LIKE afi_derechohabiente.id_derechohabiente,
    END IF
 
 END FUNCTION 
- 
+
+################################################################################
+# fn_invoca_registra_bitacora_ws Se encarga de invocar a la función que recopila
+#                                datos e invoca a la bitácora de WS 
+# Requerimiento : Folio008-2020
+# Fecha creación: 27/10/2020
+# Autor         : Emmanuel Reyes, Omnisys
+# Modificación  : Se cambia el 3er parámetro, ya no se envía un array ahora se
+#               : manda una cadena de 51 posiciones, cambio hecho en el proceso
+#               : de pruebas
+# Fecha Modifica: 06/11/2020
+# Autor         : Emmanuel Reyes, Omnisys
+################################################################################
+FUNCTION fn_invoca_registra_bitacora_ws()
+
+   DEFINE v_resultado SMALLINT
+
+   DEFINE v_fecha     DATE
+
+   DEFINE v_id_ws_ctr_maestra SMALLINT --CHAR(50)
+
+   DEFINE v_identificador_id  CHAR(50)
+   
+   LET v_fecha = TODAY
+
+   --OBTIENE DATOS DEL CATALOGO
+   SELECT id_ws_ctr_maestra
+     INTO v_id_ws_ctr_maestra
+     FROM ws_ctr_maestra
+    WHERE id_ws_ctr_maestra = 7 -- EL ASIGNADO PARA EL WS ACTUAL 
+
+    LET v_identificador_id = ws_ret_generico_solicitud_in.nss CLIPPED,
+                             ws_ret_generico_solicitud_in.casoCRM CLIPPED,
+                             ws_ret_generico_solicitud_in.medioEntrega CLIPPED
+
+    {DISPLAY "Parametros:"
+    DISPLAY "v_id_ws_ctr_maestra: ",v_id_ws_ctr_maestra
+    DISPLAY "g_sesion_id: ",g_sesion_id
+    DISPLAY "v_identificador_id ", v_identificador_id CLIPPED}
+
+    CALL fn_registra_bitacora_ws(v_id_ws_ctr_maestra CLIPPED,
+                                 g_sesion_id         CLIPPED,
+                                 v_identificador_id  CLIPPED)RETURNING v_resultado
+
+    DISPLAY "Acaba invocacion a la bitacora"
+
+END FUNCTION 
