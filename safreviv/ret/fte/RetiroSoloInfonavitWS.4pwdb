@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="CP1252" options="3" version="2.0">
+<File m="RETL01" n="RETL01.4gl" ts="20201119231123314">
+<Ref t="RETG01.4gl"/>
+<Fct c="10" el="190" l="133" n="fn_ret_ejecuta_preliquidacion(p_folio INTEGER,p_usuario_cod INTEGER)" t="F">
+<Call c="9" l="147" n="fn_valida_operacion" t="F"/>
+<Call c="12" l="150" n="fn_genera_pid" t="F"/>
+<Call c="12" l="151" n="fn_genera_folio" t="F"/>
+<Call c="12" l="153" n="fn_inicializa_proceso" t="F"/>
+<Call c="13" l="181" n="fn_mensaje" t="F"/>
+<Call c="14" l="184" n="fn_mensaje" t="F"/>
+<Call c="10" l="187" n="fn_mensaje" t="F"/>
+</Fct>
+<Fct c="1" el="116" l="39" n="main()" t="F">
+<Call c="17" l="104" n="fn_ret_ejecuta_preliquidacion" t="F"/>
+<Call c="17" l="106" n="fn_mensaje" t="F"/>
+</Fct>
+</File>
+<File m="RETL02" n="RETL02.4gl" ts="20200402135910000">
+<Ref t="RETG01.4gl"/>
+<Fct c="1" el="49" l="22" n="main()" t="F">
+<Call c="9" l="43" n="fn_liquida" t="F"/>
+</Fct>
+</File>
+<File m="RETP01" n="RETP01.4gl" ts="20201120013531013">
+<Fct c="1" el="128" l="21" n="main()" t="F">
+<Call c="8" l="59" n="fn_actualiza_opera_ini" t="F"/>
+<Call c="13" l="99" n="fn_reporte_liquidacion" t="F"/>
+<Call c="13" l="104" n="fn_actualiza_opera_fin" t="F"/>
+<Call c="13" l="117" n="fn_error_opera" t="F"/>
+<Call c="10" l="122" n="fn_correo_proceso" t="F"/>
+</Fct>
+</File>
+</WorkspaceDatabase>

@@ -2,12 +2,23 @@
 -- VERSION: 1.0.0
 -- FECHA ULTIMA MODIFICACION:
 --===============================================================
-#########################################################################################
+{
 #MODULO       => RET                                                                    #
 #PROGRAMA     => RETL01                                                                 #
 #OBJETIVO     => PROGRAMA QUE EJECUTA EL STORED PROCEDURE QUE REALIZA LA PRELIQUIDACION #
 #                PARA RETIRO SOLO INFONAVIT                                             #
 #FECHA INICIO => FEBRERO 17, 2012                                                       #
+#                                                                                       #
+
+Registro de cambios                                                                    
+Ivan Vega     Noviembre 19,2020       - se ajusta el flujo del programa para acomodar  
+                                        la preliquidacion a las condiciones de la      
+                                        solicitud de retiro con base en el proceso     
+                                        por web service                                
+                                      - las solicitudes para preliquidar deben estar en
+                                        estatus de aprobacion (15). Se cambia esta clausula
+                                        ya que se tenia definida como 10
+}
 #########################################################################################
 DATABASE safre_viv
 GLOBALS "RETG01.4gl"
@@ -23,14 +34,13 @@ DEFINE g_pid          LIKE bat_ctr_proceso.pid,     --  ID del proceso
        seg_modulo_bat RECORD
         ruta_listados    CHAR(40)
        END RECORD
-
 END GLOBALS
 
 MAIN
 DEFINE p_usuario_cod    LIKE seg_usuario.usuario_cod -- clave del usuario firmado
        ,p_tipo_ejecucion SMALLINT -- forma como ejecutara el programa
        ,p_s_titulo       STRING   -- titulo de la ventana
-       ,v_folio          LIKE ret_preliquida.folio_liquida
+       ,v_folio          LIKE glo_folio.folio
 
    DEFINE v_count_ret SMALLINT 
    DEFINE v_estado_solicitud SMALLINT 
@@ -41,7 +51,8 @@ DEFINE p_usuario_cod    LIKE seg_usuario.usuario_cod -- clave del usuario firmad
    LET p_tipo_ejecucion = ARG_VAL(2)
    LET p_s_titulo       = ARG_VAL(3)
 
-   LET v_estado_solicitud = 10
+   --20201119 las solicitudes deben estar en estado 15, aprobadas
+   LET v_estado_solicitud = 15
    LET v_folio = 0
 
    -- si se obtuvo el titulo, se pone como titulo de programa
@@ -50,7 +61,7 @@ DEFINE p_usuario_cod    LIKE seg_usuario.usuario_cod -- clave del usuario firmad
    END IF
    
    -- se asigna proceso y operacion
-   LET g_proceso_cod = g_proceso_cod_ret_solo_infonavit          --50 -- RETIRO SOLO INFONAVIT
+   LET g_proceso_cod = g_proceso_cod_ret_solo_infonavit          --1501 -- RETIRO SOLO INFONAVIT
    LET g_opera_cod   = g_opera_cod_ret_soloInfo_preliquidacion   --1  -- preliquidacion
 
    -- se obtienen las rutas de control del modulo
@@ -66,23 +77,22 @@ DEFINE p_usuario_cod    LIKE seg_usuario.usuario_cod -- clave del usuario firmad
   
    -- se abre la ventana que envia el proceso de preliquidacion
    OPEN WINDOW w_folio_preliquida WITH FORM "RETL010"
-
-MENU  
-   BEFORE MENU 
-        SELECT NVL(COUNT(*),0) 
-           INTO v_count_ret
-           FROM ret_solo_infonavit
-          WHERE estado_solicitud = v_estado_solicitud
-             
-          IF v_count_ret = 1 THEN  
-             DISPLAY "Se va a generar la preliquidacion de "|| v_count_ret ||" registro. Seleccione aceptar para continuar ." TO lb_mensage
-          ELSE
-             IF v_count_ret > 1 THEN  
-                DISPLAY "Se va a generar la preliquidacion de "|| v_count_ret ||" registros. Seleccione aceptar para continuar ." TO lb_mensage
-             ELSE 
-                DISPLAY "No se va a generar la preliquidacion se encontraron "|| v_count_ret ||" registros. Seleccione cancelar para Salir ." TO lb_mensage
+   MENU  
+      BEFORE MENU 
+           SELECT NVL(COUNT(*),0) 
+              INTO v_count_ret
+              FROM ret_solo_infonavit
+             WHERE estado_solicitud = v_estado_solicitud
+                
+             IF v_count_ret = 1 THEN  
+                DISPLAY "Se va a generar la preliquidacion de "|| v_count_ret ||" registro. Seleccione aceptar para continuar ." TO lb_mensage
+             ELSE
+                IF v_count_ret > 1 THEN  
+                   DISPLAY "Se va a generar la preliquidacion de "|| v_count_ret ||" registros. Seleccione aceptar para continuar ." TO lb_mensage
+                ELSE 
+                   DISPLAY "No se va a generar la preliquidacion se encontraron "|| v_count_ret ||" registros. Seleccione cancelar para Salir ." TO lb_mensage
+                END IF 
              END IF 
-          END IF 
   
       ON ACTION ACCEPT
          SELECT NVL(COUNT(*),0) 
@@ -90,10 +100,8 @@ MENU
            FROM ret_solo_infonavit
           WHERE estado_solicitud = v_estado_solicitud
         
-         IF v_count_ret>0 THEN
+         IF ( v_count_ret > 0 ) THEN
            CALL fn_ret_ejecuta_preliquidacion(v_folio,p_usuario_cod)
-           -- DISPLAY v_folio,p_usuario_cod
-
          ELSE 
            CALL fn_mensaje("Atención","No existen solicitudes para \nrealizar preliquidación","information")  
          END IF 

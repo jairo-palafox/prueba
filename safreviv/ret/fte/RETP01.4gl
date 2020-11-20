@@ -19,117 +19,140 @@ DEFINE g_pid         LIKE bat_ctr_proceso.pid,         --  ID del proceso
 END GLOBALS
 
 MAIN
-DEFINE p_pid            LIKE bat_ctr_operacion.pid,         -- PID del proceso
-       p_proceso_cod    LIKE bat_ctr_operacion.proceso_cod, -- codigo del proceso
-       p_opera_cod      LIKE bat_ctr_operacion.opera_cod,   -- codigo de la operacion
-       p_usuario_cod    LIKE seg_usuario.usuario_cod,       -- clave del usuario firmado
-       p_folio          LIKE ret_preliquida.folio_liquida,
-       v_s_sql          STRING,                             -- cadena con una instruccion SQL
-       v_i_resultado    INTEGER                             -- resultado del proceso
-       ,r_bnd_fin_oper  SMALLINT
-       ,v_si_correcto_integra SMALLINT
-       ,p_doc_cod       VARCHAR(20)
-       ,p_titulo        STRING -- titulo del mensaje enviado en el correo
-       ,p_mensaje       STRING -- cuerpo del mensaje enviado
-       ,p_programa_cod  VARCHAR(10)
-  
+DEFINE p_pid                  LIKE bat_ctr_operacion.pid,         -- PID del proceso
+       p_proceso_cod          LIKE bat_ctr_operacion.proceso_cod, -- codigo del proceso
+       p_opera_cod            LIKE bat_ctr_operacion.opera_cod,   -- codigo de la operacion
+       p_usuario_cod          LIKE seg_usuario.usuario_cod,       -- clave del usuario firmado
+       p_folio                LIKE ret_preliquida.folio_liquida,
+       v_s_sql                STRING,                             -- cadena con una instruccion SQL
+       v_i_resultado          INTEGER                             -- resultado del proceso
+      ,r_bnd_fin_oper         SMALLINT
+      ,v_si_correcto_integra  SMALLINT
+      ,p_doc_cod              VARCHAR(20)
+      ,p_titulo               STRING -- titulo del mensaje enviado en el correo
+      ,p_mensaje              STRING -- cuerpo del mensaje enviado
+      ,p_programa_cod         VARCHAR(10)
+      ,v_error_isam          INTEGER
+      ,v_mensaje             VARCHAR(250)
+      ,v_subcuenta        LIKE ret_preliquida.subcuenta
+      ,v_subcuenta_desc   LIKE cat_subcuenta.subcuenta_desc
+      ,v_movimiento       LIKE ret_preliquida.movimiento
+      ,v_movimiento_desc  LIKE cat_movimiento.movimiento_desc
+      ,v_sum_acciones     LIKE ret_preliquida.monto_acciones
+      ,v_sum_pesos        LIKE ret_preliquida.monto_pesos
 
-       ##Ejecuta prevalidación de saldos
    -- se recuperan los parametros la clave de usuario desde parametro 
-   -- argumento con indice 1
    LET p_usuario_cod   = ARG_VAL(1)
    LET p_pid           = ARG_VAL(2)
    LET p_proceso_cod   = ARG_VAL(3)
    LET p_opera_cod     = ARG_VAL(4)
    LET p_folio         = ARG_VAL(5)
    LET p_doc_cod       = ARG_VAL(6) 
-   
-   -- RECIBIR LOS OTROS DOS PARAMETROS
-   -- se asigna proceso y operacion
+
    -- se asigna proceso y operacion
    LET g_pid         = p_pid      
    LET g_proceso_cod = p_proceso_cod -- devolucion por errores de operacion
    LET g_opera_cod   = p_opera_cod -- preliquidacion
    LET g_folio       = p_folio
    
-   -- Inicio operacion.
-  IF (fn_actualiza_opera_ini(g_pid,g_proceso_cod,g_opera_cod,0,"RETP01",
-                                 p_doc_cod,p_usuario_cod) = 0) THEN
-      -- Inicia proceso de carga de archivo.
-            -- se asume que el proceso termina correctamente
-            LET v_i_resultado = 0
-            LET v_si_correcto_integra = 0
-            
-            -- se contruye el enuncionado SQL
-            LET v_s_sql = "EXECUTE FUNCTION fn_insert_preliquidacion_retiro_solo_infonavit(?,?,?,?,?)"
---
-            --DISPLAY  " g_folio ",g_folio,  
-                     --"\n g_proceso_cod " ,g_proceso_cod,
-                     --"\n g_opera_cod "   ,g_opera_cod,
-                     --"\n p_usuario_cod "  ,p_usuario_cod,
-                     --"\n g_pid "          ,g_pid
-                     
-            -- se prepara la ejecucion del stored procedure para la preliquidacion
-            PREPARE sid_ret_solo FROM v_s_sql
-            EXECUTE sid_ret_solo USING --rec_ret_solo_infonavit.id_derechohabiente ,
-                                         g_folio,
-                                         g_proceso_cod,
-                                         g_opera_cod,
-                                         p_usuario_cod,
-                                         g_pid
-                          INTO v_i_resultado
-           
-            --Se finaliza aunque existan errores
-            --IF ( v_i_resultado = 0 ) THEN
-               -- Cierra la operación
-               DISPLAY "La preliquidacion se terminó completamente."
-               DISPLAY "Estatus de preliquidacion: ",v_i_resultado
+   -- Inicio operacion
+  IF ( fn_actualiza_opera_ini(g_pid,g_proceso_cod,g_opera_cod,0,"RETP01",
+                                 p_doc_cod,p_usuario_cod) = 0 ) THEN
+     -- se asume que el proceso termina correctamente
+     LET v_i_resultado = 0
+     LET v_si_correcto_integra = 0
+     
+     -- se contruye el enuncionado SQL
+     LET v_s_sql = "EXECUTE FUNCTION fn_ret_preliquida_solo_infonavit_ws(?,?,?,?,?)"
 
-                LET p_mensaje = "ID Proceso   : ", g_pid, "\n", 
-                                "Proceso      : RETIRO SÓLO INFONAVIT\n",
-                                "Operación    : PRELIQUIDACIÓN\n",
-                                "Fecha Inicio : ", TODAY, "\n",
-                                "Fecha Fin    : ", TODAY, "\n\n"
-               
-               -- si se termino correctamente  
-               IF(v_i_resultado=0)THEN
-                  DISPLAY "Preliquidacion realizada con exito"
-                  LET p_mensaje = p_mensaje || "Preliquidacion realizada con éxito\n.Ya se puede continuar con la Liquidación"
-                  LET p_titulo = "Preliquidación Retiro sólo Infonavit "
+     -- se prepara la ejecucion del stored procedure para la preliquidacion
+     PREPARE sid_ret_solo FROM v_s_sql
+     EXECUTE sid_ret_solo USING   g_folio,
+                                  g_proceso_cod,
+                                  g_opera_cod,
+                                  p_usuario_cod,
+                                  g_pid
+                   INTO v_i_resultado, v_error_isam, v_mensaje
+     
+     -- Se finaliza aunque existan errores
+     DISPLAY "El proceso de preliquidación ha finalizado.\n"
+    
+     LET p_mensaje = "ID Proceso   : ", g_pid, "\n", 
+                     "Proceso      : RETIRO SÓLO INFONAVIT WS\n",
+                     "Operación    : PRELIQUIDACIÓN\n",
+                     "Fecha Inicio : ", TODAY, "\n",
+                     "Fecha Fin    : ", TODAY, "\n\n"
+    
+    -- si se termino correctamente  
+    IF ( v_i_resultado = 0 ) THEN
+       DISPLAY "Preliquidación realizada con éxito."
+       LET p_mensaje = p_mensaje || "Preliquidación realizada con éxito.\nYa se puede continuar con la Liquidación"
+       LET p_titulo = "Preliquidación Retiro sólo Infonavit WS"
+    
+       SELECT programa_cod
+         INTO p_programa_cod
+         FROM cat_operacion
+        WHERE proceso_cod = p_proceso_cod
+          AND opera_cod   = p_opera_cod
 
-                 SELECT programa_cod
-                   INTO p_programa_cod
-                   FROM cat_operacion
-                  WHERE proceso_cod = p_proceso_cod
-                    AND opera_cod   = p_opera_cod
-                       
-                    CALL fn_reporte_liquidacion(p_folio, "ret_preliquida", 
-                                                p_usuario_cod, p_pid, p_proceso_cod, 
-                                                p_opera_cod, p_programa_cod, 
-                                                FALSE)
-                  
-
-               ELSE
-                  DISPLAY "Preliquidación realizada pero con errores de validación"
-                  LET p_mensaje = p_mensaje || "El proceso de Preliquidación ha finalizado pero con errores de validación.\nNo se puede continuar con el proceso de Liquidación."
-               END IF
-               DISPLAY "Ya se puede Continuar con la Liquidación"
-               DISPLAY "\n\n"
-
-                                      
-              CALL fn_actualiza_opera_fin(g_pid,g_proceso_cod,g_opera_cod)
-                                     RETURNING r_bnd_fin_oper
-
-
-                                      
-               CALL fn_correo_proceso(g_pid, g_proceso_cod, g_opera_cod,
-                                      NULL, --"/ds/safreviv/ret/bin/correo.txt", -- no lleva archivo adjunto
-                                      p_titulo,
-                                      p_mensaje)
-                                      
-            --ELSE
-               -- Cancela la operacion para q se pueda iniciar nuevamente
-            --END IF
-      END IF
+      
+       -- reporte en log de cifras preliquidadas
+       DISPLAY "= CIFRAS PRELIQUIDADAS ="
+       
+       DECLARE cur_cifras_control CURSOR FOR
+       SELECT pre.subcuenta
+              ,cs.subcuenta_desc
+              ,pre.movimiento
+              ,cm.movimiento_desc
+              ,SUM(pre.monto_acciones)
+              ,SUM(pre.monto_pesos)
+       FROM ret_preliquida pre
+       INNER JOIN cat_subcuenta cs ON pre.subcuenta = cs.subcuenta
+       INNER JOIN cat_movimiento cm ON pre.movimiento = cm.movimiento
+       WHERE folio_liquida = p_folio
+       GROUP BY pre.subcuenta, cs.subcuenta_desc, pre.movimiento, cm.movimiento_desc
+       ORDER BY pre.subcuenta
+       
+       FOREACH cur_cifras_control INTO v_subcuenta, v_subcuenta_desc, v_movimiento, v_movimiento_desc,
+                                       v_sum_acciones, v_sum_pesos
+          DISPLAY "SUBCUENTA           ", v_subcuenta, " ", v_subcuenta_desc
+          DISPLAY "MOVIMIENTO          ", v_movimiento, " ", v_movimiento_desc
+          DISPLAY "MONTO ACCIONES      ", v_sum_acciones
+          DISPLAY "MONTO PESOS         ", v_sum_pesos
+       END FOREACH
+       
+       FREE cur_cifras_control
+       
+       DISPLAY "\n\n"
+       
+       -- se invoca el reporte generico de preliquidacion/liquidacion
+       CALL fn_reporte_liquidacion(p_folio, "ret_preliquida", 
+                                   p_usuario_cod, p_pid, p_proceso_cod, 
+                                   p_opera_cod, p_programa_cod, 
+                                   FALSE)
+                                   
+       CALL fn_actualiza_opera_fin(g_pid,g_proceso_cod,g_opera_cod)
+                              RETURNING r_bnd_fin_oper
+    ELSE
+       -- si fue error de base de datos, o que no preliquido ningun registro, no se puede continuar
+       DISPLAY "La preliquidación finalizó con errores: "
+       DISPLAY "Código : ", v_i_resultado
+       DISPLAY "ISAM   : ", v_error_isam
+       DISPLAY "Mensaje: ", v_mensaje
+       LET p_mensaje = p_mensaje || "\n\nPreliquidacion finalizó con errores.\nNo es posible continuar con la Liquidación"
+       LET p_mensaje = p_mensaje || "\nCódigo : ", v_i_resultado
+       LET p_mensaje = p_mensaje || "\nISAM   : ", v_error_isam
+       LET p_mensaje = p_mensaje || "\nMensaje: ", v_mensaje
+       
+       CALL fn_error_opera(g_pid,g_proceso_cod,g_opera_cod)
+                           RETURNING v_i_resultado
+    END IF
+    
+    -- se envia correo al usuario    
+    CALL fn_correo_proceso(g_pid, g_proceso_cod, g_opera_cod,
+                           NULL, --"/ds/safreviv/ret/bin/correo.txt", -- no lleva archivo adjunto
+                           p_titulo,
+                           p_mensaje)
+  END IF
 
 END MAIN
