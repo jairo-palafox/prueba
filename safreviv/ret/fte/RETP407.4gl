@@ -9,10 +9,11 @@
 #                      => 02-jul-20 desplegado de datos a enviar y recibir     #
 #                      =>                                                      #
 ################################################################################
+DATABASE safre_viv 
 GLOBALS "NotiClabe.inc"
 GLOBALS "RETG01.4gl"
 
-DATABASE safre_viv
+
 
 #Parametros generales del proceso
 PRIVATE DEFINE p_pid                      LIKE glo_pid.pid
@@ -25,7 +26,8 @@ PRIVATE DEFINE v_proceso_desc             LIKE cat_proceso.proceso_desc
 PRIVATE DEFINE v_opera_desc               LIKE cat_operacion.opera_desc
 
 MAIN
-
+    DEFINE RETP407 STRING
+    DEFINE txtfecha STRING
     DEFINE v_estado             SMALLINT
     DEFINE r_resultado_opera    INTEGER
 
@@ -34,6 +36,11 @@ MAIN
     CALL ARG_VAL(3) RETURNING p_proceso_cod
     CALL ARG_VAL(4) RETURNING p_opera_cod
 
+    LET txtfecha = YEAR(TODAY)||MONTH(TODAY)||DAY(TODAY)
+    LET RETP407 = "log_RETP407_in_out_"||txtfecha||".log"
+    CALL STARTLOG(RETP407)
+
+    
     --Descripción del proceso
     SELECT proceso_desc
       INTO v_proceso_desc
@@ -172,6 +179,8 @@ FUNCTION fn_notificar_procesar()
     DEFINE v_solicitud_consulta_pago    DECIMAL(9,0)
     
     DEFINE v_cadena                     char(500)
+    DEFINE lDate                        STRING
+    DEFINE lAux                         STRING
     
     
     -- Inicializar variables
@@ -191,7 +200,9 @@ FUNCTION fn_notificar_procesar()
     LET ns1notificacionCuentaClabeRequest.idssn.idCliente      = 42 
     LET ns1notificacionCuentaClabeRequest.idssn.idCanal        = 13
     LET ns1notificacionCuentaClabeRequest.idssn.codoperCliente = "INFONAVIT"
-    LET ns1notificacionCuentaClabeRequest.idssn.fecha          = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+    LET lDate = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+    --LET ns1notificacionCuentaClabeRequest.idssn.fecha          = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+    LET ns1notificacionCuentaClabeRequest.idssn.fecha          = lDate
     --LET ns1notificacionCuentaClabeRequest.idssn.fecha          = CURRENT YEAR TO FRACTION
     
     -- Se declara el cursor sobre las solicitudes.  
@@ -211,12 +222,13 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
                 -- ret_solicitud_generico <-> afi_derechohabiente
                 "  AND  rsg.id_derechohabiente = ad.id_derechohabiente "||
                 "  AND  rsg.id_solicitud       = rbg.id_solicitud      "||
-                "  AND  rbg.tpo_beneficiario   = 1                     "||
+                "  AND  rbg.tpo_beneficiario   = 1                     "||  ## Posible Modificacion IN (1,2)
+               
                 -- Solo se notifica grupo 1
                 "  AND  rlg.gpo_ley73          = 1                     "||
                 -- Pasar de estado 72 a 73 y de 214 a 215, Se quitan los casos 214 Ventanilla Infonavit segun req SACI2018-188
                 "  AND  rsg.estado_solicitud   IN (72)                 "||
-                --"  AND  ad.nss = '96945802591'                         "||
+                --"  AND  ad.nss = '01674728769'                         "||
                 "UNION ALL                                             "||
                 "SELECT rsg.id_solicitud,ad.nss,CASE WHEN rsad.rfc_s = '' OR rsad.rfc_s IS NULL THEN 'AAAA010101AAA' ELSE ad.rfc end ,CASE WHEN rsad.curp_s = '' OR rsad.curp_s IS NULL THEN 'AAAA010101AAAAAA01' ELSE rsad.curp_s end,        "||
                 "       '0201',rsg.estado_solicitud, ad.id_derechohabiente      "||
@@ -228,13 +240,10 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
                 "  AND  rsg.id_solicitud       = rsad.id_solicitud     "||
                 "  AND  rsg.id_derechohabiente = ad.id_derechohabiente "||
                 "  AND  rlg.gpo_ley73          = 1                     "||
-                --"  AND  ad.nss = '96945802591'                         "||
+                --"  AND  ad.nss = '01674728769'                         "||
                 "  AND  rsg.estado_solicitud   IN (71,210)             "
 
-
-
-    
-  
+ 
     PREPARE prp_notificacion_procesar FROM v_sql
     DECLARE cur_notificacion_procesar CURSOR FOR prp_notificacion_procesar
 
@@ -261,20 +270,21 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
     DECLARE cur_notificacion_procesar_benef CURSOR FOR prp_notificacion_procesar_benef
     
     -- Datos de ret_pago_spei
-    LET v_sql = "SELECT FIRST 1 cuenta_clabe    "||
-                "FROM   ret_pago_spei           "||
-                "WHERE  id_solicitud = ?        "||
-                "AND    consec_beneficiario = ? "
+    LET v_sql = " SELECT FIRST 1 cuenta_clabe    "||
+                " FROM   ret_pago_spei           "||
+                " WHERE  id_solicitud = ?        "||
+                " AND    consec_beneficiario = ? "
+                
     PREPARE prp_pago_spei FROM v_sql
 
     -- Obtiene el consecutivo del beneficiario 
-    LET v_sql = "SELECT FIRST 1 a.consec_beneficiario                 "||
-                "FROM   ret_beneficiario_generico a,                  "||
+    LET v_sql = " SELECT FIRST 1 a.consec_beneficiario                 "||
+                " FROM   ret_beneficiario_generico a,                  "||
                 "       ret_beneficiario_juridico b                   "||
-                "WHERE  a.id_solicitud = b.id_solicitud               "||
-                "AND    a.consec_beneficiario = b.consec_beneficiario "||
-                "AND    a.id_solicitud = ?                            "||
-                "AND    b.estado_solicitud = 72                       "
+                " WHERE  a.id_solicitud = b.id_solicitud               "||
+                " AND    a.consec_beneficiario = b.consec_beneficiario "||
+                " AND    a.id_solicitud = ?                            "||
+                " AND    b.estado_solicitud = 72                       "
     PREPARE prp_consec_beneficiario FROM v_sql
 
     -- Obtiene el porcentaje del beneficiario 
@@ -346,10 +356,10 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
     PREPARE prp_montos_subcuenta FROM v_sql
 
     -- Consulta la fecha de valor
-    LET v_sql = "SELECT FIRST 1 (f_valor - (DAY(f_valor)-1)) "||
-                "FROM   ret_preliquida                       "||
-                "WHERE  id_referencia = ?                    "||
-                "AND    id_derechohabiente = ?               "
+    LET v_sql = " SELECT FIRST 1 (f_valor - (DAY(f_valor)-1)) "||
+                " FROM   ret_preliquida                       "||
+                " WHERE  id_referencia = ?                    "||
+                " AND    id_derechohabiente = ?               "
     PREPARE prp_fecha_movimiento FROM v_sql
 
     -- Actualizacion de estado_solicitud en ret_ley73_generico
@@ -380,15 +390,16 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
                    f_valor_viv,imp_viv92,imp_viv97,otros_imp_vivienda,imp_neto_dep_vivienda,comentarios,f_pago,
                    referencia_pago,observaciones)
                  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+    
     PREPARE exe_inserta_documento FROM v_sql
     
     FOREACH cur_notificacion_procesar INTO v_solicitud_notificacion.*, v_id_derechohabiente
 
-        DISPLAY ""
-        DISPLAY ""
-        DISPLAY "Solicitud: ",v_solicitud_notificacion.id_solicitud
+        DISPLAY "----------------------------------------------------------------------------------------"
+        DISPLAY "----------------------------------------------------------------------------------------"
+        DISPLAY "Solicitud                  : ",v_solicitud_notificacion.id_solicitud CLIPPED ,":"
         
-        LET v_consec_beneficiario = 1;
+        LET v_consec_beneficiario = 1
 
         IF v_solicitud_notificacion.rfcTrabajador IS NULL THEN
            LET v_solicitud_notificacion.rfcTrabajador = 'AAAA010101AAA'
@@ -396,16 +407,27 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         IF v_solicitud_notificacion.curpTrabajador IS NULL THEN
            LET v_solicitud_notificacion.curpTrabajador = 'AAAA010101AAAAAA01'
         END IF
+
+        
         
         -- pago spei
-        INITIALIZE v_clabe TO NULL 
+        INITIALIZE v_clabe TO NULL
+        --DISPLAY "antes v_consec_beneficiario: ", v_consec_beneficiario 
         EXECUTE prp_pago_spei INTO v_clabe USING v_solicitud_notificacion.id_solicitud, v_consec_beneficiario
+        
+        --DISPLAY "v_solicitud_notificacion.id_solicitud: ", v_solicitud_notificacion.id_solicitud
+        DISPLAY "Consecutivo Beneficiario   : ", v_consec_beneficiario CLIPPED ,":"
+        DISPLAY "Recupera clabe             : ", v_clabe CLIPPED ,":"
 
         -- Consulta pago fico
         INITIALIZE v_h_consulta, v_rsp_referencia, v_rsp_f_pago, v_rsp_estatus TO NULL 
         EXECUTE prp_consulta_pago_fico INTO v_h_consulta,v_rsp_referencia,v_rsp_f_pago,v_rsp_estatus
                                        USING v_solicitud_notificacion.id_solicitud
 
+
+        DISPLAY "----------------------------------"
+        DISPLAY "v_rsp_referencia   :",v_rsp_referencia
+        DISPLAY "v_rsp_f_pago       :",v_rsp_f_pago
         -- Beneficiario Generico
         INITIALIZE v_nombreBeneficiario,v_apellidoPaternoBeneficiario,v_apellidoMaternoBeneficiario,v_id_entidad_federativa TO NULL 
         EXECUTE prp_beneficiario_generico INTO v_nombreBeneficiario,v_apellidoPaternoBeneficiario,
@@ -448,30 +470,36 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         END IF 
 
         INITIALIZE v_f_valor TO NULL
+        DISPLAY "Fecha Valor inicial:", v_f_valor
+        DISPLAY "Solicitud                  : ", v_solicitud_notificacion.id_solicitud CLIPPED ,":"
+        DISPLAY "Id Derechohabiente         : ", v_id_derechohabiente   CLIPPED ,":"     
+
         EXECUTE prp_fecha_movimiento INTO v_f_valor 
                                      USING v_solicitud_notificacion.id_solicitud, v_id_derechohabiente        
-                
-        DISPLAY "La fecha de pago: ", v_rsp_f_pago
-        DISPLAY "             año: ", v_rsp_f_pago[1,4]
-        DISPLAY "             mes: ", v_rsp_f_pago[5,6]
-        DISPLAY "             dia: ", v_rsp_f_pago[7,8]
-        DISPLAY "            Hora: ", v_h_consulta
+        DISPLAY "----------------------------------------------------------------------------------------"        
+        DISPLAY "La fecha de pago           : ", v_rsp_f_pago
+        DISPLAY "             año           : ", v_rsp_f_pago[1,4]
+        DISPLAY "             mes           : ", v_rsp_f_pago[5,6]
+        DISPLAY "             dia           : ", v_rsp_f_pago[7,8]
+        DISPLAY "Hora                       : ", v_h_consulta
         
         LET v_f_pago = v_rsp_f_pago[1,4]||'-'||v_rsp_f_pago[5,6]||'-'||v_rsp_f_pago[7,8]||'T'||v_h_consulta||'.000Z'
         
-        DISPLAY " Fecha de pago concatenada ", v_f_pago
+        DISPLAY "Fecha de pago concatenada  : ", v_f_pago
+        DISPLAY "----------------------------------------------------------------------------------------"
         DISPLAY ""
         
         LET v_diagnostico = "101"
         
         IF v_solicitud_notificacion.estado_solicitud = 210 THEN 
            LET v_f_pago = v_f_valor USING "yyyy-mm-dd"||"T09:00:00.000Z"
+           DISPLAY "v_f_pago 210 ",v_f_pago
            LET v_rsp_referencia = "000000000000"
            LET v_diagnostico = "998"
-        END IF 
+        END IF
         
         INITIALIZE ns1notificacionCuentaClabeRequest TO NULL 
-        
+
         -- Datos fijos para realizar la consulta
         LET ns1notificacionCuentaClabeRequest.idssn.idSistema      = 12 
         LET ns1notificacionCuentaClabeRequest.idssn.idEbusiness    = 13 
@@ -480,10 +508,16 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         LET ns1notificacionCuentaClabeRequest.idssn.idCliente      = 42 
         LET ns1notificacionCuentaClabeRequest.idssn.idCanal        = 13
         LET ns1notificacionCuentaClabeRequest.idssn.codoperCliente = "INFONAVIT"
-        LET ns1notificacionCuentaClabeRequest.idssn.fecha          = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+        LET lDate = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+        --LET ns1notificacionCuentaClabeRequest.idssn.fecha          = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+        LET ns1notificacionCuentaClabeRequest.idssn.fecha          = lDate
 
         LET ns1notificacionCuentaClabeRequest.cuerpo.folioOperacion                       = 0
-        LET ns1notificacionCuentaClabeRequest.cuerpo.folioNotificacion                    = v_solicitud_notificacion.nss||v_clabe
+        LET lAux = v_solicitud_notificacion.nss,v_clabe
+        DISPLAY "Numero NSS                 : ", v_solicitud_notificacion.nss
+        --DISPLAY "lAux:", lAux
+        LET ns1notificacionCuentaClabeRequest.cuerpo.folioNotificacion                    = v_solicitud_notificacion.nss,v_clabe --v_solicitud_notificacion.nss||v_clabe
+        DISPLAY "Folio de Notificacion      : ", ns1notificacionCuentaClabeRequest.cuerpo.folioNotificacion
         LET ns1notificacionCuentaClabeRequest.cuerpo.indicadorBeneficiario                = 1
         LET ns1notificacionCuentaClabeRequest.cuerpo.entidadFederativa                    = v_id_entidad_federativa USING "&&"
         LET ns1notificacionCuentaClabeRequest.cuerpo.nss                                  = v_solicitud_notificacion.nss
@@ -529,9 +563,163 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         LET ns1notificacionCuentaClabeRequest.cuerpo.fechaPago                            = v_f_pago CLIPPED 
         LET ns1notificacionCuentaClabeRequest.cuerpo.referenciaPago                       = v_rsp_referencia CLIPPED 
         LET ns1notificacionCuentaClabeRequest.cuerpo.observaciones                        = ""
+    
         -- Limpia el arreglo de respuesta
 
-                
+
+        -- Todos los NSS son de 11 Digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.nss IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.nss =" "  THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.nss = "00000000000"
+            --DISPLAY "El numero de seguridad social esta vacio, se relleno con valor dummy: ", v_solicitud_notificacion.nss
+        --END IF
+
+        IF ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador = "" THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador = "AAAA010101AAAAAA01"
+           DISPLAY "La CURP de trabajador esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        -- Todos los RFC tiene el formato y longitud 13 maximo
+        IF ns1notificacionCuentaClabeRequest.cuerpo.rfcTrabajador IS NULL THEN
+           LET ns1notificacionCuentaClabeRequest.cuerpo.rfcTrabajador = 'AAAA010101AAA'
+           DISPLAY "El RFC de trabajador esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        --Todos los CURP Tienen el formato y longitud 18 maximo
+        IF ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador = " " THEN
+           LET ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador = 'AAAA010101AAAAAA01'
+           DISPLAY "El CURP Trabajador esta vacio, se relleno con valor dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        --Todas las Clabes bancarias tiene longitud 18
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.clabe IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.clabe = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.clabe) = 0 THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.clabe = "000000000000000000"
+            --DISPLAY "La cuenta clabe esta vacia, se relleno con valor dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --Todos los grupos trabajador tienen longitud 4 digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.grupoTrabajador IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.grupoTrabajador = " " THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.grupoTrabajador = "0000"
+            --DISPLAY "El Grupo de trabajador esta vacio, se relleno con valor dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        -- Todas las secuencias de pension tienen longitud 2 digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension)= 0 THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension = "00"
+            --DISPLAY "La secuencia de pension esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --Todos los regimen tienen longitud 2 digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.regimen IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.regimen = " " THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.regimen = "00"
+            --DISPLAY "El regimen esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --Todos los tipo de retiro estan fijados por consulta a E
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.tipoRetiro IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.tipoRetiro = " " THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.tipoRetiro = "E"
+            --DISPLAY "El tipo de retiro esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --Todos los tipos de seguro tienen longitud 2 digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.tipoSeguro IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.tipoSeguro = " " THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.tipoSeguro = "AA"
+            --DISPLAY "El tipo de seguro esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+
+        --Todos los tipos de pension tienen longitud 2 digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.tipoPension IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.tipoPension = " " THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.tipoPension = "AA"
+            --DISPLAY "El tipo de pension esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --Los tipo de prestacion son de 2 digitos y menores a 28 al 07-09-2020
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.tipoPrestacion IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.tipoPrestacion = " " THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.tipoPrestacion = "55"
+            --DISPLAY "El tipo de tipo de presentacion esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --Todas las semanas cotizadas tienen una longitud maxima de 4 digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.semanasCotizadas IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.semanasCotizadas = " " OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.semanasCotizadas) = 0 THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.semanasCotizadas = "0000"
+            --DISPLAY "Las semanas cotizadas estan vacias, se rellenaron con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+
+        --Todos los nombres de beneficiario tienen logintud maxima de 40,
+        --el formato AAAAAAAAAA significa un nombre invalido
+        {IF ns1notificacionCuentaClabeRequest.cuerpo.nombreBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.nombreBeneficiario = "" THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.nombreBeneficiario = "AAAAAAAAAA"
+            DISPLAY "El nombre de beneficiario esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        --Todos los apellidos paternos de beneficiario tienen logintud maxima de 40,
+        --el formato AAAAAAAAAA significa un apellido paterno invalido
+        IF ns1notificacionCuentaClabeRequest.cuerpo.apellidoPaternoBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.apellidoPaternoBeneficiario = "" THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.apellidoPaternoBeneficiario = "AAAAAAAAAA"
+            DISPLAY "El apellido paterno del beneficiario est vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF}
+
+        --Todos los apellidos maternos de beneficiario tienen logintud maxima de 40,
+        --el formato AAAAAAAAAA significa un apellido materno invalido
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.apellidoMaternoBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.apellidoMaternoBeneficiario = "" THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.apellidoMaternoBeneficiario = " "
+            --DISPLAY "El apellido materno del beneficiario esta vacio, se relleno con valores Blancos: ", v_solicitud_notificacion.nss
+        --END IF
+
+        IF ns1notificacionCuentaClabeRequest.cuerpo.rfcBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.rfcBeneficiario = " " THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.rfcBeneficiario = "AAAA00000AA00"
+            DISPLAY "El RFC del beneficiario esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        IF ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario CLIPPED) = 0 THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario = "AAAA000000AAAAAA00"
+           DISPLAY "La CURP de beneficiario esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        IF ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador CLIPPED) = 0 THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador = "AAAA000000AAAAAA00"
+           DISPLAY "La CURP de trabajador esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+        
+        --Todas las fechas tienen la longitud y formato
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.fechaPago IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.fechaPago = " " THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.fechaPago = "31/12/1756"
+            --DISPLAY "La fecha de pago esta vacia, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.vivienda92Aivs IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.vivienda92Aivs = " " THEN
+            --DISPLAY "La vivienda 92 es VACIO ó NULO: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.vivienda97Aivs IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.vivienda97Aivs = " " THEN
+            --DISPLAY "La vivienda 97 es VACIO ó NULO: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.fechaValorViviendaMovimientoContable IS NULL THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.fechaValorViviendaMovimientoContable = "0000-00-00-T00:00:00.000Z"
+            --DISPLAY "La fecha vivienda contable esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.vivienda92 IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.vivienda92 IS NULL = " " THEN
+            --DISPLAY "Valor vivienda92 valor Vacio o NULO: ", v_solicitud_notificacion.nss
+        --END IF
+        --
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.vivienda97 IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.vivienda97 = " " THEN
+            --DISPLAY "Valor vivienda97 valor Vacio o NULO:", v_solicitud_notificacion.nss
+        --END IF
+        
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.otrosImportesVivienda IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.otrosImportesVivienda = " " THEN
+            --DISPLAY "Valor otrosImportesVivienda valor Vacio o NULO: ", v_solicitud_notificacion.nss
+        --END IF
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoVivienda IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoVivienda = " " THEN
+            --DISPLAY "Valor importeNetoDepositadoVivienda valor Vacio o NULO: ", v_solicitud_notificacion.nss
+        --END IF
+
+        --Todas las referencias de pago son diferentes a espacios en blanco y longitud de 20 digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.referenciaPago IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.referenciaPago = " " THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.referenciaPago = "0000-00-00-T00:00:00.000Z"
+            --DISPLAY "La referencia de pago esta vacia, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+
         INITIALIZE ns1notificacionCuentaClabeResponse TO NULL
         INITIALIZE wsError TO null
         INITIALIZE v_rec_notifica TO NULL
@@ -545,7 +733,120 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         IF FGL_GETENV("DEBUGNOTIFICA") = "2" THEN
         	 --NO SE EJECUTA WS
         ELSE
+
+                    CALL ERRORLOG("------------------------------------------------------------------------------------------")                                     
+                    CALL ERRORLOG("----REQUEST--------ENVIO DE DATOS---------------------------------------------------------")                                     
+                    CALL ERRORLOG("ApellidoMaterno Bene                   : "||ns1notificacionCuentaClabeRequest.cuerpo.apellidoMaternoBeneficiario )                                 
+                    CALL ERRORLOG("ApellidoPaterno Bene                   : "||ns1notificacionCuentaClabeRequest.cuerpo.apellidoPaternoBeneficiario )                                 
+                    CALL ERRORLOG("clabe                                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.clabe )                                    
+                    CALL ERRORLOG("claveRetiro92Siefore1                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveRetiro92Siefore1 )                    
+                    CALL ERRORLOG("claveRetiro92Siefore2                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveRetiro92Siefore2 )                    
+                    CALL ERRORLOG("claveRetiro97Siefore1                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveRetiro97Siefore1 )                    
+                    CALL ERRORLOG("claveRetiro97Siefore2                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveRetiro97Siefore2 )                    
+                    CALL ERRORLOG("claveSiefore1                          :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveSiefore1 )                            
+                    CALL ERRORLOG("claveSiefore2                          :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveSiefore2 )                            
+                    CALL ERRORLOG("comentarios                            :  "||ns1notificacionCuentaClabeRequest.cuerpo.comentarios )                              
+                    CALL ERRORLOG("curpBeneficiario                       :  "||ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario )                         
+                    CALL ERRORLOG("curpTrabajador                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador )                           
+                    CALL ERRORLOG("diagnosticoRecepcion                   :  "||ns1notificacionCuentaClabeRequest.cuerpo.diagnosticoRecepcion )                     
+                    CALL ERRORLOG("entidadFederativa                      :  "||ns1notificacionCuentaClabeRequest.cuerpo.entidadFederativa )                        
+                    CALL ERRORLOG("fechaPago                              :  "||ns1notificacionCuentaClabeRequest.cuerpo.fechaPago )                                
+                    CALL ERRORLOG("fechaValorViviendaMovimientoContable   :  "||ns1notificacionCuentaClabeRequest.cuerpo.fechaValorViviendaMovimientoContable )     
+                    CALL ERRORLOG("folioNotificacion                      :  "||ns1notificacionCuentaClabeRequest.cuerpo.folioNotificacion )                        
+                    CALL ERRORLOG("folioOperacion                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.folioOperacion )                           
+                    CALL ERRORLOG("grupoTrabajador                        :  "||ns1notificacionCuentaClabeRequest.cuerpo.grupoTrabajador )                          
+                    CALL ERRORLOG("importeNetoDepositadoClaveSiefore1     :  "||ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoClaveSiefore1 )       
+                    CALL ERRORLOG("importeNetoDepositadoClaveSiefore2     :  "||ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoClaveSiefore2 )       
+                    CALL ERRORLOG("importeNetoDepositadoSiefores          :  "||ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoSiefores )            
+                    CALL ERRORLOG("importeNetoDepositadoVivienda          :  "||ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoVivienda )            
+                    CALL ERRORLOG("indicadorBeneficiario                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.indicadorBeneficiario )                    
+                    CALL ERRORLOG("nombreBeneficiario                     :  "||ns1notificacionCuentaClabeRequest.cuerpo.nombreBeneficiario )                       
+                    CALL ERRORLOG("nss                                    :  "||ns1notificacionCuentaClabeRequest.cuerpo.nss )                                      
+                    CALL ERRORLOG("observaciones                          :  "||ns1notificacionCuentaClabeRequest.cuerpo.observaciones )                            
+                    CALL ERRORLOG("otrosImportesAhorro73ClaveSiefore1     :  "||ns1notificacionCuentaClabeRequest.cuerpo.otrosImportesAhorro73ClaveSiefore1 )       
+                    CALL ERRORLOG("otrosImportesAhorro73ClaveSiefore2     :  "||ns1notificacionCuentaClabeRequest.cuerpo.otrosImportesAhorro73ClaveSiefore2 )       
+                    CALL ERRORLOG("otrosImportesVivienda                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.otrosImportesVivienda )                    
+                    CALL ERRORLOG("referenciaPago                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.referenciaPago )                           
+                    CALL ERRORLOG("regimen                                :  "||ns1notificacionCuentaClabeRequest.cuerpo.regimen )                                  
+                    CALL ERRORLOG("rfcBeneficiario                        :  "||ns1notificacionCuentaClabeRequest.cuerpo.rfcBeneficiario )                          
+                    CALL ERRORLOG("rfcTrabajador                          :  "||ns1notificacionCuentaClabeRequest.cuerpo.rfcTrabajador )                            
+                    CALL ERRORLOG("secuenciaPension                       :  "||ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension )                         
+                    CALL ERRORLOG("tipoPrestacion                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.tipoPrestacion )                           
+                    CALL ERRORLOG("tipoRetiro                             :  "||ns1notificacionCuentaClabeRequest.cuerpo.tipoRetiro )                               
+                    CALL ERRORLOG("tipoSeguro                             :  "||ns1notificacionCuentaClabeRequest.cuerpo.tipoSeguro )                               
+                    CALL ERRORLOG("vivienda92                             :  "||ns1notificacionCuentaClabeRequest.cuerpo.vivienda92 )                               
+                    CALL ERRORLOG("vivienda92Aivs                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.vivienda92Aivs )                           
+                    CALL ERRORLOG("vivienda97                             :  "||ns1notificacionCuentaClabeRequest.cuerpo.vivienda97 )                               
+                    CALL ERRORLOG("vivienda97Aivs                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.vivienda97Aivs )                           
+
+                    CALL ERRORLOG("--FIN ENVIO DE DATOS----------------------------------------------------------------------")
+                    CALL ERRORLOG("------------------------------------------------------------------------------------------")
+                    CALL ERRORLOG("")
+                    CALL ERRORLOG("")
+        
            CALL notificacionCuentaClabe_g() RETURNING v_resultado
+                    CALL ERRORLOG("")
+                    CALL ERRORLOG("")
+                    CALL ERRORLOG("-----------------------------------------------------------------------------------------")
+                    CALL ERRORLOG("--RESPONSE DE DATOS----------------------------------------------------------------------")
+                    CALL ERRORLOG("ApellidoMaterno Bene 				  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.apellidoMaternoBeneficiario) 
+                    CALL ERRORLOG("ApellidoPaterno Bene 				  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.apellidoPaternoBeneficiario) 
+                    CALL ERRORLOG("clabe                                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.clabe)
+                    CALL ERRORLOG("claveAfore                                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveAfore)
+                    CALL ERRORLOG("claveRetiro92Siefore1                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveRetiro92Siefore1) 
+                    CALL ERRORLOG("claveRetiro92Siefore2                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveRetiro92Siefore2) 
+                    CALL ERRORLOG("claveRetiro97Siefore1                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveRetiro97Siefore1) 
+                    CALL ERRORLOG("claveRetiro97Siefore2                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveRetiro97Siefore2) 
+                    CALL ERRORLOG("claveSiefore1                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveSiefore1) 
+                    CALL ERRORLOG("claveSiefore2                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveSiefore2) 
+                    CALL ERRORLOG("comentarios                            :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.comentarios) 
+                    CALL ERRORLOG("curpBeneficiario                       :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.curpBeneficiario) 
+                    CALL ERRORLOG("curpTrabajador                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.curpTrabajador) 
+                    CALL ERRORLOG("diagnosticoRecepcion                   :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.descripcionDiagnostico)
+                    CALL ERRORLOG("detalleResultado                       :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.detalleResultado)
+                    CALL ERRORLOG("entidadFederativa                      :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.entidadFederativa) 
+                    CALL ERRORLOG("fechaPago                              :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.fechaPago) 
+                    CALL ERRORLOG("fechaValorViviendaMovimientoContable   :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.fechaValorViviendaMovimientoContable) 
+                    CALL ERRORLOG("folioNotificacion                      :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.folioNotificacion) 
+                    CALL ERRORLOG("folioOperacion                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.folioOperacion) 
+                    CALL ERRORLOG("grupoTrabajador                        :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.grupoTrabajador) 
+                    CALL ERRORLOG("importeNetoDepositadoClaveSiefore1     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoClaveSiefore1) 
+                    CALL ERRORLOG("importeNetoDepositadoClaveSiefore2     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoClaveSiefore2) 
+                    CALL ERRORLOG("importeNetoDepositadoSiefores          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoSiefores) 
+                    CALL ERRORLOG("importeNetoDepositadoVivienda          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoVivienda) 
+                    CALL ERRORLOG("indicadorBeneficiario                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.indicadorBeneficiario) 
+                    CALL ERRORLOG("motivoRechazo                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.motivoRechazo) 
+                    CALL ERRORLOG("nombreBeneficiario                     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.nombreBeneficiario) 
+                    CALL ERRORLOG("nss                                    :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.nss) 
+                    CALL ERRORLOG("observaciones                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.observaciones) 
+                    CALL ERRORLOG("otrosImportesAhorro73ClaveSiefore1     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.otrosImportesAhorro73ClaveSiefore1) 
+                    CALL ERRORLOG("otrosImportesAhorro73ClaveSiefore2     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.otrosImportesAhorro73ClaveSiefore2) 
+                    CALL ERRORLOG("otrosImportesVivienda                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.otrosImportesVivienda) 
+                    CALL ERRORLOG("referenciaPago                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.referenciaPago) 
+                    CALL ERRORLOG("regimen                                :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.regimen) 
+                    CALL ERRORLOG("resultadoOperacion                     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.resultadoOperacion) 
+                    CALL ERRORLOG("rfcBeneficiario                        :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.rfcBeneficiario) 
+                    CALL ERRORLOG("rfcTrabajador                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.rfcTrabajador) 
+                    CALL ERRORLOG("secuenciaPension                       :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.secuenciaPension) 
+                    CALL ERRORLOG("tipoPrestacion                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoPrestacion) 
+                    CALL ERRORLOG("tipoRetiro                             :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoRetiro) 
+                    CALL ERRORLOG("tipoSeguro                             :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoSeguro) 
+                    CALL ERRORLOG("vivienda92                             :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda92) 
+                    CALL ERRORLOG("vivienda92Aivs                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda92Aivs) 
+                    CALL ERRORLOG("vivienda97                             :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda97) 
+                    CALL ERRORLOG("vivienda97Aivs                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda97Aivs) 
+                    CALL ERRORLOG("CodRespuesta                           :  "||ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta) 
+                    CALL ERRORLOG("CodRespuestaOPR                        :  "||ns1notificacionCuentaClabeResponse.ssnrop.codRespuestaOpr) 
+                    CALL ERRORLOG("CodOper                                :  "||ns1notificacionCuentaClabeResponse.ssnrop.codoper) 
+                    CALL ERRORLOG("CodoperCliente                         :  "||ns1notificacionCuentaClabeResponse.ssnrop.codoperCliente) 
+                    CALL ERRORLOG("DesRespuesta                           :  "||ns1notificacionCuentaClabeResponse.ssnrop.descRespuesta) 
+                    CALL ERRORLOG("Fecha                                  :  "||ns1notificacionCuentaClabeResponse.ssnrop.fecha)
+                    CALL ERRORLOG("CodRespuesta                           :  "||ns1notificacionCuentaClabeResponse.ssnrop.tiempoRespuesta)
+                    
+                    CALL ERRORLOG("-RESPONSE------------FIN RESPONSE DE DATOS------------------------------------------------")
+                    CALL ERRORLOG("------------------------------------------------------------------------------------------")
+                    CALL ERRORLOG("")
+                    CALL ERRORLOG("")
         END IF 
         
         CALL fn_notifica_datos_respuesta()
@@ -553,7 +854,7 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         DISPLAY "   "
         DISPLAY "   "
         DISPLAY "########################################################################"
-        DISPLAY " EL resultado de la Notificación "
+        DISPLAY "EL resultado de la Notificación "
         DISPLAY "   "
         DISPLAY "   "
         DISPLAY "Resultado de la ejecucion  :", v_resultado                                              ,":"
@@ -561,7 +862,12 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         DISPLAY "CODENS                     :", wsError.codeNS                                           ,":"
         DISPLAY "DESCRIPTION                :", wsError.description                                      ,":"
         DISPLAY "ACTION                     :", wsError.action                                           ,":"
+        DISPLAY "########################################################################"
+        DISPLAY ""
+        DISPLAY ""
+        
 
+        
         IF v_resultado = 0 THEN 
 --        IF ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta = 'OK' THEN 
            DISPLAY "Codigo Respuesta           :", ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta   ,":"
@@ -582,8 +888,8 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
            DISPLAY "   "
            DISPLAY "########################################################################"
            INITIALIZE v_rec_notifica TO NULL
-           LET v_rec_notifica.id_solicitud  = v_solicitud_notificacion.id_solicitud
-           LET v_rec_notifica.f_notifica    = CURRENT YEAR TO SECOND
+           LET v_rec_notifica.id_solicitud  = v_solicitud_notificacion.id_solicitud CLIPPED 
+           LET v_rec_notifica.f_notifica    = CURRENT YEAR TO SECOND CLIPPED 
            LET v_rec_notifica.estado_pago   = ns1notificacionCuentaClabeResponse.objetoRespuesta.motivoRechazo
            LET v_rec_notifica.diag_notifica = ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta
            LET v_rec_notifica.folio_notificacion = ns1notificacionCuentaClabeResponse.objetoRespuesta.folioNotificacion
@@ -617,6 +923,46 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
            LET v_rec_notifica.f_pago                 = ns1notificacionCuentaClabeResponse.objetoRespuesta.fechaPago
            LET v_rec_notifica.referencia_pago        = ns1notificacionCuentaClabeResponse.objetoRespuesta.referenciaPago
            LET v_rec_notifica.observaciones          = ns1notificacionCuentaClabeResponse.objetoRespuesta.observaciones
+
+
+            DISPLAY  "v_rec_notifica.id_solicitud  = 					         ", v_solicitud_notificacion.id_solicitud                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+            DISPLAY  "v_rec_notifica.f_notifica    = 					         ", CURRENT YEAR TO SECOND                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+            DISPLAY  "v_rec_notifica.estado_pago   = 					         ", ns1notificacionCuentaClabeResponse.objetoRespuesta.motivoRechazo                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+            DISPLAY  "v_rec_notifica.diag_notifica = 					         ", ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+            DISPLAY  "v_rec_notifica.folio_notificacion = 			         ", ns1notificacionCuentaClabeResponse.objetoRespuesta.folioNotificacion                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            DISPLAY  "v_rec_notifica.indicador_beneficiario =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.indicadorBeneficiario                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+            DISPLAY  "v_rec_notifica.entidad_federativa     =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.entidadFederativa                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            DISPLAY  "v_rec_notifica.nss                    =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.nss                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+            DISPLAY  "v_rec_notifica.rfc_trabajador         =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.rfcTrabajador                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+            DISPLAY  "v_rec_notifica.curp_trabajador        =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.curpTrabajador                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            DISPLAY  "v_rec_notifica.cta_clabe              =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.clabe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+            DISPLAY  "v_rec_notifica.grupo_trabajador       =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.grupoTrabajador                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+            DISPLAY  "v_rec_notifica.sec_pension            =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.secuenciaPension                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            DISPLAY  "v_rec_notifica.regimen                =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.regimen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+            DISPLAY  "v_rec_notifica.tpo_retiro             =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoRetiro                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+            DISPLAY  "v_rec_notifica.tpo_seguro             =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoSeguro                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+            DISPLAY  "v_rec_notifica.tpo_pension            =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoPension                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            DISPLAY  "v_rec_notifica.tpo_prestacion         =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoPrestacion                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            DISPLAY  "v_rec_notifica.semanas_cotizadas      =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.semanasCotizadas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            DISPLAY  "v_rec_notifica.nombre_beneficiario    =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.nombreBeneficiario                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+            DISPLAY  "v_rec_notifica.paterno_beneficiario   =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.apellidoPaternoBeneficiario                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            DISPLAY  "v_rec_notifica.materno_beneficiario   =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.apellidoMaternoBeneficiario                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            DISPLAY  "v_rec_notifica.rfc_benficiario        =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.rfcBeneficiario                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+            DISPLAY  "v_rec_notifica.curp_beneficiario      =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.curpBeneficiario                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            DISPLAY  "v_rec_notifica.aivs_viv92             =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda92Aivs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            DISPLAY  "v_rec_notifica.aivs_viv97             =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda97Aivs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            DISPLAY  "v_rec_notifica.f_valor_viv            =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.fechaValorViviendaMovimientoContable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+            DISPLAY  "v_rec_notifica.imp_viv92              =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda92                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+            DISPLAY  "v_rec_notifica.imp_viv97              =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda97                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+            DISPLAY  "v_rec_notifica.otros_imp_vivienda     =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.otrosImportesVivienda                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+            DISPLAY  "v_rec_notifica.imp_neto_dep_vivienda  =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoVivienda                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+            DISPLAY  "v_rec_notifica.comentarios            =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.comentarios                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            DISPLAY  "v_rec_notifica.f_pago                 =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.fechaPago                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+            DISPLAY  "v_rec_notifica.referencia_pago        =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.referenciaPago                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            DISPLAY  "v_rec_notifica.observaciones          =           ", ns1notificacionCuentaClabeResponse.objetoRespuesta.observaciones                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+ 
+
+
            
            EXECUTE exe_inserta_documento USING
               v_rec_notifica.id_solicitud           ,v_rec_notifica.f_notifica             ,v_rec_notifica.estado_pago            ,
@@ -641,14 +987,25 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         END IF
          
         LET  v_respuesta = ns1notificacionCuentaClabeResponse.objetoRespuesta.motivoRechazo
+        DISPLAY ""
+        DISPLAY ""
+        DISPLAY "########################################################################"
+        DISPLAY "##RESPUESTA PROCESAR##"
+        DISPLAY	"RP Codigo Respuesta 		:",ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta
+        DISPLAY	"RP Descripcion diagnostico :",ns1notificacionCuentaClabeResponse.ssnrop.descRespuesta
+        DISPLAY	"RP NSS             		:",ns1notificacionCuentaClabeResponse.objetoRespuesta.nss
+        DISPLAY	"RP Resultado operacion		:",ns1notificacionCuentaClabeResponse.ssnrop.codRespuestaOpr
+        DISPLAY "Motivos-base               :",ns1notificacionCuentaClabeResponse.ssnrop.motivos.motivo[1].base ,":"
+        DISPLAY "Motivos-descripcion        :",ns1notificacionCuentaClabeResponse.ssnrop.motivos.motivo[1].descripcion ,":"
+        DISPLAY "Motivos-id Motivo          :",ns1notificacionCuentaClabeResponse.ssnrop.motivos.motivo[1].idMotivo ,":"
+        DISPLAY "##FIN RESPUESTA PROCESAR##"
+        DISPLAY "########################################################################"
+        DISPLAY ""
+        DISPLAY ""
+       
+       
+       LET v_respuesta = ns1notificacionCuentaClabeResponse.objetoRespuesta.motivoRechazo
 
- 
-        -- Se actualizan los estados de solicitud
---        LET  v_string = base.StringBuffer.create()
---        CALL v_string.append(ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta)
---        CALL v_string.replace(" ","",0)
-
---        LET v_respuesta = v_string.toString()
         
         
         IF v_resultado = 0 AND (v_respuesta = "101" OR v_respuesta = "203") THEN
@@ -677,11 +1034,11 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
             EXECUTE prp_actualiza_sol_generico USING v_estado_solicitud_sig,v_solicitud_notificacion.id_solicitud
 
             -- Se cuenta el numero de solicitudes actualizadas
-            DISPLAY "Actualizada a ",v_estado_solicitud_sig
+            DISPLAY "Actualizada a :",v_estado_solicitud_sig
             LET v_solicitudes_informadas = v_solicitudes_informadas + 1
 
         ELSE
-            DISPLAY "No actualizada"
+            DISPLAY "**No actualizada**"
             LET v_solicitudes_no_informadas = v_solicitudes_no_informadas + 1
         END IF
 
@@ -703,7 +1060,7 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
 
         DISPLAY ""
         DISPLAY ""
-        DISPLAY "Solicitud: ",v_solicitud_notificacion.id_solicitud
+        --DISPLAY "Solicitud                  : ",v_solicitud_notificacion.id_solicitud
 
        { IF v_solicitud_notificacion.rfcTrabajador IS NULL THEN
            LET v_solicitud_notificacion.rfcTrabajador = 'AAAA010101AAA'
@@ -716,7 +1073,10 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         
         -- Se obtiene el consecutivo de un solo beneficiario que tenga estado de pagado
         INITIALIZE v_consec_beneficiario TO NULL
+        
+        --DISPLAY "v_solicitud_notificacion.id_solicitud: ", v_solicitud_notificacion.id_solicitud
         EXECUTE prp_consec_beneficiario INTO v_consec_beneficiario USING v_solicitud_notificacion.id_solicitud
+        --DISPLAY "Consecutivo Beneficiario   : ", v_consec_beneficiario
 
         -- Se obtiene el porcentaje de pago para reportar el importe solo de los aceptados
         INITIALIZE v_porcentaje TO NULL
@@ -725,13 +1085,19 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         -- pago spei
         INITIALIZE v_clabe TO NULL
         EXECUTE prp_pago_spei INTO v_clabe USING v_solicitud_notificacion.id_solicitud, v_consec_beneficiario
+        DISPLAY "Solicitud                 : ", v_solicitud_notificacion.id_solicitud
+        DISPLAY "Consecutivo Beneficiario  : ", v_consec_beneficiario CLIPPED ,":"
+        DISPLAY "Recupera clabe2           : ", v_clabe CLIPPED ,":"
 
         -- Consulta pago fico
         LET v_solicitud_consulta_pago = (v_solicitud_notificacion.id_solicitud*10)+v_consec_beneficiario
         INITIALIZE v_h_consulta,v_rsp_referencia,v_rsp_f_pago,v_rsp_estatus TO NULL
         EXECUTE prp_consulta_pago_fico INTO v_h_consulta,v_rsp_referencia,v_rsp_f_pago,v_rsp_estatus
                                        USING v_solicitud_consulta_pago
-
+         DISPLAY "----------------------------------"
+         DISPLAY "v_rsp_referencia   2:",v_rsp_referencia
+         DISPLAY "v_rsp_f_pago       2:",v_rsp_f_pago
+        
         -- Beneficiario Generico
         INITIALIZE v_nombreBeneficiario,v_apellidoPaternoBeneficiario,v_apellidoMaternoBeneficiario,v_id_entidad_federativa TO NULL
         EXECUTE prp_beneficiario_generico INTO v_nombreBeneficiario,v_apellidoPaternoBeneficiario,
@@ -780,21 +1146,27 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         END IF 
 
         INITIALIZE v_f_valor TO NULL
+        --DISPLAY "2222&&&&&&&&&&&&&&&&&&&v_solicitud_notificacion.id_solicitud: ", v_solicitud_notificacion.id_solicitud
+        DISPLAY "v_id_derechohabiente: ", v_id_derechohabiente        
+
         EXECUTE prp_fecha_movimiento INTO v_f_valor 
                                      USING v_solicitud_notificacion.id_solicitud, v_id_derechohabiente        
-                
-        DISPLAY "la fecha de pago ", v_rsp_f_pago
-        DISPLAY "  año ",v_rsp_f_pago[1,4]
-        DISPLAY "  mes ",v_rsp_f_pago[5,6]
-        DISPLAY "  dia ",v_rsp_f_pago[7,8]
-        DISPLAY " Hora ",v_h_consulta
+        DISPLAY "----------------------------------------------------------------------------------------"        
+        DISPLAY "La fecha de pago           :", v_rsp_f_pago
+        DISPLAY "            año            :",v_rsp_f_pago[1,4]
+        DISPLAY "            mes            :",v_rsp_f_pago[5,6]
+        DISPLAY "            dia            :",v_rsp_f_pago[7,8]
+        DISPLAY "Hora                       :",v_h_consulta
         LET v_f_pago = v_rsp_f_pago[1,4]||'-'||v_rsp_f_pago[5,6]||'-'||v_rsp_f_pago[7,8]||'T'||v_h_consulta||'.000Z'
         
-        DISPLAY " Fecha de pago concatenada ", v_f_pago
+        DISPLAY "Fecha de pago concatenada  : ", v_f_pago
+        DISPLAY "----------------------------------------------------------------------------------------"
+        DISPLAY ""
         
         LET v_diagnostico = "101"
         IF v_solicitud_notificacion.estado_solicitud = 210 THEN 
            LET v_f_pago = v_f_valor USING "yyyy-mm-dd"||"T09:00:00.000Z"
+           DISPLAY "v_f_pago 210 ",v_f_pago
            LET v_rsp_referencia = "000000000000"
            LET v_diagnostico = "998"
         END IF 
@@ -808,10 +1180,16 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         LET ns1notificacionCuentaClabeRequest.idssn.idCliente      = 42 
         LET ns1notificacionCuentaClabeRequest.idssn.idCanal        = 13
         LET ns1notificacionCuentaClabeRequest.idssn.codoperCliente = "INFONAVIT"
-        LET ns1notificacionCuentaClabeRequest.idssn.fecha          = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+        LET lDate = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+        --LET ns1notificacionCuentaClabeRequest.idssn.fecha          = YEAR(TODAY) USING "&&&&",'-',MONTH(TODAY) USING "&&",'-',DAY(TODAY) USING "&&",'T',CURRENT HOUR TO SECOND,'.000Z'
+        LET ns1notificacionCuentaClabeRequest.idssn.fecha          = lDate
         
         LET ns1notificacionCuentaClabeRequest.cuerpo.folioOperacion                       = 0
-        LET ns1notificacionCuentaClabeRequest.cuerpo.folioNotificacion                    = v_solicitud_notificacion.nss||v_clabe
+        LET lAux = v_solicitud_notificacion.nss,v_clabe
+        DISPLAY "lAux 2: ", lAux
+        DISPLAY "NSS 2: ", v_solicitud_notificacion.nss
+        LET ns1notificacionCuentaClabeRequest.cuerpo.folioNotificacion                    = v_solicitud_notificacion.nss,v_clabe
+        DISPLAY "FolioNotificacion 2: ", ns1notificacionCuentaClabeRequest.cuerpo.folioNotificacion
         LET ns1notificacionCuentaClabeRequest.cuerpo.indicadorBeneficiario                = 1
         LET ns1notificacionCuentaClabeRequest.cuerpo.entidadFederativa                    = v_id_entidad_federativa USING "&&"
         LET ns1notificacionCuentaClabeRequest.cuerpo.nss                                  = v_solicitud_notificacion.nss
@@ -862,6 +1240,65 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         INITIALIZE ns1notificacionCuentaClabeResponse TO NULL
         INITIALIZE v_rec_notifica TO NULL
         INITIALIZE wsError TO NULL
+
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.clabe IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.clabe = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.clabe) = 0 THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.clabe = "000000000000000000"
+            --DISPLAY "La cuenta clabe esta vacia, se relleno con valor dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        -- Todas las secuencias de pension tienen longitud 2 digitos
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension)= 0 THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension = "00"
+            --DISPLAY "La secuencia de pension esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+--
+        --el formato AAAAAAAAAA significa un nombre invalido
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.nombreBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.nombreBeneficiario = "" THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.nombreBeneficiario = "AAAAAAAAAA"
+            --DISPLAY "El nombre de beneficiario esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+
+        {--Todos los apellidos paternos de beneficiario tienen logintud maxima de 40,
+        --el formato AAAAAAAAAA significa un apellido paterno invalido
+        IF ns1notificacionCuentaClabeRequest.cuerpo.apellidoPaternoBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.apellidoPaternoBeneficiario = "" THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.apellidoPaternoBeneficiario = "AAAAAAAAAA"
+            DISPLAY "El apellido paterno del beneficiario est vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        --Todos los apellidos maternos de beneficiario tienen logintud maxima de 40,
+        --el formato AAAAAAAAAA significa un apellido materno invalido
+        IF ns1notificacionCuentaClabeRequest.cuerpo.apellidoMaternoBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.apellidoMaternoBeneficiario = "" THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.apellidoMaternoBeneficiario = " "
+            DISPLAY "El apellido materno del beneficiario esta vacio, se relleno con valores Blancos: ", v_solicitud_notificacion.nss
+        END IF
+}
+        IF ns1notificacionCuentaClabeRequest.cuerpo.rfcBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.rfcBeneficiario = " " THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.rfcBeneficiario = "AAAA000000AA00"
+            DISPLAY "El RFC del beneficiario esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        IF ns1notificacionCuentaClabeRequest.cuerpo.rfcTrabajador IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.rfcTrabajador = " " THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.rfcTrabajador = "AAAA000000AA00"
+            DISPLAY "El RFC del trabajador esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        IF ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario CLIPPED) = 0  THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario = "AAAA000000AAAAAA00"
+           DISPLAY "La CURP de beneficiario esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        IF ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador CLIPPED) = 0 THEN
+            LET ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador = "AAAA000000AAAAAA00"
+           DISPLAY "La CURP de trabajador esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        END IF
+
+        --IF ns1notificacionCuentaClabeRequest.cuerpo.semanasCotizadas IS NULL OR ns1notificacionCuentaClabeRequest.cuerpo.semanasCotizadas = "" OR LENGTH(ns1notificacionCuentaClabeRequest.cuerpo.semanasCotizadas CLIPPED) = 0 THEN
+            --LET ns1notificacionCuentaClabeRequest.cuerpo.semanasCotizadas = "0000"
+           --DISPLAY "Las semanas cotizadas esta vacio, se relleno con valores dummy: ", v_solicitud_notificacion.nss
+        --END IF
+
+        
+
         
         ----------------------------
         -- se ejecuta el WS
@@ -872,7 +1309,121 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         IF FGL_GETENV("DEBUGNOTIFICA") = "2" THEN
         	 --NO SE EJECUTA WS
         ELSE
+
+                    CALL ERRORLOG("------------------------------------------------------------------------------------------")                                     
+                    CALL ERRORLOG("----REQUEST--------ENVIO DE DATOS---------------------------------------------------------")                                     
+                    CALL ERRORLOG("ApellidoMaterno Bene                   : "||ns1notificacionCuentaClabeRequest.cuerpo.apellidoMaternoBeneficiario )                                 
+                    CALL ERRORLOG("ApellidoPaterno Bene                   : "||ns1notificacionCuentaClabeRequest.cuerpo.apellidoPaternoBeneficiario )                                 
+                    CALL ERRORLOG("clabe                                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.clabe )                                    
+                    CALL ERRORLOG("claveRetiro92Siefore1                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveRetiro92Siefore1 )                    
+                    CALL ERRORLOG("claveRetiro92Siefore2                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveRetiro92Siefore2 )                    
+                    CALL ERRORLOG("claveRetiro97Siefore1                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveRetiro97Siefore1 )                    
+                    CALL ERRORLOG("claveRetiro97Siefore2                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveRetiro97Siefore2 )                    
+                    CALL ERRORLOG("claveSiefore1                          :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveSiefore1 )                            
+                    CALL ERRORLOG("claveSiefore2                          :  "||ns1notificacionCuentaClabeRequest.cuerpo.claveSiefore2 )                            
+                    CALL ERRORLOG("comentarios                            :  "||ns1notificacionCuentaClabeRequest.cuerpo.comentarios )                              
+                    CALL ERRORLOG("curpBeneficiario                       :  "||ns1notificacionCuentaClabeRequest.cuerpo.curpBeneficiario )                         
+                    CALL ERRORLOG("curpTrabajador                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.curpTrabajador )                           
+                    CALL ERRORLOG("diagnosticoRecepcion                   :  "||ns1notificacionCuentaClabeRequest.cuerpo.diagnosticoRecepcion )                     
+                    CALL ERRORLOG("entidadFederativa                      :  "||ns1notificacionCuentaClabeRequest.cuerpo.entidadFederativa )                        
+                    CALL ERRORLOG("fechaPago                              :  "||ns1notificacionCuentaClabeRequest.cuerpo.fechaPago )                                
+                    CALL ERRORLOG("fechaValorViviendaMovimientoContable   :  "||ns1notificacionCuentaClabeRequest.cuerpo.fechaValorViviendaMovimientoContable )     
+                    CALL ERRORLOG("folioNotificacion                      :  "||ns1notificacionCuentaClabeRequest.cuerpo.folioNotificacion )                        
+                    CALL ERRORLOG("folioOperacion                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.folioOperacion )                           
+                    CALL ERRORLOG("grupoTrabajador                        :  "||ns1notificacionCuentaClabeRequest.cuerpo.grupoTrabajador )                          
+                    CALL ERRORLOG("importeNetoDepositadoClaveSiefore1     :  "||ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoClaveSiefore1 )       
+                    CALL ERRORLOG("importeNetoDepositadoClaveSiefore2     :  "||ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoClaveSiefore2 )       
+                    CALL ERRORLOG("importeNetoDepositadoSiefores          :  "||ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoSiefores )            
+                    CALL ERRORLOG("importeNetoDepositadoVivienda          :  "||ns1notificacionCuentaClabeRequest.cuerpo.importeNetoDepositadoVivienda )            
+                    CALL ERRORLOG("indicadorBeneficiario                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.indicadorBeneficiario )                    
+                    CALL ERRORLOG("nombreBeneficiario                     :  "||ns1notificacionCuentaClabeRequest.cuerpo.nombreBeneficiario )                       
+                    CALL ERRORLOG("nss                                    :  "||ns1notificacionCuentaClabeRequest.cuerpo.nss )                                      
+                    CALL ERRORLOG("observaciones                          :  "||ns1notificacionCuentaClabeRequest.cuerpo.observaciones )                            
+                    CALL ERRORLOG("otrosImportesAhorro73ClaveSiefore1     :  "||ns1notificacionCuentaClabeRequest.cuerpo.otrosImportesAhorro73ClaveSiefore1 )       
+                    CALL ERRORLOG("otrosImportesAhorro73ClaveSiefore2     :  "||ns1notificacionCuentaClabeRequest.cuerpo.otrosImportesAhorro73ClaveSiefore2 )       
+                    CALL ERRORLOG("otrosImportesVivienda                  :  "||ns1notificacionCuentaClabeRequest.cuerpo.otrosImportesVivienda )                    
+                    CALL ERRORLOG("referenciaPago                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.referenciaPago )                           
+                    CALL ERRORLOG("regimen                                :  "||ns1notificacionCuentaClabeRequest.cuerpo.regimen )                                  
+                    CALL ERRORLOG("rfcBeneficiario                        :  "||ns1notificacionCuentaClabeRequest.cuerpo.rfcBeneficiario )                          
+                    CALL ERRORLOG("rfcTrabajador                          :  "||ns1notificacionCuentaClabeRequest.cuerpo.rfcTrabajador )                            
+                    CALL ERRORLOG("secuenciaPension                       :  "||ns1notificacionCuentaClabeRequest.cuerpo.secuenciaPension )                         
+                    CALL ERRORLOG("tipoPrestacion                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.tipoPrestacion )                           
+                    CALL ERRORLOG("tipoRetiro                             :  "||ns1notificacionCuentaClabeRequest.cuerpo.tipoRetiro )                               
+                    CALL ERRORLOG("tipoSeguro                             :  "||ns1notificacionCuentaClabeRequest.cuerpo.tipoSeguro )                               
+                    CALL ERRORLOG("vivienda92                             :  "||ns1notificacionCuentaClabeRequest.cuerpo.vivienda92 )                               
+                    CALL ERRORLOG("vivienda92Aivs                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.vivienda92Aivs )                           
+                    CALL ERRORLOG("vivienda97                             :  "||ns1notificacionCuentaClabeRequest.cuerpo.vivienda97 )                               
+                    CALL ERRORLOG("vivienda97Aivs                         :  "||ns1notificacionCuentaClabeRequest.cuerpo.vivienda97Aivs )                           
+
+                    CALL ERRORLOG("--FIN ENVIO DE DATOS----------------------------------------------------------------------")
+                    CALL ERRORLOG("------------------------------------------------------------------------------------------")
+                    CALL ERRORLOG("")
+                    CALL ERRORLOG("")
+        
            CALL notificacionCuentaClabe_g() RETURNING v_resultado
+                    CALL ERRORLOG("")
+                    CALL ERRORLOG("")
+                    CALL ERRORLOG("-----------------------------------------------------------------------------------------")
+                    CALL ERRORLOG("--RESPONSE DE DATOS----------------------------------------------------------------------")
+                    CALL ERRORLOG("ApellidoMaterno Bene 				  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.apellidoMaternoBeneficiario) 
+                    CALL ERRORLOG("ApellidoPaterno Bene 				  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.apellidoPaternoBeneficiario) 
+                    CALL ERRORLOG("clabe                                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.clabe)
+                    CALL ERRORLOG("claveAfore                                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveAfore)
+                    CALL ERRORLOG("claveRetiro92Siefore1                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveRetiro92Siefore1) 
+                    CALL ERRORLOG("claveRetiro92Siefore2                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveRetiro92Siefore2) 
+                    CALL ERRORLOG("claveRetiro97Siefore1                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveRetiro97Siefore1) 
+                    CALL ERRORLOG("claveRetiro97Siefore2                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveRetiro97Siefore2) 
+                    CALL ERRORLOG("claveSiefore1                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveSiefore1) 
+                    CALL ERRORLOG("claveSiefore2                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.claveSiefore2) 
+                    CALL ERRORLOG("comentarios                            :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.comentarios) 
+                    CALL ERRORLOG("curpBeneficiario                       :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.curpBeneficiario) 
+                    CALL ERRORLOG("curpTrabajador                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.curpTrabajador) 
+                    CALL ERRORLOG("diagnosticoRecepcion                   :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.descripcionDiagnostico)
+                    CALL ERRORLOG("detalleResultado                       :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.detalleResultado)
+                    CALL ERRORLOG("entidadFederativa                      :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.entidadFederativa) 
+                    CALL ERRORLOG("fechaPago                              :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.fechaPago) 
+                    CALL ERRORLOG("fechaValorViviendaMovimientoContable   :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.fechaValorViviendaMovimientoContable) 
+                    CALL ERRORLOG("folioNotificacion                      :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.folioNotificacion) 
+                    CALL ERRORLOG("folioOperacion                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.folioOperacion) 
+                    CALL ERRORLOG("grupoTrabajador                        :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.grupoTrabajador) 
+                    CALL ERRORLOG("importeNetoDepositadoClaveSiefore1     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoClaveSiefore1) 
+                    CALL ERRORLOG("importeNetoDepositadoClaveSiefore2     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoClaveSiefore2) 
+                    CALL ERRORLOG("importeNetoDepositadoSiefores          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoSiefores) 
+                    CALL ERRORLOG("importeNetoDepositadoVivienda          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.importeNetoDepositadoVivienda) 
+                    CALL ERRORLOG("indicadorBeneficiario                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.indicadorBeneficiario) 
+                    CALL ERRORLOG("motivoRechazo                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.motivoRechazo) 
+                    CALL ERRORLOG("nombreBeneficiario                     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.nombreBeneficiario) 
+                    CALL ERRORLOG("nss                                    :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.nss) 
+                    CALL ERRORLOG("observaciones                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.observaciones) 
+                    CALL ERRORLOG("otrosImportesAhorro73ClaveSiefore1     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.otrosImportesAhorro73ClaveSiefore1) 
+                    CALL ERRORLOG("otrosImportesAhorro73ClaveSiefore2     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.otrosImportesAhorro73ClaveSiefore2) 
+                    CALL ERRORLOG("otrosImportesVivienda                  :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.otrosImportesVivienda) 
+                    CALL ERRORLOG("referenciaPago                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.referenciaPago) 
+                    CALL ERRORLOG("regimen                                :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.regimen) 
+                    CALL ERRORLOG("resultadoOperacion                     :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.resultadoOperacion) 
+                    CALL ERRORLOG("rfcBeneficiario                        :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.rfcBeneficiario) 
+                    CALL ERRORLOG("rfcTrabajador                          :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.rfcTrabajador) 
+                    CALL ERRORLOG("secuenciaPension                       :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.secuenciaPension) 
+                    CALL ERRORLOG("tipoPrestacion                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoPrestacion) 
+                    CALL ERRORLOG("tipoRetiro                             :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoRetiro) 
+                    CALL ERRORLOG("tipoSeguro                             :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.tipoSeguro) 
+                    CALL ERRORLOG("vivienda92                             :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda92) 
+                    CALL ERRORLOG("vivienda92Aivs                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda92Aivs) 
+                    CALL ERRORLOG("vivienda97                             :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda97) 
+                    CALL ERRORLOG("vivienda97Aivs                         :  "||ns1notificacionCuentaClabeResponse.objetoRespuesta.vivienda97Aivs) 
+                    CALL ERRORLOG("CodRespuesta                           :  "||ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta) 
+                    CALL ERRORLOG("CodRespuestaOPR                        :  "||ns1notificacionCuentaClabeResponse.ssnrop.codRespuestaOpr) 
+                    CALL ERRORLOG("CodOper                                :  "||ns1notificacionCuentaClabeResponse.ssnrop.codoper) 
+                    CALL ERRORLOG("CodoperCliente                         :  "||ns1notificacionCuentaClabeResponse.ssnrop.codoperCliente) 
+                    CALL ERRORLOG("DesRespuesta                           :  "||ns1notificacionCuentaClabeResponse.ssnrop.descRespuesta) 
+                    CALL ERRORLOG("Fecha                                  :  "||ns1notificacionCuentaClabeResponse.ssnrop.fecha)
+                    CALL ERRORLOG("CodRespuesta                           :  "||ns1notificacionCuentaClabeResponse.ssnrop.tiempoRespuesta)
+                    
+                    CALL ERRORLOG("-RESPONSE------------FIN RESPONSE DE DATOS------------------------------------------------")
+                    CALL ERRORLOG("------------------------------------------------------------------------------------------")
+                    CALL ERRORLOG("")
+                    CALL ERRORLOG("")
+           
         END IF 
         
         CALL fn_notifica_datos_respuesta()
@@ -946,6 +1497,7 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
            LET v_rec_notifica.referencia_pago        = ns1notificacionCuentaClabeResponse.objetoRespuesta.referenciaPago
            LET v_rec_notifica.observaciones          = ns1notificacionCuentaClabeResponse.objetoRespuesta.observaciones
            
+           
            EXECUTE exe_inserta_documento USING
               v_rec_notifica.id_solicitud           ,v_rec_notifica.f_notifica             ,v_rec_notifica.estado_pago            ,
               v_rec_notifica.diag_notifica          ,v_rec_notifica.folio_notificacion     ,v_rec_notifica.indicador_beneficiario ,
@@ -969,16 +1521,28 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
         END IF
          
         LET  v_respuesta = ns1notificacionCuentaClabeResponse.objetoRespuesta.motivoRechazo
-
- 
+        DISPLAY ""
+        DISPLAY ""
+        DISPLAY "########################################################################"
+        DISPLAY "##RESPUESTA PROCESAR##"
+        DISPLAY	"RP Codigo Respuesta 		:",ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta
+        DISPLAY	"RP Descripcion diagnostico :",ns1notificacionCuentaClabeResponse.ssnrop.descRespuesta
+        DISPLAY	"RP NSS             		:",ns1notificacionCuentaClabeResponse.objetoRespuesta.nss
+        DISPLAY	"RP Resultado operacion		:",ns1notificacionCuentaClabeResponse.ssnrop.codRespuestaOpr
+        DISPLAY "Motivos-base               :",ns1notificacionCuentaClabeResponse.ssnrop.motivos.motivo[1].base ,":"
+        DISPLAY "Motivos-descripcion        :",ns1notificacionCuentaClabeResponse.ssnrop.motivos.motivo[1].descripcion ,":"
+        DISPLAY "Motivos-id Motivo          :",ns1notificacionCuentaClabeResponse.ssnrop.motivos.motivo[1].idMotivo ,":"
+        DISPLAY "##FIN RESPUESTA PROCESAR##"
+        DISPLAY "########################################################################"
+        DISPLAY ""
+        DISPLAY ""
         -- Se actualizan los estados de solicitud
---        LET  v_string = base.StringBuffer.create()
---        CALL v_string.append(ns1notificacionCuentaClabeResponse.ssnrop.codRespuesta)
---        CALL v_string.replace(" ","",0)
+        
 
---        LET v_respuesta = v_string.toString()
         
+        LET v_respuesta = ns1notificacionCuentaClabeResponse.objetoRespuesta.motivoRechazo
         
+       
         IF v_resultado = 0 AND (v_respuesta = "101" OR v_respuesta = "203") THEN
 
             IF v_solicitud_notificacion.estado_solicitud = 72 OR 
@@ -1011,11 +1575,11 @@ LET v_sql = "SELECT rsg.id_solicitud,ad.nss,CASE WHEN ad.rfc = '' OR ad.rfc IS N
             EXECUTE prp_actualiza_sol_generico USING v_estado_solicitud_sig,v_solicitud_notificacion.id_solicitud
 
             -- Se cuenta el numero de solicitudes actualizadas
-            DISPLAY "Actualizada a ",v_estado_solicitud_sig
+            DISPLAY "Actualizada a :",v_estado_solicitud_sig
             LET v_solicitudes_informadas = v_solicitudes_informadas + 1
 
         ELSE
-            DISPLAY "No actualizada"
+            DISPLAY "**No actualizada**"
             LET v_solicitudes_no_informadas = v_solicitudes_no_informadas + 1
         END IF
 
@@ -1105,7 +1669,7 @@ FUNCTION fn_notifica_datos_envio()
        DISPLAY "cuerpo.fechaPago                            : ", ns1notificacionCuentaClabeRequest.cuerpo.fechaPago                            ,":"
        DISPLAY "cuerpo.referenciaPago                       : ", ns1notificacionCuentaClabeRequest.cuerpo.referenciaPago                       ,":"
        DISPLAY "cuerpo.observaciones                        : ", ns1notificacionCuentaClabeRequest.cuerpo.observaciones                        ,":"
-       DISPLAY "--------------------------------------------------------------------------------\n"
+       DISPLAY "--------------------------------------------------------------------------------------------------------------------------------\n"
     --END IF
 
 END FUNCTION 
@@ -1180,7 +1744,7 @@ FUNCTION fn_notifica_datos_respuesta()
        DISPLAY "resultadoOperacion                   :", ns1notificacionCuentaClabeResponse.objetoRespuesta.resultadoOperacion                    ,":"
        DISPLAY "detalleResultado                     :", ns1notificacionCuentaClabeResponse.objetoRespuesta.detalleResultado                      ,":"
        DISPLAY "claveAfore                           :", ns1notificacionCuentaClabeResponse.objetoRespuesta.claveAfore                            ,":"
-       DISPLAY "--------------------------------------------------------------------------------\n"
+       DISPLAY "------------------------------------------------------------------------------------------------------------------------------------\n"
     --END IF
     
 END FUNCTION 
