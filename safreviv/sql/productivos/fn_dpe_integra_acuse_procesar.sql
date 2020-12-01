@@ -117,14 +117,14 @@ DEFINE v_bnd_desmarca                    SMALLINT;
             WHERE  id_dpe_referencia  = v_id_dpe_referencia;
 
 
-            EXECUTE FUNCTION fn_desmarca_cuenta(v_id_derechohabiente,
-                                                v_marca,
-                                                v_id_dpe_referencia,
-                                                0,
-                                                "",
-                                                p_usuario_cod,
-                                                p_proceso_cod)
-            INTO v_bnd_desmarca;
+            --PLACGRF149 EXECUTE FUNCTION fn_desmarca_cuenta(v_id_derechohabiente,
+            --PLACGRF149                                    v_marca,
+            --PLACGRF149                                    v_id_dpe_referencia,
+            --PLACGRF149                                    0,
+            --PLACGRF149                                    "",
+            --PLACGRF149                                    p_usuario_cod,
+            --PLACGRF149                                    p_proceso_cod)
+            --PLACGRF149 INTO v_bnd_desmarca;
          END IF
       END FOREACH;
       
