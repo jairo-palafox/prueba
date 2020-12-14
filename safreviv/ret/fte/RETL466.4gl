@@ -152,10 +152,10 @@ DEFINE p_usuario_cod LIKE seg_usuario.usuario_cod, -- usuario que ejecuta el pro
        l_drop_index       INT, -- indice del drop
        l_drag_source      STRING, -- fuente del drag
        l_drag_value       STRING, -- valor del drag
-       l_i_num_arch       SMALLINT, -- numero de archivos a integrar
-       l_i_iter           SMALLINT, -- variable usada para iteracion
-       l_i_indice         SMALLINT, -- indice del arrego de archivos pendientes
-       l_i_tot_reg        SMALLINT, -- total de registros en archivo
+       l_i_num_arch       INTEGER, -- numero de archivos a integrar
+       l_i_iter           INTEGER, -- variable usada para iteracion
+       l_i_indice         INTEGER, -- indice del arrego de archivos pendientes
+       l_i_tot_reg        INTEGER, -- total de registros en archivo
        l_s_qryTxt         STRING, -- guarda una sentencia SQL a ejecutar
        v_respuesta        SMALLINT
        ,v_r_arch_pend     VARCHAR(100) -- Archivos pendientes 
