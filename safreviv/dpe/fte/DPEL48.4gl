@@ -1,12 +1,12 @@
 --===============================================================
 -- Version: 1.0.0
--- Fecha ultima modificacion: 01/01/2012
+-- Fecha ultima modificacion: 09/12/2020
 --===============================================================
 
 ################################################################################
 #Modulo      => DPE                                                            #
 #Programa    => DPEL39                                                         #
-#Objetivo    => Lanzador de la INTEGRACIóN del archivo de la 2ª Validacion     #
+#Objetivo    => Lanzador de la INTEGRACIóN del archivo de la 1ª Validacion     #
 #            => que se genero en SACI                                          #      
 #Fecha inicio=> Noviembre 1, 2012                                              #
 ################################################################################
@@ -110,7 +110,7 @@ DEFINE p_usuario_cod    LIKE seg_usuario.usuario_cod, -- clave del usuario firma
    
    -- se asigna proceso y operacion
    LET g_proceso_cod = g_proceso_cod_dpe_procesar_gen
-   LET g_opera_cod   = 4 -- Integración del archivo acuse de PROCESAR
+   LET g_opera_cod   = 2 -- Integración del archivo acuse de PROCESAR 1ra
    
    -- se obtiene el PID del proceso
    SELECT MAX(pid)
@@ -176,7 +176,7 @@ DEFINE p_usuario_cod LIKE seg_usuario.usuario_cod, -- usuario que ejecuta el pro
    LET l_s_qryTxt = "\n SELECT nombre_archivo, f_actualiza"
                     ,"\n  FROM glo_ctr_archivo "
                     ,"\n WHERE proceso_cod = ",g_proceso_cod
-                    ,"\n   AND opera_cod  = 3"--g_opera_cod que tiene la carga 
+                    ,"\n   AND opera_cod  = 1"--g_opera_cod que tiene la carga 
                     ,"\n   AND estado = 1" -- archivos pendientes de integrar
 
    PREPARE Prpr_ObtArchVal FROM l_s_qryTxt CLIPPED
@@ -373,13 +373,17 @@ DEFINE p_usuario_cod LIKE seg_usuario.usuario_cod -- usuario que ejecuta el prog
        -- Se verifica si se puede continuar con la operacion
        CALL fn_valida_operacion(g_pid,g_proceso_cod,g_opera_cod)
           RETURNING v_i_resultado
+       
+          
        IF ( v_i_resultado = 0 ) THEN
           -- Inicio operacion.
-          CALL fn_actualiza_opera_ini(g_pid,g_proceso_cod,g_opera_cod,v_folio,"DPEL39",
+          CALL fn_actualiza_opera_ini(g_pid,g_proceso_cod,g_opera_cod,v_folio,"DPEL48",
                                       "",p_usuario_cod) RETURNING r_bnd_fin_oper
+          
+                                      
           IF (r_bnd_fin_oper = 0) THEN                            
           	
-             LET v_s_comando = " nohup time fglrun ",g_reg_modulo.ruta_exp CLIPPED,"/DPEP08 ",
+             LET v_s_comando = " nohup time fglrun ",g_reg_modulo.ruta_exp CLIPPED,"/DPEP11 ",
                                p_usuario_cod, " ",
                                g_pid  , " " ,
                                g_proceso_cod , " " ,
@@ -391,7 +395,7 @@ DEFINE p_usuario_cod LIKE seg_usuario.usuario_cod -- usuario que ejecuta el prog
                                g_proceso_cod USING "&&&&&",":",
                                g_opera_cod   USING "&&&&&" ,
                                " 2>&1 &"
-             DISPLAY v_s_comando                        
+
              RUN v_s_comando
              CALL fn_mensaje("Atención",
                   "Se ha enviado la integración.\n"||
@@ -403,7 +407,6 @@ DEFINE p_usuario_cod LIKE seg_usuario.usuario_cod -- usuario que ejecuta el prog
              CALL fn_mensaje("Atención", v_mensaje, "stop")	
           END IF
        ELSE
-          DISPLAY "v_i_resultado:",v_i_resultado
           CALL fn_mensaje("Atención",fn_mues_desc_valida(v_i_resultado),"stop")
        END IF 
 END FUNCTION -- fn_dpe_ejecuta_integracion

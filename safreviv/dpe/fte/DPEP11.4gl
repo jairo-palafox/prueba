@@ -1,15 +1,15 @@
 --===============================================================
 -- Version: 1.0.0
--- Fecha ultima modificacion: 01/01/2012
+-- Fecha ultima modificacion: 09/12/2020
 --===============================================================
 
 ################################################################################
 #Modulo      => DPE                                                            #
-#Programa    => DPEL39                                                         #
+#Programa    => DPEP10                                                         #
 #Objetivo    => Programa lanzado  de la integración del archivo que PROCESAR   #
 #            => envia como acuse después de que recibio el archivo             #
 #            => que se genero en SACI                                          #      
-#Fecha inicio=> Noviembre 1, 2012                                              #
+#Fecha inicio=> Diciembre 12, 2020                                              #
 ################################################################################
 GLOBALS "DPEG01.4gl"
 GLOBALS
@@ -106,7 +106,7 @@ DEFINE p_pid                       LIKE bat_ctr_operacion.pid -- PID del proceso
    -- si no ocurrio error al integrar
    IF ( v_error_sql = 0 ) THEN
       DISPLAY "# # # # # # # # # # # # # # # # # # # # # # # # # #"
-      DISPLAY "#  La validacion terminó completamente."
+      DISPLAY "#  La Validación se terminó completamente."
       DISPLAY "#  "
       DISPLAY "#  Validación realizada con exito"
       DISPLAY "#  "
@@ -120,7 +120,7 @@ DEFINE p_pid                       LIKE bat_ctr_operacion.pid -- PID del proceso
       CALL fn_obtiene_cifras_control(v_folio)                  
       
       LET p_mensaje = "# # # # # # # # # # # # # # # # # # # # # # # # # #","\n",
-                      "#  La validación se terminó completamente.","\n",
+                      "#  La Validación se terminó completamente.","\n",
                       "#  ","\n",
                       "#  Validación realizada con exito","\n",
                       "#  ","\n",
@@ -234,13 +234,13 @@ FUNCTION fn_obtiene_cifras_control(p_folio)
       SET folio = p_folio
     WHERE pid = g_pid
       AND proceso_cod = g_proceso_cod
-      AND opera_cod = 4;
+      AND opera_cod = 2;
 
     UPDATE glo_ctr_archivo
        SET folio = p_folio,
            estado = 2  
      WHERE proceso_cod = g_proceso_cod
-       AND opera_cod = 3  
+       AND opera_cod = 1  
    
    FREE Curr_ObtDatosCbzaCtrl 
 

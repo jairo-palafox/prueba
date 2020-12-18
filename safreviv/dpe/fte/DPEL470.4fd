@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="23200" gstVersion="2321b" name="ManagedForm" uid="{d1ebfafa-2d8c-4fd6-8550-89ba8aa01f56}">
+  <AGSettings/>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="sr_marcados" order="" uid="{9411d1a7-a339-442f-b33f-fe38c2d024bf}" where="">
+    <RecordField colName="seleccion" fieldIdRef="1" name="seleccion" sqlTabName="formonly" table_alias_name="" uid="{51696df3-b822-4981-8cbe-9a0f42537431}"/>
+    <RecordField colName="nss_tabla" fieldIdRef="2" name="nss_tabla" sqlTabName="formonly" table_alias_name="" uid="{5d253118-c059-4222-a73d-255fd4921972}"/>
+    <RecordField colName="id_derechohabiente" fieldIdRef="3" name="id_derechohabiente" sqlTabName="formonly" table_alias_name="" uid="{f43a2471-068a-4dcb-afd4-024198027bb4}"/>
+    <RecordField colName="marca" fieldIdRef="4" name="marca" sqlTabName="formonly" table_alias_name="" uid="{789eefd0-cc64-4a14-a84e-0787ad9095a9}"/>
+    <RecordField colName="descripcion_marca" fieldIdRef="5" name="descripcion_marca" sqlTabName="formonly" table_alias_name="" uid="{126611d2-bef7-46b0-82b2-8e8ffcd133f4}"/>
+    <RecordField colName="n_referencia" fieldIdRef="6" name="n_referencia" sqlTabName="formonly" table_alias_name="" uid="{e0da5b40-7cee-4f70-acb8-05d9c6ae9a98}"/>
+    <RecordField colName="folio" fieldIdRef="7" name="folio" sqlTabName="formonly" table_alias_name="" uid="{9060a884-27aa-4b89-b22a-dc399aedb730}"/>
+    <RecordField colName="proceso_marca" fieldIdRef="8" name="proceso_marca" sqlTabName="formonly" table_alias_name="" uid="{ac767902-e3fd-46a6-af37-c62cb7ed140b}"/>
+    <RecordField colName="proceso_desc" fieldIdRef="9" name="proceso_desc" sqlTabName="formonly" table_alias_name="" uid="{bf2db543-472b-4a27-9a23-81284578bd70}"/>
+    <RecordField colName="f_vigencia" fieldIdRef="10" name="f_vigencia" sqlTabName="formonly" table_alias_name="" uid="{7fc7d5df-b4d4-4658-a35e-d22cb71a2d56}"/>
+  </Record>
+  <Record additionalTables="" joinLeft="" joinOperator="" joinRight="" name="record1" order="" uid="{43cc7548-4212-4d65-9a2c-13a3e1ab654f}" where="">
+    <RecordField colName="nss" fieldIdRef="0" name="nss" sqlTabName="formonly" table_alias_name="" uid="{d3fdbce7-a54c-4ddc-9ec4-a13688a781d4}"/>
+  </Record>
+  <Form gridHeight="14" gridWidth="197" name="DPEL470" text="Desmarca NSS">
+    <VBox gridHeight="14" gridWidth="197" name="vbox1" posX="0" posY="0">
+      <Grid gridHeight="2" gridWidth="197" name="grid1" posX="0" posY="1">
+        <Label gridHeight="1" gridWidth="5" name="label1" posX="1" posY="0" text="NSS:"/>
+        <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="nss" columnCount="" fieldId="0" gridHeight="1" gridWidth="22" name="nss" posX="7" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="1" table_alias_name="" widget="Edit"/>
+      </Grid>
+      <Grid gridHeight="10" gridWidth="197" name="grid2" posX="0" posY="3">
+        <Group gridHeight="10" gridWidth="196" hidden="true" name="gdetalle" posX="1" posY="0" text="Resultados">
+          <Table gridHeight="8" gridWidth="194" name="table1" posX="1" posY="1" totalRows="5" unitWidth="characters" width="194">
+            <CheckBox aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="seleccion" columnCount="" fieldId="1" gridHeight="1" gridWidth="8" justify="center" name="seleccion" notNull="true" posX="0" posY="0" required="true" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="2" table_alias_name="" title="Selccionar" valueChecked="1" valueUnchecked="0" widget="CheckBox"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="nss_tabla" columnCount="" fieldId="2" gridHeight="1" gridWidth="11" justify="center" name="nss_tabla" noEntry="true" posX="8" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="3" table_alias_name="" title="NSS" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="id_derechohabiente" columnCount="" fieldId="3" gridHeight="1" gridWidth="12" justify="center" name="id_derechohabiente" noEntry="true" posX="19" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="4" table_alias_name="" title="Derechohabiente" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="marca" columnCount="" fieldId="4" gridHeight="1" gridWidth="11" hidden="true" name="marca" posX="31" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="5" table_alias_name="" title="f3" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="descripcion_marca" columnCount="" fieldId="5" gridHeight="1" gridWidth="41" justify="center" name="descripcion_marca" noEntry="true" posX="42" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="6" table_alias_name="" title="Marca" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="n_referencia" columnCount="" fieldId="6" gridHeight="1" gridWidth="12" justify="center" name="n_referencia" noEntry="true" posX="83" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="7" table_alias_name="" title="Referencia" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="folio" columnCount="" fieldId="7" gridHeight="1" gridWidth="14" justify="center" name="folio" noEntry="true" posX="95" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="8" table_alias_name="" title="Folio" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="proceso_marca" columnCount="" fieldId="8" gridHeight="1" gridWidth="17" hidden="true" name="proceso_marca" posX="109" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="9" table_alias_name="" title="f7" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="proceso_desc" columnCount="" fieldId="9" gridHeight="1" gridWidth="40" justify="center" name="proceso_desc" noEntry="true" posX="126" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="10" table_alias_name="" title="Proceso" widget="Edit"/>
+            <Edit aggregateColName="" aggregateName="" aggregateTableAliasName="" aggregateTableName="" colName="f_vigencia" columnCount="" fieldId="10" format="dd-mm-yyyy" gridHeight="1" gridWidth="15" justify="center" name="f_vigencia" noEntry="true" posX="166" posY="0" rowCount="" sqlTabName="formonly" stepX="" stepY="" tabIndex="11" table_alias_name="" title="Vigenica" widget="Edit"/>
+          </Table>
+        </Group>
+      </Grid>
+    </VBox>
+  </Form>
+</ManagedForm>
