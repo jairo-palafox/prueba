@@ -32,6 +32,8 @@ DEFINE g_opera_cod          LIKE cat_operacion.opera_cod  -- código de operacion
 DEFINE g_usuario            CHAR (20)
 DEFINE g_nom_archivo        STRING
 DEFINE g_folio              DECIMAL(10,0)
+DEFINE g_proceso_desc       CHAR(40)
+DEFINE g_opera_desc         CHAR(40)
 END GLOBALS
 
 MAIN
@@ -45,6 +47,8 @@ MAIN
    LET g_opera_cod         = ARG_VAL (4)
    LET g_folio             = ARG_VAL (5)
    LET g_nom_archivo       = ARG_VAL (6)
+   LET g_proceso_desc      = ARG_VAL (7)
+   LET g_opera_desc        = ARG_VAL (8)
    DISPLAY "========================================================"
    
    DISPLAY "PARAMETROS DE ENTRADA: "
@@ -68,7 +72,16 @@ MAIN
 
    CALL fn_obtieneDatos()
 
-   DISPLAY "========================================================"
+    DISPLAY "*******************************************************************"
+    DISPLAY ""
+    DISPLAY "Termino la individualizacion de pago AEX: "
+    DISPLAY ""
+    DISPLAY " PROCESO            : ",g_proceso_desc
+    DISPLAY " OPERACIÓN          : ",g_opera_desc
+    DISPLAY " FECHA              : ",TODAY USING 'dd-mm-yyyy'
+    DISPLAY " HORA               : ",TIME(CURRENT)
+    DISPLAY ""
+    DISPLAY "*******************************************************************"
    
    --Actualiza la operación
    CALL fn_actualiza_opera_fin(g_pid, g_proceso_cod,g_opera_cod) RETURNING r_bandera

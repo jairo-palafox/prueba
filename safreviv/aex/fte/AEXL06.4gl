@@ -16,25 +16,33 @@ DATABASE safre_viv
    DEFINE g_pid                  DECIMAL (9,0)                 -- ID del proceso
    DEFINE g_proceso_cod          LIKE cat_proceso.proceso_cod  -- código del proceso
    DEFINE g_opera_cod            LIKE cat_operacion.opera_cod  -- código de operacion
-   DEFINE v_extension            STRING
    DEFINE v_nom_archivo          STRING
    DEFINE v_resultado            SMALLINT
    DEFINE g_folio                DECIMAL(10,0)
 
 
-   
+PRIVATE DEFINE v_proceso_desc             CHAR(40)
+PRIVATE DEFINE v_extension                CHAR(10)
+PRIVATE DEFINE v_opera_desc               CHAR(40)
+PRIVATE DEFINE v_layout                   SMALLINT
+PRIVATE DEFINE v_usuario_proceso          CHAR(20)
+PRIVATE DEFINE v_ruta_rescate             STRING
+PRIVATE DEFINE v_ruta_listados            CHAR(40)
+
 MAIN 
 
    DEFINE v_s_comando        STRING
    DEFINE v_ruta_ejecutable  LIKE seg_modulo.ruta_bin
    DEFINE v_ruta_listados    LIKE seg_modulo.ruta_listados
 
-   LET g_usuario           = ARG_VAL (1)
-   LET g_tipo_ejecucion    = ARG_VAL (2)     --forma como se ejecutara el programa
-   LET g_nom_ventana       = ARG_VAL (3)
 
-   LET g_proceso_cod = 502    --se asigna valor al proceso
-   LET g_opera_cod   = 1      --se asigna la operacion
+   LET g_usuario    = ARG_VAL(1)
+   LET g_pid            = ARG_VAL(2)
+   LET g_proceso_cod    = ARG_VAL(3)
+   LET g_opera_cod      = ARG_VAL(4)
+   LET g_folio          = ARG_VAL(5)
+   LET v_nom_archivo    = ARG_VAL(6)
+
    LET v_extension   = "aex"     --se asigna el tipo de extenxion que se tomara de la ruta rescate
 
    --Obtiene ruta de los binarios
@@ -53,50 +61,46 @@ MAIN
    -- se inicia el log del programa
    CALL STARTLOG (g_usuario CLIPPED||".AEXL06.log")
 
-   -- se invoca la funcion que valida la operacion
-   CALL fn_valida_operacion( 0,g_proceso_cod,g_opera_cod)   RETURNING v_resultado
-   -- se verifica si la operacion en proceso es valida
-   IF v_resultado <> 0 THEN  
-      -- en caso de error se muestra un mensaje a usuario y no continua
-      CALL fn_muestra_inc_operacion(v_resultado)
-      DISPLAY "ERROR en fn_valida_operacion"
-   ELSE
-      -- se obtiene el folio
-      CALL fn_genera_folio(g_proceso_cod, g_opera_cod, g_usuario)
-      RETURNING g_folio  
-      --Se genera PID del proceso
-      CALL fn_genera_pid (g_proceso_cod, g_opera_cod, g_usuario) RETURNING g_pid
-      
-      CALL fn_inicializa_proceso(g_pid,
-                                 g_proceso_cod,
-                                 g_opera_cod,
-                                 g_folio,
-                                 'AEXL06',
-                                 '',
-                                 g_usuario)
-            RETURNING v_resultado
+   CALL fn_recupera_inf_proceso(g_proceso_cod, g_opera_cod) 
+                               RETURNING v_proceso_desc,v_extension, 
+                                         v_opera_desc,v_layout, 
+                                         v_ruta_rescate,v_ruta_listados,
+                                         v_usuario_proceso 
+                                         
+   DISPLAY "*******************************************************************"
+   DISPLAY " PROCESO            : ",v_proceso_desc
+   DISPLAY " OPERACIÓN          : ",v_opera_desc
+   DISPLAY " FECHA              : ",TODAY USING 'dd-mm-yyyy'
+   DISPLAY " HORA               : ",TIME(CURRENT)
+   DISPLAY "*******************************************************************"
 
-      CALL fn_actualiza_opera_ini(g_pid,g_proceso_cod,
-                                  g_opera_cod,
-                                  g_folio,
-                                  "AEXL06",
-                                  v_nom_archivo,
-                                  g_usuario)  RETURNING v_resultado
+   -- se solicita el numero de folio asociado a la operacion
+   -- parametros: proceso, operacion, usuario
+   CALL fn_genera_folio(g_proceso_cod,g_opera_cod,g_usuario)
+        RETURNING g_folio
+    
+   CALL fn_actualiza_opera_ini(g_pid,g_proceso_cod,
+                               g_opera_cod,
+                               g_folio,
+                               "AEXL06",
+                               v_nom_archivo,
+                               g_usuario)  RETURNING v_resultado
 
-      LET v_s_comando = "nohup fglrun ",v_ruta_ejecutable CLIPPED,
-                        "/AEXWS03 ",g_usuario," ",g_pid," ",
-                        g_proceso_cod," ",g_opera_cod," ",g_folio," '",v_nom_archivo,"' ",
-                        " ' '  1>", v_ruta_listados CLIPPED ,
-                        "/nohup:",g_pid USING "&&&&&",":",
-                        g_proceso_cod USING "&&&&&",":",
-                        g_opera_cod USING "&&&&&" ," 2>&1 &"
+    LET v_s_comando = "nohup fglrun ",v_ruta_ejecutable CLIPPED,
+                      "/AEXWS03 ",g_usuario," ",g_pid," ",
+                      g_proceso_cod," ",g_opera_cod," ",g_folio," '",v_nom_archivo,"' ",
+                      v_proceso_desc ," ", v_opera_desc   ,
+                      " ' '  1>", v_ruta_listados CLIPPED ,
+                      "/nohup:",g_pid USING "&&&&&",":",
+                      g_proceso_cod USING "&&&&&",":",
+                      g_opera_cod USING "&&&&&" ," 2>&1 &"
 
-      RUN v_s_comando
+    RUN v_s_comando
 
-      LET v_s_comando = "Se ejecutó carga de archivo"," ",
-                        "Verificar en el monitor de proceso la ejecución el PID ", g_pid USING "<<<<<<<<<"
+    LET v_s_comando = "Se ejecuta individualiza pagos"," ",
+                      "Verificar en el monitor de proceso la ejecución el PID ", g_pid USING "<<<<<<<<<"
                
-      DISPLAY "Ejecucion", v_s_comando
-   END IF
+    DISPLAY "Ejecucion: ", v_s_comando
+   
 END MAIN 
    
