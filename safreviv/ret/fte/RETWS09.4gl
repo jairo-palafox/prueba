@@ -11,7 +11,7 @@
 #OBJETIVO          => WS GENERACION DE SOLICITUD DE RETIRO PARA EL FLUJO DE   #
 #                     RETIRO GENERICO                                         #
 #FECHA INICIO      => 30-NOV-2017                                             #
-# Autor           Fecha      ModificaciÃ³n                                     #
+# Autor           Fecha      Modificación                                     #
 ###############################################################################
 
 IMPORT FGL WSHelper
@@ -26,7 +26,7 @@ GLOBALS "RETG01.4gl"
 GLOBALS
 -- registro de entrada para la consulta
 DEFINE ws_ret_generico_solicitud_in RECORD
-         nss              LIKE afi_derechohabiente.nss, -- nss del trabajador
+         nss              CHAR(11), -- nss del trabajador
          caso_adai        CHAR(10), -- numero de caso ADAI
          grupo            SMALLINT, -- grupo para el retiro de Ley 73
          medio_entrega    SMALLINT, -- medio por el cual se hace la transaccion del retiro
@@ -46,7 +46,7 @@ DEFINE ws_ret_generico_solicitud_in RECORD
        END RECORD,
        -- registro de respuesta
        ws_ret_generico_solicitud_out  RECORD
-         nss                 CHAR(11), --- NÃºmero de seguridad social del trabajador
+         nss                 CHAR(11), --- Número de seguridad social del trabajador
          caso_adai           CHAR(18),
          arr_modalidad_retiro DYNAMIC ARRAY OF RECORD
            subcuenta            SMALLINT, -- subcuenta de inversion
@@ -58,6 +58,14 @@ DEFINE ws_ret_generico_solicitud_in RECORD
 		     referencia_dap       CHAR(12) -- referencia cuando es pago por DAP
          END RECORD
        END RECORD
+-- ========================================================
+-- constantes que identifican el medio de entrega
+CONSTANT G_ME_TABLETA     SMALLINT = 1,
+         G_ME_DEV_AUTO    SMALLINT = 2,
+         G_ME_CRM         SMALLINT = 3,
+         G_ME_AFORE       SMALLINT = 5,
+         G_ME_EXCEPCIONES SMALLINT = 6,
+         G_ME_MASIVO      SMALLINT = 7                                                                                 
          
 DEFINE g_indice_retiro  SMALLINT -- indice del tipo de retiro consultado
 DEFINE g_id_peticion    DECIMAL(9,0) -- id de la peticion al ws
@@ -73,9 +81,9 @@ CONSTANT  g_res_procesada                    SMALLINT = 0  ,
           g_msg_procesada                    STRING = "Solicitud procesada"                  ,
           g_msg_sin_solicitud                STRING = "Sin solicitud"                        ,
           g_msg_desconectado_del_servidor    STRING = "Desconectado del servidor"            ,
-          g_msg_conexion_con_cliente_perdida STRING = "Se perdiÃ³ la conexiÃ³n con el cliente" ,
-          g_msg_servidor_interrumpido_ctrl_c STRING = "Se interrumpiÃ³ el servidor con CTRL-C",
-          g_msg_error_interno                STRING = "OcurriÃ³ un error interno"        
+          g_msg_conexion_con_cliente_perdida STRING = "Se perdió la conexión con el cliente" ,
+          g_msg_servidor_interrumpido_ctrl_c STRING = "Se interrumpió el servidor con CTRL-C",
+          g_msg_error_interno                STRING = "Ocurrió un error interno"        
          
 -- CONSTANTES PARA CAUSALES DE RETIRO DE FONDO DE AHORRO
 CONSTANT g_cons_fa_termino_relacion_laboral SMALLINT = 1,
@@ -116,9 +124,7 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
   LET v_cadena   = CURRENT SECOND TO SECOND
   LET v_ruta_log = v_ruta_log || v_cadena || ".log"
   
-  DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
-  
-  -- se inicia el log del programa
+    -- se inicia el log del programa
     IF FGL_GETENV("RETWS09LOG") THEN
        CALL STARTLOG(FGL_GETENV("RETWS09LOG"))
        DISPLAY "Ruta del log creada del servidor: " || FGL_GETENV("RETWS09LOG")
@@ -194,7 +200,7 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
                
              OTHERWISE 
                 -- se recibio algun otro codigo de retorno
-                DISPLAY "Se recibiÃ³ otro cÃ³digo de retorno" TO msg
+                DISPLAY "Se recibió otro código de retorno" TO msg
            END CASE
         
         -- si se elige cerrar
@@ -257,7 +263,7 @@ END MAIN
 Clave: 
 Nombre: fn_crea_servicio_retiro_ley73
 Fecha creacion: Noviembre 30, 2017
-Autor: Ricardo PÃ©rez, EFP
+Autor: Ricardo Pérez, EFP
 Narrativa del proceso que realiza:
 Genera el servicio web de retiro generico que complementa la solicitud del retiro de ley 73
 
@@ -283,6 +289,7 @@ FUNCTION fn_crea_servicio_retiro_ley73(p_generar_WSDL)
   
     -- =============================
     -- Publicacion de las funciones
+    
     -- fn_retiro 
     LET op = com.WebOperation.CreateDOCStyle("fn_ret_generico_solicitud_ley73","fn_ret_generico_solicitud_ley73",ws_ret_generico_solicitud_in,ws_ret_generico_solicitud_out)
     --LET op = com.WebOperation.CreateDOCStyle("fn_retiro","fn_retiro",ret_retiro_fondo,ret_respuesta)
@@ -348,7 +355,7 @@ DEFINE v_indice_retiro       SMALLINT,
        v_cta_clabe_correcta  SMALLINT, -- booleana que indica si la cuenta clabe tiene estructura correcta
 	    v_requiere_DAP        SMALLINT, -- booleana que indica si se necesita DAP
        v_modalidad_procesada SMALLINT, -- Indica si ya se proceso una solicitud de ley 73
-       v_id_derechohabiente  DECIMAL(10,0) -- Identificador Ãºnico del trabajador
+       v_id_derechohabiente  DECIMAL(10,0) -- Identificador único del trabajador
    
    -- se verifica si se esta solicitando eco
    IF ( UPSHIFT(ws_ret_generico_solicitud_in.nss) = "ECO" ) THEN
@@ -525,8 +532,8 @@ DEFINE v_indice_retiro       SMALLINT,
             -- debe traer todos los datos
             IF ( ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].tipo_beneficiario   IS NULL OR
                ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].rfc                 IS NULL OR
-               ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].email               IS NULL OR
-               ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].telefono            IS NULL OR
+               -- ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].email               IS NULL OR -- PLAGC141
+               -- ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].telefono            IS NULL OR -- PLAGC141
                ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].nombre              IS NULL OR
                ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].ap_paterno          IS NULL OR
                ws_ret_generico_solicitud_in.arr_beneficiario[v_indice_beneficiario].entidad_federativa  IS NULL ) THEN
@@ -590,6 +597,8 @@ Autor           Fecha                   Descrip. cambio
 Ivan Vega     27 Nov 2013             - Ley73 no rechaza solicitudes cuando el saldo de Infonavit
                                         sea menor al de la AFORE. Se registrara en la tabla
                                         ret_his_saldo para poder identificar las que van a sobregirar
+Ivan Vega   Noviembre 25, 2020        - PLAG138 para grupo 1, entrada por CRM, PORTAL, si se tiene saldo en TESOFE, se agrega como
+                                        parte del monto de vivienda 97
 ======================================================================
 }
 FUNCTION fn_ret_disponibilidad_ley73(p_nss, p_rfc, p_grupo_ley73, p_indice_modalidad)
@@ -603,9 +612,11 @@ DEFINE p_nss                  LIKE afi_derechohabiente.nss, -- NSS
        v_aivs_viv92           DECIMAL(24,6), -- saldo AIVs de viv92
        v_aivs_viv97           DECIMAL(24,6), -- saldo AIVs de viv97
        v_aivs_vol             DECIMAL(24,6), -- saldo AIVs de aportaciones voluntarias
+       v_aivs_tesofe          DECIMAL(24,6), -- saldo AIVs de TESOFE
        v_pesos_viv92          DECIMAL(22,2), -- saldo pesos de viv92
        v_pesos_viv97          DECIMAL(22,2), -- saldo pesos de viv97
        v_pesos_vol            DECIMAL(22,2), -- saldo pesos de aportaciones voluntarias
+       v_pesos_tesofe         DECIMAL(22,2), -- saldo pesos de TESOFE
        v_aivs_viv92_afore     DECIMAL(24,6), -- saldo AIVs de viv92 en AFORE
        v_aivs_viv97_afore     DECIMAL(24,6), -- saldo AIVs de viv97 en AFORE
        v_pesos_viv92_afore    DECIMAL(22,2), -- saldo pesos de viv92 en AFORE
@@ -678,6 +689,9 @@ DEFINE p_nss                  LIKE afi_derechohabiente.nss, -- NSS
             CALL fn_calcula_saldo_ley73(p_nss, 4, TODAY) RETURNING v_resultado, v_aivs_viv97, v_pesos_viv97
             -- se obtiene el saldo de aportaciones voluntarias
             CALL fn_calcula_saldo_ley73(p_nss, 55, TODAY) RETURNING v_resultado, v_aivs_vol, v_pesos_vol
+
+            -- PLAG128 se obtiene el saldo de tesofe
+            CALL fn_calcula_saldo_ley73(p_nss, 47, TODAY) RETURNING v_resultado, v_aivs_tesofe, v_pesos_tesofe
            
             -- se valuan las AIVs al valor de la accion del dia de consulta
             SELECT precio_fondo
@@ -697,6 +711,8 @@ DEFINE p_nss                  LIKE afi_derechohabiente.nss, -- NSS
             LET v_pesos_viv92 = v_aivs_viv92 * v_precio_fondo
             LET v_pesos_viv97 = v_aivs_viv97 * v_precio_fondo
             LET v_pesos_vol   = v_aivs_vol   * v_precio_fondo
+            -- PLAG138 se agrega monto de TESOFE
+            LET v_pesos_tesofe = v_aivs_tesofe * 1 -- tesofe esta invertido en pesos
            
             -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             -- se verifica que grupo de retiro que se recibio en la solicitud
@@ -742,7 +758,7 @@ DEFINE p_nss                  LIKE afi_derechohabiente.nss, -- NSS
                                            )
                      END IF
                      -- se valida la solicitud para un grupo 1
-                     CALL fn_retl73_valida_grupo1(p_nss, v_id_derechohabiente, v_id_solicitud, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97+v_aivs_vol, v_pesos_viv97+v_pesos_vol, v_fecha_resolucion, p_indice_modalidad,p_grupo_ley73)
+                     CALL fn_retl73_valida_grupo1(p_nss, v_id_derechohabiente, v_id_solicitud, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97+v_aivs_vol, v_pesos_viv97+v_pesos_vol, v_fecha_resolucion, p_indice_modalidad,p_grupo_ley73, v_pesos_tesofe)
                   ELSE
                      -- la fecha es invalida para grupo 1
                      CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_no_corresponde_a_nuevo_pensionado, 8, 0, TODAY, 0)
@@ -795,10 +811,11 @@ de un credito por amortaciones excedentes
 
 Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
-
+Ivan Vega    Noviembre 25, 2020        - PLAG138. Para grupo 1, entrada por CRM o Portal, si se tiene saldo de TESOFE
+                                         se agrega al saldo de vivienda 97
 ======================================================================
 }
-FUNCTION fn_retl73_valida_grupo1(p_nss, p_id_derechohabiente, p_id_solicitud, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_fecha_resolucion, p_indice_modalidad,p_grupo_ley73)
+FUNCTION fn_retl73_valida_grupo1(p_nss, p_id_derechohabiente, p_id_solicitud, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_fecha_resolucion, p_indice_modalidad,p_grupo_ley73, p_pesos_tesofe)
 DEFINE p_nss                CHAR(11), -- NSS
        p_id_derechohabiente LIKE afi_derechohabiente.id_derechohabiente,
        p_id_solicitud       LIKE ret_solicitud_generico.id_solicitud, -- solicitud de retiro
@@ -810,6 +827,7 @@ DEFINE p_nss                CHAR(11), -- NSS
        v_aivs_viv97         DECIMAL(24,6), -- saldo AIVs de viv97
        v_pesos_viv92        DECIMAL(22,2), -- saldo pesos de viv92
        v_pesos_viv97        DECIMAL(22,2), -- saldo pesos de viv97
+       p_pesos_tesofe       DECIMAL(22,2), -- saldo pesos de TESOFE
        v_resultado          SMALLINT, -- resultado de la consulta
        v_tiene_credito      SMALLINT, -- booleana que indica si se tiene un credito vigente
        v_tipo_credito       SMALLINT, -- clave del tipo de credito
@@ -890,6 +908,7 @@ DEFINE p_nss                CHAR(11), -- NSS
                CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_tiene_credito_vigente, 4, 0, TODAY,0)
                LET v_aivs_viv97 = 0
                LET v_pesos_viv97 = 0
+               -- si el derechohabiente tiene un credito43 BIS, el monto de vivienda92 es retirable
                IF v_aivs_viv92 > 0 AND p_grupo_ley73 = 1 THEN 
                   CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 8, v_aivs_viv92, TODAY,0)
                   CALL fn_genera_solicitud_ret_ley73(p_nss, p_id_derechohabiente, gi_solicitud_aceptada, 0,
@@ -897,6 +916,7 @@ DEFINE p_nss                CHAR(11), -- NSS
                                                      p_id_solicitud, p_indice_modalidad
                                                      ,p_grupo_ley73,0)
                ELSE 
+                  -- se rechaza el saldo                      
                   CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_saldo, 8, 0, TODAY,0)
                   LET v_aivs_viv92 = 0
                   LET v_pesos_viv92 = 0
@@ -908,11 +928,19 @@ DEFINE p_nss                CHAR(11), -- NSS
             ELSE
                -- el saldo es retirable
                CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 8, v_aivs_viv92, TODAY,0)
-               CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 4, v_aivs_viv97, TODAY, 0)
+               -- PLAG138 Si hay saldo en tesofe, grupo 1 para PORTAL y CRM, se agrega TESOFE al saldo de viv97
+               IF ( ws_ret_generico_solicitud_in.medio_entrega = G_ME_CRM OR ws_ret_generico_solicitud_in.medio_entrega = G_ME_DEV_AUTO 
+                    AND p_pesos_tesofe > 0 ) THEN
+                  CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 4, v_aivs_viv97, TODAY, p_pesos_tesofe)                      
+               ELSE
+                  CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 4, v_aivs_viv97, TODAY, 0)
+               END IF
+               
+
                CALL fn_genera_solicitud_ret_ley73(p_nss, p_id_derechohabiente, gi_solicitud_aceptada, 0,
                                                   v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97,
                                                   p_id_solicitud, p_indice_modalidad
-                                                  ,p_grupo_ley73,0)
+                                                  ,p_grupo_ley73, p_pesos_tesofe)
             END IF 
 
          --END IF
@@ -1487,7 +1515,7 @@ DEFINE p_id_derechohabiente   LIKE afi_derechohabiente.id_derechohabiente,
        
    -- si la solicitud fue aceptada
    IF ( p_estado_solicitud = gi_solicitud_aceptada ) THEN      
-      --selecciÃ³n de tipo TESOFE
+      --selección de tipo TESOFE
       --20140122 Se se agrega condicion para soportar importe del anexo1
       CASE
          WHEN p_pesos_viv97 > 0 AND p_importe_viv97_anexo1 <= 0
@@ -1504,7 +1532,7 @@ DEFINE p_id_derechohabiente   LIKE afi_derechohabiente.id_derechohabiente,
           ws_ret_generico_solicitud_in.medio_entrega = 2) AND 
          ws_ret_generico_solicitud_in.grupo = 1 THEN 
          LET p_estado_solicitud = 15 --- Estas solicitudes se dan de alta con estado "Autorizada"
-         -- Las solicitudes de tableta se dejan con estado solicitud = 10 ya que se espera la autorizaciÃ³n para confirmar la conclusiÃ³n del trÃ¡mite
+         -- Las solicitudes de tableta se dejan con estado solicitud = 10 ya que se espera la autorización para confirmar la conclusión del trámite
          IF ws_ret_generico_solicitud_in.medio_entrega = 1 AND 
             ws_ret_generico_solicitud_in.grupo = 1 THEN 
             LET p_estado_solicitud = 10
@@ -1603,8 +1631,8 @@ DEFINE p_id_derechohabiente   LIKE afi_derechohabiente.id_derechohabiente,
       
       -- se crean los registros para los beneficiarios de esta solicitud
       FOR v_conteo = 1 TO ws_ret_generico_solicitud_in.arr_beneficiario.getLength()
-         --esta vlidaciÃ³n toma solo en cuenta 92 y 97 si tiene pago se le agrega lo del anexo
-         --20140122  Se cambia condiciÃ³n para soportar pago SIAF
+         --esta vlidación toma solo en cuenta 92 y 97 si tiene pago se le agrega lo del anexo
+         --20140122  Se cambia condición para soportar pago SIAF
          CASE v_subgrupo
             WHEN 104 -- todo en TESOFE, se paga por SIAF
                LET v_tipo_pago = 3 --SIAF
@@ -1831,10 +1859,10 @@ Nombre: fn_hash
 Fecha creacion: Marzo 03, 2016
 Autor: Luis Felipe Prieto, EFP
 Narrativa del proceso que realiza:
-Genera un cÃ³digo HASH (pasado por parÃ¡metro) de una cadena de texto STRING
-(pasada por parÃ¡metro),
+Genera un código HASH (pasado por parámetro) de una cadena de texto STRING
+(pasada por parámetro),
 
-cÃ³digos HASH permitidos:
+códigos HASH permitidos:
   - SHA1 (Recomendado)
   - SHA512
   - SHA384

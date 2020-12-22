@@ -94,11 +94,14 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
     LET v_cadena   = CURRENT SECOND TO SECOND
     LET v_ruta_log = v_ruta_log || v_cadena || ".log"
   
-  
-    DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
-
     -- se inicia el log del programa
-    CALL STARTLOG(v_ruta_log)
+    IF FGL_GETENV("RETWS20LOG") THEN
+       CALL STARTLOG(FGL_GETENV("RETWS20LOG"))
+       DISPLAY "Ruta del log creada del servidor: " || FGL_GETENV("RETWS20LOG")
+    ELSE
+       DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
+       CALL STARTLOG(v_ruta_log)
+    END IF 
 
     LET v_pantalla = FALSE
     #
@@ -340,22 +343,6 @@ DEFINE v_indice_retiro          SMALLINT,
     DISPLAY "NSS: ", v_nss
     DISPLAY "RFC: ", v_rfc
 
-    -- se obtiene la ruta ejecutable
-    SELECT ruta_listados
-    INTO   v_ruta_ejecutable
-    FROM   seg_modulo
-    WHERE  modulo_cod = "ret"
-
-    -- se define la ruta del log
-    LET v_ruta_log = v_ruta_ejecutable CLIPPED, "/RETWS20."
-    LET v_cadena   = v_nss
-    LET v_ruta_log = v_ruta_log || v_cadena || ".log"
-
-    DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
-
-    -- se inicia el log del programa
-    CALL STARTLOG(v_ruta_log)
-
     -- se inicia el indice del retiro que se va a consultar
     LET g_indice_retiro = 1
 
@@ -472,6 +459,8 @@ Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
 Ivan Vega     19 Dic 2013            - Se verifica si el NSS ya esta marcado,
                                        y de ser asi, se rechaza la disponibilidad
+Ivan Vega     Diciembre 2, 2020      - se agrega validacion de marcas activas vs marca de fondo de ahorro, si se determina que no hay
+                                       convivencia, se rechaza la dispobibilidad
 ======================================================================
 }
 FUNCTION fn_ret_disponibilidad_fondo_ahorro(p_nss, p_rfc, p_causal, p_nrp, v_f_inicio_pension, p_medio_entrega,p_es_consulta)
@@ -497,6 +486,8 @@ DEFINE p_nss                CHAR(11), -- NSS
        v_saldo              DECIMAL(22,2),-- saldo del derechohabiente
        v_tipo_credito       SMALLINT,
        v_tipo_originacion   SMALLINT 
+DEFINE v_rch_cod   LIKE sfr_convivencia.rch_cod -- para consulta de marcas
+DEFINE v_rch_desc  LIKE cat_rch_marca.rch_desc
 
    -- se verifica si se recibio NSS
    IF ( p_nss IS NOT NULL ) THEN
@@ -621,6 +612,16 @@ DEFINE p_nss                CHAR(11), -- NSS
          CALL fn_respuesta_ws_fondo_ahorro(gi_solicitud_rechazada, gi_solicitud_en_tramite, 0,0)
          RETURN
       END IF
+      
+      -- valida la convivencia de marca de fondo de ahorro con otras marcas
+      CALL fn_valida_marca_convive_fa(p_nss) RETURNING v_rch_cod, v_rch_desc
+      
+      -- codigo de rechazo distinto de cero indica que hay una marca con la que no convive
+      IF ( v_rch_cod <> 0 ) THEN
+         CALL fn_respuesta_ws_fondo_ahorro(gi_solicitud_rechazada, gi_error_marca_no_convive, 0,0)
+         RETURN
+      END IF
+      
    END  IF
    
    -- SI PASO LAS VALIDACIONES ANTERIORES
@@ -645,6 +646,49 @@ DEFINE p_nss                CHAR(11), -- NSS
    END CASE      
 
 END FUNCTION 
+
+{
+======================================================================
+Clave: 
+Nombre: fn_valida_marca_convive_fa
+Fecha creacion: Diciembre 2, 2020
+Autor: Isai Jimenez, Omnisys
+Valida la convivencia de la marca de fondo de ahorro con otras marcas
+
+Registro de modificaciones:
+Autor           Fecha                   Descrip. cambio
+
+======================================================================
+}
+FUNCTION fn_valida_marca_convive_fa(p_nss)
+DEFINE p_nss       CHAR(11)
+DEFINE v_rch_cod   LIKE sfr_convivencia.rch_cod
+DEFINE v_rch_desc  LIKE cat_rch_marca.rch_desc
+    
+   DISPLAY "Ingresa a validar convivencia...."
+   
+   SELECT FIRST 1 c.rch_cod, "MARCA NO CONVIVE"
+   INTO    v_rch_cod, v_rch_desc
+   FROM   sfr_convivencia     AS c,         
+          sfr_marca_activa    AS a,        
+          afi_derechohabiente AS b      
+   WHERE  a.id_derechohabiente = b.id_derechohabiente
+   AND    b.nss                = p_nss
+   AND    a.marca              = c.marca_activa 
+   AND    c.marca_entra        = 802 -- fondo de ahorro
+   AND    c.rch_cod            > 0
+   
+   DISPLAY "\nValores recuperados codigo     : ", v_rch_cod
+   DISPLAY "\nValores recuperados descripcion: ", v_rch_desc
+   
+   IF SQLCA.sqlcode = NOTFOUND THEN
+      LET v_rch_cod  = 0 
+      LET v_rch_desc = ""
+   END IF 
+   
+   RETURN v_rch_cod, v_rch_desc
+    
+END FUNCTION
 
 {
 ======================================================================

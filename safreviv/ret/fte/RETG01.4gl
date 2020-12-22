@@ -527,9 +527,9 @@ CONSTANT  gi_datos_incompletos                                   SMALLINT =  99,
           gi_fecha_resolucion_invalida_l73                       SMALLINT = 700, -- fecha de resolucion invalida para ley 73
           gi_no_corresponde_a_nuevo_pensionado                   SMALLINT = 700, -- No corresponde a un nuevo pensionado. (Se solicitó cambiarlo en el req SACI2018-155)
           gi_fallo_consulta_saldo_afore                          SMALLINT = 127, -- Fallo la consulta al servicio de saldo de Procesar
-		    gi_monto_excedido_pago_dap                             SMALLINT = 701, -- el monto excede el maximo permitido por pago DAP
-		    gi_modalidad_multiple_sin_CLABE                        SMALLINT = 702, -- se tiene un retiro con modalidad multiple y alguna de estas no tiene cuenta CLABE
-		    gi_ws_rel_laboral_no_disponible                        SMALLINT = 703, -- se detecto un error al consultar el WS de ultima relacion laboral
+		  gi_monto_excedido_pago_dap                             SMALLINT = 701, -- el monto excede el maximo permitido por pago DAP
+		  gi_modalidad_multiple_sin_CLABE                        SMALLINT = 702, -- se tiene un retiro con modalidad multiple y alguna de estas no tiene cuenta CLABE
+		  gi_ws_rel_laboral_no_disponible                        SMALLINT = 703, -- se detecto un error al consultar el WS de ultima relacion laboral
           
           gi_cargo_juridico                                      SMALLINT = 593, -- Tiene la marca 593, Cargo jurídico por instrucción judicial
           gi_pagado_por_cargo_juridico                           SMALLINT = 594, -- Tiene la marca 594, Pagado por cargo jurídico

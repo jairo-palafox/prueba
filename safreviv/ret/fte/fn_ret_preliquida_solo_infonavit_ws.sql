@@ -310,6 +310,12 @@ DEFINE v_valor_fondo           DECIMAL(19,14);
       WHERE  id_derechohabiente = v_id_derechohabiente
       AND    id_solicitud       = v_id_solicitud;
       
+      UPDATE ret_solicitud_generico 
+      SET    estado_solicitud   = 50,
+             folio              = v_folio_liquida
+      WHERE  id_derechohabiente = v_id_derechohabiente
+      AND    id_solicitud       = v_id_solicitud;
+      
       LET v_bnd_preli = 1;     -- indica que se preliquido al menos un registro
    END FOREACH;
    
