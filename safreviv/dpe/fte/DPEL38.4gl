@@ -39,22 +39,22 @@ DEFINE p_usuario_cod    LIKE seg_usuario.usuario_cod, -- clave del usuario firma
 
    -- Pagos indebidos PROCESAR
    LET g_proceso_cod = g_proceso_cod_dpe_procesar_gen
-   LET g_opera_cod   = 2  --Validación archivo acuse PROCESAR 
+   LET g_opera_cod   = 1  --Validación archivo acuse PROCESAR
 
    -- se obtiene el PID del proceso
-   SELECT MAX(pid)
-     INTO g_pid
-     FROM bat_ctr_proceso
-    WHERE proceso_cod = g_proceso_cod   
+   --SELECT MAX(pid)
+   --  INTO g_pid
+   --  FROM bat_ctr_proceso
+   -- WHERE proceso_cod = g_proceso_cod   
 
    -- Valida operacion para verificar si se puede continuar.
    CALL fn_valida_operacion(g_pid,g_proceso_cod,g_opera_cod)
    RETURNING v_rest_valida
-
+   
    IF ( v_rest_valida = 0 ) THEN                         
       -- Inicio operacion.
       IF (fn_carga_archivo(g_pid,g_proceso_cod,g_opera_cod,2,"DPEL38","",
-                           p_usuario_cod,FALSE) = TRUE)THEN
+                           p_usuario_cod,TRUE) = TRUE)THEN
       END IF
    ELSE
       CALL fn_mues_desc_valida(v_rest_valida)

@@ -4,7 +4,6 @@
 
 
 
-
 CREATE FUNCTION "safreviv".fn_dpe_integra_acuse_procesar(p_usuario_cod    CHAR(20),
                                               p_folio          DECIMAL(10), 
                                               p_nombre_archivo CHAR(18),

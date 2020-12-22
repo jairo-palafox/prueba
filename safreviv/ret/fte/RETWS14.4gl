@@ -1523,7 +1523,7 @@ DEFINE p_id_derechohabiente   LIKE afi_derechohabiente.id_derechohabiente,
 
       IF ws_ret_generico_solicitud_in.medio_entrega = 2 AND 
          ws_ret_generico_solicitud_in.grupo = 1 THEN 
-         LET p_estado_solicitud = 15 --- Estas solicitudes se dan de alta con estado "Autorizada"
+         LET p_estado_solicitud = 10 --- Estas solicitudes se dan de alta con estado "Autorizada"
          -- Se debe eliminar el registro de la tabla ret_pago_spei ya que la rutina de beneficiarios inserta los datos
          DELETE 
          FROM   ret_pago_spei 
@@ -1917,7 +1917,7 @@ PUBLIC FUNCTION fn_load_pdf(v_ruta_reporte, v_archivo_reporte, p_caso)
    LET v_archivo_reporte = 'Acuse'
    DISPLAY "v_archivo_reporte: ", v_archivo_reporte
    DISPLAY "v_ruta_reporte: ",v_ruta_reporte
-   DISPLAY "El archivo en base 64", v_archivo
+   --DISPLAY "El archivo en base 64", v_archivo
    -- Se quita el envío a CRM, lo hará el portal SACI2019-10
    --CALL fn_adjunta_documento(v_archivo_reporte, v_archivo, p_caso) RETURNING v_resultado
    LET v_comando="rm "||v_ruta_reporte

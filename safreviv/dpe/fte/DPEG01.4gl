@@ -16,7 +16,7 @@ GLOBALS
    CONSTANT  g_proceso_cod_dpe_disposicion    SMALLINT = 1001 -- devolucion de pagos indebidos o en exceso
    CONSTANT  g_proceso_cod_dpe_procesar       SMALLINT = 1002 -- devolucion de pagos indebidos procesar recibe
    CONSTANT  g_proceso_cod_dpe_credito        SMALLINT = 1003 -- devolucion de pagos indebidos origen créditos
-   CONSTANT  g_proceso_cod_dpe_procesar_gen   SMALLINT = 1004 -- devolucion de pagos indebidos procesar genera
+   CONSTANT  g_proceso_cod_dpe_procesar_gen   SMALLINT = 1008 -- devolucion de pagos indebidos procesar genera
    CONSTANT  g_proceso_cod_dpe_infonavit      SMALLINT = 1005 -- devolucion de pagos indebidos origen infonavit
 
    CONSTANT  g_opera_cod_dpe_carga            SMALLINT = 1,  -- carga de archivo

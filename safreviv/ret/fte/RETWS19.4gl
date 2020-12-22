@@ -1373,11 +1373,10 @@ DEFINE p_id_derechohabiente  LIKE afi_derechohabiente.id_derechohabiente,
          FROM   ret_solicitud_generico
          WHERE  id_solicitud = p_id_solicitud;
          LET ws_ret_generico_solicitud_in.casoCRM = v_caso_crm
-         IF ws_ret_generico_solicitud_in.medioEntrega = 1 THEN 
-            LET p_estado_solicitud = 10
-         ELSE 
-            LET p_estado_solicitud = 15 --- Estas solicitudes se dan de alta con estado "Autorizada"
          
+         LET p_estado_solicitud = 10
+         
+         IF ws_ret_generico_solicitud_in.medioEntrega = 2 THEN 
             CALL fn_genera_reporte(ws_ret_generico_solicitud_in.nss,v_rfc,
                                    v_ape_paterno, v_ape_materno, v_nombre, 
                                    v_fecha_hora,p_id_solicitud,p_pesos,v_cadena, 
