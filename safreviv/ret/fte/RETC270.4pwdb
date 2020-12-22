@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="CP1252" options="3" version="2.0">
+<File m="RETC270" n="RETC270.4gl" ts="20200402135812000">
+<Ref t="RETG01.4gl"/>
+<Fct c="1" el="311" l="49" n="main()" t="F">
+<Call c="18" l="271" n="fn_mensaje" t="F"/>
+<Call c="18" l="277" n="fn_mensaje" t="F"/>
+<Call c="21" l="282" n="fn_mensaje" t="F"/>
+<Call c="24" l="287" n="fn_mensaje" t="F"/>
+<Call c="15" l="295" n="fn_consulta_solicitud_generico" t="F"/>
+</Fct>
+<Fct c="8" el="1410" l="1339" n="rtp_solicitudes_encontradas(p_usuario_cod INTEGER,p_usuario_desc INTEGER,p_fecha_actual DATE,p_fecha_inicio DATE,p_fecha_fin DATE,p_despliegue RECORD)" t="R"/>
+<Fct c="10" el="571" l="333" n="fn_consulta_solicitud_generico(v_modalidad_retiro INTEGER,v_causal_retiro INTEGER,v_nss INTEGER,v_rfc INTEGER,v_caso_adai INTEGER,v_id_solicitud INTEGER,v_folio INTEGER,v_folio_restitucion INTEGER,v_estado INTEGER,v_cod_rechazo SMALLINT,v_fecha_inicio DATE,v_fecha_fin DATE)" t="F">
+<Call c="18" l="544" n="fn_mensaje" t="F"/>
+<Call c="15" l="549" n="fn_consulta_solicitudes_nivel2" t="F"/>
+</Fct>
+<Fct c="10" el="1422" l="1413" n="fn_fecha(p_fecha_text VARCHAR(8))" t="F"/>
+<Fct c="10" el="1326" l="592" n="fn_consulta_solicitudes_nivel2(v_nss INTEGER,v_rfc INTEGER,v_caso_adai INTEGER,v_estado INTEGER,v_cod_rechazo SMALLINT,v_id_solicitud_i INTEGER,v_folio_restitucion_i INTEGER,v_fecha_inicio DATE,v_fecha_fin DATE,v_causal_retiro INTEGER)" t="F">
+<Call c="33" l="1105" n="fn_fecha" t="F"/>
+<Call c="14" l="1181" n="fgl_report_loadCurrentSettings" t="F"/>
+<Call c="18" l="1182" n="fgl_report_selectDevice" t="F"/>
+<Call c="18" l="1183" n="fgl_report_selectPreview" t="F"/>
+<Call c="35" l="1184" n="fgl_report_commitCurrentSettings" t="F"/>
+<Call c="18" l="1186" n="fn_mensaje" t="F"/>
+<Call c="23" l="1195" n="rtp_solicitudes_encontradas" t="R"/>
+<Call c="30" l="1197" n="rtp_solicitudes_encontradas" t="R"/>
+<Call c="24" l="1205" n="rtp_solicitudes_encontradas" t="R"/>
+<Call c="17" l="1224" n="fn_mensaje" t="F"/>
+<Call c="17" l="1260" n="fn_mensaje" t="F"/>
+<Call c="17" l="1280" n="fn_mensaje" t="F"/>
+<Call c="17" l="1321" n="fn_mensaje" t="F"/>
+</Fct>
+</File>
+<File m="RETC463" n="RETC463.4gl" ts="20201209014932422">
+<Ref t="RETG01.4gl"/>
+<Fct c="10" el="1761" l="1752" n="fn_fecha(p_fecha_text VARCHAR(8))" t="F"/>
+<Fct c="8" el="1915" l="1869" n="pdf_acuse(pm_arr_detalle RECORD,p_fecha CHAR(16),p_aviso CHAR(255))" t="R"/>
+<Fct c="10" el="539" l="301" n="fn_consulta_solicitud_generico(v_modalidad_retiro INTEGER,v_nss INTEGER,v_caso_adai INTEGER,v_id_solicitud INTEGER,v_folio INTEGER,v_folio_restitucion INTEGER,v_grupo SMALLINT,v_medio_entrega SMALLINT,v_estado INTEGER,v_cod_rechazo SMALLINT,v_fecha_inicio DATE,v_fecha_fin DATE,v_fecha_pago_ini DATE,v_fecha_pago_fin DATE)" t="F">
+<Call c="18" l="511" n="fn_mensaje" t="F"/>
+<Call c="15" l="516" n="fn_consulta_solicitudes_nivel2" t="F"/>
+</Fct>
+<Fct c="10" el="1637" l="562" n="fn_consulta_solicitudes_nivel2(v_nss INTEGER,v_caso_adai INTEGER,v_estado INTEGER,v_cod_rechazo SMALLINT,v_id_solicitud_i INTEGER,v_folio_restitucion_i INTEGER,v_fecha_inicio DATE,v_fecha_fin DATE,v_fecha_pago_ini DATE,v_fecha_pago_fin DATE,v_gpo SMALLINT,v_medio_entrega SMALLINT)" t="F">
+<Call c="57" l="1052" n="fn_fecha" t="F"/>
+<Call c="33" l="1332" n="fn_fecha" t="F"/>
+<Call c="14" l="1433" n="fgl_report_loadCurrentSettings" t="F"/>
+<Call c="18" l="1434" n="fgl_report_selectDevice" t="F"/>
+<Call c="18" l="1435" n="fgl_report_selectPreview" t="F"/>
+<Call c="35" l="1436" n="fgl_report_commitCurrentSettings" t="F"/>
+<Call c="18" l="1438" n="fn_mensaje" t="F"/>
+<Call c="23" l="1447" n="rtp_solicitudes_encontradas" t="R"/>
+<Call c="30" l="1449" n="rtp_solicitudes_encontradas" t="R"/>
+<Call c="24" l="1457" n="rtp_solicitudes_encontradas" t="R"/>
+<Call c="17" l="1476" n="fn_mensaje" t="F"/>
+<Call c="17" l="1533" n="fn_mensaje" t="F"/>
+<Call c="17" l="1553" n="fn_mensaje" t="F"/>
+<Call c="17" l="1600" n="fn_mensaje" t="F"/>
+<Call c="20" l="1603" n="fn_genera_reporte" t="F"/>
+<Call c="20" l="1605" n="fn_mensaje" t="F"/>
+</Fct>
+<Fct c="19" el="1867" l="1763" n="fn_genera_reporte(p_id_solicitud INTEGER)" t="F">
+<Call c="7" l="1855" n="fgl_report_loadCurrentSettings" t="F"/>
+<Call c="12" l="1856" n="fgl_report_selectDevice" t="F"/>
+<Call c="12" l="1857" n="fgl_report_selectPreview" t="F"/>
+<Call c="21" l="1858" n="fgl_report_commitCurrentSettings" t="F"/>
+<Call c="23" l="1861" n="pdf_acuse" t="R"/>
+<Call c="30" l="1862" n="pdf_acuse" t="R"/>
+<Call c="24" l="1863" n="pdf_acuse" t="R"/>
+</Fct>
+<Fct c="8" el="1749" l="1650" n="rtp_solicitudes_encontradas(p_usuario_cod INTEGER,p_usuario_desc INTEGER,p_fecha_actual DATE,p_fecha_inicio DATE,p_fecha_fin DATE,p_despliegue RECORD)" t="R"/>
+<Fct c="1" el="285" l="49" n="main()" t="F">
+<Call c="18" l="228" n="fn_mensaje" t="F"/>
+<Call c="21" l="235" n="fn_mensaje" t="F"/>
+<Call c="24" l="240" n="fn_mensaje" t="F"/>
+<Call c="27" l="245" n="fn_mensaje" t="F"/>
+<Call c="21" l="254" n="fn_mensaje" t="F"/>
+<Call c="24" l="259" n="fn_mensaje" t="F"/>
+<Call c="15" l="267" n="fn_consulta_solicitud_generico" t="F"/>
+</Fct>
+</File>
+</WorkspaceDatabase>

@@ -176,7 +176,8 @@ DEFINE p_id_solicitud                LIKE ret_beneficiario_generico.id_solicitud
        v_r_ret_pago_spei             RECORD LIKE ret_pago_spei.*, -- registro de pago por spei
        v_r_ret_pago_dap              RECORD LIKE ret_pago_dap.*, -- registro de pago por referencia bancaria
        v_r_ret_pago_siaf              RECORD LIKE ret_pago_siaf.*, -- registro de pago por referencia bancaria
-       v_consec_beneficiario         SMALLINT -- consecutivo de beneficiario para la solicitud de retiro
+       v_consec_beneficiario         SMALLINT, -- consecutivo de beneficiario para la solicitud de retiro
+       v_beneficiario_aux            SMALLINT
 
 DEFINE v_tipo_benef_str           CHAR(3)
 
@@ -221,6 +222,13 @@ DEFINE v_tipo_benef_str           CHAR(3)
    -- se verifica el tipo de pago
    CASE p_tpo_pago
    WHEN 1
+      --20201123 se verifica si ya existe el registro de pago spei
+      SELECT consec_beneficiario
+      INTO v_beneficiario_aux
+      FROM ret_pago_spei
+      WHERE id_solicitud = p_id_solicitud
+      AND consec_beneficiario = v_consec_beneficiario
+   
       -- PAGO SPEI
       LET v_r_ret_pago_spei.id_solicitud        = p_id_solicitud
       LET v_r_ret_pago_spei.consec_beneficiario = v_consec_beneficiario
@@ -229,8 +237,18 @@ DEFINE v_tipo_benef_str           CHAR(3)
       LET v_r_ret_pago_spei.sucursal            = 0
       LET v_r_ret_pago_spei.cuenta_clabe        = p_clabe
 
-      -- se inserta el registro
-      INSERT INTO ret_pago_spei VALUES ( v_r_ret_pago_spei.* )
+      -- si el registro ya existe
+      IF ( v_beneficiario_aux IS NOT NULL AND v_beneficiario_aux > 0 ) THEN
+         -- se actualiza el registro
+         UPDATE ret_pago_spei
+            SET cuenta_clabe = p_clabe
+          WHERE id_solicitud = p_id_solicitud
+            AND consec_beneficiario = v_consec_beneficiario
+      ELSE
+         -- se inserta
+         INSERT INTO ret_pago_spei VALUES ( v_r_ret_pago_spei.* )
+      END IF
+      
    WHEN 2
       -- PAGO POR DAP
       LET v_r_ret_pago_dap.id_solicitud        = p_id_solicitud -- id de la solicitud

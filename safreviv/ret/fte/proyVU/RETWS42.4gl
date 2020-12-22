@@ -384,6 +384,8 @@ Ivan Vega    Noviembre 17, 2020    Cuando haya un error de comunicacion o de eje
                                    Hay unas solicitudes que nacen en estatus aprobadas, por lo que si cuando se recibe la senal de
                                    aprobacion o rechazo, estas ya estan por encima del estatus 10, y el tipo de retiro estaba disponibles
                                    esta ya no se intentara aprobador o rechazar
+Ivan Vega    Noviembre 23, 2020    En la respuesta, sea correcta o erronea, no se debe enviar campos nulos. Las cifras si no estan disponibles,
+                                   se enviaran ceros
 ======================================================================
 }
 FUNCTION fn_marca_cuenta_ventanilla_unica()
@@ -425,6 +427,16 @@ DEFINE v_estatus_solicitud_SI     SMALLINT
     DISPLAY "Codigo Rechazo    :", gr_entrada_ws.cod_rechazo   ,":"
     DISPLAY "Medio de Entrega  :", gr_entrada_ws.medio_entrega ,":"
     DISPLAY "Usuario           :", gr_entrada_ws.usuario       ,":"
+
+    -- se inicia el registro de salida
+    LET gr_salida_ws.id_retiro_fa           = 0
+    LET gr_salida_ws.saldo_pesos_fa         = 0
+    LET gr_salida_ws.tanto_adicional        = 0
+    LET gr_salida_ws.id_retiro_ley73        = 0
+    LET gr_salida_ws.saldo_aivs_viv92       = 0
+    LET gr_salida_ws.saldo_pesos_viv92      = 0
+    LET gr_salida_ws.saldo_aivs_viv97       = 0
+    LET gr_salida_ws.saldo_pesos_viv97      = 0
 
     -- se validan los parametros de entrada
     LET v_estatus_validacion = fn_valida_parametros_entrada()
@@ -512,11 +524,15 @@ DEFINE v_estatus_solicitud_SI     SMALLINT
                     IF ( v_estatus_llamada_fa <> 0 ) THEN
                         LET lr_ret_marcaje_fa.est_marca = GI_ESTATUS_MARCA_ERROR
                         LET lr_ret_marcaje_fa.cod_rechazo = "Error en llamada a WS de Marcaje de Fondo de Ahorro"
+                        LET gr_salida_ws.id_retiro_fa    = 0
+                        LET gr_salida_ws.saldo_pesos_fa  = 0
+                        LET gr_salida_ws.tanto_adicional = 0
+                        LET gr_salida_ws.estatus_marca   = lr_ret_marcaje_fa.est_marca
                         
                         -- CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
                         LET v_continuar = FALSE
                     ELSE
-                        LET gr_salida_ws.id_retiro_fa    = NULL
+                        LET gr_salida_ws.id_retiro_fa    = 0
                         LET gr_salida_ws.saldo_pesos_fa  = lr_ret_marcaje_fa.saldo_pesos
                         LET gr_salida_ws.tanto_adicional = lr_ret_control_vu.tanto_adicional_fa
                         LET gr_salida_ws.estatus_marca   = lr_ret_marcaje_fa.est_marca
@@ -528,7 +544,7 @@ DEFINE v_estatus_solicitud_SI     SMALLINT
                             -- CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, FALSE, FALSE, FALSE)
                         ELSE
                             LET v_marcaje_fa_correcto = TRUE
-                            LET v_activar_marca_fa = TRUE
+                            LET v_activar_marca_fa    = TRUE
                             -- se actualiza el estatus de marcado en la tabla de control
                             CALL fn_actualiza_control_vu_marcas(lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si)
                             CALL fn_actualiza_ids_solicitud_retiro(v_id_derechohabiente, lr_ret_control_vu.consecutivo, v_activar_marca_fa, v_activar_marca_ley73, v_activar_marca_si, gr_entrada_ws.ind_marca)
@@ -581,7 +597,12 @@ DEFINE v_estatus_solicitud_SI     SMALLINT
                             LET v_continuar = FALSE
                             LET lr_ret_marcaje_ley73.est_marca = GI_ESTATUS_MARCA_ERROR
                             LET lr_ret_marcaje_ley73.des_rechazo = "Error en llamada a WS de Marcaje de Ley 73"
-
+                            
+                            LET gr_salida_ws.saldo_aivs_viv92   = 0
+                            LET gr_salida_ws.saldo_aivs_viv97   = 0
+                            LET gr_salida_ws.saldo_pesos_viv92  = 0
+                            LET gr_salida_ws.saldo_pesos_viv97  = 0
+                            LET gr_salida_ws.id_retiro_ley73    = 0
                             -- si hubo marcaje de fondo de ahorro, se desmarca
                             IF ( lr_ret_control_vu.bn_disponibilidad_fa = TRUE AND v_marcaje_fa_correcto ) THEN
                                 DISPLAY "Se reversa el movimiento"
@@ -621,6 +642,11 @@ DEFINE v_estatus_solicitud_SI     SMALLINT
                                 DISPLAY "Marcaje en Ley 73 no se dio"
                                 DISPLAY lr_ret_marcaje_ley73.cod_rechazo
                                 DISPLAY lr_ret_marcaje_ley73.des_rechazo
+                                LET gr_salida_ws.saldo_aivs_viv92   = 0
+                                LET gr_salida_ws.saldo_aivs_viv97   = 0
+                                LET gr_salida_ws.saldo_pesos_viv92  = 0
+                                LET gr_salida_ws.saldo_pesos_viv97  = 0
+                                LET gr_salida_ws.id_retiro_ley73    = 0
 
                                 -- el proceso no continua
                                 LET v_continuar = 0
@@ -1084,7 +1110,7 @@ DEFINE p_estatus_peticion SMALLINT
 DEFINE p_estatus_marca    SMALLINT
 DEFINE p_desc_rechazo     STRING
 
-DISPLAY "EP,EM,DR: ", p_estatus_peticion, " - ", p_estatus_marca, " - ", p_desc_rechazo
+DISPLAY "EstatusPeticion,EstatusMarca,DescRechazo a responder: ", p_estatus_peticion, " - ", p_estatus_marca, " - ", p_desc_rechazo
     -- si hubo error
     IF ( p_estatus_peticion <> 0 ) THEN
         LET gr_salida_ws.nss                    = gr_entrada_ws.nss
@@ -1097,10 +1123,10 @@ DISPLAY "EP,EM,DR: ", p_estatus_peticion, " - ", p_estatus_marca, " - ", p_desc_
             LET gr_salida_ws.des_rechazo            = fn_desc_error(p_estatus_peticion)
         END IF
         
-        LET gr_salida_ws.id_retiro_fa           = NULL
+        LET gr_salida_ws.id_retiro_fa           = 0
         LET gr_salida_ws.saldo_pesos_fa         = 0
         LET gr_salida_ws.tanto_adicional        = 0
-        LET gr_salida_ws.id_retiro_ley73        = NULL
+        LET gr_salida_ws.id_retiro_ley73        = 0
         LET gr_salida_ws.saldo_aivs_viv92       = 0
         LET gr_salida_ws.saldo_pesos_viv92      = 0
         LET gr_salida_ws.saldo_aivs_viv97       = 0

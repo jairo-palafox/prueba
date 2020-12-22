@@ -5,8 +5,8 @@
 #########################################################################################
 #MODULO       => RET                                                                    #
 #PROGRAMA     => RETC463                                                                #
-#OBJETIVO     => Consulta de solicitudes de retiro Ley 73                               #
-#Fecha inicio => 08 Febrero 2018                                                        #
+#OBJETIVO     => Consulta de solicitudes de retiro del Solo infonavit                   #
+#Fecha inicio => 01 Abril 2019                                                          #
 #Modificacion =>                                                                        #
 #########################################################################################
 DATABASE safre_viv
@@ -18,9 +18,7 @@ DEFINE g_arr_solicitudes_folio DYNAMIC ARRAY OF RECORD -- arreglo que contiene l
           desc_modalidad         VARCHAR(50),
           num_solicitudes        SMALLINT,
           folio                  DECIMAL(9,0),
-          aivs                   DECIMAL(24,6),
-          pesos                  DECIMAL(22,2),
-          monto                  DECIMAL(22,2),
+          tanto_normal           DECIMAL(22,2),
           tanto_adicional        DECIMAL(22,2),
           estado_solicitud       CHAR(100),
           cod_rechazo            CHAR(100)
@@ -43,14 +41,13 @@ de Ley 73
 
 Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
-Ivan Vega    Diciembre 09, 2020       - Se eliminan las instrucciones que actualizan las estadisticas
+
 ======================================================================
 }
 MAIN 
 DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
-       cbx_cod_rechazo      ui.ComboBox, -- combo con los codigos de rechazo    
-       cbx_grupo            ui.ComboBox, -- combo para los grupos
-       cbx_medio_entrega    ui.ComboBox, -- combo para los medios de entrega
+       cbx_causal            ui.ComboBox, -- combo para las causales
+       cbx_medio_pago        ui.ComboBox, -- combo para los medios de pago
        ar_chavtipo_retiro   RECORD LIKE ret_tipo_retiro.*, -- registro con los tipos de retiro
        ar_ret_rechazo       RECORD LIKE ret_rechazo.*, -- registro con los codigos de rechazo
        -- parametros de consulta
@@ -63,8 +60,8 @@ DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
        v_folio_restitucion  LIKE ret_solicitud_generico.folio_restitucion,
        v_estado             LIKE ret_estado_solicitud.estado_solicitud,
        v_cod_rechazo        SMALLINT, -- codigo de rechazo
-       v_grupo              SMALLINT, -- grupos
-       v_medio_entrega      SMALLINT, -- medio entrega
+       v_causal             SMALLINT, -- causal
+       v_medio_pago         SMALLINT, -- medio pago
        v_fecha_inicio       DATE, -- fecha de inicio de consulta
        v_fecha_fin          DATE, -- fecha fin de consulta
        v_fecha_pago_ini     DATE, -- fecha de pago inicial
@@ -75,6 +72,18 @@ DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
        v_formulario        ui.Form, -- para modificar el formulario
        ar_ret_estado_solicitud RECORD LIKE ret_estado_solicitud.*,
        ar_ret_cat_medio_entrega RECORD LIKE ret_cat_medio_entrega.*
+
+   UPDATE STATISTICS FOR TABLE ret_solicitud_generico;
+   UPDATE STATISTICS FOR TABLE ret_pago_dap;
+   UPDATE STATISTICS FOR TABLE ret_ctr_archivo_fico;
+   UPDATE STATISTICS FOR TABLE ret_ws_consulta_pago_fico;
+   UPDATE STATISTICS FOR TABLE ret_cat_edo_pago_fico;
+   UPDATE STATISTICS FOR TABLE ret_modalidad_retiro;
+   UPDATE STATISTICS FOR TABLE ret_rechazo_generico;
+   UPDATE STATISTICS FOR TABLE ret_estado_solicitud;
+   UPDATE STATISTICS FOR TABLE afi_fondo72;
+   UPDATE STATISTICS FOR TABLE ret_ws_det_peticion_marca;
+   UPDATE STATISTICS FOR TABLE ret_ws_peticion_marca;
 
    -- se obtienen los parametros de ejecucion
    LET p_usuario_cod    = ARG_VAL(1)
@@ -87,12 +96,12 @@ DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
       CALL ui.Interface.setText(p_s_titulo)
    END IF
 
-   CALL STARTLOG (p_usuario_cod CLIPPED|| ".RETC463.log")
+   CALL STARTLOG (p_usuario_cod CLIPPED|| ".RETC480.log")
    
    CLOSE WINDOW SCREEN
    
    -- se abre la ventana de consulta
-   OPEN WINDOW w_consulta WITH FORM "RETC4631"
+   OPEN WINDOW w_consulta WITH FORM "RETC4801"
 
    -- se capturan los datos de la consulta
    INPUT BY NAME
@@ -101,10 +110,9 @@ DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
       v_id_solicitud     ,
       v_folio            ,
       v_folio_restitucion,
-      v_grupo            ,
-      v_medio_entrega    ,
+      v_causal           ,
+      v_medio_pago       ,
       v_estado           ,
-      v_cod_rechazo      ,
       v_fecha_inicio     ,
       v_fecha_fin        ,
       v_fecha_pago_ini   ,
@@ -121,37 +129,25 @@ DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
          -- no se tiene folio
          LET v_folio = NULL
 
-         -- se llena el combo con los grupos
-         LET cbx_grupo = ui.ComboBox.forName("formonly.v_grupo")
+         -- se llena el combo con las causales
+         LET cbx_causal = ui.ComboBox.forName("formonly.v_causal")
          
-         CALL cbx_grupo.clear()
-         CALL cbx_grupo.addItem(NULL,"Todas")
-         CALL cbx_grupo.addItem(1, '1-Nuevo Pensionado')
-         CALL cbx_grupo.addItem(2, '2-Laudo o Amparo')
-         CALL cbx_grupo.addItem(3, '3-Desistimiento')
-         CALL cbx_grupo.addItem(4, '4-Pensionado con Resolución')
+         CALL cbx_causal.clear()
+         CALL cbx_causal.addItem(NULL,"Todas")
+         CALL cbx_causal.addItem(1, '1-Término Relación Laboral')
+         CALL cbx_causal.addItem(2, '2-Pensión IMSS')
+         CALL cbx_causal.addItem(3, '3-Plan Privado de Pensión')
+         CALL cbx_causal.addItem(4, '4-Defunción')
 
-         LET v_grupo = NULL 
+         LET v_causal = NULL 
 
-         -- se llena el combo con los Medios de entrega
-         LET cbx_medio_entrega = ui.ComboBox.forName("formonly.v_medio_entrega")
+         -- se llena el combo con los Medios de Pago
+         LET cbx_medio_pago = ui.ComboBox.forName("formonly.v_medio_pago")
          
-         CALL cbx_medio_entrega.clear()
-         -- se usan 3 conjuntos
-         CALL cbx_medio_entrega.addItem(NULL,"Todas")
-
-         
-         DECLARE cur_medio_entrega CURSOR FOR
-         SELECT  medio_entrega,descripcion
-         FROM    ret_cat_medio_entrega
-         ORDER BY descripcion
-         
-         FOREACH cur_medio_entrega INTO ar_ret_cat_medio_entrega.medio_entrega, ar_ret_cat_medio_entrega.descripcion
-            LET v_cadena = ar_ret_cat_medio_entrega.medio_entrega, " - ", ar_ret_cat_medio_entrega.descripcion
-            CALL cbx_medio_entrega.addItem(ar_ret_cat_medio_entrega.medio_entrega, v_cadena)
-         END FOREACH
-
-         LET v_medio_entrega = NULL
+         CALL cbx_medio_pago.clear()
+         CALL cbx_medio_pago.addItem(NULL,"Todas")
+         CALL cbx_medio_pago.addItem(1, 'Cuenta CLABE')
+         CALL cbx_medio_pago.addItem(2, 'DAP')
          
          -- se llena el combo con los estados de la solicitud
          LET cbx_estado_solicitud = ui.ComboBox.forName("formonly.v_estado")
@@ -164,7 +160,7 @@ DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
          DECLARE cur_estadossol CURSOR FOR
          SELECT  estado_solicitud,des_corta
          FROM    ret_estado_solicitud
-         WHERE   estado_solicitud IN (8,10,15,50,60,69,70,71,72,73,77,80,81,82,90,100,200,209,210,214,700,710,720,790)
+         WHERE   estado_solicitud IN (8,10,15,50,60,69,70,71,72,73,77,80,81,82,90,100,200,209,210,214,700)
          ORDER BY estado_solicitud
          
          FOREACH cur_estadossol INTO ar_ret_estado_solicitud.estado_solicitud, ar_ret_estado_solicitud.des_corta
@@ -179,31 +175,6 @@ DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
          -- se asume que se desean todas
          LET v_estado = NULL
          
-         -- se carga el combo de codigos de rechazo
-         LET cbx_cod_rechazo = ui.ComboBox.forName("formonly.v_cod_rechazo")
-         
-         CALL cbx_cod_rechazo.clear()
-         -- se agrega la agrupacion todas
-         CALL cbx_cod_rechazo.addItem(NULL, "Todas")
-
-         -- se agregan los codigos de rechazo acordados
-         DECLARE cur_codrechazo CURSOR FOR
-         SELECT cod_rechazo,des_corta
-         FROM   ret_rechazo_generico
-         WHERE  cod_rechazo < 1000 --IN 
---                (99 , 98 , 999, 101, 77 , 97 , 20 , 10 , 50 , 40 , 90 ,
---                 91 , 100, 200, 218, 102, 103, 104, 105, 300, 400, 500,
---                 600, 650, 651, 54)
-         ORDER BY cod_rechazo
-         
-         FOREACH cur_codrechazo INTO ar_ret_rechazo.cod_rechazo, ar_ret_rechazo.des_corta
-            LET v_cadena = ar_ret_rechazo.cod_rechazo, " - ", ar_ret_rechazo.des_corta
-            CALL cbx_cod_rechazo.addItem(ar_ret_rechazo.cod_rechazo, v_cadena)
-         END FOREACH
-         
-         -- se inicia la consulta sin filtro de codigo de rechazo
-         LET v_cod_rechazo = NULL
-
          -- la fecha de inicio y fecha fin se inician con la fecha del dia
          LET v_fecha_inicio = TODAY
          LET v_fecha_fin    = TODAY
@@ -270,8 +241,8 @@ DEFINE cbx_estado_solicitud ui.ComboBox, -- combo de estado de la solicitud
                                                 v_id_solicitud     ,
                                                 v_folio            ,
                                                 v_folio_restitucion,
-                                                v_grupo            ,
-                                                v_medio_entrega    ,
+                                                v_causal           ,
+                                                v_medio_pago       ,
                                                 v_estado           ,
                                                 v_cod_rechazo      ,
                                                 v_fecha_inicio     ,
@@ -295,25 +266,23 @@ Narrativa del proceso que realiza:
 Realiza la consulta de los datos de retiro Ley 73
 
 Registro de modificaciones:
-Autor           Fecha              Descrip. cambio
-Ivan Vega     Diciembre 11, 2020  - Se corrige filtrado por caso CRM (adai), no le estaba agregando las comillas
-                                    a la clausula SQL. El dato es alfanumerico
+Autor           Fecha          Descrip. cambio
 ======================================================================
 }
 FUNCTION fn_consulta_solicitud_generico(v_modalidad_retiro, v_nss, v_caso_adai,
                                            v_id_solicitud, v_folio, v_folio_restitucion,
-                                           v_grupo, v_medio_entrega,
+                                           v_causal, v_medio_pago,
                                            v_estado, v_cod_rechazo,
                                            v_fecha_inicio, v_fecha_fin, v_fecha_pago_ini,
                                            v_fecha_pago_fin)
 DEFINE v_modalidad_retiro   LIKE ret_modalidad_retiro.modalidad_retiro,
        v_nss                LIKE afi_derechohabiente.nss, 
        v_caso_adai          LIKE ret_solicitud_generico.caso_adai,
-       v_id_solicitud      LIKE ret_solicitud_generico.id_solicitud,
+       v_id_solicitud       LIKE ret_solicitud_generico.id_solicitud,
        v_folio              LIKE glo_folio.folio,
-       v_folio_restitucion LIKE ret_solicitud_generico.folio_restitucion,
-       v_grupo              SMALLINT,
-       v_medio_entrega      SMALLINT,
+       v_folio_restitucion  LIKE ret_solicitud_generico.folio_restitucion,
+       v_causal             SMALLINT,
+       v_medio_pago         SMALLINT,
        v_estado             LIKE ret_estado_solicitud.estado_solicitud,
        v_cod_rechazo        SMALLINT, -- codigo de rechazo
        v_fecha_inicio       DATE, -- fecha de inicio de consulta
@@ -329,9 +298,7 @@ DEFINE v_modalidad_retiro   LIKE ret_modalidad_retiro.modalidad_retiro,
           desc_modalidad     VARCHAR(50),
           num_solicitudes    SMALLINT,
           folio              DECIMAL(9,0),
-          aivs               DECIMAL(24,6),
-          pesos              DECIMAL(22,2),
-          monto              DECIMAL(22,2),
+          tanto_normal       DECIMAL(22,2),
           tanto_adicional    DECIMAL(22,2),
           estado_solicitud   CHAR(100),
           cod_rechazo        CHAR(100)
@@ -342,9 +309,7 @@ DEFINE v_modalidad_retiro   LIKE ret_modalidad_retiro.modalidad_retiro,
           desc_modalidad     VARCHAR(50),
           num_solicitudes    SMALLINT,
           folio              DECIMAL(9,0),
-          aivs               DECIMAL(24,6),
-          pesos              DECIMAL(22,2),
-          monto              DECIMAL(22,2),
+          tanto_normal       DECIMAL(22,2),
           tanto_adicional    DECIMAL(22,2),
           estado_solicitud_d CHAR(100),
           cod_rechazo_d      CHAR(100)
@@ -354,10 +319,11 @@ DEFINE v_modalidad_retiro   LIKE ret_modalidad_retiro.modalidad_retiro,
           cod_rechazo        INT
        END RECORD,
        v_sql_filtro STRING
-       
+DEFINE w ui.Window
+DEFINE f ui.Form
    -- ===================================================================================
    -- ===================================================================================
-   -- REGISTROS DE LEY 73
+   -- REGISTROS DEL FONDO DE AHORRO
    -- ===================================================================================
    -- se construye la cadena de consulta
 LET v_sql = "\n SELECT                                                                    ",
@@ -366,8 +332,6 @@ LET v_sql = "\n SELECT                                                          
             "\n a.modalidad_retiro || ' - ' || e.des_corta,                               ",
             "\n COUNT(*)          ,                                                       ",
             "\n a.folio           ,                                                       ",
-            "\n 0,                                                                        ",
-            "\n 0,                                                                        ",
             "\n 0,                                                                        ",
             "\n 0,                                                                        ",
             "\n a.estado_solicitud || '-' || es.des_corta,                                ",
@@ -380,6 +344,7 @@ LET v_sql = "\n SELECT                                                          
             "\n ret_rechazo_generico cr                                                   ",
             "\n WHERE 1 = 1                                                               ",
             "\n AND   a.modalidad_retiro = e.modalidad_retiro                             ",
+            "\n AND   a.modalidad_retiro = 1                                              ",   --- Solo infonavit
             "\n AND   a.estado_solicitud = es.estado_solicitud                            ",
             "\n AND   a.cod_rechazo      = cr.cod_rechazo                                 "
 
@@ -404,17 +369,22 @@ LET v_sql = "\n SELECT                                                          
    
    -- si se recibio caso adai
    IF ( v_caso_adai IS NOT NULL ) THEN
-      LET v_sql_filtro = v_sql_filtro, "\n AND a.caso_adai = '", v_caso_adai, "'"
+      LET v_sql_filtro = v_sql_filtro, "\n AND a.caso_adai = ", v_caso_adai
    END IF
 
    -- si se recibio grupo
-   IF ( v_grupo IS NOT NULL ) THEN
-      LET v_sql_filtro = v_sql_filtro, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_ley73_generico WHERE gpo_ley73 = ", v_grupo, ")"
+   IF ( v_causal IS NOT NULL ) THEN
+      LET v_sql_filtro = v_sql_filtro, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_fondo_ahorro_generico WHERE causal_retiro = ", v_causal, ")"
    END IF
 
    -- si se recibio medio entrega
-   IF ( v_medio_entrega IS NOT NULL ) THEN
-      LET v_sql_filtro = v_sql_filtro, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_sol_medio_entrega WHERE medio_entrega = ", v_medio_entrega, ")"
+   IF ( v_medio_pago IS NOT NULL ) THEN
+      IF v_medio_pago = 1 THEN -- Cuenta CLABE
+         LET v_sql_filtro = v_sql_filtro, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_pago_spei WHERE consec_beneficiario = 1 )"
+      END IF 
+      IF v_medio_pago = 2 THEN -- Pago vía DAP
+         LET v_sql_filtro = v_sql_filtro, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_pago_dap WHERE consec_beneficiario = 1 )"
+      END IF 
    END IF
    
    LET v_sql = v_sql,v_sql_filtro
@@ -423,25 +393,15 @@ LET v_sql = "\n SELECT                                                          
       LET v_sql = v_sql, "\n AND a.folio = ", v_folio
    END IF
    
-   -- modalidad de retiro especifica
-   IF ( v_modalidad_retiro IS NOT NULL ) THEN
-      LET v_sql = v_sql || "\n AND a.modalidad_retiro = ", v_modalidad_retiro
-   END IF
-
    -- si se recibio estado de la solicitud
    IF ( v_estado IS NOT NULL ) THEN
       LET v_sql = v_sql, "\n AND a.estado_solicitud = ", v_estado
    END IF
 
-   -- si se recibio codigo de rechazo especifico
-   IF ( v_cod_rechazo IS NOT NULL ) THEN
-      LET v_sql = v_sql, "\n AND a.cod_rechazo = ", v_cod_rechazo
-   END IF
-
    IF ( v_fecha_pago_ini IS NOT NULL AND v_fecha_pago_fin IS NOT NULL ) THEN
       LET v_sql = v_sql, "\n AND a.folio       IN (SELECT folio                  ",
                          "\n                       FROM   bat_ctr_operacion      ",
-                         "\n                       WHERE  proceso_cod  = 1506    ",
+                         "\n                       WHERE  proceso_cod  = 1503    ",
                          "\n                       AND    opera_cod  = 2         ",
                          "\n                       AND    estado_cod = 4         ",
                          "\n                       AND    fecha_ini IS NOT NULL  ",
@@ -452,7 +412,7 @@ LET v_sql = "\n SELECT                                                          
 
    
    -- se concatena la agrupacion y ordenamiento en turno
-   LET v_sql = v_sql, "\n GROUP BY 1,2,3,5,10,11,12,13",
+   LET v_sql = v_sql, "\n GROUP BY 1,2,3,5,8,9,10,11",
                       "\n ORDER BY 2"
 
    DISPLAY v_sql
@@ -474,23 +434,29 @@ LET v_sql = "\n SELECT                                                          
                   "\n     AND a.cod_rechazo = ",v_arr_des_det[v_indice].cod_rechazo,
                   --"\n     AND a.f_solicitud BETWEEN '", v_fecha_inicio, "' AND '", v_fecha_fin, "'",
                    v_sql_filtro,")"  
-      --se genera la consulta para la obteción de aivs y pesos
-         -- 20140122 se cambia tabla ret_ley73 por ret_ley73_generico
-         LET v_sql = "SELECT sum(aivs_viv92+aivs_viv97+importe_viv97_anexo1),sum(importe_viv92+importe_viv97+importe_viv97_anexo1),0,0",
-                         "\n FROM ret_ley73_generico ",v_sql
+      --se genera la consulta para la obteción del tanto normal y el tanto adicional
+         LET v_sql = "SELECT sum(saldo_viv72),sum(tanto_adicional)",
+                         "\n FROM ret_fondo_ahorro_generico ",v_sql
       --DISPLAY "Consulta Completa >" || v_sql || "<"
       --obteción de datos extras, acumulado de aivs y pesos
       PREPARE sid_sumas FROM v_sql
-      EXECUTE sid_sumas INTO v_arr_despliegue[v_indice].aivs,v_arr_despliegue[v_indice].pesos,
-                             v_arr_despliegue[v_indice].monto,v_arr_despliegue[v_indice].tanto_adicional
+      EXECUTE sid_sumas INTO v_arr_despliegue[v_indice].tanto_normal,v_arr_despliegue[v_indice].tanto_adicional
 
       LET v_indice = v_indice + 1
    END FOREACH
    
-   OPEN WINDOW w_consulta1 WITH FORM "RETC4632"
+   OPEN WINDOW w_consulta1 WITH FORM "RETC4802"
+    LET w = ui.Window.getCurrent()
+    LET f = w.getForm()
    
    INPUT ARRAY v_arr_despliegue WITHOUT DEFAULTS
    FROM tbl_solicitudes_1.* ATTRIBUTES ( UNBUFFERED, INSERT ROW = FALSE, DELETE ROW = FALSE, APPEND ROW = FALSE )
+   BEFORE INPUT 
+    --CALL f.setElementHidden("tbl_solicitudes_1.tanto_normal",1)       
+    --CALL f.setElementHidden("tbl_solicitudes_1.tanto_adicional",1)       
+    CALL f.setFieldHidden("tanto_normal",1)       
+    CALL f.setFieldHidden("tanto_adicional",1)       
+    
       ON ACTION accept
       
          LET v_elementos_elegidos = 0
@@ -518,7 +484,7 @@ LET v_sql = "\n SELECT                                                          
          CALL fn_consulta_solicitudes_nivel2(v_nss, v_caso_adai, v_estado, v_cod_rechazo,
                                              v_id_solicitud,v_folio_restitucion,
                                              v_fecha_inicio, v_fecha_fin, v_fecha_pago_ini,
-                                             v_fecha_pago_fin, v_grupo, v_medio_entrega)
+                                             v_fecha_pago_fin, v_causal, v_medio_pago)
 
       ON ACTION todos
          FOR v_indice = 1 TO v_arr_despliegue.getLength()
@@ -554,20 +520,15 @@ solicitudes de primer nivel que agrupa montos por folio y que se encuentran
 en el arreglo global
 
 Registro de modificaciones:
-Autor           Fecha            Descrip. cambio
-Eneas Armas     20140122          se cambia tabla ret_ley73 por ret_ley73_generico
-                20140122          se cambia tabla ret_fondo_ahorro por ret_fondo_ahorro_generico
-Ivan Vega    Diciembre 09,0202  - se agrega clausula en SELECT para mostrar el ID de la solicitud cuando estas estan
-                                  en estatus de precaptura
-Ivan Vega     Diciembre 11, 2020  - Se corrige filtrado por caso CRM (adai), no le estaba agregando las comillas
-                                    a la clausula SQL. El dato es alfanumerico
-
+Autor           Fecha      Descrip. cambio
+Eneas Armas     20140122   se cambia tabla ret_ley73 por ret_ley73_generico
+                20140122   se cambia tabla ret_fondo_ahorro por ret_fondo_ahorro_generico
 ======================================================================
 }
 FUNCTION fn_consulta_solicitudes_nivel2(v_nss, v_caso_adai, v_estado, v_cod_rechazo,
                                         v_id_solicitud_i,v_folio_restitucion_i,
                                         v_fecha_inicio, v_fecha_fin, v_fecha_pago_ini,
-                                        v_fecha_pago_fin, v_gpo, v_medio_entrega)
+                                        v_fecha_pago_fin, v_causal, v_medio_pago)
 DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
        v_etapa               SMALLINT, -- 1 Solicitud, 2 Preliquidacion, 3 Liquidacion
        v_nss                 LIKE afi_derechohabiente.nss,
@@ -577,8 +538,8 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
        v_folio_restitucion_i LIKE ret_solicitud_generico.folio_restitucion,
        v_estado              LIKE ret_estado_solicitud.estado_solicitud,
        v_cod_rechazo         SMALLINT, -- codigo de rechazo
-       v_gpo               SMALLINT, -- grupo
-       v_medio_entrega       SMALLINT, -- medio entrega
+       v_causal              SMALLINT, -- causal
+       v_medio_pago          SMALLINT, -- medio pago
        v_fecha_inicio        DATE, -- fecha de inicio de consulta
        v_fecha_fin           DATE, -- fecha fin de consulta
        v_fecha_pago_ini      DATE, -- fecha de pago inicial
@@ -604,9 +565,6 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
        v_grupo                          SMALLINT,
        v_fecha_liquida                  DATETIME YEAR TO SECOND ,
        v_cont_va                        INTEGER, 
-       v_tit_ben                        SMALLINT,
-       v_porcentaje_pago                SMALLINT,
-       v_id_sol_busca_montos            DECIMAL(9,0),
        
        v_r_despliegue        RECORD
          id_solicitud        LIKE ret_solicitud_generico.id_solicitud    ,
@@ -618,11 +576,9 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
          caso_adai           LIKE ret_solicitud_generico.caso_adai       ,
          folio               LIKE glo_folio.folio                        ,
          f_solicitud         LIKE ret_disposicion.f_solicitud            ,
-         aivs                LIKE ret_disposicion.aivs_viv92             ,
-         pesos               DECIMAL(22,2)                               ,
-         monto               DECIMAL(22,2)                               ,
-         tanto_adicional     DECIMAL(22,2)                               ,
-         ref_dap             DECIMAL(15,0)                               ,
+         aivs                LIKE ret_solo_infonavit.aivs_viv97          ,
+         pesos               LIKE ret_solo_infonavit.importe_viv97       ,
+         ref_dap             CHAR(18)                                    ,
          estado_solicitud    VARCHAR(100)                                ,
          cod_rechazo         VARCHAR(100)                                ,
          medio_entrega       CHAR(10)                                    ,
@@ -641,46 +597,29 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
          rsp_f_pago          LIKE ret_ws_consulta_pago_fico.rsp_f_pago   ,
          cta_x_pagar         LIKE ret_ws_consulta_pago_fico.documento    ,
          sello               CHAR(64)                                    ,
-         f_liquida           DATE                                        ,
-         tesofe              DECIMAL(22,2)                               ,
-         aivs_97             DECIMAL(22,2)                               ,
-         pesos_97            DECIMAL(22,2)                               ,
-         aivs_92             DECIMAL(22,2)                               ,
-         pesos_92            DECIMAL(22,2)                               ,
-         total               DECIMAL(22,2)                               
+         f_liquida           DATE                                        
        END RECORD,          
        v_arr_despliegue     DYNAMIC ARRAY OF RECORD
-         id_solicitud        LIKE ret_solicitud_generico.id_solicitud    ,
-         modalidad_retiro    LIKE ret_solicitud_generico.modalidad_retiro,
-         desc_modalidad      VARCHAR(200)                                ,
-         grupo               CHAR(30),
-         nss                 LIKE afi_derechohabiente.nss                ,
-         rfc                 LIKE afi_derechohabiente.rfc                ,
-         caso_adai           LIKE ret_solicitud_generico.caso_adai       ,
-         f_solicitud         LIKE ret_disposicion.f_solicitud            ,
+         id_solicitud         LIKE ret_solicitud_generico.id_solicitud    ,
+         modalidad_retiro     LIKE ret_solicitud_generico.modalidad_retiro,
+         desc_modalidad       VARCHAR(200)                                ,
+         causal               CHAR(30),
+         nss                  LIKE afi_derechohabiente.nss                ,
+         rfc                  LIKE afi_derechohabiente.rfc                ,
+         caso_adai            LIKE ret_solicitud_generico.caso_adai       ,
+         f_solicitud          LIKE ret_disposicion.f_solicitud            ,
          ---------Se agrego este campo para el requerimiento 863----------
-         f_autorizacion      LIKE ret_ws_peticion_marca.f_peticion       ,
-         f_liquida           DATE                                        ,
-         f_pago              DATE                                        ,
-         aivs_97_afore       DECIMAL(22,2)                               ,
-         pesos_97_afore      DECIMAL(22,2)                               ,
-         aivs_92_afore       DECIMAL(22,2)                               ,
-         pesos_92_afore      DECIMAL(22,2)                               ,
-         dif_aivs_97         DECIMAL(22,2)                               ,
-         dif_pesos_97        DECIMAL(22,2)                               ,
-         dif_aivs_92         DECIMAL(22,2)                               ,
-         dif_pesos_92        DECIMAL(22,2)                               ,
-         tesofe              DECIMAL(22,2)                               ,
-         aivs_97             DECIMAL(22,2)                               ,
-         pesos_97            DECIMAL(22,2)                               ,
-         aivs_92             DECIMAL(22,2)                               ,
-         pesos_92            DECIMAL(22,2)                               ,
-         total               DECIMAL(22,2)                               ,
+         f_autorizacion       LIKE ret_ws_peticion_marca.f_peticion       ,
+         f_liquida            DATE                                        ,
+         f_pago               DATE                                        ,
+         aivs                LIKE ret_solo_infonavit.aivs_viv97           ,
+         pesos               LIKE ret_solo_infonavit.importe_viv97        ,
+         total_devolucion     DECIMAL(22,2)                               ,
          -----------------------------------------------------------------
-         estado_solicitud    VARCHAR(100)                                ,
-         cod_rechazo         VARCHAR(100)                                ,
-         medio_entrega       CHAR(10)                                    ,
-         cuenta_clabe        CHAR(18)
+         estado_solicitud     VARCHAR(100)                                ,
+         cod_rechazo          VARCHAR(100)                                ,
+         medio_entrega        CHAR(10)                                    ,
+         cuenta_clabe_ref_dap CHAR(18)
        END RECORD,
        v_arr_despliegue_det     DYNAMIC ARRAY OF RECORD
          modalidad_retiro    LIKE ret_solicitud_generico.modalidad_retiro,
@@ -705,9 +644,7 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
        END RECORD,
        v_valor_aiv                LIKE ret_cza_disposicion.precio_fondo,
        v_num_registros            INTEGER,
-       v_total_pesos              DECIMAL(22,2),
-       v_total_aivs               DECIMAL(22,6),
-       v_total_monto              DECIMAL(22,2),
+       v_total_tanto_normal       DECIMAL(22,2),
        v_total_tanto_adicional    DECIMAL(22,6),
        v_ed_sello                 CHAR(64),
        v_fecha_valuacion          LIKE ret_cza_disposicion.f_valor_transferencia,          
@@ -779,19 +716,18 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
        v_fecha_actual        DATE,
        v_usuario_desc        LIKE seg_usuario.usuario_desc
        DEFINE v_sql_nombre   STRING
+DEFINE w ui.Window
+DEFINE f ui.Form
 
 
    -- se inician las variables de acumulacion de cifras
    LET v_num_registros            = 0
-   LET v_total_pesos              = 0
-   LET v_total_aivs               = 0
-   LET v_total_monto              = 0
+   LET v_total_tanto_normal       = 0
    LET v_total_tanto_adicional    = 0
    LET v_arr_despliegue           = NULL
    CALL v_arr_despliegue.clear()
    LET v_arr_despliegue_det       = NULL 
    LET v_cuenta_pagos             = 0
-   LET v_tit_ben                  = 1
 
    LET v_sql = "\n SELECT DISTINCT ef.des_estado, rw.rsp_referencia, rw.rsp_f_pago, rw.documento,    ",
                "\n                 rw.f_consulta, rw.h_consulta                                      ",
@@ -808,17 +744,15 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
                "\n AND    rw.id_solicitud = ?                                                        ",
                "\n ORDER  BY rw.f_consulta DESC, rw.h_consulta DESC                                  "
    PREPARE sid_pago_fico FROM v_sql
-   --DISPLAY "pago FICO: \n", v_sql
 
    --DISPLAY "En el segundo nivel"
    -- ====================================================================================================
    -- ====================================================================================================
-   -- SOLICITUDES  DE LEY 73
+   -- SOLICITUDES  DEL FONDO DE AHORRO
    -- ====================================================================================================
    -- se obtienen las solicitudes de los folios elegidos y con las condiciones dadas en la captura de consulta  
    LET v_sql = "\n SELECT                                                                   ",
-               "\n CASE WHEN rb.tpo_beneficiario = 1 THEN a.id_solicitud ",
-               "\n WHEN a.estado_solicitud = 8 THEN a.id_solicitud ELSE (rb.id_solicitud*10)+rb.consec_beneficiario END ,",
+               "\n a.id_solicitud                                                           ,",
                "\n a.modalidad_retiro                                                       ,",
                "\n a.modalidad_retiro || ' - ' || e.des_corta                               ,",
                "\n a.nss                                                                    ,",
@@ -827,13 +761,17 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
                "\n a.caso_adai                                                              ,",
                "\n a.folio                                                                  ,",
                "\n a.f_solicitud                                                            ,",
-               "\n 0                                                                        ,",
-               "\n 0                                                                        ,",
-               "\n 0                                                                        ,",
-               "\n 0                                                                        ,",
-               "\n nvl(rpd.cve_referencia,0)                                                ,",
-               "\n CASE WHEN rbj.estado_solicitud IS NULL THEN a.estado_solicitud ELSE rbj.estado_solicitud END                  ,",
-               "\n CASE WHEN rbj.cod_rechazo IS NULL THEN a.cod_rechazo ELSE rbj.cod_rechazo END                                 ,",
+               "\nCASE                                                                       ", 
+               "\n    WHEN a.estado_solicitud = 8 THEN 0                                     ",
+               "\n    ELSE nvl(rsi.aivs_viv97,0)                                             ",
+               "\nEND,                                                                       ",
+               "\nCASE                                                                       ", 
+               "\n    WHEN a.estado_solicitud = 8 THEN 0                                     ",
+               "\n    ELSE nvl(rsi.importe_viv97,0)                                          ",
+               "\nEND,                                                                       ",
+               "\n nvl(rpd.cve_referencia,rps.cuenta_clabe)                                 ,",
+               "\n a.estado_solicitud || '-' || es.des_corta                                ,",
+               "\n a.cod_rechazo || '-' || cr.des_corta                                     ,",
                "\n rcme.descripcion                                                         ,",
                "\n ae.nombre_archivo                                                        ,",
                "\n ae.f_actualiza                                                           ,",
@@ -845,32 +783,30 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
                "\n rc.f_actualiza                                                           ,",
                "\n a.id_derechohabiente                                                     ,", 
                "\n a.folio_restitucion                                                      ,",
-               "\n '','','','',NVL(rsm.sello,''), '',0,0,0,0,0,0,                            ",
-               "\n rb.tpo_beneficiario                                                       ",
+               "\n '','','','',NVL(rsm.sello,'')                                             ",
                #"\n ef.des_estado                                                            ,",
                #"\n p.rsp_referencia                                                         ,",
                #"\n p.rsp_f_pago                                                             ,",
                #"\n p.documento                                                               ", 
                "\n FROM ret_solicitud_generico  a                                            ",
-               "\n      LEFT OUTER JOIN ret_sol_medio_entrega rsm                            ",
-               "\n                   ON a.id_solicitud = rsm.id_solicitud                    ",
-               "\n      LEFT OUTER JOIN ret_cat_medio_entrega rcme                           ",
-               "\n                   ON rsm.medio_entrega = rcme.medio_entrega               ",
-               "\n      LEFT OUTER JOIN ret_pago_dap rpd                                     ",
-               "\n                   ON a.id_solicitud = rpd.id_solicitud                    ",
-               "\n      LEFT OUTER JOIN ret_ctr_archivo_fico ae                              ",
-               "\n                   ON a.id_archivo_envio = ae.id_archivo                   ",
-               "\n      LEFT OUTER JOIN ret_ctr_archivo_fico ar                              ",
-               "\n                   ON a.id_archivo_respuesta = ar.id_archivo               ",
-               "\n      LEFT OUTER JOIN ret_ctr_archivo_fico cc                              ",
-               "\n                   ON a.id_archivo_cancela_cxp =cc.id_archivo              ",
-               "\n      LEFT OUTER JOIN ret_ctr_archivo_fico rc                              ",
-               "\n                   ON a.id_archivo_resp_cxp  = rc.id_archivo               ",
-               "\n      LEFT OUTER JOIN ret_beneficiario_generico rb                         ",
-               "\n                   ON a.id_solicitud  = rb.id_solicitud                    ",
-               "\n      LEFT OUTER JOIN ret_beneficiario_juridico rbj                        ",
-               "\n                   ON rb.id_solicitud  = rbj.id_solicitud                  ",
-               "\n                  AND rb.consec_beneficiario  = rbj.consec_beneficiario,   ",
+               "\n LEFT OUTER JOIN ret_solo_infonavit rsi                                    ",
+               "\n ON a.id_solicitud = rsi.id_solicitud                                      ",
+               "\n LEFT OUTER JOIN ret_sol_medio_entrega rsm                                 ",
+               "\n ON a.id_solicitud = rsm.id_solicitud                                      ",
+               "\n LEFT OUTER JOIN ret_cat_medio_entrega rcme                                ",
+               "\n ON rsm.medio_entrega = rcme.medio_entrega                                 ",
+               "\n LEFT OUTER JOIN ret_pago_dap rpd                                          ",
+               "\n ON a.id_solicitud = rpd.id_solicitud                                      ",
+               "\n LEFT OUTER JOIN ret_pago_spei rps                                          ",
+               "\n ON a.id_solicitud = rps.id_solicitud                                      ",
+               "\n LEFT OUTER JOIN ret_ctr_archivo_fico ae                                   ",
+               "\n ON a.id_archivo_envio = ae.id_archivo                                     ",
+               "\n LEFT OUTER JOIN ret_ctr_archivo_fico ar                                   ",
+               "\n ON a.id_archivo_respuesta = ar.id_archivo                                 ",
+               "\n LEFT OUTER JOIN ret_ctr_archivo_fico cc                                   ",
+               "\n ON a.id_archivo_cancela_cxp =cc.id_archivo                                ",
+               "\n LEFT OUTER JOIN ret_ctr_archivo_fico rc                                   ",
+               "\n ON a.id_archivo_resp_cxp  = rc.id_archivo,                                ",
                --
                #"\n LEFT OUTER JOIN (SELECT rw.id_solicitud, rw.f_consulta,                   ", 
                #"\n                         rw.rsp_referencia, rw.rsp_f_pago,                 ",
@@ -888,9 +824,13 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
                --estos estados se agregaron para evitar que se duplique información con estados no validos
                #"\n LEFT OUTER JOIN ret_cat_edo_pago_fico ef                                  ",
                #"\n ON p.rsp_estatus = ef.estado_pago ,                                       ",
-               "\n ret_modalidad_retiro      e                                               ",    
+               "\n ret_modalidad_retiro      e,                                              ",
+               "\n ret_estado_solicitud      es,                                             ",
+               "\n ret_rechazo_generico       cr                                             ",    
                "\n WHERE 1 = 1                                                               ",
-               "\n AND   a.modalidad_retiro = e.modalidad_retiro                             "
+               "\n AND   a.modalidad_retiro = e.modalidad_retiro                             ",
+               "\n AND   a.estado_solicitud = es.estado_solicitud                            ",
+               "\n AND   a.cod_rechazo      = cr.cod_rechazo                                 "
 
    -- si se recibio nss 
    IF v_fecha_inicio IS NOT NULL AND v_fecha_fin IS NOT NULL THEN 
@@ -911,18 +851,23 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
    END IF
 
    -- si se recibio grupo
-   IF ( v_gpo IS NOT NULL ) THEN
-      LET v_sql = v_sql, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_ley73_generico WHERE gpo_ley73 = ", v_gpo, ")"
+   IF ( v_causal IS NOT NULL ) THEN
+      LET v_sql = v_sql, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_fondo_ahorro_generico WHERE causal_retiro = ", v_causal, ")"
    END IF
 
    -- si se recibio medio entrega
-   IF ( v_medio_entrega IS NOT NULL ) THEN
-      LET v_sql = v_sql, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_sol_medio_entrega WHERE medio_entrega = ", v_medio_entrega, ")"
+   IF ( v_medio_pago IS NOT NULL ) THEN
+      IF v_medio_pago = 1 THEN -- Cuenta CLABE
+         LET v_sql = v_sql, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_pago_spei WHERE consec_beneficiario = 1 )"
+      END IF 
+      IF v_medio_pago = 2 THEN -- Pago vía DAP
+         LET v_sql = v_sql, "\n AND a.id_solicitud IN (SELECT id_solicitud FROM ret_pago_dap WHERE consec_beneficiario = 1 )"
+      END IF 
    END IF
    
    -- si se recibio caso adai
    IF ( v_caso_adai IS NOT NULL ) THEN
-      LET v_sql = v_sql, "\n AND a.caso_adai = '", v_caso_adai, "'"
+      LET v_sql = v_sql, "\n AND a.caso_adai = ", v_caso_adai
    END IF
 
 
@@ -947,20 +892,9 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
    -- se transfieren los datos al arreglo de despligue
    PREPARE sid_solicitudesdet FROM v_sql
    DECLARE cur_solicitudesdet CURSOR FOR sid_solicitudesdet
-   FOREACH cur_solicitudesdet INTO v_r_despliegue.*, v_tit_ben
+   FOREACH cur_solicitudesdet INTO v_r_despliegue.*
       DISPLAY v_indice
-      DISPLAY "Se obtiene el tipo de beneficiario :", v_tit_ben
-      LET v_porcentaje_pago = 0
-      -- Busca la descripción del estado de la solicitud y del código del rechazo
-      SELECT estado_solicitud || "-" || des_corta 
-      INTO   v_r_despliegue.estado_solicitud
-      FROM   ret_estado_solicitud 
-      WHERE  estado_solicitud = v_r_despliegue.estado_solicitud  
-      SELECT cod_rechazo || "-" || des_corta 
-      INTO   v_r_despliegue.cod_rechazo
-      FROM   ret_rechazo_generico 
-      WHERE  cod_rechazo = v_r_despliegue.cod_rechazo  
-      
+
       DECLARE cur_pago_fico CURSOR FOR sid_pago_fico 
       FOREACH cur_pago_fico USING v_r_despliegue.id_solicitud, v_r_despliegue.id_solicitud 
                              INTO v_r_despliegue.des_estado, v_r_despliegue.rsp_referencia,
@@ -972,99 +906,49 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
          END IF 
       END FOREACH 
       CLOSE cur_pago_fico
-      IF v_r_despliegue.medio_entrega = 'AFORE' THEN 
-         LET v_arr_despliegue[v_indice].aivs_92_afore = 0
-         LET v_arr_despliegue[v_indice].aivs_97_afore = 0
-         LET v_arr_despliegue[v_indice].pesos_92_afore = 0
-         LET v_arr_despliegue[v_indice].pesos_97_afore = 0
-         LET v_arr_despliegue[v_indice].dif_aivs_92 = 0
-         LET v_arr_despliegue[v_indice].dif_aivs_97 = 0
-         LET v_arr_despliegue[v_indice].dif_pesos_92 = 0
-         LET v_arr_despliegue[v_indice].dif_pesos_97 = 0
-         SELECT NVL(MAX(id_peticion),0)
-         INTO   v_cont_va
-         FROM   ret_ws_sol_retiro_vent_afore
-         WHERE  id_solicitud = v_r_despliegue.id_solicitud
-         IF v_cont_va > 0 THEN  
-            SELECT f_confirma, NVL(aivs_viv97,0), NVL(pesos_viv97,0), NVL(aivs_viv92,0), NVL(pesos_viv92,0)
-            INTO   v_arr_despliegue[v_indice].f_autorizacion,
-                   v_arr_despliegue[v_indice].aivs_97_afore,
-                   v_arr_despliegue[v_indice].pesos_97_afore,
-                   v_arr_despliegue[v_indice].aivs_92_afore,
-                   v_arr_despliegue[v_indice].pesos_92_afore
-            FROM   ret_ws_sol_retiro_vent_afore
-            WHERE  id_solicitud = v_r_despliegue.id_solicitud
-            AND    id_peticion = v_cont_va
-         END IF
+      IF v_r_despliegue.medio_entrega = 'TABLETA' OR 
+         v_r_despliegue.medio_entrega = 'DEV AUTO' THEN
+         LET v_arr_despliegue[v_indice].f_autorizacion = v_r_despliegue.f_solicitud
       ELSE 
-         IF v_r_despliegue.medio_entrega = 'TABLETA' OR 
-            v_r_despliegue.medio_entrega = 'DEV AUTO' THEN
-            LET v_arr_despliegue[v_indice].f_autorizacion = v_r_despliegue.f_solicitud
-         ELSE 
-            --Se obtiene la fecha de actualizacion
-            SELECT MAX(f_peticion)
-            INTO v_arr_despliegue[v_indice].f_autorizacion
-            FROM ret_ws_peticion_marca rp, ret_ws_det_peticion_marca rd
-            WHERE rp.id_peticion = rd.id_peticion 
-            AND ind_marca = 3 
-            AND caso_adai = v_r_despliegue.caso_adai
-            IF v_arr_despliegue[v_indice].f_autorizacion IS NULL THEN 
-               SELECT MAX(f_peticion)
-               INTO   v_arr_despliegue[v_indice].f_autorizacion
-               FROM   ret_ws_peticion_act_benef rp, ret_ws_det_peticion_act_benef rd
-               WHERE  rp.id_peticion = rd.id_peticion 
-               AND    nss = v_r_despliegue.nss
-            END IF 
-         END IF 
+         --Se obtiene la fecha de actualizacion
+         SELECT MAX(f_peticion)
+         INTO v_arr_despliegue[v_indice].f_autorizacion
+         FROM ret_ws_peticion_marca rp, ret_ws_det_peticion_marca rd
+         WHERE rp.id_peticion = rd.id_peticion 
+         AND ind_marca = 3 
+         AND caso_adai = v_r_despliegue.caso_adai
       END IF 
 
       DISPLAY " La fecha de Autorización: ", v_arr_despliegue[v_indice].f_autorizacion
       -- Se obtiene la cuenta CLABE
-      IF v_tit_ben = 1  THEN 
-         SELECT NVL(b.cuenta_clabe,c.cuenta_clabe)
-         INTO   v_arr_despliegue[v_indice].cuenta_clabe
-         FROM   ret_solicitud_generico a
-                LEFT OUTER JOIN ret_pago_spei b
-                             ON a.id_solicitud = b.id_solicitud
-                            AND b.consec_beneficiario = 1
-                LEFT OUTER JOIN ret_pago_siaf c
-                             ON a.id_solicitud = c.id_solicitud
-                            AND c.consec_beneficiario = 1
-         WHERE  a.id_solicitud = v_r_despliegue.id_solicitud
-      ELSE
-         
-         LET v_id_sol_busca_montos =  (v_r_despliegue.id_solicitud) / 10 -- Se eliminan los decimales
-         
-         SELECT NVL(b.cuenta_clabe,c.cuenta_clabe)
-         INTO   v_arr_despliegue[v_indice].cuenta_clabe
-         FROM   ret_solicitud_generico a
-                LEFT OUTER JOIN ret_pago_spei b
-                             ON a.id_solicitud = b.id_solicitud
-                            AND (b.id_solicitud*10)+b.consec_beneficiario = v_r_despliegue.id_solicitud
-                LEFT OUTER JOIN ret_pago_siaf c
-                             ON a.id_solicitud = c.id_solicitud
-                            AND (c.id_solicitud*10)+c.consec_beneficiario = v_r_despliegue.id_solicitud
-         WHERE  a.id_solicitud =  v_id_sol_busca_montos 
-      END IF 
+      SELECT NVL(b.cuenta_clabe,c.cve_referencia)
+      INTO   v_arr_despliegue[v_indice].cuenta_clabe_ref_dap
+      FROM   ret_solicitud_generico a
+             LEFT OUTER JOIN ret_pago_spei b
+                          ON a.id_solicitud = b.id_solicitud
+                         AND b.consec_beneficiario = 1
+             LEFT OUTER JOIN ret_pago_dap c
+                          ON a.id_solicitud = c.id_solicitud
+                         AND c.consec_beneficiario = 1
+      WHERE  a.id_solicitud = v_r_despliegue.id_solicitud
+
       --datos que se musetran en la tabla
-      LET v_arr_despliegue[v_indice].id_solicitud     = v_r_despliegue.id_solicitud
-      LET v_arr_despliegue[v_indice].modalidad_retiro = v_r_despliegue.modalidad_retiro
-      LET v_arr_despliegue[v_indice].desc_modalidad   = v_r_despliegue.desc_modalidad
-      LET v_arr_despliegue[v_indice].nss              = v_r_despliegue.nss
-      LET v_arr_despliegue[v_indice].rfc              = v_r_despliegue.rfc
-      LET v_arr_despliegue[v_indice].caso_adai        = v_r_despliegue.caso_adai
-      LET v_arr_despliegue[v_indice].f_solicitud      = v_r_despliegue.f_solicitud
-      LET v_arr_despliegue[v_indice].f_liquida        = v_r_despliegue.f_liquida
-      LET v_arr_despliegue[v_indice].f_pago           = fn_fecha(v_r_despliegue.rsp_f_pago)
-      LET v_arr_despliegue[v_indice].tesofe           = v_r_despliegue.tesofe
-      LET v_arr_despliegue[v_indice].aivs_97          = v_r_despliegue.aivs_97
-      LET v_arr_despliegue[v_indice].pesos_97         = v_r_despliegue.pesos_97
-      LET v_arr_despliegue[v_indice].aivs_92          = v_r_despliegue.aivs_92
-      LET v_arr_despliegue[v_indice].pesos_92         = v_r_despliegue.pesos_92
-      LET v_arr_despliegue[v_indice].total            = v_r_despliegue.total
-      LET v_arr_despliegue[v_indice].estado_solicitud = v_r_despliegue.estado_solicitud
-      LET v_arr_despliegue[v_indice].cod_rechazo      = v_r_despliegue.cod_rechazo
-      LET v_arr_despliegue[v_indice].medio_entrega    = v_r_despliegue.medio_entrega
+      LET v_arr_despliegue[v_indice].id_solicitud         = v_r_despliegue.id_solicitud
+      LET v_arr_despliegue[v_indice].modalidad_retiro     = v_r_despliegue.modalidad_retiro
+      LET v_arr_despliegue[v_indice].desc_modalidad       = v_r_despliegue.desc_modalidad
+      LET v_arr_despliegue[v_indice].nss                  = v_r_despliegue.nss
+      LET v_arr_despliegue[v_indice].rfc                  = v_r_despliegue.rfc
+      LET v_arr_despliegue[v_indice].caso_adai            = v_r_despliegue.caso_adai
+      LET v_arr_despliegue[v_indice].f_solicitud          = v_r_despliegue.f_solicitud
+      LET v_arr_despliegue[v_indice].f_liquida            = v_r_despliegue.f_liquida
+      LET v_arr_despliegue[v_indice].f_pago               = fn_fecha(v_r_despliegue.rsp_f_pago)
+      LET v_arr_despliegue[v_indice].aivs                 = v_r_despliegue.aivs
+      LET v_arr_despliegue[v_indice].pesos                = v_r_despliegue.pesos
+      LET v_arr_despliegue[v_indice].total_devolucion     = v_r_despliegue.pesos
+      LET v_arr_despliegue[v_indice].estado_solicitud     = v_r_despliegue.estado_solicitud
+      LET v_arr_despliegue[v_indice].cod_rechazo          = v_r_despliegue.cod_rechazo
+      LET v_arr_despliegue[v_indice].medio_entrega        = v_r_despliegue.medio_entrega
+      LET v_arr_despliegue[v_indice].cuenta_clabe_ref_dap = v_r_despliegue.ref_dap
 
       --datos que NO se muestran en la tabla pero se ven el detalle
       LET v_arr_despliegue_det[v_indice].modalidad_retiro   = v_r_despliegue.modalidad_retiro
@@ -1112,210 +996,91 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
 
       --DISPLAY "obteción de datos extras de acuerdo a laa tabla que depende de la modalidad"
       --obteción de datos extras de acuerdo a laa tabla que depende de la modalidad
-      --total de aivs y pesos
-      -- 20140122 se cambia tabla ret_ley73 por ret_ley73_generico
 
-     
+      {
       --- Se buscan los montos liquidados, si no se encuentran se presentan los de la solicitud de ret_ley73_generico
-      IF v_tit_ben = 1 THEN 
-         LET v_porcentaje_pago = 100
-         LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud 
-      ELSE ---- Busca el porcentaje para reflejar el monto correcto
-         -- regla aplicada para beneficiarios
-         -- se obtiene el porcentaje de acuerdo a los beneficiarios
-         IF v_arr_despliegue[v_indice].id_solicitud IS NOT NULL THEN
-            LET v_sql = "SELECT trunc(",v_arr_despliegue[v_indice].id_solicitud , " /10 )
-                        FROM systables
-                        WHERE tabid =1 "
-            DISPLAY " CONSULTA ",v_sql
-            PREPARE pre_obt_id FROM v_sql
-            EXECUTE pre_obt_id INTO v_id_sol_busca_montos
-         END IF                   
-         SELECT  porcentaje
-          INTO v_porcentaje_pago
-         FROM ret_beneficiario_generico
-          WHERE id_solicitud = v_id_sol_busca_montos
-           AND consec_beneficiario = v_indice
-
-         DISPLAY " v_indice:",v_indice
-         DISPLAY " v_porcentaje_pago:",v_porcentaje_pago
-         DISPLAY " v_arr_despliegue[v_indice].id_solicitud:",v_arr_despliegue[v_indice].id_solicitud
-         --LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud
-
-         DISPLAY "v_id_sol_busca_montos  FINAL:",v_id_sol_busca_montos
-            {
-            SELECT porcentaje
-            INTO   v_porcentaje_pago
-            FROM   ret_beneficiario_generico  
-            WHERE  (id_solicitud*10)+consec_beneficiario = v_arr_despliegue[v_indice].id_solicitud
-            DISPLAY "los valores de solicitud :",v_arr_despliegue[v_indice].id_solicitud
-            LET v_id_sol_busca_montos = v_arr_despliegue[v_indice].id_solicitud / 10 -- Elimina los decimales para los casos de beneficiarios
-            DISPLAY "Sin decimales            :", v_id_sol_busca_montos
-            }
-
+      SELECT SUM(importe) * (-1) --- Se busca el monto del tanto normal
+      INTO   v_arr_despliegue[v_indice].tanto_normal
+      FROM   ret_preliquida72
+      WHERE  folio_liquida = v_arr_despliegue_det[v_indice].folio
+      AND    subcuenta = 40
+      AND    id_referencia = v_arr_despliegue[v_indice].id_solicitud
+      AND    movimiento = 182
+      IF v_arr_despliegue[v_indice].tanto_normal IS NULL THEN 
+         LET v_arr_despliegue[v_indice].tanto_normal = 0
+      END IF 
+      SELECT SUM(importe) * (-1)  --- Se busca el monto del tanto adicional
+      INTO   v_arr_despliegue[v_indice].tanto_adicional
+      FROM   ret_preliquida72
+      WHERE  folio_liquida = v_arr_despliegue_det[v_indice].folio
+      AND    subcuenta = 40
+      AND    id_referencia = v_arr_despliegue[v_indice].id_solicitud
+      AND    movimiento = 422  
+      IF v_arr_despliegue[v_indice].tanto_adicional IS NULL THEN 
+         LET v_arr_despliegue[v_indice].tanto_adicional = 0
+      END IF 
+      IF ((v_arr_despliegue[v_indice].tanto_normal + v_arr_despliegue[v_indice].tanto_adicional ) = 0) THEN
          
-      END IF
-      DISPLAY "El id_solicitud con el que se realiza la búsqueda de montos es:", v_id_sol_busca_montos
-      DISPLAY "el v_tit_ben:", v_tit_ben
-      SELECT SUM(monto_pesos) * (-1)
-      INTO   v_arr_despliegue[v_indice].tesofe
-      FROM   ret_preliquida
-      WHERE  folio_liquida = v_arr_despliegue_det[v_indice].folio
-      AND    subcuenta = 47
-      AND    id_referencia = v_id_sol_busca_montos
-      IF v_arr_despliegue[v_indice].tesofe IS NULL THEN 
-         LET v_arr_despliegue[v_indice].tesofe = 0
+         SELECT saldo_viv72, tanto_adicional
+         INTO v_arr_despliegue[v_indice].tanto_normal, v_arr_despliegue[v_indice].tanto_adicional
+         FROM ret_fondo_ahorro_generico
+         WHERE id_solicitud = v_arr_despliegue[v_indice].id_solicitud
       END IF 
-      SELECT SUM(monto_pesos) * (-1), SUM(monto_acciones) * (-1)
-      INTO   v_arr_despliegue[v_indice].pesos_97,v_arr_despliegue[v_indice].aivs_97 
-      FROM   ret_preliquida
-      WHERE  folio_liquida = v_arr_despliegue_det[v_indice].folio
-      AND    subcuenta = 4
-      AND    id_referencia = v_id_sol_busca_montos
-      IF v_arr_despliegue[v_indice].pesos_97 IS NULL THEN 
-         LET v_arr_despliegue[v_indice].pesos_97 = 0
-      END IF 
-      SELECT SUM(monto_pesos) * (-1), SUM(monto_acciones) * (-1)
-      INTO   v_arr_despliegue[v_indice].pesos_92,v_arr_despliegue[v_indice].aivs_92
-      FROM   ret_preliquida
-      WHERE  folio_liquida = v_arr_despliegue_det[v_indice].folio
-      AND    subcuenta = 8
-      AND    id_referencia = v_id_sol_busca_montos
-      IF v_arr_despliegue[v_indice].pesos_92 IS NULL THEN 
-         LET v_arr_despliegue[v_indice].pesos_92 = 0
-      END IF 
-      IF ((v_arr_despliegue[v_indice].tesofe + 
-          v_arr_despliegue[v_indice].pesos_97 + 
-          v_arr_despliegue[v_indice].pesos_92) = 0) THEN
-         
-         SELECT aivs_viv92, aivs_viv97, importe_viv97_anexo1,
-                importe_viv92, importe_viv97
-         INTO v_arr_despliegue[v_indice].aivs_92, v_arr_despliegue[v_indice].aivs_97,
-              v_arr_despliegue[v_indice].tesofe, v_arr_despliegue[v_indice].pesos_92,
-              v_arr_despliegue[v_indice].pesos_97
-         FROM ret_ley73_generico
-         WHERE id_solicitud = v_id_sol_busca_montos
-      END IF 
-
-      --DISPLAY "ANTES_> v_arr_despliegue[v_indice].tesofe *",v_arr_despliegue[v_indice].tesofe 
-     -- DISPLAY "ANTES_>v_arr_despliegue[v_indice].pesos_97 *",v_arr_despliegue[v_indice].pesos_97 
-     -- DISPLAY "ANTES_>v_arr_despliegue[v_indice].pesos_92 *",v_arr_despliegue[v_indice].pesos_92 
-     -- DISPLAY "ANTES_>v_arr_despliegue[v_indice].aivs_97 *",v_arr_despliegue[v_indice].aivs_97 
-     -- DISPLAY "ANTES_>v_arr_despliegue[v_indice].aivs_92 *",v_arr_despliegue[v_indice].aivs_92 
-      
-      LET v_arr_despliegue[v_indice].tesofe = v_arr_despliegue[v_indice].tesofe * (v_porcentaje_pago / 100)
-      LET v_arr_despliegue[v_indice].pesos_97 = v_arr_despliegue[v_indice].pesos_97 * (v_porcentaje_pago / 100)
-      LET v_arr_despliegue[v_indice].pesos_92 = v_arr_despliegue[v_indice].pesos_92 * (v_porcentaje_pago / 100)
-      LET v_arr_despliegue[v_indice].aivs_97 = v_arr_despliegue[v_indice].aivs_97 * (v_porcentaje_pago / 100)
-      LET v_arr_despliegue[v_indice].aivs_92 = v_arr_despliegue[v_indice].aivs_92 * (v_porcentaje_pago / 100)
-
-     -- DISPLAY "v_porcentaje_pago",v_porcentaje_pago
-      
-      --DISPLAY "DESPUES> v_arr_despliegue[v_indice].tesofe *",v_arr_despliegue[v_indice].tesofe 
-      --DISPLAY "DESPUES>v_arr_despliegue[v_indice].pesos_97 *",v_arr_despliegue[v_indice].pesos_97 
-     -- DISPLAY "DESPUES>v_arr_despliegue[v_indice].pesos_92 *",v_arr_despliegue[v_indice].pesos_92 
-     ---- DISPLAY "DESPUES>v_arr_despliegue[v_indice].aivs_97 *",v_arr_despliegue[v_indice].aivs_97 
-     -- DISPLAY "DESPUES>v_arr_despliegue[v_indice].aivs_92 *",v_arr_despliegue[v_indice].aivs_92 
-      
+      }
       --- Se busca la fecha de liquidación y el grupo
-      LET v_arr_despliegue[v_indice].total = v_arr_despliegue[v_indice].tesofe + 
-                                             v_arr_despliegue[v_indice].pesos_92 +
-                                             v_arr_despliegue[v_indice].pesos_97
-
-      --DISPLAY "TOTAL", v_arr_despliegue[v_indice].total
+      LET v_arr_despliegue[v_indice].total_devolucion = v_arr_despliegue[v_indice].pesos
       
-      LET v_grupo = 0
+      LET v_causal = 0
       LET v_fecha_liquida = NULL
       SELECT f_actualiza 
       INTO   v_fecha_liquida
       FROM   glo_folio
       WHERE  folio = v_arr_despliegue_det[v_indice].folio
 
-      SELECT gpo_ley73
-      INTO   v_grupo
-      FROM   ret_ley73_generico
-      WHERE  id_solicitud = v_id_sol_busca_montos --v_arr_despliegue[v_indice].id_solicitud
+      SELECT causal_retiro
+      INTO   v_causal
+      FROM   ret_fondo_ahorro_generico
+      WHERE  id_solicitud = v_arr_despliegue[v_indice].id_solicitud
       
---      SELECT rlg.gpo_ley73, DATE(bco.fecha_ini)
---      INTO   v_grupo, v_fecha_liquida
---      FROM   ret_ley73_generico rlg
---             LEFT OUTER JOIN bat_ctr_operacion bco
---                          ON bco.folio       = rlg.folio
---                         AND bco.opera_cod   = 2
---                         AND bco.proceso_cod = 1506
---                         AND bco.estado_cod  = 4 
---                         AND bco.fecha_ini   IS NOT NULL 
---      WHERE  rlg.id_solicitud = v_arr_despliegue[v_indice].id_solicitud
-
-      LET v_arr_despliegue[v_indice].grupo = ""
-      IF v_grupo IS NOT NULL AND v_grupo > 0 THEN
-         CASE v_grupo 
+      LET v_arr_despliegue[v_indice].causal = ""
+      IF v_causal IS NOT NULL THEN
+         CASE v_causal 
             WHEN 1 
-               LET v_arr_despliegue[v_indice].grupo = "1-Nuevo Pensionado"
+               LET v_arr_despliegue[v_indice].causal = "1-Término Relación Laboral"
             WHEN 2 
-               LET v_arr_despliegue[v_indice].grupo = "2-Laudo o Amparo"
+               LET v_arr_despliegue[v_indice].causal = "2-Pensión IMSS"
             WHEN 3 
-               LET v_arr_despliegue[v_indice].grupo = "3-Desistimiento"
+               LET v_arr_despliegue[v_indice].causal = "3-Plan Privado de Pensión"
             WHEN 4 
-               LET v_arr_despliegue[v_indice].grupo = "4-Pensionado con Resolución"
+               LET v_arr_despliegue[v_indice].causal = "4-Defunción"
             OTHERWISE 
-               LET v_arr_despliegue[v_indice].grupo = ""
+               LET v_arr_despliegue[v_indice].causal = ""
          END CASE 
       END IF 
       LET v_arr_despliegue[v_indice].f_liquida = NULL 
       IF v_fecha_liquida IS NOT NULL THEN 
          LET v_arr_despliegue[v_indice].f_liquida = v_fecha_liquida
       END IF 
-         
-
-      -- se agregan espacios a la descripcion
-      --LET v_arr_despliegue[v_indice].cod_rechazo = "   ", v_arr_despliegue[v_indice].cod_rechazo
-      --LET v_arr_despliegue[v_indice].estado_solicitud = "   ", v_arr_despliegue[v_indice].estado_solicitud  
-{      
-      -- se multiplican las AIVs por el valor de la accion
-      LET v_arr_despliegue[v_indice].pesos_viv92 = v_r_despliegue.aivs_viv92 * v_valor_aiv
-      LET v_arr_despliegue[v_indice].pesos_viv97 = v_r_despliegue.aivs_viv97 * v_valor_aiv
-}
-      --- Obtiene las diferencias
-      IF v_arr_despliegue[v_indice].medio_entrega = 'AFORE' THEN
-         LET v_arr_despliegue[v_indice].dif_aivs_97 = v_arr_despliegue[v_indice].aivs_97_afore - v_arr_despliegue[v_indice].aivs_97
-         LET v_arr_despliegue[v_indice].dif_aivs_92 = v_arr_despliegue[v_indice].aivs_92_afore - v_arr_despliegue[v_indice].aivs_92
-         LET v_arr_despliegue[v_indice].dif_pesos_97 = v_arr_despliegue[v_indice].pesos_97_afore - v_arr_despliegue[v_indice].pesos_97
-         LET v_arr_despliegue[v_indice].dif_pesos_92 = v_arr_despliegue[v_indice].pesos_92_afore - v_arr_despliegue[v_indice].pesos_92
-      ELSE
-         LET v_arr_despliegue[v_indice].dif_aivs_97 = 0 
-         LET v_arr_despliegue[v_indice].aivs_97_afore = 0
-         LET v_arr_despliegue[v_indice].dif_aivs_92 = 0 
-         LET v_arr_despliegue[v_indice].aivs_92_afore = 0
-         LET v_arr_despliegue[v_indice].dif_pesos_97 = 0
-         LET v_arr_despliegue[v_indice].pesos_97_afore = 0
-         LET v_arr_despliegue[v_indice].dif_pesos_92 = 0
-         LET v_arr_despliegue[v_indice].pesos_92_afore = 0
-      END IF 
-
-      --DISPLAY "V_INDICE",v_indice
+       
       LET v_num_registros          = v_num_registros          + 1
-      LET v_total_aivs             = v_total_aivs             + v_arr_despliegue[v_indice].aivs_92 + v_arr_despliegue[v_indice].aivs_97 
-      LET v_total_pesos            = v_total_pesos            + v_arr_despliegue[v_indice].pesos_92 + v_arr_despliegue[v_indice].pesos_97 
-      LET v_total_monto            = v_total_monto            + 0
-      LET v_total_tanto_adicional  = v_total_tanto_adicional  + 0
-
-      --DISPLAY "v_total_aivs",v_total_aivs
-      --DISPLAY "v_total_pesos",v_total_pesos
-      --DISPLAY "v_total_monto",v_total_monto
-      --DISPLAY "v_total_tanto_adicional",v_total_tanto_adicional
+      LET v_total_tanto_normal     = v_total_tanto_normal     + v_arr_despliegue[v_indice].aivs
+      LET v_total_tanto_adicional  = v_total_tanto_adicional  + v_arr_despliegue[v_indice].pesos
       
       LET v_indice = v_indice + 1
-       --DISPLAY "V_INDICE DESPUES",v_indice
    END FOREACH
 
    -- se abre la ventana de consulta detallada
-   OPEN WINDOW w_consultadetallada WITH FORM "RETC4633"
+   OPEN WINDOW w_consultadetallada WITH FORM "RETC4903"
+    LET w = ui.Window.getCurrent()
+    LET f = w.getForm()
 
    DIALOG ATTRIBUTE (UNBUFFERED)
    
    DISPLAY ARRAY v_arr_despliegue TO tbl_despliegue.*
-
+   BEFORE DISPLAY  
+    CALL f.setFieldHidden("tanto_adicional",1)       
+    CALL f.setFieldHidden("causal",1)       
+   	
       BEFORE ROW
 
       -- obtiene la informacion de detalle
@@ -1338,89 +1103,64 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
       LET v_rsp_f_pago        = fn_fecha(v_arr_despliegue_det[ARR_CURR( )].rsp_f_pago)
 
       -- despliega la informacion de detalle
-      DISPLAY BY NAME v_num_registros, v_total_pesos,v_total_aivs
+      DISPLAY BY NAME v_num_registros, v_total_tanto_normal,v_total_tanto_adicional
         ,v_rfc_det,v_folio_det , v_folio_restitucion,v_nombre
         ,v_nombre_archivo_e , v_fecha_archivo_e  ,v_nombre_archivo_r , v_fecha_archivo_r  
         ,v_nombre_archivo_cc, v_fecha_archivo_cc, v_nombre_archivo_rc, v_fecha_archivo_rc
         ,v_des_estado,v_rsp_referencia,v_rsp_f_pago,v_ed_sello
 
         --DISPLAY "Busca a los beneficiarios"
+        
+      --obtienen los beneficiarios
+      LET v_sqlb ="\n SELECT                            ",
+                  "\n a.consec_beneficiario            ,",
+                  "\n a.tpo_beneficiario               ,",
+                  "\n a.tpo_pago                       ,",
+                  "\n a.cod_parentesco                 ,",
+                  "\n a.ap_paterno                     ,",
+                  "\n a.ap_materno                     ,",
+                  "\n a.nombre                         ,",
+                  "\n a.telefono                       ,",
+                  "\n a.correo                         ,",
+                  "\n a.porcentaje                     ,",
+                  "\n a.aivs                           ,",
+                  "\n a.importe                         ",
+                  "\n FROM ret_beneficiario_generico  a ",
+                  "\n WHERE a.id_solicitud =", v_id_solicitud -- beneficiarios de la solicitud
 
-      --- Se determina si la solicitud es de beneficiarios o del titular
-      IF v_id_solicitud IS NOT NULL THEN 
-         SELECT COUNT(*) 
-         INTO   v_tit_ben
-         FROM   ret_beneficiario_generico 
-         WHERE  (id_solicitud*10)+consec_beneficiario = v_id_solicitud;
-         IF v_tit_ben = 0 THEN 
-            --obtienen los beneficiarios
-            LET v_sqlb ="\n SELECT                            ",
-                        "\n a.consec_beneficiario            ,",
-                        "\n a.tpo_beneficiario               ,",
-                        "\n a.tpo_pago                       ,",
-                        "\n a.cod_parentesco                 ,",
-                        "\n a.ap_paterno                     ,",
-                        "\n a.ap_materno                     ,",
-                        "\n a.nombre                         ,",
-                        "\n a.telefono                       ,",
-                        "\n a.correo                         ,",
-                        "\n a.porcentaje                     ,",
-                        "\n a.aivs                           ,",
-                        "\n a.importe                         ",
-                        "\n FROM ret_beneficiario_generico  a ",
-                        "\n WHERE a.id_solicitud =", v_id_solicitud -- beneficiarios de la solicitud
-         ELSE 
-            LET v_sqlb ="\n SELECT                            ",
-                        "\n a.consec_beneficiario            ,",
-                        "\n a.tpo_beneficiario               ,",
-                        "\n a.tpo_pago                       ,",
-                        "\n a.cod_parentesco                 ,",
-                        "\n a.ap_paterno                     ,",
-                        "\n a.ap_materno                     ,",
-                        "\n a.nombre                         ,",
-                        "\n a.telefono                       ,",
-                        "\n a.correo                         ,",
-                        "\n a.porcentaje                     ,",
-                        "\n a.aivs                           ,",
-                        "\n a.importe                         ",
-                        "\n FROM ret_beneficiario_generico  a ",
-                        "\n WHERE (a.id_solicitud*10)+a.consec_beneficiario = ", v_id_solicitud -- beneficiarios de la solicitud
-         END IF 
-         DISPLAY "EL query de beneficiarios :",v_sqlb
- 
-         PREPARE sid_benefiriariosdet FROM v_sqlb
-         DECLARE cur_benefiriariosdet CURSOR FOR sid_benefiriariosdet
-      
-         -- se transfieren los datos al arreglo de beneficiarios
-         LET v_indice = 1
-         FOREACH cur_benefiriariosdet INTO v_r_beneficiario.*
-            LET v_arr_beneficiario[v_indice].* = v_r_beneficiario.*
-            LET v_indice = v_indice + 1
-         END FOREACH
-       --DISPLAY "Busca la respuesta FICO"
-         --obtine las respuestas fico
-         LET v_sqlr ="\n SELECT                     ",
-                     "\n a.acreedor_res            ,",
-                     "\n a.cta_clabe               ,",
-                     "\n a.cta_x_pagar             ,",
-                     "\n a.anho                    ,",
-                     "\n a.bandera                 ,",
-                     "\n a.acreedor_res            ,",
-                     "\n a.banco_inter             ,",
-                     "\n a.des_error                ",
-                     "\n FROM ret_respuesta_fico  a ",
-                     "\n WHERE a.referencia = ", v_id_solicitud -- beneficiarios de la solicitud
+      PREPARE sid_benefiriariosdet FROM v_sqlb
+      DECLARE cur_benefiriariosdet CURSOR FOR sid_benefiriariosdet
+   
+      -- se transfieren los datos al arreglo de beneficiarios
+      LET v_indice = 1
+      FOREACH cur_benefiriariosdet INTO v_r_beneficiario.*
+         LET v_arr_beneficiario[v_indice].* = v_r_beneficiario.*
+         LET v_indice = v_indice + 1
+      END FOREACH
 
-         PREPARE sid_respuestadet FROM v_sqlr
-         DECLARE cur_respuestadet CURSOR FOR sid_respuestadet
-      
-         -- se transfieren los datos al arreglo de respuestas fico
-         LET v_indice = 1
-         FOREACH cur_respuestadet INTO v_r_respuesta.*
-            LET v_arr_respuesta[v_indice].* = v_r_respuesta.*
-            LET v_indice = v_indice + 1
-         END FOREACH
-      END IF 
+    --DISPLAY "Busca la respuesta FICO"
+      --obtine las respuestas fico
+      LET v_sqlr ="\n SELECT                     ",
+                  "\n a.acreedor_res            ,",
+                  "\n a.cta_clabe               ,",
+                  "\n a.cta_x_pagar             ,",
+                  "\n a.anho                    ,",
+                  "\n a.bandera                 ,",
+                  "\n a.acreedor_res            ,",
+                  "\n a.banco_inter             ,",
+                  "\n a.des_error                ",
+                  "\n FROM ret_respuesta_fico  a ",
+                  "\n WHERE a.referencia = ", v_id_solicitud -- beneficiarios de la solicitud
+
+      PREPARE sid_respuestadet FROM v_sqlr
+      DECLARE cur_respuestadet CURSOR FOR sid_respuestadet
+   
+      -- se transfieren los datos al arreglo de respuestas fico
+      LET v_indice = 1
+      FOREACH cur_respuestadet INTO v_r_respuesta.*
+         LET v_arr_respuesta[v_indice].* = v_r_respuesta.*
+         LET v_indice = v_indice + 1
+      END FOREACH
 
    END DISPLAY
 
@@ -1436,7 +1176,7 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
          EXIT DIALOG
 
       ON ACTION reporte
-         IF (fgl_report_loadCurrentSettings("RETC463.4rp")) THEN
+         IF (fgl_report_loadCurrentSettings("RETC480.4rp")) THEN
             CALL fgl_report_selectDevice("PDF")
             CALL fgl_report_selectPreview(TRUE)
             LET v_manejador_rpt = fgl_report_commitCurrentSettings()
@@ -1473,7 +1213,7 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
 
            -- los nombres son todo en mayusculas con la siguiente mascara
            -- SG_USUARIO_AAAAMMDD.TXT
-           LET v_nom_archivo = "SG_",p_usuario_cod CLIPPED, "_", TODAY USING "yyyymmdd"
+           LET v_nom_archivo = "FA_",p_usuario_cod CLIPPED, "_", TODAY USING "yyyymmdd"
            LET v_archivo_txt = v_nom_archivo, v_extension_txt
            
            -- el archivo con ruta destino que contiene el detalle
@@ -1494,40 +1234,27 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
            -- se inicia el contador de registros
            LET v_conteo = 0
            LET v_s_detalle = "NÚMERO DE SOLICITUD|MODALIDAD RETIRO|GRUPO|NSS|CASO CRM|FECHA SOLICITUD|FECHA AUTORIZACION|",
-                              "FECHA LIQUIDACION|FECHA PAGO|AIVS 97 AFORE|PESOS 97 AFORE|AIVS 92 AFORE|PESOS 92 AFORE|DIF AIVS 97|",
-                              "DIF PESOS 97|DIF AIVS 92|DIF PESOS 92|TESOFE|AIVS 97|PESOS 97|AIVS 92|PESOS 92|TOTAL|ESTADO SOLICITUD|",
-                              "CODIGO RECHAZO|MEDIO ENTREGA|CUENTA CLABE|"
+                              "FECHA LIQUIDACION|FECHA PAGO|TANTO NORMAL|TANTO ADICIONAL|TOTAL DEVOLUCIÓN|ESTADO SOLICITUD|",
+                              "CODIGO RECHAZO|MEDIO ENTREGA|CUENTA CLABE/REF DAP|"
            CALL v_ch_arch_ret_generico.write(v_s_detalle)
            
            FOR v_conteo = 1 TO v_arr_despliegue.getLength()
-               LET v_s_detalle = v_arr_despliegue[v_conteo].id_solicitud                     ,"|",
-                                 v_arr_despliegue[v_conteo].desc_modalidad                   ,"|",
-                                 v_arr_despliegue[v_conteo].grupo                            ,"|",
-                                 v_arr_despliegue[v_conteo].nss                              ,"|",
---                                 v_arr_despliegue[v_conteo].rfc                              ,"|",
-                                 v_arr_despliegue[v_conteo].caso_adai                        ,"|",
-                                 v_arr_despliegue[v_conteo].f_solicitud  USING "yyyymmdd"    ,"|",
-                                 v_arr_despliegue[v_conteo].f_autorizacion  USING "yyyymmdd" ,"|",
-                                 v_arr_despliegue[v_conteo].f_liquida  USING "yyyymmdd"      ,"|",
-                                 v_arr_despliegue[v_conteo].f_pago USING "yyyymmdd"          ,"|",
-                                 v_arr_despliegue[v_conteo].aivs_97_afore USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].pesos_97_afore USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].aivs_92_afore USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].pesos_92_afore USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].dif_aivs_97 USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].dif_pesos_97 USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].dif_aivs_92 USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].dif_pesos_92 USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].tesofe USING "&&&&&&&&&.&&"      ,"|",
-                                 v_arr_despliegue[v_conteo].aivs_97  USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].pesos_97 USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].aivs_92  USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].pesos_92 USING "&&&&&&&&&.&&"    ,"|",
-                                 v_arr_despliegue[v_conteo].total USING "&&&&&&&&&.&&"       ,"|",
-                                 v_arr_despliegue[v_conteo].estado_solicitud                 ,"|",
-                                 v_arr_despliegue[v_conteo].cod_rechazo                      ,"|",
-                                 v_arr_despliegue[v_conteo].medio_entrega                    ,"|",
-                                 v_arr_despliegue[v_conteo].cuenta_clabe                     ,"|"
+               LET v_s_detalle = v_arr_despliegue[v_conteo].id_solicitud                           ,"|",
+                                 v_arr_despliegue[v_conteo].desc_modalidad                         ,"|",
+                                 v_arr_despliegue[v_conteo].causal                                 ,"|",
+                                 v_arr_despliegue[v_conteo].nss                                    ,"|",
+                                 v_arr_despliegue[v_conteo].caso_adai                              ,"|",
+                                 v_arr_despliegue[v_conteo].f_solicitud  USING "yyyymmdd"          ,"|",
+                                 v_arr_despliegue[v_conteo].f_autorizacion  USING "yyyymmdd"       ,"|",
+                                 v_arr_despliegue[v_conteo].f_liquida  USING "yyyymmdd"            ,"|",
+                                 v_arr_despliegue[v_conteo].f_pago USING "yyyymmdd"                ,"|",
+                                 v_arr_despliegue[v_conteo].aivs USING "&&&&&&&&&.&&"              ,"|",
+                                 v_arr_despliegue[v_conteo].pesos USING "&&&&&&&&&.&&"             ,"|",
+                                 v_arr_despliegue[v_conteo].total_devolucion USING "&&&&&&&&&.&&"  ,"|",
+                                 v_arr_despliegue[v_conteo].estado_solicitud                       ,"|",
+                                 v_arr_despliegue[v_conteo].cod_rechazo                            ,"|",
+                                 v_arr_despliegue[v_conteo].medio_entrega                          ,"|",
+                                 v_arr_despliegue[v_conteo].cuenta_clabe_ref_dap                   ,"|"
 
                CALL v_ch_arch_ret_generico.write(v_s_detalle)
 
@@ -1537,105 +1264,6 @@ DEFINE v_tipo_retiro         LIKE ret_tipo_retiro.tpo_retiro,
            CALL v_ch_arch_ret_generico.close()
            LET v_mensaje_archivo = "Archivo generado exitosamente:", v_v_ruta_nomarch
            CALL fn_mensaje("Atención", v_mensaje_archivo, "information")
-
-     ON ACTION Exportar_DAE
-           -- se obtiene la ruta de envio y ejecutable
-           SELECT ruta_rescate, ruta_bin
-           INTO   v_c_ruta_env_acr, v_ruta_bin
-           FROM   seg_modulo
-           WHERE  modulo_cod = "dae"
-
-           -- las extensiones del archivo son TXT para el detalle y KEY para el hash
-           LET v_extension_txt = ".sdley73"
-
-           -- los nombres son todo en mayusculas con la siguiente mascara
-           -- SG_USUARIO_AAAAMMDD.TXT
-           LET v_nom_archivo = "RLEY73_RP_", TODAY USING "yyyymmdd"
-           LET v_archivo_txt = v_nom_archivo, v_extension_txt
-           
-           -- el archivo con ruta destino que contiene el detalle
-           LET v_v_ruta_nomarch = v_c_ruta_env_acr CLIPPED , "/", v_archivo_txt
-           LET v_mensaje_archivo = "Se generara el archivo:", v_v_ruta_nomarch
-           CALL fn_mensaje("Atención", v_mensaje_archivo, "information")
-           -- nombre de archivo generado
-           DISPLAY "~~~~~~~~~~~"
-           DISPLAY "Archivo generado: ", v_v_ruta_nomarch
-
-           -- se crea el manejador de archivo
-           LET v_ch_arch_ret_generico = base.Channel.create()
-           CALL v_ch_arch_ret_generico.setDelimiter(NULL)
-           
-           -- se crea archivo y se indica que se escribira en el mismo
-           CALL v_ch_arch_ret_generico.openFile(v_v_ruta_nomarch, "w" )
-
-           -- se inicia el contador de registros
-           LET v_conteo = 0
-           
-           FOR v_conteo = 1 TO v_arr_despliegue.getLength()
-               LET v_s_detalle = v_arr_despliegue[v_conteo].id_solicitud                         ,"|",
-                                 v_arr_despliegue[v_conteo].modalidad_retiro                     ,"|",
-                                 v_arr_despliegue[v_conteo].nss                                  ,"|",
-                                 v_arr_despliegue[v_conteo].rfc                                  ,"|",
-                                 v_arr_despliegue[v_conteo].caso_adai                            ,"|",
-                                 v_arr_despliegue[v_conteo].f_solicitud  USING "yyyymmdd"        ,"|",
-                                 v_arr_despliegue[v_conteo].f_autorizacion  USING "yyyymmdd"     ,"|",
-                                 v_arr_despliegue[v_conteo].f_liquida  USING "yyyymmdd"          ,"|",
-                                 v_arr_despliegue[v_conteo].tesofe USING "&&&&&&&&&.&&"          ,"|",
-                                 v_arr_despliegue[v_conteo].aivs_97  USING "&&&&&&&&&.&&"        ,"|",
-                                 v_arr_despliegue[v_conteo].pesos_97 USING "&&&&&&&&&.&&"        ,"|",
-                                 v_arr_despliegue[v_conteo].aivs_92  USING "&&&&&&&&&.&&"        ,"|",
-                                 v_arr_despliegue[v_conteo].pesos_92 USING "&&&&&&&&&.&&"        ,"|",
-                                 v_arr_despliegue[v_conteo].total USING "&&&&&&&&&.&&"           ,"|",
-                                 v_arr_despliegue[v_conteo].estado_solicitud                     ,"|",
-                                 v_arr_despliegue[v_conteo].cod_rechazo                          ,"|",
-                                 v_arr_despliegue[v_conteo].medio_entrega                        ,"|",
-                                 v_arr_despliegue_det[v_conteo].fecha_archivo_e USING "yyyymmdd" ,"|",
-                                 v_arr_despliegue_det[v_conteo].fecha_archivo_r USING "yyyymmdd" ,"|",
-                                 v_arr_despliegue_det[v_conteo].cta_x_pagar                      ,"|",
-                                 v_arr_despliegue_det[v_conteo].rsp_referencia                   ,"|",
-                                 TODAY USING "yyyymmdd"                                          ,"|"
-                                 
-
-               CALL v_ch_arch_ret_generico.write(v_s_detalle)
-
-           END FOR
-
-           -- se cierra el archivo
-           CALL v_ch_arch_ret_generico.close()
-           LET v_mensaje_archivo = "Archivo generado exitosamente:", v_v_ruta_nomarch
-           CALL fn_mensaje("Atención", v_mensaje_archivo, "information")
-      ON ACTION acuse
-           IF v_arr_despliegue[ARR_CURR( )].medio_entrega = "DEV AUTO" THEN 
-              CALL fn_genera_reporte(v_arr_despliegue[ARR_CURR( )].id_solicitud)
-           ELSE 
-              CALL fn_mensaje("AVISO","Acuse no disponible para el medio de entrega seleccionado","information")
-              CONTINUE DIALOG
-           END IF 
---         IF (fgl_report_loadCurrentSettings("RETC463_a.4rp")) THEN
---            CALL fgl_report_selectDevice("PDF")
---            CALL fgl_report_selectPreview(TRUE)
---            LET v_manejador_rpt = fgl_report_commitCurrentSettings()
---         ELSE
---            CALL fn_mensaje("AVISO","No se puede generar reporte","information")
---            CONTINUE DIALOG
---         END IF
---         SELECT usuario_desc
---           INTO v_usuario_desc
---           FROM seg_usuario
---          WHERE usuario_cod = p_usuario_cod
---         LET v_fecha_actual = TODAY
-         
---         START REPORT rtp_solicitudes_encontradas TO XML HANDLER v_manejador_rpt
---         FOR v_indice = 1 TO v_arr_despliegue.getLength()
---            OUTPUT TO REPORT rtp_solicitudes_encontradas(p_usuario_cod,
---                                                            v_usuario_desc,
---                                                            v_fecha_actual,
---                                                            v_fecha_inicio,
---                                                            v_fecha_fin,
---                                                            v_arr_despliegue[v_indice].*)
-
---         END FOR
---         FINISH REPORT rtp_solicitudes_encontradas
    END DIALOG
    
    CLOSE WINDOW w_consultadetallada 
@@ -1654,41 +1282,30 @@ Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
 ================================================================================}
 REPORT rtp_solicitudes_encontradas(p_usuario_cod,p_usuario_desc,p_fecha_actual,p_fecha_inicio,p_fecha_fin,p_despliegue)
-DEFINE p_usuario_cod      LIKE seg_usuario.usuario_cod,
-       p_usuario_desc     LIKE seg_usuario.usuario_desc,
-       p_fecha_actual     DATE,
-       p_fecha_inicio     DATE,
-       p_fecha_fin        DATE,
-       p_despliegue   RECORD
-         id_solicitud     LIKE ret_solicitud_generico.id_solicitud,
-         modalidad_retiro LIKE ret_solicitud_generico.modalidad_retiro,
-         desc_modalidad   VARCHAR(200),
-         grupo            CHAR(30),
-         nss              LIKE afi_derechohabiente.nss,
-         rfc              LIKE afi_derechohabiente.rfc,
-         caso_adai        LIKE ret_solicitud_generico.caso_adai,
-         f_solicitud      LIKE ret_disposicion.f_solicitud,
-         f_autorizacion   DATE,
-         f_liquida        DATE,
-         f_pago              DATE                                        ,
-         aivs_97_afore       DECIMAL(22,2)                               ,
-         pesos_97_afore      DECIMAL(22,2)                               ,
-         aivs_92_afore       DECIMAL(22,2)                               ,
-         pesos_92_afore      DECIMAL(22,2)                               ,
-         dif_aivs_97         DECIMAL(22,2)                               ,
-         dif_pesos_97        DECIMAL(22,2)                               ,
-         dif_aivs_92         DECIMAL(22,2)                               ,
-         dif_pesos_92        DECIMAL(22,2)                               ,
-         tesofe           DECIMAL(22,2),
-         aivs_97          DECIMAL(22,2),
-         pesos_97         DECIMAL(22,2),
-         aivs_92          DECIMAL(22,2),
-         pesos_92         DECIMAL(22,2),
-         total            DECIMAL(22,2),
-         estado_solicitud VARCHAR(19),
-         cod_rechazo      VARCHAR(14),
-         medio_entrega    CHAR(10),
-         cuenta_clabe     CHAR(18)
+DEFINE p_usuario_cod              LIKE seg_usuario.usuario_cod,
+       p_usuario_desc             LIKE seg_usuario.usuario_desc,
+       p_fecha_actual             DATE,
+       p_fecha_inicio             DATE,
+       p_fecha_fin                DATE,
+       p_despliegue     RECORD
+         id_solicitud             LIKE ret_solicitud_generico.id_solicitud,
+         modalidad_retiro         LIKE ret_solicitud_generico.modalidad_retiro,
+         desc_modalidad           VARCHAR(200),
+         grupo                    CHAR(30),
+         nss                      LIKE afi_derechohabiente.nss,
+         rfc                      LIKE afi_derechohabiente.rfc,
+         caso_adai                LIKE ret_solicitud_generico.caso_adai,
+         f_solicitud              LIKE ret_disposicion.f_solicitud,
+         f_autorizacion           DATE,
+         f_liquida                DATE,
+         f_pago                   DATE                                        ,
+         tanto_normal             DECIMAL(22,2),
+         tanto_adicional          DECIMAL(22,2),
+         total_devolucion         DECIMAL(22,2),
+         estado_solicitud         VARCHAR(19),
+         cod_rechazo              VARCHAR(14),
+         medio_entrega            CHAR(10),
+         cuenta_clabe_ref_dap     CHAR(18)
        END RECORD,
        v_num_pagina       SMALLINT
 
@@ -1728,26 +1345,14 @@ DEFINE p_usuario_cod      LIKE seg_usuario.usuario_cod,
                 p_despliegue.f_autorizacion USING "dd-mm-yyyy",
                 p_despliegue.f_liquida USING "dd-mm-yyyy",
                 p_despliegue.f_pago USING "dd-mm-yyyy",
-                p_despliegue.aivs_97_afore ,
-                p_despliegue.pesos_97_afore,
-                p_despliegue.aivs_92_afore,
-                p_despliegue.pesos_92_afore,
-                p_despliegue.dif_aivs_97,
-                p_despliegue.dif_pesos_97,
-                p_despliegue.dif_aivs_92,
-                p_despliegue.dif_pesos_92,
-                p_despliegue.tesofe,
-                p_despliegue.aivs_97,
-                p_despliegue.pesos_97,
-                p_despliegue.aivs_92,
-                p_despliegue.pesos_92,
-                p_despliegue.total,
+                p_despliegue.tanto_normal ,
+                p_despliegue.tanto_adicional,
+                p_despliegue.total_devolucion,
                 p_despliegue.estado_solicitud,
                 p_despliegue.cod_rechazo,
                 p_despliegue.medio_entrega,
-                p_despliegue.cuenta_clabe
-                
-
+                p_despliegue.cuenta_clabe_ref_dap
+               
       PAGE TRAILER
          LET v_num_pagina = PAGENO
       

@@ -29,6 +29,7 @@ DATABASE safre_viv
 GLOBALS "ws_ret_disponibilidadFA.inc"
 GLOBALS "ret_disponibilidad_ley73.inc"
 GLOBALS "ret_disponibilidadSI.inc"
+GLOBALS "../RETG01.4gl"
 
 GLOBALS
     -- registro de entrada para el servicio
@@ -103,11 +104,11 @@ GLOBALS
               G_MSG_ERROR_INTERNO                STRING = "Ocurrió un error interno"
     -- constantes con estatus de solicitud
     CONSTANT  G_SOLICITUD_ACEPTADA SMALLINT  = 10, -- procede
-              G_SOLICITUD_RECHAZADA SMALLINT = 200 -- rechazada
+              G_SOLICITUD_RECHAZADA SMALLINT = 100 -- rechazada
 
     -- valores para validacion de estatus del servicio
     CONSTANT  G_RES_ERROR_PARAMETROS_ENTRADA_INCOMPLETOS SMALLINT = -1, -- parametros de entrada estan incompletos
-              G_MSG_ERROR_PARAMETROS_ENTRADA_INCOMPLETOS STRING = "Parametros de entrada incompletos. NSS y Medio de entrega son obligatorios y no pueden estar vacíos",
+              G_MSG_ERROR_PARAMETROS_ENTRADA_INCOMPLETOS STRING = "Parametros de entrada incompletos. NSS, Causal de retiro y Medio de entrega son obligatorios",
               G_RES_ERROR_MEDIO_ENTREGA_INEXISTENTE      SMALLINT = -2, -- medio de entrega recibido no existe
               G_MSG_ERROR_MEDIO_ENTREGA_INEXISTENTE      STRING = "El medio de entrega recibido no existe. Valores validos [1,2,3,4,5,6,7]",
               G_RES_ERROR_GRUPO_LEY73_INEXISTENTE        SMALLINT = -3, -- grupo retiro ley73 recibido no existe
@@ -116,7 +117,8 @@ GLOBALS
               G_MSG_ERROR_CAUSAL_RETIRO_INEXISTENTE      STRING = "La causal de retiro recibida no existe. Valores validos [1,2,3]",
               G_RES_ERROR_CONSUMO_WS                     SMALLINT = -5, -- causal retiro ley73 recibido no existe
               G_MSG_ERROR_CONSUMO_WS                     STRING = "Ocurrio un error al intentar conectar con los servicios de consulta de disponibilidad ",
-
+              G_RES_ERROR_CAUSAL_NO_DISPONIBLE           SMALLINT = -6,
+              G_MSG_ERROR_CAUSAL_NO_DISPONIBLE           STRING = "La causal de retiro Defuncion no puede ser tramitada en esta ventanilla", --
               G_RES_CONSUMO_CORRECTO SMALLINT = 0,
               G_MSG_CONSUMO_CORRECTO STRING = "WS Ventanilla Unica Disponibilidad ejecutado correctamente"
               
@@ -342,7 +344,6 @@ FUNCTION fn_crea_ws_disponibilidad_ventanilla_unica(p_generar_WSDL)
 
         -- declaracion de funcion principal del servicio
         LET op = com.WebOperation.CreateDOCStyle("fn_disponibilidad_ventanilla_unica","fn_disponibilidad_ventanilla_unica",gr_entrada_vu_ws,gr_salida_vu_ws)
-        --CALL v_webservice.publishOperation(op, "urn:http://10.90.8.199:7777/retiroSaldosDisponibles/fn_ret_saldos_disponibles")   --pendiente detetminar si se elimina esta linea
         --se publica funcion principal del servicio
         CALL v_webservice.publishOperation(op, "fn_disponibilidad_ventanilla_unica")
 
@@ -401,13 +402,27 @@ Autor       : Isai Jimenez Rojas - Omnisys
 Objetivo    : Ejecuta la secuencia de consulta de disponibilidad de fondo de ahorro
               retiro ley 73, y retiro solo infonavit
 Modificacion:
+Ivan Vega   Noviembre 25, 2020          - si ley73 reporta viv97 como no disponible por un motivo distinto a que no tenga
+                                          saldo, no se invoca solo infonavit y se reporta como no disponible
+Ivan Vega   Noviembre 26, 2020          - si se recibe causal de retiro 4 (defuncion), se devolvera una respuesta indicando
+                                          que el retiro por esa causal no puede ser procesada en ventanilla unica
+Ivan Vega   Diciembre 7, 2020           - Se agregan validaciones con base en la matriz de disponibilidad de la ventanilla, que
+                                          es controlada por fondo de ahorro
+                                            FA      LEY73
+                                          Causal 1  No invocar
+                                          Causal 2  Invocar
+                                          Causal 3  No invocar
+                                          Causal 4  No se procesa ningun retiro                                                                  
 ================================================================================
 }
 FUNCTION fn_disponibilidad_ventanilla_unica()
-   DEFINE v_continuar       SMALLINT -- booleana para indicar si se continua con la ejecucion
-   DEFINE v_estatus_fa      SMALLINT
-   DEFINE v_estatus_ley73   SMALLINT
-   DEFINE v_estatus_si      SMALLINT
+DEFINE v_continuar        SMALLINT -- booleana para indicar si se continua con la ejecucion
+DEFINE v_estatus_fa       SMALLINT
+DEFINE v_estatus_ley73    SMALLINT
+DEFINE v_estatus_si       SMALLINT
+DEFINE v_invocar_fa_si    SMALLINT -- si FA valida correctamente, 1 invocar SI, 0 no invocarlo
+DEFINE v_invocar_ley73_si SMALLINT -- si Ley73 valida correctamente, 1 invocar SI, 0 no invocarlo
+DEFINE v_invocar_ley73    SMALLINT -- si la causal de retiro es 2 en FA, se invoca Ley73, si no, no
 
 
    DISPLAY "Ingresa a function principal del servicio"
@@ -428,39 +443,54 @@ FUNCTION fn_disponibilidad_ventanilla_unica()
    DISPLAY "MEDIO ENTREGA: ", gr_entrada_vu_ws.medio_entrega
 
    -- se asume correctitud de datos
-   LET v_continuar     = TRUE
-   LET v_estatus_fa    = 0
-   LET v_estatus_ley73 = 0
-   LET v_estatus_si    = 0
+   LET v_continuar        = TRUE
+   LET v_estatus_fa       = 0
+   LET v_estatus_ley73    = 0
+   LET v_estatus_si       = 0
+   LET v_invocar_fa_si    = 1 -- se asume que se invocara solo infonavit
+   LET v_invocar_ley73_si = 1 -- se asume que se invocara solo infonavit
+   LET v_invocar_ley73    = 1 -- se asume que se invocara ley73
    
    -- se valida que se tengan los campos minimos
    IF ( gr_entrada_vu_ws.nss IS NULL OR gr_entrada_vu_ws.medio_entrega IS NULL OR
-        gr_entrada_vu_ws.nss = "" OR gr_entrada_vu_ws.medio_entrega = "" ) THEN
+        gr_entrada_vu_ws.nss = "" OR gr_entrada_vu_ws.medio_entrega = "" OR
+        gr_entrada_vu_ws.causal_retiro IS NULL OR gr_entrada_vu_ws.causal_retiro = "" ) THEN
        LET v_continuar = FALSE
        -- campos obligatorios no se recibieron
        CALL fn_respuesta_ret_ventanilla_unica(G_RES_ERROR_PARAMETROS_ENTRADA_INCOMPLETOS, v_estatus_fa, v_estatus_ley73, v_estatus_si)
     END IF
 
-   -- verifica si medio de entrega es correcto
-   IF ( gr_entrada_vu_ws.medio_entrega < 1 OR gr_entrada_vu_ws.medio_entrega > 7 ) THEN
+    -- 20201126 si la causal de retiro es 4, no se puede procesar la peticion
+    IF ( gr_entrada_vu_ws.causal_retiro = 4 ) THEN
        LET v_continuar = FALSE
-       -- medio de entrega incorrecto
-       CALL fn_respuesta_ret_ventanilla_unica(G_RES_ERROR_MEDIO_ENTREGA_INEXISTENTE, v_estatus_fa, v_estatus_ley73, v_estatus_si)
+       -- campos obligatorios no se recibieron
+       CALL fn_respuesta_ret_ventanilla_unica(G_RES_ERROR_CAUSAL_NO_DISPONIBLE, v_estatus_fa, v_estatus_ley73, v_estatus_si)
     END IF
 
-   -- verifica si grupo de retiro ley73 es correcto
-   IF ( gr_entrada_vu_ws.grupo_ley73 IS NOT NULL AND (gr_entrada_vu_ws.grupo_ley73 < 1 OR gr_entrada_vu_ws.grupo_ley73 > 4) ) THEN
-       LET v_continuar = FALSE
-       -- medio de entrega incorrecto
-       CALL fn_respuesta_ret_ventanilla_unica(G_RES_ERROR_GRUPO_LEY73_INEXISTENTE, v_estatus_fa, v_estatus_ley73, v_estatus_si)
-    END IF
 
-   -- verifica si la causal de retiro es correcta
-   IF ( gr_entrada_vu_ws.causal_retiro IS NOT NULL AND (gr_entrada_vu_ws.causal_retiro < 1 OR gr_entrada_vu_ws.causal_retiro > 3) ) THEN
-       LET v_continuar = FALSE
-       -- medio de entrega incorrecto
-       CALL fn_respuesta_ret_ventanilla_unica(G_RES_ERROR_CONSUMO_WS, v_estatus_fa, v_estatus_ley73, v_estatus_si)
-    END IF
+   -- si la causal de retiro no fue 4
+   IF ( v_continuar ) THEN
+      -- verifica si medio de entrega es correcto
+      IF ( gr_entrada_vu_ws.medio_entrega < 1 OR gr_entrada_vu_ws.medio_entrega > 7 ) THEN
+         LET v_continuar = FALSE
+         -- medio de entrega incorrecto
+         CALL fn_respuesta_ret_ventanilla_unica(G_RES_ERROR_MEDIO_ENTREGA_INEXISTENTE, v_estatus_fa, v_estatus_ley73, v_estatus_si)
+      END IF
+      
+      -- verifica si grupo de retiro ley73 es correcto
+      IF ( gr_entrada_vu_ws.grupo_ley73 IS NOT NULL AND (gr_entrada_vu_ws.grupo_ley73 < 1 OR gr_entrada_vu_ws.grupo_ley73 > 4) ) THEN
+         LET v_continuar = FALSE
+         -- medio de entrega incorrecto
+         CALL fn_respuesta_ret_ventanilla_unica(G_RES_ERROR_GRUPO_LEY73_INEXISTENTE, v_estatus_fa, v_estatus_ley73, v_estatus_si)
+      END IF
+      
+      -- verifica si la causal de retiro es correcta
+      IF ( gr_entrada_vu_ws.causal_retiro IS NOT NULL AND (gr_entrada_vu_ws.causal_retiro < 1 OR gr_entrada_vu_ws.causal_retiro > 3) ) THEN
+         LET v_continuar = FALSE
+         -- medio de entrega incorrecto
+         CALL fn_respuesta_ret_ventanilla_unica(G_RES_ERROR_CONSUMO_WS, v_estatus_fa, v_estatus_ley73, v_estatus_si)
+      END IF
+   END IF
     
     IF ( v_continuar ) THEN   
        --------------------------------------------------------
@@ -473,13 +503,31 @@ FUNCTION fn_disponibilidad_ventanilla_unica()
        -- inicia secuencia de consulta de disponibilidad
        TRY
           --llamar a funcionalidad del servicio retiroSaldosDisponiblesFA            - RETWS20
-          CALL fn_ejecutaWS_disponibilidadFA() RETURNING v_estatus_fa
+          CALL fn_ejecutaWS_disponibilidadFA() RETURNING v_estatus_fa, v_invocar_fa_si
    
-          --llamar a funcionalidad del servicio retiroSaldosDisponiblesLey73         - RETWS07
-          CALL fn_ejecutaWS_disponibilidadLey73() RETURNING v_estatus_ley73
+          -- ley73 solo se invoca cuando la causal es 2
+          IF ( gr_entrada_vu_ws.causal_retiro = 2 ) THEN
+   
+             --llamar a funcionalidad del servicio retiroSaldosDisponiblesLey73         - RETWS07
+             CALL fn_ejecutaWS_disponibilidadLey73() RETURNING v_estatus_ley73, v_invocar_ley73_si
+          ELSE
+             DISPLAY "FA invocado con causal distinta a 2, no se ejecuta ley73"
+             LET gr_salida_vu_ws.estado_solicitud_ley73 = 100
+             LET gr_salida_vu_ws.cod_rechazo_ley73      = 100
+             LET gr_salida_vu_ws.des_rechazo_ley73      = "CAUSAL DE RETIRO NO PERMITE EJECUTAR LEY73"
+             LET gr_salida_vu_ws.saldo_aivs_viv92       = 0
+             LET gr_salida_vu_ws.saldo_aivs_viv97       = 0
+             LET gr_salida_vu_ws.saldo_pesos_viv92      = 0
+             LET gr_salida_vu_ws.saldo_pesos_viv97      = 0
+          END IF
 
-          --llamar a funcionalidad del servicio retiroSaldosDisponiblesSoloInfonavit - RETWS35
-          CALL fn_ejecutaWS_disponibilidadSI() RETURNING v_estatus_si --SI = Solo Infonavit
+          -- si se determina que se debe invocar solo infonavit
+          IF ( v_invocar_fa_si = 1 AND v_invocar_ley73_si ) THEN
+            --llamar a funcionalidad del servicio retiroSaldosDisponiblesSoloInfonavit - RETWS35
+            CALL fn_ejecutaWS_disponibilidadSI() RETURNING v_estatus_si --SI = Solo Infonavit
+          ELSE
+             DISPLAY "FA/Ley73 no procede por validaciones y se determina no invocar solo infonavit"
+          END IF
 
           -- si las tres ejecuciones fueron correctas (0 es correcto)
           IF ( v_estatus_fa = 0 AND v_estatus_ley73 = 0 AND v_estatus_si = 0 ) THEN
@@ -510,7 +558,8 @@ parametro p_codigo
 
 Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
-
+Ivan Vega     Diciembre 21, 2020       - Cuando hay errores de comunicacion en los servicios, el estado de solicitud
+                                         se devuelve como rechazado en ambos tipos de retiros
 ======================================================================
 }
 FUNCTION fn_respuesta_ret_ventanilla_unica(p_codigo_error, p_estatus_fa, p_estatus_ley73, p_estatus_si)
@@ -559,6 +608,8 @@ DEFINE v_des_rechazo   STRING
        WHEN G_RES_ERROR_CONSUMO_WS
            LET gr_salida_vu_ws.cod_rechazo_fa         = G_RES_ERROR_CONSUMO_WS
            LET gr_salida_vu_ws.cod_rechazo_ley73      = G_RES_ERROR_CONSUMO_WS
+           LET gr_salida_vu_ws.estado_solicitud_fa    = G_SOLICITUD_RECHAZADA
+           LET gr_salida_vu_ws.estado_solicitud_ley73 = G_SOLICITUD_RECHAZADA
 
            LET v_des_rechazo = G_MSG_ERROR_CONSUMO_WS
 
@@ -578,6 +629,15 @@ DEFINE v_des_rechazo   STRING
 
            LET gr_salida_vu_ws.des_rechazo_fa = v_des_rechazo
            LET gr_salida_vu_ws.des_rechazo_ley73 = v_des_rechazo
+
+       -- causal de retiro no disponible
+       WHEN G_RES_ERROR_CAUSAL_NO_DISPONIBLE
+           LET gr_salida_vu_ws.estado_solicitud_fa    = G_SOLICITUD_RECHAZADA
+           LET gr_salida_vu_ws.estado_solicitud_ley73 = G_SOLICITUD_RECHAZADA
+           LET gr_salida_vu_ws.cod_rechazo_fa         = G_RES_ERROR_CAUSAL_NO_DISPONIBLE
+           LET gr_salida_vu_ws.des_rechazo_fa         = G_MSG_ERROR_CAUSAL_NO_DISPONIBLE
+           LET gr_salida_vu_ws.cod_rechazo_ley73      = G_RES_ERROR_CAUSAL_NO_DISPONIBLE
+           LET gr_salida_vu_ws.des_rechazo_ley73      = G_MSG_ERROR_CAUSAL_NO_DISPONIBLE
            
        -- consumo correcto
        WHEN G_RES_CONSUMO_CORRECTO
@@ -720,13 +780,19 @@ NSS y RFC proporcionados como parametros del servicio
 
 Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
-
+Ivan Vega   Noviembre 26, 2020       - Se agrega un parametro de retorno que indicara
+                                       si aunque haya error en FA, se invoca la validacion
+                                       de solo infonavit, que sera cuando FA haya sido rechazado
+                                       por saldo insuficiente
 ======================================================================
 }
 FUNCTION fn_ejecutaWS_disponibilidadFA()
+DEFINE estatus_fa   SMALLINT
+DEFINE mensaje_fa   STRING
+DEFINE v_invocar_si SMALLINT
 
-    DEFINE estatus_fa SMALLINT
-    DEFINE mensaje_fa STRING
+    -- se asume que se invocara si
+    LET v_invocar_si = 1
 
     DISPLAY "Se llama al servicio de fondo de ahorro"
 
@@ -749,7 +815,10 @@ FUNCTION fn_ejecutaWS_disponibilidadFA()
        LET gr_salida_vu_ws.des_rechazo_fa = "Error en consumo de WS de FA"
        LET gr_salida_vu_ws.saldo_pesos_fa = 0
        LET gr_salida_vu_ws.tanto_adicional_fa = 0
-       RETURN estatus_fa
+
+       LET v_invocar_si = 0
+       
+       RETURN estatus_fa, v_invocar_si
     END IF
 
     IF fn_saldo_disponible_faResponse.estado_solicitud = 10 THEN
@@ -760,6 +829,12 @@ FUNCTION fn_ejecutaWS_disponibilidadFA()
     ELSE
        -- RECHAZO
        DISPLAY "LA BANDERA DE DISPONIBILIDAD FA SE QUEDA EN FALSE : ",gr_registro_control_vu.bn_disponibilidad_fa
+
+       -- si el rechazo es distinto a carencia de saldo, no se invocara solo infonavit
+       IF ( fn_saldo_disponible_faResponse.cod_rechazo <> gi_sin_saldo ) THEN
+          LET v_invocar_si = 0
+       END IF
+       
     END IF
 
     IF fn_saldo_disponible_faResponse.cod_rechazo = 0 THEN
@@ -787,7 +862,7 @@ FUNCTION fn_ejecutaWS_disponibilidadFA()
     LET gr_registro_control_vu.tanto_adicional_fa = fn_saldo_disponible_faResponse.monto_adicional
     
     CALL fn_actualiza_control_vu()
-    RETURN estatus_fa
+    RETURN estatus_fa, v_invocar_si
 END FUNCTION
 
 {
@@ -802,7 +877,12 @@ NSS y RFC proporcionados como parametros del servicio
 
 Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
-
+Ivan Vega    Noviembre 25, 2020       - se agrega parametro devuelto que indica
+                                        si se debe invocar solo infonavit cuando
+                                        vivienda 97 esta disponible
+Ivan Vega    Noviembre 26, 2020       - Se inhibe la dependencia de solo infonavit con
+                                        la disponibilidad de viv97, sin embargo
+                                        se deja activa la funcionalidad
 ======================================================================
 }
 FUNCTION fn_ejecutaWS_disponibilidadLey73()
@@ -814,6 +894,7 @@ DEFINE v_aivs_viv92 DECIMAL(22,6)
 DEFINE v_aivs_viv97 DECIMAL(22,6)
 DEFINE v_pesos_viv92 DECIMAL(22,6)
 DEFINE v_pesos_viv97 DECIMAL(22,6)
+DEFINE v_invocar_si  SMALLINT
 
     DISPLAY "Se llama al servicio de Ley 73"
     LET fn_ret_saldos_disponibles_ley73Request.nss           = gr_entrada_vu_ws.nss
@@ -828,6 +909,7 @@ DEFINE v_pesos_viv97 DECIMAL(22,6)
     LET v_aivs_viv97  = 0
     LET v_pesos_viv92 = 0
     LET v_pesos_viv97 = 0
+    LET v_invocar_si  = 1
 
     CALL fn_ret_saldos_disponibles_ley73_g() RETURNING estatus_ley73
 
@@ -836,7 +918,7 @@ DEFINE v_pesos_viv97 DECIMAL(22,6)
     IF estatus_ley73 <> 0 THEN
        --hubo un error
        DISPLAY "SE DETECTO UN ERROR SE SUSPENDE EJECUCION EN LEY73"
-       RETURN estatus_ley73
+       RETURN estatus_ley73, v_invocar_si
     END IF
 
     LET indice_arr = fn_ret_saldos_disponibles_ley73Response.saldo_x_retiro.element.getLength()
@@ -874,6 +956,18 @@ DEFINE v_pesos_viv97 DECIMAL(22,6)
           IF ( fn_ret_saldos_disponibles_ley73Response.saldo_x_retiro.element[x].subcuenta = G_SUBCUENTA_VIV97 ) THEN
               LET v_aivs_viv97 = v_aivs_viv97 + fn_ret_saldos_disponibles_ley73Response.saldo_x_retiro.element[x].monto_avis
               LET v_pesos_viv97 = v_pesos_viv97 + fn_ret_saldos_disponibles_ley73Response.saldo_x_retiro.element[x].monto_pesos
+
+              
+              -- se valida si no se debe invocar solo infonavit
+              {
+              IF ( fn_ret_saldos_disponibles_ley73Response.saldo_x_retiro.element[x].estado_solicitud = 100 ) THEN
+                 -- si el rechazo es distinto a Sin saldo
+                 IF ( fn_ret_saldos_disponibles_ley73Response.saldo_x_retiro.element[x].cod_rechazo <> gi_sin_saldo ) THEN
+                    -- viv97 no disponible, no se debe invocar solo infonavit
+                    LET v_invocar_si = 0
+                 END IF
+              END IF
+              }
           END IF
           
           LET acum_saldos_disp_ley73_aivs  = acum_saldos_disp_ley73_aivs  + fn_ret_saldos_disponibles_ley73Response.saldo_x_retiro.element[x].monto_avis
@@ -906,8 +1000,8 @@ DEFINE v_pesos_viv97 DECIMAL(22,6)
     LET gr_salida_vu_ws.saldo_pesos_viv97      = v_pesos_viv97
     
     CALL fn_actualiza_control_vu()
-
-    RETURN estatus_ley73
+    
+    RETURN estatus_ley73, v_invocar_si
 END FUNCTION
 
 {

@@ -422,6 +422,8 @@ Ivan Vega     Noviembre 10, 2020      - se parametriza la llamada a los servicio
                                         para poder habilitar/deshabilitar la llamada a los mismos
                                         y simular una respuesta de estos servicios a partir de la tabla
                                         ret_simula_procesar
+Ivan Vega     Octubre 23, 2020        - PLAG138 para desmarcar, se debe corroborar que el caso CRM que se recibe como parametro
+                                        coincida con el que se recibio para marcar
 ======================================================================
 }
 FUNCTION fn_aplica_marca_modalidad(p_indice, p_nss, p_caso_adai, p_id_derechohabiente,p_marca, p_grupo, p_medio_entrega)
@@ -512,7 +514,7 @@ DEFINE p_indice                 SMALLINT,
       WHEN 1
          --Solicitud de marcaje
          --Consulta si existe  otra solicitud para el derechohabiente 
-         CALL fn_verifica_solicitud_generico(p_id_derechohabiente,3,1)
+         CALL fn_verifica_solicitud_generico(p_id_derechohabiente,3,1, p_caso_adai)
                RETURNING v_existe_solicitud, v_n_referencia
 
          -- Valida que no exista otra solicitud 
@@ -544,7 +546,7 @@ DEFINE p_indice                 SMALLINT,
                --Asigna estatus de la marca
                LET v_estatus_marca = 8
 
-               --Se obtiene el número de solicitud
+               --Se obtiene el numero de solicitud
                SELECT seq_ret_solicitud.NEXTVAL
                INTO   v_n_referencia
                FROM   systables 
@@ -566,7 +568,7 @@ DEFINE p_indice                 SMALLINT,
                IF ( v_res_actualizacion ) THEN
                   --- Deja huella del medio de entrega
                   CALL fn_medio_entrega(v_n_referencia, p_grupo, p_medio_entrega);
-                  ---Se ejecuta la función de marcaje para la nueva solicitud
+                  ---Se ejecuta la funcion de marcaje para la nueva solicitud
                   CALL fn_ret_generico_marca_cuenta(p_id_derechohabiente,
                                                     v_marca_entra       ,
                                                     v_n_referencia      ,
@@ -732,7 +734,8 @@ DEFINE p_indice                 SMALLINT,
       -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       WHEN 2
          -- Consulta si existe otra solicitud para el derechohabiente, que se pueda desmarcar 
-         CALL fn_verifica_solicitud_generico(p_id_derechohabiente,3,2)
+         -- PLAG138 se verifica que el caso CRM que se recibe para desmarcar coincida con el que se utilizo para marcar la cuenta
+         CALL fn_verifica_solicitud_generico(p_id_derechohabiente,3,2, p_caso_adai)
               RETURNING v_existe_solicitud, v_n_referencia
          --	Valida que no se haya solicitado una marcación antes de una desmarcación
          IF ( v_existe_solicitud ) THEN
@@ -790,7 +793,7 @@ DEFINE p_indice                 SMALLINT,
             END IF
          ELSE
             -- se verifica si hay una solicitud ya generada
-            CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 4)
+            CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 4, p_caso_adai)
                  RETURNING v_existe_solicitud, v_n_referencia
             --	Valida que no se haya solicitado una marcación antes de una desmarcación
             IF ( v_existe_solicitud ) THEN
@@ -822,7 +825,7 @@ DEFINE p_indice                 SMALLINT,
       -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       WHEN 3
          -- Consulta si existe otra solicitud para el derechohabiente, que se pueda desmarcar 
-         CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 3)
+         CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 3, p_caso_adai)
               RETURNING v_existe_solicitud, v_n_referencia
          
          --	Valida que no se haya solicitado una marcación antes de una desmarcación
@@ -952,7 +955,7 @@ DEFINE p_indice                 SMALLINT,
       -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       WHEN 4
          -- Consulta si existe otra solicitud para el derechohabiente, que se pueda desmarcar 
-         CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 4)
+         CALL fn_verifica_solicitud_generico(p_id_derechohabiente, 3, 4, p_caso_adai)
               RETURNING v_existe_solicitud, v_n_referencia
          
          --	Valida que no se haya solicitado una marcación antes de una desmarcación
@@ -1301,15 +1304,18 @@ Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
 Ivan Vega     26 Nov 2013             - La discriminacion del registro se hace
                                         por grupo de ventanilla infonavit
+Ivan Vega    Dec 21, 2020             - la consulta de solicitud generico require que el caso de crm(adai)
+                                        sea el mismo que con el que se hizo la marca
 ======================================================================
 }
-FUNCTION fn_verifica_solicitud_generico(p_id_derechohabiente,p_modalidad_retiro,p_accion)
+FUNCTION fn_verifica_solicitud_generico(p_id_derechohabiente,p_modalidad_retiro,p_accion, p_caso_crm)
 DEFINE v_sql STRING,
        p_id_derechohabiente LIKE  afi_derechohabiente.id_derechohabiente,
        p_modalidad_retiro   SMALLINT,
        p_accion             SMALLINT,
        v_ban_existe         SMALLINT,
-       v_num_solicitud      DECIMAL(9,0)
+       v_num_solicitud      DECIMAL(9,0),
+       p_caso_crm           LIKE ret_solicitud_generico.caso_adai
        
        
    -- Inicializa valores
@@ -1338,7 +1344,8 @@ DEFINE v_sql STRING,
                      "\n WHERE id_derechohabiente = ", p_id_derechohabiente,
                      "\n AND modalidad_retiro     = ", p_modalidad_retiro,
 --                     "\n AND grupo_ventanilla     = ", gi_ventanilla_infonavit,
-                     "\n AND estado_solicitud     IN (8,10) "
+                     "\n AND estado_solicitud     IN (8,10) ",
+                     "\n AND caso_adai = '", p_caso_crm, "'"
        
       WHEN 3
          -- Aprobar solicitud
