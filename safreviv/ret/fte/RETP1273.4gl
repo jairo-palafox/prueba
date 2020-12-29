@@ -9,13 +9,7 @@
 #                    CRM para que haga el cierre de casos                                    #
 ##############################################################################################
 {Autor               Fecha        Modificación                                               #
-#Fecha de modificacion =>   Modificación                                                     #
-#                      =>   20-Oct-2020                                                      #
-#                      =>   Jairo Giovanny Palafox                                           #
-#                      =>  se adapta notificacion para agregar solicitudes                   #
-#                          de CRM que tuvieron un rechazo bancario y                         #
-#                          se deben desmarcaen procesar                                      #               
-##############################################################################################
+
 }
 DATABASE safre_viv
 GLOBALS "RETG01.4gl" --Archivo que almacena las variables globales del modulo
@@ -62,7 +56,7 @@ DEFINE p_usuario_cod                 LIKE seg_usuario.usuario_cod, -- nombre del
        v_estado_solicitud            LIKE ret_solicitud_generico.estado_solicitud, -- estado de la solicitud
        v_titulo_notificacion         STRING, -- titulo de la notificacion al beneficiario
        v_mensaje_notificacion        STRING, -- mensaje de la notificacion al beneficiario
-       v_estado                      SMALLINT, -- Control de solicitudes de PROCESAR
+
 --       v_r_ret_solicitud_generico    RECORD LIKE ret_solicitud_generico.*, -- registro de solicitud de retiro
 v_r_ret_solicitud_generico RECORD 
     id_solicitud decimal(9,0),
@@ -104,7 +98,7 @@ END RECORD,
     DEFINE v_rsp_referencia     LIKE ret_ws_consulta_pago_fico.rsp_referencia
     DEFINE v_rsp_f_pago         LIKE ret_ws_consulta_pago_fico.rsp_f_pago
     DEFINE v_rsp_estatus        LIKE ret_ws_consulta_pago_fico.rsp_estatus
-
+    DEFINE v_estatus            SMALLINT-- resultado desmarca procesar
 
    -- se reciben los parametros del programa
    LET p_usuario_cod    = ARG_VAL(1)
@@ -113,6 +107,7 @@ END RECORD,
    LET g_opera_cod      = ARG_VAL(4)
    LET p_folio          = ARG_VAL(5)
    LET g_nombre_archivo = ARG_VAL(6)
+
    
    -- se crea el archivo log
    CALL STARTLOG(p_usuario_cod CLIPPED|| ".RETP1273.log")          
@@ -151,7 +146,7 @@ END RECORD,
    AND    a.modalidad_retiro = 3                                    
    -- AND    b.tpo_beneficiario = 1
    AND    b.tpo_beneficiario IN (1,2)                                --Mod JCA 22-07-2020
-   AND    (a.caso_adai IS NOT NULL AND a.caso_adai <> 0)
+   AND    (a.caso_adai IS NOT NULL AND a.caso_adai <> '0')
    AND    ((a.estado_solicitud IN (71) -- pagadas 
      OR (a.estado_solicitud = 210 AND a.cod_rechazo IN (64,65,66)))) --Mod JCA 22-07-2020
           
@@ -199,7 +194,7 @@ END RECORD,
       -- AND    b.tpo_beneficiario = 1
       AND    b.tpo_beneficiario IN (1,2)                                --Mod JCA 22-07-2020
       AND    a.modalidad_retiro = 3
-      AND    (a.caso_adai IS NOT NULL AND a.caso_adai <> 0)
+      AND    (a.caso_adai IS NOT NULL AND a.caso_adai <> '0')
       AND    (a.estado_solicitud IN (71)
       OR     ( a.estado_solicitud = 210 AND
                a.cod_rechazo IN (64,65,66) ) )  --mod 22-7-2020 JCA
@@ -258,53 +253,56 @@ END RECORD,
          END IF
          DISPLAY "-------------------"
          DISPLAY "-------------------"
-         DISPLAY   "v_nss",              v_nss                     
-         DISPLAY   "v_caso_adai_buscado",v_caso_adai_buscado       
-         DISPLAY   "v_id_solicitud",     v_id_solicitud            
-         DISPLAY   "v_rsp_referencia",   v_rsp_referencia          
-         DISPLAY   "v_estado_solicitud", v_estado_solicitud        
-         DISPLAY   "v_c_rechazo",        v_c_rechazo               
-         DISPLAY   "v_des_rechazo",      v_des_rechazo  
-                 
-         CALL fn_confirma_pago_crm(v_nss, v_caso_adai_buscado, v_id_solicitud , v_rsp_referencia, v_estado_solicitud,v_c_rechazo, v_des_rechazo) RETURNING v_resultado, v_codigo  -- Se envia 1 mientras se definen los beneficiarios
-         --LET v_resultado = 0 
-         --LET v_codigo    = '0000'
-         IF v_resultado = 0 AND v_codigo = "0000" THEN 
-            --DISPLAY "v_estado_solicitud",v_estado_solicitud
+         DISPLAY   "v_nss: >>",              v_nss                     
+         DISPLAY   "v_caso_adai_buscado: >>",v_caso_adai_buscado       
+         DISPLAY   "v_id_solicitud: >>",     v_id_solicitud            
+         DISPLAY   "v_rsp_referencia: >>",   v_rsp_referencia          
+         DISPLAY   "v_estado_solicitud: >>", v_estado_solicitud        
+         DISPLAY   "v_c_rechazo: >>",        v_c_rechazo               
+         DISPLAY   "v_des_rechazo: >>",      v_des_rechazo  
+
+         -- Modificacion de regla de negocio
+         -- primero notificar en procesar
+         -- solo para casos donde el estado de la solicitud sea 210
+         IF v_estado_solicitud  = 210 THEN 
+            -- se crean los datos para el envio de solicitudes a procesar
+            CALL fn_crea_notificacion_procesar(v_id_solicitud,v_nss,v_caso_adai_buscado) RETURNING v_estatus
+         END IF
+         
+         IF v_estatus = "101" OR v_estado_solicitud = 71 THEN
+            
+            CALL fn_confirma_pago_crm(v_nss, v_caso_adai_buscado, v_id_solicitud , v_rsp_referencia, v_estado_solicitud,v_c_rechazo, v_des_rechazo) RETURNING v_resultado, v_codigo  -- Se envia 1 mientras se definen los beneficiarios
+
             IF v_estado_solicitud  = 210 THEN 
                -- se comunica como rechazada/no pagada
                LET v_estado_solicitud = 214
-               -- se crean los datos para el envio de solicitudes a procesar
-               CALL fn_crea_notificacion_procesar(v_id_solicitud,v_id_derechohabiente,v_nss,v_caso_adai_buscado) RETURNING v_estado
-
-               IF v_estado = 0 THEN
-                  DISPLAY "RESULTADO COMUNICACION PROCESAR SATISFACTORIO SOLICITUD: ",v_id_solicitud, "DH:",v_id_derechohabiente
-               ELSE
-                  DISPLAY "RESULTADO COMUNICACION PROCESAR NO REALIZADO SOLICITUD: ",v_id_solicitud, "DH:",v_id_derechohabiente
-               END IF   
-            ELSE 
+            ELSE
                -- se comunica como aceptada/pagada
                LET v_estado_solicitud = 72
-            END IF 
-                          
-            UPDATE ret_solicitud_generico
-            SET    estado_solicitud = v_estado_solicitud -- pagada
-            WHERE  id_solicitud     = v_id_solicitud
+            END IF
+            IF v_resultado = 0 AND v_codigo = "0000" THEN 
+               UPDATE ret_solicitud_generico
+                SET    estado_solicitud = v_estado_solicitud -- pagada
+                WHERE  id_solicitud     = v_id_solicitud
 
-            UPDATE ret_ley73_generico
-            SET    estado_solicitud = v_estado_solicitud
-            WHERE  id_solicitud     = v_id_solicitud
-            -- se desmarca la cuenta
-            CALL fn_ret_generico_desmarca_cuenta(v_id_derechohabiente, v_marca,
-                                                 v_id_solicitud, v_marca,
-                                                 p_usuario_cod, g_proceso_cod)
-         ELSE 
-            DISPLAY "ERROR al invocar webservice de confirmacion de pago CRM"
-            DISPLAY "=========================================================\n"
-         END IF
+               UPDATE ret_ley73_generico
+                SET    estado_solicitud = v_estado_solicitud
+               WHERE  id_solicitud     = v_id_solicitud
+               -- se desmarca la cuenta
+               CALL fn_ret_generico_desmarca_cuenta(v_id_derechohabiente, v_marca,
+                                                    v_id_solicitud, v_marca,
+                                                    p_usuario_cod, g_proceso_cod)
+            ELSE 
+               DISPLAY "ERROR al invocar webservice de confirmacion de pago CRM"
+               DISPLAY "=========================================================\n"
+            END IF -- notificacion CRM
+         END IF -- validar estado procesar y solicitud
+         -- se inicia variable para que no tome un dato anterior
+         LET v_estatus = 0
+         
       END FOREACH
-         -------------------------------------------------------------------------------
-         -------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------
       -------------------------------------------------------------------------------
       -------------------------------------------------------------------------------
 
@@ -379,69 +377,53 @@ DEFINE p_id_solicitud LIKE ret_solicitud_generico.id_solicitud,
 
 END FUNCTION
 
-FUNCTION fn_crea_notificacion_procesar(v_id_solicitud,v_id_derechohabiente,v_nss,v_caso_adai_buscado)
-  --variables de entrada
-  DEFINE v_id_solicitud                LIKE ret_solicitud_generico.id_solicitud,
-         v_nss                         LIKE ret_solicitud_generico.nss,
-         v_id_derechohabiente          LIKE ret_solicitud_generico.id_derechohabiente,
-         v_caso_adai_buscado           LIKE ret_solicitud_generico.caso_adai
+FUNCTION fn_crea_notificacion_procesar(v_id_solicitud,v_nss,v_caso_crm)
   -- Variables de control
-  DEFINE
-         v_solicitudes_procesadas   INTEGER,
-         v_estado                   SMALLINT,
-         reg_marca_procesar_maestra RECORD
-         id_solicitud            DECIMAL(9,0),
-         nss                     CHAR(11),
-         estado_indicador        SMALLINT,
-         origen                  SMALLINT
-      END RECORD,
-      v_diagnostico              SMALLINT,
+  DEFINE v_diagnostico              SMALLINT,
       v_estatus                  SMALLINT,
       v_aivs_viv92               DECIMAL(24,6),
       v_pesos_viv92              DECIMAL(22,2),
       v_aivs_viv97               DECIMAL(24,6),
       v_pesos_viv97              DECIMAL(22,2),
+      --
+      v_saldo_total              DECIMAL(24,6),
       v_cod_rechazo              SMALLINT
-
-   -- Variables auxiliares
-   DEFINE v_modalidad         SMALLINT
+   DEFINE v_sql                  STRING
+   DEFINE v_modalidad            SMALLINT
+   DEFINE v_id_solicitud         DECIMAL(9,0)
+   DEFINE v_nss                  CHAR(11)
+   DEFINE v_caso_crm             CHAR(10)
   
-    -- para cada una de las solicitudes notificadas se manda desmarcar en procesar
-    
-    -- 60 Desmarca en procesar
-    -- 40 marca en procesar
-    LET v_modalidad = 60
+   -- desmarca
+   LET v_modalidad = 60 
 
-    --Mando llamar funcionalidad de Desmarca a Procesar
-    CALL fn_consulta_saldo_vivienda_afore(v_nss, v_modalidad)
-         RETURNING v_diagnostico, v_estatus, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_cod_rechazo
+   -- para cada una de las solicitudes encontradas se desmarca
+   
+   --Mando llamar funcionalidad de Desmarca a Procesar
+   CALL fn_consulta_saldo_vivienda_afore(v_nss, v_modalidad)
+   RETURNING v_diagnostico, v_estatus, v_aivs_viv92, v_pesos_viv92, v_aivs_viv97, v_pesos_viv97, v_cod_rechazo
 
-    DISPLAY "SALDO RECUPERADO >>: "
-    DISPLAY "AIVS92: ", v_aivs_viv92
-    DISPLAY "PESOS92: ", v_pesos_viv92
-    DISPLAY "AIVS97: ", v_aivs_viv97
-    DISPLAY "PESOS97: ", v_pesos_viv97
-    DISPLAY "CÓDIGO DE RECHAZO: ", v_cod_rechazo
+   DISPLAY "Responde el servicio de Procesar :"
+   DISPLAY "Diagnostico   :	",v_diagnostico
+   DISPLAY "Estatus :	",v_estatus
       
-    IF (v_diagnostico = 127) THEN
-       --Existio un error desde Procesar
-       CALL fn_guarda_consulta_ws_vent_afore(v_nss, 2, 4, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
-                                             v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_id_solicitud, v_caso_adai_buscado, 2) -- Se deberá reenviar la solicitud de marca 
-    ELSE
-       CALL fn_guarda_consulta_ws_vent_afore(v_nss, 2, 5, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
-                                             v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_id_solicitud, v_caso_adai_buscado, 2) -- La solicitud no se pudo marcar porque esta marcada en otro proceso
-    END IF
+   -- sino se notifica se deja para que el automatico lo ejecute posteriormente   
+   IF (v_diagnostico = 127) THEN
+      --Existio un error desde Procesar
+      CALL fn_guarda_consulta_ws_vent_afore(v_nss, 2, 4, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
+                                            v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_id_solicitud, v_caso_crm, 2) -- Se deberá reenviar la solicitud de marca 
+   ELSE
+      CALL fn_guarda_consulta_ws_vent_afore(v_nss, 2, 5, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
+                                            v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', v_id_solicitud, v_caso_crm, 2) -- La solicitud no se pudo marcar porque esta marcada en otro proceso
+   END IF
 
-    LET v_solicitudes_procesadas = v_solicitudes_procesadas + 1
-    DISPLAY "SOLICITUDES NOTIFICADAS:"
-    DISPLAY "ID DH: >> ",v_id_derechohabiente
-    DISPLAY "ID Solicitud: >> ",v_id_solicitud
-    DISPLAY "NSS: >> ",v_nss
-    DISPLAY "Caso CRM: >> ",v_caso_adai_buscado
-
-    DISPLAY "Se mandaron desmarcar a Procesar: ", v_solicitudes_procesadas, " solicitudes correctamente."
-
-   RETURN v_estado
-
+   -- si la respuesta es correcta
+   -- se actualiza solicitud
+   IF v_diagnostico = "101" AND v_estatus = "101" THEN
+      DISPLAY "Se manda desmarcar a Procesar la solicitud", v_id_solicitud, " correctamente."
+   ELSE
+      DISPLAY "No se desmarca la solicitud", v_id_solicitud, " correctamente."
+   END IF
+   RETURN v_estatus 
 END FUNCTION
 
