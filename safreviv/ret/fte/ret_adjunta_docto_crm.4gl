@@ -59,15 +59,19 @@ FUNCTION SI_AdjuntarDocumento_SO_g()
   LET uri = com.WebServiceEngine.GetOption("SoapModuleURI")
 
   IF SI_AdjuntarDocumento_SOService_HTTP_PortEndpoint.Address.Uri IS NULL THEN
+    LET SI_AdjuntarDocumento_SOService_HTTP_PortEndpoint.Address.Uri = "http://091402aq137.infonavit.net:8010/XISOAPAdapter/MessageServlet?senderParty=&senderService=BC_PORTAL&receiverParty=&receiverService=&interface=SI_AdjuntarDocumento_SO&interfaceNamespace=http://infonavit.org.mx/ADJUNTA/sndAdjuntarDocumento"
     --LET SI_AdjuntarDocumento_SOService_HTTP_PortEndpoint.Address.Uri = "http://091402ai203.infonavit.net:50000/XISOAPAdapter/MessageServlet?senderParty=&senderService=BC_PORTAL&receiverParty=&receiverService=&interface=SI_AdjuntarDocumento_SO&interfaceNamespace=http://infonavit.org.mx/ADJUNTA/sndAdjuntarDocumento"
-    LET SI_AdjuntarDocumento_SOService_HTTP_PortEndpoint.Address.Uri = "alias://adjuntadoctocrm"
+    --LET SI_AdjuntarDocumento_SOService_HTTP_PortEndpoint.Address.Uri = "alias://adjuntadoctocrm"
   END IF
+  
+  DISPLAY "url: ", SI_AdjuntarDocumento_SOService_HTTP_PortEndpoint.Address.Uri
 
   #
   # CREATE REQUEST
   #
   TRY
     LET request = com.HTTPRequest.Create(SI_AdjuntarDocumento_SOService_HTTP_PortEndpoint.Address.Uri)
+    CALL request.setAuthentication("serviciosweb75","piqa2018","Basic","WebLogic Server")
     CALL request.setMethod("POST")
     CALL request.setCharset("UTF-8")
     CALL request.setHeader("SOAPAction","\"http://sap.com/xi/WebService/soap1.1\"")

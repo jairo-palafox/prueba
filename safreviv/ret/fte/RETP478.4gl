@@ -40,8 +40,15 @@ DEFINE v_resultado        INTEGER, -- recibe el resultado de la ejecucion del se
        p_usuario_cod      LIKE seg_usuario.usuario_cod,       # clave del usuario firmado
        p_folio            LIKE ret_preliquida.folio_liquida,
        v_certificado      STRING,
-       v_rfc_funcionario  CHAR(13) 
-       
+       v_rfc_funcionario  CHAR(13)
+DEFINE r_bnd_fin_oper SMALLINT       
+
+--DEFINE wscliente STRING
+--DEFINE txtfecha STRING
+--  LET txtfecha = year(TODAY)||MONTH(today)||DAY(TODAY)       
+--   
+--  LET wscliente = "log_ws_ent_sal"||txtfecha||".log"
+--  CALL startlog(wscliente)    
       
   -- se obtiene la ruta ejecutable
   SELECT ruta_bin
@@ -66,10 +73,12 @@ DEFINE v_resultado        INTEGER, -- recibe el resultado de la ejecucion del se
    IF v_resultado = 0 THEN
       DISPLAY "Proceso concluido exitosamente: "
       DISPLAY CURRENT YEAR TO SECOND
+      CALL fn_actualiza_opera_fin(p_pid,p_proceso_cod,p_opera_cod) RETURNING r_bnd_fin_oper
    ELSE 
       DISPLAY "Proceso concluido con error: "
       DISPLAY CURRENT YEAR TO SECOND
-   END IF 
+      CALL fn_error_opera(p_pid,p_proceso_cod,p_opera_cod) RETURNING r_bnd_fin_oper
+   END IF
       
 END MAIN
 
@@ -327,8 +336,8 @@ PUBLIC FUNCTION fn_load_pdf_fa(v_ruta_reporte, v_archivo_reporte, p_caso, p_cert
    LOCATE archivo IN MEMORY
    DISPLAY "Parámetros enviados a la Rutina de Adjunta Documentos"
    LET v_archivo_reporte = 'Carta Negativa'
-   --DISPLAY "v_archivo_reporte: ", v_archivo_reporte
-   --DISPLAY "v_ruta_reporte: ",v_ruta_reporte
+   DISPLAY "v_archivo_reporte: ", v_archivo_reporte
+   DISPLAY "v_ruta_reporte: ",v_ruta_reporte
    LET v_ruta_rep_sellado = v_ruta_reporte || "_sellado.pdf"
    #DISPLAY v_ruta_reporte
    CALL archivo.readFile(v_ruta_reporte)
@@ -342,8 +351,11 @@ PUBLIC FUNCTION fn_load_pdf_fa(v_ruta_reporte, v_archivo_reporte, p_caso, p_cert
 --      DISPLAY "Regresa de la función f_obtiene_firma"
 --      IF v_archivo_sellado IS NOT NULL THEN 
          DISPLAY "Se envia sellar el PDF"
+         DISPLAY "v_archivo: ", v_archivo
+         DISPLAY "p_rfc_funcionario: ", p_rfc_funcionario
          CALL f_sella_pdf(v_archivo, p_rfc_funcionario CLIPPED) RETURNING v_pdf_sellado
          DISPLAY "Regresa de la función f_sella_pdf"
+         DISPLAY "v_pdf_sellado: ", v_pdf_sellado||"Longitud: "||LENGTH(v_pdf_sellado)
          IF v_pdf_sellado IS NOT NULL THEN 
             CALL fn_adjunta_documento_fa(v_archivo_reporte, v_pdf_sellado, p_caso) RETURNING v_resultado
             CALL security.Base64.SaveBinary(v_ruta_rep_sellado,v_pdf_sellado)
@@ -427,12 +439,14 @@ DEFINE p_cadena_original STRING
    LET v_archivo =  p_arr_cartas.v_nss CLIPPED,"_", 
                   p_arr_cartas.v_caso_crm USING "&&&&&&&&&&","_"
                   ||v_f_creacion_pdf||".pdf" 
-   LET v_ruta_reporte = v_ruta_listados CLIPPED , "/" , v_archivo CLIPPED 
+   
+   LET v_ruta_reporte = v_ruta_listados CLIPPED , "/" , v_archivo CLIPPED
+   --LET v_ruta_reporte = v_ruta_bin CLIPPED , "/" , v_archivo CLIPPED 
 
    LET v_ruta_pdf    = v_ruta_reporte
    LET v_archivo_pdf = v_archivo
-   --DISPLAY "El archivo :", v_reporte
-   --DISPLAY "Ruta reporte :", v_ruta_reporte
+   DISPLAY "El archivo :", v_reporte
+   DISPLAY "Ruta reporte :", v_ruta_reporte
    IF fgl_report_loadCurrentSettings(v_reporte) THEN
       CALL fgl_report_selectDevice("PDF")# PDF, XLS, HTML
       CALL fgl_report_selectPreview(FALSE)
@@ -580,8 +594,8 @@ DEFINE v_codigo         INTEGER
    END RECORD 
 
   DISPLAY "Parametros recibidos para el consumo de la funcion de documentos"
-  --DISPLAY "p_archivo: ",p_archivo
-  --DISPLAY "p_nombre_archivo: ", p_nombre_archivo
+  DISPLAY "p_archivo: ",p_archivo
+  DISPLAY "p_nombre_archivo: ", p_nombre_archivo
    LET v_regreso = 0
    LET arr_documentos.nombre_documento = p_nombre_archivo
    LET arr_documentos.documento        = p_archivo
@@ -619,7 +633,8 @@ DEFINE v_indice_retiro  SMALLINT,
    FROM   ret_rfc_firma_pdf a,
           afi_derechohabiente b
    WHERE  a.rfc = b.rfc
-   AND    a.id_firma = 2;
+   --AND    a.id_firma = 2;
+     AND a.id_firma = 1; 
    LET v_result = TRUE
    --LET v_cadena   = "ESTAESLACADENAQUECONVERTIRAENHASH"
 
@@ -695,6 +710,7 @@ DEFINE v_indice_retiro SMALLINT,
       p_rfc_funcionario STRING 
 
    DISPLAY "Se recibe PDF para sellar:"
+   DISPLAY "PDF: ",p_pdf 
 
    --- Se validan los parámetros de entrada
    IF p_pdf IS NULL THEN 

@@ -240,7 +240,7 @@ DEFINE v_resp_jar STRING
       -- Se llama al jar del Sello Digital
       LET v_resp_jar = obj_cliente.SellaPDF(p_pdf, p_rfc, p_localidad)
       
---      DISPLAY "La respuesta del JAR: ",v_resp_jar
+      DISPLAY "La respuesta del JAR: ",v_resp_jar
       --LET cadena_b64 = dgst.DoHexBinaryDigest()
       RETURN TRUE, " ", v_resp_jar
    CATCH
