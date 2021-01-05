@@ -28,7 +28,7 @@ DEFINE ws_ret_cons_saldos_disponibles_in RECORD
          grupo_ley73      SMALLINT, -- num. de grupo al que perteneces segun retiro Ley 73
          medio_entrega    SMALLINT  -- Medio por el cual se hace la consulta 1 - Tableta, 0 - Otros
        END RECORD,
-       -- registro de respuesta 
+       -- registro de respuesta
        ws_ret_cons_saldos_disponibles_out  RECORD
          nss                 CHAR(11), --- Número de seguridad social del trabajador
          saldo_x_retiro      DYNAMIC ARRAY OF RECORD
@@ -58,14 +58,7 @@ CONSTANT  g_res_procesada                    SMALLINT = 0  ,
           g_msg_conexion_con_cliente_perdida STRING = "Se perdió la conexión con el cliente" ,
           g_msg_servidor_interrumpido_ctrl_c STRING = "Se interrumpió el servidor con CTRL-C",
           g_msg_error_interno                STRING = "Ocurrió un error interno"
--- ========================================================
--- constantes que identifican el medio de entrega
-CONSTANT G_ME_TABLETA     SMALLINT = 1,
-         G_ME_DEV_AUTO    SMALLINT = 2,
-         G_ME_CRM         SMALLINT = 3,
-         G_ME_AFORE       SMALLINT = 5,
-         G_ME_EXCEPCIONES SMALLINT = 6,
-         G_ME_MASIVO      SMALLINT = 7
+         
 DEFINE serverURL STRING -- URL del servidor
 DEFINE v_pantalla    SMALLINT
 
@@ -98,16 +91,12 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
     LET v_ruta_log = v_ruta_log || v_cadena
     LET v_cadena   = CURRENT SECOND TO SECOND
     LET v_ruta_log = v_ruta_log || v_cadena || ".log"
+  
+  
+    DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
 
     -- se inicia el log del programa
-    IF FGL_GETENV("RETWS07LOG") THEN
-       CALL STARTLOG(FGL_GETENV("RETWS07LOG"))
-       DISPLAY "Ruta del log creada del servidor: " || FGL_GETENV("RETWS07LOG")
-    ELSE
-       DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
-       CALL STARTLOG(v_ruta_log)
-    END IF 
-    
+    CALL STARTLOG(v_ruta_log)
 
     LET v_pantalla = FALSE
     #
@@ -257,7 +246,9 @@ DEFINE p_generar_WSDL       SMALLINT -- booleana que indica si se solicito envia
 DEFINE v_resultado          INTEGER
 DEFINE v_urn                STRING -- URN
   
+
     -- se declara el namespace del servicio
+    LET v_service_NameSpace = "http://localhost/"
     LET v_service_NameSpace = "http://www.infonavit.gob.mx/"
 
     TRY
@@ -270,7 +261,8 @@ DEFINE v_urn                STRING -- URN
 
         -- fn_retiro 
         LET op = com.WebOperation.CreateDOCStyle("fn_ret_saldos_disponibles_ley73","fn_ret_saldos_disponibles_ley73",ws_ret_cons_saldos_disponibles_in,ws_ret_cons_saldos_disponibles_out)
-
+        --LET op = com.WebOperation.CreateDOCStyle("fn_retiro","fn_retiro",ret_retiro_fondo,ret_respuesta)
+        --CALL v_webservice.publishOperation(op, "urn:http://10.90.8.199:7777/retiroSaldosDisponibles/fn_ret_saldos_disponibles")
         CALL v_webservice.publishOperation(op, "fn_ret_saldos_disponibles_ley73")
 
         -- si se hace generacion del WSDL
@@ -288,7 +280,7 @@ DEFINE v_urn                STRING -- URN
             -- =========================
             -- REgistro del servicio
             CALL com.WebServiceEngine.RegisterService(v_webservice)  
-
+            --display_status("Retiro Disponibilidad Ley 73 Service registrado")
             CALL ERRORLOG("Se registro el servicio consulta de saldos disponibles para retiro Ley 73")
         END IF
     
@@ -315,7 +307,7 @@ END FUNCTION
 Clave: 
 Nombre: fn_ret_saldos_disponibles_ley73
 Fecha creacion: Noviembre 29, 2017
-Autor: Ricardo Perez, EFP
+Autor: Ricardo Pérez, EFP
 Narrativa del proceso que realiza:
 Funcion principal del WS que consulta los saldos disponibles para retiros
 
@@ -325,13 +317,13 @@ Autor           Fecha                   Descrip. cambio
 ======================================================================
 }
 FUNCTION fn_ret_saldos_disponibles_ley73()
-DEFINE v_indice_retiro   SMALLINT,
+DEFINE v_indice_retiro SMALLINT,
        v_nss             LIKE afi_fondo72.nss,
        v_grupo           SMALLINT,
        v_medio_entrega   SMALLINT,
-	   v_ruta_ejecutable LIKE seg_modulo.ruta_bin,
-	   v_ruta_log        STRING,
-	   v_cadena          STRING
+	    v_ruta_ejecutable LIKE seg_modulo.ruta_bin,
+	    v_ruta_log        STRING,
+	    v_cadena          STRING
 
    -- se responde el servicio para pruebas
    LET ws_ret_cons_saldos_disponibles_out.nss = ws_ret_cons_saldos_disponibles_in.nss
@@ -340,10 +332,26 @@ DEFINE v_indice_retiro   SMALLINT,
    LET v_grupo         = ws_ret_cons_saldos_disponibles_in.grupo_ley73
    LET v_medio_entrega = ws_ret_cons_saldos_disponibles_in.medio_entrega
    
-   DISPLAY "Parametros recibidos:"
+   DISPLAY "Parámetros recibidos:"
    DISPLAY "NSS          : ", v_nss
    DISPLAY "GRUPO        : ", v_grupo
    DISPLAY "MEDIO ENTREGA: ", v_medio_entrega
+
+   -- se obtiene la ruta ejecutable
+   SELECT ruta_bin
+   INTO   v_ruta_ejecutable
+   FROM   seg_modulo
+   WHERE  modulo_cod = "ret"
+
+   -- se define la ruta del log
+   LET v_ruta_log = v_ruta_ejecutable CLIPPED, "/RETWS07."
+   LET v_cadena   = v_nss
+   LET v_ruta_log = v_ruta_log || v_cadena || ".log"
+
+   DISPLAY "Ruta del log creada del servidor: ", v_ruta_log
+
+   -- se inicia el log del programa
+   CALL STARTLOG(v_ruta_log)
 
    -- se inicia el indice del retiro que se va a consultar
    LET g_indice_retiro = 1
@@ -355,10 +363,10 @@ DEFINE v_indice_retiro   SMALLINT,
          DISPLAY "El retiro para el grupo ", v_grupo, ", no se puede tramitar por tableta"
          RETURN 
       ELSE 
-         IF ( v_medio_entrega = 0 OR 
-              v_medio_entrega IS NULL OR 
-              v_grupo         = 0 OR 
-              v_grupo         IS NULL ) THEN 
+         IF v_medio_entrega = 0 OR 
+            v_medio_entrega IS NULL OR 
+            v_grupo         = 0 OR 
+            v_grupo         IS NULL THEN 
             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_datos_incompletos, 8, 0, TODAY,0)
             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_datos_incompletos, 4, 0, TODAY,0)
             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_datos_incompletos, 12,0, TODAY,0)
@@ -375,15 +383,13 @@ END FUNCTION
 Clave: 
 Nombre: fn_ret_disponibilidad_ley73
 Fecha creacion: Noviembre 29, 2017
-Autor: Ricardo Perez, EFP
+Autor: Ricardo Pérez, EFP
 Narrativa del proceso que realiza:
 Verifica si un derechohabiente puede realizar el retiro de su saldo de cuenta
 de vivienda segun ley 73
 
 Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
-Ivan Vega     Octubre 22, 2020        - PLAG138 se incluye el saldo de TESOFE para grupo 1 con medio de entrega CRM y portal
-                                        en caso de existir
 ======================================================================
 }
 FUNCTION fn_ret_disponibilidad_ley73(p_nss, p_grupo, p_medio_entrega, p_es_consulta)
@@ -396,11 +402,9 @@ DEFINE p_nss                  CHAR(11), -- NSS
        v_aivs_viv92           DECIMAL(24,6), -- saldo AIVs de viv92
        v_aivs_viv97           DECIMAL(24,6), -- saldo AIVs de viv97
        v_aivs_vol             DECIMAL(24,6), -- saldo AIVs de Aportaciones voluntarias
-       v_aivs_tesofe          DECIMAL(24,6), -- saldo AIVs de TESOFE
        v_pesos_viv92          DECIMAL(22,2), -- saldo pesos de viv92
        v_pesos_viv97          DECIMAL(22,2), -- saldo pesos de viv97
        v_pesos_vol            DECIMAL(22,2), -- saldo pesos de Aportaciones voluntarias
-       v_pesos_tesofe         DECIMAL(22,2), -- saldo pesos de TESOFE
        v_monto_tesofe         DECIMAL(22,2), -- Saldo Tesofe
        v_resultado            SMALLINT, -- resultado de la consulta
        v_f_inicio_pension     DATE, -- fecha de inicio de pension en el SPESS
@@ -431,15 +435,13 @@ DEFINE p_nss                  CHAR(11), -- NSS
     WHERE  nss               = p_nss
     AND    ind_estado_cuenta = 0
     
-    LET v_aivs_viv92    = 0
-    LET v_aivs_viv97    = 0
-    LET v_aivs_vol      = 0
-    LET v_aivs_tesofe   = 0
-    LET v_pesos_viv92   = 0
-    LET v_pesos_viv97   = 0
-    LET v_pesos_vol     = 0
-    LET v_pesos_tesofe  = 0
-    LET v_id_cliente    = 30
+    LET v_aivs_viv92         = 0
+    LET v_aivs_viv97         = 0
+    LET v_aivs_vol           = 0
+    LET v_pesos_viv92        = 0
+    LET v_pesos_viv97        = 0
+    LET v_pesos_vol          = 0
+    LET v_id_cliente         = 30
 
     -- si no se encontro
     IF ( v_id_derechohabiente IS NULL ) THEN
@@ -462,10 +464,9 @@ DEFINE p_nss                  CHAR(11), -- NSS
             --*********   por tener un rechazo por el banco
             --*********   ret_cuenta_clabe se busca por nss
             --*********
-            IF ( p_grupo = 4 ) THEN 
+            IF p_grupo = 4 THEN 
                 -- Primero valida si no tiene un rechazo por Banco
                 LET v_tiene_rch_siaff = 0;
-                
                 SELECT COUNT(*)
                 INTO v_tiene_rch_siaff
                 FROM   ret_solicitud_generico rg,
@@ -476,15 +477,11 @@ DEFINE p_nss                  CHAR(11), -- NSS
                 AND    rg.cod_rechazo      = 66
                 AND    rg.modalidad_retiro = 3
                 AND    rl.gpo_ley73        = 4;
-                
-                -- si tiene SIAF
-                IF ( v_tiene_rch_siaff > 0 ) THEN 
-                    -- se reporta sin disponibilidad
+                IF v_tiene_rch_siaff > 0 THEN 
                     CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_rechazo_banco_siaff, 8, 0, TODAY,0)
                     CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_rechazo_banco_siaff, 4, 0, TODAY,0)
                     CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_rechazo_banco_siaff, 12, 0, TODAY,0)
-                ELSE
-                    -- verifica si se tiene cuenta CLABE
+                ELSE 
                     SELECT COUNT(*)
                     INTO   v_tiene_cta_clabe
                     FROM   ret_solicitud_generico rg,
@@ -494,9 +491,7 @@ DEFINE p_nss                  CHAR(11), -- NSS
                     AND    rg.id_solicitud       = rlg.id_solicitud
                     AND    rg.modalidad_retiro   = 3
                     AND    rlg.gpo_ley73         = 4
-                    
-                    -- si se encontro cuenta CLABE
-                    IF ( v_tiene_cta_clabe > 0 ) THEN
+                    IF v_tiene_cta_clabe > 0 THEN 
                         LET v_tiene_cta_clabe = 0
                         SELECT COUNT(*) -- si devuelve 0 es que no se ha recibido archivo con la cuenta clabe para el nss, si devuelve algo mayor a cero si se cuenta con clabe y esta próximo a enviarse
                         INTO v_tiene_cta_clabe
@@ -509,15 +504,11 @@ DEFINE p_nss                  CHAR(11), -- NSS
                         AND    rg.modalidad_retiro   = 3
                         AND    rlg.gpo_ley73         = 4
                         AND    rc.nss                = rg.nss
-                        
-                        -- si no se encontro cuenta CLABE en retiro generico y solicitud generico 
-                        IF ( v_tiene_cta_clabe = 0 ) THEN
-                            -- se rechaza la solicitud porque no tiene cuenta CLABE
+                        IF v_tiene_cta_clabe = 0 THEN 
                             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_pendiente_envio_clabe, 8, 0, TODAY,0)
                             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_pendiente_envio_clabe, 4, 0, TODAY,0)
                             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_pendiente_envio_clabe, 12,0, TODAY,0)
-                        ELSE
-                            -- se indica que no hay disponibilidad porque se tiene una solicitud en tramite
+                        ELSE 
                             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_solicitud_en_tramite, 8, 0, TODAY,0)
                             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_solicitud_en_tramite, 4, 0, TODAY,0)
                             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_solicitud_en_tramite, 12,0, TODAY,0)
@@ -534,13 +525,11 @@ DEFINE p_nss                  CHAR(11), -- NSS
                 CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_solicitud_en_tramite, 8, 0, TODAY,0)
                 CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_solicitud_en_tramite, 4, 0, TODAY,0)
                 CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_solicitud_en_tramite, 12,0, TODAY,0)
-                
             END IF 
         ELSE      
             -- se verifica si el NSS tiene resolucion valida en el SPESS
             CALL fn_trabajador_resolucion_spess(p_nss, 5) RETURNING v_tiene_spess, v_id_datamart
             --LET v_tiene_spess = TRUE
-            DISPLAY "v_tiene_spess, v_id_datamart",v_tiene_spess, v_id_datamart
 
             -- si no tiene resolucion valida en el spess
             IF ( NOT v_tiene_spess ) THEN
@@ -554,15 +543,11 @@ DEFINE p_nss                  CHAR(11), -- NSS
                 INTO   v_f_inicio_pension, v_f_resolucion, v_regimen, v_tpo_prestacion, v_tpo_seguro, v_tpo_pension, v_porcentaje_valuacion
                 FROM   ret_datamart
                 WHERE  id_datamart = v_id_datamart
-                
-                -- si el regimen en el datamar es 97
-                IF ( v_regimen = 97 ) THEN
-                    -- no hay dispobilidad por corresponder con otro regimen distinto a 73
+                IF v_regimen = 97 THEN
                     CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_regimen_diferente_73, 8, 0, TODAY,0)
                     CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_regimen_diferente_73, 4, 0, TODAY,0)
                     CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_regimen_diferente_73, 12,0, TODAY,0)
                 ELSE 
-                    -- si el tipo de prestacion es 03, corresponde con una negativa de pension
                     IF v_tpo_prestacion = "03" THEN 
                         CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_resolucion_neg_pension, 8, 0, TODAY,0)
                         CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_resolucion_neg_pension, 4, 0, TODAY,0)
@@ -574,7 +559,7 @@ DEFINE p_nss                  CHAR(11), -- NSS
                             CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_porcentaje_menor_50, 12,0, TODAY,0)
                         ELSE 
                         
-                            -- Busca la combinacion en la matriz de derechos, si no la encuentra regresa codigo 91
+                            -- Busca la convinación en la matriz de derechos, si no la encuentra regresa codigo 91
                             SELECT COUNT(*)
                               INTO v_cant_matriz_derechos
                               FROM ret_matriz_derecho
@@ -583,7 +568,6 @@ DEFINE p_nss                  CHAR(11), -- NSS
                                AND tpo_pension = v_tpo_pension
                                AND regimen = v_regimen
                                AND tpo_retiro = 'E'
-                            -- no se encontro la combinacion con tipo de retiro E
                             IF v_cant_matriz_derechos = 0 THEN 
                                 CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_pension_vigente, 8, 0, TODAY,0)
                                 CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_pension_vigente, 4, 0, TODAY,0)
@@ -605,10 +589,7 @@ DEFINE p_nss                  CHAR(11), -- NSS
                                 CALL fn_calcula_saldo_ley73(p_nss, 4, TODAY) RETURNING v_resultado, v_aivs_viv97, v_pesos_viv97
                                 -- se integra el saldo de la subcuenta de aportaciones voluntarias.
                                 CALL fn_calcula_saldo_ley73(p_nss, 55, TODAY) RETURNING v_resultado, v_aivs_vol, v_pesos_vol
-                                -- se calcula el saldo de TESOFE
-                                CALL fn_calcula_saldo_ley73(p_nss, 47, TODAY) RETURNING v_resultado, v_aivs_tesofe, v_pesos_tesofe
-                                DISPLAY "Saldo en TESOFE: ", v_pesos_tesofe
-                                
+
                                 LET v_sdo_tot_aivs  = 0
                                 LET v_sdo_tot_pesos = 0
                                 --- Se valuan los pesos al primer día del mes de la consulta
@@ -622,7 +603,7 @@ DEFINE p_nss                  CHAR(11), -- NSS
                                 -- Se implementa la busqueda de casos en CRM
                                 CALL fn_busca_caso(p_nss, p_medio_entrega) RETURNING v_resultado
                                 DISPLAY "El valor regresado por la búsqueda del caso :", v_resultado
-                                LET v_resultado = 0 --- mientras se implementa lo de CRM
+                                --LET v_resultado = 0 --- mientras se implementa lo de CRM
                                 IF v_resultado = 0 THEN 
                             
                                    -- se verifica que grupo de retiro llego
@@ -631,7 +612,7 @@ DEFINE p_nss                  CHAR(11), -- NSS
                                        WHEN 1
                                           -- si la fecha de inicio de pension es igual o posterior al 13 de enero de 2012
                                           IF ( v_f_resolucion >= "01/13/2012" ) THEN
-                                             CALL fn_retl73_valida_grupo1(p_nss, v_aivs_viv92, v_aivs_viv97 + v_aivs_vol, v_aivs_tesofe, v_f_resolucion, p_es_consulta)
+                                             CALL fn_retl73_valida_grupo1(p_nss, v_aivs_viv92, v_aivs_viv97 + v_aivs_vol, v_f_resolucion, p_es_consulta)
                                           ELSE
                                                -- la fecha es invalida para grupo 1
                                                -- Se cambia al medio de entrega a 3 (Asesores telefónicos) en lugar de 4 CRM SACI2019-52
@@ -646,7 +627,6 @@ DEFINE p_nss                  CHAR(11), -- NSS
                                                      ELSE 
                                                         CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, gi_no_es_grupo_1, 8, v_aivs_viv92, TODAY,0)
                                                      END IF 
-                                                     DISPLAY "Se incluye saldo en TESOFE ", v_monto_tesofe
                                                      CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, gi_no_es_grupo_1, 4, v_aivs_viv97 + v_aivs_vol+v_monto_tesofe, TODAY,v_monto_tesofe)
                                                      CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, gi_no_es_grupo_1, 12,v_aivs_viv92 + v_aivs_viv97 + v_aivs_vol+v_monto_tesofe, TODAY,v_monto_tesofe)
                                                   ELSE 
@@ -740,15 +720,10 @@ de un credito por amortaciones excedentes
 
 Registro de modificaciones:
 Autor           Fecha                   Descrip. cambio
-Ivan Vega    Noviembre 10, 2020    - se parametriza la invocacion de los servicios de procesar para
-                                     poder realizar las pruebas de retiro por ventanilla unica y demas
-                                     pruebas ya que no siempre funcionan los servicios de PROCESAR en QA
-Ivan Vega    Noviembre 24, 2020      Se obtiene el saldo de TESOFE de existir y se suma al saldo de
-                                   viv97 para grupo 1 cuando es por CRM y Portal (medio de entrega 2 y 3)
-                                   Se parametriza la llamada a los servicios de PROCESAR mediante variable de entorno
+
 ======================================================================
 }
-FUNCTION fn_retl73_valida_grupo1(p_nss, v_aivs_viv92, v_aivs_viv97, p_aivs_tesofe, v_fecha_resolucion, p_es_consulta)
+FUNCTION fn_retl73_valida_grupo1(p_nss, v_aivs_viv92, v_aivs_viv97, v_fecha_resolucion, p_es_consulta)
 DEFINE p_nss              CHAR(11), -- NSS
        p_grupo_ley73      SMALLINT, -- grupo de retiro segun Ley73
        p_es_consulta      SMALLINT, -- booleana que indica si es una consulta o inicio de tramite
@@ -756,12 +731,10 @@ DEFINE p_nss              CHAR(11), -- NSS
        v_id_datamart      LIKE ret_datamart.id_datamart,
        v_aivs_viv92       DECIMAL(24,6), -- saldo AIVs de viv92
        v_aivs_viv97       DECIMAL(24,6), -- saldo AIVs de viv97
-       p_aivs_tesofe      DECIMAL(24,6), -- saldo AIVs de TESOFE
        v_aivs_viv92_tmp   DECIMAL(24,6), -- saldo AIVs de viv92
        v_aivs_viv97_tmp   DECIMAL(24,6), -- saldo AIVs de viv97
        v_pesos_viv92      DECIMAL(22,2), -- saldo pesos de viv92
        v_pesos_viv97      DECIMAL(22,2), -- saldo pesos de viv97
-       v_pesos_tesofe     DECIMAL(22,2), -- saldo pesos TESOFE
        v_resultado        SMALLINT, -- resultado de la consulta
        v_tiene_credito    SMALLINT, -- booleana que indica si se tiene un credito vigente
        v_tipo_credito     SMALLINT, -- clave del tipo de credito
@@ -772,17 +745,17 @@ DEFINE p_nss              CHAR(11), -- NSS
        v_existe_43_bis    SMALLINT,
        v_rch_desc         CHAR(40),
        v_causal_paso      SMALLINT,
-       v_cod_rechazo      SMALLINT,  
+       v_cod_rechazo       SMALLINT,  
        v_diagnostico      SMALLINT,       --diagnostico de la consulta del saldo en la afore
-       v_estatus          SMALLINT,        -- estatus de la cuenta individual segun la consulta del saldo en la Afore
-       v_cve_afore        CHAR(3),
-       v_nss_buscado      LIKE afi_derechohabiente.nss
+       v_estatus          SMALLINT        -- estatus de la cuenta individual segun la consulta del saldo en la Afore
+
 
    -- se calcula saldo total
    LET v_consulta = ""
    LET v_rch_cod  = 0
    LET v_rch_desc = ""
    LET v_resultado = 0
+
 
    -- se verifica si tuvo/tiene un retiro de devolucion
    IF ( fn_nss_tuvo_retiro(p_nss) ) THEN
@@ -800,18 +773,13 @@ DEFINE p_nss              CHAR(11), -- NSS
 
       PREPARE s_con_convive FROM v_consulta
       EXECUTE s_con_convive INTO v_rch_cod, v_rch_desc
-      
       DISPLAY "El valor regresado por la funcion de consulta de la convivencia marcas ,", v_rch_cod
-      
       IF v_rch_cod = 202 OR v_rch_cod = 212 OR v_rch_cod = 232 OR v_rch_cod = 218 OR  
          v_rch_cod = 227 OR v_rch_cod = 226 OR v_rch_cod = 222 OR v_rch_cod = 220 OR 
          v_rch_cod = 223 OR v_rch_cod = 233 THEN 
-         DISPLAY"ENTRA"
          LET v_rch_cod = 0
       END IF 
-      
       IF ( v_rch_cod <> 0 ) THEN
-          DISPLAY "LLEGA"
          LET v_consulta = "SELECT FIRST 1 c.rch_cod, d.rch_desc \n",
                            "FROM   sfr_convivencia AS c,         \n",
                            "       sfr_marca_activa AS a,        \n",
@@ -826,7 +794,6 @@ DEFINE p_nss              CHAR(11), -- NSS
                            "AND    a.marca in (592,593,594,595,596,597,814)"
          PREPARE s_marca_cred FROM v_consulta
          EXECUTE s_marca_cred INTO v_rch_cod, v_rch_desc
-         DISPLAY "resultado: ",v_rch_cod, v_rch_desc
          IF v_rch_cod IS NULL THEN 
             LET v_rch_cod = 0
          END IF 
@@ -1002,67 +969,36 @@ DEFINE p_nss              CHAR(11), -- NSS
          --- Aún no está definida
          LET v_aivs_viv92_tmp = v_aivs_viv92
          LET v_aivs_viv97_tmp = v_aivs_viv97
-         
          -- se consulta el saldo en la afore via WS
          DISPLAY "Envia Solicitud de Saldo a la Afore ", CURRENT YEAR TO SECOND
-
-         -- 20201110 se parametriza la invocacion de los servicios de procesar
-         DISPLAY "RETWS07_INVOCAR_PROCESAR: ", FGL_GETENV("RETWS07_INVOCAR_PROCESAR")
+         --* Se comenta el llamado a Procesar para las pruebas en QA  
          
-         IF ( UPSHIFT(FGL_GETENV("RETWS07_INVOCAR_PROCESAR")) = "TRUE" ) THEN
-            -- la llamada a servicios de PROCESAR esta activa
-            CALL fn_consulta_saldo_vivienda_afore_completa(p_nss, 30) 
-                                                 RETURNING v_diagnostico, 
-                                                           v_estatus, 
-                                                           v_aivs_viv92, 
-                                                           v_pesos_viv92, 
-                                                           v_aivs_viv97, 
-                                                           v_pesos_viv97,
-                                                           v_cod_rechazo,
-                                                           v_cve_afore
-            
-         ELSE
-            -- llamada a servicios de procesar esta inactiva, se verifica si se debe dar un estatus
-            -- aprobatorio o erroneo con base en el nss recibido como parametro
-            DISPLAY "No se invocan los servicios de AFORE-PROCESAR para fines de prueba"
-            
-            SELECT nss, diagnostico, estatus, cod_rechazo, cve_afore
-            INTO v_nss_buscado, v_diagnostico, v_estatus, v_cod_rechazo, v_cve_afore
-            FROM ret_simula_procesar
-            WHERE nss = p_nss
-
-            -- si no se encuentro dato para el nss en turno se asume llamada correcta
-            IF ( v_nss_buscado IS NULL ) THEN
-               LET v_diagnostico = 101
-               LET v_estatus     = 101
-            END IF
-         END IF
+         CALL fn_consulta_saldo_vivienda_afore(p_nss, 30) 
+              RETURNING v_diagnostico, 
+                        v_estatus, 
+                        v_aivs_viv92, 
+                        v_pesos_viv92, 
+                        v_aivs_viv97, 
+                        v_pesos_viv97,
+                        v_cod_rechazo
+--         LET v_diagnostico = 101   --*
+--         LET v_estatus     = 101   --*
          
          LET v_aivs_viv92 = v_aivs_viv92_tmp
-         LET v_aivs_viv97 = v_aivs_viv97_tmp  
-         
+         LET v_aivs_viv97 = v_aivs_viv97_tmp                           
          DISPLAY "Guarda consulta de Saldo de la Afore ", CURRENT YEAR TO SECOND 
-
-         IF ( v_cve_afore IS NOT NULL ) THEN 
-            CALL f_guarda_cve_afore(p_nss,v_cve_afore);
-         END IF 
-         
          CALL fn_guarda_consulta_ws_vent_afore(p_nss, 3, 3, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
                                                v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', '', '', 1)
          --CALL fn_busca_nss_pruebas (p_nss) RETURNING v_diagnostico, v_estatus, v_cod_rechazo
-         DISPLAY "Diagnostico devuelto >", v_diagnostico, "<"
+         DISPLAY "Diagnóstico devuelto >", v_diagnostico, "<"
          DISPLAY "Estatus devuelto     >", v_estatus, "<"
-         
          IF (v_diagnostico = 101 AND (v_estatus = 101 OR v_estatus = 201 OR v_estatus = 442)) THEN  
             ---OR (v_diagnostico = 127) THEN -- Solo se deben tramitar los que se puedan consultar en Procesar
             --- Se trabaja con los saldos del Infonavit
 
-            -- se calculan los saldos al primer dia del mes
             CALL fn_pesos_al_primero_mes(v_aivs_viv92) RETURNING v_pesos_viv92
             CALL fn_pesos_al_primero_mes(v_aivs_viv97) RETURNING v_pesos_viv97
-            
             LET v_saldo_total = v_aivs_viv92 + v_aivs_viv97
-            
             -- si el saldo es mayor a cero
             IF ( v_saldo_total > 0 ) THEN
                LET v_existe_43_bis = 0
@@ -1072,10 +1008,8 @@ DEFINE p_nss              CHAR(11), -- NSS
                WHERE  a.id_derechohabiente = b.id_derechohabiente
                AND    b.nss                = p_nss
                AND    a.marca IN (202,212,218,220,222,223,224,226,227,232,233)
-               
                IF v_existe_43_bis > 0 THEN
                   CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_tiene_credito_vigente, 4, 0, TODAY,0)
-                  
                   IF v_aivs_viv92 > 0 THEN 
                      CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 8, v_aivs_viv92, TODAY,0)
                      CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 12, v_aivs_viv92, TODAY,0)
@@ -1085,34 +1019,16 @@ DEFINE p_nss              CHAR(11), -- NSS
                   END IF 
                ELSE
                   -- el saldo es retirable
-                  -- vivienda 92                  
                   CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 8, v_aivs_viv92, TODAY,0)
-                  
-                  -- vivienda 97
-                  -- PLAG138 Si hay saldo en tesofe, grupo 1 para PORTAL y CRM, se agrega TESOFE al saldo de viv97
-                  IF ( ws_ret_cons_saldos_disponibles_in.medio_entrega = G_ME_CRM OR ws_ret_cons_saldos_disponibles_in.medio_entrega = G_ME_DEV_AUTO ) THEN
-                     CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 4, v_aivs_viv97 + p_aivs_tesofe, TODAY, p_aivs_tesofe)
-                     CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 12, v_aivs_viv92 + v_aivs_viv97 + p_aivs_tesofe, TODAY, p_aivs_tesofe)                      
-                  ELSE 
-                     -- no se incluye TESOFE
-                     CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 4, v_aivs_viv97, TODAY, 0)
-                     CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 12, v_aivs_viv92 + v_aivs_viv97, TODAY, 0)
-                  END IF
+                  CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 4, v_aivs_viv97, TODAY, 0)
+                  CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 12, v_aivs_viv92 + v_aivs_viv97, TODAY, 0)
                END IF 
 
             ELSE 
-               -- PLAG138 Si hay saldo en tesofe, grupo 1 para PORTAL y CRM, se agrega TESOFE al saldo de viv97
-               IF ( ws_ret_cons_saldos_disponibles_in.medio_entrega = G_ME_CRM OR ws_ret_cons_saldos_disponibles_in.medio_entrega = G_ME_DEV_AUTO 
-                    AND p_aivs_tesofe > 0 ) THEN
-                  CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 4, v_aivs_viv97 + p_aivs_tesofe, TODAY, p_aivs_tesofe)
-                  CALL fn_respuesta_ws_ley73(gi_solicitud_aceptada, 0, 12, v_aivs_viv92 + v_aivs_viv97 + p_aivs_tesofe, TODAY, p_aivs_tesofe)                      
-               ELSE 
-                  -- no se incluye TESOFE
-                  -- se rechaza por insuficiencia de saldo
-                  CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_saldo, 8, 0, TODAY,0)
-                  CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_saldo, 4, 0, TODAY,0)   
-                  CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_saldo, 12, 0, TODAY,0)   
-               END IF 
+               -- se rechaza por insuficiencia de saldo
+               CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_saldo, 8, 0, TODAY,0)
+               CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_saldo, 4, 0, TODAY,0)   
+               CALL fn_respuesta_ws_ley73(gi_solicitud_rechazada, gi_sin_saldo, 12, 0, TODAY,0)   
             END IF 
          ELSE 
             IF v_diagnostico <> 101 THEN 
@@ -2341,7 +2257,7 @@ DEFINE v_regreso       SMALLINT
          texto_status    STRING,
          permite_adoc    CHAR(05),
          marca_origen    STRING
-   END RECORD
+   END RECORD 
 
    DEFINE v_indice       INTEGER 
    DEFINE v_con_caso     INTEGER 
@@ -2356,8 +2272,6 @@ DEFINE v_regreso       SMALLINT
       -- Llamado a la funcion de casos abiertos 
       CALL arr_casos_crm.clear()
       CALL fn_busca_caso_crm(p_nss) RETURNING v_regreso, arr_casos_crm 
-      DISPLAY "datos retorno: >>", v_regreso, arr_casos_crm[1].*
-      
       IF v_regreso = 0 THEN 
          FOR v_indice = 1 TO arr_casos_crm.getLength()
             IF arr_casos_crm[v_indice].texto_status <> "Abierto" AND 
@@ -2373,27 +2287,8 @@ DEFINE v_regreso       SMALLINT
          LET v_regreso = -1
       END IF 
    END IF 
-DISPLAY "final: ",v_regreso
+
 RETURN v_regreso
 
 END FUNCTION
  
-FUNCTION f_guarda_cve_afore(p_nss, p_cve_afore)
-DEFINE p_nss       CHAR(11)
-DEFINE p_cve_afore CHAR(3)
-DEFINE v_cuantos   SMALLINT
-
-    SELECT COUNT(*)
-    INTO   v_cuantos
-    FROM   ret_disp_afore_nss
-    WHERE  nss = p_nss
-
-    IF v_cuantos > 0 THEN 
-        DELETE FROM ret_disp_afore_nss WHERE nss = p_nss;
-        INSERT INTO ret_disp_afore_nss VALUES (p_nss, p_cve_afore);
-    ELSE 
-        INSERT INTO ret_disp_afore_nss VALUES (p_nss, p_cve_afore);
-    END IF 
-
-    
-END FUNCTION 
