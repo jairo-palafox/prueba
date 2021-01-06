@@ -176,8 +176,7 @@ DEFINE p_id_solicitud                LIKE ret_beneficiario_generico.id_solicitud
        v_r_ret_pago_spei             RECORD LIKE ret_pago_spei.*, -- registro de pago por spei
        v_r_ret_pago_dap              RECORD LIKE ret_pago_dap.*, -- registro de pago por referencia bancaria
        v_r_ret_pago_siaf              RECORD LIKE ret_pago_siaf.*, -- registro de pago por referencia bancaria
-       v_consec_beneficiario         SMALLINT, -- consecutivo de beneficiario para la solicitud de retiro
-       v_beneficiario_aux            SMALLINT
+       v_consec_beneficiario         SMALLINT -- consecutivo de beneficiario para la solicitud de retiro
 
 DEFINE v_tipo_benef_str           CHAR(3)
 
@@ -222,13 +221,6 @@ DEFINE v_tipo_benef_str           CHAR(3)
    -- se verifica el tipo de pago
    CASE p_tpo_pago
    WHEN 1
-      --20201123 se verifica si ya existe el registro de pago spei
-      SELECT consec_beneficiario
-      INTO v_beneficiario_aux
-      FROM ret_pago_spei
-      WHERE id_solicitud = p_id_solicitud
-      AND consec_beneficiario = v_consec_beneficiario
-   
       -- PAGO SPEI
       LET v_r_ret_pago_spei.id_solicitud        = p_id_solicitud
       LET v_r_ret_pago_spei.consec_beneficiario = v_consec_beneficiario
@@ -237,18 +229,8 @@ DEFINE v_tipo_benef_str           CHAR(3)
       LET v_r_ret_pago_spei.sucursal            = 0
       LET v_r_ret_pago_spei.cuenta_clabe        = p_clabe
 
-      -- si el registro ya existe
-      IF ( v_beneficiario_aux IS NOT NULL AND v_beneficiario_aux > 0 ) THEN
-         -- se actualiza el registro
-         UPDATE ret_pago_spei
-            SET cuenta_clabe = p_clabe
-          WHERE id_solicitud = p_id_solicitud
-            AND consec_beneficiario = v_consec_beneficiario
-      ELSE
-         -- se inserta
-         INSERT INTO ret_pago_spei VALUES ( v_r_ret_pago_spei.* )
-      END IF
-      
+      -- se inserta el registro
+      INSERT INTO ret_pago_spei VALUES ( v_r_ret_pago_spei.* )
    WHEN 2
       -- PAGO POR DAP
       LET v_r_ret_pago_dap.id_solicitud        = p_id_solicitud -- id de la solicitud
@@ -3022,7 +3004,7 @@ DEFINE v_sql        STRING
       AND    a.movimiento = 182
       IF v_contador > 0 THEN 
          DISPLAY "Entro por el contingente"
-         SELECT d.cve_referencia, ABS(a.importe), a.f_liquida, 'D'
+         SELECT FIRST 1 d.cve_referencia, ABS(a.importe), a.f_liquida, 'D'
          INTO   v_movimiento, v_importe, v_fecha, v_tipo_cargo
          FROM   cta_fondo72 a,
                 afi_fondo72 b,
@@ -3031,6 +3013,7 @@ DEFINE v_sql        STRING
          AND    a.id_referencia = d.id_solicitud
          AND    b.nss = p_nss
          AND    a.movimiento = 182
+         ORDER BY a.f_liquida DESC
       END IF
    END IF 
    DISPLAY "Los valores regresados ",v_tipo_cargo, "-", v_fecha, "-", v_movimiento, "-", v_importe 
