@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="CP1252" options="3" version="2.0">
+<File m="genera_saldo" n="genera_saldo.4gl" ts="20201230142134000">
+<Ref t="ret_saldo_preliminar.inc"/>
+<Fct c="10" el="77" l="11" n="fn_ejecuta_saldo(p_nss CHAR(11),p_cliente SMALLINT)" t="F">
+<Call c="10" l="53" n="ConsultarSaldoPreliminar_g" p="ret_saldo_preliminar.4gl" t="F"/>
+</Fct>
+<Fct c="1" el="10" l="3" n="main()" t="F">
+<Call c="7" l="9" n="fn_ejecuta_saldo" t="F"/>
+</Fct>
+</File>
+<File m="ret_saldo_preliminar" n="ret_saldo_preliminar.4gl" ts="20201229131949285">
+<Ref t="ret_saldo_preliminar.inc"/>
+<Fct c="10" el="374" l="267" n="ConsultarSaldoPreliminarResponse_g()" t="F">
+<Call c="10" l="278" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="293" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="304" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="307" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="310" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="313" n="WSHelper_ReadStaxSOAP11Fault" t="F"/>
+<Call c="18" l="316" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="319" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="330" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="333" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="335" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="341" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="345" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="349" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="352" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="16" l="360" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="365" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="264" l="200" n="ConsultarSaldoPreliminarRequest_g()" t="F">
+<Call c="10" l="209" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="229" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="239" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="240" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="242" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="243" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="247" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="10" l="260" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+<Fct c="10" el="197" l="38" n="ConsultarSaldoPreliminar_g()" t="F">
+<Call c="10" l="73" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="86" n="WSHelper_WriteStaxSOAP11StartEnvelope" t="F"/>
+<Call c="12" l="87" n="WSHelper_WriteStaxSOAP11StartBody" t="F"/>
+<Call c="12" l="89" n="WSHelper_WriteStaxSOAP11EndBody" t="F"/>
+<Call c="12" l="90" n="WSHelper_WriteStaxSOAP11EndEnvelope" t="F"/>
+<Call c="12" l="94" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="111" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="114" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="18" l="117" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="120" n="WSHelper_ReadStaxSOAP11Fault" t="F"/>
+<Call c="18" l="123" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="126" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="137" n="WSHelper_ReadStaxSOAP11StartEnvelope" t="F"/>
+<Call c="14" l="140" n="WSHelper_CheckStaxSOAP11Header" t="F"/>
+<Call c="20" l="142" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="148" n="WSHelper_ReadStaxSOAP11StartBody" t="F"/>
+<Call c="18" l="152" n="WSHelper_RetrieveStaxSOAP11Message" t="F"/>
+<Call c="18" l="156" n="WSHelper_ReadStaxSOAP11EndBody" t="F"/>
+<Call c="18" l="159" n="WSHelper_ReadStaxSOAP11EndEnvelope" t="F"/>
+<Call c="18" l="168" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="18" l="176" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="16" l="183" n="WSHelper_FillSOAP11WSError" t="F"/>
+<Call c="12" l="188" n="WSHelper_FillSOAP11WSError" t="F"/>
+</Fct>
+</File>
+<File m="ret_saldo_preliminar" n="ret_saldo_preliminar.inc" ts="20201229133043759"/>
+</WorkspaceDatabase>
