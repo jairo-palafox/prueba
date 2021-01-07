@@ -16,11 +16,11 @@
 IMPORT FGL WSHelper
 IMPORT com
   
-DATABASE safre_viv 
+DATABASE safre_viv
 # 
 # USER GLOBALS VARIABLES
 #
-GLOBALS "RETG01.4gl"
+GLOBALS "RETG01.4gl"  
 GLOBALS
 -- registro de entrada para la consulta
 DEFINE ws_ret_cons_saldos_disponibles_in RECORD
@@ -124,6 +124,7 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
     END IF
   
     -- se crea el servicio
+    CALL STARTLOG("invoca creacion de servicio Retiro")
     CALL ERRORLOG("invoca creacion de servicio Retiro")
     CALL fn_crea_servicio_retiro_disponibilidad_ley73(FALSE)
 
@@ -176,7 +177,9 @@ DEFINE v_resultado       INTEGER, -- recibe el resultado de la ejecucion del ser
     ELSE  -- no se tiene pantalla
         WHILE ( TRUE )
             LET v_resultado = com.WebServiceEngine.ProcessServices(-1) -- [sin timeout -1]
+            
             CALL ERRORLOG("Regresa de procesar el servicio: ")
+            
             CALL ERRORLOG(v_resultado)
 
             -- se verifica el resultado
@@ -747,7 +750,8 @@ DEFINE p_nss              CHAR(11), -- NSS
        v_causal_paso      SMALLINT,
        v_cod_rechazo       SMALLINT,  
        v_diagnostico      SMALLINT,       --diagnostico de la consulta del saldo en la afore
-       v_estatus          SMALLINT        -- estatus de la cuenta individual segun la consulta del saldo en la Afore
+       v_estatus          SMALLINT,        -- estatus de la cuenta individual segun la consulta del saldo en la Afore
+       v_cve_afore        CHAR(3)
 
 
    -- se calcula saldo total
@@ -973,20 +977,24 @@ DEFINE p_nss              CHAR(11), -- NSS
          DISPLAY "Envia Solicitud de Saldo a la Afore ", CURRENT YEAR TO SECOND
          --* Se comenta el llamado a Procesar para las pruebas en QA  
          
-         CALL fn_consulta_saldo_vivienda_afore(p_nss, 30) 
+         CALL fn_consulta_saldo_vivienda_afore_completa(p_nss, 30) 
               RETURNING v_diagnostico, 
                         v_estatus, 
                         v_aivs_viv92, 
                         v_pesos_viv92, 
                         v_aivs_viv97, 
                         v_pesos_viv97,
-                        v_cod_rechazo
+                        v_cod_rechazo,
+                        v_cve_afore
 --         LET v_diagnostico = 101   --*
 --         LET v_estatus     = 101   --*
          
          LET v_aivs_viv92 = v_aivs_viv92_tmp
          LET v_aivs_viv97 = v_aivs_viv97_tmp                           
          DISPLAY "Guarda consulta de Saldo de la Afore ", CURRENT YEAR TO SECOND 
+         {IF v_cve_afore IS NOT NULL THEN 
+            CALL f_guarda_cve_afore(p_nss,v_cve_afore);
+         END IF }
          CALL fn_guarda_consulta_ws_vent_afore(p_nss, 3, 3, TODAY, CURRENT HOUR TO SECOND, v_diagnostico, v_estatus,
                                                v_aivs_viv92, v_aivs_viv97, 'OPSISSACI', '', '', 1)
          --CALL fn_busca_nss_pruebas (p_nss) RETURNING v_diagnostico, v_estatus, v_cod_rechazo
@@ -2292,3 +2300,22 @@ RETURN v_regreso
 
 END FUNCTION
  
+FUNCTION f_guarda_cve_afore(p_nss, p_cve_afore)
+DEFINE p_nss       CHAR(11)
+DEFINE p_cve_afore CHAR(3)
+DEFINE v_cuantos   SMALLINT
+
+    SELECT COUNT(*)
+    INTO   v_cuantos
+    FROM   ret_disp_afore_nss
+    WHERE  nss = p_nss
+
+    IF v_cuantos > 0 THEN 
+        DELETE FROM ret_disp_afore_nss WHERE nss = p_nss;
+        INSERT INTO ret_disp_afore_nss VALUES (p_nss, p_cve_afore);
+    ELSE 
+        INSERT INTO ret_disp_afore_nss VALUES (p_nss, p_cve_afore);
+    END IF 
+
+    
+END FUNCTION 
